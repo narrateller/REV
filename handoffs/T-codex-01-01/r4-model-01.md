@@ -1,13 +1,8 @@
-# R4 → независимый R5: RECHECK по REV-R5-IMPL-02-001
+# R4 → R5: RECHECK SYN-LINKED-EJECTION
 
-- status IN_REVIEW; author_session r4-model-01; work_commit 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b; branch work/T-codex-01-01/r4-model-01; main base 2f463babdc84382a0ab2502f4acfa7a2047087df; lease до 2026-11-11T16:52:25Z.
-- Исторический акт R5 в aadb63c7afb6d95e99867052b3baefba2d259c7d; R5-IMPL-01/02 OPEN; акт STALE по изменённым артефактам, не закрыт.
-- Добавлены candidate матрица 127 пар/13 фаз, условные стенки, зоны как запросы, проверки границ/порядка/разрешений/нелинейных движений, примеры столкновений и выдачи. Полное описание и ограничения в README, результаты в results/report.json.
-- 28 геометрических и 11 переходных примеров совпали с ожидаемым; 12 положительных переходов; unittest 9 OK; независимый R5 benchmark 3000/3000 повторён; registry PASS. Synthetic 127/127 в разнесённом наборе, REV 0/127.
-- Физическая связность изделия/пуансона и реальный процесс не доказаны; контакты и нагрузки UNKNOWN, скалярный ход не является доказательством выдачи. Независимый recheck должен оценить достаточность и соответствие каждому замечанию, не принимать количественное покрытие само по себе. G1 открыт.
-- Следующий шаг R5: fetch ветку, проверить C и хэши, запустить команды README и benchmark, провести RECHECK, записать отдельный акт. running_jobs []; незакоммиченные результаты [].
-
-## Корректирующая итерация
-
-- Решение ARB-R1-RECHECK-03, immutable SHA 1283c9e6f3b14dbbe820dd06798399c611d34ce8; main 2f463babdc84382a0ab2502f4acfa7a2047087df; owner r4-model-01, lease до 2026-11-11T16:52:25Z.
-- R5-IMPL-01/02 OPEN, consecutive_rejections=2. Начать только утверждённый SYN-LINKED-EJECTION и матрицу, затем независимый RECHECK; G1 открыт.
+- status IN_REVIEW; author_session r4-model-01; code/results commit 576a17fc0b127cb7d377992c01d645a77bed42d4; branch work/T-codex-01-01/r4-model-01.
+- Арбитраж ARB-R1-RECHECK-03: 1283c9e6f3b14dbbe820dd06798399c611d34ce8, решения и критерии decisions/ARB-R1-RECHECK-03.md; R5-IMPL-01/02 OPEN, consecutive_rejections=2. Проверенная main 2f463babdc84382a0ab2502f4acfa7a2047087df; lease до 2026-11-11T16:52:25Z.
+- Выполнено: параметры A/B, четыре исхода, геометрический непрерывный интерфейс и выдача, все пары независимо заданного состава, условия READY/жизненный цикл, CE-01/02. Отчёт models/kinematic_press/results/linked_report.json; README содержит команды.
+- Проверки автора: 8/8 исходов соответствуют контракту; CE-01/02 PASS; прежние 28 synthetic результатов сохранены; 17 unittest OK, R5 benchmark 3000/3000; registry PASS; JSON воспроизводим. Независимая проверка исправлений NOT_RUN.
+- Следующий шаг R5: fetch ветку/C, сверить SHA и результаты, проверить каждый критерий R1 и собственные контрпримеры, оформить отдельный акт и независимо решить судьбу блокеров. Нельзя закрывать G1 или утверждать реальную выдачу по synthetic сцене.
+- running_jobs []; uncommitted_or_unsaved []; физика/реальные данные REV UNKNOWN.

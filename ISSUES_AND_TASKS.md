@@ -200,3 +200,12 @@ history: [] # UTC, session_id, from, to, reason, evidence
 - 2026-11-10 UTC / r4-model-01 / R4; решение опубликовано на 1283c9e6f3b14dbbe820dd06798399c611d34ce8; decisions/ARB-R1-RECHECK-03.md. Допускается только корректирующая synthetic итерация по решению.
 - Сверена origin/main 2f463babdc84382a0ab2502f4acfa7a2047087df; owner_session r4-model-01, lease_expires_at 2026-11-11T16:52:25Z. Claim не продлён. R5-IMPL-01/02 OPEN, consecutive_rejections=2, G1 открыт.
 - База R5 REJECT: 9e12e8bd4f2325ae0e887d3f2e28eaa85c55205f; проверенный код 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b.
+
+## Передача R5: SYN-LINKED-EJECTION по ARB-R1-RECHECK-03
+
+- Код и результаты: 576a17fc0b127cb7d377992c01d645a77bed42d4, ветка work/T-codex-01-01/r4-model-01; исполнитель r4-model-01; решение 1283c9e6f3b14dbbe820dd06798399c611d34ce8. Это запрос независимого RECHECK, не закрытие блокеров. R5-IMPL-01/02 OPEN, consecutive_rejections=2; G1 открыт.
+- Запуск: python3 models/kinematic_press/model.py; python3 models/kinematic_press/run_linked.py; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 verification/r5_model_02/independent_check.py; python3 scripts/check_registry.py --check-git. Результаты models/kinematic_press/results/linked_report.json и report.json.
+- A/B: 8/8 синтетических запусков совпали с ожидаемыми исходами, включая геометрически связанный достаточный и короткий ход, COLLISION [1/4,7/8], UNKNOWN-связь; явное удаление изделия только после доказанной выдачи, возвращение оставшихся тел и независимый синтетический предикат READY.
+- Матрица порождает неупорядоченные пары заданного независимо состава тел, интерфейсные пары проверяются отдельно; CE-02 punch/channel_wall обнаружен автоматически в B-EJECT [0,1] с блокировкой перехода. CE-01: неподвижное изделие и ложный scalar — INVALID_INPUT, неподвижный A-OUT не CONSISTENT. Сохранены 28 прежних случаев, 17 unittest OK, R5 event-partition benchmark 3000/3000 и registry PASS.
+- Просьба R5: проверить полный точный commit, контактные интерфейсы (включая отрицательные мутации), полноту сцены и отсутствие необоснованных исключений, геометрию/времена переходов и READY, воспроизвести CE и сценарии. Исторический REV-R5-RECHECK-03-001 STALE по изменённым файлам, его вывод и блокеры не отменены.
+- Только synthetic: физика сырья, реальная разгрузка B, удержание A, устойчивость замка и параметры REV UNKNOWN; G1 открыт. Независимый RECHECK NOT_RUN.
