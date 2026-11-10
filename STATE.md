@@ -11,7 +11,7 @@
 | Принятое ТЗ / базовая линия | NONE / NONE |
 | Режим | PROJECT; исходные требования ещё не утверждены |
 | Текущая ветка / база | work/T-INIT/codex-01 / 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17 |
-| Последнее обновление UTC / session_id | 2026-11-10T12:21:05Z / codex-01 |
+| Последнее обновление UTC / session_id | 2026-11-10T12:40:01Z / codex-01 |
 | enforcement | PROCEDURAL; серверные ограничения не проверены |
 | Численная база | params/registry.yaml |
 | Задачи / проверки | ISSUES_AND_TASKS.md / reviews/cross_check_log.md |
@@ -35,7 +35,7 @@
 
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
-| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T12:21:05Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T12:40:01Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
 
 ## Active Handoff Capsule
 
@@ -49,9 +49,9 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T12:21:05Z'
+created_at_utc: '2026-11-10T12:40:01Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: 9420968d34e47a6640672a0c339f200cb298739e
+work_commit: e8e6230a7df2c7e25b3edcaf61737f9ede7be694
 branch: work/T-INIT/codex-01
 availability: LOCAL_ONLY
 claim_record:
@@ -59,28 +59,37 @@ claim_record:
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-subtask: Инвентаризация четырёх PDF и паспорт источников — подготовлены к независимой проверке
+  heartbeat_utc: '2026-11-10T12:40:01Z'
+subtask: Проект требований, матрица и нормативная область подготовлены для обсуждения и независимого review
 input_refs:
+- commit: 170cc417f8c46afd8332cec5c33162a8f0d49c2a
+  paths:
+  - sources/index.md
+  - STATE.md
+  - NEXT_MODEL.md
+  - params/registry.yaml
 - commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   paths:
-  - project/source_manifest.json
-  - sources/raw/
+  - ISSUES_AND_TASKS.md
   - AGENT_PROTOCOL.md
-  - params/registry.yaml
 changed_files:
-- sources/index.md
-- evidence/source_inventory_codex_01.json
-- reviews/input_inventory_codex_01.md
 - ISSUES_AND_TASKS.md
+- reviews/input_inventory_codex_01.md
+- requirements/system_requirements.md
+- requirements/verification_matrix.md
+- decisions/standards_scope.md
 completed_steps:
-- Проверены main, владелец и lease
-- Проверены размеры и SHA256 четырёх PDF
-- Подготовлены карта содержания, ограничения OCR и пробелы
+- Проверены актуальная main, owner codex-01 и действующий lease
+- Учтено прямое поручение пользователя продолжить документальную часть
+- Подготовлены 20 кандидатов требований и 20 связанных плановых проверок, все NOT_RUN
+- Подготовлены нормативные вопросы; инженерный реестр и PDF не изменены
+- Проверены структура, уникальность ID и полное взаимное покрытие REQ/VAL
 unfinished_step:
-  exact_expression_or_node: Независимый review паспорта; оставшиеся результаты T-INIT не созданы
+  exact_expression_or_node: Ответы Q-codex-01-01/02, независимый review паспорта/проекта, заполнение критериев
+    и утверждение ТЗ
   last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS структуры, без инженерной приёмки
-  observed_result: PASS
+  expected_result: PASS структуры без инженерной приёмки
+  observed_result: PASS; покрытие 20 REQ ↔ 20 VAL, без результатов испытаний
 environment:
   tool_versions:
   - Python 3.12.14
@@ -93,23 +102,24 @@ running_jobs: []
 open_hypotheses: []
 blocker_ids: []
 review_refs:
-- reviews/input_inventory_codex_01.md — self-check, не независимый review
+- reviews/input_inventory_codex_01.md — self-check; независимого review нет
 uncommitted_or_unsaved: []
-next_action: Независимый участник проверяет sources/index.md по PDF в commit C, фиксирует review отдельно;
-  R1 готовит структуру требований с UNKNOWN
-next_action_success_criterion: Review имеет точные commit/страницы и границы; никакие рекламные числа не приняты
-  за требования REV
+next_action: Уточнить назначение/сырьё/продукт и площадку по Q-codex-01-01/02; независимый участник проверяет
+  проект в C
+next_action_success_criterion: Ответы с источниками зафиксированы; независимый акт ссылается на точный C, автор
+  reviewer не codex-01; критерии не выдуманы
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
+previous_work_commit: 9420968d34e47a6640672a0c339f200cb298739e
 ```
 
 ## Очередь следующей модели
 
 | Порядок | task_id | Адресат | Действие | Условие начала |
 |---|---|---|---|---|
-| 1 | T-INIT | @R1 | Независимая проверка паспорта; затем проект ТЗ | Claim принят; lease действителен; до инженерных выводов нужен входной review |
+| 1 | T-INIT | @R1 | Ответы на Q-codex-01-01/02 и независимый review документального проекта | Claim и lease проверять перед продолжением; критерии UNKNOWN |
 
 После назначения сначала читать запись T-INIT. Если входов нет, фиксировать UNKNOWN и готовить структуру требований; не выдавать проект ТЗ за утверждённое ТЗ.
 
@@ -123,6 +133,6 @@ Workflow подготовлен; его выполнение и настройк
 
 Действующая инструкция для нового участника: NEXT_MODEL.md. После завершения задачи исполнитель обновляет её вместе с капсулой; см. AGENT_PROTOCOL.md, раздел 10.
 
-Назначение R1 подтверждено; claim принят в main. Паспорт источников подготовлен
-в sources/index.md, требуется независимая проверка. T-INIT не завершена; G1 остаётся NOT_STARTED.
-Результаты инвентаризации: commit 9420968d34e47a6640672a0c339f200cb298739e.
+Назначение R1 подтверждено; claim принят в main. Паспорт и проект требований/матрицы/нормативной области подготовлены, требуется
+независимая проверка и ответы на вопросы. T-INIT не завершена; G1 остаётся NOT_STARTED.
+Текущий результат документальной части: commit e8e6230a7df2c7e25b3edcaf61737f9ede7be694.
