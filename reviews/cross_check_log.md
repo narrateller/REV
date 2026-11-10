@@ -548,7 +548,7 @@ findings:
   owner_role: R4
   task_id: T-codex-01-01
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 allowed_downstream_scope: Только заданные synthetic пары поддержанного ядра; следующая
   итерация после решения R1 по арбитражу.
 excluded_claims:

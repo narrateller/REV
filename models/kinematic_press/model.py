@@ -2,6 +2,7 @@
 """Synthetic-only continuous collision checking for linearly translated AABBs."""
 import argparse
 import copy
+import itertools
 import hashlib
 import json
 import sys
@@ -97,8 +98,11 @@ def check(case):
                 raise KeyError('product_rear, exit_boundary, available_stroke')
             rear, boundary, stroke = (q(eject[k]) for k in ('product_rear','exit_boundary','available_stroke'))
             if stroke < 0 or boundary < rear: raise ValueError('invalid ejection geometry or negative stroke')
-            result['ejection_status']='SUFFICIENT_STROKE' if rear+stroke >= boundary else 'INSUFFICIENT_STROKE'
-            result['ejection_evidence']={'final_rear':str(rear+stroke),'exit_boundary':str(boundary), 'direction':'+x'}
+            if case.get('bodies') is None: raise KeyError('product geometry')
+            product=box(case['bodies'][0]); actual_rear=product[0][0]; actual_stroke=product[2][0]
+            if rear != actual_rear or stroke != actual_stroke: raise ValueError('scalar ejection input conflicts with product geometry or motion')
+            result['ejection_status']='INDETERMINATE' if rear+stroke >= boundary else 'INSUFFICIENT_STROKE'
+            result['ejection_evidence']={'final_rear':str(rear+stroke),'exit_boundary':str(boundary), 'direction':'+x', 'limitation':'scalar result cannot prove punch/product contact'}
         except KeyError as exc: result['missing'].append(str(exc))
         except (ValueError,TypeError,ZeroDivisionError) as exc:
             result['ejection_status']='INVALID_INPUT'; result['ejection_error']=str(exc)
@@ -130,7 +134,9 @@ def evaluate_phases(plan, inputs):
         supplied=inputs.get('phases',{}).get(phase,{})
         bodies=supplied.get('bodies') or {}
         checked=[]; unchecked=[]
-        for left,right in definition['required_pairs']:
+        scene=plan.get('scene_bodies')
+        pairs=list(itertools.combinations(scene,2)) if scene is not None else definition['required_pairs']
+        for left,right in pairs:
             case={'id':phase+':'+left+'/'+right,'variant':variant,'phase':phase,
                   'names':[left,right], 'units':inputs.get('units'), 'contact':inputs.get('contact'), 'motion_type':supplied.get('motion_type'),
                   'time':supplied.get('time'), 'bodies':[bodies.get(left),bodies.get(right)]}
@@ -191,7 +197,14 @@ def verify_a_out(press,out):
     if not isinstance(press,dict) or not isinstance(out,dict): return 'INDETERMINATE'
     if not press.get('time') or not out.get('time') or not press.get('bodies') or not out.get('bodies'): return 'INDETERMINATE'
     if press.get('motion_type')!='linear' or out.get('motion_type')!='linear': return 'INDETERMINATE'
-    return 'CONSISTENT' if press['time']==out['time'] and press['bodies']==out['bodies'] else 'BLOCKED'
+    if press['time']!=out['time'] or press['bodies']!=out['bodies']: return 'BLOCKED'
+    try:
+        from linked import contact
+        result=contact(press['bodies'].get('punch'),press['bodies'].get('product'))
+        if result['status']!='VALID': return result['status']
+        if box(press['bodies']['product'])[2][0] <= 0: return 'BLOCKED'
+        return 'CONSISTENT'
+    except (KeyError, ValueError,TypeError): return 'INDETERMINATE'
 
 def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -213,16 +226,13 @@ def main():
             result=transition(prev,nxt,before['bodies'],after['bodies'],{key:True for key in GUARDS.get(nxt,[])},synthetic_coverage[prev],before['time'],after['time'])
             transition_results.append({'from':prev,'to':nxt,'synthetic_guards':'explicit test assumptions only',**result})
     aout=verify_a_out(phase_inputs['phases'].get('A-PRESS'),phase_inputs['phases'].get('A-OUT'))
-    # Re-entry uses a separately specified next READY snapshot, formed here as a synthetic example.
+    # Compare to the actual original READY; do not synthesize a new endpoint.
+    legacy_closure=[]
     for variant,last in [('A','A-RETURN'),('B','B-RESET')]:
-        before=phase_inputs['phases'][last]; after=copy.deepcopy(before['bodies'])
-        for body in after.values():
-            for axis in range(3):
-                body['min'][axis]+=body['delta'][axis]; body['max'][axis]+=body['delta'][axis]; body['delta'][axis]=0
-        next_phase=variant+'-READY'; guard={key:True for key in GUARDS[next_phase]}
+        before=phase_inputs['phases'][last]; next_phase=variant+'-READY'; after=phase_inputs['phases'][next_phase]
         end=before['time'][1]
-        result=transition(last,next_phase,before['bodies'],after,guard,synthetic_coverage[last],before['time'],[end,end+1])
-        transition_results.append({'from':last,'to':next_phase,'synthetic_guards':'explicit test assumptions only',**result})
+        result=transition(last,next_phase,before['bodies'],after['bodies'],{key:True for key in GUARDS[next_phase]},synthetic_coverage[last],before['time'],[end,end+1])
+        legacy_closure.append({'from':last,'to':next_phase,'meaning':'boundary only, not a READY proof',**result})
     # A free zone is a query volume, not an additional solid obstacle or physical component.
     zone_cases=[]
     for name,body in [('unoccupied',{'min':[3,0,0],'max':[4,1,1],'delta':[0,0,0]}),('occupied',{'min':[0,0,0],'max':[1,1,1],'delta':[0,0,0]})]:
@@ -242,7 +252,7 @@ def main():
             'base_commit':'2f463babdc84382a0ab2502f4acfa7a2047087df', 'r5_review_commit':'aadb63c7afb6d95e99867052b3baefba2d259c7d', 'python':sys.version,
             'hashes':{str(p.relative_to(ROOT)):digest(p) for p in [Path(__file__).resolve(),fixture.resolve(),HERE/'input_template.json',HERE/'input_audit.md',plan_path,phase_path,HERE/'transition_fixtures.json',ROOT/'verification/r5_model_02/review.md',ROOT/'verification/r5_model_02/independent_check.py',ROOT/'params/registry.yaml',ROOT/'models/first_digital_model_brief.md',ROOT/'controls/press_variant_state_tables.md']},
             'registry_snapshot':'registry_snapshot.yaml','requirements':['REQ/VAL-REV-05','REQ/VAL-REV-06','REQ/VAL-REV-09','REQ/VAL-REV-11','REQ/VAL-REV-12','REQ/VAL-REV-16'],
-            'limitations':'Synthetic boxes only, no manufacturing, forces, process, real collision clearance or validation. Independent review pending.', 'phase_plan_scope':plan['scope'], 'synthetic_phase_coverage':synthetic_coverage, 'synthetic_transitions':transition_results, 'synthetic_transition_scenarios':transition_scenarios, 'synthetic_zone_queries':zone_cases, 'synthetic_a_out_relation':aout, 'rev_phase_coverage':evaluate_phases(plan,rev_inputs), 'force_paths':plan['force_paths'], 'results':results}
+            'limitations':'Synthetic boxes only, no manufacturing, forces, process, real collision clearance or validation. Independent review pending.', 'phase_plan_scope':plan['scope'], 'synthetic_phase_coverage':synthetic_coverage, 'synthetic_transitions':transition_results, 'legacy_actual_closure':legacy_closure, 'synthetic_transition_scenarios':transition_scenarios, 'synthetic_zone_queries':zone_cases, 'synthetic_a_out_relation':aout, 'rev_phase_coverage':evaluate_phases(plan,rev_inputs), 'force_paths':plan['force_paths'], 'results':results}
     force_svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230">', '<rect width="100%" height="100%" fill="white"/>', '<text x="20" y="25" font-size="18">UNVERIFIED load-path topology — no forces, geometry or strength proven</text>']
     for i,(variant,details) in enumerate(plan['force_paths'].items()):
         y=65+i*80
@@ -272,5 +282,5 @@ def main():
         lines.append(f'<line x1="20" y1="{y+95}" x2="950" y2="{y+95}" stroke="#aaa"/>')
     lines.append('</svg>'); (out/'synthetic_phases.svg').write_text('\n'.join(lines)+'\n')
     print(json.dumps([{'id':r['id'],'collision':r['collision_status'],'ejection':r['ejection_status'],'matches_expected':r['matches_expected']} for r in results],indent=2))
-    return 1 if any(r['matches_expected'] is False for r in results) or any(r['status'] != 'ALLOWED' for r in transition_results) or aout != 'CONSISTENT' or any(not case['matches_expected'] for case in transition_scenarios+zone_cases) else 0
+    return 1 if any(r['matches_expected'] is False for r in results) or any(r['status'] != 'ALLOWED' for r in transition_results)  or any(not case['matches_expected'] for case in transition_scenarios+zone_cases) else 0
 if __name__=='__main__': sys.exit(main())
