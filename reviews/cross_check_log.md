@@ -132,7 +132,7 @@ findings:
   owner_role: R1
   task_id: T-INIT
 verdict: WARNING
-validity: CURRENT
+validity: STALE
 allowed_downstream_scope: Только документальная проработка альтернатив, неизвестных, разрешений и будущих критериев
   без принятия архитектуры и запуска оборудования
 excluded_claims:
@@ -639,3 +639,242 @@ reproduction_artifacts:
 ## REV-R5-RECHECK-05-001 — дополнение
 
 Независимый R5 для `debfd085842ccae079cfd6faea1c41bca20f335d`: PASS по плану в заданной synthetic AABB области; R5-IMPL-01 может быть закрыт на этом SHA, регрессия R5-IMPL-02 PASS в той же области. Подробности, команды и ограничения: verification/r5_recheck_05/review.md. G1 открыт.
+
+## REV-R5-TZ-REVIEW-01-001 — проект ТЗ
+
+```yaml
+record_type: review
+review_id: REV-R5-TZ-REVIEW-01-001
+kind: OUTPUT
+task_id: T-INIT
+created_at_utc: '2026-11-10T22:59:39Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R1
+author_sessions:
+- codex-01
+independence_basis: Текущая сессия R5 не автор шести документов R1; ранее проверяла
+  модель и оформляла связанные результаты. Независимость ограничена данной областью;
+  оператор проверяет фактическое авторство.
+reviewed_commit: bff66903c4588321faf3b86bf0abb501c8a7c881
+parameter_refs: []
+artifacts:
+- path: requirements/system_requirements.md
+  sha256: 5941c1b17505fda259dec66034308a9266fbe39dec2d615c1640edb82a99c9c9
+- path: requirements/verification_matrix.md
+  sha256: ca71ca3273507f72a1a099dfaf0874f26af3fb064a67474a428fdd09ffcae6ed
+- path: process/feedstock.md
+  sha256: 826bfbab4ba938b8ae4e9dbeb604eb4719c042215a1e8b3b325d356e3c97ddda
+- path: process/sampling_plan.md
+  sha256: 0ed4415b20157ae43d8ee27cc543ed83f6bd9a3bb58317a0c8916e2571ea962d
+- path: verification/press_function_test_plan.md
+  sha256: 6fa70b7f108efee2cc7d1ed60634c33c2d6751ccd627f08753cfa17d5c73702f
+- path: verification/g1_readiness_inventory.md
+  sha256: ce5a5c33a0a67e0d22fdae65450ed13982c5623df70ce49c5212229e14142d57
+scope: 'DOCUMENTARY_OUTPUT: требования, REQ–VAL, данные оператора как записанные в
+  репозитории, прослеживаемость и границы модели; не результаты испытаний'
+checks:
+- id: CHK-TZ-01
+  method: inspection
+  expected: Данные OP-REV-01…06 не подменяются измерениями
+  observed: Соответствуют карточке в репозитории; исходная стенограмма недоступна
+  reasoning: feedstock.md и ISSUES_AND_TASKS.md; предел источника указан
+  result: PASS
+- id: CHK-TZ-02
+  method: inspection
+  expected: Каждый REQ связан с VAL
+  observed: 22 уникальных REQ и 22 пары; отсутствующих и несовпадающих нет
+  reasoning: Структурный подсчёт строк не подтверждает критерии
+  result: PASS
+- id: CHK-TZ-03
+  method: inspection
+  expected: Измеримые согласованные критерии и исполнимая программа приёмки
+  observed: Значения, пределы, методики, охват и условия UNKNOWN
+  reasoning: B01–B03; не выдавать пробелы за действительные значения
+  result: FAIL
+- id: CHK-TZ-04
+  method: inspection
+  expected: Масса дозы отделена от повторяемости изделия и выдачи; отсутствие движения
+    от потери сигнала
+  observed: TEST-F-02 вход; TEST-F-03/04 отдельно; SIGNAL_LOSS не NO_MOTION
+  reasoning: Фактические опыты и метрология канала не выполнены
+  result: PASS
+- id: CHK-TZ-05
+  method: inspection
+  expected: Синтетическая модель не утверждает физику REV
+  observed: Границы в инвентаре сохранены, OBS-01…04 OPEN
+  reasoning: Прочность, удержание и реальные параметры не доказаны
+  result: PASS
+findings:
+- finding_id: R5-TZ-B01
+  severity: BLOCKER
+  evidence: verification/r5_requirements_review/review.md
+  impact: Препятствует утверждению проверяемого ТЗ и решению G1
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-B02
+  severity: BLOCKER
+  evidence: verification/r5_requirements_review/review.md
+  impact: Препятствует утверждению проверяемого ТЗ и решению G1
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-B03
+  severity: BLOCKER
+  evidence: verification/r5_requirements_review/review.md
+  impact: Препятствует утверждению проверяемого ТЗ и решению G1
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-W01
+  severity: WARNING
+  evidence: verification/r5_requirements_review/review.md
+  impact: Требует уточнения в указанной там области
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-W02
+  severity: WARNING
+  evidence: verification/r5_requirements_review/review.md
+  impact: Требует уточнения в указанной там области
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-W03
+  severity: WARNING
+  evidence: verification/r5_requirements_review/review.md
+  impact: Требует уточнения в указанной там области
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-W04
+  severity: WARNING
+  evidence: verification/r5_requirements_review/review.md
+  impact: Требует уточнения в указанной там области
+  owner_role: R1
+  task_id: T-INIT
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+blocker_ids:
+- R5-TZ-B01
+- R5-TZ-B02
+- R5-TZ-B03
+allowed_downstream_scope: Документальная и исследовательская доработка; проект может
+  быть представлен пользователю как незавершённый с открытыми решениями
+excluded_claims:
+- Фактические измерения и испытания
+- Утверждение ТЗ или архитектуры
+- Закрытие G1 и R5-OBS-01…04
+closure_criteria:
+- Обоснованные проверяемые критерии и входная область
+- Подготовленная применимая программа и безопасные условия
+- Проработанная нормативная и риск-область
+- Независимый recheck изменённых артефактов
+supersedes: null
+```
+
+## REV-R5-TZ-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-TZ-RECHECK-01-001
+kind: RECHECK
+task_id: T-INIT
+created_at_utc: '2026-11-10T23:07:44Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R1
+author_sessions:
+- codex-01
+independence_basis: Автор предыдущего акта R5; не автор исправлений R1. Независимость
+  относится к проверяемым исправлениям.
+reviewed_commit: a02420fd3b100447550740a417d75c8608206cd7
+scope: Ограниченный документальный RECHECK W01–W04, B01–B03, REQ/VAL и UNKNOWN; не
+  испытания и не gate decision
+parameter_refs: []
+artifacts:
+- path: requirements/system_requirements.md
+  sha256: 32b8ff810c7809324d68ebc8fb1450f0326099a7b0e2553adbce027c24865e41
+- path: requirements/verification_matrix.md
+  sha256: 6cdc62bf853cfdc98bba64a1e940de3b86f07897297d2c7ffbdbee1e1374bac3
+- path: verification/feed_dosing_rig_scheme.md
+  sha256: 7725d89f70f6dfeeff8fdea66c0192842a7d36c66f4f5ef0035ee7e7f695e35f
+- path: verification/press_function_test_plan.md
+  sha256: 6755d36a5acf3596e332597fe6f50c4399d845c60c4f7dde523e284e1b2b0a31
+- path: verification/requirement_criteria_development.md
+  sha256: 55ffcee6847dd0e0cd0e69b30bc62eee89911d258b4e2dfef3d67b7c8c5ed609
+checks:
+- id: CHK-W01
+  method: inspection
+  expected: Устранено документальное замечание без выдуманных данных
+  observed: Граф событий и связей many-to-many с UNKNOWN
+  reasoning: Подробности и ограничения в verification/r5_tz_recheck_01/review.md
+  result: PASS
+- id: CHK-W02
+  method: inspection
+  expected: Устранено документальное замечание без выдуманных данных
+  observed: G1 и будущие результаты VAL-20 разделены
+  reasoning: Подробности и ограничения в verification/r5_tz_recheck_01/review.md
+  result: PASS
+- id: CHK-W03
+  method: inspection
+  expected: Устранено документальное замечание без выдуманных данных
+  observed: REQ-03 разделён на подусловия; проектные работы разграничены
+  reasoning: Подробности и ограничения в verification/r5_tz_recheck_01/review.md
+  result: PASS
+- id: CHK-W04
+  method: inspection
+  expected: Устранено документальное замечание без выдуманных данных
+  observed: Пригодность F, LOSS/INVALID и INDETERMINATE определены документально
+  reasoning: Подробности и ограничения в verification/r5_tz_recheck_01/review.md
+  result: PASS
+- id: CHK-B01-B03
+  method: inspection
+  expected: Готовые обоснованные критерии, программа и анализ риска
+  observed: Есть только план и первичная карта, блокеры открыты
+  reasoning: План получения данных не является доказательством готовности
+  result: FAIL
+- id: CHK-TRACE
+  method: inspection
+  expected: Каждому из 22 REQ соответствует VAL
+  observed: 22 уникальных REQ и 22 уникальные пары; пропусков и несовпадений нет
+  reasoning: Структурный подсчёт не доказывает достаточность VAL
+  result: PASS
+findings:
+- finding_id: R5-TZ-B01
+  severity: BLOCKER
+  evidence: verification/r5_tz_recheck_01/review.md
+  impact: Блокирует утверждение ТЗ и G1
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-B02
+  severity: BLOCKER
+  evidence: verification/r5_tz_recheck_01/review.md
+  impact: Блокирует утверждение ТЗ и G1
+  owner_role: R1
+  task_id: T-INIT
+- finding_id: R5-TZ-B03
+  severity: BLOCKER
+  evidence: verification/r5_tz_recheck_01/review.md
+  impact: Блокирует утверждение ТЗ и G1
+  owner_role: R1
+  task_id: T-INIT
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+blocker_ids:
+- R5-TZ-B01
+- R5-TZ-B02
+- R5-TZ-B03
+allowed_downstream_scope: Документальная доработка и подготовка исследований в рамках
+  действующих указаний оператора
+excluded_claims:
+- Утверждение ТЗ и архитектуры
+- Закрытие G1 или R5-OBS-01…04
+- Испытания и измерения сырья
+closure_criteria:
+- Проверенные критерии и входная спецификация
+- Подготовленная применимая программа
+- Проверенные риск и нормативная область
+supersedes: null
+```

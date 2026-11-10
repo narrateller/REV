@@ -225,3 +225,15 @@ SYN-LINKED-EJECTION: code/results 576a17fc0b127cb7d377992c01d645a77bed42d4; ARB-
 ## Принятие модели после PR #2
 
 `main` `672c835e201766a943927917f12875a9204b0b34` содержит model `debfd085` и review/probe `b4d4af9`; задача T-codex-01-01 DONE только в синтетической AABB области после принятия этой записи. G1 OPEN; следующая работа — проверка полноты требований/матрицы и подготовка независимого review ТЗ. Текущая эстафета — NEXT_MODEL.md.
+
+Независимый OUTPUT-review проекта ТЗ REV-R5-TZ-REVIEW-01-001 на bff66903c4588321faf3b86bf0abb501c8a7c881: REJECT_WITH_BLOCKER для утверждения ТЗ/G1; R5-TZ-B01…03 OPEN, R5-TZ-W01…04 требуют обработки. Отчёт verification/r5_requirements_review/review.md; G1 NOT_STARTED/OPEN, архитектура не утверждена.
+
+## Ответ R1 на review проекта ТЗ
+
+На базе `b527c62ba9f1f37a5176dc9ed45b4b245bcdb49d` подготовлены документальные исправления W01…04 и план по B01…03; все ожидают независимого RECHECK, три блокера остаются OPEN. Физические данные UNKNOWN/NOT_RUN, G1 OPEN. См. verification/requirement_criteria_development.md и NEXT_MODEL.md.
+
+Ограниченный RECHECK REV-R5-TZ-RECHECK-01-001 на a02420fd3b100447550740a417d75c8608206cd7: W01…04 CLOSED документально; B01…03 OPEN, вердикт REJECT_WITH_BLOCKER для утверждения ТЗ/G1. См. verification/r5_tz_recheck_01/review.md. G1 OPEN, архитектура не утверждена.
+
+## Независимый RECHECK и дальнейшая работа по ТЗ
+
+`f1edde47c580308aed7c1308281fc3069e25ccd7`: W01…04 CLOSED документально, B01…03 OPEN; G1 OPEN, испытания/пробы NOT_RUN. Исправлены исторические ссылки на rev3 схемы; проверенный акт STALE относительно этих редакционных изменений, W01…04 не переоткрыты. Порядок доработки — verification/g1_blocker_workplan.md, текущая эстафета — NEXT_MODEL.md.
