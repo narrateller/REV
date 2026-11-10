@@ -5,15 +5,16 @@
 | Поле | Значение |
 |---|---|
 | project_id / изделие | REV / Hydraulic briquetting press |
-| Подтверждённая цель | Собственный функциональный аналог гидравлического брикетировочного пресса с возможностью изготовления в РФ; U-REV-01 |
-| Товар / сырьё / подготовка | Топливный брикет — кандидат нового товара; древесная фракция строительного мусора; сортировка, металлосепарация, дробление/просев подтверждены оператором |
-| Годность / покупатель / вход пресса | BUY на согласовании; показатели/кондиция UNKNOWN; process/feedstock.md и fuel_product_candidate.md |
+| Подтверждённая цель | Собственный функциональный аналог BP500 с возможностью изготовления в РФ; F-REV-01…04 |
+| Сырьё / подготовка | Отсортированная древесная фракция строительного мусора после металлоудаления; до пресса: сортировка, металлосепарация, дробление/просев |
+| Функции / критерии | Приём, дозирование, уплотнение, выдача; размеры/производительность/пороги UNKNOWN; выбор покупателя не является условием T-INIT |
+| Контекст компании | Выпуск пеллет и расширение ассортимента; не определяет требования к прессу |
 | Владелец и утверждающий инженер | narrator; утверждающий инженер назначается отдельно |
 | Источники прототипа | Четыре PDF инвентаризированы: sources/index.md; достоверность инженерных заявлений не принята |
 | Принятое ТЗ / базовая линия | NONE / NONE |
-| Режим | PROJECT; цель подтверждена, проект требований rev3 не утверждён |
+| Режим | PROJECT; цель подтверждена, проект требований rev4 не утверждён |
 | Текущая ветка / база | work/T-INIT/codex-01 / 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17 |
-| Последнее обновление UTC / session_id | 2026-11-10T14:02:04Z / codex-01 |
+| Последнее обновление UTC / session_id | 2026-11-10T14:15:07Z / codex-01 |
 | enforcement | PROCEDURAL; серверные ограничения не проверены |
 | Численная база | params/registry.yaml |
 | Задачи / проверки | ISSUES_AND_TASKS.md / reviews/cross_check_log.md |
@@ -31,7 +32,7 @@
 Здесь указаны функции; конкретные проверяющие не могут быть авторами проверяемых версий.
 Для каждого решения о воротах создать запись в `decisions/<decision_id>.md`: baseline commit, scope, evidence, exclusions, blocker_ids, approver, основание полномочий, UTC.
 Текущие решения: NONE. Текущие блокеры: NONE; отсутствие блокеров не означает прохождение ворот.
-Открытые вопросы: конечный BUY и спецификация, состав партий/покрытий/клеёной
+Открытые технические вопросы: собственная входная спецификация, состав партий/покрытий/клеёной
 древесины/примесей, остаточный металл, влажность и фракция по стадиям, состояние
 входа и границы поставки. Происхождение сырья и имеющиеся операции известны
 со слов оператора; реальные пробы и журналы пока отложены;
@@ -42,7 +43,7 @@
 
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
-| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T14:02:04Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T14:15:07Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
 
 ## Active Handoff Capsule
 
@@ -56,9 +57,9 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T14:02:04Z'
+created_at_utc: '2026-11-10T14:15:07Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: d00f2023d0472277aeddd8835bcb0929b46e6d59
+work_commit: 7377c9863cb24e6cca754887eab7a90d69b86e60
 branch: work/T-INIT/codex-01
 availability: REMOTE
 claim_record:
@@ -66,46 +67,45 @@ claim_record:
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-  heartbeat_utc: '2026-11-10T14:02:04Z'
-subtask: Операторские данные древесного строительного потока, топливный товар-кандидат, паспорт/план SP и rev3
+  heartbeat_utc: '2026-11-10T14:15:07Z'
+subtask: 'Rev4: требования и проверка функций аналога BP500; выбор покупателя исключён из условий T-INIT'
 input_refs:
-- commit: 55484dd220a624a50f545c3cc3c64039645229b6
+- commit: ad58c4e817d5eecf6896b00cf6fbaa53d8b594f0
   paths:
-  - requirements/system_requirements.md
-  - requirements/verification_matrix.md
   - sources/functional_analysis_r2.md
-  - STATE.md
-- source: Сообщения оператора в текущей беседе 2026-11-10, записаны в T-INIT и process/feedstock.md
-  ids:
-  - OP-REV-01
-  - OP-REV-02
-  - OP-REV-03
-  - OP-REV-04
-  - OP-REV-05
-  - OP-REV-06
+  - sources/index.md
+  - process/feedstock.md
+  - process/sampling_plan.md
+  - AGENT_PROTOCOL.md
+- source: Текущее уточнение пользователя 2026-11-10, зафиксировано в T-INIT
+  scope: Разрабатывать пресс F-REV-01…04; пеллеты/ассортимент — контекст; выбор покупателя не требуется
 changed_files:
-- ISSUES_AND_TASKS.md
 - requirements/system_requirements.md
 - requirements/verification_matrix.md
-- requirements/fuel_product_candidate.md
+- sources/function_realization_comparison.md
+- verification/press_function_test_plan.md
 - process/feedstock.md
 - process/sampling_plan.md
+- ISSUES_AND_TASKS.md
 - decisions/standards_scope.md
+- archive/context/fuel_product_candidate_rev3.md
 - reviews/input_inventory_codex_01.md
+- sources/functional_analysis_r2.md
 - sources/index.md
 completed_steps:
-- Проверены актуальная main, owner codex-01 и срок claim
-- OP-REV-01…06 зафиксированы как данные оператора, без измеренных численных значений
-- Подготовлены BUY-кандидаты и QF-методы, паспорт сырья, SP-план и IN-границы
-- Подтверждены имеющиеся операции без предположения сушки/кондиции
-- 'Проект требований/матрицы обновлён до rev3: 22 REQ ↔ 22 VAL, все NOT_RUN'
-- Результат C опубликован в рабочей ветке; исходные PDF/registry не изменены
+- Проверены main, owner и действующий lease
+- Отменено условие выбора покупателя; товарное предложение перенесено в архив контекста
+- Сопоставлены BP500/WEIMA/E55/ARS по F-REV-01…04
+- Подготовлены требования/матрица rev4, свойства сырья и операции до пресса
+- 'Подготовлена программа TEST-F-01…05: подача, дозирование, формование, выдача и полный цикл'
+- Проверена структура и 22 REQ ↔ 22 VAL; фактические испытания NOT_RUN
+- C опубликован в origin/work/T-INIT/codex-01
 unfinished_step:
-  exact_expression_or_node: Выбор BUY-REV-* и требований потребителя; параметры/фактические результаты не получены
-    по указанию оператора
+  exact_expression_or_node: Собственная схема испытательного узла подачи/дозирования, затем обоснование диапазонов
+    и измерений; без фактических проб пока
   last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS структуры без результатов испытаний
-  observed_result: PASS; 22 согласованных по ID пары REQ/VAL
+  expected_result: PASS документов; функциональные проверки NOT_RUN
+  observed_result: PASS, все численные цели/пороги UNKNOWN
 environment:
   tool_versions:
   - Python 3.12.14
@@ -116,29 +116,30 @@ environment:
   seeds: []
 running_jobs: []
 open_hypotheses:
-- BUY-REV-01…03 — покупатели/сценарии
-- IN-REV-A/B/C — границы подготовки/входа
-- Ранее описанные HYP архитектуры остаются вариантами
+- Шнек/рыхление, шибер/предсжатие и дисковая подача — варианты дозирования
+- Канал с зажимом и закрытая камера с дверью — варианты уплотнения/выдачи
+- IN-REV-A/B/C — альтернативные состояния входа, окончательная кондиция не выбрана
 blocker_ids: []
 review_refs:
-- reviews/input_inventory_codex_01.md — self-check; независимый review NOT_RUN
+- reviews/input_inventory_codex_01.md — авторский self-check; независимый review NOT_RUN
 uncommitted_or_unsaved: []
-next_action: Получить согласование первого BUY-REV-* по предложению fuel_product_candidate.md; затем составить
-  карточку требований конкретного типа установки и выбрать применимые QF без назначения вымышленных пределов
-next_action_success_criterion: Выбор покупателя/сценария либо явное отложенное решение записан в D-REV-01/Q-codex-01-01;
-  подготовлена адресная спецификация с UNKNOWN; пробы/журналы пока не требовать
+next_action: 'Создать verification/feed_dosing_rig_scheme.md: функциональная схема узла F-REV-01/02, точки
+  контроля состояния сырья и взвешивания доз, датчики/события, безопасные состояния и пустая форма серии TEST-F-01/02'
+next_action_success_criterion: Каждое измерение связано с REQ/VAL и возможным механизмом; схема отделяет массу
+  дозы/поток/уровень и учитывает своды/неполное заполнение; покупатель не является зависимостью; диапазоны
+  и пороги UNKNOWN до обоснования
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
-previous_work_commit: 030a348eb11832999faf5710379e11f4b530ff7a
+previous_work_commit: d00f2023d0472277aeddd8835bcb0929b46e6d59
 ```
 
 ## Очередь следующей модели
 
 | Порядок | task_id | Адресат | Действие | Условие начала |
 |---|---|---|---|---|
-| 1 | T-INIT | @R1 | Согласовать первый BUY-REV-*, затем адресовать QF и IN | Пробы/журналы отложены; критерии UNKNOWN; независимый review и G1 открыты |
+| 1 | T-INIT | @R1 | Схема испытательного узла подачи/дозирования TEST-F-01/02 | Пробы/журналы пока отложены; покупатель не требуется; критерии UNKNOWN; G1 открыт |
 
 После назначения сначала читать запись T-INIT. Если входов нет, фиксировать UNKNOWN и готовить структуру требований; не выдавать проект ТЗ за утверждённое ТЗ.
 
@@ -154,7 +155,8 @@ Workflow подготовлен; его выполнение и настройк
 
 Назначение R1 подтверждено; claim принят в main. Паспорт и проект требований/матрицы/нормативной области подготовлены, требуется
 независимая проверка и ответы на вопросы. T-INIT не завершена; G1 остаётся NOT_STARTED.
-Текущий результат: ревизия 3, commit d00f2023d0472277aeddd8835bcb0929b46e6d59.
-Операторские OP-данные, паспорт/план проб, покупатели/методы и границы подготовки сохранены.
+Текущий результат: ревизия 4, commit 7377c9863cb24e6cca754887eab7a90d69b86e60.
+Операторские OP-данные сохранены; требования и испытания относятся к прессу.
+Товарные предложения — только архивный контекст, не условие продолжения.
 Исследование: sources/functional_analysis_r2.md; подтверждённая цель отделена от OBS/HYP.
 Выбор архитектуры, расчёты и утверждение G1 не выполнялись.
