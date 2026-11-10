@@ -209,3 +209,7 @@ R5-IMPL-02 закрыт в указанной synthetic области, R5-IMPL-
 ## Оценка R1 приёмки модели
 
 См. verification/t_codex_01_01_acceptance/r1_assessment.md: кандидат на ограниченную synthetic приёмку, задача IN_REVIEW; отсутствуют идентификатор reviewer-сессии и артефакт независимых мутаций. G1 остаётся OPEN.
+
+## Решение R1: приёмка synthetic результата
+
+R1 принял `debfd085` в ограниченной области synthetic AABB; независимый R5 `r5-implementation-02`, акт и probe сохранены и зарегистрированы. Задача IN_REVIEW до последовательной интеграции с моделью и доказательствами; G1 OPEN. См. verification/t_codex_01_01_acceptance/r1_assessment.md.

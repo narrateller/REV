@@ -242,3 +242,7 @@ REV-R5-RECHECK-03-001: R5-IMPL-01 OPEN, R5-IMPL-02 OPEN; REJECT_WITH_BLOCKER. T-
 ## Оценка приёмки R1
 
 Результат `debfd085` рассмотрен в verification/t_codex_01_01_acceptance/r1_assessment.md: кандидат на приёмку только в synthetic AABB области. T-codex-01-01 IN_REVIEW; для окончательной приёмки нужны идентификатор reviewer-сессии и неизменяемый независимый probe с результатами. G1 открыт.
+
+## Решение R1 о приёмке synthetic результата
+
+R1 принял результат `debfd085842ccae079cfd6faea1c41bca20f335d` в заявленной synthetic AABB области, см. verification/t_codex_01_01_acceptance/r1_assessment.md. Уточнена независимая сессия r5-implementation-02; акт и probe опубликованы `b4d4af9325c5d24e093ec2d4dce5797581ebf6e1`; R1 воспроизвёл мутации и тесты. Общий статус IN_REVIEW до последовательной интеграции модели и доказательств в main. G1 OPEN.

@@ -1,3 +1,11 @@
+# Эстафета — решение R1 по T-codex-01-01
+
+- R1 принял результат `debfd085842ccae079cfd6faea1c41bca20f335d` для ограниченной synthetic AABB области. Основание и ограничения: verification/t_codex_01_01_acceptance/r1_assessment.md; опубликованный акт R5 и probe — verification/r5_recheck_05.
+- Рецензент `r5-implementation-02`; источник акта/probe `b4d4af9325c5d24e093ec2d4dce5797581ebf6e1`; SHA-256 probe `e7c2e004ced7bf7a25f62aa92904291e47bbf027111e7e1cb089fcf193b0aa80`. R1 повторил 8 мутаций, 20 тестов, benchmark 3000 и сверку отчётов.
+- Следующий шаг: подготовить последовательную интеграцию model commit, акта и решения в общую ветку с повторной сверкой main и claim. Трекер IN_REVIEW до интеграции; архитектура не утверждена, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
 # Эстафета — оценка R1 модели T-codex-01-01
 
 - Оценка: verification/t_codex_01_01_acceptance/r1_assessment.md. Модель — кандидат на приёмку в synthetic AABB области, формально задача остаётся IN_REVIEW и не DONE; G1 OPEN.

@@ -568,3 +568,70 @@ reproduction_artifacts:
 - verification/r5_recheck_03/review.md
 supersedes: REV-R5-IMPL-02-001
 ```
+
+## Регистрация предоставленного дополнения RECHECK-05
+
+```yaml
+record_type: review
+review_id: REV-R5-RECHECK-05-001
+kind: RECHECK
+task_id: T-codex-01-01
+created_at_utc: '2026-11-10T22:40:56Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-model-01
+independence:
+  reviewer_not_author: true
+  basis: Идентификатор и отсутствие соавторства подтверждены предоставленным пользователем
+    сообщением R5; существующий REV-R5-IMPL-02-001 фиксирует отдельную сессию.
+independence_basis: Сообщение R5, переданное пользователем, и предшествующий реестр
+  сессий; R1 зарегистрировал полученный акт без выдачи его за свой review.
+reviewed_commit: debfd085842ccae079cfd6faea1c41bca20f335d
+parameter_refs: []
+artifacts:
+- path: models/first_digital_model_brief.md
+  sha256: 3c86ed707f11ee5f9fa93409022c8250cc3582e6fb78363f85313d28733b79d1
+input_refs:
+- verification/r5_recheck_04/disposition.md @ 791d0ce8ccb31373b221d0b69063e2f835b442c0
+input_refs_code_git_objects:
+- path: models/kinematic_press/linked.py
+  sha256: 40d23ab5a78e3c3b8b98a205417cdccf11961069b40c263d90625fdb3aab86eb
+- path: models/kinematic_press/results/linked_report.json
+  sha256: 1c229eee6e43fc265310a0bcff70ac8d5bef3955cceee98fd8c45ed36a69411f
+output_refs:
+- verification/r5_recheck_05/published_review.md
+- verification/r5_recheck_05/probe.py
+scope: MODEL_VERIFICATION; только объявленные synthetic сцены, AABB и синхронная линейная
+  трансляция.
+checks:
+- id: CHK-RECHECK-05
+  method: rerun
+  expected: 'План RECHECK-04: 8 исходов, непрерывность, CE-01/02, мутации, полный
+    состав сцен'
+  observed: По опубликованному акту R5 8/8 исходов, 20 тестов, 3000 сравнений, 8/8
+    мутаций; R1 отдельно воспроизвёл probe, тесты и benchmark.
+  reasoning: Результат ограничен проверенным SHA и объявленной синтетической областью.
+  result: PASS
+findings: []
+verdict: PASS
+validity: CURRENT
+allowed_downstream_scope: Исследование синтетической модели на указанном SHA.
+excluded_claims:
+- Реальная геометрия, материал, силы, безопасность и качество
+- Выбор архитектуры и прохождение G1
+blocker_ids: []
+warning_owner_and_due: null
+closure_criteria: []
+supersedes: null
+traceability_and_revisions: Зарегистрировано R1 по опубликованному акту b4d4af9325c5d24e093ec2d4dce5797581ebf6e1
+  и сообщению пользователя с идентификатором автора; created_at_utc — время регистрации,
+  не время исходного запуска.
+reproduction_artifacts:
+- verification/r5_recheck_05/published_review.md
+- verification/r5_recheck_05/probe.py
+```
