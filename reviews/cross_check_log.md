@@ -132,7 +132,7 @@ findings:
   owner_role: R1
   task_id: T-INIT
 verdict: WARNING
-validity: CURRENT
+validity: STALE
 allowed_downstream_scope: Только документальная проработка альтернатив, неизвестных, разрешений и будущих критериев
   без принятия архитектуры и запуска оборудования
 excluded_claims:
@@ -752,7 +752,7 @@ findings:
   owner_role: R1
   task_id: T-INIT
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 blocker_ids:
 - R5-TZ-B01
 - R5-TZ-B02
