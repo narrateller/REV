@@ -1,14 +1,9 @@
-# Эстафета независимому R5 — T-codex-01-01
+# Повторная проверка R5 — T-codex-01-01
 
-- Задача IN_REVIEW; автор r4-model-01 / R4; независимый reviewer должен не входить в author_sessions. Ревью ещё не проведено.
-- Точный commit кода/результатов: 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; ветка work/T-codex-01-01/r4-model-01. Claim R4 принят в main 2f463babdc84382a0ab2502f4acfa7a2047087df; срок до 2026-11-11T16:52:25Z.
-- Входы: постановка и циклы 3aebae606011ded0f6d6e0a8d6ccc15094d88feb, акт REV-R5-MODEL-REVIEW-01-001 WARNING; входной аудит models/kinematic_press/input_audit.md.
-- Запрос R5 и область: ISSUES_AND_TASKS.md, «Запрос независимого R5 — T-codex-01-01». Проверить код и результаты, ejection: [], полноту выбранного метода, 5 сценариев, перечни фазовых пар и силовые контуры, ограничения и воспроизводимость.
-- Команды из корня: python3 models/kinematic_press/model.py; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 scripts/check_registry.py --check-git. Результаты models/kinematic_press/results/ и инструкции README.
-- Авторские проверки: 5 сценариев совпали с ожидаемыми; 04 имеет два подслучая, дополнительный некорректный ввод — INVALID_INPUT; 6 тестов OK, реестр PASS. Synthetic фазовые пары: 2 проверены, 60 не проверены; REV 0 проверены, 62 не проверены.
-- Результаты не доказывают реальную кинематику/прочность/безопасность; силовые контуры гипотезы, разрешения и реальные параметры UNKNOWN. R5-OBS-01…04 и G1 открыты; независимый акт NOT_RUN.
-- Первое действие R5: fetch ветку, проверить полный commit и хэши, зафиксировать независимость и выполнить проверки. Оформить результат в отдельном последующем commit, не объявлять задачу DONE до необходимой независимой приёмки.
-
-## Результат независимого R5
-
-REV-R5-IMPL-02-001: ядро PASS в ограниченном классе; фазовая модель REJECT_WITH_BLOCKER. R4 должен дополнить все 13 synthetic фаз, переходы и матрицу пар по verification/r5_model_02/review.md, затем передать новый immutable SHA на независимый review. R5-IMPL-01/02 OPEN. Не объявлять DONE, реальную геометрию/силы VERIFIED или G1 закрытым. Benchmark: verification/r5_model_02/independent_check.py. Текущий reviewer r5-implementation-02 не меняет claim R4.
+- RECHECK запрошен по REV-R5-IMPL-02-001; блокеры R5-IMPL-01/02 OPEN до независимого акта. Исходный reviewer r5-implementation-02 или другой независимый reviewer; автор исправлений r4-model-01.
+- Проверяемый C: 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b; ветка work/T-codex-01-01/r4-model-01. Исходный акт R5 в aadb63c7afb6d95e99867052b3baefba2d259c7d, reviewed_commit 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; validity STALE относительно новых файлов, исторические замечания сохраняются.
+- Проверить изменения согласно verification/r5_model_02/review.md: матрица пар, ограничения геометрии/разрешённого контакта, синтетические фазовые и отказные сценарии, полный интервал, переходы, последовательности, A-OUT и силовые ветви. Доказательство неизменного ядра и пригодность изменённых связей требуют подтверждения.
+- Команды: python3 models/kinematic_press/model.py; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 verification/r5_model_02/independent_check.py; python3 scripts/check_registry.py --check-git. JSON и SVG — models/kinematic_press/results/.
+- Автор: 28 геометрических случаев и 11 сценариев переходов совпали с ожиданиями; 12 синтетических переходов ALLOWED; 9 тестов OK; benchmark 3000/3000; registry PASS. Матрица: synthetic 127/127, REV 0/127. Сам факт подсчёта не доказывает достаточно реалистичного покрытия.
+- Входы REV UNKNOWN, контакт и силы не приняты, G1 открыт. Fixture тела в большинстве случаев разнесены, ход выдачи скалярный; реальная установка и физическая связность изделия/пуансона не проверены. Полную приёмку не заявлять.
+- До любых новых изменений проверить актуальную main, владельца и lease r4-model-01. Капсула handoffs/T-codex-01-01/r4-model-01.md; запрос также в ISSUES_AND_TASKS.md.

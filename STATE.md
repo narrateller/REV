@@ -168,3 +168,7 @@ T-codex-01-01 HANDOFF, owner r4-model-01. Код и результаты synthet
 T-codex-01-01 IN_REVIEW: код/результаты 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; запрос независимому R5 в ISSUES_AND_TASKS.md, ревью NOT_RUN. 13 фаз: synthetic 2 проверенные пары, 60 непроверенных; REV 0/62. UNKNOWN REV и G1 сохранены.
 
 Независимый OUTPUT review REV-R5-IMPL-02-001 на 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb: вычислительное ядро PASS только для линейных AABB; фазовая модель REJECT_WITH_BLOCKER (R5-IMPL-01/02). 2/62 synthetic пары, REV 0/62. Силовая топология WARNING. Отчёт verification/r5_model_02/review.md; задача IN_REVIEW, G1 открыт, прежние R5-OBS не закрыты.
+
+## Повторная передача R5
+
+T-codex-01-01: исправления на 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b, запрос RECHECK к REV-R5-IMPL-02-001; R5-IMPL-01/02 OPEN до независимого акта. 127/127 пар лишь в разнесённой синтетической геометрии, REV 0/127; физическая связность не подтверждена. G1 открыт.
