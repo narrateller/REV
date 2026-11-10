@@ -168,3 +168,15 @@ T-codex-01-01 HANDOFF, owner r4-model-01. Код и результаты synthet
 T-codex-01-01 IN_REVIEW: код/результаты 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; запрос независимому R5 в ISSUES_AND_TASKS.md, ревью NOT_RUN. 13 фаз: synthetic 2 проверенные пары, 60 непроверенных; REV 0/62. UNKNOWN REV и G1 сохранены.
 
 Независимый OUTPUT review REV-R5-IMPL-02-001 на 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb: вычислительное ядро PASS только для линейных AABB; фазовая модель REJECT_WITH_BLOCKER (R5-IMPL-01/02). 2/62 synthetic пары, REV 0/62. Силовая топология WARNING. Отчёт verification/r5_model_02/review.md; задача IN_REVIEW, G1 открыт, прежние R5-OBS не закрыты.
+
+## Повторная проверка R5 — REV-R5-RECHECK-03-001
+
+Проверенный SHA: 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b.
+Commit результата: 9e12e8bd4f2325ae0e887d3f2e28eaa85c55205f.
+R5-IMPL-01 и R5-IMPL-02 остаются OPEN; T-codex-01-01 BLOCKED,
+consecutive_rejections=2. Более раннее NONE в панели блокеров историческое:
+актуальные блокеры — эти два. Владелец реализации r4-model-01 не меняется.
+R1 должен рассмотреть Q-R5-RECHECK-03 (verification/r5_recheck_03/arbitration.md)
+до новой итерации. G1 остаётся NOT_STARTED; архитектура не выбрана.
+Капсула: handoffs/T-codex-01-01/r5-recheck-03.md; независимые контрпримеры
+и минимальный сценарий: verification/r5_recheck_03/review.md.

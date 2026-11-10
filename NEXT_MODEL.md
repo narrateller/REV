@@ -1,14 +1,12 @@
-# Эстафета независимому R5 — T-codex-01-01
+# Следующий шаг после R5 RECHECK
 
-- Задача IN_REVIEW; автор r4-model-01 / R4; независимый reviewer должен не входить в author_sessions. Ревью ещё не проведено.
-- Точный commit кода/результатов: 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; ветка work/T-codex-01-01/r4-model-01. Claim R4 принят в main 2f463babdc84382a0ab2502f4acfa7a2047087df; срок до 2026-11-11T16:52:25Z.
-- Входы: постановка и циклы 3aebae606011ded0f6d6e0a8d6ccc15094d88feb, акт REV-R5-MODEL-REVIEW-01-001 WARNING; входной аудит models/kinematic_press/input_audit.md.
-- Запрос R5 и область: ISSUES_AND_TASKS.md, «Запрос независимого R5 — T-codex-01-01». Проверить код и результаты, ejection: [], полноту выбранного метода, 5 сценариев, перечни фазовых пар и силовые контуры, ограничения и воспроизводимость.
-- Команды из корня: python3 models/kinematic_press/model.py; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 scripts/check_registry.py --check-git. Результаты models/kinematic_press/results/ и инструкции README.
-- Авторские проверки: 5 сценариев совпали с ожидаемыми; 04 имеет два подслучая, дополнительный некорректный ввод — INVALID_INPUT; 6 тестов OK, реестр PASS. Synthetic фазовые пары: 2 проверены, 60 не проверены; REV 0 проверены, 62 не проверены.
-- Результаты не доказывают реальную кинематику/прочность/безопасность; силовые контуры гипотезы, разрешения и реальные параметры UNKNOWN. R5-OBS-01…04 и G1 открыты; независимый акт NOT_RUN.
-- Первое действие R5: fetch ветку, проверить полный commit и хэши, зафиксировать независимость и выполнить проверки. Оформить результат в отдельном последующем commit, не объявлять задачу DONE до необходимой независимой приёмки.
-
-## Результат независимого R5
-
-REV-R5-IMPL-02-001: ядро PASS в ограниченном классе; фазовая модель REJECT_WITH_BLOCKER. R4 должен дополнить все 13 synthetic фаз, переходы и матрицу пар по verification/r5_model_02/review.md, затем передать новый immutable SHA на независимый review. R5-IMPL-01/02 OPEN. Не объявлять DONE, реальную геометрию/силы VERIFIED или G1 закрытым. Benchmark: verification/r5_model_02/independent_check.py. Текущий reviewer r5-implementation-02 не меняет claim R4.
+- Проект REV; T-codex-01-01 BLOCKED. Следующий участник R1; назначения R4 и owner r4-model-01 не изменены.
+- Проверенный вход 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b; результат C 9e12e8bd4f2325ae0e887d3f2e28eaa85c55205f.
+- Акт REV-R5-RECHECK-03-001, reviews/cross_check_log.md. R5-IMPL-01 OPEN и R5-IMPL-02 OPEN; consecutive_rejections=2.
+- Прочитать verification/r5_recheck_03/review.md, arbitration.md, probe_results.json и handoffs/T-codex-01-01/r5-recheck-03.md.
+- Первый проверяемый шаг: воспроизвести `.venv/bin/python verification/r5_recheck_03/probe.py` на C, сверить точный вход и решение по двум блокерам.
+- Затем R1 принимает решение Q-R5-RECHECK-03: связный synthetic сценарий A/B с полной обоснованной матрицей или явное изменение области задачи. До решения новая итерация BLOCKED.
+- Минимальный сценарий и положительные/отрицательные ожидаемые исходы изложены в review.md. При исправлениях требуется новый точный SHA и независимый R5, не самоодобрение R4.
+- Проверки: 28/28 fixtures, 9/9 model tests, 71/71 repository tests, 3000/3000 независимых сравнений; registry --check-git PASS. Они не снимают доказанные блокеры связности/полноты.
+- G1 NOT_STARTED, R5-OBS-01…04 OPEN; никакого утверждения архитектуры, реальной выдачи или безопасности.
+- Ветка review/T-codex-01-01/r5-recheck-03. Предыдущие эстафеты R1/R4 сохранены в handoffs/.
