@@ -157,4 +157,4 @@ Workflow подготовлен; его выполнение и настройк
 
 ## Предложение назначения R4
 
-T-codex-01-01: пользователь назначил r4-model-01 / Codex / R4; claim PENDING_MAIN_MERGE. Координация Q-r4-model-01-01, капсула handoffs/T-codex-01-01/r4-model-01.md. Код NOT_STARTED; G1 открыт. Принятый владелец T-INIT не меняется.
+T-codex-01-01: пользователь назначил r4-model-01 / Codex / R4; claim ACCEPTED_MAIN, owner_session: r4-model-01. Координация Q-r4-model-01-01, капсула handoffs/T-codex-01-01/r4-model-01.md. Код NOT_STARTED; G1 открыт. Принятый владелец T-INIT не меняется.
