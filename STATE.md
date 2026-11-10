@@ -5,13 +5,14 @@
 | Поле | Значение |
 |---|---|
 | project_id / изделие | REV / Hydraulic briquetting press |
-| Назначение аналога | UNKNOWN |
+| Подтверждённая цель | Собственный функциональный аналог гидравлического брикетировочного пресса с возможностью изготовления в РФ; U-REV-01 |
+| Назначение брикета / сырьё / годность / поставка | UNKNOWN; решения D-REV-01…04 |
 | Владелец и утверждающий инженер | narrator; утверждающий инженер назначается отдельно |
 | Источники прототипа | Четыре PDF инвентаризированы: sources/index.md; достоверность инженерных заявлений не принята |
 | Принятое ТЗ / базовая линия | NONE / NONE |
-| Режим | PROJECT; исходные требования ещё не утверждены |
+| Режим | PROJECT; цель подтверждена, проект требований rev2 не утверждён |
 | Текущая ветка / база | work/T-INIT/codex-01 / 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17 |
-| Последнее обновление UTC / session_id | 2026-11-10T12:40:01Z / codex-01 |
+| Последнее обновление UTC / session_id | 2026-11-10T13:38:08Z / codex-01 |
 | enforcement | PROCEDURAL; серверные ограничения не проверены |
 | Численная база | params/registry.yaml |
 | Задачи / проверки | ISSUES_AND_TASKS.md / reviews/cross_check_log.md |
@@ -29,13 +30,15 @@
 Здесь указаны функции; конкретные проверяющие не могут быть авторами проверяемых версий.
 Для каждого решения о воротах создать запись в `decisions/<decision_id>.md`: baseline commit, scope, evidence, exclusions, blocker_ids, approver, основание полномочий, UTC.
 Текущие решения: NONE. Текущие блокеры: NONE; отсутствие блокеров не означает прохождение ворот.
-Открытые риски: исходные данные и критерии изделия ещё не заданы.
+Открытые риски: назначение брикета, сырьё, годность и поставка не заданы;
+цель изготовления в РФ подтверждена, фактическая изготовимость и локализация
+ещё исследуются. BP500-ANALOG не используется; OBS/HYP не являются архитектурой REV.
 
 ## Активные назначения
 
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
-| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T12:40:01Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T13:38:08Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
 
 ## Active Handoff Capsule
 
@@ -49,47 +52,54 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T12:40:01Z'
+created_at_utc: '2026-11-10T13:38:08Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: e8e6230a7df2c7e25b3edcaf61737f9ede7be694
+work_commit: 030a348eb11832999faf5710379e11f4b530ff7a
 branch: work/T-INIT/codex-01
-availability: LOCAL_ONLY
+availability: REMOTE
 claim_record:
   path: ISSUES_AND_TASKS.md
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-  heartbeat_utc: '2026-11-10T12:40:01Z'
-subtask: Проект требований, матрица и нормативная область подготовлены для обсуждения и независимого review
+  heartbeat_utc: '2026-11-10T13:38:08Z'
+subtask: 'Ревизия 2 постановки: подтверждённая цель, исследование OBS/HYP и проект REQ/VAL'
 input_refs:
-- commit: 170cc417f8c46afd8332cec5c33162a8f0d49c2a
+- commit: 453281f07cfc88da84d13ddd429b7415a3dcf13c
   paths:
-  - sources/index.md
+  - AGENT_PROTOCOL.md
   - STATE.md
   - NEXT_MODEL.md
+  - sources/index.md
+  - project/source_manifest.json
+  - sources/raw/
   - params/registry.yaml
-- commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-  paths:
-  - ISSUES_AND_TASKS.md
-  - AGENT_PROTOCOL.md
+- source: Прямое поручение пользователя 2026-11-10, зафиксировано в T-INIT
+  ids:
+  - U-REV-01
+  - U-REV-02
+  - U-REV-03
 changed_files:
-- ISSUES_AND_TASKS.md
-- reviews/input_inventory_codex_01.md
+- sources/functional_analysis_r2.md
+- evidence/source_research_r2_codex_01.json
+- sources/index.md
 - requirements/system_requirements.md
 - requirements/verification_matrix.md
 - decisions/standards_scope.md
+- ISSUES_AND_TASKS.md
+- reviews/input_inventory_codex_01.md
 completed_steps:
-- Проверены актуальная main, owner codex-01 и действующий lease
-- Учтено прямое поручение пользователя продолжить документальную часть
-- Подготовлены 20 кандидатов требований и 20 связанных плановых проверок, все NOT_RUN
-- Подготовлены нормативные вопросы; инженерный реестр и PDF не изменены
-- Проверены структура, уникальность ID и полное взаимное покрытие REQ/VAL
+- Проверены main, владелец и lease
+- Зафиксирована собственная цель REV для изготовления в РФ; BP500-ANALOG не использовался
+- Прочитаны адресные PDF и визуально сверены ключевые схемы/рисунки
+- Подготовлены 11 наблюдений OBS с HYP-вариантами и условиями проверки
+- 'Подготовлены rev2: 21 REQ и 21 VAL; все VAL NOT_RUN; параметры не перенесены'
+- Результат C опубликован в origin/work/T-INIT/codex-01, SHA проверен
 unfinished_step:
-  exact_expression_or_node: Ответы Q-codex-01-01/02, независимый review паспорта/проекта, заполнение критериев
-    и утверждение ТЗ
+  exact_expression_or_node: D-REV-01…06, независимый review; численная и архитектурная база не выбраны
   last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS структуры без инженерной приёмки
-  observed_result: PASS; покрытие 20 REQ ↔ 20 VAL, без результатов испытаний
+  expected_result: PASS структуры; независимая приёмка NOT_RUN
+  observed_result: PASS; 21 REQ ↔ 21 VAL, 11 OBS; документы rev2
 environment:
   tool_versions:
   - Python 3.12.14
@@ -99,27 +109,31 @@ environment:
   dependency_lock: requirements.txt
   seeds: []
 running_jobs: []
-open_hypotheses: []
+open_hypotheses:
+- HYP-BP-01…03
+- HYP-W-01…03
+- HYP-P-01…02
+- HYP-A-01…03
 blocker_ids: []
 review_refs:
-- reviews/input_inventory_codex_01.md — self-check; независимого review нет
+- reviews/input_inventory_codex_01.md — авторский self-check; независимый review NOT_RUN
 uncommitted_or_unsaved: []
-next_action: Уточнить назначение/сырьё/продукт и площадку по Q-codex-01-01/02; независимый участник проверяет
-  проект в C
-next_action_success_criterion: Ответы с источниками зафиксированы; независимый акт ссылается на точный C, автор
-  reviewer не codex-01; критерии не выдуманы
+next_action: 'R1 получает ответы по D-REV-01…04: назначение брикета/потребитель, доступное сырьё/пробы, критерии
+  годности, состав поставки; записывает ответы в T-INIT без выбора архитектуры'
+next_action_success_criterion: Есть явные ответы/UNKNOWN по каждому полю с источником пользователя; затем можно
+  составить паспорт выбранного сырья и программу проверки годности
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
-previous_work_commit: 9420968d34e47a6640672a0c339f200cb298739e
+previous_work_commit: e8e6230a7df2c7e25b3edcaf61737f9ede7be694
 ```
 
 ## Очередь следующей модели
 
 | Порядок | task_id | Адресат | Действие | Условие начала |
 |---|---|---|---|---|
-| 1 | T-INIT | @R1 | Ответы на Q-codex-01-01/02 и независимый review документального проекта | Claim и lease проверять перед продолжением; критерии UNKNOWN |
+| 1 | T-INIT | @R1 | Уточнить D-REV-01…04 и независимо проверить rev2 | Claim/lease действительны; ответы и критерии UNKNOWN, G1 открыт |
 
 После назначения сначала читать запись T-INIT. Если входов нет, фиксировать UNKNOWN и готовить структуру требований; не выдавать проект ТЗ за утверждённое ТЗ.
 
@@ -135,4 +149,6 @@ Workflow подготовлен; его выполнение и настройк
 
 Назначение R1 подтверждено; claim принят в main. Паспорт и проект требований/матрицы/нормативной области подготовлены, требуется
 независимая проверка и ответы на вопросы. T-INIT не завершена; G1 остаётся NOT_STARTED.
-Текущий результат документальной части: commit e8e6230a7df2c7e25b3edcaf61737f9ede7be694.
+Текущий результат: ревизия 2, commit 030a348eb11832999faf5710379e11f4b530ff7a.
+Исследование: sources/functional_analysis_r2.md; подтверждённая цель отделена от OBS/HYP.
+Выбор архитектуры, расчёты и утверждение G1 не выполнялись.
