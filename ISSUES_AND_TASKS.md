@@ -22,26 +22,27 @@ ID после создания не меняется. Для параллель�
 ## T-INIT
 
 - Название: подготовить паспорт исходных данных и проект требований аналога.
-- Автор: TEMPLATE. Адресат: @R1. Приоритет: P1. Статус: CLAIMED (предложение в рабочей ветке; вступает в силу только после принятия claim в main).
+- Автор: TEMPLATE. Адресат: @R1. Приоритет: P1. Статус: CLAIMED; claim принят в main, инженерная работа до применимого входного review не начата.
 - owner_session / model_label / assignment_evidence: codex-01 / Codex / прямое подтверждение пользователем в текущей беседе: «Подтверждаю назначение Codex на роль R1 — системный анализ и валидация. Сессия codex-01, задача T-INIT»; зафиксировано 2026-11-10T12:06:09Z.
 - session_id / role / assignment_utc: codex-01 / R1 / 2026-11-10T12:06:09Z.
 - capabilities: Git read и локальные commits; Python 3.12.14, PyYAML 6.0.3; проверка реестра и 71 тест выполнены при настройке среды; четыре PDF доступны для чтения. Git push проверяется отдельно; GitHub API недоступен (CONNECT 403); CAD/CAE — UNAVAILABLE (не проверены запуском).
-- base_commit / claim_commit / heartbeat_utc / lease_expires_at: 2e479849cea10dab9376a68cb44d2ff716c215da / см. последующую запись claim_record_commit в STATE.md и NEXT_MODEL.md / 2026-11-10T12:06:09Z / 2026-11-11T12:06:09Z.
+- base_commit / claim_commit / heartbeat_utc / lease_expires_at: 2e479849cea10dab9376a68cb44d2ff716c215da / см. последующую запись claim_record_commit в STATE.md и NEXT_MODEL.md / 2026-11-10T12:20:14Z / 2026-11-11T12:06:09Z.
 - branch: work/T-INIT/codex-01.
 - claim_scope: ближайшая атомарная подзадача — инвентаризация четырёх исходных PDF и паспорт источников; до принятия claim в main анализ не начинать.
-- claim_acceptance: PENDING_MAIN_MERGE; запись в этой ветке не является действующим захватом. Перед merge повторно проверить main, owner_session, lease и входы; при истечении lease оформить продление, не начинать работу по просроченному claim.
+- claim_acceptance: ACCEPTED_MAIN; merge PR #1: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17. Вхождение claim a31a6d86cde8799807e6d21454deda8db55b695a и владелец codex-01 проверены до чтения источников. Lease не продлён; перед продолжением проверять срок и конкурирующие изменения.
 - input_refs: AGENTS.md, AGENT_PROTOCOL.md, STATE.md, NEXT_MODEL.md, roles/role_profiles_summary.md, params/registry.yaml, reviews/cross_check_log.md, project/source_manifest.json, sources/raw/ — версии из commit 2e479849cea10dab9376a68cb44d2ff716c215da.
 - lease_basis: 24 часа для принятия claim и ближайшей подзадачи; продление оформляется отдельной принятой записью.
 - Входы: AGENT_PROTOCOL.md, STATE.md, roles/role_profiles_summary.md; пользовательские источники при их наличии.
 - Параметры: проектные отсутствуют. DEMO_* запрещено переносить автоматически.
-- Входной review: требуется до инженерных выводов; отсутствие источника фиксировать как ограничение.
+- Входной review: независимый акт NOT_RUN; выполнен ограниченный документальный self-check reviews/input_inventory_codex_01.md. Он не разрешает инженерные выводы и не заменяет независимый review.
 - Результаты: sources/index.md, requirements/system_requirements.md, requirements/verification_matrix.md, decisions/standards_scope.md.
 - Критерии DONE: источники инвентаризированы; известное отделено от UNKNOWN; для каждого требования заданы ID, величина/критерий или явный пробел, метод проверки, владелец; проект проверен независимой сессией.
 - G1 при этом остаётся открытым до утверждения ТЗ пользователем.
 - Зависимости / блокируемые задачи: NONE / NONE.
 - Вопросы: назначение изделия и доступные исходные документы, если не заданы пользователем.
-- Выходной review / решение / handoff: NONE / NONE / NONE.
-- История: TEMPLATE_CREATED; 2026-11-10T12:06:09Z / codex-01 / роль R1 утверждена пользователем; READY → CLAIMED предложено для последовательного принятия в main; анализ источников не начат; ТЗ не утверждено.
+- Промежуточный результат: sources/index.md — паспорт четырёх PDF; evidence/source_inventory_codex_01.json — хэши, размеры, страницы и текстовый слой. Числа изделий в registry не переносились.
+- Выходной review / решение / handoff: требуется независимая проверка паспорта / NONE / handoffs/T-INIT/codex-01.md.
+- История: TEMPLATE_CREATED; 2026-11-10T12:06:09Z / codex-01 / роль R1 утверждена пользователем; READY → CLAIMED предложено для последовательного принятия в main; анализ источников на момент claim не начат; 2026-11-10T12:20:14Z / принятие claim в main подтверждено; документальная инвентаризация и паспорт подготовлены, без инженерных выводов; ТЗ не утверждено.
 
 ## Форма новой записи — копировать и заполнить
 
