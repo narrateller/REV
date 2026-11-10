@@ -1,4 +1,4 @@
-# Капсула — уточнённая постановка и независимый R5
+# Капсула R1 — арбитраж Q-R5-RECHECK-03
 
 ```yaml
 capsule_version: '1.0'
@@ -10,9 +10,9 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T16:21:13Z'
+created_at_utc: '2026-11-10T17:42:58Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: 7e99ecf87874b3bc53b1c08f115b2b5ee2ad4c3c
+work_commit: 1283c9e6f3b14dbbe820dd06798399c611d34ce8
 branch: work/T-INIT/codex-01
 availability: REMOTE
 claim_record:
@@ -20,33 +20,39 @@ claim_record:
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-  heartbeat_utc: '2026-11-10T16:21:13Z'
-subtask: Постановка модели rev2 опубликована и передана независимому R5; проверка завершена WARNING
+  heartbeat_utc: '2026-11-10T17:42:58Z'
+subtask: Арбитраж Q-R5-RECHECK-03 опубликован до возобновления R4, контрпримеры воспроизведены
 input_refs:
-- commit: 1e28c85b8c747c28e15e85060822731844d418ec
+- commit: 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b
   paths:
-  - models/first_digital_model_brief.md
-  - controls/press_variant_state_tables.md
-- reviewed_commit: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb
-  review_id: REV-R5-MODEL-REVIEW-01-001
+  - models/kinematic_press/model.py
+  - models/kinematic_press/phase_plan.json
+  - models/kinematic_press/phase_inputs_synthetic.json
+- commit: 7e425a195bb8dd9b2609036a9333a196c71357a5
+  paths:
+  - verification/r5_recheck_03/review.md
+  - verification/r5_recheck_03/arbitration.md
+  - verification/r5_recheck_03/probe.py
+  - reviews/cross_check_log.md
 changed_files:
-- models/first_digital_model_brief.md
+- decisions/ARB-R1-RECHECK-03.md
+- verification/r1_arbitration_03/probe_results.json
+- verification/r1_arbitration_03/reproduction.json
 - ISSUES_AND_TASKS.md
-- reviews/cross_check_log.md
 completed_steps:
-- Проверены main, owner/lease и исходная постановка
-- Обязательна непрерывная/консервативно полная проверка всего хода; недоказанное отсутствие коллизии даёт INDETERMINATE
-- Разделены проекции, траектории/огибающие без времени и одновременная коллизия тел
-- Добавлены пять SYN-MODEL-01…05 с ожидаемыми результатами
-- Опубликован immutable SHA 3aebae606011ded0f6d6e0a8d6ccc15094d88feb и передан read-only R5 r5-model-review-01
-- R5 выдал WARNING, обязательных исправлений не нашёл; допустима synthetic-only передача R4 после назначения/claim
-- Акт и хэши двух immutable artifacts сохранены; код/fixtures/стенд не запускались
+- Сверены main/claim/lease R1 и R4; получена опубликованная R5-история fast-forward без изменения кода
+- 'Воспроизведён CE-01: неподвижное изделие получает SUFFICIENT_STROKE/CONSISTENT'
+- 'Воспроизведён CE-02: matrix пропускает punch/channel_wall, прямой контакт [0,1]'
+- Свежие данные probe совпали с отчётом R5; код/fixtures/результаты R4 неизменны
+- Сохранена исходная область, выбран один параметризованный связный сценарий A/B
+- Заданы четыре исхода, проверяемые контакты, READY/lifecycle и полный состав пар с доказательствами исключений
+- Опубликовано решение R1 и критерии нового независимого RECHECK; блокеры не закрыты
 unfinished_step:
-  exact_expression_or_node: Назначение и claim исполнителя T-codex-01-01, затем исследовательская реализация
-    и отдельная приёмка кода/результатов
-  last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS документов и immutable artifacts review
-  observed_result: PASS; результаты будущего кода NOT_RUN
+  exact_expression_or_node: Корректирующая реализация r4-model-01 по опубликованному арбитражу, затем независимый
+    RECHECK точного нового SHA
+  last_successful_command: .venv/bin/python verification/r5_recheck_03/probe.py
+  expected_result: Воспроизвести оба дефекта, не принять модель
+  observed_result: Совпадение JSON с R5, оба контрпримера подтверждены
 environment:
   tool_versions:
   - Python 3.12.14
@@ -57,27 +63,26 @@ environment:
   seeds: []
 running_jobs: []
 open_hypotheses:
-- Обе архитектуры сохраняются; геометрическая модель не подтверждает сырьё/силы/безопасность
-- Полнота будущего алгоритма и пять synthetic случаев ещё не проверены исполнением
+- Связь punch/product, полный жизненный цикл/READY и достаточность выдачи должны быть доказаны в исправленном
+  synthetic сценарии
+- Полнота пар должна следовать из независимого состава сцены; CE-02 обязан ловиться самой матрицей
 blocker_ids: []
 review_refs:
-- 'REV-R5-REVIEW-01-001: WARNING на эскизы 6fe0a417…; R5-OBS-01…04 остаются OPEN'
-- 'REV-R5-MODEL-REVIEW-01-001: WARNING на постановку/циклы 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; обязательных
-  исправлений нет, R4 synthetic-only после назначения/claim'
+- 'REV-R5-RECHECK-03-001: REJECT_WITH_BLOCKER на 36cda813…; R5-IMPL-01/02 OPEN, consecutive_rejections=2'
+- ARB-R1-RECHECK-03 решает вопрос плана, не заменяет RECHECK и не выбирает архитектуру
 uncommitted_or_unsaved: []
-next_action: Оформить назначение/claim R4 на T-codex-01-01 с входом 3aebae606011ded0f6d6e0a8d6ccc15094d88feb
-  и актом REV-R5-MODEL-REVIEW-01-001; после принятия claim реализовать только исследовательский инструмент/изолированные
-  synthetic fixtures
-next_action_success_criterion: Есть назначенный исполнитель и принятый claim с immutable входами; ограничения
-  synthetic-only сохранены, реальная геометрия REV UNKNOWN, архитектура/G1 не утверждены
+next_action: R4 fetch опубликованное решение 1283c9e6f3b14dbbe820dd06798399c611d34ce8, сверяет main/owner/lease
+  и фиксирует его SHA в своей капсуле; затем начинает только corrective iteration SYN-LINKED-EJECTION A/B и
+  полной матрицы пар
+next_action_success_criterion: Публикация решения и критериев предшествует началу R4; исправления/новые результаты
+  имеют отдельный SHA и предъявляются независимому R5; приёмка остаётся BLOCKED до снятия R5-IMPL-01/02
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
-previous_work_commit: bacc5ff5e18819d8799c931d1091df7bce9bfe7a
+previous_work_commit: 7e99ecf87874b3bc53b1c08f115b2b5ee2ad4c3c
 ```
 
-C с актом опубликован. Проверенный SHA постановки: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb.
-Обязательных исправлений reviewer не обнаружил. Передача R4 разрешена только
-для изолированного synthetic исследования после назначения/claim; код и
-результаты потребуют отдельного review. Старые замечания эскизов не закрыты.
+C решения уже опубликован; этот H сохраняет эстафету и сводки. Q разрешён
+только по плану. Блокеры OPEN, счётчик 2, код R4 не исправлялся, приёмка/G1
+не утверждены. R4 должен взять точный SHA C до начала разрешённой итерации.
