@@ -10,8 +10,8 @@
 | Источники прототипа | UNKNOWN; см. входные задачи |
 | Принятое ТЗ / базовая линия | NONE / NONE |
 | Режим | PROJECT; исходные требования ещё не утверждены |
-| Текущая ветка / база | Заполняются при назначении сессии |
-| Последнее обновление UTC / session_id | 2026-11-10T10:06:11Z / OPERATOR_INIT |
+| Текущая ветка / база | work/T-INIT/codex-01 / 2e479849cea10dab9376a68cb44d2ff716c215da |
+| Последнее обновление UTC / session_id | 2026-11-10T12:06:09Z / codex-01 |
 | enforcement | PROCEDURAL; серверные ограничения не проверены |
 | Численная база | params/registry.yaml |
 | Задачи / проверки | ISSUES_AND_TASKS.md / reviews/cross_check_log.md |
@@ -35,25 +35,25 @@
 
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
-| NONE | NONE | NONE | NONE | NONE | NONE |
+| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | PENDING_MAIN_MERGE; claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T12:06:09Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
 
 ## Active Handoff Capsule
 
 ```yaml
 capsule_version: '1.0'
-status: NONE # ACTIVE, BLOCKED, RESUMED, ARCHIVED
-task_id: null
-role: null
-session_id: null
-model_label: null
-author_sessions: []
-assignment_evidence: null
-created_at_utc: null
-base_commit: null
-work_commit: null # C с рабочими файлами; капсула находится в следующем H
-branch: null
-availability: NONE # REMOTE, LOCAL_ONLY, UNSAVED
-claim_record: null
+status: BLOCKED # Только ожидание принятия claim; инженерный блокер не установлен
+task_id: T-INIT
+role: R1
+session_id: codex-01
+model_label: Codex
+author_sessions: [codex-01]
+assignment_evidence: "Прямое подтверждение пользователем; ISSUES_AND_TASKS.md, T-INIT"
+created_at_utc: 2026-11-10T12:06:09Z
+base_commit: 2e479849cea10dab9376a68cb44d2ff716c215da
+work_commit: a31a6d86cde8799807e6d21454deda8db55b695a # C с claim; капсула находится в следующем H
+branch: work/T-INIT/codex-01
+availability: LOCAL_ONLY # Удалённую доступность проверить через Git после push
+claim_record: "ISSUES_AND_TASKS.md, T-INIT; claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; PENDING_MAIN_MERGE"
 subtask: null
 input_refs: [] # path, commit/hash, parameter_id, revision
 changed_files: []
@@ -71,16 +71,16 @@ open_hypotheses: []
 blocker_ids: []
 review_refs: []
 uncommitted_or_unsaved: []
-next_action: null # одна точная команда или одно действие с узлом
-next_action_success_criterion: null
-stop_conditions: []
+next_action: "Проверить принятие claim в актуальной main и действительность lease"
+next_action_success_criterion: "main содержит принятый claim codex-01 без конкурирующего владельца; lease действителен"
+stop_conditions: ["claim не принят в main", "lease истёк", "конкурирующий claim или изменившиеся входы"]
 ```
 
 ## Очередь следующей модели
 
 | Порядок | task_id | Адресат | Действие | Условие начала |
 |---|---|---|---|---|
-| 1 | T-INIT | @R1 | Инвентаризация данных и проект ТЗ | Подтверждение роли R1 |
+| 1 | T-INIT | @R1 | Инвентаризация данных и проект ТЗ | После принятия claim codex-01 в main и проверки lease |
 
 После назначения сначала читать запись T-INIT. Если входов нет, фиксировать UNKNOWN и готовить структуру требований; не выдавать проект ТЗ за утверждённое ТЗ.
 
@@ -93,3 +93,6 @@ Workflow подготовлен; его выполнение и настройк
 ## Переход к следующей модели
 
 Действующая инструкция для нового участника: NEXT_MODEL.md. После завершения задачи исполнитель обновляет её вместе с капсулой; см. AGENT_PROTOCOL.md, раздел 10.
+
+Назначение R1 подтверждено пользователем. Claim пока предложен в рабочей ветке;
+до принятия в main анализ источников не начинается. G1 остаётся NOT_STARTED.
