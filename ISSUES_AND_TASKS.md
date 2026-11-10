@@ -18,7 +18,7 @@ ID после создания не меняется. Для параллель�
 | ID | Тип | P | Адресат | Статус | Owner | Зависимости | Ворота |
 |---|---|---|---|---|---|---|---|
 | T-INIT | TASK | P1 | @R1 | CLAIMED | codex-01 | NONE | G1 |
-| T-r2-material-01 | TASK | P1 | @R2 | READY | NONE | принятие claim в main | G1 |
+| T-r2-material-01 | TASK | P1 | @R2 | CLAIMED | r2-material-01 | входной акт и документальная работа | G1 |
 | Q-codex-01-01 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
@@ -338,7 +338,7 @@ R1 подготовил проект process/input_material_measurement_passport
 
 ## T-r2-material-01 — документальное сравнение методов для сырья
 
-- Тип: TASK; родитель: T-INIT; приоритет P1; адресат R2; статус READY; owner NONE до принятия claim в main.
+- Тип: TASK; родитель: T-INIT; приоритет P1; адресат R2; статус CLAIMED; owner r2-material-01 после последовательного принятия claim PR #6 в main.
 - Назначение: пользователь прямо назначил Codex на R2 по T-INIT и поручил отдельную задачу и claim. Сессия r2-material-01; model_label Codex; assignment_utc 2026-11-10T23:45:21Z.
 - База: 47511c3f7f3eebe69e2c8f8e4863d68c74d36b72; origin/main сверена на этом SHA. Входы на этой базе: process/input_material_measurement_passport.md, process/feedstock.md, process/sampling_plan.md; применимые требования и review по необходимости.
 - Результат после принятия claim и входного акта: документальное сравнение вариантов измерения состава, остаточного металла, влажности, размеров частиц и насыпной плотности с основаниями, областью применимости, ограничениями, неопределённостями и недостающими данными. Источники и их проверяемые редакции указывать по фактической доступности, непроверенные не выдавать за установленные. Выход предназначен для последующего независимого review.
@@ -350,6 +350,10 @@ R1 подготовил проект process/input_material_measurement_passport
 - session_id / model_label / role: r2-material-01 / Codex / R2; основание — прямое назначение пользователем.
 - base_commit: 47511c3f7f3eebe69e2c8f8e4863d68c74d36b72; branch: work-r2/T-r2-material-01/r2-material-01. Обычное имя work/<task>/<session> недоступно: локальная ветка work занимает этот префикс.
 - heartbeat_utc: 2026-11-10T23:45:21Z; lease_expires_at: 2026-11-11T23:45:21Z; срок предложен для принятия и ближайшей документальной задачи, не является принятым продлением.
-- proposed_owner_session: r2-material-01; claim_acceptance: PENDING_MAIN; claim_record_commit: см. commit этой записи; owner_session: NONE до последовательного принятия.
+- proposed_owner_session / owner_session: r2-material-01; claim_acceptance: ACCEPTED_MAIN; claim_record_commit: dd57126ae68fccddcfaeeef087efe07e995d0e60; acceptance_merge: 6ccc31bef5a49a600d162cb7ab99fd0aed40d457 (PR #6). Срок до 2026-11-11T23:45:21Z не продлён.
 - Возможности: чтение Git и локальный commit; Python 3.12 и проверки ранее доступны в среде; доступ к внешним источникам и запись в удалённый репозиторий для этой задачи не подтверждены. CAD/CAE не проверены.
 - До начала результата: последовательное принятие этой задачи и claim в общую ветку; сверка origin/main, owner, срока lease и входной базы; входной акт. При конкуренции или изменении входов — повторная оценка до работы.
+
+## Принятие claim R2 в PR #6
+
+Сверены main `6ccc31bef5a49a600d162cb7ab99fd0aed40d457`, merge PR #6, и вхождение claim `dd57126ae68fccddcfaeeef087efe07e995d0e60`; на исходной базе конкурирующий owner отсутствовал. Сессия `r2-material-01` получила claim до `2026-11-11T23:45:21Z`. Перед работой сверить актуальные main/owner/lease/входы и оформить входной акт; пробы и испытания не запускать. G1 OPEN.

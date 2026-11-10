@@ -265,3 +265,7 @@ OP-REV-11: предварительный конец поставки по вы�
 ## Паспорт групп измерений
 
 R1 подготовил process/input_material_measurement_passport.md для будущей документальной оценки R2. Методы и значения UNKNOWN; пробы/испытания NOT_RUN, B01…03 и G1 OPEN.
+
+## Принятие claim R2
+
+PR #6 принят в main `6ccc31bef5a49a600d162cb7ab99fd0aed40d457`, claim `dd57126ae68fccddcfaeeef087efe07e995d0e60` для `r2-material-01`, lease до 2026-11-11T23:45:21Z. Учётное исправление трекера в этой ветке ещё требует интеграции. Пробы/испытания NOT_RUN, G1 OPEN.
