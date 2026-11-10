@@ -53,7 +53,7 @@ class ContinuousChecks(unittest.TestCase):
         inputs=json.loads((Path(__file__).parent/'phase_inputs_synthetic.json').read_text())
         plan=json.loads((Path(__file__).parent/'phase_plan.json').read_text())
         press=inputs['phases']['A-PRESS']; out=inputs['phases']['A-OUT']
-        self.assertEqual(verify_a_out(press,out),'CONSISTENT')
+        self.assertNotEqual(verify_a_out(press,out),'CONSISTENT')
         out['time']=[20,21]
         self.assertEqual(verify_a_out(press,out),'BLOCKED')
         inputs['phases']['B-OPEN']['motion_type']='rotating'

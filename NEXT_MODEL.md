@@ -42,3 +42,15 @@
 - После исправления: новый неизменяемый code/results SHA, свежие отчёты, все 4 исхода A/B, мутации разрыва позиции/времени/lifecycle, UNKNOWN и регрессии закрытого R5-IMPL-02; независимый R5 не автор исправления. Только положительный новый RECHECK может закрыть R5-IMPL-01.
 - Самопроверка R1: 5 SHA256 совпали с Git blobs 576a17fc; в сохранённом отчёте B/collision mismatches output_obstacle при matches_expected true; 8 существующих test_linked проходят во временной копии. Это не новый независимый review.
 - Прежний claim R4 owner r4-model-01 до 2026-11-11T16:52:25Z, проверять заново; R1 codex-01 до 2026-11-11T12:06:09Z. Реальные данные/физика/безопасность REV UNKNOWN; параметры не менялись.
+
+## Эстафета R4/R5 (историческая)
+
+# Повторная проверка R5 — SYN-LINKED-EJECTION
+
+- Задача T-codex-01-01; автор исправления r4-model-01 / R4. Точный code/results C: 576a17fc0b127cb7d377992c01d645a77bed42d4; ветка work/T-codex-01-01/r4-model-01. Следующий участник — независимый R5, не соавтор C; review NOT_RUN.
+- Р1 решение ARB-R1-RECHECK-03 на 1283c9e6f3b14dbbe820dd06798399c611d34ce8; входной REJECT_WITH_BLOCKER REV-R5-RECHECK-03-001 на 9e12e8bd4f2325ae0e887d3f2e28eaa85c55205f; R5-IMPL-01/02 OPEN, consecutive_rejections=2. Изменённые артефакты делают акт STALE для новой версии, блокеры сохраняются.
+- Перед началом проверить SHA ветки/C и хэши входов отчёта. Выполнить python3 models/kinematic_press/model.py; python3 models/kinematic_press/run_linked.py; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 verification/r5_model_02/independent_check.py; python3 scripts/check_registry.py --check-git.
+- Отчёт models/kinematic_press/results/linked_report.json: четыре исхода на каждом из A/B (8/8 ожиданий), матрицы по стадиям, интерфейсы, непрерывность, жизненный цикл и READY. Отчёт results/report.json сохраняет старые 28 cases и полные пары для исходной сцены.
+- CE-01 scalar против неподвижного продукта INVALID_INPUT, неподвижный A-OUT не CONSISTENT; CE-02 матрица B-EJECT находит punch/channel_wall [0,1] и блокирует переход. Авторские результаты: 17 unittest OK, benchmark R5 3000/3000, registry PASS, повторный запуск JSON воспроизводим.
+- R5 должен независимо оценить метод контактной поверхности, парную полноту и мутации, геометрию и временные границы всех стадий, доказательство реального synthetic READY и ограничения, а также все критерии решения R1. Число совпадений само по себе не закрывает блокеры.
+- Синтетические допущения о разгрузке/удержании/замке не являются данными REV; параметры и силы UNKNOWN, G1 открыт. Капсула handoffs/T-codex-01-01/r4-model-01.md.

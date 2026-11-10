@@ -213,3 +213,11 @@ R5-IMPL-02 закрыт в указанной synthetic области, R5-IMPL-
 ## Решение R1: приёмка synthetic результата
 
 R1 принял `debfd085` в ограниченной области synthetic AABB; независимый R5 `r5-implementation-02`, акт и probe сохранены и зарегистрированы. Задача IN_REVIEW до последовательной интеграции с моделью и доказательствами; G1 OPEN. См. verification/t_codex_01_01_acceptance/r1_assessment.md.
+
+## Повторная передача R5
+
+T-codex-01-01: исправления на 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b, запрос RECHECK к REV-R5-IMPL-02-001; R5-IMPL-01/02 OPEN до независимого акта. 127/127 пар лишь в разнесённой синтетической геометрии, REV 0/127; физическая связность не подтверждена. G1 открыт.
+
+## Исправление по арбитражу R1
+
+SYN-LINKED-EJECTION: code/results 576a17fc0b127cb7d377992c01d645a77bed42d4; ARB-R1-RECHECK-03 1283c9e6f3b14dbbe820dd06798399c611d34ce8; независимый R5 RECHECK NOT_RUN. R5-IMPL-01/02 OPEN, consecutive_rejections=2; G1 открыт. Синтетический READY не подтверждает реальные условия REV.

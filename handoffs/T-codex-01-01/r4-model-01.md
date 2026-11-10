@@ -1,9 +1,10 @@
-# Передача R4 на независимый R5 — T-codex-01-01
+# R4 → R5: RECHECK SYN-LINKED-EJECTION
 
-- status: IN_REVIEW; author_session: r4-model-01; work_commit: 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; branch: work/T-codex-01-01/r4-model-01.
-- reviewed input commit: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; input review REV-R5-MODEL-REVIEW-01-001 WARNING; input audit models/kinematic_press/input_audit.md.
-- Исправлен ejection: [] → INVALID_INPUT, collision независим; регрессионный тест; 13 фаз, явные пары и гипотетические силовые пути A/B, раздельное отображение проверенных и непроверенных пар.
-- Команда python3 models/kinematic_press/model.py: пять synthetic случаев с ожидаемыми статусами, плюс INVALID_INPUT; 04 содержит два подслучая. 6 unit tests OK; check_registry --check-git PASS.
-- Ограничения: 2 synthetic пары проверены, 60 нет; REV 0/62. Указанные пары — исследовательские кандидаты, полнота не установлена. Параметры REV и допуски UNKNOWN, силовые контуры не подтверждены. G1 открыт; R5-OBS-01…04 OPEN.
-- Запрос независимому R5 в ISSUES_AND_TASKS.md. Reviewer не должен быть автором этой версии; независимый акт NOT_RUN. Проверить точный C, исходные данные/хэши, метод и результаты, соответствие фаз и пути нагрузки.
-- running_jobs: []; незакоммиченные результаты: []; любые изменения кода/входов требуют повторного запуска и нового точного SHA для review.
+- status IN_REVIEW; author_session r4-model-01; code/results commit 576a17fc0b127cb7d377992c01d645a77bed42d4; branch work/T-codex-01-01/r4-model-01.
+- Арбитраж ARB-R1-RECHECK-03: 1283c9e6f3b14dbbe820dd06798399c611d34ce8, решения и критерии decisions/ARB-R1-RECHECK-03.md; R5-IMPL-01/02 OPEN, consecutive_rejections=2. Проверенная main 2f463babdc84382a0ab2502f4acfa7a2047087df; lease до 2026-11-11T16:52:25Z.
+- Выполнено: параметры A/B, четыре исхода, геометрический непрерывный интерфейс и выдача, все пары независимо заданного состава, условия READY/жизненный цикл, CE-01/02. Отчёт models/kinematic_press/results/linked_report.json; README содержит команды.
+- Проверки автора: 8/8 исходов соответствуют контракту; CE-01/02 PASS; прежние 28 synthetic результатов сохранены; 17 unittest OK, R5 benchmark 3000/3000; registry PASS; JSON воспроизводим. Независимая проверка исправлений NOT_RUN.
+- Следующий шаг R5: fetch ветку/C, сверить SHA и результаты, проверить каждый критерий R1 и собственные контрпримеры, оформить отдельный акт и независимо решить судьбу блокеров. Нельзя закрывать G1 или утверждать реальную выдачу по synthetic сцене.
+- running_jobs []; uncommitted_or_unsaved []; физика/реальные данные REV UNKNOWN.
+
+- 2026-11-10: вход R1 verification/r5_recheck_04/disposition.md на 791d0ce8ccb31373b221d0b69063e2f835b442c0; капсула 5ff71747b7263220ab25c56f3d329253ee42356d. main 2f463babdc84382a0ab2502f4acfa7a2047087df, owner r4-model-01, lease до 2026-11-11T16:52:25Z. R5-IMPL-01 OPEN; R5-IMPL-02 CLOSED только для проверенной синтетической области 576a17fc; G1 открыт.

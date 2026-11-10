@@ -548,7 +548,7 @@ findings:
   owner_role: R4
   task_id: T-codex-01-01
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 allowed_downstream_scope: Только заданные synthetic пары поддержанного ядра; следующая
   итерация после решения R1 по арбитражу.
 excluded_claims:
@@ -635,3 +635,7 @@ reproduction_artifacts:
 - verification/r5_recheck_05/published_review.md
 - verification/r5_recheck_05/probe.py
 ```
+
+## REV-R5-RECHECK-05-001 — дополнение
+
+Независимый R5 для `debfd085842ccae079cfd6faea1c41bca20f335d`: PASS по плану в заданной synthetic AABB области; R5-IMPL-01 может быть закрыт на этом SHA, регрессия R5-IMPL-02 PASS в той же области. Подробности, команды и ограничения: verification/r5_recheck_05/review.md. G1 открыт.
