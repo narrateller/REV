@@ -233,3 +233,7 @@ SYN-LINKED-EJECTION: code/results 576a17fc0b127cb7d377992c01d645a77bed42d4; ARB-
 На базе `b527c62ba9f1f37a5176dc9ed45b4b245bcdb49d` подготовлены документальные исправления W01…04 и план по B01…03; все ожидают независимого RECHECK, три блокера остаются OPEN. Физические данные UNKNOWN/NOT_RUN, G1 OPEN. См. verification/requirement_criteria_development.md и NEXT_MODEL.md.
 
 Ограниченный RECHECK REV-R5-TZ-RECHECK-01-001 на a02420fd3b100447550740a417d75c8608206cd7: W01…04 CLOSED документально; B01…03 OPEN, вердикт REJECT_WITH_BLOCKER для утверждения ТЗ/G1. См. verification/r5_tz_recheck_01/review.md. G1 OPEN, архитектура не утверждена.
+
+## Независимый RECHECK и дальнейшая работа по ТЗ
+
+`f1edde47c580308aed7c1308281fc3069e25ccd7`: W01…04 CLOSED документально, B01…03 OPEN; G1 OPEN, испытания/пробы NOT_RUN. Исправлены исторические ссылки на rev3 схемы; проверенный акт STALE относительно этих редакционных изменений, W01…04 не переоткрыты. Порядок доработки — verification/g1_blocker_workplan.md, текущая эстафета — NEXT_MODEL.md.

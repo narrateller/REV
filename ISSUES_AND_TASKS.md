@@ -301,3 +301,7 @@ REV-R5-TZ-REVIEW-01-001 и прежний REV-R5-REVIEW-01-001 STALE к изме
 ## Ограниченный RECHECK проекта ТЗ — REV-R5-TZ-RECHECK-01-001
 
 R5 `r5-implementation-02` проверил `a02420fd3b100447550740a417d75c8608206cd7`: W01…04 CLOSED только как документальные замечания, B01…03 OPEN, REJECT_WITH_BLOCKER для утверждения ТЗ/G1. REQ/VAL 22/22 структурно, UNKNOWN и NOT_RUN сохраняются. Полный акт: verification/r5_tz_recheck_01/review.md и reviews/cross_check_log.md. G1 OPEN; владелец T-INIT не меняется.
+
+## После REV-R5-TZ-RECHECK-01-001
+
+Акт `f1edde47c580308aed7c1308281fc3069e25ccd7`: W01…04 CLOSED как документальные замечания; B01…03 OPEN, REJECT_WITH_BLOCKER для ТЗ/G1. На замечание о ссылках ревизий указаны исторические rev1/rev2 и актуальная rev3 на `a02420fd3b100447550740a417d75c8608206cd7`; W01…04 не открываются повторно. Сам акт STALE относительно редакционно изменённых файлов, его вывод сохраняется для проверенного SHA. План последующих работ: verification/g1_blocker_workplan.md. G1 OPEN.
