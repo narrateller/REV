@@ -186,3 +186,9 @@ history: [] # UTC, session_id, from, to, reason, evidence
 ## Независимый OUTPUT review R5 / r5-implementation-02
 
 Прямое назначение пользователем; reviewer не автор R4. База эстафеты 9db87f53258b2a076ec8f42f4a4937ee2ee7c8b6, код/результаты 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb. Акт REV-R5-IMPL-02-001: ядро PASS в классе синхронных линейных AABB; фазовая модель REJECT_WITH_BLOCKER. R5-IMPL-01/02 OPEN, владелец исправлений R4, срок до повторной приёмки T-codex-01-01. Задача остаётся IN_REVIEW, не DONE. Подробный перечень фаз/сценариев: verification/r5_model_02/review.md. G1 и R5-OBS-01…04 открыты; owner R4 не меняется.
+
+## Повторная приёмка R5 / r5-recheck-03
+
+Прямое поручение пользователя; role R5, model_label Codex, session_id r5-recheck-03; reviewer не автор R4. Проверенный base_commit 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b; branch review/T-codex-01-01/r5-recheck-03 (префикс work занят существующей веткой work). UTC 2026-11-10T17:31:46.757730+00:00. Capabilities: Git HTTPS read, Python 3.12.14, PyYAML 6.0.3, локальные тесты/commits; CAD/CAE NOT_RUN. Это отдельная проверка, owner_session реализации r4-model-01 не меняется.
+
+REV-R5-RECHECK-03-001: R5-IMPL-01 OPEN, R5-IMPL-02 OPEN; REJECT_WITH_BLOCKER. T-codex-01-01 теперь BLOCKED (ранняя запись IN_REVIEW историческая); consecutive_rejections=2. Q-R5-RECHECK-03 OPEN для @R1, arbitration_ref verification/r5_recheck_03/arbitration.md. До решения R1 новая итерация остановлена. Минимальный связный сценарий и ожидаемые результаты в verification/r5_recheck_03/review.md. G1 NOT_STARTED, R5-OBS-01…04 открыты.
