@@ -568,3 +568,7 @@ reproduction_artifacts:
 - verification/r5_recheck_03/review.md
 supersedes: REV-R5-IMPL-02-001
 ```
+
+## REV-R5-RECHECK-05-001 — дополнение
+
+Независимый R5 для `debfd085842ccae079cfd6faea1c41bca20f335d`: PASS по плану в заданной synthetic AABB области; R5-IMPL-01 может быть закрыт на этом SHA, регрессия R5-IMPL-02 PASS в той же области. Подробности, команды и ограничения: verification/r5_recheck_05/review.md. G1 открыт.
