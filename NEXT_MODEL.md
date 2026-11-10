@@ -1,13 +1,9 @@
-# Эстафета R4 — T-codex-01-01
+# Эстафета R4 — частичная реализация T-codex-01-01
 
-- Сессия r4-model-01 / Codex / R4 назначена пользователем. Ветка work/T-codex-01-01/r4-model-01.
-- C claim: 99d2d5f81c8199ef97d132773e48111560869991, опубликован через Git HTTPS.
-- Статус CLAIMED, owner_session: r4-model-01; реализация NOT_STARTED, synthetic сценарии NOT_RUN. SVG/JSON результатов ещё нет.
-- Проверенная main: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17; задания/акта R5 в ней нет. Координаторская ветка: 60ae333219cc9d735f302bebef0792277fa6167d.
-- Задание и акт включены в main на 60ae333219cc9d735f302bebef0792277fa6167d; claim 99d2d5f принят отдельным последующим коммитом. Перед началом R4 проверяет фактический SHA main, owner и lease.
-- Immutable задание: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; REV-R5-MODEL-REVIEW-01-001 из 7e99ecf87874b3bc53b1c08f115b2b5ee2ad4c3c. Хэши brief/циклов сверены, совпадают.
-- После принятия: R4 fetch main, проверяет owner/lease/входы; оформляет входной акт, единицы/контакт/примитивы и реализует обе альтернативы, UNKNOWN-шаблон и пять synthetic сценариев. Точный code/results commit передаёт независимому reviewer.
-- Капсула: handoffs/T-codex-01-01/r4-model-01.md; независимый review будущей реализации NOT_RUN.
-- Проверки документов: python3 scripts/check_registry.py --check-git PASS; git diff --check PASS. Git push успешен. gh pr create не создал PR: GitHub GraphQL API Forbidden; Git read/write работают. Запрос координатору доставлен закоммиченными файлами опубликованной ветки; ответ пока отсутствует.
-- Ограничения: synthetic-only; параметры REV UNKNOWN; R5-OBS-01…04 не закрыты; архитектура/ТЗ не приняты, G1 открыт.
-- Существующая эстафета R1 сохранена в handoffs/T-INIT/codex-01.md на базе координатора.
+- Сессия r4-model-01 / Codex / R4; claim принят в main 2f463babdc84382a0ab2502f4acfa7a2047087df; lease до 2026-11-11T16:52:25Z. Сначала fetch main и повторно проверить owner/lease/входы.
+- Код и результаты: C b3ba802fb1bad642338a18ef82493f44ac069067; ветка work/T-codex-01-01/r4-model-01. Входной акт models/kinematic_press/input_audit.md; вход brief/циклы 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; документальный акт REV-R5-MODEL-REVIEW-01-001 WARNING.
+- Запуск: python3 models/kinematic_press/model.py; проверки: python3 -m unittest discover -s models/kinematic_press -p 'test_*.py' (4 OK), python3 scripts/check_registry.py --check-git (PASS). JSON/SVG в models/kinematic_press/results/.
+- Пять synthetic сценариев: 01 COLLISION; 02 NO_COLLISION с XY overlap; 03 NO_COLLISION с пересечением XY траекторий; 04 обе нехватки INDETERMINATE; 05 INSUFFICIENT_STROKE и NO_COLLISION. Дополнительно INVALID_INPUT. Это результаты автора, не независимое подтверждение.
+- Существенный остаток: это проверка отдельных пар в отдельных фазах, не полная модель альтернатив и их силовой топологии; непроверенные фазы/пары указаны в отчёте. Требуются полное моделирование/прослеживаемость по заданию и отдельная независимая проверка точного C, прежде чем считать задачу выполненной. Не выдавать частичный код за законченный пакет.
+- Результат для независимого reviewer: проверить аналитические шесть неравенств, границы численной модели и все synthetic случаи, точные хэши, а также перечисленный незавершённый объём. Проверка NOT_RUN; G1 открыт, реальные параметры UNKNOWN, R5-OBS-01…04 OPEN.
+- Капсула handoffs/T-codex-01-01/r4-model-01.md; работа в этой ветке, данные доступны после push.
