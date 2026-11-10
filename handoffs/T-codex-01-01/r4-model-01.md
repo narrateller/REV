@@ -10,3 +10,6 @@
 - Следующий шаг: fetch main, проверить включение задачи/акта/claim, owner r4-model-01 и lease. После принятия оформить входной акт и начать synthetic-only A/B.
 - Stop: claim не принят, lease истёк, конкурирующий owner или изменились проверенные входы.
 - UNKNOWN REV сохранены; G1 открыт; независимая приёмка будущего кода обязательна.
+
+- work_commit C: 99d2d5f81c8199ef97d132773e48111560869991; availability REMOTE (Git push успешен).
+- PR NOT_CREATED: gh pr create → GitHub GraphQL Forbidden. Запрос координатору опубликован в файлах; ответа/принятия нет.
