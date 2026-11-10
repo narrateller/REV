@@ -14,7 +14,7 @@
 | Принятое ТЗ / базовая линия | NONE / NONE |
 | Режим | PROJECT; цель подтверждена, проект требований rev6 не утверждён |
 | Текущая ветка / база | work/T-INIT/codex-01 / 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17 |
-| Последнее обновление UTC / session_id | 2026-11-10T14:33:09Z / codex-01 |
+| Последнее обновление UTC / session_id | 2026-11-10T14:47:19Z / codex-01 |
 | enforcement | PROCEDURAL; серверные ограничения не проверены |
 | Численная база | params/registry.yaml |
 | Задачи / проверки | ISSUES_AND_TASKS.md / reviews/cross_check_log.md |
@@ -32,6 +32,9 @@
 Здесь указаны функции; конкретные проверяющие не могут быть авторами проверяемых версий.
 Для каждого решения о воротах создать запись в `decisions/<decision_id>.md`: baseline commit, scope, evidence, exclusions, blocker_ids, approver, основание полномочий, UTC.
 Текущие решения: NONE. Текущие блокеры: NONE; отсутствие блокеров не означает прохождение ворот.
+Независимый review эскизов REV-R5-REVIEW-01-001: WARNING, допускает лишь
+ограниченную документальную проработку; четыре замечания OPEN. Новые циклы
+и задание цифровой модели этим актом не проверены.
 Открытые технические вопросы: собственная входная спецификация, состав партий/покрытий/клеёной
 древесины/примесей, остаточный металл, влажность и фракция по стадиям, состояние
 входа и границы поставки. Происхождение сырья и имеющиеся операции известны
@@ -43,7 +46,7 @@
 
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
-| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T14:33:09Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T14:47:19Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
 
 ## Active Handoff Capsule
 
@@ -57,9 +60,9 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T14:33:09Z'
+created_at_utc: '2026-11-10T14:47:19Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: 53a5dca0655144418833432e30db5d8313d2244c
+work_commit: bacc5ff5e18819d8799c931d1091df7bce9bfe7a
 branch: work/T-INIT/codex-01
 availability: REMOTE
 claim_record:
@@ -67,41 +70,36 @@ claim_record:
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-  heartbeat_utc: '2026-11-10T14:33:09Z'
-subtask: Таблица измерений и два функциональных эскиза всего пресса подготовлены
+  heartbeat_utc: '2026-11-10T14:47:19Z'
+subtask: Краткие циклы A/B, задание первой цифровой модели и независимый review эскизов подготовлены
 input_refs:
-- commit: f154a1444bbd75040b3be8c515dedc873ff611c2
+- commit: 6fe0a417ed2fde165e2fc01d625ec86ab810346e
   paths:
-  - NEXT_MODEL.md
+  - concepts/press_functional_alternatives.md
   - verification/feed_dosing_rig_scheme.md
   - sources/function_realization_comparison.md
-  - requirements/system_requirements.md
-  - requirements/verification_matrix.md
+  - NEXT_MODEL.md
 - source: Прямое поручение пользователя 2026-11-10
-  scope: Краткая таблица, различение отсутствия движения/потери F; два эскиза, силовой контур, стык дозатора,
-    данные выбора; без испытаний
+  scope: Таблицы циклов, модель/опыты, задание первой модели и передача эскизов независимому reviewer
 changed_files:
-- verification/feed_dosing_rig_scheme.md
-- concepts/press_functional_alternatives.md
-- requirements/system_requirements.md
-- requirements/verification_matrix.md
-- verification/press_function_test_plan.md
-- sources/function_realization_comparison.md
+- controls/press_variant_state_tables.md
+- models/first_digital_model_brief.md
+- reviews/cross_check_log.md
 - ISSUES_AND_TASKS.md
-- reviews/input_inventory_codex_01.md
 completed_steps:
-- Проверены main, owner и действующий lease
-- Добавлена таблица сигнал/точка/время/недостоверность для L/F/M, команды/положения и синхронизации
-- NO_MOTION_CONFIRMED отделён от SIGNAL_LOSS/INVALID; потеря F не считается пропуском потока
-- Подготовлены два эскиза всего пресса с материалом, движениями, силовыми контурами и стыком дозатора/камеры
-- Собраны данные выбора и непроверенные функции запуска/удержания/разгрузки/выдачи
-- Документальные проверки прошли; C опубликован, испытания не запускались
+- Проверены актуальная main, owner и срок claim
+- 'Подготовлены краткие циклы A/B: движение, разрешение, подтверждение и сбой'
+- Отделены геометрические/кинематические проверки от свойств сырья/сил/реальной выдачи
+- Предложена READY-задача T-codex-01-01 с входами/выходами/критериями, owner NONE, реализация NOT_STARTED
+- Эскизы immutable 6fe0a417… проверены отдельным R5 r5-review-01; WARNING, только документальное продолжение
+- Хэши трёх reviewed artifacts перепроверены; замечания/план и срок зафиксированы
+- C опубликован; модель/стенд/испытания не запускались
 unfinished_step:
-  exact_expression_or_node: Состояния/разрешения движений и критерии наблюдаемости/разгрузки для обоих вариантов;
-    геометрия/усилия не обоснованы
+  exact_expression_or_node: Независимая проверка новой постановки модели/циклов и назначение исполнителя первой
+    модели; открытые R5-OBS-01…04 не закрыты
   last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS документов, без инженерной приёмки
-  observed_result: PASS; 22 REQ ↔ 22 VAL, две Mermaid-схемы и пустые YAML-формы
+  expected_result: PASS документов и проверка immutable artifacts review; без инженерного PASS
+  observed_result: PASS; акт WARNING корректен, артефакты unchanged
 environment:
   tool_versions:
   - Python 3.12.14
@@ -112,32 +110,31 @@ environment:
   seeds: []
 running_jobs: []
 open_hypotheses:
-- 'Канал с зажимом: стартовое сопротивление и удержание столба ещё не доказаны'
-- 'Закрытая камера: механическое замыкание/разгрузка двери и ход главного пуансона для выдачи ещё не доказаны'
-- Стык дозатора/силовой камеры требует собственного опирания/отсечения, привод подачи не является проверенным
-  силовым затвором
+- Обе архитектуры сохраняются без выбора
+- Геометрический запас/ход не подтверждает реальные силы/остаточную энергию/удержание и качество брикета
+- 'R5-OBS-01…04: отсечение/опирание; разгрузка упора/выдача; старт/удержание канала; метрология F'
 blocker_ids: []
 review_refs:
-- reviews/input_inventory_codex_01.md — авторский self-check; независимый review NOT_RUN
+- 'REV-R5-REVIEW-01-001: WARNING; R5 r5-review-01; reviewed_commit 6fe0a417ed2fde165e2fc01d625ec86ab810346e;
+  только три listed artifacts'
+- Новые циклы и задание модели в этом C независимым review ещё не проверены
 uncommitted_or_unsaved: []
-next_action: 'Создать controls/press_variant_state_tables.md: для каждой фазы A/B указать команды, физические
-  разрешения, независимые подтверждения и реакцию на недостоверные сигналы/неполное заполнение/выход; не запускать
-  стенд'
-next_action_success_criterion: Учтены изоляция загрузочного окна, старт пустого канала/удержание при возврате,
-  замыкание и разгрузка упора перед открытием, свободная траектория выдачи; численные условия UNKNOWN с методом
-  будущего обоснования
+next_action: Независимо проверить постановку T-codex-01-01 и таблицы циклов, затем назначить/claim исполнителя
+  первой параметрической модели с фиксацией текущего C; до реализации не подменять UNKNOWN числами
+next_action_success_criterion: Проверены границы 2D/кинематики и отдельность свойств сырья/сил; есть назначение/claim
+  и точные входы; незаданные параметры ведут к INDETERMINATE, архитектура не выбирается
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
-previous_work_commit: 5adaa8e9945176e07fbabcc96ab09bced56716ff
+previous_work_commit: 53a5dca0655144418833432e30db5d8313d2244c
 ```
 
 ## Очередь следующей модели
 
 | Порядок | task_id | Адресат | Действие | Условие начала |
 |---|---|---|---|---|
-| 1 | T-INIT | @R1 | Таблицы состояний/разрешений для обоих эскизов пресса | Испытания не запускать; размеры/усилия UNKNOWN; независимый review и G1 открыты |
+| 1 | T-INIT | @R1 | Проверка постановки T-codex-01-01 и назначение/claim исполнителя модели | Только геометрия/кинематика, UNKNOWN не подменять; архитектура/G1 открыты |
 
 После назначения сначала читать запись T-INIT. Если входов нет, фиксировать UNKNOWN и готовить структуру требований; не выдавать проект ТЗ за утверждённое ТЗ.
 
@@ -153,7 +150,7 @@ Workflow подготовлен; его выполнение и настройк
 
 Назначение R1 подтверждено; claim принят в main. Паспорт и проект требований/матрицы/нормативной области подготовлены, требуется
 независимая проверка и ответы на вопросы. T-INIT не завершена; G1 остаётся NOT_STARTED.
-Текущий результат: таблица измерений и два эскиза, требования/матрица rev6, commit 53a5dca0655144418833432e30db5d8313d2244c.
+Текущий результат: циклы, задание первой модели и WARNING-review эскизов, commit bacc5ff5e18819d8799c931d1091df7bce9bfe7a.
 Операторские OP-данные сохранены; требования и испытания относятся к прессу.
 Товарные предложения — только архивный контекст, не условие продолжения.
 Исследование: sources/functional_analysis_r2.md; подтверждённая цель отделена от OBS/HYP.
