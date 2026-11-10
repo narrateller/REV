@@ -449,7 +449,7 @@ findings:
   owner_role: R4
   task_id: T-codex-01-01
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 allowed_downstream_scope: Использование проверенного ядра только для заданного класса
   synthetic пар; дополнение фаз R4.
 excluded_claims:

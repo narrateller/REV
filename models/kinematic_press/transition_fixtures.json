@@ -1,0 +1,122 @@
+{
+  "classification": "synthetic fixtures only",
+  "cases": [
+    {
+      "id": "T-A-ISOLATE-OPEN",
+      "previous": "A-ISOLATE",
+      "following": "A-PRESS",
+      "guards": {
+        "gate_isolated": false,
+        "feeder_retracted": true,
+        "clamp_ready": true
+      },
+      "expected": "BLOCKED",
+      "mutation": null
+    },
+    {
+      "id": "T-B-STOP-NOT-CLOSED",
+      "previous": "B-FILL",
+      "following": "B-PRESS",
+      "guards": {
+        "gate_isolated": true,
+        "feeder_retracted": true,
+        "stop_closed": false,
+        "lock_engaged": true
+      },
+      "expected": "BLOCKED",
+      "mutation": null
+    },
+    {
+      "id": "T-B-LOCK-NOT-CLOSED",
+      "previous": "B-FILL",
+      "following": "B-PRESS",
+      "guards": {
+        "gate_isolated": true,
+        "feeder_retracted": true,
+        "stop_closed": true,
+        "lock_engaged": false
+      },
+      "expected": "BLOCKED",
+      "mutation": null
+    },
+    {
+      "id": "T-B-UNLOAD-UNKNOWN",
+      "previous": "B-UNLOAD",
+      "following": "B-OPEN",
+      "guards": {},
+      "expected": "INDETERMINATE",
+      "mutation": null
+    },
+    {
+      "id": "T-B-OPEN-INCOMPLETE",
+      "previous": "B-OPEN",
+      "following": "B-EJECT",
+      "guards": {
+        "stop_open": false,
+        "lock_retracted": true,
+        "gate_isolated": true,
+        "feeder_retracted": true
+      },
+      "expected": "BLOCKED",
+      "mutation": null
+    },
+    {
+      "id": "T-B-PHASE-ORDER",
+      "previous": "B-PRESS",
+      "following": "B-OPEN",
+      "guards": {
+        "unloading_confirmed": true
+      },
+      "expected": "BLOCKED",
+      "mutation": null
+    },
+    {
+      "id": "T-B-BOUNDARY-MISMATCH",
+      "previous": "B-UNLOAD",
+      "following": "B-OPEN",
+      "guards": {
+        "unloading_confirmed": true
+      },
+      "expected": "BLOCKED",
+      "mutation": "boundary_mismatch"
+    },
+    {
+      "id": "T-B-SYNC-UNKNOWN",
+      "previous": "B-UNLOAD",
+      "following": "B-OPEN",
+      "guards": {
+        "unloading_confirmed": true
+      },
+      "expected": "INDETERMINATE",
+      "mutation": "unknown_sync"
+    },
+    {
+      "id": "T-B-OPEN-GUARD-CORRECT",
+      "previous": "B-UNLOAD",
+      "following": "B-OPEN",
+      "guards": {
+        "unloading_confirmed": true
+      },
+      "expected": "ALLOWED",
+      "mutation": null
+    },
+    {
+      "id": "T-B-RESET-RESIDUE",
+      "previous": "B-EJECT",
+      "following": "B-RESET",
+      "guards": {
+        "exit_clear": false
+      },
+      "expected": "BLOCKED",
+      "mutation": null
+    },
+    {
+      "id": "T-A-RETURN-HOLD-UNKNOWN",
+      "previous": "A-PRESS",
+      "following": "A-RETURN",
+      "guards": {},
+      "expected": "INDETERMINATE",
+      "mutation": null
+    }
+  ]
+}

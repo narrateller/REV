@@ -1,5 +1,5 @@
 {
-  "scope": "Candidate required interference pairs for this research model, not an exhaustive real-machine safety analysis. Names represent solid envelope obstacles, not empty spaces or permitted designed contacts.",
+  "scope": "Synthetic candidate matrix; named *_wall are solid components of frame/guide/channel, never a filled hollow assembly. Each absent wall or mounting is UNKNOWN; no completeness claim for real machine.",
   "units": {
     "length": "m",
     "time": "s"
@@ -22,14 +22,40 @@
         ],
         [
           "punch",
-          "loading_zone"
+          "guide_wall"
         ],
         [
-          "product",
-          "output_zone"
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "loading_obstacle"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "loading_obstacle",
+        "punch"
+      ]
     },
     "A-FILL": {
       "required_pairs": [
@@ -47,14 +73,40 @@
         ],
         [
           "punch",
-          "loading_zone"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
         ],
         [
           "feeder",
-          "frame"
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "loading_obstacle"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "loading_obstacle",
+        "punch"
+      ]
     },
     "A-ISOLATE": {
       "required_pairs": [
@@ -71,15 +123,36 @@
           "gate"
         ],
         [
-          "gate",
-          "frame"
+          "punch",
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
         ],
         [
           "feeder",
-          "frame"
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "punch"
+      ]
     },
     "A-PRESS": {
       "required_pairs": [
@@ -97,14 +170,46 @@
         ],
         [
           "punch",
-          "guide"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
         ],
         [
           "gate",
-          "frame"
+          "frame_wall"
+        ],
+        [
+          "product",
+          "channel_wall"
+        ],
+        [
+          "product",
+          "output_obstacle"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "channel_wall",
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "output_obstacle",
+        "product",
+        "punch"
+      ]
     },
     "A-RETURN": {
       "required_pairs": [
@@ -122,35 +227,103 @@
         ],
         [
           "punch",
-          "guide"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "product",
+          "channel_wall"
         ],
         [
           "product",
           "output_obstacle"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "channel_wall",
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "output_obstacle",
+        "product",
+        "punch"
+      ]
     },
     "A-OUT": {
       "required_pairs": [
         [
           "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
           "gate"
         ],
         [
           "punch",
-          "feeder"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "product",
+          "channel_wall"
         ],
         [
           "product",
           "output_obstacle"
-        ],
-        [
-          "product",
-          "gate"
         ]
       ],
-      "note": "Linked to A-PRESS; not an obligatory separate stroke."
+      "note": "Linked to A-PRESS; not an obligatory separate stroke.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "channel_wall",
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "output_obstacle",
+        "product",
+        "punch"
+      ]
     },
     "B-READY": {
       "required_pairs": [
@@ -168,18 +341,55 @@
         ],
         [
           "punch",
-          "stop"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
         ],
         [
           "stop",
+          "lock"
+        ],
+        [
+          "lock",
           "product"
         ],
         [
           "lock",
+          "output_obstacle"
+        ],
+        [
+          "stop",
           "punch"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "lock",
+        "output_obstacle",
+        "product",
+        "punch",
+        "stop"
+      ]
     },
     "B-FILL": {
       "required_pairs": [
@@ -197,14 +407,45 @@
         ],
         [
           "punch",
-          "loading_zone"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
         ],
         [
           "feeder",
-          "frame"
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "stop",
+          "lock"
+        ],
+        [
+          "punch",
+          "stop"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "lock",
+        "punch",
+        "stop"
+      ]
     },
     "B-PRESS": {
       "required_pairs": [
@@ -222,14 +463,45 @@
         ],
         [
           "punch",
-          "guide"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
         ],
         [
           "gate",
-          "frame"
+          "frame_wall"
+        ],
+        [
+          "stop",
+          "lock"
+        ],
+        [
+          "punch",
+          "stop"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "lock",
+        "punch",
+        "stop"
+      ]
     },
     "B-UNLOAD": {
       "required_pairs": [
@@ -242,28 +514,99 @@
           "gate"
         ],
         [
-          "stop",
-          "punch"
+          "feeder",
+          "gate"
         ],
         [
-          "lock",
-          "punch"
+          "punch",
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "stop",
+          "lock"
+        ],
+        [
+          "punch",
+          "stop"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "lock",
+        "punch",
+        "stop"
+      ]
     },
     "B-OPEN": {
       "required_pairs": [
         [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
           "stop",
-          "punch"
+          "lock"
+        ],
+        [
+          "lock",
+          "product"
+        ],
+        [
+          "lock",
+          "output_obstacle"
         ],
         [
           "stop",
           "product"
         ],
         [
-          "lock",
+          "stop",
           "punch"
         ],
         [
@@ -271,7 +614,24 @@
           "output_obstacle"
         ]
       ],
-      "note": "Physical unloading must be confirmed before opening; geometric checks do not prove it."
+      "note": "Physical unloading must be confirmed before opening; geometric checks do not prove it.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "lock",
+        "output_obstacle",
+        "product",
+        "punch",
+        "stop"
+      ]
     },
     "B-EJECT": {
       "required_pairs": [
@@ -284,40 +644,143 @@
           "gate"
         ],
         [
+          "feeder",
+          "gate"
+        ],
+        [
           "punch",
-          "stop"
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "stop",
+          "punch"
         ],
         [
           "product",
           "stop"
+        ],
+        [
+          "product",
+          "channel_wall"
         ],
         [
           "product",
           "output_obstacle"
+        ],
+        [
+          "lock",
+          "product"
+        ],
+        [
+          "lock",
+          "output_obstacle"
         ]
       ],
-      "note": "Opening and unloading are prerequisites; travel and obstacle checks are independent."
+      "note": "Opening and unloading are prerequisites; travel and obstacle checks are independent.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "channel_wall",
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "lock",
+        "output_obstacle",
+        "product",
+        "punch",
+        "stop"
+      ]
     },
     "B-RESET": {
       "required_pairs": [
         [
           "punch",
-          "stop"
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "guide_wall"
+        ],
+        [
+          "punch",
+          "frame_wall"
+        ],
+        [
+          "feeder",
+          "frame_wall"
+        ],
+        [
+          "gate",
+          "frame_wall"
+        ],
+        [
+          "stop",
+          "lock"
+        ],
+        [
+          "lock",
+          "product"
+        ],
+        [
+          "lock",
+          "output_obstacle"
+        ],
+        [
+          "stop",
+          "punch"
         ],
         [
           "stop",
           "product"
         ],
         [
-          "lock",
-          "punch"
-        ],
-        [
           "stop",
           "output_obstacle"
         ]
       ],
-      "note": "Explicit time-synchronized geometry and physical interlocks required."
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "exclusions": [
+        "Intentional punch/material contact: physical interface UNKNOWN, not treated as free clearance.",
+        "Stop/lock and stop/product geometry is checked as interference in moving phases; any intended final bearing/contact needs a separate contact definition, never automatic permission.",
+        "Wall objects are explicit solid wall pieces; omitted pieces are UNKNOWN, not empty space.",
+        "Non-moving/irrelevant pairs omitted only when explicitly not part of the supported check: no claim for real machine."
+      ],
+      "body_matrix": [
+        "feeder",
+        "frame_wall",
+        "gate",
+        "guide_wall",
+        "lock",
+        "output_obstacle",
+        "product",
+        "punch",
+        "stop"
+      ]
     }
   },
   "force_paths": {
@@ -338,7 +801,10 @@
         "forces",
         "stiffness",
         "strength",
-        "gate_support"
+        "gate_support",
+        "clamp_transverse_reaction_branch",
+        "gate_support_reaction_branch",
+        "mounts"
       ]
     },
     "B": {
@@ -359,7 +825,9 @@
         "forces",
         "stiffness",
         "strength",
-        "lock_design"
+        "lock_design",
+        "gate_support_reaction_branch",
+        "mounts"
       ]
     }
   }
