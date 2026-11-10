@@ -7,11 +7,11 @@
 | project_id / изделие | REV / Hydraulic briquetting press |
 | Назначение аналога | UNKNOWN |
 | Владелец и утверждающий инженер | narrator; утверждающий инженер назначается отдельно |
-| Источники прототипа | UNKNOWN; см. входные задачи |
+| Источники прототипа | Четыре PDF инвентаризированы: sources/index.md; достоверность инженерных заявлений не принята |
 | Принятое ТЗ / базовая линия | NONE / NONE |
 | Режим | PROJECT; исходные требования ещё не утверждены |
-| Текущая ветка / база | work/T-INIT/codex-01 / 2e479849cea10dab9376a68cb44d2ff716c215da |
-| Последнее обновление UTC / session_id | 2026-11-10T12:06:09Z / codex-01 |
+| Текущая ветка / база | work/T-INIT/codex-01 / 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17 |
+| Последнее обновление UTC / session_id | 2026-11-10T12:21:05Z / codex-01 |
 | enforcement | PROCEDURAL; серверные ограничения не проверены |
 | Численная база | params/registry.yaml |
 | Задачи / проверки | ISSUES_AND_TASKS.md / reviews/cross_check_log.md |
@@ -35,52 +35,81 @@
 
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
-| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | PENDING_MAIN_MERGE; claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T12:06:09Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T12:21:05Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
 
 ## Active Handoff Capsule
 
 ```yaml
 capsule_version: '1.0'
-status: BLOCKED # Только ожидание принятия claim; инженерный блокер не установлен
+status: ACTIVE
 task_id: T-INIT
 role: R1
 session_id: codex-01
 model_label: Codex
-author_sessions: [codex-01]
-assignment_evidence: "Прямое подтверждение пользователем; ISSUES_AND_TASKS.md, T-INIT"
-created_at_utc: 2026-11-10T12:06:09Z
-base_commit: 2e479849cea10dab9376a68cb44d2ff716c215da
-work_commit: a31a6d86cde8799807e6d21454deda8db55b695a # C с claim; капсула находится в следующем H
+author_sessions:
+- codex-01
+assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
+created_at_utc: '2026-11-10T12:21:05Z'
+base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
+work_commit: 9420968d34e47a6640672a0c339f200cb298739e
 branch: work/T-INIT/codex-01
-availability: LOCAL_ONLY # Удалённую доступность проверить через Git после push
-claim_record: "ISSUES_AND_TASKS.md, T-INIT; claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; PENDING_MAIN_MERGE"
-subtask: null
-input_refs: [] # path, commit/hash, parameter_id, revision
-changed_files: []
-completed_steps: [] # выражение/узел, результат, единицы, evidence
+availability: LOCAL_ONLY
+claim_record:
+  path: ISSUES_AND_TASKS.md
+  claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
+  acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
+  lease_expires_at: '2026-11-11T12:06:09Z'
+subtask: Инвентаризация четырёх PDF и паспорт источников — подготовлены к независимой проверке
+input_refs:
+- commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
+  paths:
+  - project/source_manifest.json
+  - sources/raw/
+  - AGENT_PROTOCOL.md
+  - params/registry.yaml
+changed_files:
+- sources/index.md
+- evidence/source_inventory_codex_01.json
+- reviews/input_inventory_codex_01.md
+- ISSUES_AND_TASKS.md
+completed_steps:
+- Проверены main, владелец и lease
+- Проверены размеры и SHA256 четырёх PDF
+- Подготовлены карта содержания, ограничения OCR и пробелы
 unfinished_step:
-  exact_expression_or_node: null
-  coordinate_system: null
-  intermediate_values: [] # только ID@revision и пути сохранённых данных
-  last_successful_command: null
-  expected_result: null
-  observed_result: null
-environment: {tool_versions: [], dependency_lock: null, seeds: []}
-running_jobs: [] # job_id, tool, output_path, state, resume_command
+  exact_expression_or_node: Независимый review паспорта; оставшиеся результаты T-INIT не созданы
+  last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
+  expected_result: PASS структуры, без инженерной приёмки
+  observed_result: PASS
+environment:
+  tool_versions:
+  - Python 3.12.14
+  - PyYAML 6.0.3
+  - pdftotext 25.03.0
+  - Tesseract — см. JSON
+  dependency_lock: requirements.txt
+  seeds: []
+running_jobs: []
 open_hypotheses: []
 blocker_ids: []
-review_refs: []
+review_refs:
+- reviews/input_inventory_codex_01.md — self-check, не независимый review
 uncommitted_or_unsaved: []
-next_action: "Проверить принятие claim в актуальной main и действительность lease"
-next_action_success_criterion: "main содержит принятый claim codex-01 без конкурирующего владельца; lease действителен"
-stop_conditions: ["claim не принят в main", "lease истёк", "конкурирующий claim или изменившиеся входы"]
+next_action: Независимый участник проверяет sources/index.md по PDF в commit C, фиксирует review отдельно;
+  R1 готовит структуру требований с UNKNOWN
+next_action_success_criterion: Review имеет точные commit/страницы и границы; никакие рекламные числа не приняты
+  за требования REV
+stop_conditions:
+- Истёк lease
+- Конкурирующий владелец или изменились входы
+- Инженерный вывод без применимого входного review
 ```
 
 ## Очередь следующей модели
 
 | Порядок | task_id | Адресат | Действие | Условие начала |
 |---|---|---|---|---|
-| 1 | T-INIT | @R1 | Инвентаризация данных и проект ТЗ | После принятия claim codex-01 в main и проверки lease |
+| 1 | T-INIT | @R1 | Независимая проверка паспорта; затем проект ТЗ | Claim принят; lease действителен; до инженерных выводов нужен входной review |
 
 После назначения сначала читать запись T-INIT. Если входов нет, фиксировать UNKNOWN и готовить структуру требований; не выдавать проект ТЗ за утверждённое ТЗ.
 
@@ -94,5 +123,6 @@ Workflow подготовлен; его выполнение и настройк
 
 Действующая инструкция для нового участника: NEXT_MODEL.md. После завершения задачи исполнитель обновляет её вместе с капсулой; см. AGENT_PROTOCOL.md, раздел 10.
 
-Назначение R1 подтверждено пользователем. Claim пока предложен в рабочей ветке;
-до принятия в main анализ источников не начинается. G1 остаётся NOT_STARTED.
+Назначение R1 подтверждено; claim принят в main. Паспорт источников подготовлен
+в sources/index.md, требуется независимая проверка. T-INIT не завершена; G1 остаётся NOT_STARTED.
+Результаты инвентаризации: commit 9420968d34e47a6640672a0c339f200cb298739e.

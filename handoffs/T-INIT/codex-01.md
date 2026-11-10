@@ -1,26 +1,72 @@
 # Капсула T-INIT — codex-01
 
-- capsule_version: 1.0
-- status: BLOCKED — ожидание принятия claim в main.
-- task_id / role / session_id / model_label: T-INIT / R1 / codex-01 / Codex.
-- author_sessions: codex-01.
-- assignment_evidence: прямое подтверждение пользователем; текст зафиксирован в T-INIT.
-- created_at_utc / heartbeat_utc: 2026-11-10T12:06:09Z.
-- lease_expires_at: 2026-11-11T12:06:09Z.
-- base_commit: 2e479849cea10dab9376a68cb44d2ff716c215da.
-- work_commit / claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a.
-- branch: work/T-INIT/codex-01.
-- availability: LOCAL_ONLY при записи; после push проверить удалённый ref.
-- input_refs: файлы и ревизии перечислены в NEXT_MODEL.md и T-INIT.
-- completed_steps: сверена main; подтверждено назначение; подготовлено предложение claim.
-- changed_files: ISSUES_AND_TASKS.md, STATE.md, NEXT_MODEL.md, handoffs/T-INIT/codex-01.md.
-- unfinished_step: публикация ветки и PR, последовательное принятие claim в main.
-- environment: Python 3.12.14, PyYAML 6.0.3, Git LFS 3.6.1; .venv/bin/python; CAD/CAE UNAVAILABLE (не запускались).
-- running_jobs / open_hypotheses / blocker_ids / review_refs: NONE.
-- uncommitted_or_unsaved: эта капсула и сводки сохраняются следующим commit H.
-- next_action: проверить актуальную main, принятие claim, владельца, lease и ревизии входов.
-- next_action_success_criterion: принятый claim codex-01 и действительный lease без конкурирующего владельца.
-- stop_conditions: claim не принят; lease истёк; конфликт владельца или входов.
+```yaml
+capsule_version: '1.0'
+status: ACTIVE
+task_id: T-INIT
+role: R1
+session_id: codex-01
+model_label: Codex
+author_sessions:
+- codex-01
+assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
+created_at_utc: '2026-11-10T12:21:05Z'
+base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
+work_commit: 9420968d34e47a6640672a0c339f200cb298739e
+branch: work/T-INIT/codex-01
+availability: LOCAL_ONLY
+claim_record:
+  path: ISSUES_AND_TASKS.md
+  claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
+  acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
+  lease_expires_at: '2026-11-11T12:06:09Z'
+subtask: Инвентаризация четырёх PDF и паспорт источников — подготовлены к независимой проверке
+input_refs:
+- commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
+  paths:
+  - project/source_manifest.json
+  - sources/raw/
+  - AGENT_PROTOCOL.md
+  - params/registry.yaml
+changed_files:
+- sources/index.md
+- evidence/source_inventory_codex_01.json
+- reviews/input_inventory_codex_01.md
+- ISSUES_AND_TASKS.md
+completed_steps:
+- Проверены main, владелец и lease
+- Проверены размеры и SHA256 четырёх PDF
+- Подготовлены карта содержания, ограничения OCR и пробелы
+unfinished_step:
+  exact_expression_or_node: Независимый review паспорта; оставшиеся результаты T-INIT не созданы
+  last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
+  expected_result: PASS структуры, без инженерной приёмки
+  observed_result: PASS
+environment:
+  tool_versions:
+  - Python 3.12.14
+  - PyYAML 6.0.3
+  - pdftotext 25.03.0
+  - Tesseract — см. JSON
+  dependency_lock: requirements.txt
+  seeds: []
+running_jobs: []
+open_hypotheses: []
+blocker_ids: []
+review_refs:
+- reviews/input_inventory_codex_01.md — self-check, не независимый review
+uncommitted_or_unsaved: []
+next_action: Независимый участник проверяет sources/index.md по PDF в commit C, фиксирует review отдельно;
+  R1 готовит структуру требований с UNKNOWN
+next_action_success_criterion: Review имеет точные commit/страницы и границы; никакие рекламные числа не приняты
+  за требования REV
+stop_conditions:
+- Истёк lease
+- Конкурирующий владелец или изменились входы
+- Инженерный вывод без применимого входного review
+```
 
-Анализ источников не начат. Расчёты и инженерные утверждения отсутствуют.
-GitHub API при подготовке возвращал CONNECT 403; Git read работает.
+C содержит документальную инвентаризацию. Этот H содержит сводки и капсулу.
+При записи доступность C — LOCAL_ONLY; после push проверять удалённый ref.
+Исходные PDF, source_manifest.json и параметрический реестр не изменены.
+Независимый review NOT_RUN; T-INIT не завершена, G1 не закрыты.
