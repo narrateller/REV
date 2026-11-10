@@ -238,3 +238,7 @@ REV-R5-RECHECK-03-001: R5-IMPL-01 OPEN, R5-IMPL-02 OPEN; REJECT_WITH_BLOCKER. T-
 ## Дополнение RECHECK-05 с выполнением
 
 Пользователь предоставил verification/r5_recheck_05/execution_addendum.md: R5 сообщает PASS воспроизведения и независимых мутаций на `debfd085842ccae079cfd6faea1c41bca20f335d`. На основании предоставленного акта R5-IMPL-01 CLOSED и регрессия R5-IMPL-02 PASS только в проверенной synthetic AABB области. Код probe и ID сессии не предоставлены; T-codex-01-01 не объявлена DONE, G1 открыт. См. verification/r5_recheck_05/disposition.md.
+
+## Оценка приёмки R1
+
+Результат `debfd085` рассмотрен в verification/t_codex_01_01_acceptance/r1_assessment.md: кандидат на приёмку только в synthetic AABB области. T-codex-01-01 IN_REVIEW; для окончательной приёмки нужны идентификатор reviewer-сессии и неизменяемый независимый probe с результатами. G1 открыт.

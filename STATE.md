@@ -205,3 +205,7 @@ R5-IMPL-02 закрыт в указанной synthetic области, R5-IMPL-
 ## Дополнение RECHECK-05 — заявлено воспроизведение
 
 На основании предоставленного пользователем дополнения R5-IMPL-01 CLOSED synthetic на `debfd085`, регрессия R5-IMPL-02 PASS synthetic. Код независимого probe и ID сессии пока недоступны; T-codex-01-01 IN_REVIEW, не DONE; G1 OPEN. См. verification/r5_recheck_05/disposition.md. Предыдущие статусы ниже по истории не являются текущими.
+
+## Оценка R1 приёмки модели
+
+См. verification/t_codex_01_01_acceptance/r1_assessment.md: кандидат на ограниченную synthetic приёмку, задача IN_REVIEW; отсутствуют идентификатор reviewer-сессии и артефакт независимых мутаций. G1 остаётся OPEN.
