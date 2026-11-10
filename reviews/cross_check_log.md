@@ -376,3 +376,91 @@ supersedes: null
 Машинная схема: docs/SCHEMAS.md. Подстрока с review_id в тексте не считается актом.
 Для VERIFIED необходим действующий PASS с совпадающими параметрами, авторами,
 проверяющим и областью проверки. --check-git сверяет артефакты с reviewed_commit.
+
+## REV-R5-IMPL-02-001
+
+```yaml
+record_type: review
+review_id: REV-R5-IMPL-02-001
+kind: OUTPUT
+task_id: T-codex-01-01
+created_at_utc: '2026-11-10T17:12:05Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-model-01
+independence:
+  reviewer_not_author: true
+  basis: Новая сессия, прямое назначение пользователя; авторство R4 отсутствует, проверяемый
+    код не изменялся.
+independence_basis: Независимая текущая сессия; только чтение реализации и отдельный
+  benchmark.
+reviewed_commit: 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb
+parameter_refs: []
+artifacts:
+- path: models/kinematic_press/model.py
+  sha256: 985076a6e6e3caba956a2ee5b9d7d0f3fcb9d6fda387153af54e507d3b2462cf
+- path: models/kinematic_press/phase_plan.json
+  sha256: 3835120360e636762fd8eff48d8119ff1027ea5b51f29e4e20aad9c1fd5ea714
+- path: models/kinematic_press/fixtures.json
+  sha256: b4cbeef255009c450a75fa3917ff8437b8d244cf593dae65907c5a0c31ec9e52
+- path: models/kinematic_press/phase_inputs_synthetic.json
+  sha256: 7eba9d96abf278d5ae9fe7cffb5ced50a9a7c426fb0ade8325b70b4a98d47eeb
+- path: models/kinematic_press/results/report.json
+  sha256: dc19f7275ea806688463049511b732e014ee29d5a2daea6f2498cc7da64ce1d9
+- path: models/kinematic_press/results/force_paths.svg
+  sha256: 0248486fc2e1ee9068a4bfec18036b3cfb4db4959d334085f951d5380e80b7bb
+scope: 'MODEL_VERIFICATION: ядро линейных AABB PASS; фазовая модель REJECT_WITH_BLOCKER;
+  силовая топология WARNING; synthetic only'
+checks:
+- id: CHK-IMPL-01
+  method: independent_derivation
+  expected: Полное обнаружение контакта за интервал для синхронных линейных AABB
+  observed: Аналитическое доказательство и 3000 независимых сравнений без расхождения
+  result: PASS
+  reasoning: verification/r5_model_02/review.md и independent_check.py
+- id: CHK-IMPL-02
+  method: rerun
+  expected: Пять mandatory сценариев и неверные входы
+  observed: 7 записей совпали; 6 unittest OK; provenance совпал
+  result: PASS
+  reasoning: Команды и область приведены в отдельном отчёте
+- id: CHK-IMPL-03
+  method: inspection
+  expected: Полное synthetic покрытие фаз A/B и перечней пар
+  observed: 2/62 пар; 11/13 фаз без вычисленной пары; пропущены пары и проверка переходов
+  result: FAIL
+  reasoning: R5-IMPL-01/02, конкретные дополнения в отчёте
+findings:
+- finding_id: R5-IMPL-01
+  severity: BLOCKER
+  evidence: verification/r5_model_02/review.md
+  impact: Приёмка фазовой модели заблокирована
+  owner_role: R4
+  task_id: T-codex-01-01
+- finding_id: R5-IMPL-02
+  severity: BLOCKER
+  evidence: models/kinematic_press/phase_plan.json
+  impact: Полнота списка пар не доказана
+  owner_role: R4
+  task_id: T-codex-01-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+allowed_downstream_scope: Использование проверенного ядра только для заданного класса
+  synthetic пар; дополнение фаз R4.
+excluded_claims:
+- Полная приёмка задачи
+- Реальная безопасность/прочность/выдача
+- Закрытие G1 или R5-OBS-01…04
+blocker_ids:
+- R5-IMPL-01
+- R5-IMPL-02
+closure_criteria:
+- Полные synthetic фазы и переходы A/B, обоснованная матрица пар, повторный независимый
+  review
+supersedes: null
+```

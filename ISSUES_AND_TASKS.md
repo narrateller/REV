@@ -182,3 +182,7 @@ decision_ref: null
 handoff_ref: null
 history: [] # UTC, session_id, from, to, reason, evidence
 ```
+
+## Независимый OUTPUT review R5 / r5-implementation-02
+
+Прямое назначение пользователем; reviewer не автор R4. База эстафеты 9db87f53258b2a076ec8f42f4a4937ee2ee7c8b6, код/результаты 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb. Акт REV-R5-IMPL-02-001: ядро PASS в классе синхронных линейных AABB; фазовая модель REJECT_WITH_BLOCKER. R5-IMPL-01/02 OPEN, владелец исправлений R4, срок до повторной приёмки T-codex-01-01. Задача остаётся IN_REVIEW, не DONE. Подробный перечень фаз/сценариев: verification/r5_model_02/review.md. G1 и R5-OBS-01…04 открыты; owner R4 не меняется.
