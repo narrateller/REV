@@ -1,4 +1,4 @@
-# Капсула T-INIT — циклы, первая модель, review эскизов
+# Капсула — уточнённая постановка и независимый R5
 
 ```yaml
 capsule_version: '1.0'
@@ -10,9 +10,9 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T14:47:19Z'
+created_at_utc: '2026-11-10T16:21:13Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: bacc5ff5e18819d8799c931d1091df7bce9bfe7a
+work_commit: 7e99ecf87874b3bc53b1c08f115b2b5ee2ad4c3c
 branch: work/T-INIT/codex-01
 availability: REMOTE
 claim_record:
@@ -20,36 +20,33 @@ claim_record:
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-  heartbeat_utc: '2026-11-10T14:47:19Z'
-subtask: Краткие циклы A/B, задание первой цифровой модели и независимый review эскизов подготовлены
+  heartbeat_utc: '2026-11-10T16:21:13Z'
+subtask: Постановка модели rev2 опубликована и передана независимому R5; проверка завершена WARNING
 input_refs:
-- commit: 6fe0a417ed2fde165e2fc01d625ec86ab810346e
+- commit: 1e28c85b8c747c28e15e85060822731844d418ec
   paths:
-  - concepts/press_functional_alternatives.md
-  - verification/feed_dosing_rig_scheme.md
-  - sources/function_realization_comparison.md
-  - NEXT_MODEL.md
-- source: Прямое поручение пользователя 2026-11-10
-  scope: Таблицы циклов, модель/опыты, задание первой модели и передача эскизов независимому reviewer
+  - models/first_digital_model_brief.md
+  - controls/press_variant_state_tables.md
+- reviewed_commit: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb
+  review_id: REV-R5-MODEL-REVIEW-01-001
 changed_files:
-- controls/press_variant_state_tables.md
 - models/first_digital_model_brief.md
-- reviews/cross_check_log.md
 - ISSUES_AND_TASKS.md
+- reviews/cross_check_log.md
 completed_steps:
-- Проверены актуальная main, owner и срок claim
-- 'Подготовлены краткие циклы A/B: движение, разрешение, подтверждение и сбой'
-- Отделены геометрические/кинематические проверки от свойств сырья/сил/реальной выдачи
-- Предложена READY-задача T-codex-01-01 с входами/выходами/критериями, owner NONE, реализация NOT_STARTED
-- Эскизы immutable 6fe0a417… проверены отдельным R5 r5-review-01; WARNING, только документальное продолжение
-- Хэши трёх reviewed artifacts перепроверены; замечания/план и срок зафиксированы
-- C опубликован; модель/стенд/испытания не запускались
+- Проверены main, owner/lease и исходная постановка
+- Обязательна непрерывная/консервативно полная проверка всего хода; недоказанное отсутствие коллизии даёт INDETERMINATE
+- Разделены проекции, траектории/огибающие без времени и одновременная коллизия тел
+- Добавлены пять SYN-MODEL-01…05 с ожидаемыми результатами
+- Опубликован immutable SHA 3aebae606011ded0f6d6e0a8d6ccc15094d88feb и передан read-only R5 r5-model-review-01
+- R5 выдал WARNING, обязательных исправлений не нашёл; допустима synthetic-only передача R4 после назначения/claim
+- Акт и хэши двух immutable artifacts сохранены; код/fixtures/стенд не запускались
 unfinished_step:
-  exact_expression_or_node: Независимая проверка новой постановки модели/циклов и назначение исполнителя первой
-    модели; открытые R5-OBS-01…04 не закрыты
+  exact_expression_or_node: Назначение и claim исполнителя T-codex-01-01, затем исследовательская реализация
+    и отдельная приёмка кода/результатов
   last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS документов и проверка immutable artifacts review; без инженерного PASS
-  observed_result: PASS; акт WARNING корректен, артефакты unchanged
+  expected_result: PASS документов и immutable artifacts review
+  observed_result: PASS; результаты будущего кода NOT_RUN
 environment:
   tool_versions:
   - Python 3.12.14
@@ -60,27 +57,27 @@ environment:
   seeds: []
 running_jobs: []
 open_hypotheses:
-- Обе архитектуры сохраняются без выбора
-- Геометрический запас/ход не подтверждает реальные силы/остаточную энергию/удержание и качество брикета
-- 'R5-OBS-01…04: отсечение/опирание; разгрузка упора/выдача; старт/удержание канала; метрология F'
+- Обе архитектуры сохраняются; геометрическая модель не подтверждает сырьё/силы/безопасность
+- Полнота будущего алгоритма и пять synthetic случаев ещё не проверены исполнением
 blocker_ids: []
 review_refs:
-- 'REV-R5-REVIEW-01-001: WARNING; R5 r5-review-01; reviewed_commit 6fe0a417ed2fde165e2fc01d625ec86ab810346e;
-  только три listed artifacts'
-- Новые циклы и задание модели в этом C независимым review ещё не проверены
+- 'REV-R5-REVIEW-01-001: WARNING на эскизы 6fe0a417…; R5-OBS-01…04 остаются OPEN'
+- 'REV-R5-MODEL-REVIEW-01-001: WARNING на постановку/циклы 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; обязательных
+  исправлений нет, R4 synthetic-only после назначения/claim'
 uncommitted_or_unsaved: []
-next_action: Независимо проверить постановку T-codex-01-01 и таблицы циклов, затем назначить/claim исполнителя
-  первой параметрической модели с фиксацией текущего C; до реализации не подменять UNKNOWN числами
-next_action_success_criterion: Проверены границы 2D/кинематики и отдельность свойств сырья/сил; есть назначение/claim
-  и точные входы; незаданные параметры ведут к INDETERMINATE, архитектура не выбирается
+next_action: Оформить назначение/claim R4 на T-codex-01-01 с входом 3aebae606011ded0f6d6e0a8d6ccc15094d88feb
+  и актом REV-R5-MODEL-REVIEW-01-001; после принятия claim реализовать только исследовательский инструмент/изолированные
+  synthetic fixtures
+next_action_success_criterion: Есть назначенный исполнитель и принятый claim с immutable входами; ограничения
+  synthetic-only сохранены, реальная геометрия REV UNKNOWN, архитектура/G1 не утверждены
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
-previous_work_commit: 53a5dca0655144418833432e30db5d8313d2244c
+previous_work_commit: bacc5ff5e18819d8799c931d1091df7bce9bfe7a
 ```
 
-C опубликован; H обновляет сводки. Reviewer r5-review-01 не участвовал в
-авторстве трёх проверенных артефактов, не проверял новые циклы/задание.
-WARNING не закрывает R5-OBS и не разрешает инженерную приёмку/запуск.
-Требуется отдельная приёмка будущей модели; архитектура и G1 не утверждены.
+C с актом опубликован. Проверенный SHA постановки: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb.
+Обязательных исправлений reviewer не обнаружил. Передача R4 разрешена только
+для изолированного synthetic исследования после назначения/claim; код и
+результаты потребуют отдельного review. Старые замечания эскизов не закрыты.
