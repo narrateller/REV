@@ -4,10 +4,12 @@
   "base_commit": "2f463babdc84382a0ab2502f4acfa7a2047087df",
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
   "hashes": {
-    "models/kinematic_press/model.py": "791819f9fdf2e6a71b6eff615d7f89a7bbfb28d46e472afc16846de013d3b3c6",
+    "models/kinematic_press/model.py": "985076a6e6e3caba956a2ee5b9d7d0f3fcb9d6fda387153af54e507d3b2462cf",
     "models/kinematic_press/fixtures.json": "b4cbeef255009c450a75fa3917ff8437b8d244cf593dae65907c5a0c31ec9e52",
-    "models/kinematic_press/input_template.json": "964dfd75eadc7fdb12002caafcb3db8240c218823fd5f1956ee6f8eebdb31a28",
+    "models/kinematic_press/input_template.json": "3b1839aa5e9a3af0de4bbc7a503572d0bbd6fdf8030eaa6a15c3aec34d5bc7d0",
     "models/kinematic_press/input_audit.md": "f73fb312ebe45af83c1f2416fa657c2cdc8c5167820e2fd433d0ebd96f7dcfaf",
+    "models/kinematic_press/phase_plan.json": "3835120360e636762fd8eff48d8119ff1027ea5b51f29e4e20aad9c1fd5ea714",
+    "models/kinematic_press/phase_inputs_synthetic.json": "7eba9d96abf278d5ae9fe7cffb5ced50a9a7c426fb0ade8325b70b4a98d47eeb",
     "params/registry.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651",
     "models/first_digital_model_brief.md": "3c86ed707f11ee5f9fa93409022c8250cc3582e6fb78363f85313d28733b79d1",
     "controls/press_variant_state_tables.md": "e4a5ac6e2da299554ed779670c6872af97ec8a48ace50ec5e4aa929fdd62e7fa"
@@ -22,62 +24,2623 @@
     "REQ/VAL-REV-16"
   ],
   "limitations": "Synthetic boxes only, no manufacturing, forces, process, real collision clearance or validation. Independent review pending.",
-  "phase_coverage": {
+  "phase_plan_scope": "Candidate required interference pairs for this research model, not an exhaustive real-machine safety analysis. Names represent solid envelope obstacles, not empty spaces or permitted designed contacts.",
+  "synthetic_phase_coverage": {
+    "A-READY": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-READY:punch/feeder",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:punch/gate",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:feeder/gate",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:punch/loading_zone",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "punch",
+            "loading_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:product/output_zone",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "product",
+            "output_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-FILL": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-FILL:punch/feeder",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:punch/gate",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:feeder/gate",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:punch/loading_zone",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "punch",
+            "loading_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:feeder/frame",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "feeder",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-ISOLATE": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-ISOLATE:punch/feeder",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:punch/gate",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:feeder/gate",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:gate/frame",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "gate",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:feeder/frame",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "feeder",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-PRESS": {
+      "checked_pairs": [
+        {
+          "id": "A-PRESS:punch/feeder",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "NO_COLLISION",
+          "ejection_status": "INDETERMINATE",
+          "missing": [],
+          "projection_overlap": false,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval",
+          "evidence": {
+            "contact_interval_normalized": null,
+            "proof": "inequality intervals have empty intersection"
+          }
+        }
+      ],
+      "unchecked_pairs": [
+        {
+          "id": "A-PRESS:punch/gate",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'body min/max/delta including z and motion'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-PRESS:feeder/gate",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'body min/max/delta including z and motion'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-PRESS:punch/guide",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "punch",
+            "guide"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'body min/max/delta including z and motion'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-PRESS:gate/frame",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "gate",
+            "frame"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'body min/max/delta including z and motion'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-RETURN": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-RETURN:punch/feeder",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:punch/gate",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:feeder/gate",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:punch/guide",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "punch",
+            "guide"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:product/output_obstacle",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "product",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-OUT": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-OUT:punch/gate",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-OUT:punch/feeder",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-OUT:product/output_obstacle",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "product",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-OUT:product/gate",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "product",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Linked to A-PRESS; not an obligatory separate stroke.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-READY": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-READY:punch/feeder",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:punch/gate",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:feeder/gate",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:punch/stop",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "punch",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:stop/product",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "stop",
+            "product"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:lock/punch",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-FILL": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-FILL:punch/feeder",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:punch/gate",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:feeder/gate",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:punch/loading_zone",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "punch",
+            "loading_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:feeder/frame",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "feeder",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-PRESS": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-PRESS:punch/feeder",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:punch/gate",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:feeder/gate",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:punch/guide",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "punch",
+            "guide"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:gate/frame",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "gate",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-UNLOAD": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-UNLOAD:punch/feeder",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-UNLOAD:punch/gate",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-UNLOAD:stop/punch",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "stop",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-UNLOAD:lock/punch",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-OPEN": {
+      "checked_pairs": [
+        {
+          "id": "B-OPEN:stop/punch",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "stop",
+            "punch"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "NO_COLLISION",
+          "ejection_status": "INDETERMINATE",
+          "missing": [],
+          "projection_overlap": false,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval",
+          "evidence": {
+            "contact_interval_normalized": null,
+            "proof": "inequality intervals have empty intersection"
+          }
+        }
+      ],
+      "unchecked_pairs": [
+        {
+          "id": "B-OPEN:stop/product",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "stop",
+            "product"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'body min/max/delta including z and motion'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-OPEN:lock/punch",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'body min/max/delta including z and motion'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-OPEN:stop/output_obstacle",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "stop",
+            "output_obstacle"
+          ],
+          "interval": [
+            0,
+            1
+          ],
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'body min/max/delta including z and motion'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Physical unloading must be confirmed before opening; geometric checks do not prove it.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-EJECT": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-EJECT:punch/feeder",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:punch/gate",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:punch/stop",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "punch",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:product/stop",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "product",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:product/output_obstacle",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "product",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Opening and unloading are prerequisites; travel and obstacle checks are independent.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-RESET": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-RESET:punch/stop",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "punch",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-RESET:stop/product",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "stop",
+            "product"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-RESET:lock/punch",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-RESET:stop/output_obstacle",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "stop",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'time interval'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    }
+  },
+  "rev_phase_coverage": {
+    "A-READY": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-READY:punch/feeder",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:punch/gate",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:feeder/gate",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:punch/loading_zone",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "punch",
+            "loading_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-READY:product/output_zone",
+          "variant": "A",
+          "phase": "A-READY",
+          "bodies": [
+            "product",
+            "output_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-FILL": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-FILL:punch/feeder",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:punch/gate",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:feeder/gate",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:punch/loading_zone",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "punch",
+            "loading_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-FILL:feeder/frame",
+          "variant": "A",
+          "phase": "A-FILL",
+          "bodies": [
+            "feeder",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-ISOLATE": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-ISOLATE:punch/feeder",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:punch/gate",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:feeder/gate",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:gate/frame",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "gate",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-ISOLATE:feeder/frame",
+          "variant": "A",
+          "phase": "A-ISOLATE",
+          "bodies": [
+            "feeder",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-PRESS": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-PRESS:punch/feeder",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-PRESS:punch/gate",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-PRESS:feeder/gate",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-PRESS:punch/guide",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "punch",
+            "guide"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-PRESS:gate/frame",
+          "variant": "A",
+          "phase": "A-PRESS",
+          "bodies": [
+            "gate",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-RETURN": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-RETURN:punch/feeder",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:punch/gate",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:feeder/gate",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:punch/guide",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "punch",
+            "guide"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-RETURN:product/output_obstacle",
+          "variant": "A",
+          "phase": "A-RETURN",
+          "bodies": [
+            "product",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "A-OUT": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "A-OUT:punch/gate",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-OUT:punch/feeder",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-OUT:product/output_obstacle",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "product",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "A-OUT:product/gate",
+          "variant": "A",
+          "phase": "A-OUT",
+          "bodies": [
+            "product",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Linked to A-PRESS; not an obligatory separate stroke.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-READY": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-READY:punch/feeder",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:punch/gate",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:feeder/gate",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:punch/stop",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "punch",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:stop/product",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "stop",
+            "product"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-READY:lock/punch",
+          "variant": "B",
+          "phase": "B-READY",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-FILL": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-FILL:punch/feeder",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:punch/gate",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:feeder/gate",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:punch/loading_zone",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "punch",
+            "loading_zone"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-FILL:feeder/frame",
+          "variant": "B",
+          "phase": "B-FILL",
+          "bodies": [
+            "feeder",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-PRESS": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-PRESS:punch/feeder",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:punch/gate",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:feeder/gate",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "feeder",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:punch/guide",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "punch",
+            "guide"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-PRESS:gate/frame",
+          "variant": "B",
+          "phase": "B-PRESS",
+          "bodies": [
+            "gate",
+            "frame"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-UNLOAD": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-UNLOAD:punch/feeder",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-UNLOAD:punch/gate",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-UNLOAD:stop/punch",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "stop",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-UNLOAD:lock/punch",
+          "variant": "B",
+          "phase": "B-UNLOAD",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-OPEN": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-OPEN:stop/punch",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "stop",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-OPEN:stop/product",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "stop",
+            "product"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-OPEN:lock/punch",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-OPEN:stop/output_obstacle",
+          "variant": "B",
+          "phase": "B-OPEN",
+          "bodies": [
+            "stop",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Physical unloading must be confirmed before opening; geometric checks do not prove it.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-EJECT": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-EJECT:punch/feeder",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "punch",
+            "feeder"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:punch/gate",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "punch",
+            "gate"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:punch/stop",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "punch",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:product/stop",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "product",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-EJECT:product/output_obstacle",
+          "variant": "B",
+          "phase": "B-EJECT",
+          "bodies": [
+            "product",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Opening and unloading are prerequisites; travel and obstacle checks are independent.",
+      "physical_interlocks": "UNKNOWN"
+    },
+    "B-RESET": {
+      "checked_pairs": [],
+      "unchecked_pairs": [
+        {
+          "id": "B-RESET:punch/stop",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "punch",
+            "stop"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-RESET:stop/product",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "stop",
+            "product"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-RESET:lock/punch",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "lock",
+            "punch"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        },
+        {
+          "id": "B-RESET:stop/output_obstacle",
+          "variant": "B",
+          "phase": "B-RESET",
+          "bodies": [
+            "stop",
+            "output_obstacle"
+          ],
+          "interval": null,
+          "collision_status": "INDETERMINATE",
+          "ejection_status": "INDETERMINATE",
+          "missing": [
+            "'explicit units and contact policy'"
+          ],
+          "projection_overlap": null,
+          "trajectory_intersection_xy": null,
+          "scope": "axis-aligned boxes, linear translation; touching is collision",
+          "method": "exact rational intersection of six linear inequalities over entire interval"
+        }
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required.",
+      "physical_interlocks": "UNKNOWN"
+    }
+  },
+  "force_paths": {
     "A": {
-      "A-READY": {
-        "status": "NOT_EVALUATED",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "A-FILL": {
-        "status": "PARTIAL_PAIR_ONLY",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "A-ISOLATE": {
-        "status": "NOT_EVALUATED",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "A-PRESS": {
-        "status": "PARTIAL_PAIR_ONLY",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "A-RETURN": {
-        "status": "PARTIAL_PAIR_ONLY",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "A-OUT": {
-        "status": "NOT_EVALUATED",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      }
+      "path": [
+        "cylinder_mount",
+        "cylinder_and_rod",
+        "punch",
+        "material",
+        "channel_and_clamp",
+        "press_module_mount",
+        "frame",
+        "cylinder_mount"
+      ],
+      "status": "HYPOTHESIS_UNVERIFIED",
+      "unknown": [
+        "contact",
+        "forces",
+        "stiffness",
+        "strength",
+        "gate_support"
+      ]
     },
     "B": {
-      "B-READY": {
-        "status": "NOT_EVALUATED",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "B-FILL": {
-        "status": "NOT_EVALUATED",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "B-PRESS": {
-        "status": "PARTIAL_PAIR_ONLY",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "B-UNLOAD": {
-        "status": "NOT_EVALUATED",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "B-OPEN": {
-        "status": "PARTIAL_PAIR_ONLY",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "B-EJECT": {
-        "status": "PARTIAL_PAIR_ONLY",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      },
-      "B-RESET": {
-        "status": "NOT_EVALUATED",
-        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
-      }
+      "path": [
+        "cylinder_mount",
+        "cylinder_and_rod",
+        "punch",
+        "material",
+        "stop",
+        "mechanical_lock_or_abutment",
+        "frame",
+        "cylinder_mount"
+      ],
+      "status": "HYPOTHESIS_UNVERIFIED",
+      "unknown": [
+        "unloading",
+        "contact",
+        "forces",
+        "stiffness",
+        "strength",
+        "lock_design"
+      ]
     }
   },
   "results": [

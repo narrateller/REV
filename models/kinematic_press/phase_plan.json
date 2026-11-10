@@ -1,0 +1,366 @@
+{
+  "scope": "Candidate required interference pairs for this research model, not an exhaustive real-machine safety analysis. Names represent solid envelope obstacles, not empty spaces or permitted designed contacts.",
+  "units": {
+    "length": "m",
+    "time": "s"
+  },
+  "contact": "touch_is_collision",
+  "phases": {
+    "A-READY": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "loading_zone"
+        ],
+        [
+          "product",
+          "output_zone"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "A-FILL": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "loading_zone"
+        ],
+        [
+          "feeder",
+          "frame"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "A-ISOLATE": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "gate",
+          "frame"
+        ],
+        [
+          "feeder",
+          "frame"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "A-PRESS": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "guide"
+        ],
+        [
+          "gate",
+          "frame"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "A-RETURN": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "guide"
+        ],
+        [
+          "product",
+          "output_obstacle"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "A-OUT": {
+      "required_pairs": [
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "product",
+          "output_obstacle"
+        ],
+        [
+          "product",
+          "gate"
+        ]
+      ],
+      "note": "Linked to A-PRESS; not an obligatory separate stroke."
+    },
+    "B-READY": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "stop"
+        ],
+        [
+          "stop",
+          "product"
+        ],
+        [
+          "lock",
+          "punch"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "B-FILL": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "loading_zone"
+        ],
+        [
+          "feeder",
+          "frame"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "B-PRESS": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "feeder",
+          "gate"
+        ],
+        [
+          "punch",
+          "guide"
+        ],
+        [
+          "gate",
+          "frame"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "B-UNLOAD": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "stop",
+          "punch"
+        ],
+        [
+          "lock",
+          "punch"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    },
+    "B-OPEN": {
+      "required_pairs": [
+        [
+          "stop",
+          "punch"
+        ],
+        [
+          "stop",
+          "product"
+        ],
+        [
+          "lock",
+          "punch"
+        ],
+        [
+          "stop",
+          "output_obstacle"
+        ]
+      ],
+      "note": "Physical unloading must be confirmed before opening; geometric checks do not prove it."
+    },
+    "B-EJECT": {
+      "required_pairs": [
+        [
+          "punch",
+          "feeder"
+        ],
+        [
+          "punch",
+          "gate"
+        ],
+        [
+          "punch",
+          "stop"
+        ],
+        [
+          "product",
+          "stop"
+        ],
+        [
+          "product",
+          "output_obstacle"
+        ]
+      ],
+      "note": "Opening and unloading are prerequisites; travel and obstacle checks are independent."
+    },
+    "B-RESET": {
+      "required_pairs": [
+        [
+          "punch",
+          "stop"
+        ],
+        [
+          "stop",
+          "product"
+        ],
+        [
+          "lock",
+          "punch"
+        ],
+        [
+          "stop",
+          "output_obstacle"
+        ]
+      ],
+      "note": "Explicit time-synchronized geometry and physical interlocks required."
+    }
+  },
+  "force_paths": {
+    "A": {
+      "path": [
+        "cylinder_mount",
+        "cylinder_and_rod",
+        "punch",
+        "material",
+        "channel_and_clamp",
+        "press_module_mount",
+        "frame",
+        "cylinder_mount"
+      ],
+      "status": "HYPOTHESIS_UNVERIFIED",
+      "unknown": [
+        "contact",
+        "forces",
+        "stiffness",
+        "strength",
+        "gate_support"
+      ]
+    },
+    "B": {
+      "path": [
+        "cylinder_mount",
+        "cylinder_and_rod",
+        "punch",
+        "material",
+        "stop",
+        "mechanical_lock_or_abutment",
+        "frame",
+        "cylinder_mount"
+      ],
+      "status": "HYPOTHESIS_UNVERIFIED",
+      "unknown": [
+        "unloading",
+        "contact",
+        "forces",
+        "stiffness",
+        "strength",
+        "lock_design"
+      ]
+    }
+  }
+}

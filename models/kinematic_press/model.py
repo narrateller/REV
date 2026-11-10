@@ -90,6 +90,7 @@ def check(case):
     eject=case.get('ejection')
     if eject is not None:
         try:
+            if not isinstance(eject, dict): raise ValueError('ejection must be an object')
             if any(eject.get(k) is None for k in ('product_rear','exit_boundary','available_stroke')):
                 raise KeyError('product_rear, exit_boundary, available_stroke')
             rear, boundary, stroke = (q(eject[k]) for k in ('product_rear','exit_boundary','available_stroke'))
@@ -101,19 +102,49 @@ def check(case):
             result['ejection_status']='INVALID_INPUT'; result['ejection_error']=str(exc)
     return result
 
+def evaluate_phases(plan, inputs):
+    """Evaluate every declared required pair independently; never infer missing motion."""
+    coverage={}
+    for phase,definition in plan['phases'].items():
+        variant=phase[0]
+        supplied=inputs.get('phases',{}).get(phase,{})
+        bodies=supplied.get('bodies') or {}
+        checked=[]; unchecked=[]
+        for left,right in definition['required_pairs']:
+            case={'id':phase+':'+left+'/'+right,'variant':variant,'phase':phase,
+                  'names':[left,right], 'units':inputs.get('units'), 'contact':inputs.get('contact'),
+                  'time':supplied.get('time'), 'bodies':[bodies.get(left),bodies.get(right)]}
+            result=check(case)
+            if result['collision_status'] in ('COLLISION','NO_COLLISION'):
+                checked.append(result)
+            else:
+                unchecked.append(result)
+        coverage[phase]={'checked_pairs':checked,'unchecked_pairs':unchecked,
+                         'note':definition['note'], 'physical_interlocks':'UNKNOWN'}
+    return coverage
+
 def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument('--fixtures',default=str(HERE/'fixtures.json')); parser.add_argument('--out',default=str(HERE/'results')); args=parser.parse_args()
+    parser=argparse.ArgumentParser(); parser.add_argument('--fixtures',default=str(HERE/'fixtures.json')); parser.add_argument('--out',default=str(HERE/'results')); parser.add_argument('--phase-inputs',default=str(HERE/'phase_inputs_synthetic.json')); args=parser.parse_args()
     fixture=Path(args.fixtures); data=json.loads(fixture.read_text()); out=Path(args.out); out.mkdir(parents=True,exist_ok=True)
     cases=data['cases']; results=[check(c) for c in cases]
+    plan_path=HERE/'phase_plan.json'; phase_path=Path(args.phase_inputs).resolve()
+    plan=json.loads(plan_path.read_text()); phase_inputs=json.loads(phase_path.read_text())
+    rev_inputs=json.loads((HERE/'input_template.json').read_text())
     for c,r in zip(cases,results):
         r['expected']=c.get('expected',{}); r['matches_expected']=all(r.get(k)==v for k,v in r['expected'].items()) if r['expected'] else None
     report={'classification':'SYNTHETIC ONLY — NOT REV', 'brief_commit':'3aebae606011ded0f6d6e0a8d6ccc15094d88feb',
             'base_commit':'2f463babdc84382a0ab2502f4acfa7a2047087df', 'python':sys.version,
-            'hashes':{str(p.relative_to(ROOT)):digest(p) for p in [Path(__file__).resolve(),fixture.resolve(),HERE/'input_template.json',HERE/'input_audit.md',ROOT/'params/registry.yaml',ROOT/'models/first_digital_model_brief.md',ROOT/'controls/press_variant_state_tables.md']},
+            'hashes':{str(p.relative_to(ROOT)):digest(p) for p in [Path(__file__).resolve(),fixture.resolve(),HERE/'input_template.json',HERE/'input_audit.md',plan_path,phase_path,ROOT/'params/registry.yaml',ROOT/'models/first_digital_model_brief.md',ROOT/'controls/press_variant_state_tables.md']},
             'registry_snapshot':'registry_snapshot.yaml','requirements':['REQ/VAL-REV-05','REQ/VAL-REV-06','REQ/VAL-REV-09','REQ/VAL-REV-11','REQ/VAL-REV-12','REQ/VAL-REV-16'],
-            'limitations':'Synthetic boxes only, no manufacturing, forces, process, real collision clearance or validation. Independent review pending.', 'phase_coverage':{v:{phase: {'status':'PARTIAL_PAIR_ONLY' if any(r['variant']==v and r['phase']==phase for r in results) else 'NOT_EVALUATED', 'reason':'Full geometry, pair list, travel and physical interlocks are not supplied'} for phase in phases} for v,phases in PHASES.items()}, 'results':results}
+            'limitations':'Synthetic boxes only, no manufacturing, forces, process, real collision clearance or validation. Independent review pending.', 'phase_plan_scope':plan['scope'], 'synthetic_phase_coverage':evaluate_phases(plan,phase_inputs), 'rev_phase_coverage':evaluate_phases(plan,rev_inputs), 'force_paths':plan['force_paths'], 'results':results}
+    force_svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230">', '<rect width="100%" height="100%" fill="white"/>', '<text x="20" y="25" font-size="18">UNVERIFIED load-path topology — no forces, geometry or strength proven</text>']
+    for i,(variant,details) in enumerate(plan['force_paths'].items()):
+        y=65+i*80
+        force_svg.append(f'<text x="20" y="{y}" font-size="15">Variant {variant}: {escape(" → ".join(details["path"]))}</text>')
+        force_svg.append(f'<text x="40" y="{y+25}" font-size="13">UNKNOWN: {escape(", ".join(details["unknown"]))}</text>')
+    force_svg.append('</svg>'); (out/'force_paths.svg').write_text('\n'.join(force_svg)+'\n')
     (out/'registry_snapshot.yaml').write_bytes((ROOT/'params/registry.yaml').read_bytes())
     (out/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     height=100+140*len(results)
