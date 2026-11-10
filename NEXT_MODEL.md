@@ -74,3 +74,7 @@
 ## Выход независимого review ТЗ
 
 REV-R5-TZ-REVIEW-01-001, reviewer `r5-implementation-02`, reviewed SHA `bff66903c4588321faf3b86bf0abb501c8a7c881`: REJECT_WITH_BLOCKER для утверждения ТЗ и G1. R1 обрабатывает R5-TZ-B01…03 и W01…04 согласно verification/r5_requirements_review/review.md, после проверки действующих claim/lease; затем передаёт новый SHA на независимый recheck. Пробы/журналы отложены, реальные неизвестные не назначать. G1 открыт, архитектура не утверждена.
+
+## Результат ограниченного RECHECK ТЗ
+
+REV-R5-TZ-RECHECK-01-001: W01…04 CLOSED в документальной области, B01…03 OPEN; reviewed commit a02420fd3b100447550740a417d75c8608206cd7. Результаты и условия дальнейшей проверки: verification/r5_tz_recheck_01/review.md. R1 проверяет действующие claim/lease и продолжает B01…03 без выдумывания UNKNOWN; G1 OPEN.

@@ -297,3 +297,7 @@ OPEN: критерии, вход сырья, программа и безопа�
 ещё не обоснованы; актуальные пользовательские границы и UNKNOWN сохранены.
 REV-R5-TZ-REVIEW-01-001 и прежний REV-R5-REVIEW-01-001 STALE к изменённым
 документам, их исторические выводы/блокеры сохраняются; G1 OPEN.
+
+## Ограниченный RECHECK проекта ТЗ — REV-R5-TZ-RECHECK-01-001
+
+R5 `r5-implementation-02` проверил `a02420fd3b100447550740a417d75c8608206cd7`: W01…04 CLOSED только как документальные замечания, B01…03 OPEN, REJECT_WITH_BLOCKER для утверждения ТЗ/G1. REQ/VAL 22/22 структурно, UNKNOWN и NOT_RUN сохраняются. Полный акт: verification/r5_tz_recheck_01/review.md и reviews/cross_check_log.md. G1 OPEN; владелец T-INIT не меняется.
