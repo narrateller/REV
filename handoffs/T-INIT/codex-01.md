@@ -93,3 +93,13 @@ C: `ce8c65370a7d46e7a0165a2b80284fd7cda6763b`. Оценка —
 ID reviewer R5 и исходный независимый probe с SHA и результатами; затем
 сверить независимость, критерии и актуальные main/lease и оформить приёмку.
 G1 открыт. Main на момент C `2f463babdc84382a0ab2502f4acfa7a2047087df`.
+
+## Решение R1 после получения независимого probe
+
+C: `a85d205f71a03eec2915a0b9da7c958fbf149c19`. R1 принял результат
+`debfd085842ccae079cfd6faea1c41bca20f335d` только в synthetic AABB области.
+R5 `r5-implementation-02`; акт и probe из `b4d4af9325c5d24e093ec2d4dce5797581ebf6e1`,
+probe SHA-256 `e7c2e004ced7bf7a25f62aa92904291e47bbf027111e7e1cb089fcf193b0aa80`.
+R1 повторил 8 мутаций, 20 тестов и benchmark 3000, отчёты совпали кроме python.
+Следующее действие: подготовить интеграцию модели, review и решения в main;
+перед ней повторно проверить main и claim. Общий статус IN_REVIEW; G1 OPEN.
