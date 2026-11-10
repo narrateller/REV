@@ -209,3 +209,5 @@ R5-IMPL-02 закрыт в указанной synthetic области, R5-IMPL-
 результат REJECT_WITH_BLOCKER. Ранее указанные два OPEN — история RECHECK-03.
 Поручение R4 и план независимого recheck: verification/r5_recheck_04/disposition.md.
 Геометрия REV, физическая выдача, безопасность и G1 не подтверждены.
+
+Текущий C решения по RECHECK-04: 791d0ce8ccb31373b221d0b69063e2f835b442c0; подробная эстафета в NEXT_MODEL.md.
