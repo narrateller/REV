@@ -1,6 +1,6 @@
 # cross_check_log — акты межролевой проверки
 
-Сохранён документальный OUTPUT-review эскизов с WARNING; инженерной приёмки нет. Шаблон ниже не является положительным заключением.
+Сохранены документальные OUTPUT-review эскизов и постановки модели с WARNING; инженерной приёмки нет. Шаблон ниже не является положительным заключением.
 Один акт относится к неизменяемому набору файлов и параметров. Последующее исправление создаёт новый акт с `supersedes`; исходный акт сохраняется.
 
 ## Индекс актов
@@ -8,6 +8,7 @@
 | Review ID | Проверяющий → авторы | Task / commit | Область | Вердикт | Актуальность | Блокер |
 |---|---|---|---|---|---|---|
 | REV-R5-REVIEW-01-001 | R5 r5-review-01 → codex-01 | T-INIT / 6fe0a417ed2fde165e2fc01d625ec86ab810346e | Документальные эскизы, без инженерной приёмки | WARNING | CURRENT для перечисленных артефактов | NONE |
+| REV-R5-MODEL-REVIEW-01-001 | R5 r5-model-review-01 → codex-01 | T-codex-01-01 / 3aebae606011ded0f6d6e0a8d6ccc15094d88feb | Постановка rev2 и циклы rev1; не код | WARNING | CURRENT | NONE |
 
 ## REV-R5-REVIEW-01-001 — независимая проверка эскизов
 
@@ -159,6 +160,160 @@ supersedes: null
 
 Хэши вычислены проверяющим по байтам git show <commit>:<path>; координатор
 повторно сверил хэши Git blobs и неизменность текущих файлов.
+
+## REV-R5-MODEL-REVIEW-01-001 — проверка постановки первой модели
+
+Акт оформлен координатором по заключению отдельного read-only R5.
+Обязательных исправлений двух проверенных документов reviewer не обнаружил.
+Отдельный вердикт: можно передать R4 исследовательскую реализацию на
+изолированных synthetic данных после назначения/claim. Назначение и claim
+этим актом не создаются. Код, fixtures и стенд не запускались; PASS внутри
+checks означает документальную проверку требования, не выполнение модели.
+
+```yaml
+record_type: review
+review_id: REV-R5-MODEL-REVIEW-01-001
+kind: OUTPUT
+task_id: T-codex-01-01
+created_at_utc: '2026-11-10T16:17:13Z'
+reviewer:
+  role: R5
+  session_id: r5-model-review-01
+  model_label: Codex
+reviewed_roles:
+- R1
+author_sessions:
+- codex-01
+independence:
+  reviewer_not_author: true
+  basis: Отдельный агент /root/independent_model_brief_review с fork_turns=none; только чтение immutable Git
+    artifacts, без авторства/редактирования
+independence_basis: Назначение и передача делегированы прямым поручением пользователя. Отдельная сессия не
+  участвовала в авторстве codex-01; общий поставщик модели сохраняет возможность коррелированных ошибок.
+reviewed_commit: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb
+parameter_refs: []
+artifacts:
+- path: models/first_digital_model_brief.md
+  sha256: 3c86ed707f11ee5f9fa93409022c8250cc3582e6fb78363f85313d28733b79d1
+- path: controls/press_variant_state_tables.md
+  sha256: e4a5ac6e2da299554ed779670c6872af97ec8a48ace50ec5e4aa929fdd62e7fa
+scope: 'DOCUMENTARY_OUTPUT_REVIEW: постановка rev2 и таблицы циклов rev1, достаточность контракта/ожидаемых
+  synthetic результатов и границ передачи R4; без MODEL_VERIFICATION'
+checks:
+- id: CHK-01
+  method: inspection
+  expected: Границы модели/обе альтернативы без утверждения архитектуры
+  observed: Brief 7–19,162–170; cycles 55–71
+  reasoning: Геометрия/кинематика отделены от сырья, нагрузок и выбора A/B
+  result: PASS
+- id: CHK-02
+  method: inspection
+  expected: Точные входы/происхождение, UNKNOWN без догадок
+  observed: Brief 15–19,39–52; cycles 3–7; immutable git show
+  reasoning: Числа REV не назначены; ревизии исполнения фиксируются при claim
+  result: PASS
+- id: CHK-03
+  method: inspection
+  expected: Явные координаты/единицы/внеплоскостные данные/допуски
+  observed: Brief 25–35,39–52,117–133
+  reasoning: UNKNOWN не заменяется нулём, синхронизацией или произвольным допуском
+  result: PASS
+- id: CHK-04
+  method: inspection
+  expected: При наличии физических расчётов проверить формулы/балансы
+  observed: Физические расчёты отсутствуют; brief 162–168 их исключает
+  reasoning: Проверка физических балансов неприменима к этому объёму и не подтверждает будущую физику
+  result: NOT_APPLICABLE
+- id: CHK-05
+  method: inspection
+  expected: Гарантированная проверка всего хода/возврата/совместных движений
+  observed: Brief 77–81,104–127
+  reasoning: Непрерывный метод либо консервативная полнота; отсутствие гарантии ведёт к INDETERMINATE, не NO_COLLISION
+  result: PASS
+- id: CHK-06
+  method: independent_derivation
+  expected: Различить проекции/траектории/огибающие и одновременное столкновение
+  observed: Brief 93–110,129–133
+  reasoning: Перекрытие объединённых по времени областей не доказывает общего t; разнесённые интервалы z исключают
+    пересечение экструзий независимо от проекции
+  result: PASS
+- id: CHK-07
+  method: inspection
+  expected: Переходы требуют физических разрешений, разгрузка до открытия B
+  observed: Cycles 11–24,30–41,47–53; brief 44,112–123
+  reasoning: Команда/геометрия не доказывают силовую готовность; B-UNLOAD отдельно от B-OPEN, A-OUT связан
+    с A-PRESS
+  result: PASS
+- id: CHK-08
+  method: inspection
+  expected: Промежуточная коллизия при свободных концах требует COLLISION
+  observed: SYN-MODEL-01; brief 149,155–160
+  reasoning: Требуется свидетельство внутри интервала; INDETERMINATE безопасен, но эталон не проходит
+  result: PASS
+- id: CHK-09
+  method: inspection
+  expected: Overlap проекций при полном известном разнесении z даёт NO_COLLISION
+  observed: SYN-MODEL-02; brief 150,129–133
+  reasoning: Диагностика проекции отделена, вывод об объёмах доказан на всём интервале
+  result: PASS
+- id: CHK-10
+  method: inspection
+  expected: Пересечение траекторий в разные времена учитывает конечные размеры
+  observed: SYN-MODEL-03; brief 151
+  reasoning: Требуется отсутствие одновременного пересечения объёмов во всём ходе
+  result: PASS
+- id: CHK-11
+  method: inspection
+  expected: Недостающая необходимая геометрия/траектория даёт INDETERMINATE
+  observed: SYN-MODEL-04; brief 152,121–127
+  reasoning: Оба подслучая и список недостающего предусмотрены; по остальным данным вывод не доказан
+  result: PASS
+- id: CHK-12
+  method: inspection
+  expected: Корректный короткий ход — отдельный статус недостаточной выдачи
+  observed: SYN-MODEL-05; brief 135–139,153
+  reasoning: INSUFFICIENT_STROKE не подменяется INVALID_INPUT/COLLISION; NO_COLLISION требует отдельной полной
+    проверки
+  result: PASS
+- id: CHK-13
+  method: inspection
+  expected: Результат геометрии не закрывает весь VAL/G1
+  observed: Brief 65–89,143–170; REQ/VAL-05/06/09/11/12/16 есть в commit
+  reasoning: Команды, файлы/хэши, статусы и независимая проверка заданы; реальные силы/сырьё/изделие за границей
+  result: PASS
+- id: CHK-14
+  method: inspection
+  expected: Реализация действительно обеспечивает полноту и проходит fixtures
+  observed: Реализация NOT_STARTED, результатов исполнения нет
+  reasoning: Проверена постановка/ожидаемые ответы, не выполнение или корректность будущего кода
+  result: NOT_RUN
+findings: []
+verdict: WARNING
+validity: CURRENT
+allowed_downstream_scope: Передача R4 после отдельного назначения/claim для исследовательской реализации обеих
+  альтернатив, UNKNOWN-шаблонов, символических схем и изолированных synthetic fixtures. Метод/код/результаты
+  проверяются отдельным независимым review.
+excluded_claims:
+- Работоспособность кода и выполнение synthetic fixtures
+- Отсутствие коллизий в реальном REV, реальная достаточность хода/сил/удержания/разгрузки
+- Безопасность управления/защит и метрологическая пригодность
+- Свойства сырья/уплотнение/качество/реальная выдача
+- Прочность/ресурс/производительность/изготовимость/выпуск
+- Выбор A/B, утверждение ТЗ и G1–G5
+- Закрытие R5-OBS-01…04 предыдущего review
+blocker_ids: []
+warning_owner_and_due:
+  owner_role: R1
+  owner_session: codex-01
+  due_at_utc: '2026-11-11T12:06:09Z'
+  restriction: До реализации зафиксировать назначение/claim, immutable входы, этот акт и synthetic-only границу;
+    срок не продлевает lease T-INIT. Инженерное использование/выпуск требуют отдельных доказательств.
+closure_criteria:
+- Для приёмки реализации предъявить точный commit метода/кода, входы и воспроизводимые результаты
+- Независимо проверить полноту пространственно-временного метода и пять synthetic случаев
+- Для переноса на REV определить применимую геометрию/движения/допуски/область
+supersedes: null
+```
 
 ## Форма акта
 
