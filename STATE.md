@@ -221,3 +221,7 @@ T-codex-01-01: исправления на 36cda8132dcf9dbb7193b01e98bdfff2ba5e2
 ## Исправление по арбитражу R1
 
 SYN-LINKED-EJECTION: code/results 576a17fc0b127cb7d377992c01d645a77bed42d4; ARB-R1-RECHECK-03 1283c9e6f3b14dbbe820dd06798399c611d34ce8; независимый R5 RECHECK NOT_RUN. R5-IMPL-01/02 OPEN, consecutive_rejections=2; G1 открыт. Синтетический READY не подтверждает реальные условия REV.
+
+## Принятие модели после PR #2
+
+`main` `672c835e201766a943927917f12875a9204b0b34` содержит model `debfd085` и review/probe `b4d4af9`; задача T-codex-01-01 DONE только в синтетической AABB области после принятия этой записи. G1 OPEN; следующая работа — проверка полноты требований/матрицы и подготовка независимого review ТЗ. Текущая эстафета — NEXT_MODEL.md.
