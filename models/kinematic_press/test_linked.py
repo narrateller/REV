@@ -13,9 +13,11 @@ class LinkedChecks(unittest.TestCase):
                 with self.subTest(variant=variant,mode=mode):
                     r=linked.run(variant,mode)
                     self.assertEqual((r['ejection_status'],r['collision_status'],r['transition'],r['ready']['status']),want)
+                    self.assertTrue(all(not x['mismatches'] and x['time_contiguous'] and x['lifecycle_valid'] for x in r['continuity']))
+                    if mode!='unknown': self.assertTrue(all(not x['unknown'] for x in r['continuity']))
                     if mode=='collision': self.assertEqual(r['collision_interval_product_obstacle'],['1/4','7/8'])
                     if mode=='sufficient':
-                        self.assertEqual(r['product_final_rear'],'2'); self.assertTrue(all(not x['mismatches'] and not x['unknown'] and x['time_contiguous'] and x['lifecycle_valid'] for x in r['continuity']))
+                        self.assertEqual(r['product_final_rear'],'2')
                         self.assertEqual(r['lifecycle']['event'],'REMOVE_AFTER_CONFIRMED_SYNTHETIC_EJECTION')
     def test_ce01_stationary_product_does_not_succeed(self):
         cases=json.loads((Path(__file__).parent/'fixtures.json').read_text())['cases'];c=copy.deepcopy(next(x for x in cases if x['id']=='R5-B-EJECT-SUFFICIENT'))
@@ -61,4 +63,37 @@ class LinkedChecks(unittest.TestCase):
         interface=next(x for x in result['pairs'] if set(x['pair'])=={'stop','lock'})
         self.assertEqual(interface['interface']['status'],'BLOCKED')
         self.assertTrue(result['interface_invalid'])
+    def test_discontinuity_mutations_control_transition_and_ready(self):
+        original=linked.run('B','sufficient')
+        for mutation in ('position','time','lifecycle','unknown'):
+            with self.subTest(mutation=mutation):
+                stages=copy.deepcopy(original['stages']); lifecycle=copy.deepcopy(original['lifecycle'])
+                if mutation=='position':
+                    b=stages[1]['bodies']['gate']; b['min'][0]=str(model.q(b['min'][0])+1); b['max'][0]=str(model.q(b['max'][0])+1)
+                if mutation=='time': stages[1]['time'][0]+=1
+                if mutation=='lifecycle': lifecycle={'event':'NOT_REMOVED'}
+                if mutation=='unknown': stages[1]['bodies']['gate']['delta']=None
+                checks=linked.assess_continuity(stages,lifecycle)
+                status,ready=linked.apply_continuity('ALLOWED',{'status':'READY'},checks)
+                want='INDETERMINATE' if mutation=='unknown' else 'BLOCKED'
+                self.assertEqual(status,want); self.assertEqual(ready['status'],want)
+    def test_collision_survives_unknown_continuity(self):
+        collision=linked.run('B','collision'); stages=copy.deepcopy(collision['stages'])
+        stages[1]['bodies']['gate']['delta']=None
+        checks=linked.assess_continuity(stages,collision['lifecycle'])
+        self.assertEqual(linked.continuity_status(checks),'INDETERMINATE')
+        status,ready=linked.apply_continuity(collision['transition'],collision['ready'],checks)
+        self.assertEqual(status,'BLOCKED'); self.assertEqual(ready['status'],'BLOCKED')
+        self.assertEqual(collision['collision_status'],'COLLISION')
+        self.assertEqual(collision['collision_interval_product_obstacle'],['1/4','7/8'])
+    def test_b_collision_obstacle_consistent_from_start_and_both_contacts(self):
+        r=linked.run('B','collision')
+        self.assertEqual([s['phase'] for s in r['stages']],['B-UNLOAD','B-OPEN','B-OPEN','B-EJECT'])
+        self.assertTrue(all(tuple(map(model.q,s['bodies']['output_obstacle']['min']))==(model.q('3/2'),0,0) for s in r['stages']))
+        pairs=r['stages'][-1]['matrix']['pairs']
+        def interval(a,b):
+            return next(x['result']['evidence']['contact_interval_normalized'] for x in pairs if set(x['pair'])=={a,b})
+        self.assertEqual(interval('product','output_obstacle'),['1/4','7/8'])
+        self.assertEqual(interval('punch','output_obstacle'),['3/4','1'])
+        self.assertTrue(all(not c['mismatches'] and c['time_contiguous'] and c['lifecycle_valid'] for c in r['continuity']))
 if __name__=='__main__': unittest.main()

@@ -64,14 +64,51 @@ def advance(bodies):
         body['min']=[str(lo[i]+d[i]) for i in range(3)]; body['max']=[str(hi[i]+d[i]) for i in range(3)];body['delta']=[0,0,0]
     return out
 
+def assess_continuity(stages, lifecycle):
+    """Compare actual retained bodies and times; unknown is distinct from a defect."""
+    checks=[]
+    for prev,nxt in zip(stages,stages[1:]):
+        old=prev['bodies']; new=nxt['bodies']; removed=sorted(set(old)-set(new)); added=sorted(set(new)-set(old))
+        expected_removal=(removed==['product'] and not added and
+                          lifecycle.get('event')=='REMOVE_AFTER_CONFIRMED_SYNTHETIC_EJECTION' and
+                          lifecycle.get('time')==prev['time'][1])
+        bad=[]; unknown=[]
+        for name in sorted(set(old)&set(new)):
+            try:
+                lo,hi,delta=model.box(old[name]); nlo,nhi,_=model.box(new[name])
+                if any(lo[i]+delta[i]!=nlo[i] or hi[i]+delta[i]!=nhi[i] for i in range(3)): bad.append(name)
+            except (KeyError,ValueError,TypeError,ZeroDivisionError): unknown.append(name)
+        checks.append({'from':prev['phase'],'to':nxt['phase'],
+                       'time_contiguous':prev['time'][1]==nxt['time'][0],
+                       'mismatches':bad,'unknown':unknown,'removed':removed,'added':added,
+                       'lifecycle_valid':not added and (not removed or expected_removal)})
+    return checks
+
+def continuity_status(checks):
+    if any(x['mismatches'] or not x['time_contiguous'] or not x['lifecycle_valid'] for x in checks): return 'BLOCKED'
+    if any(x['unknown'] for x in checks): return 'INDETERMINATE'
+    return 'CLEAR'
+
+def apply_continuity(transition_status, readiness, checks):
+    """Apply known discontinuities first; preserve an already proved blocker."""
+    state=continuity_status(checks); readiness=copy.deepcopy(readiness)
+    if state=='BLOCKED':
+        transition_status='BLOCKED'; readiness['status']='BLOCKED'
+    elif state=='INDETERMINATE':
+        if transition_status!='BLOCKED': transition_status='INDETERMINATE'
+        if readiness['status']!='BLOCKED': readiness['status']='INDETERMINATE'
+    readiness['continuity_status']=state
+    return transition_status,readiness
+
 def run(variant,outcome):
     if variant not in ('A','B') or outcome not in ('sufficient','short','collision','unknown'):
         raise ValueError('unsupported synthetic scenario')
     bodies=initial()
     if variant=='B':
         bodies['stop']=make_box(2,3,0,1); bodies['lock']=make_box(3,4,0,1)
+    if outcome=='collision': bodies['output_obstacle']=make_box('3/2','7/4',0,1)
     baseline=copy.deepcopy(bodies); stages=[]; t=0; product_removed=False
-    guards={'unloading_confirmed':'SYNTHETIC_ASSUMPTION','column_retention':'SYNTHETIC_ASSUMPTION'}
+    guards={'unloading_confirmed':'SYNTHETIC_ASSUMPTION','column_retention':'SYNTHETIC_ASSUMPTION','gate_isolated':'SYNTHETIC_ASSUMPTION','feeder_retracted':'SYNTHETIC_ASSUMPTION'}
     def stage(name,movements,missing_product=False):
         nonlocal bodies,t
         stage_bodies=copy.deepcopy(bodies)
@@ -83,9 +120,9 @@ def run(variant,outcome):
         if not missing_product: bodies=advance(stage_bodies)
         t+=1
         return p
+    if variant=='A': stage('A-ISOLATE',{})
     if variant=='B':
         stage('B-UNLOAD',{}); stage('B-OPEN',{'lock':(0,2,0)});stage('B-OPEN',{'stop':(0,2,0)})
-    if outcome=='collision': bodies['output_obstacle']=make_box('3/2','7/4',0,1)
     before=copy.deepcopy(bodies); travel=1 if outcome=='short' else 2
     phase='A-PRESS' if variant=='A' else 'B-EJECT'
     movement={'punch':(travel,0,0),'product':(travel,0,0)}
@@ -98,7 +135,9 @@ def run(variant,outcome):
         ejection='SUFFICIENT_STROKE' if rear>=2 else 'INSUFFICIENT_STROKE'
     prior_blocked=any(x['matrix']['collision_status']=='COLLISION' or x['matrix']['interface_invalid'] for x in stages)
     prior_unknown=any(not x['matrix']['complete'] for x in stages)
-    eligible=ejection=='SUFFICIENT_STROKE' and not prior_blocked and not prior_unknown
+    pre_continuity=assess_continuity(stages,{'event':'NOT_REMOVED'})
+    pre_state=continuity_status(pre_continuity)
+    eligible=ejection=='SUFFICIENT_STROKE' and not prior_blocked and not prior_unknown and pre_state=='CLEAR'
     lifecycle={'event':'NOT_REMOVED','reason':'full unobstructed linked ejection is not established'}
     readiness={'status':'BLOCKED' if outcome in ('short','collision') else 'INDETERMINATE','reason':'product remains or linked ejection unknown'}
     continuity=[]
@@ -130,19 +169,12 @@ def run(variant,outcome):
             st=model.box(bodies['stop']); lk=model.box(bodies['lock'])
             closure=(st[0][0]==2 and st[0][1]<=0 and st[1][1]>=1 and st[0][2]<=0 and st[1][2]>=1 and st[1][0]==lk[0][0] and st[0][1:]==lk[0][1:] and st[1][1:]==lk[1][1:])
         readiness={'status':'READY' if not mismatches and not ready_mismatches and not bad_return and not zones and closure else 'BLOCKED','position_mismatches':mismatches,'independent_ready_mismatches':ready_mismatches,'independent_ready_spec':ready_spec,'collision_or_unknown_stages':bad_return,'occupied_zones':zones,'punch_feeder_gate_restored':not any(x in mismatches for x in ('punch','feeder','gate')),'stop_lock_restored_and_geometrically_engaged':closure,'column_condition':'synthetic empty after verified removal; physical holding UNKNOWN','lock_capacity':'UNKNOWN'}
-    for i in range(1,len(stages)):
-        prev=stages[i-1]; nxt=stages[i]; old=advance(prev['bodies'])
-        removed_here=set(old)-set(nxt['bodies']); permitted=removed_here=={'product'} and lifecycle['event'].startswith('REMOVE_') and prev['time'][1]==lifecycle['time']
-        bad=[]
-        unknown=[]
-        for name in set(old)&set(nxt['bodies']):
-            try:
-                a=model.box(old[name]);b=model.box(nxt['bodies'][name])
-                if a[:2]!=b[:2]: bad.append(name)
-            except (KeyError,ValueError,TypeError): unknown.append(name)
-        continuity.append({'from':prev['phase'],'to':nxt['phase'],'time_contiguous':prev['time'][1]==nxt['time'][0], 'mismatches':bad, 'unknown':unknown, 'removed':sorted(removed_here),'lifecycle_valid':not removed_here or permitted})
-    contact_interval=None
+    continuity=assess_continuity(stages,lifecycle)
+    transition_status='ALLOWED' if eligible else 'BLOCKED' if prior_blocked or ejection in ('BLOCKED','INSUFFICIENT_STROKE') else 'INDETERMINATE'
+    transition_status,readiness=apply_continuity(transition_status,readiness,continuity)
+    contact_interval=None; punch_interval=None
     for row in mat['pairs']:
         if set(row['pair'])=={'product','output_obstacle'} and row.get('result',{}).get('collision_status')=='COLLISION':contact_interval=row['result']['evidence']['contact_interval_normalized']
+        if set(row['pair'])=={'punch','output_obstacle'} and row.get('result',{}).get('collision_status')=='COLLISION':punch_interval=row['result']['evidence']['contact_interval_normalized']
     return {'id':'SYN-LINKED-EJECTION','variant':variant,'outcome':outcome,'assumptions':guards,'initial_scene':baseline,'ejection_start':before,'contact':interface,'ejection_status':ejection,'product_final_rear':str(rear) if rear is not None else None,
-            'collision_status':mat['collision_status'],'collision_interval_product_obstacle':contact_interval,'transition':'ALLOWED' if eligible else 'BLOCKED' if prior_blocked or ejection in ('BLOCKED','INSUFFICIENT_STROKE') else 'INDETERMINATE','ready':readiness,'lifecycle':lifecycle,'continuity':continuity,'a_out':'SAME_INTERVAL_AS_A_PRESS' if variant=='A' else 'NOT_APPLICABLE','stages':stages}
+            'collision_status':mat['collision_status'],'collision_interval_product_obstacle':contact_interval,'collision_interval_punch_obstacle':punch_interval,'transition':transition_status,'ready':readiness,'lifecycle':lifecycle,'continuity':continuity,'a_out':'SAME_INTERVAL_AS_A_PRESS' if variant=='A' else 'NOT_APPLICABLE','stages':stages}
