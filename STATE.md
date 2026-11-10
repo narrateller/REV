@@ -32,11 +32,7 @@
 Здесь указаны функции; конкретные проверяющие не могут быть авторами проверяемых версий.
 Для каждого решения о воротах создать запись в `decisions/<decision_id>.md`: baseline commit, scope, evidence, exclusions, blocker_ids, approver, основание полномочий, UTC.
 Текущее решение по плану: ARB-R1-RECHECK-03 (не gate decision).
-Текущий блокер приёмки: R5-IMPL-01 OPEN. R5-IMPL-02 CLOSED только
-в синтетической области AABB на SHA 576a17fc по предоставленному акту
-REV-R5-RECHECK-04-001; consecutive_rejections=2 сохраняется исторически.
-Q-R5-RECHECK-03 разрешён; корректирующая итерация допустима только по опубликованному
-решению после фиксации его SHA и проверки owner/lease R4. Приёмка остаётся BLOCKED.
+По предоставленному дополнению RECHECK-05 R5-IMPL-01 CLOSED и регрессия R5-IMPL-02 PASS только в synthetic области на debfd085; probe и ID сессии не представлены. Задача остаётся IN_REVIEW, G1 открыт. История consecutive_rejections=2 сохраняется; Q-R5-RECHECK-03 разрешён.
 Независимый review эскизов REV-R5-REVIEW-01-001: WARNING, допускает лишь
 ограниченную документальную проработку; четыре замечания OPEN. Новые циклы
 и задание этим старым актом не проверены; отдельный акт REV-R5-MODEL-REVIEW-01-001
@@ -78,7 +74,7 @@ claim_record:
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
   heartbeat_utc: '2026-11-10T17:42:58Z'
-subtask: 'Предоставленный пользователем RECHECK-04: IMPL-02 CLOSED synthetic, IMPL-01 OPEN; решение R4 подготовлено'
+subtask: 'Историческая капсула RECHECK-04; актуальный следующий шаг в NEXT_MODEL.md по дополнению RECHECK-05'
 input_refs:
 - commit: 576a17fc0b127cb7d377992c01d645a77bed42d4
   paths:
@@ -205,3 +201,7 @@ R5-IMPL-02 закрыт в указанной synthetic области, R5-IMPL-
 ## Предоставленный акт RECHECK-05
 
 Заявлены PASS/CLOSED R5-IMPL-01 и PASS регрессии R5-IMPL-02 на `debfd085`, но подтверждение достаточности независимой проверки ожидает дополнения R5: пакет был усечён, а команды и результаты обязательных негативных мутаций в акте отсутствуют. R5-IMPL-01 OPEN/HOLD, задача BLOCKED; G1 OPEN. См. verification/r5_recheck_05/disposition.md.
+
+## Дополнение RECHECK-05 — заявлено воспроизведение
+
+На основании предоставленного пользователем дополнения R5-IMPL-01 CLOSED synthetic на `debfd085`, регрессия R5-IMPL-02 PASS synthetic. Код независимого probe и ID сессии пока недоступны; T-codex-01-01 IN_REVIEW, не DONE; G1 OPEN. См. verification/r5_recheck_05/disposition.md. Предыдущие статусы ниже по истории не являются текущими.

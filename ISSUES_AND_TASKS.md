@@ -19,7 +19,7 @@ ID после создания не меняется. Для параллель�
 |---|---|---|---|---|---|---|---|
 | T-INIT | TASK | P1 | @R1 | CLAIMED | codex-01 | NONE | G1 |
 | Q-codex-01-01 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
-| T-codex-01-01 | TASK | P2 | @R4 | BLOCKED | r4-model-01 | R5-IMPL-01 OPEN; R5-IMPL-02 CLOSED synthetic | G1 |
+| T-codex-01-01 | TASK | P2 | @R4 | IN_REVIEW | r4-model-01 | R5-IMPL-01 CLOSED synthetic; R5-IMPL-02 regression PASS synthetic | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -93,7 +93,7 @@ ID после создания не меняется. Для параллель�
 ## T-codex-01-01
 
 - Название: первая параметрическая геометрическая/кинематическая модель двух вариантов пресса.
-- Тип TASK; автор codex-01; адресат @R4 (входы R3), P2; статус BLOCKED для приёмки; после публикации ARB-R1-RECHECK-03 разрешена только определённая решением корректирующая итерация; owner_session: r4-model-01; claim принят последовательно в main по прямому поручению пользователя.
+- Тип TASK; автор codex-01; адресат @R4 (входы R3), P2; статус IN_REVIEW после предоставленного дополнения RECHECK-05; owner_session: r4-model-01; claim принят последовательно в main по прямому поручению пользователя.
 - Родитель: T-INIT; ворота G1. Цель — положения/пересечения/огибающие и выдающий ход, не выбор архитектуры, расчёт сил или моделирование древесины.
 - Входы: models/first_digital_model_brief.md и controls/press_variant_state_tables.md из commit результата текущего продолжения (полный C фиксируется в NEXT_MODEL.md); эскизы из 6fe0a417ed2fde165e2fc01d625ec86ab810346e; review REV-R5-REVIEW-01-001 с ограничениями. До исполнения отдельные назначение/claim и фиксация ревизий.
 - Выходы/критерии: Python 3.12, шаблон параметров, SVG/JSON, README; обе альтернативы, непрерывная либо консервативно полная проверка хода, INDETERMINATE при недостаточной геометрии/траектории/гарантии метода, отдельные признаки проекций/траекторий/одновременной коллизии, INVALID_INPUT для противоречий и пять обязательных SYN-MODEL-01…05 с ожидаемыми результатами. Подробности в задании и ARB-R1-RECHECK-03. Реализация на 36cda813 проверена с REJECT_WITH_BLOCKER; следующая корректирующая итерация ещё не начата этим арбитражем.
@@ -234,3 +234,7 @@ REV-R5-RECHECK-03-001: R5-IMPL-01 OPEN, R5-IMPL-02 OPEN; REJECT_WITH_BLOCKER. T-
 - Пользователь передал акт с заявленными PASS/CLOSED для R5-IMPL-01 и PASS регрессии R5-IMPL-02 на `debfd085842ccae079cfd6faea1c41bca20f335d`.
 - Из-за усечения пакета и отсутствия в акте результатов обязательных негативных мутаций/команд достаточность независимой проверки не подтверждена; R5-IMPL-01 OPEN/HOLD, задача BLOCKED, регрессия на новом SHA ожидает подтверждения. Ранее закрытая synthetic область R5-IMPL-02 сохраняется.
 - Основание и следующий шаг: verification/r5_recheck_05/disposition.md. G1 OPEN.
+
+## Дополнение RECHECK-05 с выполнением
+
+Пользователь предоставил verification/r5_recheck_05/execution_addendum.md: R5 сообщает PASS воспроизведения и независимых мутаций на `debfd085842ccae079cfd6faea1c41bca20f335d`. На основании предоставленного акта R5-IMPL-01 CLOSED и регрессия R5-IMPL-02 PASS только в проверенной synthetic AABB области. Код probe и ID сессии не предоставлены; T-codex-01-01 не объявлена DONE, G1 открыт. См. verification/r5_recheck_05/disposition.md.
