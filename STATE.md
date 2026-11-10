@@ -176,3 +176,7 @@ T-codex-01-01: исправления на 36cda8132dcf9dbb7193b01e98bdfff2ba5e2
 ## Исправление по арбитражу R1
 
 SYN-LINKED-EJECTION: code/results 576a17fc0b127cb7d377992c01d645a77bed42d4; ARB-R1-RECHECK-03 1283c9e6f3b14dbbe820dd06798399c611d34ce8; независимый R5 RECHECK NOT_RUN. R5-IMPL-01/02 OPEN, consecutive_rejections=2; G1 открыт. Синтетический READY не подтверждает реальные условия REV.
+
+## Исправление непрерывности по решению R1
+
+Code/results debfd085842ccae079cfd6faea1c41bca20f335d; решение 791d0ce8ccb31373b221d0b69063e2f835b442c0, независимый RECHECK NOT_RUN. R5-IMPL-01 OPEN; R5-IMPL-02 CLOSED только в синтетической области прежнего 576a17fc, регрессия новой версии ожидает проверки. G1 открыт.

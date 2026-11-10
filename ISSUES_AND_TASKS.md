@@ -211,3 +211,11 @@ history: [] # UTC, session_id, from, to, reason, evidence
 - Только synthetic: физика сырья, реальная разгрузка B, удержание A, устойчивость замка и параметры REV UNKNOWN; G1 открыт. Независимый RECHECK NOT_RUN.
 
 - 2026-11-10: вход R1 verification/r5_recheck_04/disposition.md на 791d0ce8ccb31373b221d0b69063e2f835b442c0; капсула 5ff71747b7263220ab25c56f3d329253ee42356d. main 2f463babdc84382a0ab2502f4acfa7a2047087df, owner r4-model-01, lease до 2026-11-11T16:52:25Z. R5-IMPL-01 OPEN; R5-IMPL-02 CLOSED только для проверенной синтетической области 576a17fc; G1 открыт.
+
+## Передача R5 RECHECK после решения R1 по акту 04
+
+- Code/results C: debfd085842ccae079cfd6faea1c41bca20f335d; ветка work/T-codex-01-01/r4-model-01; R4 r4-model-01. Вход R1: verification/r5_recheck_04/disposition.md на 791d0ce8ccb31373b221d0b69063e2f835b442c0; капсула R1 5ff71747b7263220ab25c56f3d329253ee42356d; исходный пользовательский акт verification/r5_recheck_04/submitted_review.md.
+- R5-IMPL-01 OPEN до положительного независимого RECHECK; R5-IMPL-02 CLOSED только для проверенной синтетической AABB области 576a17fc по решению R1, на новый SHA не распространяется автоматически. Ранние общие записи «оба OPEN» выше являются историческими; G1 открыт.
+- Исправлено: obstacle collision задан до baseline/начальных фаз; переход и READY учитывают BLOCKED/INDETERMINATE по непрерывности; runner и тесты проверяют границы всех четырёх исходов A/B. Доказанные столкновения сохраняются отдельно.
+- Проверки автора: 8/8 сценариев и CE-01/CE-02 совпали с ожиданиями, 20 unittest OK, benchmark 3000/3000, check_registry --check-git PASS; отчёты двух запусков воспроизводимы, хэши входов сверены. B/collision: product/obstacle [1/4,7/8], punch/obstacle [3/4,1]; границы непрерывны.
+- Независимому R5: проверить точный C, мутации разрыва положения/времени/lifecycle, UNKNOWN без блокера, коллизию с UNKNOWN, 4 исхода для A/B и регрессии матрицы; оформить отдельный акт. Физика и параметры REV UNKNOWN.
