@@ -237,3 +237,7 @@ SYN-LINKED-EJECTION: code/results 576a17fc0b127cb7d377992c01d645a77bed42d4; ARB-
 ## Независимый RECHECK и дальнейшая работа по ТЗ
 
 `f1edde47c580308aed7c1308281fc3069e25ccd7`: W01…04 CLOSED документально, B01…03 OPEN; G1 OPEN, испытания/пробы NOT_RUN. Исправлены исторические ссылки на rev3 схемы; проверенный акт STALE относительно этих редакционных изменений, W01…04 не переоткрыты. Порядок доработки — verification/g1_blocker_workplan.md, текущая эстафета — NEXT_MODEL.md.
+
+## Кандидатные границы поставки
+
+R1 подготовил process/supply_boundary_options.md для согласования с оператором; D-REV-04 и B01…03 остаются OPEN, G1 OPEN. Пробы и журналы отложены.
