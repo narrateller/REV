@@ -1,13 +1,56 @@
-# Эстафета R4 — T-codex-01-01
+# Эстафета — решение R1 по T-codex-01-01
 
-- Сессия r4-model-01 / Codex / R4 назначена пользователем. Ветка work/T-codex-01-01/r4-model-01.
-- C claim: 99d2d5f81c8199ef97d132773e48111560869991, опубликован через Git HTTPS.
-- Статус CLAIMED, owner_session: r4-model-01; реализация NOT_STARTED, synthetic сценарии NOT_RUN. SVG/JSON результатов ещё нет.
-- Проверенная main: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17; задания/акта R5 в ней нет. Координаторская ветка: 60ae333219cc9d735f302bebef0792277fa6167d.
-- Задание и акт включены в main на 60ae333219cc9d735f302bebef0792277fa6167d; claim 99d2d5f принят отдельным последующим коммитом. Перед началом R4 проверяет фактический SHA main, owner и lease.
-- Immutable задание: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; REV-R5-MODEL-REVIEW-01-001 из 7e99ecf87874b3bc53b1c08f115b2b5ee2ad4c3c. Хэши brief/циклов сверены, совпадают.
-- После принятия: R4 fetch main, проверяет owner/lease/входы; оформляет входной акт, единицы/контакт/примитивы и реализует обе альтернативы, UNKNOWN-шаблон и пять synthetic сценариев. Точный code/results commit передаёт независимому reviewer.
-- Капсула: handoffs/T-codex-01-01/r4-model-01.md; независимый review будущей реализации NOT_RUN.
-- Проверки документов: python3 scripts/check_registry.py --check-git PASS; git diff --check PASS. Git push успешен. gh pr create не создал PR: GitHub GraphQL API Forbidden; Git read/write работают. Запрос координатору доставлен закоммиченными файлами опубликованной ветки; ответ пока отсутствует.
-- Ограничения: synthetic-only; параметры REV UNKNOWN; R5-OBS-01…04 не закрыты; архитектура/ТЗ не приняты, G1 открыт.
-- Существующая эстафета R1 сохранена в handoffs/T-INIT/codex-01.md на базе координатора.
+- R1 принял результат `debfd085842ccae079cfd6faea1c41bca20f335d` для ограниченной synthetic AABB области. Основание и ограничения: verification/t_codex_01_01_acceptance/r1_assessment.md; опубликованный акт R5 и probe — verification/r5_recheck_05.
+- Рецензент `r5-implementation-02`; источник акта/probe `b4d4af9325c5d24e093ec2d4dce5797581ebf6e1`; SHA-256 probe `e7c2e004ced7bf7a25f62aa92904291e47bbf027111e7e1cb089fcf193b0aa80`. R1 повторил 8 мутаций, 20 тестов, benchmark 3000 и сверку отчётов.
+- Следующий шаг: подготовить последовательную интеграцию model commit, акта и решения в общую ветку с повторной сверкой main и claim. Трекер IN_REVIEW до интеграции; архитектура не утверждена, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — оценка R1 модели T-codex-01-01
+
+- Оценка: verification/t_codex_01_01_acceptance/r1_assessment.md. Модель — кандидат на приёмку в synthetic AABB области, формально задача остаётся IN_REVIEW и не DONE; G1 OPEN.
+- Следующий шаг: получить идентификатор независимой сессии R5 и исходный `probe.py` с неизменяемым commit/SHA-256 и результатами; сверить независимость и мутации, зарегистрировать review, повторно проверить main/claim и оформить решение о приёмке.
+- На 2026-11-10 22:37 UTC main `2f463babdc84382a0ab2502f4acfa7a2047087df`, R4 `r4-model-01`, lease до 2026-11-11 16:52:25 UTC. Состояние необходимо перепроверить перед интеграцией.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — дополнение RECHECK-05 с результатами
+
+- На основании предоставленного пользователем verification/r5_recheck_05/execution_addendum.md: R5-IMPL-01 CLOSED только для synthetic AABB на `debfd085842ccae079cfd6faea1c41bca20f335d`, регрессия R5-IMPL-02 PASS в той же области. T-codex-01-01 IN_REVIEW, не DONE; G1 OPEN.
+- R5 сообщает 20 тестов, 3000 сравнений и 8 независимых мутаций; R1 не воспроизводил эти дополнительные мутации. Скрипт probe.py и точный ID сессии не предоставлены, запрашивать при следующем удобном контакте для воспроизводимости; пользовательский commit b4d4af9325c5d24e093ec2d4dce5797581ebf6e1 не найден. См. verification/r5_recheck_05/disposition.md.
+- Следующее действие R1: сверить актуальные main и task owner/lease, оценить комплект результата модели относительно исходных критериев T-codex-01-01 и оформить решение о приёмке или перечень недостающих доказательств; не утверждать архитектуру или G1.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — предоставленный REV-R5-RECHECK-05-001
+
+- Акт пользователя: verification/r5_recheck_05/submitted_review.md; code/results `debfd085842ccae079cfd6faea1c41bca20f335d`, эстафета `73541d22377fb2b97df0964762b5cdeca9711532`.
+- Акт заявляет PASS/CLOSED IMPL-01 и PASS регрессии IMPL-02; подтверждение достаточности независимого RECHECK ожидает дополнения из-за усечённого пакета и отсутствия в акте команд и отдельных результатов обязательных негативных мутаций. IMPL-01 OPEN/HOLD, задача BLOCKED; прежнее закрытие IMPL-02 только для проверенного synthetic SHA. G1 OPEN.
+- Дополнение R5, переданное пользователем, повторяет PASS, но не устраняет противоречие об усечённом пакете и не приводит команды и отдельные результаты мутаций. Следующее действие: обеспечить независимому R5 доступ к полным файлам в среде с Git или работающей передачей файлов и запросить воспроизводимые результаты и идентификатор сессии. Подробно: verification/r5_recheck_05/disposition.md.
+- Обновлённый акт сохранён в verification/r5_recheck_05/submitted_review_updated.md: R5 прочитал дополнительные тексты, но все команды помечены NOT_RUN; идентификатор сессии отсутствует. См. решение R1 в disposition.md.
+- R1 отдельно запустил 20 существующих тестов из изолированного git archive: OK; это не независимый RECHECK.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — решение по REV-R5-RECHECK-04-001
+
+- R1 / codex-01; 2026-11-10T18:33:28Z. Репозиторий narrateller/REV, ветка work/T-INIT/codex-01. C решения: 791d0ce8ccb31373b221d0b69063e2f835b442c0, опубликован.
+- Предоставленный пользователем акт: verification/r5_recheck_04/submitted_review.md; проверяемый commit 576a17fc0b127cb7d377992c01d645a77bed42d4, ветка work/T-codex-01-01/r4-model-01; handoff 66fb9bd1d454d05eb7f32b77b9f442917de9b95c. Reviewer session/подпись в тексте акта UNKNOWN; новый независимый review в текущей сессии не проводился.
+- На основании акта R5-IMPL-02 CLOSED только для проверенной synthetic AABB области указанного commit; R5-IMPL-01 OPEN, общий результат REJECT_WITH_BLOCKER. T-codex-01-01 BLOCKED для приёмки; G1 открыт, архитектура/ТЗ не утверждены.
+- Решение для R4 и критерии независимого recheck: verification/r5_recheck_04/disposition.md. Три изменения: начальная позиция output_obstacle до baseline/стадий; учёт continuity в transition/READY с BLOCKED и INDETERMINATE; проверка непрерывности всех четырёх исходов в runner/tests и свежий linked_report.
+- Первый шаг R4: получить C решения 791d0ce8ccb31373b221d0b69063e2f835b442c0, сверить main и claim/lease, зафиксировать C как вход. Далее внести исправления в своей ветке; R1 не менял код/fixtures R4.
+- После исправления: новый неизменяемый code/results SHA, свежие отчёты, все 4 исхода A/B, мутации разрыва позиции/времени/lifecycle, UNKNOWN и регрессии закрытого R5-IMPL-02; независимый R5 не автор исправления. Только положительный новый RECHECK может закрыть R5-IMPL-01.
+- Самопроверка R1: 5 SHA256 совпали с Git blobs 576a17fc; в сохранённом отчёте B/collision mismatches output_obstacle при matches_expected true; 8 существующих test_linked проходят во временной копии. Это не новый независимый review.
+- Прежний claim R4 owner r4-model-01 до 2026-11-11T16:52:25Z, проверять заново; R1 codex-01 до 2026-11-11T12:06:09Z. Реальные данные/физика/безопасность REV UNKNOWN; параметры не менялись.
+
+## Эстафета R4/R5 (историческая)
+
+# Повторная проверка R5 — SYN-LINKED-EJECTION
+
+- Задача T-codex-01-01; автор исправления r4-model-01 / R4. Точный code/results C: 576a17fc0b127cb7d377992c01d645a77bed42d4; ветка work/T-codex-01-01/r4-model-01. Следующий участник — независимый R5, не соавтор C; review NOT_RUN.
+- Р1 решение ARB-R1-RECHECK-03 на 1283c9e6f3b14dbbe820dd06798399c611d34ce8; входной REJECT_WITH_BLOCKER REV-R5-RECHECK-03-001 на 9e12e8bd4f2325ae0e887d3f2e28eaa85c55205f; R5-IMPL-01/02 OPEN, consecutive_rejections=2. Изменённые артефакты делают акт STALE для новой версии, блокеры сохраняются.
+- Перед началом проверить SHA ветки/C и хэши входов отчёта. Выполнить python3 models/kinematic_press/model.py; python3 models/kinematic_press/run_linked.py; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 verification/r5_model_02/independent_check.py; python3 scripts/check_registry.py --check-git.
+- Отчёт models/kinematic_press/results/linked_report.json: четыре исхода на каждом из A/B (8/8 ожиданий), матрицы по стадиям, интерфейсы, непрерывность, жизненный цикл и READY. Отчёт results/report.json сохраняет старые 28 cases и полные пары для исходной сцены.
+- CE-01 scalar против неподвижного продукта INVALID_INPUT, неподвижный A-OUT не CONSISTENT; CE-02 матрица B-EJECT находит punch/channel_wall [0,1] и блокирует переход. Авторские результаты: 17 unittest OK, benchmark R5 3000/3000, registry PASS, повторный запуск JSON воспроизводим.
+- R5 должен независимо оценить метод контактной поверхности, парную полноту и мутации, геометрию и временные границы всех стадий, доказательство реального synthetic READY и ограничения, а также все критерии решения R1. Число совпадений само по себе не закрывает блокеры.
+- Синтетические допущения о разгрузке/удержании/замке не являются данными REV; параметры и силы UNKNOWN, G1 открыт. Капсула handoffs/T-codex-01-01/r4-model-01.md.

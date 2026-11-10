@@ -1,15 +1,10 @@
-# R4 — ожидание принятия claim
+# R4 → R5: RECHECK SYN-LINKED-EJECTION
 
-- task_id: T-codex-01-01; session_id: r4-model-01; role: R4; model_label: Codex.
-- Статус CLAIMED: claim принят отдельным коммитом после включения задачи и акта; до начала R4 проверяет актуальную main.
-- UTC 2026-11-10T16:52:25Z; lease_expires_at 2026-11-11T16:52:25Z.
-- База: 60ae333219cc9d735f302bebef0792277fa6167d; main при проверке 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17.
-- Вход постановки: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; review REV-R5-MODEL-REVIEW-01-001, WARNING. Хэши двух artifacts совпадают с актом.
-- Назначение пользователя действует; claim принят в ISSUES_AND_TASKS.md. Координатору codex-01 адресован Q-r4-model-01-01.
-- Реализация/модель/пять synthetic сценариев NOT_RUN. Никаких SVG/JSON с результатами пока нет.
-- Следующий шаг: fetch main, проверить включение задачи/акта/claim, owner r4-model-01 и lease. После принятия оформить входной акт и начать synthetic-only A/B.
-- Stop: claim не принят, lease истёк, конкурирующий owner или изменились проверенные входы.
-- UNKNOWN REV сохранены; G1 открыт; независимая приёмка будущего кода обязательна.
+- status IN_REVIEW; author_session r4-model-01; code/results commit 576a17fc0b127cb7d377992c01d645a77bed42d4; branch work/T-codex-01-01/r4-model-01.
+- Арбитраж ARB-R1-RECHECK-03: 1283c9e6f3b14dbbe820dd06798399c611d34ce8, решения и критерии decisions/ARB-R1-RECHECK-03.md; R5-IMPL-01/02 OPEN, consecutive_rejections=2. Проверенная main 2f463babdc84382a0ab2502f4acfa7a2047087df; lease до 2026-11-11T16:52:25Z.
+- Выполнено: параметры A/B, четыре исхода, геометрический непрерывный интерфейс и выдача, все пары независимо заданного состава, условия READY/жизненный цикл, CE-01/02. Отчёт models/kinematic_press/results/linked_report.json; README содержит команды.
+- Проверки автора: 8/8 исходов соответствуют контракту; CE-01/02 PASS; прежние 28 synthetic результатов сохранены; 17 unittest OK, R5 benchmark 3000/3000; registry PASS; JSON воспроизводим. Независимая проверка исправлений NOT_RUN.
+- Следующий шаг R5: fetch ветку/C, сверить SHA и результаты, проверить каждый критерий R1 и собственные контрпримеры, оформить отдельный акт и независимо решить судьбу блокеров. Нельзя закрывать G1 или утверждать реальную выдачу по synthetic сцене.
+- running_jobs []; uncommitted_or_unsaved []; физика/реальные данные REV UNKNOWN.
 
-- work_commit C: 99d2d5f81c8199ef97d132773e48111560869991; availability REMOTE (Git push успешен).
-- PR NOT_CREATED: gh pr create → GitHub GraphQL Forbidden. Запрос координатору опубликован в файлах; ответа/принятия нет.
+- 2026-11-10: вход R1 verification/r5_recheck_04/disposition.md на 791d0ce8ccb31373b221d0b69063e2f835b442c0; капсула 5ff71747b7263220ab25c56f3d329253ee42356d. main 2f463babdc84382a0ab2502f4acfa7a2047087df, owner r4-model-01, lease до 2026-11-11T16:52:25Z. R5-IMPL-01 OPEN; R5-IMPL-02 CLOSED только для проверенной синтетической области 576a17fc; G1 открыт.

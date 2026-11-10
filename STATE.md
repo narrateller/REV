@@ -14,7 +14,7 @@
 | Принятое ТЗ / базовая линия | NONE / NONE |
 | Режим | PROJECT; цель подтверждена, проект требований rev6 не утверждён |
 | Текущая ветка / база | work/T-INIT/codex-01 / 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17 |
-| Последнее обновление UTC / session_id | 2026-11-10T16:21:13Z / codex-01 |
+| Последнее обновление UTC / session_id | 2026-11-10T17:42:58Z / codex-01 |
 | enforcement | PROCEDURAL; серверные ограничения не проверены |
 | Численная база | params/registry.yaml |
 | Задачи / проверки | ISSUES_AND_TASKS.md / reviews/cross_check_log.md |
@@ -31,7 +31,8 @@
 
 Здесь указаны функции; конкретные проверяющие не могут быть авторами проверяемых версий.
 Для каждого решения о воротах создать запись в `decisions/<decision_id>.md`: baseline commit, scope, evidence, exclusions, blocker_ids, approver, основание полномочий, UTC.
-Текущие решения: NONE. Текущие блокеры: NONE; отсутствие блокеров не означает прохождение ворот.
+Текущее решение по плану: ARB-R1-RECHECK-03 (не gate decision).
+По предоставленному дополнению RECHECK-05 R5-IMPL-01 CLOSED и регрессия R5-IMPL-02 PASS только в synthetic области на debfd085; probe и ID сессии не представлены. Задача остаётся IN_REVIEW, G1 открыт. История consecutive_rejections=2 сохраняется; Q-R5-RECHECK-03 разрешён.
 Независимый review эскизов REV-R5-REVIEW-01-001: WARNING, допускает лишь
 ограниченную документальную проработку; четыре замечания OPEN. Новые циклы
 и задание этим старым актом не проверены; отдельный акт REV-R5-MODEL-REVIEW-01-001
@@ -48,7 +49,7 @@
 
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
-| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T16:21:13Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T17:42:58Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
 
 ## Active Handoff Capsule
 
@@ -62,9 +63,9 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T16:21:13Z'
+created_at_utc: '2026-11-10T18:33:57Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: 7e99ecf87874b3bc53b1c08f115b2b5ee2ad4c3c
+work_commit: 791d0ce8ccb31373b221d0b69063e2f835b442c0
 branch: work/T-INIT/codex-01
 availability: REMOTE
 claim_record:
@@ -72,33 +73,32 @@ claim_record:
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-  heartbeat_utc: '2026-11-10T16:21:13Z'
-subtask: Постановка модели rev2 опубликована и передана независимому R5; проверка завершена WARNING
+  heartbeat_utc: '2026-11-10T17:42:58Z'
+subtask: 'Историческая капсула RECHECK-04; актуальный следующий шаг в NEXT_MODEL.md по дополнению RECHECK-05'
 input_refs:
-- commit: 1e28c85b8c747c28e15e85060822731844d418ec
+- commit: 576a17fc0b127cb7d377992c01d645a77bed42d4
   paths:
-  - models/first_digital_model_brief.md
-  - controls/press_variant_state_tables.md
-- reviewed_commit: 3aebae606011ded0f6d6e0a8d6ccc15094d88feb
-  review_id: REV-R5-MODEL-REVIEW-01-001
+  - models/kinematic_press/linked.py
+  - models/kinematic_press/run_linked.py
+  - models/kinematic_press/test_linked.py
+  - models/kinematic_press/results/linked_report.json
+- path: verification/r5_recheck_04/submitted_review.md
+  source: акт предоставлен пользователем, reviewer session UNKNOWN
 changed_files:
-- models/first_digital_model_brief.md
+- verification/r5_recheck_04/submitted_review.md
+- verification/r5_recheck_04/disposition.md
 - ISSUES_AND_TASKS.md
-- reviews/cross_check_log.md
+- STATE.md
 completed_steps:
-- Проверены main, owner/lease и исходная постановка
-- Обязательна непрерывная/консервативно полная проверка всего хода; недоказанное отсутствие коллизии даёт INDETERMINATE
-- Разделены проекции, траектории/огибающие без времени и одновременная коллизия тел
-- Добавлены пять SYN-MODEL-01…05 с ожидаемыми результатами
-- Опубликован immutable SHA 3aebae606011ded0f6d6e0a8d6ccc15094d88feb и передан read-only R5 r5-model-review-01
-- R5 выдал WARNING, обязательных исправлений не нашёл; допустима synthetic-only передача R4 после назначения/claim
-- Акт и хэши двух immutable artifacts сохранены; код/fixtures/стенд не запускались
+- Сохранён акт пользователя; сверены пять SHA256 с Git blobs
+- Во временной копии выполнены восемь существующих test_linked, все прошли; дефект в сохранённом отчёте подтверждён
+- Зафиксированы CLOSED R5-IMPL-02 только synthetic на указанном SHA, OPEN R5-IMPL-01
+- Подготовлены три исправления R4 и план независимого recheck; новый независимый review не проводился
 unfinished_step:
-  exact_expression_or_node: Назначение и claim исполнителя T-codex-01-01, затем исследовательская реализация
-    и отдельная приёмка кода/результатов
-  last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS документов и immutable artifacts review
-  observed_result: PASS; результаты будущего кода NOT_RUN
+  exact_expression_or_node: R4 исправляет три пункта раздела 5, затем независимый R5 проверяет новый SHA
+  last_successful_command: python3 -m unittest test_linked в изолированной temp-копии 576a17fc
+  expected_result: Сверить существующие тесты и сохранённый разрыв
+  observed_result: 8 tests OK; B/collision содержит output_obstacle mismatch при matches_expected true
 environment:
   tool_versions:
   - Python 3.12.14
@@ -109,31 +109,28 @@ environment:
   seeds: []
 running_jobs: []
 open_hypotheses:
-- Обе архитектуры сохраняются; геометрическая модель не подтверждает сырьё/силы/безопасность
-- Полнота будущего алгоритма и пять synthetic случаев ещё не проверены исполнением
+- Непрерывность и её влияние на статусы требуют исправления и повторной проверки
 blocker_ids: []
 review_refs:
-- 'REV-R5-REVIEW-01-001: WARNING на эскизы 6fe0a417…; R5-OBS-01…04 остаются OPEN'
-- 'REV-R5-MODEL-REVIEW-01-001: WARNING на постановку/циклы 3aebae606011ded0f6d6e0a8d6ccc15094d88feb; обязательных
-  исправлений нет, R4 synthetic-only после назначения/claim'
+- 'REV-R5-RECHECK-04-001: предоставлен пользователем, reviewer session UNKNOWN; текст сохранён без изменений'
+- Независимый review исправления NOT_RUN
 uncommitted_or_unsaved: []
-next_action: Оформить назначение/claim R4 на T-codex-01-01 с входом 3aebae606011ded0f6d6e0a8d6ccc15094d88feb
-  и актом REV-R5-MODEL-REVIEW-01-001; после принятия claim реализовать только исследовательский инструмент/изолированные
-  synthetic fixtures
-next_action_success_criterion: Есть назначенный исполнитель и принятый claim с immutable входами; ограничения
-  synthetic-only сохранены, реальная геометрия REV UNKNOWN, архитектура/G1 не утверждены
+next_action: R4 получает commit решения 791d0ce8ccb31373b221d0b69063e2f835b442c0, проверяет owner/lease и в
+  своей ветке вносит три исправления; затем передаёт новый SHA независимому R5
+next_action_success_criterion: Все исходы/мутации и регрессии проверены независимым R5 на новом code/results
+  SHA; только тогда возможно закрытие R5-IMPL-01
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
-previous_work_commit: bacc5ff5e18819d8799c931d1091df7bce9bfe7a
+previous_work_commit: 7e99ecf87874b3bc53b1c08f115b2b5ee2ad4c3c
 ```
 
 ## Очередь следующей модели
 
 | Порядок | task_id | Адресат | Действие | Условие начала |
 |---|---|---|---|---|
-| 1 | T-INIT | @R1 | Назначение/claim R4 для T-codex-01-01 | Постановка rev2 проверена R5 с WARNING; только synthetic-исследование, архитектура/G1 открыты |
+| 1 | T-INIT | @R1 | Исправление SYN-LINKED-EJECTION A/B и полного состава пар у R4 | Решение арбитража опубликовано; сначала фиксация SHA/owner/lease, приёмка BLOCKED до RECHECK |
 
 После назначения сначала читать запись T-INIT. Если входов нет, фиксировать UNKNOWN и готовить структуру требований; не выдавать проект ТЗ за утверждённое ТЗ.
 
@@ -158,3 +155,69 @@ Workflow подготовлен; его выполнение и настройк
 ## Предложение назначения R4
 
 T-codex-01-01: пользователь назначил r4-model-01 / Codex / R4; claim ACCEPTED_MAIN, owner_session: r4-model-01. Координация Q-r4-model-01-01, капсула handoffs/T-codex-01-01/r4-model-01.md. Код NOT_STARTED; G1 открыт. Принятый владелец T-INIT не меняется.
+
+## Частичный результат R4
+
+T-codex-01-01 HANDOFF, owner r4-model-01. Код и результаты synthetic на b3ba802fb1bad642338a18ef82493f44ac069067; акт входа models/kinematic_press/input_audit.md. Пять случаев соответствуют ожидаемым статусам, независимый review NOT_RUN. Полная фазовая модель обеих альтернатив и все необходимые пары отсутствуют; завершение задачи не заявлено. G1 открыт.
+
+## Передача R4 на R5
+
+T-codex-01-01 IN_REVIEW: код/результаты 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; запрос независимому R5 в ISSUES_AND_TASKS.md, ревью NOT_RUN. 13 фаз: synthetic 2 проверенные пары, 60 непроверенных; REV 0/62. UNKNOWN REV и G1 сохранены.
+
+Независимый OUTPUT review REV-R5-IMPL-02-001 на 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb: вычислительное ядро PASS только для линейных AABB; фазовая модель REJECT_WITH_BLOCKER (R5-IMPL-01/02). 2/62 synthetic пары, REV 0/62. Силовая топология WARNING. Отчёт verification/r5_model_02/review.md; задача IN_REVIEW, G1 открыт, прежние R5-OBS не закрыты.
+
+## Повторная проверка R5 — REV-R5-RECHECK-03-001
+
+Проверенный SHA: 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b.
+Commit результата: 9e12e8bd4f2325ae0e887d3f2e28eaa85c55205f.
+R5-IMPL-01 и R5-IMPL-02 остаются OPEN; T-codex-01-01 BLOCKED,
+consecutive_rejections=2. Более раннее NONE в панели блокеров историческое:
+актуальные блокеры — эти два. Владелец реализации r4-model-01 не меняется.
+R1 должен рассмотреть Q-R5-RECHECK-03 (verification/r5_recheck_03/arbitration.md)
+до новой итерации. G1 остаётся NOT_STARTED; архитектура не выбрана.
+Капсула: handoffs/T-codex-01-01/r5-recheck-03.md; независимые контрпримеры
+и минимальный сценарий: verification/r5_recheck_03/review.md.
+
+## Текущий итог арбитража Q-R5-RECHECK-03
+
+Решение 1283c9e6f3b14dbbe820dd06798399c611d34ce8 опубликовано в work/T-INIT/codex-01; полный
+текст decisions/ARB-R1-RECHECK-03.md. Исходная область сохранена, CE-01/02
+воспроизведены (verification/r1_arbitration_03/). Код R4 не менялся. Старые
+записи NOT_STARTED/IN_REVIEW и ожидания решения выше — история, актуальны
+BLOCKED приёмки и разрешение только корректирующей итерации по условиям решения.
+Независимый RECHECK исправленной реализации ещё NOT_RUN; G1 открыт.
+
+
+## Текущий итог REV-R5-RECHECK-04-001
+
+По акту пользователя `verification/r5_recheck_04/submitted_review.md` блокер
+R5-IMPL-02 закрыт в указанной synthetic области, R5-IMPL-01 OPEN; общий
+результат REJECT_WITH_BLOCKER. Ранее указанные два OPEN — история RECHECK-03.
+Поручение R4 и план независимого recheck: verification/r5_recheck_04/disposition.md.
+Геометрия REV, физическая выдача, безопасность и G1 не подтверждены.
+
+Текущий C решения по RECHECK-04: 791d0ce8ccb31373b221d0b69063e2f835b442c0; подробная эстафета в NEXT_MODEL.md.
+
+## Предоставленный акт RECHECK-05
+
+Заявлены PASS/CLOSED R5-IMPL-01 и PASS регрессии R5-IMPL-02 на `debfd085`, но подтверждение достаточности независимой проверки ожидает дополнения R5: пакет был усечён, а команды и результаты обязательных негативных мутаций в акте отсутствуют. R5-IMPL-01 OPEN/HOLD, задача BLOCKED; G1 OPEN. См. verification/r5_recheck_05/disposition.md.
+
+## Дополнение RECHECK-05 — заявлено воспроизведение
+
+На основании предоставленного пользователем дополнения R5-IMPL-01 CLOSED synthetic на `debfd085`, регрессия R5-IMPL-02 PASS synthetic. Код независимого probe и ID сессии пока недоступны; T-codex-01-01 IN_REVIEW, не DONE; G1 OPEN. См. verification/r5_recheck_05/disposition.md. Предыдущие статусы ниже по истории не являются текущими.
+
+## Оценка R1 приёмки модели
+
+См. verification/t_codex_01_01_acceptance/r1_assessment.md: кандидат на ограниченную synthetic приёмку, задача IN_REVIEW; отсутствуют идентификатор reviewer-сессии и артефакт независимых мутаций. G1 остаётся OPEN.
+
+## Решение R1: приёмка synthetic результата
+
+R1 принял `debfd085` в ограниченной области synthetic AABB; независимый R5 `r5-implementation-02`, акт и probe сохранены и зарегистрированы. Задача IN_REVIEW до последовательной интеграции с моделью и доказательствами; G1 OPEN. См. verification/t_codex_01_01_acceptance/r1_assessment.md.
+
+## Повторная передача R5
+
+T-codex-01-01: исправления на 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b, запрос RECHECK к REV-R5-IMPL-02-001; R5-IMPL-01/02 OPEN до независимого акта. 127/127 пар лишь в разнесённой синтетической геометрии, REV 0/127; физическая связность не подтверждена. G1 открыт.
+
+## Исправление по арбитражу R1
+
+SYN-LINKED-EJECTION: code/results 576a17fc0b127cb7d377992c01d645a77bed42d4; ARB-R1-RECHECK-03 1283c9e6f3b14dbbe820dd06798399c611d34ce8; независимый R5 RECHECK NOT_RUN. R5-IMPL-01/02 OPEN, consecutive_rejections=2; G1 открыт. Синтетический READY не подтверждает реальные условия REV.

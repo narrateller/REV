@@ -1,0 +1,1685 @@
+{
+  "description": "Synthetic only; rational metre/second values are not REV parameters. Each linear delta is over the stated time interval.",
+  "cases": [
+    {
+      "id": "SYN-MODEL-01",
+      "variant": "A",
+      "phase": "A-PRESS",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            2,
+            0,
+            0
+          ],
+          "max": [
+            3,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Both endpoints separated; overlap at t=1/2.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "SYN-MODEL-02",
+      "variant": "B",
+      "phase": "B-OPEN",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            2
+          ],
+          "max": [
+            1,
+            1,
+            3
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "projection_overlap": true
+      },
+      "rationale": "XY overlaps but z intervals [0,1] and [2,3] are disjoint for all t.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "SYN-MODEL-03",
+      "variant": "A",
+      "phase": "A-RETURN",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            "-1/10",
+            "-1/10",
+            0
+          ],
+          "max": [
+            "1/10",
+            "1/10",
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            "19/10",
+            "-31/10",
+            0
+          ],
+          "max": [
+            "21/10",
+            "-29/10",
+            1
+          ],
+          "delta": [
+            0,
+            4,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "trajectory_intersection_xy": true
+      },
+      "rationale": "Centre paths cross at (2,0), at t=1/2 and 3/4 respectively. XY overlap would require t in [9/20,11/20] and [7/10,4/5], disjoint even with finite widths.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "SYN-MODEL-04-geometry",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            null
+          ],
+          "max": [
+            1,
+            1,
+            null
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "INDETERMINATE"
+      },
+      "rationale": "Unknown z with XY overlap prevents collision conclusion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "SYN-MODEL-04-motion",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": null
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "INDETERMINATE"
+      },
+      "rationale": "Unknown trajectory prevents collision conclusion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "SYN-MODEL-05",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            3,
+            0
+          ],
+          "max": [
+            1,
+            4,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "ejection_status": "INSUFFICIENT_STROKE"
+      },
+      "rationale": "Product rear starts x=0 and moves to x=1, short of exit boundary x=2; boxes separated in y.",
+      "ejection": {
+        "product_rear": 0,
+        "exit_boundary": 2,
+        "available_stroke": 1
+      },
+      "motion_type": "linear"
+    },
+    {
+      "id": "SYN-INVALID",
+      "variant": "A",
+      "phase": "A-FILL",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            1,
+            0,
+            0
+          ],
+          "max": [
+            0,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            2,
+            0,
+            0
+          ],
+          "max": [
+            3,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "INVALID_INPUT"
+      },
+      "rationale": "Reversed box extent is inconsistent.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-FILL-CLEAR",
+      "variant": "A",
+      "phase": "A-FILL",
+      "names": [
+        "punch",
+        "feeder"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            3,
+            0,
+            0
+          ],
+          "max": [
+            4,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-FILL-INTRUSION",
+      "variant": "A",
+      "phase": "A-FILL",
+      "names": [
+        "punch",
+        "feeder"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            -3,
+            0,
+            0
+          ],
+          "max": [
+            -2,
+            1,
+            1
+          ],
+          "delta": [
+            6,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-ISOLATE-MID",
+      "variant": "A",
+      "phase": "A-ISOLATE",
+      "names": [
+        "feeder",
+        "gate"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            -3,
+            0,
+            0
+          ],
+          "max": [
+            -2,
+            1,
+            1
+          ],
+          "delta": [
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-PRESS-WALL",
+      "variant": "A",
+      "phase": "A-PRESS",
+      "names": [
+        "product",
+        "channel_wall"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            -1,
+            2,
+            0
+          ],
+          "max": [
+            5,
+            3,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION"
+      },
+      "rationale": "Product moves along explicit separated channel wall; other walls and physics are out of scope.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-OUT-OBSTACLE",
+      "variant": "A",
+      "phase": "A-OUT",
+      "names": [
+        "product",
+        "output_obstacle"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            3,
+            0,
+            0
+          ],
+          "max": [
+            4,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-RETURN-GUIDE",
+      "variant": "A",
+      "phase": "A-RETURN",
+      "names": [
+        "punch",
+        "guide_wall"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            4,
+            0,
+            0
+          ],
+          "max": [
+            5,
+            1,
+            1
+          ],
+          "delta": [
+            -4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            8,
+            0,
+            0
+          ],
+          "max": [
+            9,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-READY-LOCK",
+      "variant": "B",
+      "phase": "B-READY",
+      "names": [
+        "stop",
+        "lock"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            5,
+            0,
+            0
+          ],
+          "max": [
+            6,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-FILL-GATE",
+      "variant": "B",
+      "phase": "B-FILL",
+      "names": [
+        "feeder",
+        "gate"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            -3,
+            0,
+            0
+          ],
+          "max": [
+            -2,
+            1,
+            1
+          ],
+          "delta": [
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-PRESS-FEEDER",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "names": [
+        "punch",
+        "feeder"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            2,
+            0,
+            0
+          ],
+          "max": [
+            3,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-PRESS-FRAME",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "names": [
+        "punch",
+        "frame_wall"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            3,
+            0,
+            0
+          ],
+          "max": [
+            4,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-OPEN-LOCK-PRODUCT",
+      "variant": "B",
+      "phase": "B-OPEN",
+      "names": [
+        "lock",
+        "product"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            3,
+            0,
+            0
+          ],
+          "max": [
+            4,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-OPEN-STOP-LOCK",
+      "variant": "B",
+      "phase": "B-OPEN",
+      "names": [
+        "stop",
+        "lock"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            -3,
+            0,
+            0
+          ],
+          "max": [
+            -2,
+            1,
+            1
+          ],
+          "delta": [
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-EJECT-FREE",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "names": [
+        "product",
+        "output_obstacle"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            5,
+            0,
+            0
+          ],
+          "max": [
+            6,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-EJECT-OBSTACLE",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "names": [
+        "product",
+        "channel_wall"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            3,
+            0,
+            0
+          ],
+          "max": [
+            4,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-EJECT-STOP",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "names": [
+        "product",
+        "stop"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            3,
+            0,
+            0
+          ],
+          "max": [
+            4,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-RESET-RESIDUE",
+      "variant": "B",
+      "phase": "B-RESET",
+      "names": [
+        "stop",
+        "product"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            3,
+            0,
+            0
+          ],
+          "max": [
+            4,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-RESET-PUNCH",
+      "variant": "B",
+      "phase": "B-RESET",
+      "names": [
+        "stop",
+        "punch"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            -3,
+            0,
+            0
+          ],
+          "max": [
+            -2,
+            1,
+            1
+          ],
+          "delta": [
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Synthetic axis-aligned boxes only; complete linear interval and explicit stationary motion.",
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-OUT-SUFFICIENT",
+      "variant": "A",
+      "phase": "A-OUT",
+      "names": [
+        "product",
+        "output_obstacle"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            5,
+            0,
+            0
+          ],
+          "max": [
+            6,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "ejection_status": "INDETERMINATE"
+      },
+      "rationale": "Synthetic scalar stroke only; not physical ejection.",
+      "ejection": {
+        "product_rear": 0,
+        "exit_boundary": 2,
+        "available_stroke": 2
+      },
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-EJECT-SHORT",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "names": [
+        "product",
+        "output_obstacle"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            5,
+            0,
+            0
+          ],
+          "max": [
+            6,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "ejection_status": "INSUFFICIENT_STROKE"
+      },
+      "rationale": "Scalar short stroke.",
+      "ejection": {
+        "product_rear": 0,
+        "exit_boundary": 2,
+        "available_stroke": 1
+      },
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-B-EJECT-SUFFICIENT",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "names": [
+        "product",
+        "output_obstacle"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            5,
+            0,
+            0
+          ],
+          "max": [
+            6,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "ejection_status": "INDETERMINATE"
+      },
+      "rationale": "Synthetic scalar stroke only; not physical ejection.",
+      "ejection": {
+        "product_rear": 0,
+        "exit_boundary": 2,
+        "available_stroke": 2
+      },
+      "motion_type": "linear"
+    },
+    {
+      "id": "R5-A-OUT-SHORT",
+      "variant": "A",
+      "phase": "A-OUT",
+      "names": [
+        "product",
+        "output_obstacle"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            5,
+            0,
+            0
+          ],
+          "max": [
+            6,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "ejection_status": "INSUFFICIENT_STROKE"
+      },
+      "rationale": "Scalar short stroke.",
+      "ejection": {
+        "product_rear": 0,
+        "exit_boundary": 2,
+        "available_stroke": 1
+      },
+      "motion_type": "linear"
+    }
+  ]
+}

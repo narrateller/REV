@@ -376,3 +376,266 @@ supersedes: null
 Машинная схема: docs/SCHEMAS.md. Подстрока с review_id в тексте не считается актом.
 Для VERIFIED необходим действующий PASS с совпадающими параметрами, авторами,
 проверяющим и областью проверки. --check-git сверяет артефакты с reviewed_commit.
+
+## REV-R5-IMPL-02-001
+
+```yaml
+record_type: review
+review_id: REV-R5-IMPL-02-001
+kind: OUTPUT
+task_id: T-codex-01-01
+created_at_utc: '2026-11-10T17:12:05Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-model-01
+independence:
+  reviewer_not_author: true
+  basis: Новая сессия, прямое назначение пользователя; авторство R4 отсутствует, проверяемый
+    код не изменялся.
+independence_basis: Независимая текущая сессия; только чтение реализации и отдельный
+  benchmark.
+reviewed_commit: 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb
+parameter_refs: []
+artifacts:
+- path: models/kinematic_press/model.py
+  sha256: 985076a6e6e3caba956a2ee5b9d7d0f3fcb9d6fda387153af54e507d3b2462cf
+- path: models/kinematic_press/phase_plan.json
+  sha256: 3835120360e636762fd8eff48d8119ff1027ea5b51f29e4e20aad9c1fd5ea714
+- path: models/kinematic_press/fixtures.json
+  sha256: b4cbeef255009c450a75fa3917ff8437b8d244cf593dae65907c5a0c31ec9e52
+- path: models/kinematic_press/phase_inputs_synthetic.json
+  sha256: 7eba9d96abf278d5ae9fe7cffb5ced50a9a7c426fb0ade8325b70b4a98d47eeb
+- path: models/kinematic_press/results/report.json
+  sha256: dc19f7275ea806688463049511b732e014ee29d5a2daea6f2498cc7da64ce1d9
+- path: models/kinematic_press/results/force_paths.svg
+  sha256: 0248486fc2e1ee9068a4bfec18036b3cfb4db4959d334085f951d5380e80b7bb
+scope: 'MODEL_VERIFICATION: ядро линейных AABB PASS; фазовая модель REJECT_WITH_BLOCKER;
+  силовая топология WARNING; synthetic only'
+checks:
+- id: CHK-IMPL-01
+  method: independent_derivation
+  expected: Полное обнаружение контакта за интервал для синхронных линейных AABB
+  observed: Аналитическое доказательство и 3000 независимых сравнений без расхождения
+  result: PASS
+  reasoning: verification/r5_model_02/review.md и independent_check.py
+- id: CHK-IMPL-02
+  method: rerun
+  expected: Пять mandatory сценариев и неверные входы
+  observed: 7 записей совпали; 6 unittest OK; provenance совпал
+  result: PASS
+  reasoning: Команды и область приведены в отдельном отчёте
+- id: CHK-IMPL-03
+  method: inspection
+  expected: Полное synthetic покрытие фаз A/B и перечней пар
+  observed: 2/62 пар; 11/13 фаз без вычисленной пары; пропущены пары и проверка переходов
+  result: FAIL
+  reasoning: R5-IMPL-01/02, конкретные дополнения в отчёте
+findings:
+- finding_id: R5-IMPL-01
+  severity: BLOCKER
+  evidence: verification/r5_model_02/review.md
+  impact: Приёмка фазовой модели заблокирована
+  owner_role: R4
+  task_id: T-codex-01-01
+- finding_id: R5-IMPL-02
+  severity: BLOCKER
+  evidence: models/kinematic_press/phase_plan.json
+  impact: Полнота списка пар не доказана
+  owner_role: R4
+  task_id: T-codex-01-01
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+allowed_downstream_scope: Использование проверенного ядра только для заданного класса
+  synthetic пар; дополнение фаз R4.
+excluded_claims:
+- Полная приёмка задачи
+- Реальная безопасность/прочность/выдача
+- Закрытие G1 или R5-OBS-01…04
+blocker_ids:
+- R5-IMPL-01
+- R5-IMPL-02
+closure_criteria:
+- Полные synthetic фазы и переходы A/B, обоснованная матрица пар, повторный независимый
+  review
+supersedes: null
+```
+
+## REV-R5-RECHECK-03-001
+
+```yaml
+record_type: review
+review_id: REV-R5-RECHECK-03-001
+kind: RECHECK
+task_id: T-codex-01-01
+created_at_utc: '2026-11-10T17:31:46.757730+00:00'
+reviewer:
+  role: R5
+  session_id: r5-recheck-03
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-model-01
+independence:
+  reviewer_not_author: true
+  basis: Прямое поручение пользователя; текущий reviewer не участвовал в авторстве
+    проверяемой реализации и не менял код R4.
+independence_basis: Независимая проверка immutable SHA, аналитическая сверка границ
+  и отдельные контрпримеры.
+reviewed_commit: 36cda8132dcf9dbb7193b01e98bdfff2ba5e2a7b
+parameter_refs: []
+artifacts:
+- path: models/kinematic_press/model.py
+  sha256: c3275cf68c83f129844e7cc5ebe91bf639ba7bd384b431cf1d18502f83152825
+- path: models/kinematic_press/phase_plan.json
+  sha256: 989dfe7c276a35c9590aa1bb2e168ed206277ee393c24d0cd4e8851f5b3cf403
+- path: models/kinematic_press/phase_inputs_synthetic.json
+  sha256: 84df6bacf89948cc4f33b9f25eca1452b9c55aabb61cc5fd4dbc69a0d9df6476
+- path: models/kinematic_press/fixtures.json
+  sha256: 08f24f52df5955685efcaafb2528e913ae7627798c67be2098fa56cf78204fc0
+- path: models/kinematic_press/transition_fixtures.json
+  sha256: 42829c9ebe35f5fcffef8cc678db774b49208b2f893066d12984ecd320cda668
+- path: models/kinematic_press/results/report.json
+  sha256: 49aa411cb4c109c3cfbd83fd64e182e789e22e52a985f1e15a4c636c7ed428f8
+- path: models/kinematic_press/input_template.json
+  sha256: ed3330779850dd3d9af54027ab31c8605493296c5234162d4ccbd7b6aaef185e
+scope: 'MODEL_VERIFICATION: synthetic only; ядро линейных AABB PASS; фазовая приёмка
+  REJECT_WITH_BLOCKER'
+checks:
+- id: CHK-RECHECK-01
+  method: rerun
+  expected: Воспроизводимость и ограниченное ядро
+  observed: 28 fixtures; 9 model tests; 3000 independent comparisons; 71 repository
+    tests PASS; fresh report совпал
+  result: PASS
+  reasoning: verification/r5_recheck_03/review.md и probe_results.json
+- id: CHK-RECHECK-02
+  method: rerun
+  expected: Непрерывность соседних фаз
+  observed: Точные границы и время всех внутренних переходов совпадают
+  result: PASS
+  reasoning: verification/r5_recheck_03/review.md и probe_results.json
+- id: CHK-RECHECK-03
+  method: inspection
+  expected: Связь выдачи и рабочего повторного READY
+  observed: Скаляр выдачи независим от тел; равенство overlay не доказывает связь;
+    READY создан копированием конца
+  result: FAIL
+  reasoning: verification/r5_recheck_03/review.md и probe_results.json
+- id: CHK-RECHECK-04
+  method: inspection
+  expected: Обоснованная полнота пар
+  observed: 127/127 заявленных; punch/channel_wall отсутствует в B-EJECT, контрпример
+    обходит coverage
+  result: FAIL
+  reasoning: verification/r5_recheck_03/review.md и probe_results.json
+findings:
+- finding_id: R5-IMPL-01
+  severity: BLOCKER
+  evidence: verification/r5_recheck_03/review.md
+  impact: Полная приёмка T-codex-01-01 заблокирована
+  owner_role: R4
+  task_id: T-codex-01-01
+- finding_id: R5-IMPL-02
+  severity: BLOCKER
+  evidence: verification/r5_recheck_03/review.md
+  impact: Полная приёмка T-codex-01-01 заблокирована
+  owner_role: R4
+  task_id: T-codex-01-01
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+allowed_downstream_scope: Только заданные synthetic пары поддержанного ядра; следующая
+  итерация после решения R1 по арбитражу.
+excluded_claims:
+- Полная фазовая приёмка
+- Реальная выдача, безопасность, прочность
+- Закрытие R5-OBS-01…04 или G1
+blocker_ids:
+- R5-IMPL-01
+- R5-IMPL-02
+closure_criteria:
+- Связный synthetic сценарий A/B с доказанной связью выдачи, непрерывностью и рабочим
+  READY
+- Обоснованная матрица пар/исключений, новый независимый recheck точного SHA
+reproduction_artifacts:
+- verification/r5_recheck_03/probe.py
+- verification/r5_recheck_03/probe_results.json
+- verification/r5_recheck_03/review.md
+supersedes: REV-R5-IMPL-02-001
+```
+
+## Регистрация предоставленного дополнения RECHECK-05
+
+```yaml
+record_type: review
+review_id: REV-R5-RECHECK-05-001
+kind: RECHECK
+task_id: T-codex-01-01
+created_at_utc: '2026-11-10T22:40:56Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-model-01
+independence:
+  reviewer_not_author: true
+  basis: Идентификатор и отсутствие соавторства подтверждены предоставленным пользователем
+    сообщением R5; существующий REV-R5-IMPL-02-001 фиксирует отдельную сессию.
+independence_basis: Сообщение R5, переданное пользователем, и предшествующий реестр
+  сессий; R1 зарегистрировал полученный акт без выдачи его за свой review.
+reviewed_commit: debfd085842ccae079cfd6faea1c41bca20f335d
+parameter_refs: []
+artifacts:
+- path: models/first_digital_model_brief.md
+  sha256: 3c86ed707f11ee5f9fa93409022c8250cc3582e6fb78363f85313d28733b79d1
+input_refs:
+- verification/r5_recheck_04/disposition.md @ 791d0ce8ccb31373b221d0b69063e2f835b442c0
+input_refs_code_git_objects:
+- path: models/kinematic_press/linked.py
+  sha256: 40d23ab5a78e3c3b8b98a205417cdccf11961069b40c263d90625fdb3aab86eb
+- path: models/kinematic_press/results/linked_report.json
+  sha256: 1c229eee6e43fc265310a0bcff70ac8d5bef3955cceee98fd8c45ed36a69411f
+output_refs:
+- verification/r5_recheck_05/published_review.md
+- verification/r5_recheck_05/probe.py
+scope: MODEL_VERIFICATION; только объявленные synthetic сцены, AABB и синхронная линейная
+  трансляция.
+checks:
+- id: CHK-RECHECK-05
+  method: rerun
+  expected: 'План RECHECK-04: 8 исходов, непрерывность, CE-01/02, мутации, полный
+    состав сцен'
+  observed: По опубликованному акту R5 8/8 исходов, 20 тестов, 3000 сравнений, 8/8
+    мутаций; R1 отдельно воспроизвёл probe, тесты и benchmark.
+  reasoning: Результат ограничен проверенным SHA и объявленной синтетической областью.
+  result: PASS
+findings: []
+verdict: PASS
+validity: CURRENT
+allowed_downstream_scope: Исследование синтетической модели на указанном SHA.
+excluded_claims:
+- Реальная геометрия, материал, силы, безопасность и качество
+- Выбор архитектуры и прохождение G1
+blocker_ids: []
+warning_owner_and_due: null
+closure_criteria: []
+supersedes: null
+traceability_and_revisions: Зарегистрировано R1 по опубликованному акту b4d4af9325c5d24e093ec2d4dce5797581ebf6e1
+  и сообщению пользователя с идентификатором автора; created_at_utc — время регистрации,
+  не время исходного запуска.
+reproduction_artifacts:
+- verification/r5_recheck_05/published_review.md
+- verification/r5_recheck_05/probe.py
+```
+
+## REV-R5-RECHECK-05-001 — дополнение
+
+Независимый R5 для `debfd085842ccae079cfd6faea1c41bca20f335d`: PASS по плану в заданной synthetic AABB области; R5-IMPL-01 может быть закрыт на этом SHA, регрессия R5-IMPL-02 PASS в той же области. Подробности, команды и ограничения: verification/r5_recheck_05/review.md. G1 открыт.
