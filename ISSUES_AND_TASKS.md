@@ -19,7 +19,7 @@ ID после создания не меняется. Для параллель�
 |---|---|---|---|---|---|---|---|
 | T-INIT | TASK | P1 | @R1 | CLAIMED | codex-01 | NONE | G1 |
 | Q-codex-01-01 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
-| T-codex-01-01 | TASK | P2 | @R4 | BLOCKED | r4-model-01 | R5-IMPL-01/02 OPEN | G1 |
+| T-codex-01-01 | TASK | P2 | @R4 | BLOCKED | r4-model-01 | R5-IMPL-01 OPEN; R5-IMPL-02 CLOSED synthetic | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -30,7 +30,7 @@ ID после создания не меняется. Для параллель�
 - owner_session / model_label / assignment_evidence: codex-01 / Codex / прямое подтверждение пользователем в текущей беседе: «Подтверждаю назначение Codex на роль R1 — системный анализ и валидация. Сессия codex-01, задача T-INIT»; зафиксировано 2026-11-10T12:06:09Z.
 - session_id / role / assignment_utc: codex-01 / R1 / 2026-11-10T12:06:09Z.
 - capabilities: Git read и локальные commits; Python 3.12.14, PyYAML 6.0.3; проверка реестра и 71 тест выполнены при настройке среды; четыре PDF доступны для чтения. Git push проверяется отдельно; GitHub API недоступен (CONNECT 403); CAD/CAE — UNAVAILABLE (не проверены запуском).
-- base_commit / claim_commit / heartbeat_utc / lease_expires_at: 2e479849cea10dab9376a68cb44d2ff716c215da / см. последующую запись claim_record_commit в STATE.md и NEXT_MODEL.md / 2026-11-10T16:16:09Z / 2026-11-11T12:06:09Z.
+- base_commit / claim_commit / heartbeat_utc / lease_expires_at: 2e479849cea10dab9376a68cb44d2ff716c215da / см. последующую запись claim_record_commit в STATE.md и NEXT_MODEL.md / 2026-11-10T18:32:31Z / 2026-11-11T12:06:09Z.
 - branch: work/T-INIT/codex-01.
 - claim_scope: поручение пользователя 2026-11-10T16:16:09Z: внести три уточнения в задание первой цифровой модели, пять обязательных synthetic случаев с ожидаемыми статусами, опубликовать SHA и передать независимому R5. Код/модель/испытания не запускать; архитектура/G1 не утверждены, lease не продлён.
 - claim_acceptance: ACCEPTED_MAIN; merge PR #1: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17. Вхождение claim a31a6d86cde8799807e6d21454deda8db55b695a и владелец codex-01 проверены до чтения источников. Lease не продлён; перед продолжением проверять срок и конкурирующие изменения.
@@ -207,3 +207,24 @@ REV-R5-RECHECK-03-001: R5-IMPL-01 OPEN, R5-IMPL-02 OPEN; REJECT_WITH_BLOCKER. T-
 - Кодовое исправление и новый recheck в этом ходе NOT_RUN; выполнен только synthetic probe для воспроизведения и документальная проверка решения.
 
 - Арбитраж оформлен 2026-11-10T17:41:07Z; основание назначения R1 и текущий claim T-INIT сохраняются, lease до 2026-11-11T12:06:09Z не продлён.
+
+
+## Решение по предоставленному REV-R5-RECHECK-04-001
+
+- Основание: предоставленный пользователем акт, сохранённый без изменения в
+  verification/r5_recheck_04/submitted_review.md; проверяемый код/results
+  576a17fc0b127cb7d377992c01d645a77bed42d4, R4 handoff 66fb9bd1d454d05eb7f32b77b9f442917de9b95c.
+- R5-IMPL-02: CLOSED на основании данного акта, только synthetic AABB с
+  синхронной линейной трансляцией и для проверенного SHA. Не приёмка REV.
+- R5-IMPL-01: OPEN, REJECT_WITH_BLOCKER; T-codex-01-01 остаётся BLOCKED.
+  Исторический вывод RECHECK-03 о двух открытых блокерах выше не переписывается.
+- Поручение R4 и независимый план проверки: verification/r5_recheck_04/disposition.md.
+  Объём: начальное положение препятствия, влияние continuity на transition/READY,
+  проверка continuity для всех четырёх исходов; регенерация linked_report.
+- R1 сверил пять хэшей артефактов с Git commit, проверил сохранённый дефект
+  B/collision и запустил 8 существующих тестов test_linked во временной копии;
+  они проходят, несмотря на обнаруженный разрыв. Независимый RECHECK нового
+  исправления не проводился и остаётся обязательным.
+- Владелец исправлений: r4-model-01; перед началом сверить main/owner/lease,
+  закрепить точный SHA решения. Claim не продлён. R1 код R4 не менял.
+- G1 остаётся NOT_STARTED; архитектура/ТЗ и реальная физика не утверждены.

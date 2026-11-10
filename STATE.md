@@ -32,7 +32,9 @@
 Здесь указаны функции; конкретные проверяющие не могут быть авторами проверяемых версий.
 Для каждого решения о воротах создать запись в `decisions/<decision_id>.md`: baseline commit, scope, evidence, exclusions, blocker_ids, approver, основание полномочий, UTC.
 Текущее решение по плану: ARB-R1-RECHECK-03 (не gate decision).
-Текущие блокеры приёмки: R5-IMPL-01 и R5-IMPL-02 OPEN; consecutive_rejections=2.
+Текущий блокер приёмки: R5-IMPL-01 OPEN. R5-IMPL-02 CLOSED только
+в синтетической области AABB на SHA 576a17fc по предоставленному акту
+REV-R5-RECHECK-04-001; consecutive_rejections=2 сохраняется исторически.
 Q-R5-RECHECK-03 разрешён; корректирующая итерация допустима только по опубликованному
 решению после фиксации его SHA и проверки owner/lease R4. Приёмка остаётся BLOCKED.
 Независимый review эскизов REV-R5-REVIEW-01-001: WARNING, допускает лишь
@@ -198,3 +200,12 @@ R1 должен рассмотреть Q-R5-RECHECK-03 (verification/r5_recheck_
 записи NOT_STARTED/IN_REVIEW и ожидания решения выше — история, актуальны
 BLOCKED приёмки и разрешение только корректирующей итерации по условиям решения.
 Независимый RECHECK исправленной реализации ещё NOT_RUN; G1 открыт.
+
+
+## Текущий итог REV-R5-RECHECK-04-001
+
+По акту пользователя `verification/r5_recheck_04/submitted_review.md` блокер
+R5-IMPL-02 закрыт в указанной synthetic области, R5-IMPL-01 OPEN; общий
+результат REJECT_WITH_BLOCKER. Ранее указанные два OPEN — история RECHECK-03.
+Поручение R4 и план независимого recheck: verification/r5_recheck_04/disposition.md.
+Геометрия REV, физическая выдача, безопасность и G1 не подтверждены.
