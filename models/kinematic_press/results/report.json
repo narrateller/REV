@@ -1,0 +1,285 @@
+{
+  "classification": "SYNTHETIC ONLY — NOT REV",
+  "brief_commit": "3aebae606011ded0f6d6e0a8d6ccc15094d88feb",
+  "base_commit": "2f463babdc84382a0ab2502f4acfa7a2047087df",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "hashes": {
+    "models/kinematic_press/model.py": "791819f9fdf2e6a71b6eff615d7f89a7bbfb28d46e472afc16846de013d3b3c6",
+    "models/kinematic_press/fixtures.json": "b4cbeef255009c450a75fa3917ff8437b8d244cf593dae65907c5a0c31ec9e52",
+    "models/kinematic_press/input_template.json": "964dfd75eadc7fdb12002caafcb3db8240c218823fd5f1956ee6f8eebdb31a28",
+    "models/kinematic_press/input_audit.md": "f73fb312ebe45af83c1f2416fa657c2cdc8c5167820e2fd433d0ebd96f7dcfaf",
+    "params/registry.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651",
+    "models/first_digital_model_brief.md": "3c86ed707f11ee5f9fa93409022c8250cc3582e6fb78363f85313d28733b79d1",
+    "controls/press_variant_state_tables.md": "e4a5ac6e2da299554ed779670c6872af97ec8a48ace50ec5e4aa929fdd62e7fa"
+  },
+  "registry_snapshot": "registry_snapshot.yaml",
+  "requirements": [
+    "REQ/VAL-REV-05",
+    "REQ/VAL-REV-06",
+    "REQ/VAL-REV-09",
+    "REQ/VAL-REV-11",
+    "REQ/VAL-REV-12",
+    "REQ/VAL-REV-16"
+  ],
+  "limitations": "Synthetic boxes only, no manufacturing, forces, process, real collision clearance or validation. Independent review pending.",
+  "phase_coverage": {
+    "A": {
+      "A-READY": {
+        "status": "NOT_EVALUATED",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "A-FILL": {
+        "status": "PARTIAL_PAIR_ONLY",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "A-ISOLATE": {
+        "status": "NOT_EVALUATED",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "A-PRESS": {
+        "status": "PARTIAL_PAIR_ONLY",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "A-RETURN": {
+        "status": "PARTIAL_PAIR_ONLY",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "A-OUT": {
+        "status": "NOT_EVALUATED",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      }
+    },
+    "B": {
+      "B-READY": {
+        "status": "NOT_EVALUATED",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "B-FILL": {
+        "status": "NOT_EVALUATED",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "B-PRESS": {
+        "status": "PARTIAL_PAIR_ONLY",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "B-UNLOAD": {
+        "status": "NOT_EVALUATED",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "B-OPEN": {
+        "status": "PARTIAL_PAIR_ONLY",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "B-EJECT": {
+        "status": "PARTIAL_PAIR_ONLY",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      },
+      "B-RESET": {
+        "status": "NOT_EVALUATED",
+        "reason": "Full geometry, pair list, travel and physical interlocks are not supplied"
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "SYN-MODEL-01",
+      "variant": "A",
+      "phase": "A-PRESS",
+      "bodies": [
+        "moving",
+        "other"
+      ],
+      "interval": [
+        0,
+        1
+      ],
+      "collision_status": "COLLISION",
+      "ejection_status": "INDETERMINATE",
+      "missing": [],
+      "projection_overlap": true,
+      "trajectory_intersection_xy": null,
+      "scope": "axis-aligned boxes, linear translation; touching is collision",
+      "method": "exact rational intersection of six linear inequalities over entire interval",
+      "evidence": {
+        "contact_interval_normalized": [
+          "1/4",
+          "3/4"
+        ],
+        "proof": "intersection of closed inequality intervals"
+      },
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "matches_expected": true
+    },
+    {
+      "id": "SYN-MODEL-02",
+      "variant": "B",
+      "phase": "B-OPEN",
+      "bodies": [
+        "moving",
+        "other"
+      ],
+      "interval": [
+        0,
+        1
+      ],
+      "collision_status": "NO_COLLISION",
+      "ejection_status": "INDETERMINATE",
+      "missing": [],
+      "projection_overlap": true,
+      "trajectory_intersection_xy": null,
+      "scope": "axis-aligned boxes, linear translation; touching is collision",
+      "method": "exact rational intersection of six linear inequalities over entire interval",
+      "evidence": {
+        "contact_interval_normalized": null,
+        "proof": "inequality intervals have empty intersection"
+      },
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "projection_overlap": true
+      },
+      "matches_expected": true
+    },
+    {
+      "id": "SYN-MODEL-03",
+      "variant": "A",
+      "phase": "A-RETURN",
+      "bodies": [
+        "moving",
+        "other"
+      ],
+      "interval": [
+        0,
+        1
+      ],
+      "collision_status": "NO_COLLISION",
+      "ejection_status": "INDETERMINATE",
+      "missing": [],
+      "projection_overlap": false,
+      "trajectory_intersection_xy": true,
+      "scope": "axis-aligned boxes, linear translation; touching is collision",
+      "method": "exact rational intersection of six linear inequalities over entire interval",
+      "evidence": {
+        "contact_interval_normalized": null,
+        "proof": "inequality intervals have empty intersection"
+      },
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "trajectory_intersection_xy": true
+      },
+      "matches_expected": true
+    },
+    {
+      "id": "SYN-MODEL-04-geometry",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "bodies": [
+        "moving",
+        "other"
+      ],
+      "interval": [
+        0,
+        1
+      ],
+      "collision_status": "INDETERMINATE",
+      "ejection_status": "INDETERMINATE",
+      "missing": [
+        "'three explicit coordinates for min/max/delta'"
+      ],
+      "projection_overlap": null,
+      "trajectory_intersection_xy": null,
+      "scope": "axis-aligned boxes, linear translation; touching is collision",
+      "method": "exact rational intersection of six linear inequalities over entire interval",
+      "expected": {
+        "collision_status": "INDETERMINATE"
+      },
+      "matches_expected": true
+    },
+    {
+      "id": "SYN-MODEL-04-motion",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "bodies": [
+        "moving",
+        "other"
+      ],
+      "interval": [
+        0,
+        1
+      ],
+      "collision_status": "INDETERMINATE",
+      "ejection_status": "INDETERMINATE",
+      "missing": [
+        "'body min/max/delta including z and motion'"
+      ],
+      "projection_overlap": null,
+      "trajectory_intersection_xy": null,
+      "scope": "axis-aligned boxes, linear translation; touching is collision",
+      "method": "exact rational intersection of six linear inequalities over entire interval",
+      "expected": {
+        "collision_status": "INDETERMINATE"
+      },
+      "matches_expected": true
+    },
+    {
+      "id": "SYN-MODEL-05",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "bodies": [
+        "moving",
+        "other"
+      ],
+      "interval": [
+        0,
+        1
+      ],
+      "collision_status": "NO_COLLISION",
+      "ejection_status": "INSUFFICIENT_STROKE",
+      "missing": [],
+      "projection_overlap": false,
+      "trajectory_intersection_xy": null,
+      "scope": "axis-aligned boxes, linear translation; touching is collision",
+      "method": "exact rational intersection of six linear inequalities over entire interval",
+      "evidence": {
+        "contact_interval_normalized": null,
+        "proof": "inequality intervals have empty intersection"
+      },
+      "ejection_evidence": {
+        "final_rear": "1",
+        "exit_boundary": "2",
+        "direction": "+x"
+      },
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "ejection_status": "INSUFFICIENT_STROKE"
+      },
+      "matches_expected": true
+    },
+    {
+      "id": "SYN-INVALID",
+      "variant": "A",
+      "phase": "A-FILL",
+      "bodies": [
+        "moving",
+        "other"
+      ],
+      "interval": [
+        0,
+        1
+      ],
+      "collision_status": "INVALID_INPUT",
+      "ejection_status": "INDETERMINATE",
+      "missing": [],
+      "projection_overlap": null,
+      "trajectory_intersection_xy": null,
+      "scope": "axis-aligned boxes, linear translation; touching is collision",
+      "method": "exact rational intersection of six linear inequalities over entire interval",
+      "error": "body must have strictly positive extent",
+      "expected": {
+        "collision_status": "INVALID_INPUT"
+      },
+      "matches_expected": true
+    }
+  ]
+}

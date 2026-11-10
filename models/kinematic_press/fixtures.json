@@ -1,0 +1,415 @@
+{
+  "description": "Synthetic only; rational metre/second values are not REV parameters. Each linear delta is over the stated time interval.",
+  "cases": [
+    {
+      "id": "SYN-MODEL-01",
+      "variant": "A",
+      "phase": "A-PRESS",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            2,
+            0,
+            0
+          ],
+          "max": [
+            3,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "COLLISION"
+      },
+      "rationale": "Both endpoints separated; overlap at t=1/2."
+    },
+    {
+      "id": "SYN-MODEL-02",
+      "variant": "B",
+      "phase": "B-OPEN",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            2
+          ],
+          "max": [
+            1,
+            1,
+            3
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "projection_overlap": true
+      },
+      "rationale": "XY overlaps but z intervals [0,1] and [2,3] are disjoint for all t."
+    },
+    {
+      "id": "SYN-MODEL-03",
+      "variant": "A",
+      "phase": "A-RETURN",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            "-1/10",
+            "-1/10",
+            0
+          ],
+          "max": [
+            "1/10",
+            "1/10",
+            1
+          ],
+          "delta": [
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            "19/10",
+            "-31/10",
+            0
+          ],
+          "max": [
+            "21/10",
+            "-29/10",
+            1
+          ],
+          "delta": [
+            0,
+            4,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "trajectory_intersection_xy": true
+      },
+      "rationale": "Centre paths cross at (2,0), at t=1/2 and 3/4 respectively. XY overlap would require t in [9/20,11/20] and [7/10,4/5], disjoint even with finite widths."
+    },
+    {
+      "id": "SYN-MODEL-04-geometry",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            null
+          ],
+          "max": [
+            1,
+            1,
+            null
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "INDETERMINATE"
+      },
+      "rationale": "Unknown z with XY overlap prevents collision conclusion."
+    },
+    {
+      "id": "SYN-MODEL-04-motion",
+      "variant": "B",
+      "phase": "B-PRESS",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": null
+        },
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "INDETERMINATE"
+      },
+      "rationale": "Unknown trajectory prevents collision conclusion."
+    },
+    {
+      "id": "SYN-MODEL-05",
+      "variant": "B",
+      "phase": "B-EJECT",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            1
+          ],
+          "delta": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            0,
+            3,
+            0
+          ],
+          "max": [
+            1,
+            4,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "NO_COLLISION",
+        "ejection_status": "INSUFFICIENT_STROKE"
+      },
+      "rationale": "Product rear starts x=0 and moves to x=1, short of exit boundary x=2; boxes separated in y.",
+      "ejection": {
+        "product_rear": 0,
+        "exit_boundary": 2,
+        "available_stroke": 1
+      }
+    },
+    {
+      "id": "SYN-INVALID",
+      "variant": "A",
+      "phase": "A-FILL",
+      "names": [
+        "moving",
+        "other"
+      ],
+      "units": {
+        "length": "m",
+        "time": "s"
+      },
+      "contact": "touch_is_collision",
+      "time": [
+        0,
+        1
+      ],
+      "bodies": [
+        {
+          "min": [
+            1,
+            0,
+            0
+          ],
+          "max": [
+            0,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": [
+            2,
+            0,
+            0
+          ],
+          "max": [
+            3,
+            1,
+            1
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "collision_status": "INVALID_INPUT"
+      },
+      "rationale": "Reversed box extent is inconsistent."
+    }
+  ]
+}
