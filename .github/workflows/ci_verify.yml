@@ -1,0 +1,27 @@
+name: Registry & Traceability Gate
+'on':
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-engineering-state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Check committed evidence without regeneration
+        run: python scripts/check_registry.py --check-git
+      - name: Test validator and initializer in isolated temporary copies
+        run: python -m unittest discover -s tests -v

@@ -1,0 +1,170 @@
+# Единственный численный источник для расчётов, CAD и CAE.
+# Примеры DEMO иллюстрируют формат; это не параметры проектируемой машины.
+# Для проекта создавать собственные ID и собственные основания значений.
+schema_version: '1.1'
+project_id: UNSET
+mode: TEMPLATE
+units_policy: SI
+
+# Все записи имеют поля показанных примеров. ID глобально уникален.
+# revision: положительное целое; менять при изменении значения, единицы,
+# области, допуска, основания или зависимостей. Историю не стирать.
+# value: конечное число либо null; null требует unknown_reason.
+# tolerance: null либо absolute, relative_percent, min_only, max_only, fit.
+# Точная схема и семантика: docs/SCHEMAS.md. Для fit нужны стандарт, номинал и пределы.
+# absolute: {kind: absolute, minus: число >= 0, plus: число >= 0};
+# единица допуска совпадает с unit. Допуск не равен неопределённости.
+# uncertainty: null либо метод, интервал/распределение и источник.
+# depends_on: список {id, revision}; циклы запрещены.
+# author: role + session_id; verifier: null до независимого акта.
+# evidence: проверяемые пути/источники, не заявления модели.
+# lifecycle: RAW, ASSUMED, CALCULATED, VERIFIED, LOCKED.
+# validity: CURRENT либо STALE; stale_reason обязателен для STALE.
+# history: события перехода/ревизии с автором и основанием.
+
+domains:
+  brochure_boundary:
+    # Характеристики прототипа не являются требованиями аналога.
+    DEMO_REF_THROUGHPUT:
+      revision: 1
+      name: Производительность прототипа из ещё не полученного источника
+      value: null
+      unit: kg/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: Буклет не предоставлен; значение не извлекалось.
+      lifecycle: RAW
+      validity: CURRENT
+      stale_reason: null
+      scope: DEMO
+      meaning: Справочная характеристика прототипа, не требование аналога.
+      provenance: {kind: MISSING_SOURCE, source_ref: null, locator: null}
+      author: {role: R1, session_id: TEMPLATE_AUTHOR}
+      author_sessions: [TEMPLATE_AUTHOR]
+      verifier: null
+      depends_on: []
+      calculation: null # для исходной характеристики расчёт неприменим
+      evidence: []
+      baseline_id: null
+      history:
+        - {revision: 1, from: null, to: RAW, actor: TEMPLATE_AUTHOR, reason: Зарегистрирован пробел исходных данных}
+
+  process_medium:
+    DEMO_CONTACT_STRESS:
+      revision: 1
+      name: Среднее нормальное сопротивление среды
+      value: 8000000.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: DEMO
+      meaning: Условное равномерное сопротивление на контактной площадке; не давление гидросистемы.
+      provenance: {kind: SYNTHETIC_ASSUMPTION, source_ref: README.md, locator: Демонстрация}
+      author: {role: R2, session_id: TEMPLATE_AUTHOR}
+      author_sessions: [TEMPLATE_AUTHOR]
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence: []
+      baseline_id: null
+      history:
+        - {revision: 1, from: null, to: RAW, actor: TEMPLATE_AUTHOR, reason: Синтетический пример}
+        - {revision: 1, from: RAW, to: ASSUMED, actor: TEMPLATE_AUTHOR, reason: Только демонстрация формулы F = sigma A}
+
+  kinematics_and_drive:
+    DEMO_REQUIRED_FORCE:
+      revision: 1
+      name: Сила сопротивления на рабочем органе
+      value: 48000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: DEMO
+      meaning: Статическое сопротивление среды; без инерции, трения, потерь и запаса. Не подбор цилиндра.
+      provenance: {kind: DERIVATION, source_ref: scripts/demo_force.py, locator: calculate}
+      author: {role: R3, session_id: TEMPLATE_AUTHOR}
+      author_sessions: [TEMPLATE_AUTHOR]
+      verifier: null # после реальной проверки: role, session_id, review_id, scope
+      depends_on:
+        - {id: DEMO_CONTACT_STRESS, revision: 1}
+        - {id: DEMO_CONTACT_AREA, revision: 1}
+      calculation:
+        script: scripts/demo_force.py
+        code_files: [scripts/demo_force.py, scripts/repo_support.py]
+        command: python3 scripts/demo_force.py --write
+        expression: DEMO_CONTACT_STRESS * DEMO_CONTACT_AREA
+        output: evidence/demo_force.json
+      evidence: [evidence/demo_force.json]
+      baseline_id: null
+      history:
+        - {revision: 1, from: null, to: RAW, actor: TEMPLATE_AUTHOR, reason: Зарегистрирован расчётный выход}
+        - {revision: 1, from: RAW, to: ASSUMED, actor: TEMPLATE_AUTHOR, reason: Принята демонстрационная модель равномерного сопротивления}
+        - {revision: 1, from: ASSUMED, to: CALCULATED, actor: TEMPLATE_AUTHOR, reason: Выполнен scripts/demo_force.py; независимая проверка отсутствует}
+
+  geometry_mass:
+    DEMO_CONTACT_AREA:
+      revision: 1
+      name: Контактная площадь рабочего органа
+      value: 0.006
+      unit: m^2
+      tolerance: {kind: absolute, minus: 0.0001, plus: 0.0001}
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: DEMO
+      meaning: Условная площадь; допуск также демонстрационный и не подтверждён изготовлением.
+      provenance: {kind: SYNTHETIC_ASSUMPTION, source_ref: README.md, locator: Демонстрация}
+      author: {role: R4, session_id: TEMPLATE_AUTHOR}
+      author_sessions: [TEMPLATE_AUTHOR]
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence: []
+      baseline_id: null
+      history:
+        - {revision: 1, from: null, to: RAW, actor: TEMPLATE_AUTHOR, reason: Синтетический пример}
+        - {revision: 1, from: RAW, to: ASSUMED, actor: TEMPLATE_AUTHOR, reason: Принята только для демонстрации}
+
+  aero_thermo_fluid: {}
+  strength_safety_factors:
+    DEMO_YIELD_SAFETY_FACTOR:
+      revision: 1
+      name: Демонстрационный нижний предел запаса по текучести
+      value: 1.5
+      unit: '1'
+      tolerance: {kind: min_only, min: 1.5}
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: DEMO
+      meaning: Синтетический пример нижней границы, не рекомендация запаса для изделия, сварки или усталости.
+      provenance: {kind: SYNTHETIC_ASSUMPTION, source_ref: README.md, locator: Демонстрация}
+      author: {role: R5, session_id: TEMPLATE_AUTHOR}
+      author_sessions: [TEMPLATE_AUTHOR]
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence: []
+      baseline_id: null
+      history:
+        - {revision: 1, from: null, to: RAW, actor: TEMPLATE_AUTHOR, reason: Синтетический пример}
+        - {revision: 1, from: RAW, to: ASSUMED, actor: TEMPLATE_AUTHOR, reason: Демонстрация одностороннего критерия}
+
+  # Проектные коэффициенты задавать отдельно по виду разрушения/критерию,
+  # материалу, режиму и нормативному основанию. Универсального запаса нет.
+
+# Домены можно дополнять: требования, электрика, управление, испытания,
+# численные настройки решателя и критерии сходимости. Их значимые числа
+# также регистрировать; не прятать критерии в скриптах или отчётах.
