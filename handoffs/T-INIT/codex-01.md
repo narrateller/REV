@@ -1,4 +1,4 @@
-# Капсула T-INIT — codex-01, функции пресса и rev4
+# Капсула T-INIT — схема приёма/дозирования
 
 ```yaml
 capsule_version: '1.0'
@@ -10,9 +10,9 @@ model_label: Codex
 author_sessions:
 - codex-01
 assignment_evidence: 'Подтверждение пользователя; T-INIT; claim принят через PR #1'
-created_at_utc: '2026-11-10T14:15:07Z'
+created_at_utc: '2026-11-10T14:25:26Z'
 base_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
-work_commit: 7377c9863cb24e6cca754887eab7a90d69b86e60
+work_commit: 5adaa8e9945176e07fbabcc96ab09bced56716ff
 branch: work/T-INIT/codex-01
 availability: REMOTE
 claim_record:
@@ -20,45 +20,41 @@ claim_record:
   claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a
   acceptance_commit: 876c8712c0c2ecce9d46a9ed594e2c00f7ce9f17
   lease_expires_at: '2026-11-11T12:06:09Z'
-  heartbeat_utc: '2026-11-10T14:15:07Z'
-subtask: 'Rev4: требования и проверка функций аналога BP500; выбор покупателя исключён из условий T-INIT'
+  heartbeat_utc: '2026-11-10T14:25:26Z'
+subtask: Схема приёма/дозирования и отдельного взвешивания для TEST-F-01/02 подготовлена
 input_refs:
-- commit: ad58c4e817d5eecf6896b00cf6fbaa53d8b594f0
+- commit: b408f9d329e00a67621962888429b9223497ddb7
   paths:
-  - sources/functional_analysis_r2.md
-  - sources/index.md
+  - NEXT_MODEL.md
+  - requirements/system_requirements.md
+  - requirements/verification_matrix.md
+  - verification/press_function_test_plan.md
   - process/feedstock.md
   - process/sampling_plan.md
-  - AGENT_PROTOCOL.md
-- source: Текущее уточнение пользователя 2026-11-10, зафиксировано в T-INIT
-  scope: Разрабатывать пресс F-REV-01…04; пеллеты/ассортимент — контекст; выбор покупателя не требуется
+- source: Прямое поручение пользователя 2026-11-10
+  scope: Схема пути до отдельной дозы, независимые L/F/M, шнек/шибер, пустая серия, входная роль TEST-F-02
+    для VAL-REV-03; без испытаний
 changed_files:
+- verification/feed_dosing_rig_scheme.md
+- verification/press_function_test_plan.md
 - requirements/system_requirements.md
 - requirements/verification_matrix.md
-- sources/function_realization_comparison.md
-- verification/press_function_test_plan.md
-- process/feedstock.md
-- process/sampling_plan.md
 - ISSUES_AND_TASKS.md
-- decisions/standards_scope.md
-- archive/context/fuel_product_candidate_rev3.md
 - reviews/input_inventory_codex_01.md
-- sources/functional_analysis_r2.md
-- sources/index.md
 completed_steps:
-- Проверены main, owner и действующий lease
-- Отменено условие выбора покупателя; товарное предложение перенесено в архив контекста
-- Сопоставлены BP500/WEIMA/E55/ARS по F-REV-01…04
-- Подготовлены требования/матрица rev4, свойства сырья и операции до пресса
-- 'Подготовлена программа TEST-F-01…05: подача, дозирование, формование, выдача и полный цикл'
-- Проверена структура и 22 REQ ↔ 22 VAL; фактические испытания NOT_RUN
-- C опубликован в origin/work/T-INIT/codex-01
+- Проверены main, owner и срок claim
+- Подготовлена схема сырьё/подпробы → бункер → сменный модуль A/B → зона движения → сбор отдельной дозы → весы
+- Разделены наблюдения L/F/M и команды/обратная связь привода
+- Описаны дозовые границы, тара, досып/потери, события и сравнение на сопоставимых подпробах
+- Добавлены пустые формы серии/дозы/журнала событий, результаты отсутствуют
+- 'Уточнено: TEST-F-02 даёт вход для VAL-REV-03; изделие проверяют TEST-F-03/04'
+- Документальные проверки прошли; C опубликован; фактические испытания не запускались
 unfinished_step:
-  exact_expression_or_node: Собственная схема испытательного узла подачи/дозирования, затем обоснование диапазонов
-    и измерений; без фактических проб пока
+  exact_expression_or_node: Требования к наблюдаемости/метрологии каналов и независимый review схемы; численные
+    диапазоны не обоснованы
   last_successful_command: .venv/bin/python scripts/check_registry.py --check-git
-  expected_result: PASS документов; функциональные проверки NOT_RUN
-  observed_result: PASS, все численные цели/пороги UNKNOWN
+  expected_result: PASS документов, формы пусты, испытания NOT_RUN
+  observed_result: PASS; 22 REQ ↔ 22 VAL, две корректные пустые YAML-формы
 environment:
   tool_versions:
   - Python 3.12.14
@@ -69,26 +65,26 @@ environment:
   seeds: []
 running_jobs: []
 open_hypotheses:
-- Шнек/рыхление, шибер/предсжатие и дисковая подача — варианты дозирования
-- Канал с зажимом и закрытая камера с дверью — варианты уплотнения/выдачи
-- IN-REV-A/B/C — альтернативные состояния входа, окончательная кондиция не выбрана
+- Модуль A шнек и модуль B объёмный шибер — варианты сравнения, не выбранная архитектура
+- Общий бункер/сборник/платформа требуют конструктивной и метрологической проверки
+- Результаты автономного узла не доказывают заполнение прессовой камеры или повторяемость брикета
 blocker_ids: []
 review_refs:
 - reviews/input_inventory_codex_01.md — авторский self-check; независимый review NOT_RUN
 uncommitted_or_unsaved: []
-next_action: 'Создать verification/feed_dosing_rig_scheme.md: функциональная схема узла F-REV-01/02, точки
-  контроля состояния сырья и взвешивания доз, датчики/события, безопасные состояния и пустая форма серии TEST-F-01/02'
-next_action_success_criterion: Каждое измерение связано с REQ/VAL и возможным механизмом; схема отделяет массу
-  дозы/поток/уровень и учитывает своды/неполное заполнение; покупатель не является зависимостью; диапазоны
-  и пороги UNKNOWN до обоснования
+next_action: 'Подготовить verification/feed_dosing_measurement_requirements.md: паспорт каналов L/F/M и команды/обратной
+  связи, схема синхронизации, критерии валидности/отказов и перечень входов для обоснования диапазонов без
+  запуска стенда'
+next_action_success_criterion: Каждое измерение/событие связано с каналом и независимым подтверждением; определены
+  незаданные диапазоны/погрешности/окна и способ их последующего обоснования; схема готова к независимому review;
+  численные значения не выдуманы
 stop_conditions:
 - Истёк lease
 - Конкурирующий владелец или изменились входы
 - Инженерный вывод без применимого входного review
-previous_work_commit: d00f2023d0472277aeddd8835bcb0929b46e6d59
+previous_work_commit: 7377c9863cb24e6cca754887eab7a90d69b86e60
 ```
 
-C опубликован; этот H обновляет STATE/NEXT_MODEL/капсулу. Все старые условия
-выбора покупателя отменены пользователем; не возобновлять их как вход T-INIT.
-Реальные пробы/журналы пока отложены, но документальное инженерное развитие
-и сравнение механизмов продолжается. G1 открыт, ТЗ и архитектура не утверждены.
+C опубликован. Этот H сохраняет STATE/NEXT_MODEL/капсулу. Работа остаётся
+документальной, испытания не запускались; все целевые значения UNKNOWN,
+G1 открыт. Масса дозы не является проверкой готового брикета.
