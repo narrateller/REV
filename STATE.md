@@ -162,3 +162,7 @@ T-codex-01-01: пользователь назначил r4-model-01 / Codex / R
 ## Частичный результат R4
 
 T-codex-01-01 HANDOFF, owner r4-model-01. Код и результаты synthetic на b3ba802fb1bad642338a18ef82493f44ac069067; акт входа models/kinematic_press/input_audit.md. Пять случаев соответствуют ожидаемым статусам, независимый review NOT_RUN. Полная фазовая модель обеих альтернатив и все необходимые пары отсутствуют; завершение задачи не заявлено. G1 открыт.
+
+## Передача R4 на R5
+
+T-codex-01-01 IN_REVIEW: код/результаты 5cb3e8ab274ae4d746ec016ecd11b6c2acd14edb; запрос независимому R5 в ISSUES_AND_TASKS.md, ревью NOT_RUN. 13 фаз: synthetic 2 проверенные пары, 60 непроверенных; REV 0/62. UNKNOWN REV и G1 сохранены.
