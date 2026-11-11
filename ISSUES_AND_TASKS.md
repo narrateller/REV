@@ -28,7 +28,7 @@ ID после создания не меняется. Для параллель�
 
 | T-r3-safety-01-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | принята документальная карта с WARNING, PR #18; B03 OPEN | G1 |
 | T-r3-norms-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | документальная карта с WARNING; применимость не установлена | G1 |
-| T-r3-compaction-measure-01 | TASK | P1 | @R3 | READY | r3-safety-01 (предложен) | claim PENDING_MAIN; R5-COMP-W03/W04 OPEN | G1 |
+| T-r3-compaction-measure-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; R5-COMP-W03/W04 OPEN | G1 |
 
 ## T-INIT
 
@@ -631,9 +631,9 @@ Claim принят PR #24 `6f22d966de85a7072cea43d2288d560edfb3b558`; owner `e98
 ## T-r3-compaction-measure-01 — измерительная модель и наблюдаемость
 
 - TASK; P1; родитель T-INIT, адресат R3; пользователь поручил документальную постановку W03/W04 после PR #25. Роль R3 уже назначена пользователем в этой беседе; session_id r3-safety-01 / Codex. Новая задача не изменяет владельца T-INIT и не продлевает его claim.
-- Статус READY; claim PROPOSED / PENDING_MAIN; proposed_owner_session r3-safety-01, author_sessions [r3-safety-01]; реальная работа и входной акт NOT_STARTED. CLAIMED только после последовательного принятия claim в main.
-- base_commit `461a9abcc4bb0011291f6f7a1747524713b371ec` (PR #25); рабочая ветка `work/T-r3-compaction-measure-01/r3-safety-01`; claim_record_commit — SHA публикации этой записи; acceptance_commit NONE.
-- assignment_utc / heartbeat_utc `2026-11-11T12:29:35Z`; lease_expires_at `2026-11-12T12:29:35Z`; срок предложен для принятия claim и ближайшей документальной подзадачи, не продление чужого claim. При истечении или конкурирующем claim действовать по протоколу; фактический owner не устанавливается этим предложением.
+- Статус IN_REVIEW; claim ACCEPTED_MAIN через PR #26; owner_session r3-safety-01, author_sessions [r3-safety-01]. Входной акт и документальная постановка подготовлены; независимый OUTPUT-review NOT_RUN.
+- base_commit `461a9abcc4bb0011291f6f7a1747524713b371ec` (PR #25); рабочая ветка `work/T-r3-compaction-measure-01/r3-safety-01`; claim_record_commit `5f046982b59376eb26d89541adb81955b27e6ffb`; acceptance_commit `adaf5593edb7c374c112bbcc58c802d35bd4ccd3` (PR #26).
+- assignment_utc / heartbeat_utc `2026-11-11T12:29:35Z`; lease_expires_at `2026-11-12T12:29:35Z`; срок принят с claim в PR #26 для ближайшей документальной подзадачи, не продление чужого claim. При истечении или конкурирующем claim действовать по протоколу.
 - Сверка: на базе main в трекере нет отдельного принятого R3 claim на данную подзадачу; claim T-INIT владельца codex-01 истёк 2026-11-11T12:06:09Z, его не перехватывать. R2 T-r2-compaction-data-01 относится к W01/W02; решение PR #25 допускает только документальный черновик с WARNING, не закрывает W01/W02. R5-COMP-W01–W05 OPEN.
 - Возможности: Git, Python 3.12, документальный анализ; реальная установка/измерительные средства и профильная квалификация UNKNOWN, физические работы NOT_RUN.
 - Входы на base_commit: verification/compaction_measurement_program_draft.md и compaction_program_r1_disposition.md; verification/r5_compaction_program_output/review.md (акт `d8c7ee2e9797f9abd88f048ece315412f84f3ee0`); verification/r2_compaction_data/specification.md и disposition.md, verification/r5_r2_compaction_data_review/review.md; verification/engineering_input_map.md, controls/press_variant_state_tables.md, verification/feed_dosing_rig_scheme.md, requirements/system_requirements.md и verification_matrix.md, AGENT_PROTOCOL.md, STATE.md, NEXT_MODEL.md. Перед работой сверить точные blob и актуальность актов.
@@ -643,3 +643,8 @@ Claim принят PR #24 `6f22d966de85a7072cea43d2288d560edfb3b558`; owner `e98
 - Stop: claim не принят, истёк lease, конкурирующий owner, изменились существенные входы без сверки. После принятия сверить актуальную main, owner, lease, конкурирующие claims и точные входы; затем оформить входной акт до исполнения. Точный SHA результата передать на независимый OUTPUT-review; собственный review не является независимым.
 - Ограничения: R5-COMP-W03/W04 остаются OPEN до разработки и согласования применимой методики и независимой проверки; никакая запись не подтверждает доступность каналов или состояние машины. B01–B03, R5-OBS-01…04 и G1 OPEN. Методы, оборудование и численные пределы не выбраны; пробы, испытания и калибровки NOT_RUN.
 - История: `2026-11-11T12:29:35Z` — по поручению пользователя создана отдельная задача READY, claim предложен; принятие и исследование NOT_RUN.
+
+
+### Принятие claim и постановка R3 W03/W04
+
+Claim `5f046982b59376eb26d89541adb81955b27e6ffb` принят PR #26 на main `adaf5593edb7c374c112bbcc58c802d35bd4ccd3`; owner r3-safety-01, lease до 2026-11-12T12:29:35Z. Сверены отсутствие конкурирующего владельца и входы; содержательные входы от базы claim не изменились. Входной акт и постановка — verification/r3_compaction_observability/. Задача IN_REVIEW; передать точный SHA независимому reviewer R5 и профильным R2/R3; самоприёмка исключена. R5-COMP-W03/W04, B01–B03, R5-OBS-01…04 и G1 OPEN. Измерения, пробы и испытания NOT_RUN.

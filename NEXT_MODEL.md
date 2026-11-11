@@ -1,3 +1,9 @@
+# R3 — постановка W03/W04 на независимый review
+
+Claim `5f046982b59376eb26d89541adb81955b27e6ffb` принят PR #26 на `adaf5593edb7c374c112bbcc58c802d35bd4ccd3`; owner r3-safety-01, lease до 2026-11-12T12:29:35Z. Входной акт и постановка verification/r3_compaction_observability/ подготовлены, IN_REVIEW. Передать опубликованный точный SHA независимому R5 и профильным участникам; до интеграции проверить main, owner, lease и входы. R5-COMP-W03/W04, B01–B03 и G1 OPEN; физические работы NOT_RUN.
+
+## Предыдущая эстафета (история)
+
 # R3 — отдельный claim для W03/W04 после PR #25
 
 На main `461a9abcc4bb0011291f6f7a1747524713b371ec` принят документальный черновик R2 с WARNING. Пользователь поручил R3 постановку измерительной модели и наблюдаемости R5-COMP-W03/W04. T-r3-compaction-measure-01 READY; claim r3-safety-01 PROPOSED / PENDING_MAIN, lease предложен до `2026-11-12T12:29:35Z`. Исследование NOT_STARTED: сначала принять claim последовательно в main, проверить owner/lease/входы и оформить входной акт. T-INIT R1 не перехватывать, его lease истёк. См. трекер и handoffs/T-r3-compaction-measure-01/r3-safety-01.md. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
