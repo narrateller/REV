@@ -1,0 +1,93 @@
+{
+  "A": {
+    "working_strokes_unchanged": {
+      "doser_fill_y": true,
+      "gate_isolate_y": true,
+      "travel_A": true,
+      "short_A": true
+    },
+    "open_gate_clear_xy": true,
+    "closed_gate_cover_xy": true,
+    "gate_inside_split_wall_slot_z": true,
+    "ready_return_phase_present": true,
+    "link": "LINK_CONFIRMED",
+    "path_transition": "ALLOWED_FOR_PATH_SUBSET",
+    "path_ready": "RESTORED_FOR_PATH_SUBSET",
+    "reaction_contacts": []
+  },
+  "B": {
+    "working_strokes_unchanged": {
+      "doser_fill_y": true,
+      "gate_isolate_y": true,
+      "travel_B": true,
+      "short_B": true,
+      "open_lock_y": true,
+      "open_stop_y": true
+    },
+    "open_gate_clear_xy": true,
+    "closed_gate_cover_xy": true,
+    "gate_inside_split_wall_slot_z": true,
+    "ready_return_phase_present": true,
+    "link": "LINK_CONFIRMED",
+    "path_transition": "ALLOWED_FOR_PATH_SUBSET",
+    "path_ready": "RESTORED_FOR_PATH_SUBSET",
+    "reaction_contacts": [
+      {
+        "pair": [
+          "end_stop",
+          "lock"
+        ],
+        "axis": 0,
+        "positive_face_area_m2": "108/625"
+      },
+      {
+        "pair": [
+          "lock",
+          "stop_support"
+        ],
+        "axis": 0,
+        "positive_face_area_m2": "27/625"
+      },
+      {
+        "pair": [
+          "lock",
+          "stop_support_L"
+        ],
+        "axis": 0,
+        "positive_face_area_m2": "27/625"
+      },
+      {
+        "pair": [
+          "stop_support",
+          "stop_support_bridge"
+        ],
+        "axis": 2,
+        "positive_face_area_m2": "12/625"
+      },
+      {
+        "pair": [
+          "stop_support_L",
+          "stop_support_bridge"
+        ],
+        "axis": 2,
+        "positive_face_area_m2": "12/625"
+      },
+      {
+        "pair": [
+          "stop_support_bridge",
+          "side_rail_L"
+        ],
+        "axis": 1,
+        "positive_face_area_m2": "12/625"
+      },
+      {
+        "pair": [
+          "stop_support_bridge",
+          "side_rail_R"
+        ],
+        "axis": 1,
+        "positive_face_area_m2": "12/625"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4314 @@
+{
+  "code_sha": "66924aed1cb2d193b9883d2140d85560b1e4b0cb",
+  "frozen_15_vs_de377": {
+    "cad/layout/build_model.py": true,
+    "cad/layout/cad_validation.py": true,
+    "cad/layout/check_layout.py": true,
+    "cad/layout/geometry_preservation.py": true,
+    "cad/layout/layout_common.py": true,
+    "cad/layout/layout_lifecycle.py": true,
+    "cad/layout/query_regressions.py": true,
+    "cad/layout/query_volumes.py": true,
+    "cad/layout/run_all.py": true,
+    "cad/layout/test_cad_artifacts.py": true,
+    "cad/layout/test_layout.py": true,
+    "cad/layout/test_lifecycle.py": true,
+    "cad/layout/test_query_volumes.py": true,
+    "cad/layout/tool_regressions.py": true,
+    "models/rev_linked_scene/engine.py": true
+  },
+  "unchanged_geometry_evidence_vs_120a958": {
+    "cad/layout_correction/inputs.assumed.json": true,
+    "cad/layout_correction/figures.py": true,
+    "cad/layout_correction/change_inputs.json": true,
+    "cad/build/layout_correction/raw_checked_tool/all_pairs.json.gz": true,
+    "cad/build/layout_correction/service_scenes.json.gz": true,
+    "cad/build/layout_correction/before_after_native.json": true,
+    "params/registry.yaml": true,
+    "drives/cots_catalog.yaml": true,
+    "cad/build/layout_correction/A/front.png": true,
+    "cad/build/layout_correction/A/side.png": true,
+    "cad/build/layout_correction/A/top.png": true,
+    "cad/build/layout_correction/A/isometric.png": true,
+    "cad/build/layout_correction/B/front.png": true,
+    "cad/build/layout_correction/B/side.png": true,
+    "cad/build/layout_correction/B/top.png": true,
+    "cad/build/layout_correction/B/isometric.png": true
+  },
+  "rebuilt_semantic_manifests": {
+    "A": {
+      "objects": true,
+      "input_sha256": true,
+      "reopen_recompute": true,
+      "edit_probe": true,
+      "spreadsheet_parameters": true,
+      "query_volumes": true
+    },
+    "B": {
+      "objects": true,
+      "input_sha256": true,
+      "reopen_recompute": true,
+      "edit_probe": true,
+      "spreadsheet_parameters": true,
+      "query_volumes": true
+    }
+  },
+  "rebuilt_images": {
+    "A/front": true,
+    "A/side": true,
+    "A/top": true,
+    "A/isometric": true,
+    "B/front": true,
+    "B/side": true,
+    "B/top": true,
+    "B/isometric": true
+  },
+  "rebuilt_raw_scenes": {
+    "raw_checked_tool/all_pairs.json.gz": true,
+    "service_scenes.json.gz": true
+  },
+  "saved_adapter": {
+    "A": {
+      "status": "PASS",
+      "nominal_bounds_match": "PASS",
+      "solid_count": 70,
+      "actual_FCStd_reopen_recompute": "PASS",
+      "actual_STEP_shape_correspondence": "PASS",
+      "query_geometry_match": "PASS",
+      "query_count": 2,
+      "query_volumes": [
+        {
+          "id": "CylinderRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "cylinder_barrel",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PX",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PY",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PZ",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-LENGTH",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            -3000.0,
+            -220.0,
+            -220.0
+          ],
+          "expected_size_mm": [
+            2200.0,
+            440.0,
+            1740.0
+          ],
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            1520.0
+          ],
+          "native_volume_mm3": 1684320000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        },
+        {
+          "id": "DoserRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "doser_slide",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PZ",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DZ",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            200.0,
+            150.0,
+            660.0
+          ],
+          "expected_size_mm": [
+            400.0,
+            360.0,
+            1420.0
+          ],
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            2080.0
+          ],
+          "native_volume_mm3": 204480000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        }
+      ],
+      "files": {
+        "layout_A.FCStd": "808e8dff47a5c5a20250e095748897872745ae57c8c9d7acc5afe23896ee95d0",
+        "layout_A.step": "62513d30607c40bbad8468ca9d68c776a684074d6c56e92a813f2023a73a88a3"
+      },
+      "objects": [
+        {
+          "id": "base_L",
+          "native_bounds_mm": [
+            -3400.0,
+            -720.0,
+            -1180.0,
+            2500.0,
+            -580.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L0",
+          "native_bounds_mm": [
+            -3100.0,
+            -720.0,
+            -1650.0,
+            -2920.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L1",
+          "native_bounds_mm": [
+            -100.0,
+            -720.0,
+            -1650.0,
+            80.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -1650.0,
+            2080.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_L",
+          "native_bounds_mm": [
+            -3300.0,
+            -720.0,
+            -400.0,
+            2300.0,
+            -580.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "base_R",
+          "native_bounds_mm": [
+            -3400.0,
+            580.0,
+            -1180.0,
+            2500.0,
+            720.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R0",
+          "native_bounds_mm": [
+            -3100.0,
+            580.0,
+            -1650.0,
+            -2920.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R1",
+          "native_bounds_mm": [
+            -100.0,
+            580.0,
+            -1650.0,
+            80.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R2",
+          "native_bounds_mm": [
+            1900.0,
+            580.0,
+            -1650.0,
+            2080.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_R",
+          "native_bounds_mm": [
+            -3300.0,
+            580.0,
+            -400.0,
+            2300.0,
+            720.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar0",
+          "native_bounds_mm": [
+            -3200.0,
+            -720.0,
+            -500.0,
+            -3020.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar1",
+          "native_bounds_mm": [
+            -500.0,
+            -720.0,
+            -500.0,
+            -320.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -500.0,
+            2080.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_barrel",
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            220.0
+          ],
+          "native_volume_mm3": 334516785.75424117,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "rod",
+          "native_bounds_mm": [
+            -800.0,
+            -70.0,
+            -70.0,
+            -100.0,
+            70.0,
+            70.0
+          ],
+          "native_volume_mm3": 10775662.801812986,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_rear",
+          "native_bounds_mm": [
+            -3120.0,
+            -340.0,
+            -340.0,
+            -3000.0,
+            340.0,
+            340.0
+          ],
+          "native_volume_mm3": 55488000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_front",
+          "native_bounds_mm": [
+            -900.0,
+            -300.0,
+            -300.0,
+            -800.0,
+            300.0,
+            300.0
+          ],
+          "native_volume_mm3": 36000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "punch",
+          "native_bounds_mm": [
+            -100.0,
+            -160.0,
+            -160.0,
+            150.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 25599999.999999993,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_L",
+          "native_bounds_mm": [
+            -650.0,
+            -340.0,
+            -140.0,
+            0.0,
+            -260.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_R",
+          "native_bounds_mm": [
+            -650.0,
+            260.0,
+            -140.0,
+            0.0,
+            340.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_bottom",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -240.0,
+            1100.0,
+            240.0,
+            -200.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_left",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -200.0,
+            1100.0,
+            -200.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_right",
+          "native_bounds_mm": [
+            0.0,
+            200.0,
+            -200.0,
+            1100.0,
+            240.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_rear",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            200.0,
+            200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 3840000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_front",
+          "native_bounds_mm": [
+            600.0,
+            -240.0,
+            200.0,
+            1100.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 9600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_L",
+          "native_bounds_mm": [
+            200.0,
+            -260.0,
+            240.0,
+            600.0,
+            -220.0,
+            640.0
+          ],
+          "native_volume_mm3": 6399999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            300.0,
+            600.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 5439999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_rear",
+          "native_bounds_mm": [
+            160.0,
+            -260.0,
+            240.0,
+            200.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_front",
+          "native_bounds_mm": [
+            600.0,
+            -260.0,
+            240.0,
+            640.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "inlet_gate",
+          "native_bounds_mm": [
+            200.0,
+            280.0,
+            260.0,
+            600.0,
+            680.0,
+            295.0
+          ],
+          "native_volume_mm3": 5600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_support",
+          "native_bounds_mm": [
+            150.0,
+            260.0,
+            235.0,
+            650.0,
+            720.0,
+            260.0
+          ],
+          "native_volume_mm3": 5749999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_slide",
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            780.0
+          ],
+          "native_volume_mm3": 17280000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_rear",
+          "native_bounds_mm": [
+            100.0,
+            -650.0,
+            620.0,
+            150.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_front",
+          "native_bounds_mm": [
+            650.0,
+            -650.0,
+            620.0,
+            700.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_rear",
+          "native_bounds_mm": [
+            -50.0,
+            -550.0,
+            900.0,
+            0.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_front",
+          "native_bounds_mm": [
+            800.0,
+            -550.0,
+            900.0,
+            850.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_L",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            900.0,
+            800.0,
+            -500.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_R",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            900.0,
+            800.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hydraulic_tank",
+          "native_bounds_mm": [
+            -2800.0,
+            1000.0,
+            -1250.0,
+            -1550.0,
+            1750.0,
+            -600.0
+          ],
+          "native_volume_mm3": 609375000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pump_motor",
+          "native_bounds_mm": [
+            -2650.0,
+            1220.0,
+            -660.0,
+            -2000.0,
+            1580.0,
+            -300.0
+          ],
+          "native_volume_mm3": 66161941.28460104,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "control_cabinet",
+          "native_bounds_mm": [
+            -1200.0,
+            1100.0,
+            -1300.0,
+            -700.0,
+            1550.0,
+            -100.0
+          ],
+          "native_volume_mm3": 270000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hose_envelope",
+          "native_bounds_mm": [
+            -2300.0,
+            400.0,
+            320.0,
+            -900.0,
+            560.0,
+            460.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_left",
+          "native_bounds_mm": [
+            -3250.0,
+            -950.0,
+            -1000.0,
+            2350.0,
+            -910.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_right",
+          "native_bounds_mm": [
+            -3250.0,
+            1750.0,
+            -1000.0,
+            2350.0,
+            1790.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "output_support",
+          "native_bounds_mm": [
+            1100.0,
+            -320.0,
+            -500.0,
+            2600.0,
+            320.0,
+            -380.0
+          ],
+          "native_volume_mm3": 115200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_bottom",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            -240.0,
+            2200.0,
+            240.0,
+            -200.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_top",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            200.0,
+            2200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_left",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            -200.0,
+            2200.0,
+            -200.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_right",
+          "native_bounds_mm": [
+            1100.0,
+            200.0,
+            -200.0,
+            2200.0,
+            240.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "clamp_L",
+          "native_bounds_mm": [
+            1450.0,
+            -380.0,
+            -280.0,
+            1850.0,
+            -240.0,
+            280.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "clamp_R",
+          "native_bounds_mm": [
+            1450.0,
+            240.0,
+            -280.0,
+            1850.0,
+            380.0,
+            280.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "clamp_mount",
+          "native_bounds_mm": [
+            1400.0,
+            -500.0,
+            -650.0,
+            1900.0,
+            500.0,
+            -530.0
+          ],
+          "native_volume_mm3": 60000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "product_A",
+          "native_bounds_mm": [
+            150.0,
+            -160.0,
+            -160.0,
+            650.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 51199999.999999985,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_rear",
+          "native_bounds_mm": [
+            -100.0,
+            -600.0,
+            1950.0,
+            0.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_front",
+          "native_bounds_mm": [
+            800.0,
+            -600.0,
+            1950.0,
+            900.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_left",
+          "native_bounds_mm": [
+            0.0,
+            -600.0,
+            1950.0,
+            800.0,
+            -500.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_right",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            1950.0,
+            800.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_rear",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            850.0,
+            200.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -550.0,
+            850.0,
+            800.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -550.0,
+            850.0,
+            600.0,
+            -199.99999999999994,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            850.0,
+            600.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_rear",
+          "native_bounds_mm": [
+            150.0,
+            -650.0,
+            620.0,
+            200.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -650.0,
+            620.0,
+            650.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -650.0,
+            620.0,
+            600.0,
+            -200.0,
+            660.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            620.0,
+            600.0,
+            550.0,
+            660.0
+          ],
+          "native_volume_mm3": 5599999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R_lower",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            240.0,
+            600.0,
+            260.0,
+            255.0
+          ],
+          "native_volume_mm3": 240000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_top",
+          "native_bounds_mm": [
+            200.0,
+            260.0,
+            300.0,
+            600.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 3679999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_rear",
+          "native_bounds_mm": [
+            160.0,
+            260.0,
+            260.0,
+            200.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_front",
+          "native_bounds_mm": [
+            600.0,
+            260.0,
+            260.0,
+            640.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_service_cap",
+          "native_bounds_mm": [
+            160.0,
+            720.0,
+            260.0,
+            640.0,
+            740.0,
+            320.0
+          ],
+          "native_volume_mm3": 576000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        }
+      ],
+      "scope": "persisted ASSUMED native primitives/STEP and all canonical QueryVolumes checked before/after recompute; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
+      "FreeCAD_version": [
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    "B": {
+      "status": "PASS",
+      "nominal_bounds_match": "PASS",
+      "solid_count": 68,
+      "actual_FCStd_reopen_recompute": "PASS",
+      "actual_STEP_shape_correspondence": "PASS",
+      "query_geometry_match": "PASS",
+      "query_count": 2,
+      "query_volumes": [
+        {
+          "id": "CylinderRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "cylinder_barrel",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PX",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PY",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PZ",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-LENGTH",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            -3000.0,
+            -220.0,
+            -220.0
+          ],
+          "expected_size_mm": [
+            2200.0,
+            440.0,
+            1740.0
+          ],
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            1520.0
+          ],
+          "native_volume_mm3": 1684320000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        },
+        {
+          "id": "DoserRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "doser_slide",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PZ",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DZ",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            200.0,
+            150.0,
+            660.0
+          ],
+          "expected_size_mm": [
+            400.0,
+            360.0,
+            1420.0
+          ],
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            2080.0
+          ],
+          "native_volume_mm3": 204480000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        }
+      ],
+      "files": {
+        "layout_B.FCStd": "4efd59c174eab5ff6c740de9f3431eefc1069deffb8b0cdc6e4163d99e74b3a2",
+        "layout_B.step": "49381e7eea652ae242d90928d4927733fe3a638497a744914b6d335d1a004e1d"
+      },
+      "objects": [
+        {
+          "id": "base_L",
+          "native_bounds_mm": [
+            -3400.0,
+            -720.0,
+            -1180.0,
+            2500.0,
+            -580.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L0",
+          "native_bounds_mm": [
+            -3100.0,
+            -720.0,
+            -1650.0,
+            -2920.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L1",
+          "native_bounds_mm": [
+            -100.0,
+            -720.0,
+            -1650.0,
+            80.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -1650.0,
+            2080.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_L",
+          "native_bounds_mm": [
+            -3300.0,
+            -720.0,
+            -400.0,
+            2300.0,
+            -580.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "base_R",
+          "native_bounds_mm": [
+            -3400.0,
+            580.0,
+            -1180.0,
+            2500.0,
+            720.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R0",
+          "native_bounds_mm": [
+            -3100.0,
+            580.0,
+            -1650.0,
+            -2920.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R1",
+          "native_bounds_mm": [
+            -100.0,
+            580.0,
+            -1650.0,
+            80.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R2",
+          "native_bounds_mm": [
+            1900.0,
+            580.0,
+            -1650.0,
+            2080.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_R",
+          "native_bounds_mm": [
+            -3300.0,
+            580.0,
+            -400.0,
+            2300.0,
+            720.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar0",
+          "native_bounds_mm": [
+            -3200.0,
+            -720.0,
+            -500.0,
+            -3020.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar1",
+          "native_bounds_mm": [
+            -500.0,
+            -720.0,
+            -500.0,
+            -320.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -500.0,
+            2080.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_barrel",
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            220.0
+          ],
+          "native_volume_mm3": 334516785.75424117,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "rod",
+          "native_bounds_mm": [
+            -800.0,
+            -70.0,
+            -70.0,
+            -100.0,
+            70.0,
+            70.0
+          ],
+          "native_volume_mm3": 10775662.801812986,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_rear",
+          "native_bounds_mm": [
+            -3120.0,
+            -340.0,
+            -340.0,
+            -3000.0,
+            340.0,
+            340.0
+          ],
+          "native_volume_mm3": 55488000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_front",
+          "native_bounds_mm": [
+            -900.0,
+            -300.0,
+            -300.0,
+            -800.0,
+            300.0,
+            300.0
+          ],
+          "native_volume_mm3": 36000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "punch",
+          "native_bounds_mm": [
+            -100.0,
+            -160.0,
+            -160.0,
+            150.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 25599999.999999993,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_L",
+          "native_bounds_mm": [
+            -650.0,
+            -340.0,
+            -140.0,
+            0.0,
+            -260.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_R",
+          "native_bounds_mm": [
+            -650.0,
+            260.0,
+            -140.0,
+            0.0,
+            340.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_bottom",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -240.0,
+            1100.0,
+            240.0,
+            -200.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_left",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -200.0,
+            1100.0,
+            -200.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_right",
+          "native_bounds_mm": [
+            0.0,
+            200.0,
+            -200.0,
+            1100.0,
+            240.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_rear",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            200.0,
+            200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 3840000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_front",
+          "native_bounds_mm": [
+            600.0,
+            -240.0,
+            200.0,
+            1100.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 9600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_L",
+          "native_bounds_mm": [
+            200.0,
+            -260.0,
+            240.0,
+            600.0,
+            -220.0,
+            640.0
+          ],
+          "native_volume_mm3": 6399999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            300.0,
+            600.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 5439999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_rear",
+          "native_bounds_mm": [
+            160.0,
+            -260.0,
+            240.0,
+            200.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_front",
+          "native_bounds_mm": [
+            600.0,
+            -260.0,
+            240.0,
+            640.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "inlet_gate",
+          "native_bounds_mm": [
+            200.0,
+            280.0,
+            260.0,
+            600.0,
+            680.0,
+            295.0
+          ],
+          "native_volume_mm3": 5600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_support",
+          "native_bounds_mm": [
+            150.0,
+            260.0,
+            235.0,
+            650.0,
+            720.0,
+            260.0
+          ],
+          "native_volume_mm3": 5749999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_slide",
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            780.0
+          ],
+          "native_volume_mm3": 17280000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_rear",
+          "native_bounds_mm": [
+            100.0,
+            -650.0,
+            620.0,
+            150.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_front",
+          "native_bounds_mm": [
+            650.0,
+            -650.0,
+            620.0,
+            700.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_rear",
+          "native_bounds_mm": [
+            -50.0,
+            -550.0,
+            900.0,
+            0.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_front",
+          "native_bounds_mm": [
+            800.0,
+            -550.0,
+            900.0,
+            850.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_L",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            900.0,
+            800.0,
+            -500.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_R",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            900.0,
+            800.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hydraulic_tank",
+          "native_bounds_mm": [
+            -2800.0,
+            1000.0,
+            -1250.0,
+            -1550.0,
+            1750.0,
+            -600.0
+          ],
+          "native_volume_mm3": 609375000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pump_motor",
+          "native_bounds_mm": [
+            -2650.0,
+            1220.0,
+            -660.0,
+            -2000.0,
+            1580.0,
+            -300.0
+          ],
+          "native_volume_mm3": 66161941.28460104,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "control_cabinet",
+          "native_bounds_mm": [
+            -1200.0,
+            1100.0,
+            -1300.0,
+            -700.0,
+            1550.0,
+            -100.0
+          ],
+          "native_volume_mm3": 270000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hose_envelope",
+          "native_bounds_mm": [
+            -2300.0,
+            400.0,
+            320.0,
+            -900.0,
+            560.0,
+            460.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_left",
+          "native_bounds_mm": [
+            -3250.0,
+            -950.0,
+            -1000.0,
+            2350.0,
+            -910.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_right",
+          "native_bounds_mm": [
+            -3250.0,
+            1750.0,
+            -1000.0,
+            2350.0,
+            1790.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "output_support",
+          "native_bounds_mm": [
+            1100.0,
+            -320.0,
+            -500.0,
+            2600.0,
+            320.0,
+            -380.0
+          ],
+          "native_volume_mm3": 115200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "end_stop",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            -240.0,
+            1200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 23040000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "lock",
+          "native_bounds_mm": [
+            1200.0,
+            -320.0,
+            -180.0,
+            1350.0,
+            320.0,
+            180.0
+          ],
+          "native_volume_mm3": 34560000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "stop_support",
+          "native_bounds_mm": [
+            1350.0,
+            200.0,
+            -240.0,
+            1510.0,
+            320.0,
+            400.0
+          ],
+          "native_volume_mm3": 12288000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "product_B",
+          "native_bounds_mm": [
+            150.0,
+            -160.0,
+            -160.0,
+            650.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 51199999.999999985,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_rear",
+          "native_bounds_mm": [
+            -100.0,
+            -600.0,
+            1950.0,
+            0.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_front",
+          "native_bounds_mm": [
+            800.0,
+            -600.0,
+            1950.0,
+            900.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_left",
+          "native_bounds_mm": [
+            0.0,
+            -600.0,
+            1950.0,
+            800.0,
+            -500.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_right",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            1950.0,
+            800.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_rear",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            850.0,
+            200.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -550.0,
+            850.0,
+            800.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -550.0,
+            850.0,
+            600.0,
+            -199.99999999999994,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            850.0,
+            600.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_rear",
+          "native_bounds_mm": [
+            150.0,
+            -650.0,
+            620.0,
+            200.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -650.0,
+            620.0,
+            650.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -650.0,
+            620.0,
+            600.0,
+            -200.0,
+            660.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            620.0,
+            600.0,
+            550.0,
+            660.0
+          ],
+          "native_volume_mm3": 5599999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R_lower",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            240.0,
+            600.0,
+            260.0,
+            255.0
+          ],
+          "native_volume_mm3": 240000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_top",
+          "native_bounds_mm": [
+            200.0,
+            260.0,
+            300.0,
+            600.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 3679999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_rear",
+          "native_bounds_mm": [
+            160.0,
+            260.0,
+            260.0,
+            200.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_front",
+          "native_bounds_mm": [
+            600.0,
+            260.0,
+            260.0,
+            640.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_service_cap",
+          "native_bounds_mm": [
+            160.0,
+            720.0,
+            260.0,
+            640.0,
+            740.0,
+            320.0
+          ],
+          "native_volume_mm3": 576000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "stop_support_L",
+          "native_bounds_mm": [
+            1350.0,
+            -320.0,
+            -240.0,
+            1510.0,
+            -200.0,
+            400.0
+          ],
+          "native_volume_mm3": 12288000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "stop_support_bridge",
+          "native_bounds_mm": [
+            1350.0,
+            -580.0,
+            -380.0,
+            1510.0,
+            580.0,
+            -240.0
+          ],
+          "native_volume_mm3": 25984000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        }
+      ],
+      "scope": "persisted ASSUMED native primitives/STEP and all canonical QueryVolumes checked before/after recompute; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
+      "FreeCAD_version": [
+        "1",
+        "0",
+        "0"
+      ]
+    }
+  },
+  "rebuilt_adapter": {
+    "A": {
+      "status": "PASS",
+      "nominal_bounds_match": "PASS",
+      "solid_count": 70,
+      "actual_FCStd_reopen_recompute": "PASS",
+      "actual_STEP_shape_correspondence": "PASS",
+      "query_geometry_match": "PASS",
+      "query_count": 2,
+      "query_volumes": [
+        {
+          "id": "CylinderRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "cylinder_barrel",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PX",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PY",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PZ",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-LENGTH",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            -3000.0,
+            -220.0,
+            -220.0
+          ],
+          "expected_size_mm": [
+            2200.0,
+            440.0,
+            1740.0
+          ],
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            1520.0
+          ],
+          "native_volume_mm3": 1684320000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        },
+        {
+          "id": "DoserRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "doser_slide",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PZ",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DZ",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            200.0,
+            150.0,
+            660.0
+          ],
+          "expected_size_mm": [
+            400.0,
+            360.0,
+            1420.0
+          ],
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            2080.0
+          ],
+          "native_volume_mm3": 204480000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        }
+      ],
+      "files": {
+        "layout_A.FCStd": "4be1bb95bee3d1dd7135cebc60c0ed5c8decc79f854f882013a7235a60e133f5",
+        "layout_A.step": "3d90bdf05e61cdb128d026e90641b135c034e6f8fe4ab12523263e33bdd38034"
+      },
+      "objects": [
+        {
+          "id": "base_L",
+          "native_bounds_mm": [
+            -3400.0,
+            -720.0,
+            -1180.0,
+            2500.0,
+            -580.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L0",
+          "native_bounds_mm": [
+            -3100.0,
+            -720.0,
+            -1650.0,
+            -2920.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L1",
+          "native_bounds_mm": [
+            -100.0,
+            -720.0,
+            -1650.0,
+            80.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -1650.0,
+            2080.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_L",
+          "native_bounds_mm": [
+            -3300.0,
+            -720.0,
+            -400.0,
+            2300.0,
+            -580.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "base_R",
+          "native_bounds_mm": [
+            -3400.0,
+            580.0,
+            -1180.0,
+            2500.0,
+            720.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R0",
+          "native_bounds_mm": [
+            -3100.0,
+            580.0,
+            -1650.0,
+            -2920.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R1",
+          "native_bounds_mm": [
+            -100.0,
+            580.0,
+            -1650.0,
+            80.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R2",
+          "native_bounds_mm": [
+            1900.0,
+            580.0,
+            -1650.0,
+            2080.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_R",
+          "native_bounds_mm": [
+            -3300.0,
+            580.0,
+            -400.0,
+            2300.0,
+            720.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar0",
+          "native_bounds_mm": [
+            -3200.0,
+            -720.0,
+            -500.0,
+            -3020.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar1",
+          "native_bounds_mm": [
+            -500.0,
+            -720.0,
+            -500.0,
+            -320.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -500.0,
+            2080.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_barrel",
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            220.0
+          ],
+          "native_volume_mm3": 334516785.75424117,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "rod",
+          "native_bounds_mm": [
+            -800.0,
+            -70.0,
+            -70.0,
+            -100.0,
+            70.0,
+            70.0
+          ],
+          "native_volume_mm3": 10775662.801812986,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_rear",
+          "native_bounds_mm": [
+            -3120.0,
+            -340.0,
+            -340.0,
+            -3000.0,
+            340.0,
+            340.0
+          ],
+          "native_volume_mm3": 55488000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_front",
+          "native_bounds_mm": [
+            -900.0,
+            -300.0,
+            -300.0,
+            -800.0,
+            300.0,
+            300.0
+          ],
+          "native_volume_mm3": 36000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "punch",
+          "native_bounds_mm": [
+            -100.0,
+            -160.0,
+            -160.0,
+            150.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 25599999.999999993,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_L",
+          "native_bounds_mm": [
+            -650.0,
+            -340.0,
+            -140.0,
+            0.0,
+            -260.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_R",
+          "native_bounds_mm": [
+            -650.0,
+            260.0,
+            -140.0,
+            0.0,
+            340.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_bottom",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -240.0,
+            1100.0,
+            240.0,
+            -200.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_left",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -200.0,
+            1100.0,
+            -200.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_right",
+          "native_bounds_mm": [
+            0.0,
+            200.0,
+            -200.0,
+            1100.0,
+            240.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_rear",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            200.0,
+            200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 3840000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_front",
+          "native_bounds_mm": [
+            600.0,
+            -240.0,
+            200.0,
+            1100.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 9600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_L",
+          "native_bounds_mm": [
+            200.0,
+            -260.0,
+            240.0,
+            600.0,
+            -220.0,
+            640.0
+          ],
+          "native_volume_mm3": 6399999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            300.0,
+            600.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 5439999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_rear",
+          "native_bounds_mm": [
+            160.0,
+            -260.0,
+            240.0,
+            200.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_front",
+          "native_bounds_mm": [
+            600.0,
+            -260.0,
+            240.0,
+            640.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "inlet_gate",
+          "native_bounds_mm": [
+            200.0,
+            280.0,
+            260.0,
+            600.0,
+            680.0,
+            295.0
+          ],
+          "native_volume_mm3": 5600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_support",
+          "native_bounds_mm": [
+            150.0,
+            260.0,
+            235.0,
+            650.0,
+            720.0,
+            260.0
+          ],
+          "native_volume_mm3": 5749999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_slide",
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            780.0
+          ],
+          "native_volume_mm3": 17280000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_rear",
+          "native_bounds_mm": [
+            100.0,
+            -650.0,
+            620.0,
+            150.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_front",
+          "native_bounds_mm": [
+            650.0,
+            -650.0,
+            620.0,
+            700.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_rear",
+          "native_bounds_mm": [
+            -50.0,
+            -550.0,
+            900.0,
+            0.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_front",
+          "native_bounds_mm": [
+            800.0,
+            -550.0,
+            900.0,
+            850.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_L",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            900.0,
+            800.0,
+            -500.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_R",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            900.0,
+            800.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hydraulic_tank",
+          "native_bounds_mm": [
+            -2800.0,
+            1000.0,
+            -1250.0,
+            -1550.0,
+            1750.0,
+            -600.0
+          ],
+          "native_volume_mm3": 609375000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pump_motor",
+          "native_bounds_mm": [
+            -2650.0,
+            1220.0,
+            -660.0,
+            -2000.0,
+            1580.0,
+            -300.0
+          ],
+          "native_volume_mm3": 66161941.28460104,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "control_cabinet",
+          "native_bounds_mm": [
+            -1200.0,
+            1100.0,
+            -1300.0,
+            -700.0,
+            1550.0,
+            -100.0
+          ],
+          "native_volume_mm3": 270000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hose_envelope",
+          "native_bounds_mm": [
+            -2300.0,
+            400.0,
+            320.0,
+            -900.0,
+            560.0,
+            460.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_left",
+          "native_bounds_mm": [
+            -3250.0,
+            -950.0,
+            -1000.0,
+            2350.0,
+            -910.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_right",
+          "native_bounds_mm": [
+            -3250.0,
+            1750.0,
+            -1000.0,
+            2350.0,
+            1790.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "output_support",
+          "native_bounds_mm": [
+            1100.0,
+            -320.0,
+            -500.0,
+            2600.0,
+            320.0,
+            -380.0
+          ],
+          "native_volume_mm3": 115200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_bottom",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            -240.0,
+            2200.0,
+            240.0,
+            -200.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_top",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            200.0,
+            2200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_left",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            -200.0,
+            2200.0,
+            -200.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "channel_right",
+          "native_bounds_mm": [
+            1100.0,
+            200.0,
+            -200.0,
+            2200.0,
+            240.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "clamp_L",
+          "native_bounds_mm": [
+            1450.0,
+            -380.0,
+            -280.0,
+            1850.0,
+            -240.0,
+            280.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "clamp_R",
+          "native_bounds_mm": [
+            1450.0,
+            240.0,
+            -280.0,
+            1850.0,
+            380.0,
+            280.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "clamp_mount",
+          "native_bounds_mm": [
+            1400.0,
+            -500.0,
+            -650.0,
+            1900.0,
+            500.0,
+            -530.0
+          ],
+          "native_volume_mm3": 60000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "product_A",
+          "native_bounds_mm": [
+            150.0,
+            -160.0,
+            -160.0,
+            650.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 51199999.999999985,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_rear",
+          "native_bounds_mm": [
+            -100.0,
+            -600.0,
+            1950.0,
+            0.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_front",
+          "native_bounds_mm": [
+            800.0,
+            -600.0,
+            1950.0,
+            900.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_left",
+          "native_bounds_mm": [
+            0.0,
+            -600.0,
+            1950.0,
+            800.0,
+            -500.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_right",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            1950.0,
+            800.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_rear",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            850.0,
+            200.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -550.0,
+            850.0,
+            800.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -550.0,
+            850.0,
+            600.0,
+            -199.99999999999994,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            850.0,
+            600.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_rear",
+          "native_bounds_mm": [
+            150.0,
+            -650.0,
+            620.0,
+            200.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -650.0,
+            620.0,
+            650.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -650.0,
+            620.0,
+            600.0,
+            -200.0,
+            660.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            620.0,
+            600.0,
+            550.0,
+            660.0
+          ],
+          "native_volume_mm3": 5599999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R_lower",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            240.0,
+            600.0,
+            260.0,
+            255.0
+          ],
+          "native_volume_mm3": 240000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_top",
+          "native_bounds_mm": [
+            200.0,
+            260.0,
+            300.0,
+            600.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 3679999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_rear",
+          "native_bounds_mm": [
+            160.0,
+            260.0,
+            260.0,
+            200.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_front",
+          "native_bounds_mm": [
+            600.0,
+            260.0,
+            260.0,
+            640.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_service_cap",
+          "native_bounds_mm": [
+            160.0,
+            720.0,
+            260.0,
+            640.0,
+            740.0,
+            320.0
+          ],
+          "native_volume_mm3": 576000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        }
+      ],
+      "scope": "persisted ASSUMED native primitives/STEP and all canonical QueryVolumes checked before/after recompute; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
+      "FreeCAD_version": [
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    "B": {
+      "status": "PASS",
+      "nominal_bounds_match": "PASS",
+      "solid_count": 68,
+      "actual_FCStd_reopen_recompute": "PASS",
+      "actual_STEP_shape_correspondence": "PASS",
+      "query_geometry_match": "PASS",
+      "query_count": 2,
+      "query_volumes": [
+        {
+          "id": "CylinderRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "cylinder_barrel",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PX",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PY",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PZ",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-LENGTH",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            -3000.0,
+            -220.0,
+            -220.0
+          ],
+          "expected_size_mm": [
+            2200.0,
+            440.0,
+            1740.0
+          ],
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            1520.0
+          ],
+          "native_volume_mm3": 1684320000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        },
+        {
+          "id": "DoserRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "doser_slide",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PZ",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DZ",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            200.0,
+            150.0,
+            660.0
+          ],
+          "expected_size_mm": [
+            400.0,
+            360.0,
+            1420.0
+          ],
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            2080.0
+          ],
+          "native_volume_mm3": 204480000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        }
+      ],
+      "files": {
+        "layout_B.FCStd": "ba46d5d973eb7d6497f0ca80ee9782f029e448dc9b4d6479661ca36dd118e6dd",
+        "layout_B.step": "d8e316d81f30548936baa43023c992ef6b95cf3ec81092521e087abe0a83ebe6"
+      },
+      "objects": [
+        {
+          "id": "base_L",
+          "native_bounds_mm": [
+            -3400.0,
+            -720.0,
+            -1180.0,
+            2500.0,
+            -580.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L0",
+          "native_bounds_mm": [
+            -3100.0,
+            -720.0,
+            -1650.0,
+            -2920.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L1",
+          "native_bounds_mm": [
+            -100.0,
+            -720.0,
+            -1650.0,
+            80.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_L2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -1650.0,
+            2080.0,
+            -580.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_L",
+          "native_bounds_mm": [
+            -3300.0,
+            -720.0,
+            -400.0,
+            2300.0,
+            -580.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "base_R",
+          "native_bounds_mm": [
+            -3400.0,
+            580.0,
+            -1180.0,
+            2500.0,
+            720.0,
+            -1000.0
+          ],
+          "native_volume_mm3": 148680000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R0",
+          "native_bounds_mm": [
+            -3100.0,
+            580.0,
+            -1650.0,
+            -2920.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R1",
+          "native_bounds_mm": [
+            -100.0,
+            580.0,
+            -1650.0,
+            80.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "leg_R2",
+          "native_bounds_mm": [
+            1900.0,
+            580.0,
+            -1650.0,
+            2080.0,
+            720.0,
+            -1180.0
+          ],
+          "native_volume_mm3": 11844000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "side_rail_R",
+          "native_bounds_mm": [
+            -3300.0,
+            580.0,
+            -400.0,
+            2300.0,
+            720.0,
+            -260.0
+          ],
+          "native_volume_mm3": 109760000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar0",
+          "native_bounds_mm": [
+            -3200.0,
+            -720.0,
+            -500.0,
+            -3020.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar1",
+          "native_bounds_mm": [
+            -500.0,
+            -720.0,
+            -500.0,
+            -320.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "crossbar2",
+          "native_bounds_mm": [
+            1900.0,
+            -720.0,
+            -500.0,
+            2080.0,
+            720.0,
+            -320.0
+          ],
+          "native_volume_mm3": 46656000.00000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_barrel",
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            220.0
+          ],
+          "native_volume_mm3": 334516785.75424117,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "rod",
+          "native_bounds_mm": [
+            -800.0,
+            -70.0,
+            -70.0,
+            -100.0,
+            70.0,
+            70.0
+          ],
+          "native_volume_mm3": 10775662.801812986,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_rear",
+          "native_bounds_mm": [
+            -3120.0,
+            -340.0,
+            -340.0,
+            -3000.0,
+            340.0,
+            340.0
+          ],
+          "native_volume_mm3": 55488000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "cylinder_mount_front",
+          "native_bounds_mm": [
+            -900.0,
+            -300.0,
+            -300.0,
+            -800.0,
+            300.0,
+            300.0
+          ],
+          "native_volume_mm3": 36000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "punch",
+          "native_bounds_mm": [
+            -100.0,
+            -160.0,
+            -160.0,
+            150.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 25599999.999999993,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_L",
+          "native_bounds_mm": [
+            -650.0,
+            -340.0,
+            -140.0,
+            0.0,
+            -260.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guide_R",
+          "native_bounds_mm": [
+            -650.0,
+            260.0,
+            -140.0,
+            0.0,
+            340.0,
+            140.0
+          ],
+          "native_volume_mm3": 14560000.000000004,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_bottom",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -240.0,
+            1100.0,
+            240.0,
+            -200.0
+          ],
+          "native_volume_mm3": 21120000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_left",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            -200.0,
+            1100.0,
+            -200.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_right",
+          "native_bounds_mm": [
+            0.0,
+            200.0,
+            -200.0,
+            1100.0,
+            240.0,
+            200.0
+          ],
+          "native_volume_mm3": 17599999.999999996,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_rear",
+          "native_bounds_mm": [
+            0.0,
+            -240.0,
+            200.0,
+            200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 3840000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "chamber_top_front",
+          "native_bounds_mm": [
+            600.0,
+            -240.0,
+            200.0,
+            1100.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 9600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_L",
+          "native_bounds_mm": [
+            200.0,
+            -260.0,
+            240.0,
+            600.0,
+            -220.0,
+            640.0
+          ],
+          "native_volume_mm3": 6399999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            300.0,
+            600.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 5439999.999999998,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_rear",
+          "native_bounds_mm": [
+            160.0,
+            -260.0,
+            240.0,
+            200.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_front",
+          "native_bounds_mm": [
+            600.0,
+            -260.0,
+            240.0,
+            640.0,
+            260.0,
+            640.0
+          ],
+          "native_volume_mm3": 8320000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "inlet_gate",
+          "native_bounds_mm": [
+            200.0,
+            280.0,
+            260.0,
+            600.0,
+            680.0,
+            295.0
+          ],
+          "native_volume_mm3": 5600000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_support",
+          "native_bounds_mm": [
+            150.0,
+            260.0,
+            235.0,
+            650.0,
+            720.0,
+            260.0
+          ],
+          "native_volume_mm3": 5749999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_slide",
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            780.0
+          ],
+          "native_volume_mm3": 17280000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_rear",
+          "native_bounds_mm": [
+            100.0,
+            -650.0,
+            620.0,
+            150.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_front",
+          "native_bounds_mm": [
+            650.0,
+            -650.0,
+            620.0,
+            700.0,
+            550.0,
+            870.0
+          ],
+          "native_volume_mm3": 15000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_rear",
+          "native_bounds_mm": [
+            -50.0,
+            -550.0,
+            900.0,
+            0.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_front",
+          "native_bounds_mm": [
+            800.0,
+            -550.0,
+            900.0,
+            850.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 57750000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_L",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            900.0,
+            800.0,
+            -500.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_R",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            900.0,
+            800.0,
+            550.0,
+            1950.0
+          ],
+          "native_volume_mm3": 42000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hydraulic_tank",
+          "native_bounds_mm": [
+            -2800.0,
+            1000.0,
+            -1250.0,
+            -1550.0,
+            1750.0,
+            -600.0
+          ],
+          "native_volume_mm3": 609375000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pump_motor",
+          "native_bounds_mm": [
+            -2650.0,
+            1220.0,
+            -660.0,
+            -2000.0,
+            1580.0,
+            -300.0
+          ],
+          "native_volume_mm3": 66161941.28460104,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "control_cabinet",
+          "native_bounds_mm": [
+            -1200.0,
+            1100.0,
+            -1300.0,
+            -700.0,
+            1550.0,
+            -100.0
+          ],
+          "native_volume_mm3": 270000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hose_envelope",
+          "native_bounds_mm": [
+            -2300.0,
+            400.0,
+            320.0,
+            -900.0,
+            560.0,
+            460.0
+          ],
+          "native_volume_mm3": 31360000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_left",
+          "native_bounds_mm": [
+            -3250.0,
+            -950.0,
+            -1000.0,
+            2350.0,
+            -910.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "guard_right",
+          "native_bounds_mm": [
+            -3250.0,
+            1750.0,
+            -1000.0,
+            2350.0,
+            1790.0,
+            250.0
+          ],
+          "native_volume_mm3": 280000000.00000006,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "output_support",
+          "native_bounds_mm": [
+            1100.0,
+            -320.0,
+            -500.0,
+            2600.0,
+            320.0,
+            -380.0
+          ],
+          "native_volume_mm3": 115200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "end_stop",
+          "native_bounds_mm": [
+            1100.0,
+            -240.0,
+            -240.0,
+            1200.0,
+            240.0,
+            240.0
+          ],
+          "native_volume_mm3": 23040000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "lock",
+          "native_bounds_mm": [
+            1200.0,
+            -320.0,
+            -180.0,
+            1350.0,
+            320.0,
+            180.0
+          ],
+          "native_volume_mm3": 34560000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "stop_support",
+          "native_bounds_mm": [
+            1350.0,
+            200.0,
+            -240.0,
+            1510.0,
+            320.0,
+            400.0
+          ],
+          "native_volume_mm3": 12288000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "product_B",
+          "native_bounds_mm": [
+            150.0,
+            -160.0,
+            -160.0,
+            650.0,
+            160.0,
+            160.0
+          ],
+          "native_volume_mm3": 51199999.999999985,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_rear",
+          "native_bounds_mm": [
+            -100.0,
+            -600.0,
+            1950.0,
+            0.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_front",
+          "native_bounds_mm": [
+            800.0,
+            -600.0,
+            1950.0,
+            900.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_left",
+          "native_bounds_mm": [
+            0.0,
+            -600.0,
+            1950.0,
+            800.0,
+            -500.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "receiving_rim_right",
+          "native_bounds_mm": [
+            0.0,
+            500.0,
+            1950.0,
+            800.0,
+            600.0,
+            2010.0
+          ],
+          "native_volume_mm3": 4799999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_rear",
+          "native_bounds_mm": [
+            0.0,
+            -550.0,
+            850.0,
+            200.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -550.0,
+            850.0,
+            800.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 11000000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -550.0,
+            850.0,
+            600.0,
+            -199.99999999999994,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "hopper_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            850.0,
+            600.0,
+            550.0,
+            900.0
+          ],
+          "native_volume_mm3": 7000000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_rear",
+          "native_bounds_mm": [
+            150.0,
+            -650.0,
+            620.0,
+            200.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000001,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_front",
+          "native_bounds_mm": [
+            600.0,
+            -650.0,
+            620.0,
+            650.0,
+            550.0000000000002,
+            660.0
+          ],
+          "native_volume_mm3": 2400000.000000002,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_left",
+          "native_bounds_mm": [
+            200.0,
+            -650.0,
+            620.0,
+            600.0,
+            -200.0,
+            660.0
+          ],
+          "native_volume_mm3": 7200000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "doser_floor_right",
+          "native_bounds_mm": [
+            200.0,
+            200.0,
+            620.0,
+            600.0,
+            550.0,
+            660.0
+          ],
+          "native_volume_mm3": 5599999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "pocket_R_lower",
+          "native_bounds_mm": [
+            200.0,
+            220.0,
+            240.0,
+            600.0,
+            260.0,
+            255.0
+          ],
+          "native_volume_mm3": 240000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_top",
+          "native_bounds_mm": [
+            200.0,
+            260.0,
+            300.0,
+            600.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 3679999.999999999,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_rear",
+          "native_bounds_mm": [
+            160.0,
+            260.0,
+            260.0,
+            200.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_house_front",
+          "native_bounds_mm": [
+            600.0,
+            260.0,
+            260.0,
+            640.0,
+            720.0,
+            320.0
+          ],
+          "native_volume_mm3": 1104000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "gate_service_cap",
+          "native_bounds_mm": [
+            160.0,
+            720.0,
+            260.0,
+            640.0,
+            740.0,
+            320.0
+          ],
+          "native_volume_mm3": 576000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "stop_support_L",
+          "native_bounds_mm": [
+            1350.0,
+            -320.0,
+            -240.0,
+            1510.0,
+            -200.0,
+            400.0
+          ],
+          "native_volume_mm3": 12288000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        },
+        {
+          "id": "stop_support_bridge",
+          "native_bounds_mm": [
+            1350.0,
+            -580.0,
+            -380.0,
+            1510.0,
+            580.0,
+            -240.0
+          ],
+          "native_volume_mm3": 25984000.0,
+          "FCStd_shape_match": "PASS",
+          "STEP_shape_match": "PASS"
+        }
+      ],
+      "scope": "persisted ASSUMED native primitives/STEP and all canonical QueryVolumes checked before/after recompute; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
+      "FreeCAD_version": [
+        "1",
+        "0",
+        "0"
+      ]
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "status": "EXECUTION_FAILED",
+  "execution": {
+    "status": "FAILED",
+    "exit_code": 1
+  },
+  "test_evaluation": {
+    "status": "NOT_COMPLETED"
+  },
+  "geometric_result": {
+    "target_status": "NOT_EVALUATED_IN_THIS_RUN",
+    "whole_assembly_READY": "INDETERMINATE"
+  },
+  "limited_outcomes": [],
+  "input_path": "/workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json",
+  "input_sha256": "5f1606c1cbf1719c8abbdbb82f2c53422edfab7226e2a650645499ae15e645a3",
+  "error": "command failed: /usr/bin/python3 cad/layout/check_layout.py --inputs /workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json --models /tmp/rev-analysis-unlinked-669 --out /tmp/rev-analysis-unlinked-669/raw_checked_tool\nTraceback (most recent call last):\n  File \"/tmp/rev-analysis-fix-669/cad/layout/check_layout.py\", line 163, in <module>\n    if __name__=='__main__':sys.exit(main())\n                                     ~~~~^^\n  File \"/tmp/rev-analysis-fix-669/cad/layout/check_layout.py\", line 160, in main\n    report={'status':'COMPLETED_WITH_KNOWN_INTERFERENCES','classification':'ASSUMED_RESEARCH_ONLY_NOT_REV','source_commit_inputs':'0d587fa226fee78abc7c86752adee825febb164d','input_sha256':digest(args.inputs),'sha256':{str(p.relative_to(ROOT)):digest(p) for p in source},'adapter_scope':'exact boxes and linear translations only; cylinders use conservative bounding separation; overlap for curved shapes INDETERMINATE','cad_adapter':adapter,'known_native_penetrations':{'review_commit':'e939b41d0139b0a3a08a5950eeeec6e92324cf9b','source':'verification/r5_layout_output_review/evidence/cad_probe.json and dynamic_probe.json','status':'preserved; tool fix does not fix geometry','whole_assembly_ready':'INDETERMINATE'},'tool_blockers':'R5-CAD-TOOL-B01 CLOSED by 8f381c4 in reviewed scope; B02 OPEN pending independent RECHECK','scenarios':summaries,'services':[{k:v for k,v in s.items() if k!='pairs'} for s in services],'unsupported_service_and_zones':unsupported,'unresolved':['real mounting holes/contacts, guide surfaces and load paths','full rod/barrel geometry during stroke','rotating doser, rotating stop, flexible hoses','real tolerances and force/material model','safe access, guard rotation and lifting procedure','whole-press READY not demonstrated; static proxy interferences retained'],'files':{'all_pairs.json.gz':digest(out/'all_pairs.json.gz'),'service_pairs.json.gz':digest(out/'service_pairs.json.gz')}}\n                                                                                                                                                                                                                              ~~~~~~~~~~~~~^^^^^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 385, in relative_to\n    raise ValueError(f\"{str(self)!r} is not in the subpath of {str(other)!r}\")\nValueError: '/workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json' is not in the subpath of '/tmp/rev-analysis-fix-669'\n",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 5.775s\n\nOK\n",
+      "evidence_directory": null
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/rev_linked_scene",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.257s\n\nOK\n",
+      "evidence_directory": null
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/kinematic_press",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.184s\n\nOK\n",
+      "evidence_directory": null
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout_correction",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 22.206s\n\nOK\n",
+      "evidence_directory": "/tmp/rev-analysis-unlinked-669/regressions"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-analysis-unlinked-669/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 70 valid editable bodies; reopened and recomputed\n",
+      "stderr": "",
+      "evidence_directory": null
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-analysis-unlinked-669/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 68 valid editable bodies; reopened and recomputed\n",
+      "stderr": "",
+      "evidence_directory": null
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "/workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json",
+        "--models",
+        "/tmp/rev-analysis-unlinked-669",
+        "--out",
+        "/tmp/rev-analysis-unlinked-669/raw_checked_tool"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/rev-analysis-fix-669/cad/layout/check_layout.py\", line 163, in <module>\n    if __name__=='__main__':sys.exit(main())\n                                     ~~~~^^\n  File \"/tmp/rev-analysis-fix-669/cad/layout/check_layout.py\", line 160, in main\n    report={'status':'COMPLETED_WITH_KNOWN_INTERFERENCES','classification':'ASSUMED_RESEARCH_ONLY_NOT_REV','source_commit_inputs':'0d587fa226fee78abc7c86752adee825febb164d','input_sha256':digest(args.inputs),'sha256':{str(p.relative_to(ROOT)):digest(p) for p in source},'adapter_scope':'exact boxes and linear translations only; cylinders use conservative bounding separation; overlap for curved shapes INDETERMINATE','cad_adapter':adapter,'known_native_penetrations':{'review_commit':'e939b41d0139b0a3a08a5950eeeec6e92324cf9b','source':'verification/r5_layout_output_review/evidence/cad_probe.json and dynamic_probe.json','status':'preserved; tool fix does not fix geometry','whole_assembly_ready':'INDETERMINATE'},'tool_blockers':'R5-CAD-TOOL-B01 CLOSED by 8f381c4 in reviewed scope; B02 OPEN pending independent RECHECK','scenarios':summaries,'services':[{k:v for k,v in s.items() if k!='pairs'} for s in services],'unsupported_service_and_zones':unsupported,'unresolved':['real mounting holes/contacts, guide surfaces and load paths','full rod/barrel geometry during stroke','rotating doser, rotating stop, flexible hoses','real tolerances and force/material model','safe access, guard rotation and lifting procedure','whole-press READY not demonstrated; static proxy interferences retained'],'files':{'all_pairs.json.gz':digest(out/'all_pairs.json.gz'),'service_pairs.json.gz':digest(out/'service_pairs.json.gz')}}\n                                                                                                                                                                                                                              ~~~~~~~~~~~~~^^^^^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 385, in relative_to\n    raise ValueError(f\"{str(self)!r} is not in the subpath of {str(other)!r}\")\nValueError: '/workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json' is not in the subpath of '/tmp/rev-analysis-fix-669'\n",
+      "evidence_directory": null
+    }
+  ]
+}
