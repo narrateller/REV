@@ -26,7 +26,7 @@ ID после создания не меняется. Для параллель�
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
-| T-r3-safety-01-01 | TASK | P1 | @R3 | READY | r3-safety-01 (proposed) | claim PENDING_MAIN; B01–B03 OPEN | G1 |
+| T-r3-safety-01-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | документальная приёмка с WARNING; интеграция | G1 |
 
 ## T-INIT
 
@@ -526,17 +526,28 @@ R2 обнаружил шесть первоначальных HTML, сравни
 - Название: документальная проработка опасных ситуаций и нормативных вопросов пресса REV.
 - Тип: TASK; автор/исполнитель: r3-safety-01; model_label: Codex; role: R3; адресат @R3; P1; родитель T-INIT; G1.
 - Назначение: прямое поручение пользователя в текущей сессии 2026-11-11; повторное подтверждение роли не требуется.
-- Статус: READY; claim PROPOSED / PENDING_MAIN. CLAIMED только после последовательного принятия claim в main и проверки owner/lease/входов. Инженерная работа не начата.
-- owner_session (предлагаемый): r3-safety-01; author_sessions: [r3-safety-01]. Другие задачи/назначения не перехватываются.
+- Статус: IN_REVIEW; claim ACCEPTED_MAIN через PR #17; документальный результат подготовлен после входного акта, независимый review NOT_RUN.
+- owner_session: r3-safety-01; author_sessions: [r3-safety-01]. Другие задачи/назначения не перехватываются.
 - base_commit: 0e65bee44fb72fab9b79849d61061dd55589c239; branch: work/T-r3-safety-01-01/r3-safety-01.
 - claim_created_utc / heartbeat_utc: 2026-11-11T04:14:00Z; lease_expires_at: 2026-11-12T04:14:00Z. Основание lease: ближайшая документальная подзадача и принятие claim; при истечении сначала новая принятая запись, автоматического продления нет.
-- claim_record_commit: полный SHA публикуется после создания commit; acceptance_commit: NONE. Коммит не ссылается сам на себя.
+- claim_record_commit: 356b76a1a6711e31f04388ed5ab34cea55be5da1; acceptance_commit: b28a99594e31bc6a34c35646e4717a2ccea5943a (PR #17).
 - capabilities: Python 3.12.14, PyYAML 6.0.3, Git/Git LFS, чтение Markdown/PDF; проверка согласованности PASS, 71 основной и 20 модельных программных тестов OK. CAD/CAE и физические испытания NOT_RUN; GitHub API Forbidden; Git push проверяется при публикации claim.
 - Входная база: все следующие файлы из base_commit: verification/press_risk_analysis_brief.md; requirements/system_requirements.md; requirements/verification_matrix.md; controls/press_variant_state_tables.md; concepts/press_functional_alternatives.md; process/supply_boundary_options.md; verification/requirement_criteria_development.md; verification/r5_tz_recheck_01/review.md; reviews/cross_check_log.md; params/registry.yaml. Точные версии и применимые акты дополнительно проверяются входным аудитом после принятия claim, до анализа.
-- Следующий атомарный шаг: публикация задачи/claim; затем принятие в main. Перед продолжением проверить актуальную main, отсутствие конкурирующего claim, срок lease и неизменность входов. При расхождении — перечитать diff и согласовать область; не выполнять анализ до принятия.
+- Следующий шаг: независимый review опубликованного результата по точному SHA; проверить main, owner, lease и входы перед интеграцией.
 - Выходы после принятия: verification/r3_press_safety/input_audit.md; preliminary_hazards.md; normative_scope_questions.md; traceability.md; handoff по точному SHA для независимого R5 и согласования с R1/R6.
 - Критерии: входной аудит по разделу 6 AGENT_PROTOCOL; предварительный реестр со стабильными ID, стадиями жизненного цикла, фазами/интерфейсами A/B, источником опасности, событием/последствием, категориями подверженных лиц, отсутствующими входами и дальнейшими доказательствами; матрица опасность → REQ → VAL → доказательство/предлагаемый владелец/UNKNOWN, включая REQ/VAL-10…15 и 18; отдельные вопросы нормативной области, типа машины, площадки и границ комплекса. Пробелы связи обозначить явно; требования не изменять.
 - Обязательные различения: отсутствие движения против потери сигнала F; остаточная энергия и отказ; A — удержание/пустой канал/возврат; B — упор/замок/разгрузка/открытие. Перечень не считается исчерпывающим.
 - Ограничения: только документальная работа. Защиты, PL/SIL, уровни риска, нормативная применимость, архитектура и ТЗ не утверждаются. Нет проб, испытаний, калибровки и вмешательства в линию. B01–B03, R5-OBS-01…04 и G1 остаются OPEN; физическая безопасность UNKNOWN/NOT_RUN.
 - Приёмка: независимый reviewer вне author_sessions, точный SHA результата; собственная проверка не является независимой. DONE и закрытие B03 этой записью не выполняются.
-- История: 2026-11-11T04:14:00Z — роль назначена пользователем; отдельная задача READY и claim предложены. Принятие main NOT_RUN; анализ NOT_STARTED.
+- История: 2026-11-11T04:14:00Z — роль назначена пользователем; отдельная задача READY и claim предложены. 2026-11-11: принятие PR #17 подтверждено; после входного акта результат передаётся на независимый review.
+
+
+### OUTPUT-review R3 и исправления для RECHECK
+
+- REV-R5-R3-SAFETY-01-001: независимый R5 `r5-r3-safety-output-20261111-0740`, акт `verification/r5_r3_safety_output/review.md` из commit `ec5662a386aabbe894c94cb8b97897d182d55580`, проверен результат `43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c`; REJECT_WITH_BLOCKER.
+- R5-SAFETY-B01 OPEN до независимого RECHECK; W01–W05 OPEN до проверки. Исправлена ревизия и документирована сверка rev6/rev7; дополнены стадии, отказы, F, пробелы REQ/VAL и вопросы ответственности. Самостоятельно замечания не закрываются.
+- Статус задачи IN_REVIEW для повторной независимой проверки нового SHA. B01–B03 проекта, R5-OBS-01…04 и G1 OPEN; пробы и испытания NOT_RUN, нормативная применимость и защитные решения UNKNOWN.
+
+## Решение R1 по предварительной карте R3
+
+R1 принимает результат `2d4791f83ac1f67b2b35c2971b0380301803f344` только как документальную карту с WARNING; см. verification/r3_press_safety/r1_acceptance.md. R5-SAFETY-B01 и W01–W05 CLOSED только в документальной области; B01–B03 проекта, R5-OBS-01…04 и G1 OPEN. T-r3-safety-01-01 IN_REVIEW до интеграции.

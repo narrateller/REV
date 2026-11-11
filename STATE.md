@@ -372,11 +372,20 @@ R2 нашёл все исходные ответы и сверил хэши; л�
 Результат исследования металла интегрирован в `78f9d33061b55ea66e91e91f6f384b9e820a58bf`; T-r2-metal-01 DONE только документально после принятия этой записи. Проект задания по B03 — verification/press_risk_analysis_brief.md; назначение и claim не выполнены. G1 OPEN.
 
 
-## Назначение R3: документальные опасности и нормативные вопросы
+## R3: документальные опасности и нормативные вопросы
 
-Пользователь назначил R3 / r3-safety-01 (Codex), задача T-r3-safety-01-01.
-База main: 0e65bee44fb72fab9b79849d61061dd55589c239. Claim PROPOSED /
-PENDING_MAIN; задача READY, анализ NOT_STARTED до последовательного принятия.
-Lease: до 2026-11-12T04:14:00Z; heartbeat 2026-11-11T04:14:00Z.
-Капсула: handoffs/T-r3-safety-01-01/r3-safety-01.md.
-B01–B03, R5-OBS-01…04 и G1 OPEN; испытания NOT_RUN, безопасность UNKNOWN.
+T-r3-safety-01-01: owner r3-safety-01; claim ACCEPTED_MAIN, PR #17,
+`b28a99594e31bc6a34c35646e4717a2ccea5943a`; запись claim
+`356b76a1a6711e31f04388ed5ab34cea55be5da1`; lease до 2026-11-12T04:14:00Z.
+Документальный результат IN_REVIEW, независимая проверка NOT_RUN.
+Капсула handoffs/T-r3-safety-01-01/r3-safety-01.md; документы verification/r3_press_safety/.
+B01–B03, R5-OBS-01…04 и G1 OPEN; пробы и испытания NOT_RUN.
+
+
+## R3: исправления по независимому OUTPUT-review
+
+REV-R5-R3-SAFETY-01-001 (`ec5662a386aabbe894c94cb8b97897d182d55580`) — REJECT_WITH_BLOCKER результата `43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c`. Исправления передаются на независимый RECHECK; R5-SAFETY-B01 и W01–W05 остаются OPEN. T-r3-safety-01-01 IN_REVIEW; B01–B03, R5-OBS-01…04 и G1 OPEN. Испытания и пробы NOT_RUN.
+
+## Предварительная карта опасностей R3
+
+R1 принял документальную карту с WARNING после RECHECK; T-r3-safety-01-01 IN_REVIEW до интеграции. Это не законченный анализ риска и не подтверждение защит/нормативной применимости. B01–B03, R5-OBS-01…04 и G1 OPEN. См. verification/r3_press_safety/r1_acceptance.md.
