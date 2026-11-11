@@ -126,6 +126,7 @@ def combine_link(pieces,window):
         for start,end,result in spans:
             if end < l or start > r: continue
             seen=True
+            if result.get('input_status')!='SUPPORTED' or not result.get('segments'): unknown=True
             if start > cursor: unknown=True
             cursor=max(cursor,min(end,r))
             for row in result['segments']:
@@ -142,12 +143,13 @@ def combine_link(pieces,window):
 def boundary(previous,following,events):
     """Check boundary and supported REMOVE event; CREATE/SPLIT stay unknown."""
     old=set(previous['registry']); new=set(following['registry']);gone=sorted(old-new);added=sorted(new-old)
-    bad=[]; unknown=[]; event_status='VALID'
+    bad=[]; unknown=[]; invalid=[]; event_status='VALID'
     for key in sorted(old&new):
         try:
             lo,hi,d=body(previous['bodies'].get(key)); nlo,nhi,_=body(following['bodies'].get(key))
             if any(lo[i]+d[i]!=nlo[i] or hi[i]+d[i]!=nhi[i] for i in range(3)):bad.append(key)
-        except (KeyError,NotImplementedError,ValueError): unknown.append(key)
+        except (KeyError,NotImplementedError): unknown.append(key)
+        except (ValueError,TypeError,ZeroDivisionError): invalid.append(key)
     for key in gone:
         matches=[e for e in events if e.get('id')==key and e.get('time')==previous['time'][1]]
         if len(matches)!=1: event_status='INVALID';continue
@@ -162,5 +164,5 @@ def boundary(previous,following,events):
         declared=[e for e in events if e.get('type') in ('CREATE','SPLIT') and e.get('time')==previous['time'][1]]
         event_status='INDETERMINATE' if declared else 'INVALID'
     time_ok=previous['time'][1]==following['time'][0]
-    status='DISCONTINUITY' if bad or not time_ok or event_status=='INVALID' else 'INDETERMINATE' if unknown or event_status=='INDETERMINATE' else 'CONTINUOUS'
-    return {'from':previous['phase'],'to':following['phase'],'time_contiguous':time_ok,'mismatches':bad,'unknown':unknown,'removed':gone,'added':added,'lifecycle_valid':event_status=='VALID','lifecycle_status':event_status,'status':status}
+    status='INVALID_INPUT' if invalid else 'DISCONTINUITY' if bad or not time_ok or event_status=='INVALID' else 'INDETERMINATE' if unknown or event_status=='INDETERMINATE' else 'CONTINUOUS'
+    return {'from':previous['phase'],'to':following['phase'],'time_contiguous':time_ok,'mismatches':bad,'unknown':unknown,'invalid':invalid,'removed':gone,'added':added,'lifecycle_valid':event_status=='VALID','lifecycle_status':event_status,'status':status}

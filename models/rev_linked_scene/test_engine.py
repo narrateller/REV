@@ -110,4 +110,11 @@ class EventTests(unittest.TestCase):
         self.assertEqual(first['segments'][0]['collision_status'],'CLEAR')
         self.assertEqual(first['segments'][-1]['collision_status'],'ALLOWED_CONTACT')
         self.assertEqual(combine_link([{'time':[0,1],'result':first},{'time':[1,2],'result':second}],[1,2]),'LINK_CONFIRMED')
+    def test_invalid_piece_cannot_confirm_link(self):
+        invalid={'input_status':'INVALID_INPUT','segments':[]}
+        self.assertEqual(combine_link([{'time':[0,1],'result':invalid}],[0,1]),'LINK_INDETERMINATE')
+    def test_invalid_boundary_geometry_is_invalid_input(self):
+        a={'phase':'A','time':[0,1],'registry':['punch'],'bodies':{'punch':box([0,0,0],[1,1,1])}}
+        b={'phase':'B','time':[1,2],'registry':['punch'],'bodies':{'punch':box([1,0,0],[0,1,1])}}
+        self.assertEqual(boundary(a,b,[])['status'],'INVALID_INPUT')
 if __name__=='__main__': unittest.main()

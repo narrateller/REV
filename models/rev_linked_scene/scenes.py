@@ -68,7 +68,7 @@ def run(variant,outcome,config):
         continuity.append(boundary(before['input'],after['input'],events))
     statuses=[seg['collision_status'] for st in stages for p in st['output']['pairs'] for seg in p['segments']]
     collision='COLLISION' if 'COLLISION' in statuses else 'INDETERMINATE' if any(x in statuses for x in ('INDETERMINATE','INVALID_INPUT')) or any(p['input_status']!='SUPPORTED' for st in stages for p in st['output']['pairs']) else 'NO_COLLISION'
-    broken=any(c['status']=='DISCONTINUITY' for c in continuity)
+    broken=any(c['status'] in ('DISCONTINUITY','INVALID_INPUT') for c in continuity)
     uncertain=any(c['status']=='INDETERMINATE' for c in continuity)
     restored=all(body(bodies[k])[:2]==body(baseline[k])[:2] for k in bodies)
     # C, W_in and G_out are query regions, never scene bodies.
@@ -84,7 +84,7 @@ def run(variant,outcome,config):
     restored=restored and not occupancy and closure
 
     pair_inputs=[p['input_status'] for st in stages for p in st['output']['pairs']]
-    input_status='INVALID_INPUT' if 'INVALID_INPUT' in pair_inputs else 'INDETERMINATE' if 'INDETERMINATE' in pair_inputs else 'SUPPORTED'
+    input_status='INVALID_INPUT' if 'INVALID_INPUT' in pair_inputs or any(c['status']=='INVALID_INPUT' for c in continuity) else 'INDETERMINATE' if 'INDETERMINATE' in pair_inputs else 'SUPPORTED'
     transition=decide(collision,linked,geometry,broken,uncertain,input_status)
     ready='READY' if allowed and restored and transition=='ALLOWED' else 'BLOCKED' if transition=='BLOCKED' else 'INDETERMINATE'
     return {'variant':variant,'case':outcome,'input_status':input_status,'continuity_status':'DISCONTINUITY' if broken else 'INDETERMINATE' if uncertain else 'CONTINUOUS','geometry':geometry,'collision':collision,'link':linked,'transition':transition,'ready':ready,'stages':stages,'continuity':continuity,'events':events,'ready_region_occupancy':occupancy,'synthetic_stop_lock_geometry':closure,'physical':{'holding':'UNKNOWN','unloading':'UNKNOWN','ejection':'UNKNOWN','safety':'UNKNOWN'},'synthetic_assumptions':['ASSUMED_UNLOAD'] if variant=='B' else ['ASSUMED_HOLDING'], 'optional_absence':{'fragment_1':'absent by explicit synthetic fixture','residue_1':'absent by explicit synthetic fixture'},'limitations':['the declared synthetic scene is not REV','no force or granular material model']}
