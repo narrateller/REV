@@ -200,3 +200,7 @@ REV-R5-R2-VERSION-REVIEW-01-001: R5-SRC-B01 CLOSED только в докуме�
 ## RECHECK исправления SHA
 
 REV-R5-VERSION-HASH-RECHECK-01-001: R5-VERSION-B01 CLOSED для проверенных Git-байтов на 4605f3435c5882550d540ff797e7322613723769; исходная временная копия недоступна R5 и внешнее происхождение не удостоверено. Подробности verification/r5_version_hash_recheck/review.md. История версий и правильное AR UNKNOWN, B01–B03 и G1 OPEN.
+
+## OUTPUT-review исследования металла
+
+REV-R5-R2-METAL-01-001: M01–M06 недоступны R5 (CONNECT 403), независимая сверка NOT_RUN; R5-METAL-B01 и R5-SRC-W01 OPEN, REJECT_WITH_BLOCKER для приёмки. R2 обеспечивает проверяемый доступ/полные копии с учётом условий распространения, далее R5 проверяет по verification/r5_r2_metal_review/review.md. Прибор не выбран, пробы и испытания NOT_RUN; B01–B03 и G1 OPEN.

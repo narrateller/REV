@@ -495,3 +495,7 @@ PR #12 вошёл в main `6055d85196ff1224837a6302f53315cd8dadfc3a`; T-r2-sourc
 ## Передача T-r2-metal-01 на независимый OUTPUT-review
 
 R2 / r2-material-01: входной акт `verification/r2_metal_detection/input_audit.md`, документальное исследование и ограниченные выдержки в `verification/r2_metal_detection/`. Сравнены кандидаты и сведения производителей, не установлена их независимая достоверность или применимость к смеси REV; доступность и редакции источников для R5 требуют отдельной сверки. Точный commit передать независимому reviewer. R5-SRC-W01, B01–B03 и G1 OPEN; пробы, испытания и калибровка NOT_RUN.
+
+## OUTPUT-review металлообнаружения — REV-R5-R2-METAL-01-001
+
+R5 `r5-implementation-02` проверил 4dfcec6829fda861886aaa9a0e89cb63214cc894: REJECT_WITH_BLOCKER для независимой приёмки; M01–M06 в среде R5 CONNECT 403 и их независимая сверка NOT_RUN. R5-METAL-B01 OPEN до доступа к проверяемым полным источникам и повторной сверки, R5-SRC-W01 OPEN. Документальная логика различения обнаружения/удаления и неизвестностей оценена в verification/r5_r2_metal_review/review.md. B01–B03 и G1 OPEN; пробы и испытания NOT_RUN.

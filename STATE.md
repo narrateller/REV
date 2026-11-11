@@ -350,3 +350,5 @@ R1 принял ограниченную документальную карту
 ## Документальное исследование контроля металла R2
 
 T-r2-metal-01 IN_REVIEW: входной акт и исследование в verification/r2_metal_detection/. Заявления изготовителей не являются независимой валидацией, оборудование и методы не выбраны. R5-SRC-W01, B01–B03 и G1 OPEN; пробы, испытания и калибровки NOT_RUN.
+
+OUTPUT-review REV-R5-R2-METAL-01-001 по 4dfcec6829fda861886aaa9a0e89cb63214cc894: REJECT_WITH_BLOCKER для независимой сверки M01–M06, все источники CONNECT 403; R5-METAL-B01 и R5-SRC-W01 OPEN. verification/r5_r2_metal_review/review.md. B01–B03 и G1 OPEN.

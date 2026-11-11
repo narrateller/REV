@@ -1623,3 +1623,91 @@ closure_criteria:
   при необходимости
 supersedes: null
 ```
+
+## REV-R5-R2-METAL-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-METAL-01-001
+kind: OUTPUT
+task_id: T-r2-metal-01
+created_at_utc: '2026-11-11T02:36:28Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 ранее оформлял R5-SRC-W01, но не является автором проверяемых
+  документов R2. Независимость относится к ним.
+reviewed_commit: 4dfcec6829fda861886aaa9a0e89cb63214cc894
+scope: Документальный OUTPUT-review кандидатов физических включений и попытки независимой
+  сверки источников; не выбор метода и не испытания
+parameter_refs: []
+artifacts:
+- path: verification/metal_detection_research_brief.md
+  sha256: 3ea1877d5efb3a998d598f0bd9ce93ac8b4c34d8d1f25966cdff5f7e3c965854
+- path: verification/r2_metal_detection/input_audit.md
+  sha256: b1dcf6c81c8242e4d9e7592e6c18f1d4cf3bb52639f046a8a08a4c4c2f5aafb4
+- path: verification/r2_metal_detection/research.md
+  sha256: 25f2b110b4ec1fe8a81592b09849b6093b1a902ec025778cb3e519aadad4f94e
+- path: verification/r2_metal_detection/source_excerpts.md
+  sha256: 925da34b688dc0c61cbed3048ca2d786ff631fb2b68a3e9dba4f195657766c6d
+checks:
+- id: CHK-METAL-01
+  method: inspection
+  expected: Сохранить постановку и разделить обнаружение и удаление
+  observed: В исследовании сигнал и удаление различаются; входной blob brief совпал
+  reasoning: Проверен текст документов, не технические утверждения сайтов
+  result: PASS
+- id: CHK-METAL-02
+  method: inspection
+  expected: Различать магнитные/немагнитные объекты, редкие случаи и нулевые находки
+  observed: Ограничения и неопределённости изложены; нулевой остаток не утверждён
+  reasoning: Достаточно для документального разграничения, не для чувствительности
+    REV
+  result: PASS
+- id: CHK-METAL-03
+  method: inspection
+  expected: Независимо сверить первичные страницы M01–M06
+  observed: Все шесть URL CONNECT 403; полные страницы не получены
+  reasoning: Короткие выдержки и хэши R2 не подменяют независимое прочтение
+  result: NOT_RUN
+- id: CHK-METAL-04
+  method: inspection
+  expected: Не назначать параметры изготовителей REV
+  observed: Указаны UNKNOWN и ограничения; перенос численных параметров не обнаружен
+  reasoning: Документальная проверка не подтверждает свойства приборов
+  result: PASS
+findings:
+- finding_id: R5-METAL-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_metal_review/review.md
+  impact: 'Сверка шести первичных страниц и их утверждений не выполнена: CONNECT 403'
+  owner_role: R2
+  task_id: T-r2-metal-01
+- finding_id: R5-METAL-W01
+  severity: WARNING
+  evidence: verification/r5_r2_metal_review/review.md
+  impact: Охват/обнаружение и независимое подтверждение эффективности требуют будущей
+    программы
+  owner_role: R2
+  task_id: T-r2-metal-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-METAL-B01
+allowed_downstream_scope: Документальное исследование с явно не подтверждёнными источниками;
+  получение проверяемых копий
+excluded_claims:
+- Независимая проверка M01–M06
+- Закрытие R5-SRC-W01, B01–B03 и G1
+- Выбор прибора/метода, физические пробы и испытания
+closure_criteria:
+- Получить и независимо прочитать доступные полные страницы M01–M06 или проверяемые
+  копии, сопоставить каждый тезис и обозначить ограничения
+- Оценить достаточность документальной области R5-SRC-W01 отдельным актом
+supersedes: null
+```
