@@ -1,3 +1,7 @@
+# R3 — исправления на независимый RECHECK
+
+Акт REV-R5-R3-SAFETY-01-001 из `ec5662a386aabbe894c94cb8b97897d182d55580` проверил `43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c`, REJECT_WITH_BLOCKER. R3 исправил B01 и дополнил W01–W05; независимая проверка нового опубликованного SHA NOT_RUN. R5-SAFETY-B01 и W01–W05 остаются OPEN до независимого RECHECK; проектные B01–B03, R5-OBS-01…04 и G1 OPEN. Пробы и испытания NOT_RUN. См. verification/r3_press_safety/ и verification/r5_r3_safety_output/review.md.
+
 # Результат R3 — независимый review
 
 Claim T-r3-safety-01-01 принят PR #17 в main `b28a99594e31bc6a34c35646e4717a2ccea5943a`; owner r3-safety-01, lease до 2026-11-12T04:14:00Z. После входного акта подготовлены документы verification/r3_press_safety/. Задача IN_REVIEW; независимый reviewer проверяет опубликованный SHA, область и пробелы; перед интеграцией сверить main, owner и срок. B01–B03, R5-OBS-01…04 и G1 OPEN; пробы и испытания NOT_RUN.

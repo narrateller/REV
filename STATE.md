@@ -380,3 +380,8 @@ T-r3-safety-01-01: owner r3-safety-01; claim ACCEPTED_MAIN, PR #17,
 Документальный результат IN_REVIEW, независимая проверка NOT_RUN.
 Капсула handoffs/T-r3-safety-01-01/r3-safety-01.md; документы verification/r3_press_safety/.
 B01–B03, R5-OBS-01…04 и G1 OPEN; пробы и испытания NOT_RUN.
+
+
+## R3: исправления по независимому OUTPUT-review
+
+REV-R5-R3-SAFETY-01-001 (`ec5662a386aabbe894c94cb8b97897d182d55580`) — REJECT_WITH_BLOCKER результата `43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c`. Исправления передаются на независимый RECHECK; R5-SAFETY-B01 и W01–W05 остаются OPEN. T-r3-safety-01-01 IN_REVIEW; B01–B03, R5-OBS-01…04 и G1 OPEN. Испытания и пробы NOT_RUN.

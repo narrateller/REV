@@ -6,3 +6,7 @@
 - Результат: preliminary_hazards.md, traceability.md, normative_scope_questions.md в verification/r3_press_safety/.
 - Независимый review NOT_RUN; следующий шаг — проверка точного опубликованного SHA специалистами R5 и профильными компетенциями при участии R1/R6.
 - Перед интеграцией проверить main, владельца, lease, изменения входов. B01–B03, R5-OBS-01…04 и G1 OPEN; испытания и пробы NOT_RUN; нормативная применимость и защита UNKNOWN.
+
+## Исправления по акту R5
+
+Акт REV-R5-R3-SAFETY-01-001 на ec5662a386aabbe894c94cb8b97897d182d55580 проверил 43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c: REJECT_WITH_BLOCKER. Устранение предложено в verification/r3_press_safety/, независимый RECHECK NOT_RUN. R5-SAFETY-B01 и W01–W05 OPEN до независимого подтверждения. Следующий шаг: независимый R5 проверяет опубликованный точный SHA исправлений и документальные свидетельства, включая полный diff rev6/rev7. Не закрывать проектные B01–B03, R5-OBS-01…04 и G1.
