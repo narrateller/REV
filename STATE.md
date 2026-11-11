@@ -436,3 +436,13 @@ Claim T-r2-compaction-data-01 принят PR #24 на `6f22d966de85a7072cea43d2
 ## Предложение R3 по измерениям и наблюдаемости
 
 На базе PR #25 `461a9abcc4bb0011291f6f7a1747524713b371ec` задача T-r3-compaction-measure-01 READY; предлагаемый owner r3-safety-01, claim PENDING_MAIN, lease предложен до `2026-11-12T12:29:35Z`. Исполнение и входной аудит NOT_STARTED до принятия claim. Существующий claim T-INIT истёк, владелец не изменён. R5-COMP-W03/W04, B01–B03 и G1 OPEN; пробы/испытания NOT_RUN.
+
+
+## R3: постановка измерений и наблюдаемости на review
+
+T-r3-compaction-measure-01 IN_REVIEW; claim `5f046982b59376eb26d89541adb81955b27e6ffb` принят PR #26 на `adaf5593edb7c374c112bbcc58c802d35bd4ccd3`, owner r3-safety-01, lease до 2026-11-12T12:29:35Z. Постановка и входной акт: verification/r3_compaction_observability/. Независимая проверка NOT_RUN; прежний PENDING_MAIN — история до PR #26. R5-COMP-W03/W04, B01–B03 и G1 OPEN, пробы и испытания NOT_RUN.
+
+
+## Проект интеграции R3 W03/W04
+
+Постановка `026bd890d7957526bfbee5ffb2745e9fe7b0c43e` и R5 OUTPUT-review `644d74178fefb4cb40150276532b08c6a8381b98` подготовлены к интеграции как документальный черновик с WARNING, см. verification/r3_compaction_observability/disposition.md. До принятия PR задача IN_REVIEW; R5-COMP-W03/W04 остаются OPEN до разработки и проверки применимой методики. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
