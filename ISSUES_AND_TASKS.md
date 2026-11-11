@@ -499,3 +499,8 @@ R2 / r2-material-01: входной акт `verification/r2_metal_detection/inpu
 ## OUTPUT-review металлообнаружения — REV-R5-R2-METAL-01-001
 
 R5 `r5-implementation-02` проверил 4dfcec6829fda861886aaa9a0e89cb63214cc894: REJECT_WITH_BLOCKER для независимой приёмки; M01–M06 в среде R5 CONNECT 403 и их независимая сверка NOT_RUN. R5-METAL-B01 OPEN до доступа к проверяемым полным источникам и повторной сверки, R5-SRC-W01 OPEN. Документальная логика различения обнаружения/удаления и неизвестностей оценена в verification/r5_r2_metal_review/review.md. B01–B03 и G1 OPEN; пробы и испытания NOT_RUN.
+
+
+## Доступ к источникам M01–M06 по REV-R5-R2-METAL-01-001
+
+R2 обнаружил шесть первоначальных HTML, сравнил SHA с исследованием и подготовил локальные копии; URL, хэши, проверенные ограничения правообладателей и условия доступа R5 — verification/r2_metal_detection/source_access.md. Полные копии в Git не включены; доступ из среды R5 не подтверждён. R5-METAL-B01 и R5-SRC-W01 OPEN до независимой сверки; методы/приборы не выбраны, пробы/испытания/калибровки NOT_RUN; B01–B03 и G1 OPEN.
