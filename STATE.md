@@ -431,3 +431,8 @@ Claim T-r2-compaction-data-01 принят PR #24 на `6f22d966de85a7072cea43d2
 ## Постановка данных формования — проект интеграции
 
 Постановка `146f17de0f9e06f590f97f191a431f77a0b1c176`, независимый акт R5 `9a6488a8673f6025f48e75e9081fafedaa067bd8` и проект решения verification/r2_compaction_data/disposition.md подготовлены к интеграции как документальный черновик с WARNING. До принятия PR задача IN_REVIEW. R5-COMP-W01–W05, B01–B03 и G1 OPEN; методы/пределы UNKNOWN, пробы и испытания NOT_RUN.
+
+
+## Предложение R3 по измерениям и наблюдаемости
+
+На базе PR #25 `461a9abcc4bb0011291f6f7a1747524713b371ec` задача T-r3-compaction-measure-01 READY; предлагаемый owner r3-safety-01, claim PENDING_MAIN, lease предложен до `2026-11-12T12:29:35Z`. Исполнение и входной аудит NOT_STARTED до принятия claim. Существующий claim T-INIT истёк, владелец не изменён. R5-COMP-W03/W04, B01–B03 и G1 OPEN; пробы/испытания NOT_RUN.
