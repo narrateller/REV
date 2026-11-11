@@ -415,3 +415,7 @@ T-r3-norms-01 IN_REVIEW: claim `3345b050966fc4e52b317e64381c0dd7bc087b2a` при
 ## Документальная приёмка инженерной карты
 
 R1 принял карту по RECHECK R3 WARNING только как постановку будущих измерений; см. verification/engineering_input_map_acceptance.md. W01–W04 закрыты документально, реальная методика/данные UNKNOWN; интеграция ожидается. B01–B03 и G1 OPEN.
+
+## Документальный RECHECK программы формования R2
+
+Claim T-r2-compaction-review-01 принят PR #22 в `1d6683a18b541fc325078f8eb3a4a5a82fffd3dd`; owner `e98b8ef8-7302-453a-ac8d-1edbb7d8860c`, lease до 2026-11-12T11:12:00Z. REV-R2-COMPACTION-RECHECK-01-001 на `03290fe5e5392697303dd5eac552996e61df01ff`: W01–W05 CLOSED только документально, WARNING, акт verification/r2_compaction_program_recheck/review.md. Программа ещё вне main; интеграция не выполнена. Предварительный акт `e939c146f51d4a40daba75b1bb21bd694e12bccc` — история, не ранее принятый review. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
