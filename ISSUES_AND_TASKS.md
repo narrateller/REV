@@ -703,6 +703,6 @@ Claim `976106e352e22a9e56a02f7ac1420175bb7a8bcb` принят PR #28 на `d5c7a
 
 ## Передача R5 — T-r4-linked-01
 
-- Code/results C: 3c12ac390aeb839e54355ead2cc260eedebdd6a9; ветка work-r4/linked-scene/r4-linked-20261111; точный контракт 7b5192382b06d4f148a6c98ffecc8e4d50ec4e66. Запрос независимого OUTPUT review в NEXT_MODEL.md и handoffs/T-r4-linked-01/r4-linked-20261111.md.
+- Code/results C: d11c3e0505d455cfdcf15847aea5b06180659e1b; ветка work-r4/linked-scene/r4-linked-20261111; точный контракт 7b5192382b06d4f148a6c98ffecc8e4d50ec4e66. Запрос независимого OUTPUT review в NEXT_MODEL.md и handoffs/T-r4-linked-01/r4-linked-20261111.md.
 - R5-LINKED-W01 OPEN: ревизия схемы после проверенной bb31d82 и новый код ожидают независимой проверки; акт d2ab72f не распространяется на эту версию автоматически.
 - 8/8 сцен, 19/19 негативных примеров, 23 новых и 20 прежних тестов, registry PASS; реальные физика/безопасность UNKNOWN, G1 открыт.
