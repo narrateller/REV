@@ -18,7 +18,7 @@ ID после создания не меняется. Для параллель�
 | ID | Тип | P | Адресат | Статус | Owner | Зависимости | Ворота |
 |---|---|---|---|---|---|---|---|
 | T-INIT | TASK | P1 | @R1 | CLAIMED | codex-01 | NONE | G1 |
-| T-r2-material-01 | TASK | P1 | @R2 | CLAIMED | r2-material-01 | входной акт и документальная работа | G1 |
+| T-r2-material-01 | TASK | P1 | @R2 | IN_REVIEW | r2-material-01 | документальное сравнение принято R1 с ограничениями; интеграция | G1 |
 | Q-codex-01-01 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
@@ -375,3 +375,7 @@ R2 / r2-material-01 подготовил `verification/r2_material_methods/respo
 ## RECHECK ответа R2 — REV-R5-R2-MATERIAL-RECHECK-01-001
 
 R5 `r5-implementation-02`, проверенный commit fcbeefae46b4fd999c194bd214b5dda7c476b0ec: W01–W04 CLOSED в области документального ответа, вердикт WARNING; фактические методики и первоисточники не утверждены и не проверены. Подробности verification/r5_r2_material_recheck_01/review.md; выбор методик и программа требуют дальнейших доказательств. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+## Решение R1 по документальному сравнению R2
+
+R1 принимает результат в ограниченной документальной области с WARNING по verification/r2_material_methods/r1_acceptance.md. W01…04 CLOSED только для ответа; источники/редакции/пригодность и компетенция лаборатории требуют последующей проверки до выбора методов. Задача IN_REVIEW до интеграции; B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
