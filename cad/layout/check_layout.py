@@ -4,6 +4,8 @@ import argparse,copy,gzip,hashlib,importlib.util,itertools,json,sys,math
 from pathlib import Path
 from fractions import Fraction as F
 from layout_common import load,value,selected,config,bounds,digest,ROOT
+from layout_lifecycle import q,apply_boundary_events
+from cad_validation import check_cad_adapter,CadValidationError
 spec=importlib.util.spec_from_file_location('verified_scene_engine',ROOT/'models/rev_linked_scene/engine.py');engine=importlib.util.module_from_spec(spec);spec.loader.exec_module(engine)
 
 def bodies(data,variant):
@@ -32,48 +34,45 @@ def matrix(current,time,variant):
 
 def summarize(rows):return {status:sum(r['status']==status for r in rows) for status in ('CLEAR','ALLOWED_CONTACT','COLLISION','INDETERMINATE','INVALID_INPUT')}
 
-def check_cad_adapter(data, models, input_path):
-    """Compare the actual CAD bounding boxes against the exact adapter inputs.
-
-    isclose is only a floating point serialization check in millimetres; it is
-    not a manufacturing tolerance or permission for geometric contact.
-    """
-    result={}
-    for variant in 'AB':
-        manifest=json.loads((Path(models)/variant/'manifest.json').read_text())
-        if manifest['input_sha256']!=digest(input_path):raise ValueError('stale CAD inputs '+variant)
-        records={r['id']:r for r in manifest['objects']}
-        if set(records)!=set(bodies(data,variant)):raise ValueError('CAD/adapter object mismatch '+variant)
-        for c in selected(data,variant):
-            lo,hi=bounds(data,c);r=records[c['id']]
-            if not all(math.isclose(float(v)*1000,x,rel_tol=1e-9,abs_tol=1e-9) for v,x in zip(lo+hi,r['cad_bounds_mm'])):
-                raise ValueError('CAD/adapter bounds mismatch '+c['id'])
-        result[variant]={'nominal_bounds_match':'PASS','solid_count':len(records),'scope':'boxes exact; cylinder bounding separation only; no manufacturing tolerance validated'}
-    return result
 
 def advance(current):
     result=copy.deepcopy(current)
     for name,b in result.items():
         if b['delta'] is None:continue
-        b['lo']=[str(F(x)+F(d)) for x,d in zip(b['lo'],b['delta'])];b['hi']=[str(F(x)+F(d)) for x,d in zip(b['hi'],b['delta'])];b['delta']=['0','0','0']
+        b['lo']=[str(q(x)+q(d)) for x,d in zip(b['lo'],b['delta'])];b['hi']=[str(q(x)+q(d)) for x,d in zip(b['hi'],b['delta'])];b['delta']=['0','0','0']
     return result
 
-def assess_continuity(stages, events):
-    checks=[]
+def assess_continuity(stages, events, removal_conditions=None):
+    checks=[];assigned=set()
     for left,right in zip(stages,stages[1:]):
-        expected=advance(left['state']);bad=[];unknown=[]
-        for name in sorted(set(expected)&set(right['state'])):
-            if left['state'][name]['delta'] is None or right['state'][name]['delta'] is None:unknown.append(name)
-            elif any(F(a)!=F(b) for key in ('lo','hi') for a,b in zip(expected[name][key],right['state'][name][key])):bad.append(name)
-        removed=sorted(set(expected)-set(right['state']));created=sorted(set(right['state'])-set(expected))
-        lifecycle=not created and all(any(e.get('type')=='REMOVE' and e.get('id')==name and F(e['time'])==F(left['time'][1]) for e in events) for name in removed)
-        checks.append({'from':left['phase'],'to':right['phase'],'time_contiguous':F(left['time'][1])==F(right['time'][0]),'mismatches':bad,'unknown':unknown,'lifecycle_valid':lifecycle,'removed':removed,'created':created})
+        bad=[];unknown=[];boundary_events=[];time_valid=True
+        try:
+            ls,le=map(q,left['time']);rs,re=map(q,right['time'])
+            time_valid=ls<le and rs<re and le==rs
+            expected=advance(left['state'])
+            for index,event in enumerate(events):
+                try:
+                    if isinstance(event,dict) and q(event.get('time'))==le:
+                        boundary_events.append(event);assigned.add(index)
+                except (TypeError,ValueError,ZeroDivisionError):pass
+            _,audit=apply_boundary_events(expected,right['state'],str(le),boundary_events,removal_conditions)
+            for name in sorted(set(expected)&set(right['state'])):
+                if left['state'][name]['delta'] is None or right['state'][name]['delta'] is None:unknown.append(name)
+                elif any(q(a)!=q(b) for key in ('lo','hi') for a,b in zip(expected[name][key],right['state'][name][key])):bad.append(name)
+            checks.append({'from':left['phase'],'to':right['phase'],'time_contiguous':time_valid,'mismatches':bad,'unknown':unknown,'lifecycle_valid':audit['status']=='VALID','lifecycle_status':audit['status'],'lifecycle_audit':audit,'removed':sorted(set(expected)-set(right['state'])),'created':sorted(set(right['state'])-set(expected))})
+        except (KeyError,TypeError,ValueError,ZeroDivisionError) as exc:
+            checks.append({'from':left.get('phase'),'to':right.get('phase'),'time_contiguous':False,'mismatches':bad,'unknown':unknown,'lifecycle_valid':False,'lifecycle_status':'INVALID_INPUT','reason':str(exc)})
+    for index,event in enumerate(events):
+        if index not in assigned:
+            checks.append({'from':None,'to':None,'time_contiguous':True,'mismatches':[],'unknown':[],'lifecycle_valid':False,'lifecycle_status':'INVALID_INPUT','event_index':index,'event':event,'reason':'event has no validated consecutive-stage boundary (invalid/extraneous time or event)'})
     return checks
 
+
 def continuity_status(checks):
-    if any(c['mismatches'] or not c['time_contiguous'] or not c['lifecycle_valid'] for c in checks):return 'BLOCKED'
-    if any(c['unknown'] for c in checks):return 'INDETERMINATE'
+    if any(c['mismatches'] or not c['time_contiguous'] or c.get('lifecycle_status') in ('INVALID_INPUT','BLOCKED') or (not c['lifecycle_valid'] and c.get('lifecycle_status')!='INDETERMINATE') for c in checks):return 'BLOCKED'
+    if any(c['unknown'] or c.get('lifecycle_status')=='INDETERMINATE' for c in checks):return 'INDETERMINATE'
     return 'CONTINUOUS'
+
 
 def scenario(data,variant,case):
     product='product_'+variant;current=bodies(data,variant);start=copy.deepcopy(current);t=F(0);stages=[];event=[]
@@ -104,25 +103,32 @@ def scenario(data,variant,case):
     required=next(r for r in active['pairs'] if set(r['pair'])=={'punch',product})['evidence']['link']
     rear=None if case=='unknown' else F(current[product]['lo'][0]);geo='INDETERMINATE' if rear is None else 'GEOMETRY_SUFFICIENT' if rear>=exit_x else 'SHORT_STROKE'
     path_status='COLLISION' if path_collision else 'INDETERMINATE' if any(r['status'] in ('INDETERMINATE','INVALID_INPUT') for r in path) else 'NO_COLLISION'
+    removal_conditions={product:{'exit_boundary':str(exit_x),'receiving_yz':[[start[product]['lo'][i],start[product]['hi'][i]] for i in (1,2)],'required_link':required,'path_collision':path_status}}
     if geo=='GEOMETRY_SUFFICIENT' and path_status=='NO_COLLISION' and required=='LINK_CONFIRMED':
         event.append({'type':'REMOVE','id':product,'time':str(t),'final_rear':str(rear),'exit_boundary':str(exit_x),'basis':'conditional path subset only; whole assembly not validated'})
-        del current[product]
+        proposed=copy.deepcopy(current);del proposed[product]
+        current,removal_audit=apply_boundary_events(current,proposed,str(t),event,removal_conditions)
+        if removal_audit['status']!='VALID':raise ValueError('generated REMOVE failed independent lifecycle validation')
         stage(variant+'-RETURN',{'punch':(-travel,zero,zero),'rod':(-travel,zero,zero)})
         if variant=='B':
             stage('B-RESET-STOP',{'end_stop':(zero,-config(data,'open_stop_y'),zero)});stage('B-RESET-LOCK',{'lock':(zero,-config(data,'open_lock_y'),zero)})
         stage(variant+'-RESET-INLET',{'inlet_gate':(zero,-gate,zero)})
         stage(variant+'-READY-RETURNED')
     transition='BLOCKED' if path_status=='COLLISION' or geo=='SHORT_STROKE' or required=='LINK_ABSENT' else 'INDETERMINATE' if path_status=='INDETERMINATE' or required=='LINK_INDETERMINATE' else 'ALLOWED_FOR_PATH_SUBSET'
-    continuity=assess_continuity(stages,event);continuity_result=continuity_status(continuity)
+    continuity=assess_continuity(stages,event,removal_conditions);continuity_result=continuity_status(continuity)
     if continuity_result=='BLOCKED':transition='BLOCKED'
     elif continuity_result=='INDETERMINATE' and transition!='BLOCKED':transition='INDETERMINATE'
     restored=all(all(F(a)==F(b) for key in ('lo','hi') for a,b in zip(current[name][key],start[name][key])) for name in current if name in start and name!=product)
     global_counts={status:sum(st['counts'][status] for st in stages) for status in active['counts']}
-    return {'variant':variant,'case':case,'stages':stages,'ejection_phase':active['phase'],'path_subset':sorted(path_names),'path_collision':path_status,'required_link':required,'geometry':geo,'final_product_rear':str(rear),'exit_boundary':str(exit_x),'path_transition':transition,'path_ready':'RESTORED_FOR_PATH_SUBSET' if event and restored and continuity_result=='CONTINUOUS' else 'NOT_CONFIRMED','whole_assembly_transition':'BLOCKED_ASSUMED_INTERFERENCES' if global_counts['COLLISION'] else 'INDETERMINATE','whole_assembly_ready':'INDETERMINATE','counts':global_counts,'lifecycle':event,'continuity':continuity,'continuity_status':continuity_result,'physical':{'unloading':'UNKNOWN','holding':'UNKNOWN','forces':'UNKNOWN','safety':'UNKNOWN'}}
+    return {'variant':variant,'case':case,'stages':stages,'ejection_phase':active['phase'],'path_subset':sorted(path_names),'path_collision':path_status,'required_link':required,'geometry':geo,'final_product_rear':str(rear),'exit_boundary':str(exit_x),'path_transition':transition,'path_ready':'RESTORED_FOR_PATH_SUBSET' if event and restored and continuity_result=='CONTINUOUS' else 'NOT_CONFIRMED','whole_assembly_transition':'BLOCKED_ASSUMED_INTERFERENCES' if global_counts['COLLISION'] else 'INDETERMINATE','whole_assembly_ready':'INDETERMINATE','counts':global_counts,'lifecycle':event,'lifecycle_conditions':removal_conditions,'continuity':continuity,'continuity_status':continuity_result,'physical':{'unloading':'UNKNOWN','holding':'UNKNOWN','forces':'UNKNOWN','safety':'UNKNOWN'}}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--inputs',required=True);p.add_argument('--models',required=True);p.add_argument('--out',required=True);args=p.parse_args();data=load(args.inputs);out=Path(args.out);out.mkdir(parents=True,exist_ok=True)
-    adapter=check_cad_adapter(data,args.models,args.inputs)
+    try:adapter=check_cad_adapter(data,args.models,args.inputs)
+    except CadValidationError as exc:
+        failure={'status':'FAILED','classification':'ASSUMED_RESEARCH_ONLY_NOT_REV','cad_adapter':exc.report,'scenarios':'NOT_RUN','previous_pair_files':'STALE/NOT_USED'}
+        (out/'report.json').write_text(json.dumps(failure,indent=2)+'\n')
+        print(json.dumps(failure),file=sys.stderr);return 1
     scenarios=[scenario(data,v,c) for v in 'AB' for c in ('sufficient','short','collision','unknown')]
     # Stream full pair evidence compressed to retain inspectable results without a huge text diff.
     with gzip.GzipFile(filename=str(out/'all_pairs.json.gz'),mode='wb',mtime=0) as f:f.write(json.dumps(scenarios,sort_keys=True,separators=(',',':')).encode())
@@ -144,14 +150,14 @@ def main():
                 if b:
                     x=420+float(F(b['lo'][0]))*200;w=float(F(b['hi'][0])-F(b['lo'][0]))*200;svg.append(f'<rect x="{x}" y="{y-20}" width="{w}" height="28" fill="{color}"/>')
         svg.append('</svg>');(Path(args.models)/v/'phase_views.svg').write_text('\n'.join(svg))
-    source=[Path(__file__).resolve(),Path(__file__).with_name('build_model.py'),Path(__file__).with_name('layout_common.py'),ROOT/'models/rev_linked_scene/engine.py',Path(args.inputs).resolve(),ROOT/'params/registry.yaml',ROOT/'cad/layout/model_build_task.md']
+    source=[Path(__file__).resolve(),Path(__file__).with_name('build_model.py'),Path(__file__).with_name('layout_common.py'),Path(__file__).with_name('layout_lifecycle.py'),Path(__file__).with_name('cad_validation.py'),ROOT/'models/rev_linked_scene/engine.py',Path(args.inputs).resolve(),ROOT/'params/registry.yaml',ROOT/'cad/layout/model_build_task.md']
     unsupported=[{'operation':name,'status':'INDETERMINATE','reason':reason} for name,reason in [
         ('insert extraction and clamp_R removal','separate insert geometry and removal sequence not defined'),
         ('guard opening and operator approach','rotation, hinges, opening envelopes and approach dimensions UNKNOWN'),
         ('lifting and installation','lifting points, mass, rigging, centre of gravity and installation path UNKNOWN'),
         ('hose loops and connections','routing envelope is a solid placeholder, flexibility and ports UNKNOWN'),
         ('operating zone and downstream receiving capacity','extent, capacity and site interface UNKNOWN; output half-space criterion only')]]
-    report={'classification':'ASSUMED_RESEARCH_ONLY_NOT_REV','source_commit_inputs':'0d587fa226fee78abc7c86752adee825febb164d','input_sha256':digest(args.inputs),'sha256':{str(p.relative_to(ROOT)):digest(p) for p in source},'adapter_scope':'exact boxes and linear translations only; cylinders use conservative bounding separation; overlap for curved shapes INDETERMINATE','cad_adapter':adapter,'scenarios':summaries,'services':[{k:v for k,v in s.items() if k!='pairs'} for s in services],'unsupported_service_and_zones':unsupported,'unresolved':['real mounting holes/contacts, guide surfaces and load paths','full rod/barrel geometry during stroke','rotating doser, rotating stop, flexible hoses','real tolerances and force/material model','safe access, guard rotation and lifting procedure','whole-press READY not demonstrated; static proxy interferences retained'],'files':{'all_pairs.json.gz':digest(out/'all_pairs.json.gz'),'service_pairs.json.gz':digest(out/'service_pairs.json.gz')}}
+    report={'status':'COMPLETED_WITH_KNOWN_INTERFERENCES','classification':'ASSUMED_RESEARCH_ONLY_NOT_REV','source_commit_inputs':'0d587fa226fee78abc7c86752adee825febb164d','input_sha256':digest(args.inputs),'sha256':{str(p.relative_to(ROOT)):digest(p) for p in source},'adapter_scope':'exact boxes and linear translations only; cylinders use conservative bounding separation; overlap for curved shapes INDETERMINATE','cad_adapter':adapter,'known_native_penetrations':{'review_commit':'e939b41d0139b0a3a08a5950eeeec6e92324cf9b','source':'verification/r5_layout_output_review/evidence/cad_probe.json and dynamic_probe.json','status':'preserved; tool fix does not fix geometry','whole_assembly_ready':'INDETERMINATE'},'tool_blockers':'R5-CAD-TOOL-B01/B02 OPEN pending independent RECHECK','scenarios':summaries,'services':[{k:v for k,v in s.items() if k!='pairs'} for s in services],'unsupported_service_and_zones':unsupported,'unresolved':['real mounting holes/contacts, guide surfaces and load paths','full rod/barrel geometry during stroke','rotating doser, rotating stop, flexible hoses','real tolerances and force/material model','safe access, guard rotation and lifting procedure','whole-press READY not demonstrated; static proxy interferences retained'],'files':{'all_pairs.json.gz':digest(out/'all_pairs.json.gz'),'service_pairs.json.gz':digest(out/'service_pairs.json.gz')}}
     (out/'report.json').write_text(json.dumps(report,indent=2)+'\n')
     for r in summaries:print(r['variant'],r['case'],r['geometry'],r['path_collision'],r['path_transition'],r['counts'])
-if __name__=='__main__':main()
+if __name__=='__main__':sys.exit(main())

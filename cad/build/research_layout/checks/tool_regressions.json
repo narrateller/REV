@@ -1,0 +1,1649 @@
+{
+  "status": "PASS",
+  "scope": "tool regressions only; no geometric correction",
+  "R5_input": "e939b41d0139b0a3a08a5950eeeec6e92324cf9b",
+  "source_hashes": {
+    "cad/layout/tool_regressions.py": "38d4f07c3e9c08d0309392ec7f33e20f468057aeab404818cef4b3ba198b6566",
+    "cad/layout/test_lifecycle.py": "214a607fbf6a4482af5e46e1f0f380162fdda6750f79b10eed8ef23aed0e10f5",
+    "cad/layout/layout_lifecycle.py": "641670bd2fad5a4276d4a791dc009b739fb9bf8460ba87fd66fd3a8c9a3e4193",
+    "cad/layout/cad_validation.py": "5d6a26632533bdeec0ce245148ba31de9b40a2dae47e0ca414bd897c8599e1e7"
+  },
+  "lifecycle": [
+    {
+      "id": "R5_PREMATURE_REMOVE",
+      "expected_status": "BLOCKED",
+      "observed_status": "BLOCKED",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "BLOCKED",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "0",
+              "exit_boundary": "2"
+            },
+            "status": "BLOCKED",
+            "applied": false,
+            "reasons": [
+              "premature REMOVE: product has not fully exited",
+              "trusted exit boundary missing",
+              "conditional receiving envelope missing",
+              "required link not confirmed",
+              "path clearance not confirmed"
+            ],
+            "proof": {
+              "actual_rear": "0",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [
+              "premature REMOVE: product has not fully exited"
+            ],
+            "unknown": [
+              "trusted exit boundary missing",
+              "conditional receiving envelope missing",
+              "required link not confirmed",
+              "path clearance not confirmed"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "R5_IGNORED_GHOST_CREATE",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "CREATE",
+              "id": "ghost",
+              "time": "1"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "CREATE disagrees with registry delta"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "R5_CONSISTENT_UNSUPPORTED_CREATE",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [],
+      "effective_registry": [],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "CREATE",
+              "id": "ghost",
+              "time": "1"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "CREATE unsupported; no body created"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": []
+      }
+    },
+    {
+      "id": "SPLIT_UNSUPPORTED",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "SPLIT",
+              "id": "product_B",
+              "children": [
+                "piece1",
+                "piece2"
+              ],
+              "time": "1"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "SPLIT unsupported; source retained, children not created"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "SPLIT_INCONSISTENT",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "SPLIT",
+              "id": "product_B",
+              "children": [
+                "piece1",
+                "piece2"
+              ],
+              "time": "1"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "SPLIT disagrees with registry delta"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "VALID_REMOVE",
+      "expected_status": "VALID",
+      "observed_status": "VALID",
+      "expected_effective_registry": [],
+      "effective_registry": [],
+      "matches": true,
+      "audit": {
+        "status": "VALID",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "VALIDATED_REMOVE",
+            "applied": true,
+            "reasons": [],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [],
+            "unknown": []
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": []
+      }
+    },
+    {
+      "id": "REMOVE_NO_TRUSTED_CONTEXT",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "trusted exit boundary missing",
+              "conditional receiving envelope missing",
+              "required link not confirmed",
+              "path clearance not confirmed"
+            ],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [],
+            "unknown": [
+              "trusted exit boundary missing",
+              "conditional receiving envelope missing",
+              "required link not confirmed",
+              "path clearance not confirmed"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "REMOVE_BAD_TIME",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1/2",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "event is not at this boundary"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "REMOVE_EQUIVALENT_TIME",
+      "expected_status": "VALID",
+      "observed_status": "VALID",
+      "expected_effective_registry": [],
+      "effective_registry": [],
+      "matches": true,
+      "audit": {
+        "status": "VALID",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "2/2",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "VALIDATED_REMOVE",
+            "applied": true,
+            "reasons": [],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [],
+            "unknown": []
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": []
+      }
+    },
+    {
+      "id": "DUPLICATE_REMOVE",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "duplicate/conflicting event claim for ID"
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "duplicate/conflicting event claim for ID"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "DUPLICATE_CREATE",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [],
+      "effective_registry": [],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "CREATE",
+              "id": "ghost",
+              "time": "1"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "duplicate/conflicting event claim for ID"
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "type": "CREATE",
+              "id": "ghost",
+              "time": "1"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "duplicate/conflicting event claim for ID"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_creation": [
+              "ghost"
+            ]
+          }
+        ],
+        "retained_ids": [],
+        "effective_next_registry": []
+      }
+    },
+    {
+      "id": "EXTRANEOUS_REMOVE",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "ghost",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "REMOVE disagrees with registry delta"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "UNSUPPORTED_EVENT_TYPE",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "HIDE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "unsupported event type; no effect applied"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "UNSUPPORTED_UNKNOWN_ID",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "HIDE",
+              "id": "ghost",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "unsupported event references unknown registry ID"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "MISSING_EVENT_TYPE",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "id": "product_B",
+              "time": "1"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "event type missing"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "FORGED_REAR",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "claimed rear disagrees with actual geometry"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "FORGED_EXIT",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "0",
+              "exit_boundary": "0"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "claimed exit differs from trusted path condition"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "UNEXPLAINED_DISAPPEARANCE",
+      "expected_status": "BLOCKED",
+      "observed_status": "BLOCKED",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "BLOCKED",
+        "events": [],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "UNEXPLAINED_CREATION",
+      "expected_status": "BLOCKED",
+      "observed_status": "BLOCKED",
+      "expected_effective_registry": [],
+      "effective_registry": [],
+      "matches": true,
+      "audit": {
+        "status": "BLOCKED",
+        "events": [],
+        "registry_defects": [
+          {
+            "unjustified_creation": [
+              "ghost"
+            ]
+          }
+        ],
+        "retained_ids": [],
+        "effective_next_registry": []
+      }
+    },
+    {
+      "id": "PREMATURE_AND_UNKNOWN_CREATE",
+      "expected_status": "BLOCKED",
+      "observed_status": "BLOCKED",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "BLOCKED",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "0",
+              "exit_boundary": "2"
+            },
+            "status": "BLOCKED",
+            "applied": false,
+            "reasons": [
+              "premature REMOVE: product has not fully exited"
+            ],
+            "proof": {
+              "actual_rear": "0",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [
+              "premature REMOVE: product has not fully exited"
+            ],
+            "unknown": []
+          },
+          {
+            "index": 1,
+            "event": {
+              "type": "CREATE",
+              "id": "ghost",
+              "time": "1"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "CREATE unsupported; no body created"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "PROVEN_REMOVE_AND_UNKNOWN_CREATE",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [],
+      "effective_registry": [],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "VALIDATED_REMOVE",
+            "applied": true,
+            "reasons": [],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [],
+            "unknown": []
+          },
+          {
+            "index": 1,
+            "event": {
+              "type": "CREATE",
+              "id": "ghost",
+              "time": "1"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "CREATE unsupported; no body created"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [],
+        "effective_next_registry": []
+      }
+    },
+    {
+      "id": "INVALID_TIME_1.0",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": 1.0,
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "exact integer or rational string required"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "INVALID_TIME_True",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": true,
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "exact integer or rational string required"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "INVALID_TIME_'NaN'",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "NaN",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "Invalid literal for Fraction: 'NaN'"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "INVALID_TIME_'1/0'",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1/0",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "Fraction(1, 0)"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "INVALID_TIME_None",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": null,
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "exact integer or rational string required"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "required_link_LINK_ABSENT",
+      "expected_status": "BLOCKED",
+      "observed_status": "BLOCKED",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "BLOCKED",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "BLOCKED",
+            "applied": false,
+            "reasons": [
+              "required link absent"
+            ],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [
+              "required link absent"
+            ],
+            "unknown": []
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "required_link_LINK_INDETERMINATE",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "required link not confirmed"
+            ],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [],
+            "unknown": [
+              "required link not confirmed"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "path_collision_COLLISION",
+      "expected_status": "BLOCKED",
+      "observed_status": "BLOCKED",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "BLOCKED",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "BLOCKED",
+            "applied": false,
+            "reasons": [
+              "proven path collision"
+            ],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [
+              "proven path collision"
+            ],
+            "unknown": []
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "path_collision_INDETERMINATE",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "path clearance not confirmed"
+            ],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [],
+            "unknown": [
+              "path clearance not confirmed"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "OUTSIDE_RECEIPT",
+      "expected_status": "BLOCKED",
+      "observed_status": "BLOCKED",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "BLOCKED",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "BLOCKED",
+            "applied": false,
+            "reasons": [
+              "product outside conditional receiving envelope"
+            ],
+            "proof": {
+              "actual_rear": "2",
+              "exit_boundary": "2",
+              "scope": "limited path only"
+            },
+            "blocking_defects": [
+              "product outside conditional receiving envelope"
+            ],
+            "unknown": []
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "MALFORMED_METADATA_WITH_UNKNOWN_MOTION",
+      "expected_status": "INVALID_INPUT",
+      "observed_status": "INVALID_INPUT",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INVALID_INPUT",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": true,
+              "exit_boundary": "2"
+            },
+            "status": "INVALID_INPUT",
+            "applied": false,
+            "reasons": [
+              "exact integer or rational string required"
+            ]
+          }
+        ],
+        "registry_defects": [
+          {
+            "unjustified_disappearance": [
+              "product_B"
+            ]
+          }
+        ],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    },
+    {
+      "id": "UNKNOWN_MOTION",
+      "expected_status": "INDETERMINATE",
+      "observed_status": "INDETERMINATE",
+      "expected_effective_registry": [
+        "product_B"
+      ],
+      "effective_registry": [
+        "product_B"
+      ],
+      "matches": true,
+      "audit": {
+        "status": "INDETERMINATE",
+        "events": [
+          {
+            "index": 0,
+            "event": {
+              "type": "REMOVE",
+              "id": "product_B",
+              "time": "1",
+              "final_rear": "2",
+              "exit_boundary": "2"
+            },
+            "status": "INDETERMINATE",
+            "applied": false,
+            "reasons": [
+              "exit geometry/motion unknown"
+            ]
+          }
+        ],
+        "registry_defects": [],
+        "retained_ids": [
+          "product_B"
+        ],
+        "effective_next_registry": [
+          "product_B"
+        ]
+      }
+    }
+  ],
+  "CAD": [
+    {
+      "id": "manifest_only",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "actual CAD missing/empty: /tmp/rev-cad-negative-fzi2xzjh/A/layout_A.FCStd"
+      },
+      "matches": true
+    },
+    {
+      "id": "missing_fcstd",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "actual CAD missing/empty: /tmp/rev-cad-negative-t2ytstnc/A/layout_A.FCStd"
+      },
+      "matches": true
+    },
+    {
+      "id": "missing_step",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "actual CAD missing/empty: /tmp/rev-cad-negative-luaxnxum/B/layout_B.step"
+      },
+      "matches": true
+    },
+    {
+      "id": "empty_fcstd",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "actual CAD missing/empty: /tmp/rev-cad-negative-vb67j6ft/A/layout_A.FCStd"
+      },
+      "matches": true
+    },
+    {
+      "id": "corrupt_fcstd_old_hash",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "actual CAD hash mismatch: /tmp/rev-cad-negative-h7fq06fo/A/layout_A.FCStd"
+      },
+      "matches": true
+    },
+    {
+      "id": "corrupt_step_old_hash",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "actual CAD hash mismatch: /tmp/rev-cad-negative-1f4tgr9x/A/layout_A.step"
+      },
+      "matches": true
+    },
+    {
+      "id": "corrupt_fcstd_new_hash",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "File is not a zip file",
+          "exception": "BadZipFile"
+        }
+      },
+      "matches": true
+    },
+    {
+      "id": "corrupt_step_new_hash",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "FreeCAD exception thrown (Error in reading STEP)",
+          "exception": "RuntimeError"
+        }
+      },
+      "matches": true
+    },
+    {
+      "id": "edited_fcstd",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "actual FCStd geometry mismatch base_L",
+          "exception": "ValueError"
+        }
+      },
+      "matches": true
+    },
+    {
+      "id": "edited_step",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "actual STEP geometry mismatch base_L",
+          "exception": "ValueError"
+        }
+      },
+      "matches": true
+    },
+    {
+      "id": "altered_manifest_bounds",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "manifest/native bounds mismatch base_L",
+          "exception": "ValueError"
+        }
+      },
+      "matches": true
+    },
+    {
+      "id": "missing_export_hash",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "actual CAD hash mismatch: /tmp/rev-cad-negative-v1yzqii6/A/layout_A.FCStd"
+      },
+      "matches": true
+    },
+    {
+      "id": "duplicate_manifest_body",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "manifest object mismatch A"
+      },
+      "matches": true
+    },
+    {
+      "id": "missing_manifest",
+      "observed_status": "FAILED",
+      "evidence": {
+        "status": "FAILED",
+        "code": "CAD_INPUT_INVALID",
+        "reason": "[Errno 2] No such file or directory: '/tmp/rev-cad-negative-pif0bdq8/A/manifest.json'"
+      },
+      "matches": true
+    }
+  ]
+}

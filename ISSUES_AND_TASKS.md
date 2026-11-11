@@ -25,7 +25,7 @@ ID после создания не меняется. Для параллель�
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
 | T-r4-linked-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | RECHECK WARNING; ограниченная приёмка предлагается после интеграции | G1 |
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
-| T-r4-layout-build-01 | TASK | P2 | @R4 | IN_PROGRESS | r4-linked-20261111 | claim принят PR #35; условное построение | G1 |
+| T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #35; условное построение | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -81,8 +81,8 @@ PR #32 принят на main `116b280ffbe579e7545de51282ccfa96aa6cdefd`; пов
 
 ## T-r4-layout-build-01 — построение условной параметрической сборки всего пресса A/B
 
-- TASK, P2, адресат @R4; статус IN_PROGRESS; owner_session r4-linked-20261111 / Codex / R4; claim принят PR #35. Назначение R4 подтверждено пользователем; текущее поручение пользователя после принятия PR #35 — построить исследовательские A/B по model_build_task.md и передать независимому R5.
-- claim_acceptance ACCEPTED_MAIN; claim_record_commit 79e9c3aa9aaca33778814957fafecd93a4adc392; acceptance_commit 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 (PR #35), подтверждено пользователем и ancestry; base_commit c00c75dda08889c3e19169476051b3e6980be721; branch работы work-r4/build-layout/r4-linked-20261111; branch исходного предложения work-r4/prepare-layout-build/r4-linked-20261111; assignment_utc 2026-11-11T18:06:24Z; heartbeat_utc 2026-11-11T18:32:18Z; work_base_commit 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53; lease_expires_at 2026-11-12T18:06:24Z. Предложен срок на принятие и ближайший исследовательский результат, не продление старого claim. Claim на постановку не покрывает построение.
+- TASK, P2, адресат @R4; статус IN_REVIEW; owner_session r4-linked-20261111 / Codex / R4; claim принят PR #35. Назначение R4 подтверждено пользователем; текущее поручение пользователя после принятия PR #35 — построить исследовательские A/B по model_build_task.md и передать независимому R5.
+- claim_acceptance ACCEPTED_MAIN; claim_record_commit 79e9c3aa9aaca33778814957fafecd93a4adc392; acceptance_commit 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 (PR #35), подтверждено пользователем и ancestry; base_commit c00c75dda08889c3e19169476051b3e6980be721; branch работы work-r4/build-layout/r4-linked-20261111; branch исходного предложения work-r4/prepare-layout-build/r4-linked-20261111; assignment_utc 2026-11-11T18:06:24Z; heartbeat_utc 2026-11-11T19:06:40Z; work_base_commit 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53; lease_expires_at 2026-11-12T18:06:24Z. Предложен срок на принятие и ближайший исследовательский результат, не продление старого claim. Claim на постановку не покрывает построение.
 - Входы: постановка cad/layout/whole_press_layout_brief.md после ответов W01/W02/W03, исполнимое задание cad/layout/model_build_task.md и отдельный conditional_inputs.template.json из этого подготовительного PR (точный C фиксируется в эстафете); review REV-R5-LAYOUT-01-001 на a621f466aac7c31e7812b91ab84c327157411fbc, WARNING на предыдущую постановку 32481da; process/supply_boundary_options.md и OP-REV-07…11, предыдущая main c00c75d. Изменённая постановка не объявляется повторно независимо проверенной.
 - Инструмент и формат: FreeCAD 1.0.0 через /usr/bin/python3 3.13.5 + модуль Part; построение/повтор/reopen/recompute/STEP фактически выполнены (в подготовительном пакете был проверен только импорт); .FCStd и параметрические Python/JSON исходники, STEP и виды/разрезы/отчёты. freecadcmd launcher в текущей среде падает, поэтому исполняемый путь и ограничения указаны в задании.
 - Scope и критерии: все узлы A/B, общие и локальные базы, собственный исследовательский ASSUMED-набор, воспроизводимый build/reopen/recompute/export, четыре геометрических исхода на A/B, полный перечень пар/фаз/сервисных конфигураций с фактическими результатами и INDETERMINATE для неподдержанного. Подробные пути/entrypoints и критерии — model_build_task.md. Реальные параметры REV UNKNOWN.
@@ -96,6 +96,10 @@ PR #32 принят на main `116b280ffbe579e7545de51282ccfa96aa6cdefd`; пов
 - Выходная проверка 2026-11-11T18:32:18Z: main по-прежнему 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, иных принятых claims не найдено, срок действует. 60 тестов PASS, 8 исходов подмножества PASS, 107486 полных записей пар и 556 сервисных; полная готовность INDETERMINATE. Метаданные входов уточнены на 0d587fa226fee78abc7c86752adee825febb164d без изменения чисел. Реестр/COTS/прежние модели неизменны; самопроверка не является независимым review.
 
 - Корректирующая итерация 2026-11-11T18:50:14Z: вход R5 e939b41d0139b0a3a08a5950eeeec6e92324cf9b, REV-R5-LAYOUT-BUILD-01-001, REJECT_WITH_BLOCKER; R5-CAD-TOOL-B01/B02 OPEN. Поручено пользователем исправить инструмент без изменения геометрии. Входной акт verification/r4_layout_tool_fix/input_audit.md. Прежняя публикация и подтверждённые проникновения сохранены; повторный независимый RECHECK NOT_RUN.
+
+- Выход исправления 2026-11-11T19:04:26Z: 69 тестов, 33 lifecycle и 14 CAD negative PASS, все 12 команд exit 0; проверены actual FCStd/STEP. Геометрия/107486 пар/PNG и penetration probes R5 сохранены, 8 limited outcomes неизменны. R5-CAD-TOOL-B01/B02 OPEN до независимого RECHECK. Результаты cad/build/research_layout/checks и assessment.md, точный C в последующей эстафете. Heartbeat 2026-11-11T19:04:26Z, lease не продлён.
+
+- Финальная сверка 2026-11-11T19:06:40Z: свежая main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, owner/lease и входы прежние. Все source/artifact hashes сохранённого validation совпали; геометрия/build/input/registry/COTS/models и исходный R5 пакет неизменны, 69 тестов / 33 lifecycle / 14 CAD negatives / 8 limited outcomes PASS. Интеграция и закрытие B01/B02 не выполнены.
 
 ## T-INIT
 
@@ -778,3 +782,13 @@ Claim `976106e352e22a9e56a02f7ac1420175bb7a8bcb` принят PR #28 на `d5c7a
 ## Учёт W02 — T-r4-layout-01 после PR #34
 
 Claim 1683e24d3be2dfcf8ac91eda102e4d376c834d80 принят PR #34, merge main c00c75dda08889c3e19169476051b3e6980be721; ancestry повторно проверено. owner_session r4-linked-20261111, срок до 2026-11-12T17:43:20Z; иной принятый владелец не обнаружен. Предварительные READY/NONE/PENDING исходного предложения были ошибочно оставлены в main и исправляются этим подготовительным PR; исходная запись и основание PR #34 сохранены в Git-истории. Новая задача построения отдельная, срок старого claim не расширен. W02 предложен к документальному закрытию после последовательной интеграции и сверки R1, не объявляется автором закрытым в ещё не изменённой main.
+
+## R5-CAD-TOOL-B01
+
+- Тип BLOCKER; статус OPEN; адресат @R4 в рамках T-r4-layout-build-01, независимое закрытие @R5. Основание REV-R5-LAYOUT-BUILD-01-001 на e939b41d0139b0a3a08a5950eeeec6e92324cf9b, исходный C 6bb66a566719593a59935e341b1b5c80a1cbc9a7.
+- Дефект: необоснованный REMOVE разрешал исчезновение продукта; лишние/неподдержанные события не учитывались полностью. Исправление и регрессии представлены автором на новый C, независимый RECHECK NOT_RUN, блокер не закрыт.
+
+## R5-CAD-TOOL-B02
+
+- Тип BLOCKER; статус OPEN; адресат @R4 в рамках T-r4-layout-build-01, независимое закрытие @R5. Основание тот же акт и исходный C.
+- Дефект: PASS соответствия CAD возможен по manifest без реальных файлов. Исправление требует actual FCStd/STEP, hashes, нативные состав/формы и явный failure при отсутствии/повреждении/рассогласовании; регрессии представлены. Независимый RECHECK NOT_RUN, блокер не закрыт. Устранение инструмента не закрывает пересечения компоновок или G1.

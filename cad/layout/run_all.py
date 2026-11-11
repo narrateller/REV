@@ -42,11 +42,17 @@ def main():
             outcomes.append({'variant':case['variant'],'case':case['case'],'expected_path_only':expected[case['case']],'observed_path_only':[case['geometry'],case['path_collision']],'matches':okay,'continuity':case['continuity_status'],'continuity_matches':continuity_ok,'return_matches':ready_ok})
             if not okay:raise RuntimeError('unexpected ejection path result '+case['variant']+' '+case['case'])
             if not continuity_ok or not ready_ok:raise RuntimeError('unexpected continuity or return '+case['variant']+' '+case['case'])
+        if any(checks['cad_adapter'][v]['status']!='PASS' for v in 'AB'):raise RuntimeError('actual CAD not verified')
+        if any(c['whole_assembly_ready']!='INDETERMINATE' for c in checks['scenarios']):raise RuntimeError('whole assembly readiness expanded')
+        execute(['/usr/bin/python3','cad/layout/tool_regressions.py','--inputs',assumed,'--models',str(directory),'--out',str(directory/'checks/tool_regressions.json')])
+        execute(['/usr/bin/python3','verification/r5_layout_output_review/cad_probe.py',str(ROOT),str(directory/'checks/native_static_recheck.json')])
+        execute(['/usr/bin/python3','verification/r5_layout_output_review/dynamic_probe.py',str(ROOT),str(directory/'checks/native_dynamic_recheck.json')])
+        execute(['/usr/bin/python3','cad/layout/geometry_preservation.py','--models',str(directory),'--out',str(directory/'checks/geometry_preservation.json')])
         shutil.copyfile(ROOT/assumed,directory/'conditional_inputs.snapshot.json')
         shutil.copyfile(ROOT/'params/registry.yaml',directory/'registry_snapshot.yaml')
         artifacts={str(f.relative_to(directory)):digest(f) for f in directory.rglob('*') if f.is_file() and f.name not in ('validation.json','validation_failed.json','assessment.md') and f.suffix not in ('.FCStd1','.fcstd1','.FCBak')}
-        sources=[ROOT/'cad/layout'/name for name in ('run_all.py','build_model.py','check_layout.py','layout_common.py','test_layout.py')]+[ROOT/assumed,ROOT/'params/registry.yaml']
-        report={'classification':'ASSUMED_RESEARCH_NOT_REV','commands':commands,'artifacts':artifacts,'reproduce_semantic':repeat,'step_roundtrip':step,'ejection_subset_tests':outcomes,'whole_assembly':'not accepted; assumed interferences and unknown conditions remain','source_hashes':{str(p.relative_to(ROOT)):digest(p) for p in sources}}
+        sources=[ROOT/'cad/layout'/name for name in ('run_all.py','build_model.py','check_layout.py','layout_common.py','layout_lifecycle.py','cad_validation.py','geometry_preservation.py','tool_regressions.py','test_layout.py','test_lifecycle.py','test_cad_artifacts.py')]+[ROOT/assumed,ROOT/'params/registry.yaml']
+        report={'classification':'ASSUMED_RESEARCH_NOT_REV','commands':commands,'artifacts':artifacts,'reproduce_semantic':repeat,'step_roundtrip':step,'ejection_subset_tests':outcomes,'tool_blockers':'R5-CAD-TOOL-B01/B02 OPEN pending independent RECHECK','whole_assembly':'not accepted; assumed interferences and unknown conditions remain','source_hashes':{str(p.relative_to(ROOT)):digest(p) for p in sources}}
         (directory/'validation.json').write_text(json.dumps(report,indent=2)+'\n')
         print('PASS: both CAD documents, STEP reread, semantic repeat, eight limited ejection cases. Whole assembly still unresolved.')
     except Exception as e:

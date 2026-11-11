@@ -14,7 +14,7 @@
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.011s\n\nOK\n"
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 2.318s\n\nOK\n"
     },
     {
       "command": [
@@ -29,7 +29,7 @@
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.408s\n\nOK\n"
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.404s\n\nOK\n"
     },
     {
       "command": [
@@ -44,7 +44,7 @@
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.272s\n\nOK\n"
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.295s\n\nOK\n"
     },
     {
       "command": [
@@ -100,7 +100,7 @@
         "--variant",
         "A",
         "--out",
-        "/tmp/rev-layout-repeat-e0ybqppv/A"
+        "/tmp/rev-layout-repeat-n8wbzkwr/A"
       ],
       "exit_code": 0,
       "stdout": "A 65 valid editable bodies; reopened and recomputed\n",
@@ -115,10 +115,60 @@
         "--variant",
         "B",
         "--out",
-        "/tmp/rev-layout-repeat-e0ybqppv/B"
+        "/tmp/rev-layout-repeat-n8wbzkwr/B"
       ],
       "exit_code": 0,
       "stdout": "B 61 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/tool_regressions.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "/workspace/REV/cad/build/research_layout",
+        "--out",
+        "/workspace/REV/cad/build/research_layout/checks/tool_regressions.json"
+      ],
+      "exit_code": 0,
+      "stdout": "33 lifecycle cases, 14 CAD negative cases: PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "verification/r5_layout_output_review/cad_probe.py",
+        "/workspace/REV",
+        "/workspace/REV/cad/build/research_layout/checks/native_static_recheck.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{'A': {'objects': 65, 'valid': True, 'bounds_match_manifest': True, 'max_bound_serialization_difference_mm': 4.831690603168681e-13, 'reopened_render_png_matches': {'isometric': True, 'front': True, 'side': True, 'top': True}, 'step_valid': True, 'step_solids': 65, 'step_volume_multiset_matches': True, 'radius_edit': {'parameter': 'ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS', 'before_mm': 220.0, 'edited_mm': 242.00000000000003, 'restored_mm': 220.0, 'passed': True}}, 'B': {'objects': 61, 'valid': True, 'bounds_match_manifest': True, 'max_bound_serialization_difference_mm': 4.831690603168681e-13, 'reopened_render_png_matches': {'isometric': True, 'front': True, 'side': True, 'top': True}, 'step_valid': True, 'step_solids': 61, 'step_volume_multiset_matches': True, 'radius_edit': {'parameter': 'ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS', 'before_mm': 220.0, 'edited_mm': 242.00000000000003, 'restored_mm': 220.0, 'passed': True}}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "verification/r5_layout_output_review/dynamic_probe.py",
+        "/workspace/REV",
+        "/workspace/REV/cad/build/research_layout/checks/native_dynamic_recheck.json"
+      ],
+      "exit_code": 0,
+      "stdout": "[{'variant': 'A', 'phase': 'A-FILL', 'pair': ['doser_floor_front', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-FILL', 'pair': ['doser_floor_rear', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-FILL', 'pair': ['doser_floor_right', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['gate_support', 'inlet_gate'], 'sample_time': '29/12', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['inlet_gate', 'pocket_R'], 'sample_time': '5/2', 'common_volume_mm3': 560000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['inlet_gate', 'pocket_front'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['inlet_gate', 'pocket_rear'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-FILL', 'pair': ['doser_floor_front', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-FILL', 'pair': ['doser_floor_rear', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-FILL', 'pair': ['doser_floor_right', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['gate_support', 'inlet_gate'], 'sample_time': '29/12', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['inlet_gate', 'pocket_R'], 'sample_time': '5/2', 'common_volume_mm3': 560000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['inlet_gate', 'pocket_front'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['inlet_gate', 'pocket_rear'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-LOCK', 'pair': ['end_stop', 'lock'], 'sample_time': '443/85', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-LOCK', 'pair': ['guard_right', 'lock'], 'sample_time': '507/85', 'common_volume_mm3': 1620000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-LOCK', 'pair': ['lock', 'stop_support'], 'sample_time': '489/85', 'common_volume_mm3': 3024000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_bottom', 'end_stop'], 'sample_time': '222/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_left', 'end_stop'], 'sample_time': '211/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_right', 'end_stop'], 'sample_time': '222/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_top_front', 'end_stop'], 'sample_time': '222/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['end_stop', 'guard_right'], 'sample_time': '977/140', 'common_volume_mm3': 720000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['end_stop', 'stop_support'], 'sample_time': '941/140', 'common_volume_mm3': 9360000.0, 'common_faces': 6, 'distance_mm': 0.0}]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/geometry_preservation.py",
+        "--models",
+        "/workspace/REV/cad/build/research_layout",
+        "--out",
+        "/workspace/REV/cad/build/research_layout/checks/geometry_preservation.json"
+      ],
+      "exit_code": 0,
+      "stdout": "geometry/phase matrix and native R5 penetrations preserved: PASS\n",
       "stderr": ""
     }
   ],
@@ -126,14 +176,14 @@
     "registry_snapshot.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651",
     "conditional_inputs.snapshot.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
     "B/isometric.svg": "43773312eb71214529cece996c2a5d3a177371fcf099ec149db7abac31ae7a53",
-    "B/isometric.pdf": "3c8167873ee45098e1ea7b48fd6fed965aa7f750a1a964e95caf3172ab593f47",
+    "B/isometric.pdf": "0daa45c4b65b8f86df023b311ef494baff7fc61573eee4f0ac28452f5fbdd16c",
     "B/section_y0.svg": "f4a1256bb2cbaed01f03559a281fd5bca32ae295b402b43000ad05be0dea7c90",
-    "B/manifest.json": "9de01c025c010433d2b29348f5a387a1a9b69aae70d3ad7fda8f63af551d9978",
+    "B/manifest.json": "47deedabbac264c3ad722b45de1e8e6ded94da1bd5535f00558420cf8299de73",
     "B/front.png": "14109faa1f97c0928b851f46beab52a5ec14f4a928c231a6d7896ee0915b8c41",
-    "B/layout_B.FCStd": "c80ec86b82948f1a2ab46fee3aff557730072042359979d84299b2846659227b",
-    "B/layout_B.step": "879521a69548334ea41523e36cfffb69c913db8c1a6c1f1e9a60b2bcc3b392e4",
-    "B/side.pdf": "9b08810e55f8544952c44cd9c02d26eef87d10c0caee9cf574417db20d405f8a",
-    "B/top.pdf": "1f93a8d1db3916abacd90322855324fc35dd699da076d60d643dd5db22a25e6c",
+    "B/layout_B.FCStd": "ef300471efbc428cf702cfbbac330dec0ac4644b0f702097a7742d3ab7bedab8",
+    "B/layout_B.step": "3907caef9ba59648567d944ff721cacf0bd9b094ef57db285ee6678c3d41bc0a",
+    "B/side.pdf": "228258186e4bb8515bb5127463db5d780c6aad1d74e6594422aef2c64eba5ffc",
+    "B/top.pdf": "831f13a517b3262faa6ed049b954d137af860fb24c9006c1ec45d87ac8fef6aa",
     "B/load_path.svg": "94b1e6c8905b9acf96824d8d5753ab3de784b3d4159de2c377206fd539b0a19c",
     "B/side.png": "3492230cfd6730ff6ea985cdf5089a0ae422c8cd73578a25b4d9ce87fac4a5b6",
     "B/isometric.png": "cf7c0fbf6a01e384ff61cdfe832ab9be92498182be5d4f7afd4487b501be30cd",
@@ -142,29 +192,34 @@
     "B/front.svg": "e7aabe7eb96ed361546b983990ccc33e00061d74c1a5c601bf6b8e2175edf776",
     "B/top.png": "dcaf259cb73a6f3d342bdebd9234b0fe8ec651327845ad03523f16cf1b1f9e90",
     "B/phase_views.svg": "547f1c4df01eb7420756f77f61c8c83f510ca54ea6e0c550b50684b48038ea67",
-    "B/front.pdf": "217ac61e0adfa4470c76919d23d57ce0fcf491fba1f60e8effb2c9cbb7153df8",
+    "B/front.pdf": "9ed6f4be47dcd9cb191e1093d61850733ce1f7c90857e61d8907b8d2ca2fabc4",
+    "history/tool_regression_export_failure.json": "d41aea7013bbebb1dc56d096b52a68781856470eec7bc497fd171de5a449c7ce",
     "history/adapter_triangulation_failure.json": "9a0c92f0895892125fba9610ab9786339574f7dd6446398219dc6a5b30ecdead",
+    "checks/native_static_recheck.json": "6c061a3906acc037cb8ef8a0df0a1bb9aa1152fc5fe3ab4adfe8188b2cebf633",
     "checks/service_pairs.json.gz": "23a46c191d8bdeac6c4e5efb3f0efebe96856404893758c9a585626af5c4610e",
-    "checks/all_pairs.json.gz": "e59a402576a4e77978d4ee6c723b4e6684ccaa359ee8101b2b723347dfb29e1a",
-    "checks/report.json": "ac228d39ea845744f87eff88b4c382647853f264b46a4c2eb4faad1fa6a5a5fa",
+    "checks/all_pairs.json.gz": "ec781d2c10f8a137693eca96a483906650b27a313fe55c39448af0be7b0f3f4e",
+    "checks/tool_regressions.json": "4d3386d2759d5360ee07862d84bdbfb69a2eee6e445b37090b0b65cad7d04e33",
+    "checks/report.json": "be29275b99f34cc46fb535fc5cbe1c119d21ef34961b6fb3f178d2de8dd968ba",
+    "checks/geometry_preservation.json": "66600368db3f527358d6f551caa8925f2880778a5f87f2907614ed8c7df0d4b8",
+    "checks/native_dynamic_recheck.json": "084a7cf6101650879bf3bd989c35209ce1d30f36618afd94c50ed56e83ddbdc6",
     "A/isometric.svg": "60ebefb68a6998085ee0a18bffd74d57d1f5fc672b6828d5a69c26d97da86349",
-    "A/isometric.pdf": "76eeea8ec02973f74e9418d885df51e482940e5a7d986dee448bb573a49ac983",
+    "A/isometric.pdf": "5ffbc00da6262a997f9333d3a3dcc955b108ae2548e0063ad23f2bef01906a6f",
     "A/section_y0.svg": "55ce9a389c0ed979666207fd170ac2f9eac3607f5634fec4070f248c571284d8",
-    "A/manifest.json": "3220329a553be0a541b316b15533151b60d1bd30c97c7ebc32588c037092fddf",
+    "A/manifest.json": "d392fae9573e5c01be15fb90c89ab90f1e0cdf21aded2076a21c0d47354a9c02",
     "A/front.png": "072f958e67ab6d15b1a40e0730cec961107ebbd646219739414861b717e9ea44",
-    "A/side.pdf": "1f9cec2483ef281ea6c3f6ad513a640c50733d7f052bd16d2e1c3f66783f5dc3",
-    "A/top.pdf": "4df4498a7bd3ea302622779688e465890ae1bf705c20e29d3fc1982cbb52568e",
+    "A/side.pdf": "e85431ba465f01f2ead18bf08933eeb5bfa66e200894d317722811a3d0621ba8",
+    "A/top.pdf": "46d049f5fe2b9611c7319e2c88bff9300858b0ad044077eb02145070e6edd73c",
     "A/load_path.svg": "81551d243c35652cae935c6cb50dcf6c0373681a165b22221ef3f2c6dfc1c99d",
     "A/side.png": "e93d61ae430206080fb6dd4d5b34dea8d4cddf811aa44df43f8819367a9220de",
-    "A/layout_A.step": "9a0771cc20db0b382f73e210e4aeebabb7aa7901ac9ac9c6eaf3d39fa275adae",
+    "A/layout_A.step": "1ea466dd5aaae94f4b0cfb4baf7afc6698824e0546bbbc6ee57e505c7d741633",
     "A/isometric.png": "5840401f06afc79a21770eafc44dfc00f92cdf0c2c1aa0c0ef09ae851b3f7e0a",
     "A/side.svg": "fdac0f0b46a6be15f75939ab3ad9152e155a4e853fcb6778d2b657c682594b2a",
     "A/top.svg": "c518f8cc4fb276be69e694292f9eaecf675c8291deacfadcd571adbb204fb992",
     "A/front.svg": "a372b839370395b69b228b6c22e467b28c44c93ef87124ca45d9b0d2e8c24c26",
-    "A/layout_A.FCStd": "3f2fe8d87e488313a08053c8631b3ffc5b0ad8da5bde74fb05053482f4e86264",
+    "A/layout_A.FCStd": "cf3b24b48032518ee5291c656f4d04eaff5d41c884ab42ef2f1fe189beb409ef",
     "A/top.png": "e2c486f5da980ce17ec2d6b12f53966e0c156d4a61d7525438f26f4bc5d1db27",
     "A/phase_views.svg": "7a5ef1ee67b43f90a434a0d0af7af1b626fce24b6748ec3c5d22bc5c4bf47feb",
-    "A/front.pdf": "057629ce1e1dc18a18c6c0b36d1a5236a9b5c1c73921c89a594f5177eba2c217"
+    "A/front.pdf": "3efa44b6ae9c270a6a0ceab84b76dee0685ea58f12e3cc9ecb0beabab56b6727"
   },
   "reproduce_semantic": {
     "A": "PASS",
@@ -312,13 +367,20 @@
       "return_matches": true
     }
   ],
+  "tool_blockers": "R5-CAD-TOOL-B01/B02 OPEN pending independent RECHECK",
   "whole_assembly": "not accepted; assumed interferences and unknown conditions remain",
   "source_hashes": {
-    "cad/layout/run_all.py": "70a3bf5f6c0172e20ea13377ac744465fa4b4215d7b515b67383bcc2090ebaba",
+    "cad/layout/run_all.py": "6adae46acf8dfdd664900d60f6b07ae18c66fd9edea8970469dc6bf6a3559861",
     "cad/layout/build_model.py": "e4cb5d776b156b8397a249b1fa3952d35191806e373d7f26162ec4b7ba49c05a",
-    "cad/layout/check_layout.py": "efea854a3a3106a36036f78e9b0046214edfa7b256fa2ebe907c881865fad441",
+    "cad/layout/check_layout.py": "0ca76becdb4f9ff0c768e37af3e5be575e5b09695405ff4382c7e8f52da33edc",
     "cad/layout/layout_common.py": "4e4f80e384f43a26362207258c3c6a208d943ef016965a28c2d3ebcf2f557a90",
+    "cad/layout/layout_lifecycle.py": "641670bd2fad5a4276d4a791dc009b739fb9bf8460ba87fd66fd3a8c9a3e4193",
+    "cad/layout/cad_validation.py": "5d6a26632533bdeec0ce245148ba31de9b40a2dae47e0ca414bd897c8599e1e7",
+    "cad/layout/geometry_preservation.py": "274ec6581084ecce53c323be44930cee2783a74d14d63aa0e3df0a6a310c423d",
+    "cad/layout/tool_regressions.py": "38d4f07c3e9c08d0309392ec7f33e20f468057aeab404818cef4b3ba198b6566",
     "cad/layout/test_layout.py": "bf22ea7a9f0a8b94e2d3a8c3e82521159188c5f5c608a29e85f09790445b8e2c",
+    "cad/layout/test_lifecycle.py": "214a607fbf6a4482af5e46e1f0f380162fdda6750f79b10eed8ef23aed0e10f5",
+    "cad/layout/test_cad_artifacts.py": "2519b35a2be63cfa9a99269ab97173fe41df979dfa31e00703ff09f8f4142cc6",
     "cad/layout/conditional_inputs.assumed.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
     "params/registry.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651"
   }
