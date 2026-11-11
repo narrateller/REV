@@ -394,3 +394,8 @@ R1 принял документальную карту с WARNING после RE
 ## После PR #18: новая задача нормативных источников
 
 PR #18 принят в main `2b26e56f0d35119631bba959da50b32cccaac621`: T-r3-safety-01-01 DONE только как документальная карта с WARNING. Предыдущие записи IN_REVIEW относятся к моменту до интеграции. Отдельная T-r3-norms-01 READY; claim r3-safety-01 PROPOSED / PENDING_MAIN, lease предложен до 2026-11-12T08:12:00Z; исследование NOT_STARTED до принятия. Капсула handoffs/T-r3-norms-01/r3-safety-01.md. Место эксплуатации UNKNOWN; B01–B03, R5-OBS-01…04 и G1 OPEN.
+
+
+## Нормативные источники: claim принят
+
+T-r3-norms-01 IN_REVIEW: claim `3345b050966fc4e52b317e64381c0dd7bc087b2a` принят PR #19 на `d499216856b3bdbd65f7f23584be80ab6108576a`; owner r3-safety-01, lease до 2026-11-12T08:12:00Z. Подготовлены входной акт и реестр кандидатов в verification/r3_normative_scope/; независимая проверка NOT_RUN. Прежние PENDING_MAIN — история до PR #19. Место эксплуатации, применимость и обязательность UNKNOWN; B01–B03 и G1 OPEN.
