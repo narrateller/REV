@@ -1,0 +1,73 @@
+[
+  {
+    "id": "PREMATURE_REMOVE",
+    "expected": "not CONTINUOUS: rear 0 is before exit 2",
+    "actual": [
+      {
+        "from": "EJECT",
+        "to": "RESET",
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": true,
+        "removed": [
+          "product_B"
+        ],
+        "created": []
+      }
+    ],
+    "status": "CONTINUOUS"
+  },
+  {
+    "id": "UNSUPPORTED_CREATE_IGNORED",
+    "expected": "UNKNOWN/INVALID rather than CONTINUOUS",
+    "actual": [
+      {
+        "from": "EJECT",
+        "to": "RESET",
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": true,
+        "removed": [],
+        "created": []
+      }
+    ],
+    "status": "CONTINUOUS"
+  },
+  {
+    "id": "UNSUPPORTED_CREATE_BLOCKED_NOT_INDETERMINATE",
+    "expected": "explicit unsupported INDETERMINATE evidence",
+    "actual": [
+      {
+        "from": "before",
+        "to": "after",
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": false,
+        "removed": [],
+        "created": [
+          "fragment"
+        ]
+      }
+    ],
+    "status": "BLOCKED"
+  },
+  {
+    "id": "NO_CAD_FILES_STILL_ADAPTER_PASS",
+    "expected": "CAD existence/read/shape check required for claim actual CAD match",
+    "actual": {
+      "A": {
+        "nominal_bounds_match": "PASS",
+        "solid_count": 65,
+        "scope": "boxes exact; cylinder bounding separation only; no manufacturing tolerance validated"
+      },
+      "B": {
+        "nominal_bounds_match": "PASS",
+        "solid_count": 61,
+        "scope": "boxes exact; cylinder bounding separation only; no manufacturing tolerance validated"
+      }
+    }
+  }
+]
