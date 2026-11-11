@@ -1,0 +1,95 @@
+{
+  "error": "command failed: /usr/bin/python3 cad/layout/check_layout.py --inputs cad/layout/conditional_inputs.assumed.json --models cad/build/research_layout --out cad/build/research_layout/checks\nTraceback (most recent call last):\n  File \"/workspace/REV/cad/layout/check_layout.py\", line 157, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/workspace/REV/cad/layout/check_layout.py\", line 125, in main\n    adapter=check_cad_adapter(data,args.models,args.inputs)\n  File \"/workspace/REV/cad/layout/check_layout.py\", line 50, in check_cad_adapter\n    raise ValueError('CAD/adapter bounds mismatch '+c['id'])\nValueError: CAD/adapter bounds mismatch cylinder_barrel\n",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.008s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/rev_linked_scene",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.472s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/kinematic_press",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.304s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "cad/build/research_layout/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 65 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "cad/build/research_layout/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 61 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "cad/build/research_layout",
+        "--out",
+        "cad/build/research_layout/checks"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/REV/cad/layout/check_layout.py\", line 157, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/workspace/REV/cad/layout/check_layout.py\", line 125, in main\n    adapter=check_cad_adapter(data,args.models,args.inputs)\n  File \"/workspace/REV/cad/layout/check_layout.py\", line 50, in check_cad_adapter\n    raise ValueError('CAD/adapter bounds mismatch '+c['id'])\nValueError: CAD/adapter bounds mismatch cylinder_barrel\n"
+    }
+  ]
+}

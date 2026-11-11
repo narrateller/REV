@@ -1,0 +1,1052 @@
+{
+  "classification": "ASSUMED_RESEARCH_ONLY_NOT_REV",
+  "source_commit_inputs": "0d587fa226fee78abc7c86752adee825febb164d",
+  "input_sha256": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
+  "sha256": {
+    "cad/layout/check_layout.py": "efea854a3a3106a36036f78e9b0046214edfa7b256fa2ebe907c881865fad441",
+    "cad/layout/build_model.py": "e4cb5d776b156b8397a249b1fa3952d35191806e373d7f26162ec4b7ba49c05a",
+    "cad/layout/layout_common.py": "4e4f80e384f43a26362207258c3c6a208d943ef016965a28c2d3ebcf2f557a90",
+    "models/rev_linked_scene/engine.py": "aa8190e9b4addc48d6a6dc1627c51bd7c2e9a5305870db777bc51874bf278708",
+    "cad/layout/conditional_inputs.assumed.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
+    "params/registry.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651",
+    "cad/layout/model_build_task.md": "26334f21795847a19aa23e6a4e71ddc30ecf1c3db1ab574530705587c6d436ad"
+  },
+  "adapter_scope": "exact boxes and linear translations only; cylinders use conservative bounding separation; overlap for curved shapes INDETERMINATE",
+  "cad_adapter": {
+    "A": {
+      "nominal_bounds_match": "PASS",
+      "solid_count": 65,
+      "scope": "boxes exact; cylinder bounding separation only; no manufacturing tolerance validated"
+    },
+    "B": {
+      "nominal_bounds_match": "PASS",
+      "solid_count": 61,
+      "scope": "boxes exact; cylinder bounding separation only; no manufacturing tolerance validated"
+    }
+  },
+  "scenarios": [
+    {
+      "variant": "A",
+      "case": "sufficient",
+      "ejection_phase": "A-PRESS-OUT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "channel_bottom",
+        "channel_left",
+        "channel_right",
+        "channel_top",
+        "product_A",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "NO_COLLISION",
+      "required_link": "LINK_CONFIRMED",
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "final_product_rear": "9/4",
+      "exit_boundary": "11/5",
+      "path_transition": "ALLOWED_FOR_PATH_SUBSET",
+      "path_ready": "RESTORED_FOR_PATH_SUBSET",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 13593,
+        "ALLOWED_CONTACT": 4,
+        "COLLISION": 729,
+        "INDETERMINATE": 42,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [
+        {
+          "type": "REMOVE",
+          "id": "product_A",
+          "time": "4",
+          "final_rear": "9/4",
+          "exit_boundary": "11/5",
+          "basis": "conditional path subset only; whole assembly not validated"
+        }
+      ],
+      "continuity": [
+        {
+          "from": "A-READY",
+          "to": "A-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-FILL",
+          "to": "A-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-ISOLATE",
+          "to": "A-PRESS-OUT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-PRESS-OUT",
+          "to": "A-RETURN",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [
+            "product_A"
+          ],
+          "created": []
+        },
+        {
+          "from": "A-RETURN",
+          "to": "A-RESET-INLET",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-RESET-INLET",
+          "to": "A-READY-RETURNED",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "CONTINUOUS",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 7,
+      "pair_rows": 14368
+    },
+    {
+      "variant": "A",
+      "case": "short",
+      "ejection_phase": "A-PRESS-OUT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "channel_bottom",
+        "channel_left",
+        "channel_right",
+        "channel_top",
+        "product_A",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "NO_COLLISION",
+      "required_link": "LINK_CONFIRMED",
+      "geometry": "SHORT_STROKE",
+      "final_product_rear": "23/20",
+      "exit_boundary": "11/5",
+      "path_transition": "BLOCKED",
+      "path_ready": "NOT_CONFIRMED",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 7876,
+        "ALLOWED_CONTACT": 4,
+        "COLLISION": 416,
+        "INDETERMINATE": 24,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [],
+      "continuity": [
+        {
+          "from": "A-READY",
+          "to": "A-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-FILL",
+          "to": "A-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-ISOLATE",
+          "to": "A-PRESS-OUT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "CONTINUOUS",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 4,
+      "pair_rows": 8320
+    },
+    {
+      "variant": "A",
+      "case": "collision",
+      "ejection_phase": "A-PRESS-OUT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "channel_bottom",
+        "channel_left",
+        "channel_right",
+        "channel_top",
+        "product_A",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "COLLISION",
+      "required_link": "LINK_CONFIRMED",
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "final_product_rear": "9/4",
+      "exit_boundary": "11/5",
+      "path_transition": "BLOCKED",
+      "path_ready": "NOT_CONFIRMED",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 8133,
+        "ALLOWED_CONTACT": 4,
+        "COLLISION": 418,
+        "INDETERMINATE": 25,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [],
+      "continuity": [
+        {
+          "from": "A-READY",
+          "to": "A-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-FILL",
+          "to": "A-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-ISOLATE",
+          "to": "A-PRESS-OUT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "CONTINUOUS",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 4,
+      "pair_rows": 8580
+    },
+    {
+      "variant": "A",
+      "case": "unknown",
+      "ejection_phase": "A-PRESS-OUT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "channel_bottom",
+        "channel_left",
+        "channel_right",
+        "channel_top",
+        "product_A",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "INDETERMINATE",
+      "required_link": "LINK_INDETERMINATE",
+      "geometry": "INDETERMINATE",
+      "final_product_rear": "None",
+      "exit_boundary": "11/5",
+      "path_transition": "INDETERMINATE",
+      "path_ready": "NOT_CONFIRMED",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 7813,
+        "ALLOWED_CONTACT": 3,
+        "COLLISION": 416,
+        "INDETERMINATE": 88,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [],
+      "continuity": [
+        {
+          "from": "A-READY",
+          "to": "A-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-FILL",
+          "to": "A-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "A-ISOLATE",
+          "to": "A-PRESS-OUT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [
+            "product_A"
+          ],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "INDETERMINATE",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 4,
+      "pair_rows": 8320
+    },
+    {
+      "variant": "B",
+      "case": "sufficient",
+      "ejection_phase": "B-EJECT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "end_stop",
+        "lock",
+        "product_B",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "NO_COLLISION",
+      "required_link": "LINK_CONFIRMED",
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "final_product_rear": "27/20",
+      "exit_boundary": "5/4",
+      "path_transition": "ALLOWED_FOR_PATH_SUBSET",
+      "path_ready": "RESTORED_FOR_PATH_SUBSET",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 22247,
+        "ALLOWED_CONTACT": 8,
+        "COLLISION": 1157,
+        "INDETERMINATE": 78,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [
+        {
+          "type": "REMOVE",
+          "id": "product_B",
+          "time": "8",
+          "final_rear": "27/20",
+          "exit_boundary": "5/4",
+          "basis": "conditional path subset only; whole assembly not validated"
+        }
+      ],
+      "continuity": [
+        {
+          "from": "B-READY",
+          "to": "B-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-FILL",
+          "to": "B-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-ISOLATE",
+          "to": "B-PRESS",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-PRESS",
+          "to": "B-UNLOAD",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-UNLOAD",
+          "to": "B-OPEN-LOCK",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-LOCK",
+          "to": "B-OPEN-STOP",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-STOP",
+          "to": "B-EJECT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-EJECT",
+          "to": "B-RETURN",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [
+            "product_B"
+          ],
+          "created": []
+        },
+        {
+          "from": "B-RETURN",
+          "to": "B-RESET-STOP",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-RESET-STOP",
+          "to": "B-RESET-LOCK",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-RESET-LOCK",
+          "to": "B-RESET-INLET",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-RESET-INLET",
+          "to": "B-READY-RETURNED",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "CONTINUOUS",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 13,
+      "pair_rows": 23490
+    },
+    {
+      "variant": "B",
+      "case": "short",
+      "ejection_phase": "B-EJECT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "end_stop",
+        "lock",
+        "product_B",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "NO_COLLISION",
+      "required_link": "LINK_CONFIRMED",
+      "geometry": "SHORT_STROKE",
+      "final_product_rear": "13/20",
+      "exit_boundary": "5/4",
+      "path_transition": "BLOCKED",
+      "path_ready": "NOT_CONFIRMED",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 13874,
+        "ALLOWED_CONTACT": 8,
+        "COLLISION": 710,
+        "INDETERMINATE": 48,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [],
+      "continuity": [
+        {
+          "from": "B-READY",
+          "to": "B-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-FILL",
+          "to": "B-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-ISOLATE",
+          "to": "B-PRESS",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-PRESS",
+          "to": "B-UNLOAD",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-UNLOAD",
+          "to": "B-OPEN-LOCK",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-LOCK",
+          "to": "B-OPEN-STOP",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-STOP",
+          "to": "B-EJECT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "CONTINUOUS",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 8,
+      "pair_rows": 14640
+    },
+    {
+      "variant": "B",
+      "case": "collision",
+      "ejection_phase": "B-EJECT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "end_stop",
+        "lock",
+        "product_B",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "COLLISION",
+      "required_link": "LINK_CONFIRMED",
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "final_product_rear": "27/20",
+      "exit_boundary": "5/4",
+      "path_transition": "BLOCKED",
+      "path_ready": "NOT_CONFIRMED",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 14359,
+        "ALLOWED_CONTACT": 8,
+        "COLLISION": 712,
+        "INDETERMINATE": 49,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [],
+      "continuity": [
+        {
+          "from": "B-READY",
+          "to": "B-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-FILL",
+          "to": "B-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-ISOLATE",
+          "to": "B-PRESS",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-PRESS",
+          "to": "B-UNLOAD",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-UNLOAD",
+          "to": "B-OPEN-LOCK",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-LOCK",
+          "to": "B-OPEN-STOP",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-STOP",
+          "to": "B-EJECT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "CONTINUOUS",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 8,
+      "pair_rows": 15128
+    },
+    {
+      "variant": "B",
+      "case": "unknown",
+      "ejection_phase": "B-EJECT",
+      "path_subset": [
+        "chamber_bottom",
+        "chamber_left",
+        "chamber_right",
+        "chamber_top_front",
+        "chamber_top_rear",
+        "end_stop",
+        "lock",
+        "product_B",
+        "punch",
+        "research_obstacle"
+      ],
+      "path_collision": "INDETERMINATE",
+      "required_link": "LINK_INDETERMINATE",
+      "geometry": "INDETERMINATE",
+      "final_product_rear": "None",
+      "exit_boundary": "5/4",
+      "path_transition": "INDETERMINATE",
+      "path_ready": "NOT_CONFIRMED",
+      "whole_assembly_transition": "BLOCKED_ASSUMED_INTERFERENCES",
+      "whole_assembly_ready": "INDETERMINATE",
+      "counts": {
+        "CLEAR": 13815,
+        "ALLOWED_CONTACT": 7,
+        "COLLISION": 710,
+        "INDETERMINATE": 108,
+        "INVALID_INPUT": 0
+      },
+      "lifecycle": [],
+      "continuity": [
+        {
+          "from": "B-READY",
+          "to": "B-FILL",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-FILL",
+          "to": "B-ISOLATE",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-ISOLATE",
+          "to": "B-PRESS",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-PRESS",
+          "to": "B-UNLOAD",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-UNLOAD",
+          "to": "B-OPEN-LOCK",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-LOCK",
+          "to": "B-OPEN-STOP",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        },
+        {
+          "from": "B-OPEN-STOP",
+          "to": "B-EJECT",
+          "time_contiguous": true,
+          "mismatches": [],
+          "unknown": [
+            "product_B"
+          ],
+          "lifecycle_valid": true,
+          "removed": [],
+          "created": []
+        }
+      ],
+      "continuity_status": "INDETERMINATE",
+      "physical": {
+        "unloading": "UNKNOWN",
+        "holding": "UNKNOWN",
+        "forces": "UNKNOWN",
+        "safety": "UNKNOWN"
+      },
+      "phase_count": 8,
+      "pair_rows": 14640
+    }
+  ],
+  "services": [
+    {
+      "variant": "A",
+      "operation": "conditional vertical extraction cylinder_barrel",
+      "counts": {
+        "CLEAR": 61,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 0,
+        "INDETERMINATE": 3,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "A",
+      "operation": "conditional vertical extraction rod",
+      "counts": {
+        "CLEAR": 61,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 0,
+        "INDETERMINATE": 3,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "A",
+      "operation": "conditional vertical extraction doser_slide",
+      "counts": {
+        "CLEAR": 56,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 8,
+        "INDETERMINATE": 0,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "A",
+      "operation": "conditional vertical extraction clamp_L",
+      "counts": {
+        "CLEAR": 61,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 3,
+        "INDETERMINATE": 0,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "B",
+      "operation": "conditional vertical extraction cylinder_barrel",
+      "counts": {
+        "CLEAR": 57,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 0,
+        "INDETERMINATE": 3,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "B",
+      "operation": "conditional vertical extraction rod",
+      "counts": {
+        "CLEAR": 57,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 0,
+        "INDETERMINATE": 3,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "B",
+      "operation": "conditional vertical extraction doser_slide",
+      "counts": {
+        "CLEAR": 52,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 8,
+        "INDETERMINATE": 0,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "B",
+      "operation": "conditional vertical extraction end_stop",
+      "counts": {
+        "CLEAR": 55,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 5,
+        "INDETERMINATE": 0,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    },
+    {
+      "variant": "B",
+      "operation": "conditional vertical extraction lock",
+      "counts": {
+        "CLEAR": 59,
+        "ALLOWED_CONTACT": 0,
+        "COLLISION": 1,
+        "INDETERMINATE": 0,
+        "INVALID_INPUT": 0
+      },
+      "real_service_safety": "UNKNOWN"
+    }
+  ],
+  "unsupported_service_and_zones": [
+    {
+      "operation": "insert extraction and clamp_R removal",
+      "status": "INDETERMINATE",
+      "reason": "separate insert geometry and removal sequence not defined"
+    },
+    {
+      "operation": "guard opening and operator approach",
+      "status": "INDETERMINATE",
+      "reason": "rotation, hinges, opening envelopes and approach dimensions UNKNOWN"
+    },
+    {
+      "operation": "lifting and installation",
+      "status": "INDETERMINATE",
+      "reason": "lifting points, mass, rigging, centre of gravity and installation path UNKNOWN"
+    },
+    {
+      "operation": "hose loops and connections",
+      "status": "INDETERMINATE",
+      "reason": "routing envelope is a solid placeholder, flexibility and ports UNKNOWN"
+    },
+    {
+      "operation": "operating zone and downstream receiving capacity",
+      "status": "INDETERMINATE",
+      "reason": "extent, capacity and site interface UNKNOWN; output half-space criterion only"
+    }
+  ],
+  "unresolved": [
+    "real mounting holes/contacts, guide surfaces and load paths",
+    "full rod/barrel geometry during stroke",
+    "rotating doser, rotating stop, flexible hoses",
+    "real tolerances and force/material model",
+    "safe access, guard rotation and lifting procedure",
+    "whole-press READY not demonstrated; static proxy interferences retained"
+  ],
+  "files": {
+    "all_pairs.json.gz": "e59a402576a4e77978d4ee6c723b4e6684ccaa359ee8101b2b723347dfb29e1a",
+    "service_pairs.json.gz": "23a46c191d8bdeac6c4e5efb3f0efebe96856404893758c9a585626af5c4610e"
+  }
+}
