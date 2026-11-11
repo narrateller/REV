@@ -410,3 +410,7 @@ R1 принимает результат в ограниченной докум�
 ## Реестр первоисточников R2 — передача на review
 
 R2 / r2-material-01 подготовил verification/r2_primary_sources/input_audit.md и registry.md; T-r2-sources-01 IN_REVIEW до независимой проверки точного commit результата. Доступные тексты прочитаны только в указанных разделах, редакции и применимость NOT_RUN, по физическим металлическим включениям остаётся пробел. NREL 42621/42620 повторно CONNECT 403. Численные пределы UNKNOWN; пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## OUTPUT-review T-r2-sources-01 — REV-R5-R2-SOURCES-01-001
+
+R5 `r5-implementation-02` проверил реестр на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9: REJECT_WITH_BLOCKER для независимой сверки разделов; R5-SRC-B01 OPEN, ссылки OSTI/NREL в среде дают CONNECT 403, тексты и редакции NOT_RUN. R5-SRC-W01/02 для дальнейшей работы. См. verification/r5_r2_sources_review/review.md; B01–B03 и G1 OPEN.

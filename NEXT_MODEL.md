@@ -136,3 +136,7 @@ REV-R5-R2-MATERIAL-01-001, reviewer `r5-implementation-02`, проверенны
 ## Результат RECHECK ответа R2
 
 REV-R5-R2-MATERIAL-RECHECK-01-001: W01–W04 CLOSED в области документального ответа на fcbeefae46b4fd999c194bd214b5dda7c476b0ec; WARNING. Перед выбором методик и утверждением программы необходимо проверить первоисточники, компетентность и применимость с лабораторией, обосновать охват/обнаруживаемость и потери; см. verification/r5_r2_material_recheck_01/review.md. Пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## Независимый review реестра источников R2
+
+REV-R5-R2-SOURCES-01-001: REJECT_WITH_BLOCKER для независимой сверки заявленных разделов на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9; OSTI и NREL в этой среде дали CONNECT 403. R5-SRC-B01 OPEN до получения проверяемых копий/доступа и независимого чтения; R5-SRC-W01/02 — дальнейшая работа. См. verification/r5_r2_sources_review/review.md. Пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.

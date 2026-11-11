@@ -1077,3 +1077,93 @@ closure_criteria:
 - Подготовить и независимо проверить программу
 supersedes: null
 ```
+
+## REV-R5-R2-SOURCES-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-SOURCES-01-001
+kind: OUTPUT
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T00:50:28Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 не автор входного акта и реестра R2; ранее проверял предшествующие
+  документы. Независимость относится к текущему результату.
+reviewed_commit: 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9
+scope: Документальный OUTPUT-review реестра и попытки доступа к источникам; чтение
+  источников, лаборатория и методики не проверены
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/input_audit.md
+  sha256: 156163594860133e8d23a3fe00cbd6a654a719b6371e520ae19e84a60819a1f8
+- path: verification/r2_primary_sources/registry.md
+  sha256: 726c7185438e6a59d033caed3deff90f622f3c1a95c9abb8790784bd05c7b928
+checks:
+- id: CHK-SRC-01
+  method: inspection
+  expected: Установить доступность и независимо проверить прочитанные R2 разделы SRC-01…04
+  observed: Четыре запроса OSTI CONNECT 403, документы не получены
+  reasoning: Описания, SHA PDF и редакции независимо сверить невозможно
+  result: NOT_RUN
+- id: CHK-SRC-02
+  method: inspection
+  expected: Независимо прочитать три NREL LAP
+  observed: Три запроса CONNECT 403
+  reasoning: Полные тексты и их редакции недоступны в текущей среде
+  result: NOT_RUN
+- id: CHK-SRC-03
+  method: inspection
+  expected: Пробел по физическим включениям отделён от анализа растворённых металлов
+  observed: В реестре явно указан UNKNOWN/NOT_RUN и различие с химическим анализом
+  reasoning: Вывод относится к формулировке реестра; поиск OSTI самостоятельно не
+    проверен
+  result: PASS
+- id: CHK-SRC-04
+  method: inspection
+  expected: Данные других материалов не присвоены REV
+  observed: Реестр маркирует другие матрицы, ограничения и неизвестную пригодность
+  reasoning: Оценён текст реестра, не недоступные документы
+  result: PASS
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_sources_review/review.md
+  impact: Независимая сверка прочитанных разделов и редакций не выполнена из-за CONNECT
+    403
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-W01
+  severity: WARNING
+  evidence: verification/r5_r2_sources_review/review.md
+  impact: Нет подтверждённого метода физических металлических включений
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-W02
+  severity: WARNING
+  evidence: verification/r5_r2_sources_review/review.md
+  impact: Требуется проверка редакций и лабораторной пригодности
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Документальная работа с явно непроверенными ссылками и ограничениями,
+  получение первоисточников
+excluded_claims:
+- Подтверждение заявленных R2 разделов, хэшей PDF или редакций
+- Утверждение методов, стандартов или лабораторной пригодности
+- Физические испытания, закрытие B01–B03 и G1
+closure_criteria:
+- Получить доступные копии, проверить хэши, названия, версии и прочесть конкретные
+  заявленные разделы
+- Независимо повторить сверку и зафиксировать недоступные части
+supersedes: null
+```
