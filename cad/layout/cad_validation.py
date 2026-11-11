@@ -6,6 +6,7 @@ manufacturing tolerances or permitted physical clearances.
 import argparse,json,math,subprocess,sys,tempfile,zipfile
 from pathlib import Path
 from layout_common import ROOT,load,selected,bounds,value,digest
+from query_volumes import expected_queries
 
 
 class CadValidationError(ValueError):
@@ -63,6 +64,35 @@ def same_shape(actual, expected):
     return close_number(common.Volume,actual.Volume,True) and close_number(common.Volume,expected.Volume,True)
 
 
+def validate_queries(doc,data,variant,manifest,App,Part):
+    expected=expected_queries(data,variant);names=set(expected)
+    declared=manifest['query_volumes']
+    if not isinstance(declared,list) or len(declared)!=len(names) or set(declared)!=names:fail('manifest query registry differs from canonical inputs '+variant)
+    group=doc.getObject('QueryVolumes')
+    if group is None or group.TypeId!='App::Part':fail('native QueryVolumes group missing/unsupported '+variant)
+    members=list(group.Group);actual_names=[o.Name for o in members]
+    if len(actual_names)!=len(names) or set(actual_names)!=names:fail('native query registry differs from canonical inputs '+variant)
+    tagged={o.Name for o in doc.Objects if getattr(o,'Role',None)=='QUERY_NOT_SOLID'}
+    if tagged!=names:fail('native query role/registry mismatch '+variant)
+    evidence=[]
+    for name,definition in expected.items():
+        obj=doc.getObject(name)
+        if not hasattr(obj,'Shape') or obj.Shape.isNull():fail('empty native query geometry '+variant+'/'+name)
+        if obj.TypeId!='Part::Box':fail('unsupported native query shape/type '+variant+'/'+name)
+        if obj.Role!=definition['role']:fail('native query role mismatch '+variant+'/'+name)
+        position=[float(x)*1000 for x in definition['lo_m']];size=[float(x)*1000 for x in definition['size_m']]
+        for prop,expected_value in zip(('Length','Width','Height'),size):
+            if not close_number(getattr(obj,prop).Value,expected_value):fail('native query dimension mismatch '+variant+'/'+name+'/'+prop)
+        placement=App.Placement(App.Vector(*position),App.Rotation())
+        # Check both local and global placement so moving a parent cannot escape.
+        for label,actual in (('local',obj.Placement),('global',obj.getGlobalPlacement())):
+            if not all(close_number(a,b) for a,b in zip(actual.toMatrix().A,placement.toMatrix().A)):fail('native query '+label+' placement mismatch '+variant+'/'+name)
+        expected_shape=Part.makeBox(*size,App.Vector(*position))
+        if not same_shape(obj.Shape,expected_shape):fail('native query BRep geometry mismatch '+variant+'/'+name)
+        evidence.append({'id':name,'role':obj.Role,'source':definition['source'],'parameter_ids':definition['parameter_ids'],'expected_position_mm':position,'expected_size_mm':size,'native_bounds_mm':shape_bounds(obj.Shape),'native_volume_mm3':obj.Shape.Volume,'local_and_global_placement':'PASS','dimensions':'PASS','native_shape_match':'PASS'})
+    return names,evidence
+
+
 def native_validate(input_path,models):
     sys.path.append('/usr/lib/freecad-python3/lib')
     import FreeCAD as App
@@ -75,14 +105,14 @@ def native_validate(input_path,models):
             if archive.testzip() is not None or 'Document.xml' not in archive.namelist():fail('invalid FCStd archive')
         doc=None
         try:
-            doc=App.openDocument(str(path));doc.recompute()
+            doc=App.openDocument(str(path))
+            validate_queries(doc,data,variant,manifest,App,Part)
+            doc.recompute()
+            queries,query_evidence=validate_queries(doc,data,variant,manifest,App,Part)
             objects={o.Name:o for o in doc.Objects if hasattr(o,'ResearchStatus')}
             expected_ids={c['id'] for c in selected(data,variant)}
             if set(objects)!=expected_ids:fail('FCStd body registry differs from inputs '+variant)
             if {o.Name for o in doc.Assembly.Group}!=expected_ids:fail('FCStd Assembly registry differs '+variant)
-            queries={o.Name for o in doc.QueryVolumes.Group}
-            if queries!=set(manifest['query_volumes']):fail('FCStd query registry mismatch '+variant)
-            if any(getattr(o,'Role',None)!='QUERY_NOT_SOLID' for o in doc.QueryVolumes.Group):fail('invalid query volume role')
             solids={o.Name for o in doc.Objects if hasattr(o,'Shape') and not o.Shape.isNull() and o.Name not in queries and o.TypeId!='App::Part' and o.Shape.Solids}
             if solids!=expected_ids:fail('unexpected/missing unclassified FCStd solids '+variant)
             step=Part.read(str(step_path))
@@ -107,7 +137,7 @@ def native_validate(input_path,models):
                 evidence.append({'id':name,'native_bounds_mm':native,'native_volume_mm3':obj.Shape.Volume,'FCStd_shape_match':'PASS','STEP_shape_match':'PASS'})
             for file in (path,step_path):
                 if digest(file)!=manifest['exports'][file.name]:fail('artifact changed during validation '+file.name)
-            results[variant]={'status':'PASS','nominal_bounds_match':'PASS','solid_count':len(objects),'actual_FCStd_reopen_recompute':'PASS','actual_STEP_shape_correspondence':'PASS','files':{file.name:digest(file) for file in (path,step_path)},'objects':evidence,'scope':'persisted ASSUMED native primitives/STEP checked; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance','FreeCAD_version':App.Version()[:3]}
+            results[variant]={'status':'PASS','nominal_bounds_match':'PASS','solid_count':len(objects),'actual_FCStd_reopen_recompute':'PASS','actual_STEP_shape_correspondence':'PASS','query_geometry_match':'PASS','query_count':len(query_evidence),'query_volumes':query_evidence,'files':{file.name:digest(file) for file in (path,step_path)},'objects':evidence,'scope':'persisted ASSUMED native primitives/STEP and all canonical QueryVolumes checked before/after recompute; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance','FreeCAD_version':App.Version()[:3]}
         finally:
             if doc is not None:App.closeDocument(doc.Name)
     return results

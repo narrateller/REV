@@ -14,7 +14,7 @@
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 2.318s\n\nOK\n"
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 7.961s\n\nOK\n"
     },
     {
       "command": [
@@ -29,7 +29,7 @@
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.404s\n\nOK\n"
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.438s\n\nOK\n"
     },
     {
       "command": [
@@ -44,7 +44,7 @@
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.295s\n\nOK\n"
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.277s\n\nOK\n"
     },
     {
       "command": [
@@ -100,7 +100,7 @@
         "--variant",
         "A",
         "--out",
-        "/tmp/rev-layout-repeat-n8wbzkwr/A"
+        "/tmp/rev-layout-repeat-u7p2zfn3/A"
       ],
       "exit_code": 0,
       "stdout": "A 65 valid editable bodies; reopened and recomputed\n",
@@ -115,7 +115,7 @@
         "--variant",
         "B",
         "--out",
-        "/tmp/rev-layout-repeat-n8wbzkwr/B"
+        "/tmp/rev-layout-repeat-u7p2zfn3/B"
       ],
       "exit_code": 0,
       "stdout": "B 61 valid editable bodies; reopened and recomputed\n",
@@ -134,6 +134,32 @@
       ],
       "exit_code": 0,
       "stdout": "33 lifecycle cases, 14 CAD negative cases: PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/query_regressions.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "/workspace/REV/cad/build/research_layout",
+        "--out",
+        "/workspace/REV/cad/build/research_layout/checks/query_regressions.json"
+      ],
+      "exit_code": 0,
+      "stdout": "64 QueryVolumes negative cases: PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "verification/r5_cad_tool_fix_recheck/lifecycle_probe.py",
+        "/workspace/REV",
+        "/workspace/REV/cad/build/research_layout/checks/lifecycle_closed_recheck.json"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n  {\n    \"id\": \"original_premature_remove\",\n    \"expected\": \"BLOCKED\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"BLOCKED\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"0\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"BLOCKED\",\n          \"applied\": false,\n          \"reasons\": [\n            \"premature REMOVE: product has not fully exited\",\n            \"trusted exit boundary missing\",\n            \"conditional receiving envelope missing\",\n            \"required link not confirmed\",\n            \"path clearance not confirmed\"\n          ],\n          \"proof\": {\n            \"actual_rear\": \"0\",\n            \"exit_boundary\": \"2\",\n            \"scope\": \"limited path only\"\n          },\n          \"blocking_defects\": [\n            \"premature REMOVE: product has not fully exited\"\n          ],\n          \"unknown\": [\n            \"trusted exit boundary missing\",\n            \"conditional receiving envelope missing\",\n            \"required link not confirmed\",\n            \"path clearance not confirmed\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"original_ghost_create\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"CREATE\",\n            \"id\": \"ghost\",\n            \"time\": \"1\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"CREATE disagrees with registry delta\"\n          ]\n        }\n      ],\n      \"registry_defects\": [],\n      \"retained_ids\": [],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"original_supported_shape_unsupported_create\",\n    \"expected\": \"INDETERMINATE\",\n    \"expected_registry\": [],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INDETERMINATE\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"CREATE\",\n            \"id\": \"ghost\",\n            \"time\": \"1\"\n          },\n          \"status\": \"INDETERMINATE\",\n          \"applied\": false,\n          \"reasons\": [\n            \"CREATE unsupported; no body created\"\n          ]\n        }\n      ],\n      \"registry_defects\": [],\n      \"retained_ids\": [],\n      \"effective_next_registry\": []\n    }\n  },\n  {\n    \"id\": \"premature_plus_unknown_create\",\n    \"expected\": \"BLOCKED\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"BLOCKED\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"0\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"BLOCKED\",\n          \"applied\": false,\n          \"reasons\": [\n            \"premature REMOVE: product has not fully exited\"\n          ],\n          \"proof\": {\n            \"actual_rear\": \"0\",\n            \"exit_boundary\": \"2\",\n            \"scope\": \"limited path only\"\n          },\n          \"blocking_defects\": [\n            \"premature REMOVE: product has not fully exited\"\n          ],\n          \"unknown\": []\n        },\n        {\n          \"index\": 1,\n          \"event\": {\n            \"type\": \"CREATE\",\n            \"id\": \"ghost\",\n            \"time\": \"1\"\n          },\n          \"status\": \"INDETERMINATE\",\n          \"applied\": false,\n          \"reasons\": [\n            \"CREATE unsupported; no body created\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"residue_lost_plus_split\",\n    \"expected\": \"BLOCKED\",\n    \"expected_registry\": [\n      \"product_B\",\n      \"residue\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"BLOCKED\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"SPLIT\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"children\": [\n              \"piece\"\n            ]\n          },\n          \"status\": \"INDETERMINATE\",\n          \"applied\": false,\n          \"reasons\": [\n            \"SPLIT unsupported; source retained, children not created\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"residue\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\",\n        \"residue\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\",\n        \"residue\"\n      ]\n    }\n  },\n  {\n    \"id\": \"valid_remove\",\n    \"expected\": \"VALID\",\n    \"expected_registry\": [],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"VALID\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"VALIDATED_REMOVE\",\n          \"applied\": true,\n          \"reasons\": [],\n          \"proof\": {\n            \"actual_rear\": \"2\",\n            \"exit_boundary\": \"2\",\n            \"scope\": \"limited path only\"\n          },\n          \"blocking_defects\": [],\n          \"unknown\": []\n        }\n      ],\n      \"registry_defects\": [],\n      \"retained_ids\": [],\n      \"effective_next_registry\": []\n    }\n  },\n  {\n    \"id\": \"duplicate_mixed_representation_times\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"duplicate/conflicting event claim for ID\"\n          ]\n        },\n        {\n          \"index\": 1,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"2/2\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"duplicate/conflicting event claim for ID\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"unknown_link_plus_proven_path_collision\",\n    \"expected\": \"BLOCKED\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"BLOCKED\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"BLOCKED\",\n          \"applied\": false,\n          \"reasons\": [\n            \"proven path collision\",\n            \"required link not confirmed\"\n          ],\n          \"proof\": {\n            \"actual_rear\": \"2\",\n            \"exit_boundary\": \"2\",\n            \"scope\": \"limited path only\"\n          },\n          \"blocking_defects\": [\n            \"proven path collision\"\n          ],\n          \"unknown\": [\n            \"required link not confirmed\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"forged_rear_and_unknown_create\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"claimed rear disagrees with actual geometry\"\n          ]\n        },\n        {\n          \"index\": 1,\n          \"event\": {\n            \"type\": \"CREATE\",\n            \"id\": \"ghost\",\n            \"time\": \"1\"\n          },\n          \"status\": \"INDETERMINATE\",\n          \"applied\": false,\n          \"reasons\": [\n            \"CREATE unsupported; no body created\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"outside_receipt_plus_unknown_link\",\n    \"expected\": \"BLOCKED\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"BLOCKED\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"BLOCKED\",\n          \"applied\": false,\n          \"reasons\": [\n            \"product outside conditional receiving envelope\",\n            \"required link not confirmed\"\n          ],\n          \"proof\": {\n            \"actual_rear\": \"2\",\n            \"exit_boundary\": \"2\",\n            \"scope\": \"limited path only\"\n          },\n          \"blocking_defects\": [\n            \"product outside conditional receiving envelope\"\n          ],\n          \"unknown\": [\n            \"required link not confirmed\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"valid_remove_unknown_unrelated_event\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"duplicate/conflicting event claim for ID\"\n          ]\n        },\n        {\n          \"index\": 1,\n          \"event\": {\n            \"type\": \"FOLD\",\n            \"id\": \"product_B\",\n            \"time\": \"1\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"duplicate/conflicting event claim for ID\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"unsupported_event\",\n    \"expected\": \"INDETERMINATE\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INDETERMINATE\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"FOLD\",\n            \"id\": \"product_B\",\n            \"time\": \"1\"\n          },\n          \"status\": \"INDETERMINATE\",\n          \"applied\": false,\n          \"reasons\": [\n            \"unsupported event type; no effect applied\"\n          ]\n        }\n      ],\n      \"registry_defects\": [],\n      \"retained_ids\": [],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"bad_time_0\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"1/2\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"event is not at this boundary\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"bad_time_1\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"2\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"event is not at this boundary\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"bad_time_2\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": false,\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"exact integer or rational string required\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"bad_time_3\",\n    \"expected\": \"INVALID_INPUT\",\n    \"expected_registry\": [\n      \"product_B\"\n    ],\n    \"passed\": true,\n    \"actual\": {\n      \"status\": \"INVALID_INPUT\",\n      \"events\": [\n        {\n          \"index\": 0,\n          \"event\": {\n            \"type\": \"REMOVE\",\n            \"id\": \"product_B\",\n            \"time\": \"NaN\",\n            \"final_rear\": \"2\",\n            \"exit_boundary\": \"2\"\n          },\n          \"status\": \"INVALID_INPUT\",\n          \"applied\": false,\n          \"reasons\": [\n            \"Invalid literal for Fraction: 'NaN'\"\n          ]\n        }\n      ],\n      \"registry_defects\": [\n        {\n          \"unjustified_disappearance\": [\n            \"product_B\"\n          ]\n        }\n      ],\n      \"retained_ids\": [\n        \"product_B\"\n      ],\n      \"effective_next_registry\": [\n        \"product_B\"\n      ]\n    }\n  },\n  {\n    \"id\": \"original_continuity_counterexample\",\n    \"passed\": true,\n    \"actual\": [\n      {\n        \"from\": \"EJECT\",\n        \"to\": \"RESET\",\n        \"time_contiguous\": true,\n        \"mismatches\": [],\n        \"unknown\": [],\n        \"lifecycle_valid\": false,\n        \"lifecycle_status\": \"BLOCKED\",\n        \"lifecycle_audit\": {\n          \"status\": \"BLOCKED\",\n          \"events\": [\n            {\n              \"index\": 0,\n              \"event\": {\n                \"type\": \"REMOVE\",\n                \"id\": \"product_B\",\n                \"time\": \"1\",\n                \"final_rear\": \"0\",\n                \"exit_boundary\": \"2\"\n              },\n              \"status\": \"BLOCKED\",\n              \"applied\": false,\n              \"reasons\": [\n                \"premature REMOVE: product has not fully exited\"\n              ],\n              \"proof\": {\n                \"actual_rear\": \"0\",\n                \"exit_boundary\": \"2\",\n                \"scope\": \"limited path only\"\n              },\n              \"blocking_defects\": [\n                \"premature REMOVE: product has not fully exited\"\n              ],\n              \"unknown\": []\n            }\n          ],\n          \"registry_defects\": [\n            {\n              \"unjustified_disappearance\": [\n                \"product_B\"\n              ]\n            }\n          ],\n          \"retained_ids\": [\n            \"product_B\"\n          ],\n          \"effective_next_registry\": [\n            \"product_B\"\n          ]\n        },\n        \"removed\": [\n          \"product_B\"\n        ],\n        \"created\": []\n      }\n    ]\n  },\n  {\n    \"id\": \"extraneous_or_inconsistent_boundary_event\",\n    \"passed\": true,\n    \"actual\": [\n      {\n        \"from\": \"a\",\n        \"to\": \"b\",\n        \"time_contiguous\": true,\n        \"mismatches\": [],\n        \"unknown\": [],\n        \"lifecycle_valid\": true,\n        \"lifecycle_status\": \"VALID\",\n        \"lifecycle_audit\": {\n          \"status\": \"VALID\",\n          \"events\": [],\n          \"registry_defects\": [],\n          \"retained_ids\": [],\n          \"effective_next_registry\": [\n            \"product_B\"\n          ]\n        },\n        \"removed\": [],\n        \"created\": []\n      },\n      {\n        \"from\": null,\n        \"to\": null,\n        \"time_contiguous\": true,\n        \"mismatches\": [],\n        \"unknown\": [],\n        \"lifecycle_valid\": false,\n        \"lifecycle_status\": \"INVALID_INPUT\",\n        \"event_index\": 0,\n        \"event\": {\n          \"type\": \"HIDE\",\n          \"id\": \"product_B\",\n          \"time\": \"3/2\"\n        },\n        \"reason\": \"event has no validated consecutive-stage boundary (invalid/extraneous time or event)\"\n      }\n    ]\n  },\n  {\n    \"id\": \"extraneous_or_inconsistent_boundary_event\",\n    \"passed\": true,\n    \"actual\": [\n      {\n        \"from\": \"a\",\n        \"to\": \"b\",\n        \"time_contiguous\": true,\n        \"mismatches\": [],\n        \"unknown\": [],\n        \"lifecycle_valid\": false,\n        \"lifecycle_status\": \"INVALID_INPUT\",\n        \"lifecycle_audit\": {\n          \"status\": \"INVALID_INPUT\",\n          \"events\": [\n            {\n              \"index\": 0,\n              \"event\": {\n                \"type\": \"CREATE\",\n                \"id\": \"ghost\",\n                \"time\": \"1\"\n              },\n              \"status\": \"INVALID_INPUT\",\n              \"applied\": false,\n              \"reasons\": [\n                \"CREATE disagrees with registry delta\"\n              ]\n            }\n          ],\n          \"registry_defects\": [],\n          \"retained_ids\": [],\n          \"effective_next_registry\": [\n            \"product_B\"\n          ]\n        },\n        \"removed\": [],\n        \"created\": []\n      }\n    ]\n  },\n  {\n    \"id\": \"extraneous_or_inconsistent_boundary_event\",\n    \"passed\": true,\n    \"actual\": [\n      {\n        \"from\": \"a\",\n        \"to\": \"b\",\n        \"time_contiguous\": true,\n        \"mismatches\": [],\n        \"unknown\": [],\n        \"lifecycle_valid\": true,\n        \"lifecycle_status\": \"VALID\",\n        \"lifecycle_audit\": {\n          \"status\": \"VALID\",\n          \"events\": [],\n          \"registry_defects\": [],\n          \"retained_ids\": [],\n          \"effective_next_registry\": [\n            \"product_B\"\n          ]\n        },\n        \"removed\": [],\n        \"created\": []\n      },\n      {\n        \"from\": null,\n        \"to\": null,\n        \"time_contiguous\": true,\n        \"mismatches\": [],\n        \"unknown\": [],\n        \"lifecycle_valid\": false,\n        \"lifecycle_status\": \"INVALID_INPUT\",\n        \"event_index\": 0,\n        \"event\": null,\n        \"reason\": \"event has no validated consecutive-stage boundary (invalid/extraneous time or event)\"\n      }\n    ]\n  }\n]\n",
       "stderr": ""
     },
     {
@@ -176,14 +202,14 @@
     "registry_snapshot.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651",
     "conditional_inputs.snapshot.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
     "B/isometric.svg": "43773312eb71214529cece996c2a5d3a177371fcf099ec149db7abac31ae7a53",
-    "B/isometric.pdf": "0daa45c4b65b8f86df023b311ef494baff7fc61573eee4f0ac28452f5fbdd16c",
+    "B/isometric.pdf": "1e06c863b18934bd16089c0e8584120c2088e9b838ad458b09216a99088c1087",
     "B/section_y0.svg": "f4a1256bb2cbaed01f03559a281fd5bca32ae295b402b43000ad05be0dea7c90",
-    "B/manifest.json": "47deedabbac264c3ad722b45de1e8e6ded94da1bd5535f00558420cf8299de73",
+    "B/manifest.json": "311938889d499f443af06c61e19deb97abe57b63adb8f001d9d2f36194c0afdf",
     "B/front.png": "14109faa1f97c0928b851f46beab52a5ec14f4a928c231a6d7896ee0915b8c41",
-    "B/layout_B.FCStd": "ef300471efbc428cf702cfbbac330dec0ac4644b0f702097a7742d3ab7bedab8",
-    "B/layout_B.step": "3907caef9ba59648567d944ff721cacf0bd9b094ef57db285ee6678c3d41bc0a",
-    "B/side.pdf": "228258186e4bb8515bb5127463db5d780c6aad1d74e6594422aef2c64eba5ffc",
-    "B/top.pdf": "831f13a517b3262faa6ed049b954d137af860fb24c9006c1ec45d87ac8fef6aa",
+    "B/layout_B.FCStd": "2fadc52659131fbbd822efa5d327d0bf867ce5f2190742a9b30c3f3554fe4512",
+    "B/layout_B.step": "00702e3b78ab6cb27baee4f6053bf7a19d013e5958445cb9429eeebcab083f52",
+    "B/side.pdf": "4a7f297e47fa15e9a3f4083a232544c0a5cd31e96cf8ade6aa60afa7132c9424",
+    "B/top.pdf": "06fe4ac43448b764ded24f608942e55d3ce73c223d31d7e669603111fd8dca81",
     "B/load_path.svg": "94b1e6c8905b9acf96824d8d5753ab3de784b3d4159de2c377206fd539b0a19c",
     "B/side.png": "3492230cfd6730ff6ea985cdf5089a0ae422c8cd73578a25b4d9ce87fac4a5b6",
     "B/isometric.png": "cf7c0fbf6a01e384ff61cdfe832ab9be92498182be5d4f7afd4487b501be30cd",
@@ -192,34 +218,36 @@
     "B/front.svg": "e7aabe7eb96ed361546b983990ccc33e00061d74c1a5c601bf6b8e2175edf776",
     "B/top.png": "dcaf259cb73a6f3d342bdebd9234b0fe8ec651327845ad03523f16cf1b1f9e90",
     "B/phase_views.svg": "547f1c4df01eb7420756f77f61c8c83f510ca54ea6e0c550b50684b48038ea67",
-    "B/front.pdf": "9ed6f4be47dcd9cb191e1093d61850733ce1f7c90857e61d8907b8d2ca2fabc4",
+    "B/front.pdf": "8cda7a5bbf1a7f8b8657e713a39a112e849b629303b8fc7bdc3d371ad08567b9",
     "history/tool_regression_export_failure.json": "d41aea7013bbebb1dc56d096b52a68781856470eec7bc497fd171de5a449c7ce",
     "history/adapter_triangulation_failure.json": "9a0c92f0895892125fba9610ab9786339574f7dd6446398219dc6a5b30ecdead",
     "checks/native_static_recheck.json": "6c061a3906acc037cb8ef8a0df0a1bb9aa1152fc5fe3ab4adfe8188b2cebf633",
+    "checks/query_regressions.json": "4d4bad6d359cffddf15e53eede27f5aed0ce23cbbded23c9b070bf2a6e5fa2c7",
     "checks/service_pairs.json.gz": "23a46c191d8bdeac6c4e5efb3f0efebe96856404893758c9a585626af5c4610e",
     "checks/all_pairs.json.gz": "ec781d2c10f8a137693eca96a483906650b27a313fe55c39448af0be7b0f3f4e",
-    "checks/tool_regressions.json": "4d3386d2759d5360ee07862d84bdbfb69a2eee6e445b37090b0b65cad7d04e33",
-    "checks/report.json": "be29275b99f34cc46fb535fc5cbe1c119d21ef34961b6fb3f178d2de8dd968ba",
-    "checks/geometry_preservation.json": "66600368db3f527358d6f551caa8925f2880778a5f87f2907614ed8c7df0d4b8",
+    "checks/lifecycle_closed_recheck.json": "cd8d251f38c4e017e6157dbd87b721c7db253b55c0e0f2989332a479d4bb268f",
+    "checks/tool_regressions.json": "33b6af8574626cfa2637584735952e30ff404b2a9ac4291a7501110645175e45",
+    "checks/report.json": "80718efbefee370869ca7dab0104fd45ca85f70d9292eb580a81ec7407a3a1f4",
+    "checks/geometry_preservation.json": "4ecdb7fe134b85e426fe4d25a24046aa8bd8754e6b251ed405390ff2667d455a",
     "checks/native_dynamic_recheck.json": "084a7cf6101650879bf3bd989c35209ce1d30f36618afd94c50ed56e83ddbdc6",
     "A/isometric.svg": "60ebefb68a6998085ee0a18bffd74d57d1f5fc672b6828d5a69c26d97da86349",
-    "A/isometric.pdf": "5ffbc00da6262a997f9333d3a3dcc955b108ae2548e0063ad23f2bef01906a6f",
+    "A/isometric.pdf": "2de8f9be12184d91c065c9ad923611766006f65d7d2183b38e238c453e7ed13c",
     "A/section_y0.svg": "55ce9a389c0ed979666207fd170ac2f9eac3607f5634fec4070f248c571284d8",
-    "A/manifest.json": "d392fae9573e5c01be15fb90c89ab90f1e0cdf21aded2076a21c0d47354a9c02",
+    "A/manifest.json": "2eb2535ba265c4b290c8a12a133bf81c332ac195de082de79367a775adba5be8",
     "A/front.png": "072f958e67ab6d15b1a40e0730cec961107ebbd646219739414861b717e9ea44",
-    "A/side.pdf": "e85431ba465f01f2ead18bf08933eeb5bfa66e200894d317722811a3d0621ba8",
-    "A/top.pdf": "46d049f5fe2b9611c7319e2c88bff9300858b0ad044077eb02145070e6edd73c",
+    "A/side.pdf": "f37b355844ec88489da574ef8514b838e5f8c0b1fc0e7673207cc4182d211431",
+    "A/top.pdf": "725174fcdc56f2dfca57d6dc83e6a306c2bdb3f3207279214da5517827377042",
     "A/load_path.svg": "81551d243c35652cae935c6cb50dcf6c0373681a165b22221ef3f2c6dfc1c99d",
     "A/side.png": "e93d61ae430206080fb6dd4d5b34dea8d4cddf811aa44df43f8819367a9220de",
-    "A/layout_A.step": "1ea466dd5aaae94f4b0cfb4baf7afc6698824e0546bbbc6ee57e505c7d741633",
+    "A/layout_A.step": "26b613ffea5c625acbb05918d5aea8958bc213e5a9bf1ae3cc98d4b9f3fd62d0",
     "A/isometric.png": "5840401f06afc79a21770eafc44dfc00f92cdf0c2c1aa0c0ef09ae851b3f7e0a",
     "A/side.svg": "fdac0f0b46a6be15f75939ab3ad9152e155a4e853fcb6778d2b657c682594b2a",
     "A/top.svg": "c518f8cc4fb276be69e694292f9eaecf675c8291deacfadcd571adbb204fb992",
     "A/front.svg": "a372b839370395b69b228b6c22e467b28c44c93ef87124ca45d9b0d2e8c24c26",
-    "A/layout_A.FCStd": "cf3b24b48032518ee5291c656f4d04eaff5d41c884ab42ef2f1fe189beb409ef",
+    "A/layout_A.FCStd": "3269b31ee50325bc89abd71b0fd15d0779a2f04d5bb94fa0860229fe02d050ca",
     "A/top.png": "e2c486f5da980ce17ec2d6b12f53966e0c156d4a61d7525438f26f4bc5d1db27",
     "A/phase_views.svg": "7a5ef1ee67b43f90a434a0d0af7af1b626fce24b6748ec3c5d22bc5c4bf47feb",
-    "A/front.pdf": "3efa44b6ae9c270a6a0ceab84b76dee0685ea58f12e3cc9ecb0beabab56b6727"
+    "A/front.pdf": "6beb9419f9a95831f2a15750a8e8c7a2a65e1bd5f571f8cad58b4306361aa39d"
   },
   "reproduce_semantic": {
     "A": "PASS",
@@ -367,20 +395,23 @@
       "return_matches": true
     }
   ],
-  "tool_blockers": "R5-CAD-TOOL-B01/B02 OPEN pending independent RECHECK",
+  "tool_blockers": "R5-CAD-TOOL-B01 CLOSED by 8f381c4 in reviewed scope; B02 OPEN pending independent RECHECK",
   "whole_assembly": "not accepted; assumed interferences and unknown conditions remain",
   "source_hashes": {
-    "cad/layout/run_all.py": "6adae46acf8dfdd664900d60f6b07ae18c66fd9edea8970469dc6bf6a3559861",
+    "cad/layout/run_all.py": "2505ee78c1004fc1c10adbf2042b1cd45884b4078c6ad8868a08deeb4c8479a7",
     "cad/layout/build_model.py": "e4cb5d776b156b8397a249b1fa3952d35191806e373d7f26162ec4b7ba49c05a",
-    "cad/layout/check_layout.py": "0ca76becdb4f9ff0c768e37af3e5be575e5b09695405ff4382c7e8f52da33edc",
+    "cad/layout/check_layout.py": "425155b935efef55ca2b18e016f3fb5193fe7a2d914e813aa83765fe583a6431",
     "cad/layout/layout_common.py": "4e4f80e384f43a26362207258c3c6a208d943ef016965a28c2d3ebcf2f557a90",
     "cad/layout/layout_lifecycle.py": "641670bd2fad5a4276d4a791dc009b739fb9bf8460ba87fd66fd3a8c9a3e4193",
-    "cad/layout/cad_validation.py": "5d6a26632533bdeec0ce245148ba31de9b40a2dae47e0ca414bd897c8599e1e7",
-    "cad/layout/geometry_preservation.py": "274ec6581084ecce53c323be44930cee2783a74d14d63aa0e3df0a6a310c423d",
+    "cad/layout/cad_validation.py": "db9b542c37beca46f2bacebf32c4b9f8d15bad6872729cbad14d56a7fa0a2557",
+    "cad/layout/geometry_preservation.py": "a44c7a3bf26972571013525e955d9c920c7da59b7cb50243b4c18156693da449",
     "cad/layout/tool_regressions.py": "38d4f07c3e9c08d0309392ec7f33e20f468057aeab404818cef4b3ba198b6566",
     "cad/layout/test_layout.py": "bf22ea7a9f0a8b94e2d3a8c3e82521159188c5f5c608a29e85f09790445b8e2c",
     "cad/layout/test_lifecycle.py": "214a607fbf6a4482af5e46e1f0f380162fdda6750f79b10eed8ef23aed0e10f5",
     "cad/layout/test_cad_artifacts.py": "2519b35a2be63cfa9a99269ab97173fe41df979dfa31e00703ff09f8f4142cc6",
+    "cad/layout/query_volumes.py": "557d8ce028cc305f4b7abc5498dc5421a1955ca6c910c524c7d794c3ba8d52b5",
+    "cad/layout/query_regressions.py": "c6d58e21f17514cded9f05013643380d7e5a80c35116d1735407d39108853545",
+    "cad/layout/test_query_volumes.py": "3a49110da2cb52d32fefda0ad492282b104b17e48285348a3ca503fd89040ae6",
     "cad/layout/conditional_inputs.assumed.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
     "params/registry.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651"
   }

@@ -1,3 +1,28 @@
+# Фактический пакет B02 QueryVolumes для независимого RECHECK
+
+2026-11-11T19:29:39Z, R4 r4-linked-20261111, T-r4-layout-build-01. Вход: REV-R5-CAD-TOOL-FIX-01-001 на 8f381c4b080d902cb023429c54d518bfd6fab681, проверенный C 5449fb9bc4c20fcbc40fdec932876dcecc90ef4d. B01 CLOSED независимым R5 в его проверенной области; lifecycle-код не изменён и блокер не переоткрывается. B02 OPEN до следующего независимого RECHECK, самоприёмка не выполняется.
+
+Команда `/usr/bin/python3 cad/layout/run_all.py`: exit 0, все 14 дочерних команд exit 0. Пройдены 73 unit tests (20 CAD/layout, 33 linked_scene, 20 kinematic_press), 64 новых отрицательных случая QueryVolumes, прежние 14 отрицательных CAD и 33 lifecycle-случая, 20 независимых lifecycle-проверок R5. Все 8 ограниченных исходов A/B сохранились. Полные команды/exit codes/stdout/stderr/source/artifact hashes — validation.json.
+
+| Область | Фактический результат | Граница |
+|---|---|---|
+| Все сохранённые зоны | CylinderRemoval/DoserRemoval обоих A/B проверены до/после recompute: канонические ID/Role/тип, нативные размеры, локальный/глобальный Placement, bounds/volume и BRep | Это четыре определённые условные зоны, прочие неопределённые сервисные операции не получают PASS |
+| Исходный Q01 | Native Height=99999 мм с удалённым выражением и обновлённым hash даёт FAILED API; CLI exit!=0, FAILED, scenarios=NOT_RUN | Успех старого probe с ошибочным Q01 assertion не является критерием исправления |
+| 64 отрицательных случая | Все три размера и координаты каждой зоны, удаление/подмена manifest-списка, другая/пустая форма, BRep override при прежних свойствах, Role, совместные изменения; сдвиг/удаление группы, лишние/осиротевшие зоны | В 60 случаях обновлён FCStd hash и получен именно native semantic failure; 4 старых hash отклонены проверкой целостности |
+| Сохранность зон | Все нативные query records идентичны actual-артефактам исходного C 5449fb9; snapshot/hash источника в verification/r4_query_volume_fix/query_geometry_baseline.json | Контейнеры CAD/STEP/PDF могут менять служебные timestamps/hashes, не геометрию |
+| Сохранность компоновок | build_model.py/ASSUMED JSON/manifest.objects, 8 PNG, все 107486 записей фаз/пар и 556 сервисных результатов сохранены | Геометрические дефекты A/B не исправлялись |
+| Нативные проникновения | Повторены исходные static/dynamic пробы R5; 17 положительных статических common volumes A и 18 B, прежние промежуточные свидетельства совпали | Полная установка BLOCKED_ASSUMED_INTERFERENCES, whole_assembly_ready=INDETERMINATE |
+
+Доказательства: checks/query_regressions.json, checks/report.json (cad_adapter.A/B.query_volumes), checks/geometry_preservation.json, checks/lifecycle_closed_recheck.json; нативные проникновения — checks/native_static_recheck.json и native_dynamic_recheck.json. Все источники прежних независимых review/probes/evidence сохранены без изменений. До правки исходный cad_probe.py R5 повторён и сохранил ошибочный Q01 PASS в verification/r4_query_volume_fix/baseline_cad_probe.json; после правки новые assertions требуют FAILED. Geometry/query baseline зафиксированы отдельно до итоговой пересборки.
+
+Ожидаемый набор определяется формулами от параметров исходных тел и service_lift, не из mutable manifest. Зоны не превращены в материальные детали, не добавлены в STEP/матрицу. Совпадение обновлённого hash не заменяет проверки содержания. Численные пределы сериализации прежние, реальными зазорами/допусками они не являются. Проверка нативной формы зоны не подтверждает возможность обслуживания или безопасность.
+
+Registry/COTS/models и lifecycle-код неизменны. Все реальные параметры REV UNKNOWN, условные входы ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Новый точный code/results C записывается последующим H в эстафету; независимый RECHECK этого нового C NOT_RUN.
+
+---
+
+## История предыдущих оценок (статусы на соответствующих C, не текущая эстафета)
+
 # Фактический RECHECK-пакет исправления инструмента
 
 2026-11-11T19:04:26Z, R4 r4-linked-20261111, T-r4-layout-build-01. Входной R5 акт e939b41d0139b0a3a08a5950eeeec6e92324cf9b, REV-R5-LAYOUT-BUILD-01-001: REJECT_WITH_BLOCKER на исходный C 6bb66a566719593a59935e341b1b5c80a1cbc9a7. B01/B02 OPEN, независимый RECHECK нового C NOT_RUN. Задача IN_REVIEW, не принята. Полный новый C записывается отдельным H в NEXT_MODEL/капсулу.

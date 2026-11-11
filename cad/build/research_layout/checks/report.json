@@ -4,11 +4,12 @@
   "source_commit_inputs": "0d587fa226fee78abc7c86752adee825febb164d",
   "input_sha256": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
   "sha256": {
-    "cad/layout/check_layout.py": "0ca76becdb4f9ff0c768e37af3e5be575e5b09695405ff4382c7e8f52da33edc",
+    "cad/layout/check_layout.py": "425155b935efef55ca2b18e016f3fb5193fe7a2d914e813aa83765fe583a6431",
     "cad/layout/build_model.py": "e4cb5d776b156b8397a249b1fa3952d35191806e373d7f26162ec4b7ba49c05a",
     "cad/layout/layout_common.py": "4e4f80e384f43a26362207258c3c6a208d943ef016965a28c2d3ebcf2f557a90",
     "cad/layout/layout_lifecycle.py": "641670bd2fad5a4276d4a791dc009b739fb9bf8460ba87fd66fd3a8c9a3e4193",
-    "cad/layout/cad_validation.py": "5d6a26632533bdeec0ce245148ba31de9b40a2dae47e0ca414bd897c8599e1e7",
+    "cad/layout/cad_validation.py": "db9b542c37beca46f2bacebf32c4b9f8d15bad6872729cbad14d56a7fa0a2557",
+    "cad/layout/query_volumes.py": "557d8ce028cc305f4b7abc5498dc5421a1955ca6c910c524c7d794c3ba8d52b5",
     "models/rev_linked_scene/engine.py": "aa8190e9b4addc48d6a6dc1627c51bd7c2e9a5305870db777bc51874bf278708",
     "cad/layout/conditional_inputs.assumed.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
     "params/registry.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651",
@@ -22,9 +23,84 @@
       "solid_count": 65,
       "actual_FCStd_reopen_recompute": "PASS",
       "actual_STEP_shape_correspondence": "PASS",
+      "query_geometry_match": "PASS",
+      "query_count": 2,
+      "query_volumes": [
+        {
+          "id": "CylinderRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "cylinder_barrel",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PX",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PY",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PZ",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-LENGTH",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            -3000.0,
+            -220.0,
+            -220.0
+          ],
+          "expected_size_mm": [
+            2200.0,
+            440.0,
+            1740.0
+          ],
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            1520.0
+          ],
+          "native_volume_mm3": 1684320000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        },
+        {
+          "id": "DoserRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "doser_slide",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PZ",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DZ",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            200.0,
+            150.0,
+            660.0
+          ],
+          "expected_size_mm": [
+            400.0,
+            360.0,
+            1420.0
+          ],
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            2080.0
+          ],
+          "native_volume_mm3": 204480000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        }
+      ],
       "files": {
-        "layout_A.FCStd": "cf3b24b48032518ee5291c656f4d04eaff5d41c884ab42ef2f1fe189beb409ef",
-        "layout_A.step": "1ea466dd5aaae94f4b0cfb4baf7afc6698824e0546bbbc6ee57e505c7d741633"
+        "layout_A.FCStd": "3269b31ee50325bc89abd71b0fd15d0779a2f04d5bb94fa0860229fe02d050ca",
+        "layout_A.step": "26b613ffea5c625acbb05918d5aea8958bc213e5a9bf1ae3cc98d4b9f3fd62d0"
       },
       "objects": [
         {
@@ -938,7 +1014,7 @@
           "STEP_shape_match": "PASS"
         }
       ],
-      "scope": "persisted ASSUMED native primitives/STEP checked; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
+      "scope": "persisted ASSUMED native primitives/STEP and all canonical QueryVolumes checked before/after recompute; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
       "FreeCAD_version": [
         "1",
         "0",
@@ -951,9 +1027,84 @@
       "solid_count": 61,
       "actual_FCStd_reopen_recompute": "PASS",
       "actual_STEP_shape_correspondence": "PASS",
+      "query_geometry_match": "PASS",
+      "query_count": 2,
+      "query_volumes": [
+        {
+          "id": "CylinderRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "cylinder_barrel",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PX",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PY",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-PZ",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS",
+            "ASSUMED-LAYOUT-CYLINDER-BARREL-LENGTH",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            -3000.0,
+            -220.0,
+            -220.0
+          ],
+          "expected_size_mm": [
+            2200.0,
+            440.0,
+            1740.0
+          ],
+          "native_bounds_mm": [
+            -3000.0,
+            -220.0,
+            -220.0,
+            -800.0,
+            220.0,
+            1520.0
+          ],
+          "native_volume_mm3": 1684320000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        },
+        {
+          "id": "DoserRemoval",
+          "role": "QUERY_NOT_SOLID",
+          "source": "doser_slide",
+          "parameter_ids": [
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-PZ",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DX",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DY",
+            "ASSUMED-LAYOUT-DOSER-SLIDE-DZ",
+            "ASSUMED-LAYOUT-SERVICE-LIFT"
+          ],
+          "expected_position_mm": [
+            200.0,
+            150.0,
+            660.0
+          ],
+          "expected_size_mm": [
+            400.0,
+            360.0,
+            1420.0
+          ],
+          "native_bounds_mm": [
+            200.0,
+            150.0,
+            660.0,
+            600.0,
+            510.0,
+            2080.0
+          ],
+          "native_volume_mm3": 204480000.0,
+          "local_and_global_placement": "PASS",
+          "dimensions": "PASS",
+          "native_shape_match": "PASS"
+        }
+      ],
       "files": {
-        "layout_B.FCStd": "ef300471efbc428cf702cfbbac330dec0ac4644b0f702097a7742d3ab7bedab8",
-        "layout_B.step": "3907caef9ba59648567d944ff721cacf0bd9b094ef57db285ee6678c3d41bc0a"
+        "layout_B.FCStd": "2fadc52659131fbbd822efa5d327d0bf867ce5f2190742a9b30c3f3554fe4512",
+        "layout_B.step": "00702e3b78ab6cb27baee4f6053bf7a19d013e5958445cb9429eeebcab083f52"
       },
       "objects": [
         {
@@ -1811,7 +1962,7 @@
           "STEP_shape_match": "PASS"
         }
       ],
-      "scope": "persisted ASSUMED native primitives/STEP checked; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
+      "scope": "persisted ASSUMED native primitives/STEP and all canonical QueryVolumes checked before/after recompute; AABB movement scope unchanged; numerical serialization comparison, no manufacturing tolerance",
       "FreeCAD_version": [
         "1",
         "0",
@@ -1825,7 +1976,7 @@
     "status": "preserved; tool fix does not fix geometry",
     "whole_assembly_ready": "INDETERMINATE"
   },
-  "tool_blockers": "R5-CAD-TOOL-B01/B02 OPEN pending independent RECHECK",
+  "tool_blockers": "R5-CAD-TOOL-B01 CLOSED by 8f381c4 in reviewed scope; B02 OPEN pending independent RECHECK",
   "scenarios": [
     {
       "variant": "A",
