@@ -466,3 +466,7 @@ T-r4-linked-01: code/results 8896d70983648ccd33c0f861c9bc9d28327ff9eb; R5-LINKED
 ## Документальная передача R1
 
 T-r4-linked-01: R5-LINKED-FIX-W01 исправлен в README на 4ebf47a5f6f96708a65653acaf0cebeee1b84c26; код/fixtures/результаты 8896d70983648ccd33c0f861c9bc9d28327ff9eb неизменны. RECHECK 82d60717ed9621af7f9fee4e57135d12f22cfc32 сохранён с probe и историей; решение о приёмке и интеграции ожидает R1, задача не DONE. G1 открыт, физика/безопасность UNKNOWN.
+
+## Предложение R4 после PR #33
+
+T-r4-layout-01: отдельная документальная постановка параметрической компоновки всего пресса A/B; claim PROPOSED / PENDING_MAIN, owner новой задачи NONE, proposed_owner r4-linked-20261111. Проектная работа NOT_STARTED до принятия claim. Границы прежних synthetic результатов сохранены; G1 открыт.
