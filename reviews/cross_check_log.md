@@ -1898,3 +1898,115 @@ reproduction_artifacts:
 - verification/r5_r3_safety_recheck/review.md
 supersedes: null
 ```
+
+## Регистрация OUTPUT-review нормативных источников
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-NORMS-01-001
+kind: OUTPUT
+task_id: T-r3-norms-01
+created_at_utc: '2026-11-11T08:39:47Z'
+reviewer:
+  role: R5
+  session_id: r5-r3-norms-output-20261111-0823
+  model_label: Codex
+reviewed_roles:
+- R3
+author_sessions:
+- r3-safety-01
+independence_basis: По опубликованному акту reviewer не указан среди авторов R3; Git
+  и session ID не удостоверяют личность, организационную независимость или юридическую
+  квалификацию. Зарегистрировано R1 по акту.
+reviewed_commit: 77e78ee9e910132116e9f1e1e21bc4a3fa8b6e16
+parameter_refs: []
+artifacts:
+- path: verification/r3_normative_scope/input_audit.md
+  sha256: 5fce6cef4078750d7d3e3325165701f487e4d4aecef0a325a89f3158443b5e58
+- path: verification/r3_normative_scope/source_registry.md
+  sha256: 5a759215335f2a553ff5b36188424a6bbdd6af71d6395525b156091f4091c398
+scope: Документальная проверка доступности и заявленных фрагментов, не нормативное
+  заключение.
+checks:
+- id: CHK-NORMS-ACCESS
+  method: inspection
+  expected: Независимо прочитать источники
+  observed: Официальные сайты вернули CONNECT 403
+  reasoning: Недоступность текстов не доказывает ошибку автора.
+  result: NOT_RUN
+findings: []
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-NORMS-B01
+allowed_downstream_scope: Только подготовка вопросов и документальной карты источников.
+excluded_claims:
+- Актуальность, обязательность и применимость норм
+- Юридическое заключение, безопасность и G1
+warning_owner_and_due: null
+closure_criteria:
+- Проверить официальные источники и заявленные фрагменты
+traceability_and_revisions: Запись R1 по опубликованному акту; created_at_utc — время
+  регистрации, не исходного запуска.
+reproduction_artifacts:
+- verification/r5_r3_normative_output/review.md
+supersedes: null
+```
+
+## Регистрация RECHECK нормативных источников
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-NORMS-RECHECK-01-001
+kind: RECHECK
+task_id: T-r3-norms-01
+created_at_utc: '2026-11-11T08:39:47Z'
+reviewer:
+  role: R5
+  session_id: r5-r3-norms-recheck-20261111-0835
+  model_label: Codex
+reviewed_roles:
+- R3
+author_sessions:
+- r3-safety-01
+independence_basis: По опубликованному акту reviewer не указан среди авторов R3; Git
+  и session ID не удостоверяют личность, организационную независимость или юридическую
+  квалификацию. Зарегистрировано R1 по акту.
+reviewed_commit: 77e78ee9e910132116e9f1e1e21bc4a3fa8b6e16
+parameter_refs: []
+artifacts:
+- path: verification/r3_normative_scope/input_audit.md
+  sha256: 5fce6cef4078750d7d3e3325165701f487e4d4aecef0a325a89f3158443b5e58
+- path: verification/r3_normative_scope/source_registry.md
+  sha256: 5a759215335f2a553ff5b36188424a6bbdd6af71d6395525b156091f4091c398
+scope: Документальная проверка доступности и заявленных фрагментов, не нормативное
+  заключение.
+checks:
+- id: CHK-NORMS-ACCESS
+  method: inspection
+  expected: Сверить указанные фрагменты и хэши
+  observed: По акту R5 фрагменты N01–N05 и карточка ISO доступны и сверены
+  reasoning: Полная редакция, применимость и нормативная обязательность остаются NOT_RUN.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Только подготовка вопросов и документальной карты источников.
+excluded_claims:
+- Актуальность, обязательность и применимость норм
+- Юридическое заключение, безопасность и G1
+warning_owner_and_due:
+  owner_role: R3
+  owner_session: r3-safety-01
+  due: До принятия нормативных требований
+  restriction: Проверить полные актуальные тексты, изменения и применимость с компетентными
+    специалистами.
+closure_criteria:
+- Отдельно подтвердить действующие редакции и применимость с компетентными специалистами
+traceability_and_revisions: Запись R1 по опубликованному акту; created_at_utc — время
+  регистрации, не исходного запуска.
+reproduction_artifacts:
+- verification/r5_r3_normative_recheck/review.md
+supersedes: REV-R5-R3-NORMS-01-001
+```

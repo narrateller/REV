@@ -27,7 +27,7 @@ ID после создания не меняется. Для параллель�
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
 | T-r3-safety-01-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | принята документальная карта с WARNING, PR #18; B03 OPEN | G1 |
-| T-r3-norms-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; B03 OPEN | G1 |
+| T-r3-norms-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | документальная приёмка с WARNING; интеграция | G1 |
 
 ## T-INIT
 
@@ -578,3 +578,7 @@ R1 принимает результат `2d4791f83ac1f67b2b35c2971b0380301803f3
 ### Принятие и результат T-r3-norms-01
 
 Claim `3345b050966fc4e52b317e64381c0dd7bc087b2a` принят PR #19 на main `d499216856b3bdbd65f7f23584be80ab6108576a`. Owner r3-safety-01, срок до 2026-11-12T08:12:00Z; конкурирующих владельцев не выявлено, инженерные входы неизменны. Входной акт и реестр: verification/r3_normative_scope/. Независимый OUTPUT-review NOT_RUN; IN_REVIEW. Содержание, доступ, редакции и неустановленные области указаны в реестре; B01–B03 и G1 OPEN, применимость UNKNOWN.
+
+## Решение R1 по реестру нормативных кандидатов R3
+
+Реестр принят только как предварительная документальная карта с WARNING: verification/r3_normative_scope/r1_acceptance.md. R5-NORMS-B01 CLOSED только в области доступных и сверенных фрагментов; полные актуальные редакции и применимость не подтверждены. T-r3-norms-01 IN_REVIEW до интеграции; B01–B03 и G1 OPEN.

@@ -399,3 +399,7 @@ PR #18 принят в main `2b26e56f0d35119631bba959da50b32cccaac621`: T-r3-saf
 ## Нормативные источники: claim принят
 
 T-r3-norms-01 IN_REVIEW: claim `3345b050966fc4e52b317e64381c0dd7bc087b2a` принят PR #19 на `d499216856b3bdbd65f7f23584be80ab6108576a`; owner r3-safety-01, lease до 2026-11-12T08:12:00Z. Подготовлены входной акт и реестр кандидатов в verification/r3_normative_scope/; независимая проверка NOT_RUN. Прежние PENDING_MAIN — история до PR #19. Место эксплуатации, применимость и обязательность UNKNOWN; B01–B03 и G1 OPEN.
+
+## Нормативные источники R3 — документальная карта
+
+Реестр предварительно принят R1 с WARNING: verification/r3_normative_scope/r1_acceptance.md. R5-NORMS-B01 CLOSED только для заявленных фрагментов; действующие редакции и применимость UNKNOWN/NOT_RUN. T-r3-norms-01 IN_REVIEW до интеграции, B01–B03 и G1 OPEN.
