@@ -2222,3 +2222,56 @@ reproduction_artifacts:
 - verification/r5_r3_compaction_observability_review/review.md
 supersedes: null
 ```
+
+## Независимый OUTPUT-review постановки компоновки всего пресса
+
+```yaml
+record_type: review
+review_id: REV-R5-LAYOUT-01-001
+kind: OUTPUT
+task_id: T-r4-layout-01
+created_at_utc: '2026-11-11T17:57:49Z'
+reviewer:
+  role: R5
+  session_id: 01a1c552-4e0c-75cf-86ba-2922ccdb30f3
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-linked-20261111
+independence_basis: Текущая сессия не автор проверенного документа, но ранее как R1 участвовала в разработке его проектных входов; организационная независимость и квалификация не удостоверены.
+reviewed_commit: 32481da99f436d260e9af6f0bcc9b0979b952cff
+parameter_refs: []
+artifacts:
+- path: cad/layout/whole_press_layout_brief.md
+  sha256: 30175b4865bfe977436f2dbe888b466bfc090d14af1d632c39b3aede87d8a0c4
+scope: Документальное рассмотрение полноты постановки и условий исследовательской условной компоновки без CAD, физических расчётов или приёмки REV.
+checks:
+- id: CHK-LAYOUT-DOC-01
+  method: Сопоставление интерфейсов, фаз, требуемых входов и условий проверки с эскизами, операторскими данными и проверенными границами synthetic.
+  expected: Охватить весь пресс и варианты A/B, отметить UNKNOWN и различить условную геометрию и физические доказательства.
+  observed: Постановка охватывает заявленные области; предварительные ориентиры оператора и учёт claim требуют уточнения; данные и реальная проверка отсутствуют.
+  reasoning: Ограничения, основания и три замечания указаны в акте.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: STALE
+blocker_ids: []
+allowed_downstream_scope: Отдельная исследовательская компоновка A/B с явно условными ASSUMED-входами после постановки задачи и claim.
+excluded_claims:
+- Реальные геометрия, нагрузки, удержание, разгрузка, выдача, безопасность и изготовимость
+- Утверждение ТЗ, архитектуры и прохождение G1 G2 G3
+warning_owner_and_due:
+  owner_role: R4
+  owner_session: r4-linked-20261111
+  due: До использования интерфейсов как проектной базы и приёмки компоновки
+  restriction: Уточнить предварительные границы оператора, учёт claim и воспроизводимость условной модели.
+closure_criteria:
+- Для W01 уточнить и независимо сверить ориентиры OP-REV-07 и OP-REV-09…11 с сохранением UNKNOWN.
+- Для W02 последовательно сверить и исправить поля принятого claim.
+- Для W03 до новой модели определить conditional inputs, формат, покрытие и независимую проверку.
+traceability_and_revisions: Акт проверяет точный C; эстафета H содержит C; 19 входов manifest сверены с Git blobs и SHA-256 базы.
+reproduction_artifacts:
+- verification/r5_whole_press_layout_review/review.md
+supersedes: null
+```
