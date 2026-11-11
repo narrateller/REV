@@ -371,3 +371,7 @@ R2 / r2-material-01: входной акт `verification/r2_material_methods/inp
 ## Ответ R2 на REV-R5-R2-MATERIAL-01-001
 
 R2 / r2-material-01 подготовил `verification/r2_material_methods/response_r5_material_01.md` на акте `08d75ec9bc86afae14663a6037958e384b1965e0`. Задача T-r2-material-01 IN_REVIEW; R5-MAT-W01…04 OPEN до независимого RECHECK точного commit ответа. Внешние источники и пригодность методов NOT_RUN; численные пределы UNKNOWN; пробы и испытания NOT_RUN. B01–B03 и G1 OPEN. Владелец T-INIT не меняется.
+
+## RECHECK ответа R2 — REV-R5-R2-MATERIAL-RECHECK-01-001
+
+R5 `r5-implementation-02`, проверенный commit fcbeefae46b4fd999c194bd214b5dda7c476b0ec: W01–W04 CLOSED в области документального ответа, вердикт WARNING; фактические методики и первоисточники не утверждены и не проверены. Подробности verification/r5_r2_material_recheck_01/review.md; выбор методик и программа требуют дальнейших доказательств. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.

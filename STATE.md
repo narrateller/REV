@@ -281,3 +281,5 @@ OUTPUT-review REV-R5-R2-MATERIAL-01-001 на c78a745fb431b459bf6272b585d17a7fad9
 ## Ответ R2 на замечания R5 к методам сырья
 
 R2 подготовил verification/r2_material_methods/response_r5_material_01.md к акту 08d75ec9bc86afae14663a6037958e384b1965e0. T-r2-material-01 IN_REVIEW; W01–W04 OPEN до независимого RECHECK. Источники и пригодность NOT_RUN, пределы UNKNOWN; пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+Ограниченный RECHECK REV-R5-R2-MATERIAL-RECHECK-01-001 на fcbeefae46b4fd999c194bd214b5dda7c476b0ec: W01–W04 CLOSED только документально; WARNING, применимость методов и источники не подтверждены. verification/r5_r2_material_recheck_01/review.md; B01–B03 и G1 OPEN.

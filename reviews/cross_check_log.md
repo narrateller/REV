@@ -986,3 +986,94 @@ closure_criteria:
 - Проверить доступные первоисточники и пригодность с компетентной лабораторией
 supersedes: null
 ```
+
+## REV-R5-R2-MATERIAL-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-MATERIAL-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-material-01
+created_at_utc: '2026-11-11T00:28:46Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: Автор исходного review R5 не является автором проверяемого ответа
+  R2; независимость ограничена ответом.
+reviewed_commit: fcbeefae46b4fd999c194bd214b5dda7c476b0ec
+scope: Документальный RECHECK ответа на W01–W04 и аналитика формул; применимость методов,
+  первоисточники и испытания вне объёма
+parameter_refs: []
+artifacts:
+- path: verification/r2_material_methods/response_r5_material_01.md
+  sha256: e9b445fe58c83c36f00fc45c452dccf868b05e8572f04d364781dffe8f2f303a
+- path: verification/r2_material_methods/comparison.md
+  sha256: 83e3a2af17ab027202f3aa0bf4416f5f4f9188e382d60e88ad97e4373d2ba86e
+- path: verification/r5_r2_material_review/review.md
+  sha256: 13f2c69717d0adfa7ba68c5c5cd998c3f0ece28de20acbf5959a5d43e8249a81
+checks:
+- id: CHK-MAT-W01
+  method: inspection
+  expected: Документальный ответ на замечание с сохранением неопределённости
+  observed: Условия влажности и проверка границ оформлены; вода и потеря массы различаются
+  reasoning: Проверено по исходному акту; план не является выполнением
+  result: PASS
+- id: CHK-MAT-W02
+  method: inspection
+  expected: Документальный ответ на замечание с сохранением неопределённости
+  observed: Объект вывода, отбор, охват и обнаруживаемость редких событий разграничены
+  reasoning: Проверено по исходному акту; план не является выполнением
+  result: PASS
+- id: CHK-MAT-W03
+  method: inspection
+  expected: Документальный ответ на замечание с сохранением неопределённости
+  observed: Потери и баланс по стадиям, сегрегация и пересчёт баз предусмотрены
+  reasoning: Проверено по исходному акту; план не является выполнением
+  result: PASS
+- id: CHK-MAT-W04
+  method: inspection
+  expected: Документальный ответ на замечание с сохранением неопределённости
+  observed: Порядок проверки текстов и лаборатории описан, непроверенное остаётся
+    NOT_RUN
+  reasoning: Проверено по исходному акту; план не является выполнением
+  result: PASS
+- id: CHK-MAT-ARITH
+  method: independent_derivation
+  expected: Формулы влажности и пересчёта долей корректны при заданных предпосылках
+  observed: Три пары и двухклассовый пример сошлись в точной рациональной арифметике
+  reasoning: Подробности и предельные случаи в review.md
+  result: PASS
+- id: CHK-MAT-SOURCES
+  method: inspection
+  expected: Фактическая проверка первоисточников и подтверждение пригодности
+  observed: Недоступные источники, методики и проверка лабораторией не проверялись
+  reasoning: За пределами документального RECHECK; не подтверждаются
+  result: NOT_RUN
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Документальная подготовка выбора методов и программы; W01–W04
+  закрыты только по ответу
+excluded_claims:
+- Подтверждение действующих стандартов и методик
+- Реальная пригодность лаборатории и средств
+- Закрытие B01–B03 и G1
+- Результаты отбора или испытаний
+warning_owner_and_due:
+  owner_role: R2
+  owner_session: r2-material-01
+  due: До выбора методик и утверждения программы
+  restriction: Проверить первоисточники и пригодность с лабораторией; данные и методы
+    остаются UNKNOWN
+closure_criteria:
+- Получить и проверить доступные тексты и редакции
+- Согласовать представительность, чувствительность и методику с компетентной лабораторией
+- Подготовить и независимо проверить программу
+supersedes: null
+```
