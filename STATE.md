@@ -470,3 +470,7 @@ T-r4-linked-01: R5-LINKED-FIX-W01 исправлен в README на 4ebf47a5f6f9
 ## Предложение R4 после PR #33
 
 T-r4-layout-01: отдельная документальная постановка параметрической компоновки всего пресса A/B; claim PROPOSED / PENDING_MAIN, owner новой задачи NONE, proposed_owner r4-linked-20261111. Проектная работа NOT_STARTED до принятия claim. Границы прежних synthetic результатов сохранены; G1 открыт.
+
+## Постановка компоновки всего пресса R4
+
+T-r4-layout-01: документальный черновик cad/layout/whole_press_layout_brief.md IN_REVIEW в рабочей ветке; claim принят PR #34, owner r4-linked-20261111. Независимый OUTPUT-review NOT_RUN. Реальные размеры/ходы/нагрузки UNKNOWN, CAD/расчёты/пробы/испытания NOT_RUN; архитектура и ТЗ не утверждены, G1 открыт.
