@@ -1,6 +1,16 @@
 # STATE — панель проекта
 
-## Текущий результат R4 — исправление аналитики (2026-11-11T21:37:52Z)
+## Текущий результат R4 — рамная/монтажная коррекция (2026-11-11T22:56:14Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `5198e0184b35978701ed1ce762d9e4fcd44997b3`**, REMOTE в work-r4/build-layout/r4-linked-20261111. Входной R5 04efe57 закрыл B01/B02 только в проверенной программной области. Новая коррекция/дополнительный код требуют независимого OUTPUT review, NOT_RUN. Задача и компоновки не приняты.
+
+ASSUMED rev7 заморожен до построения на 17501de. Поперечины/рельсы/опоры цилиндра/выхода исправлены, открытый U-коридор и связи к основанию; старые ID сохранены A79/B77. 18 native before/after пар zero volume, 58 условных positive-area интерфейсов, крепёж/реальные силы UNKNOWN. Все 23 reviewed Python-модуля неизменны.
+
+346709 all-pair строк, 114156 поддерживаемых строк новой группы без positive overlap +28 INDETERMINATE unknown-control. 658 прежних target строк без регрессии, 3672 строки цилиндровых сервисов, 14 continuous/restored сервисных последовательностей; actual CAD/STEP/all QueryVolumes/repeat/8 limited outcomes/83+5 tests PASS. Осталось 20 native penetration пар и прочие неопределённости; конечный inventory 463 пары. Дозаторный монтаж/извлечение и бак/мотор OPEN, **whole press READY INDETERMINATE**.
+
+Owner/claim/lease/main сверены, срок не расширен; историческую нормализацию учёта main сверяет координатор перед интеграцией. Код/результаты cad/frame_mount/, cad/build/frame_mount/; команды README и independent review request. Текущая R4 капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md, NEXT_MODEL.md. Старые исходники/модели/акты/RECHECK/probes сохранены. Реальные параметры UNKNOWN, все исследовательские размеры ASSUMED; архитектура/ТЗ не утверждены, испытания NOT_RUN, G1 OPEN. Merge не выполнялся.
+
+## История результата R4 — исправление аналитики (2026-11-11T21:37:52Z)
 
 T-r4-layout-build-01 IN_REVIEW, C `66924aed1cb2d193b9883d2140d85560b1e4b0cb`, ветка work-r4/build-layout/r4-linked-20261111. Вход R5 04b9f2950a34492b15e1d7c893f680b82f9183b9: целевая геометрия C 120a958 подтверждена в её области, новый classifier/orchestration REJECT_WITH_BLOCKER. Представлены method/evidence gate и строгий sufficient contract с отдельными verifier assertions. R5-LAYOUT-NEW-B01/B02 OPEN до независимого RECHECK (NOT_RUN).
 

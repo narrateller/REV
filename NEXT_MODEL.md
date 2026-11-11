@@ -1,3 +1,20 @@
+# Актуальная эстафета — рамная/монтажная геометрия A/B
+
+- HANDOFF / IN_REVIEW; 2026-11-11T22:56:14Z; R4 r4-linked-20261111. **Code/results C: 5198e0184b35978701ed1ce762d9e4fcd44997b3**, ветка work-r4/build-layout/r4-linked-20261111, REMOTE. H — только эстафета, проверять неизменяемый C.
+- Входы: базовый C 66924aed1cb2d193b9883d2140d85560b1e4b0cb, независимый акт 04efe5703e339112b7d007665b9f3672f0572d37 (R5-LAYOUT-NEW-B01/B02 CLOSED в прежней проверенной области). Новый геометрический результат/дополнительный код НЕ принят, независимый OUTPUT review NOT_RUN.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 проверена fetch до работы и публикации; claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35 и подтверждён пользователем, owner_session r4-linked-20261111, lease до 2026-11-12T18:06:24Z без продления. Новая коррекция внутри исходного scope. Историческое предварительное NONE/PENDING main координатор сверяет/устраняет перед интеграцией, история сохранена.
+- ASSUMED input rev7 зафиксирован на 17501de до построения. Исправлена связная группа поперечин/рельсов/опор цилиндра/выходной опоры, открытый U-коридор, добавлены верхние стойки. Все прежние ID сохранены, A79/B77. 18 прежде положительных native пар стали zero volume; 58 условных сопряжений с положительной площадью native граней. Крепёж/силовая способность/радиальная фиксация UNKNOWN, не принимать геометрический граф за расчёт силы.
+- Все 23 прежних reviewed Python-модуля неизменны; новые cad/frame_mount scripts/reporting требуют отдельного review. Сохранены прежние CAD/input/results/акты/probes. Actual FCStd/STEP/все QueryVolumes, повтор/edit/reopen/recompute, 83 прежних+5 новых тестов и 8 strict limited outcomes PASS. Восемь сцен не доказывают готовность пресса.
+- 346709 all-pair строк с полным покрытием. Новая группа 114156 строк без положительного объёма и 28 INDETERMINATE unknown-control. 658 прежних target строк без регрессии; старые R5 native witnesses и 187 secondary control строк повторены. Цилиндровый сервис 3672 строки без положительного перекрытия; 14 сервисных последовательностей continuous/restored. Дозаторный сервис остаётся BLOCKED.
+- Конечный реестр после: 463 непустых пары, включая 20 native penetration пар OPEN, 73 условных сопряжения, 2 оболочечных пересечения и 368 INDETERMINATE. Остались монтаж дозатора/кармана/бункера, извлечение дозатора, бак/мотор и неизвестные сопряжения/крепления/доступы. Весь пресс BLOCKED остаточными проникновениями, READY INDETERMINATE.
+- Файлы/команды: cad/frame_mount/README.md; cad/build/frame_mount/assessment.md и inventory/, FCStd/STEP/PNG/SVG/PDF A/B, четыре before/after вида; verification/r4_frame_mount/final_checks.json. Хэши publication_manifest.json, обзор входа input_audit.md. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Следующая роль — независимый R5, не автор. Checkout C/materialize LFS/сохранить исходную копию/сверить hashes, затем cad/frame_mount/review_request.md: самостоятельная проверка полного хода/возврата/сервиса, native face interfaces, остатка и новых supplementary scripts. Критерий — новый независимый OUTPUT акт; задача не DONE. Интеграция координатором отдельно, merge не выполнялся.
+- Размеры ASSUMED, реальные параметры REV/физическая работоспособность/безопасность UNKNOWN. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. C REMOTE, 12 новых LFS объектов загружены.
+
+---
+
+История прежних эстафет ниже, не текущий статус:
+
 # Актуальная эстафета — RECHECK новой аналитики
 
 - HANDOFF / IN_REVIEW; 2026-11-11T21:37:52Z, R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.
