@@ -2169,3 +2169,56 @@ reproduction_artifacts:
 - verification/r2_compaction_program_recheck/review.md
 supersedes: null
 ```
+
+## Регистрация независимого OUTPUT-review постановки R3 W03/W04
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-COMPACTION-OBS-01-001
+kind: OUTPUT
+task_id: T-r3-compaction-measure-01
+created_at_utc: '2026-11-11T13:01:00Z'
+reviewer:
+  role: R5
+  session_id: 14e665ff-a763-4bc9-95cf-c4c3a999177e
+  model_label: Codex
+reviewed_roles:
+- R3
+author_sessions:
+- r3-safety-01
+independence_basis: По акту reviewer не указан автором постановки; организационная независимость и профильная квалификация не удостоверяются.
+reviewed_commit: 026bd890d7957526bfbee5ffb2745e9fe7b0c43e
+parameter_refs: []
+artifacts:
+- path: verification/r3_compaction_observability/specification.md
+  sha256: de28dabee909e9fa1ea33f680f6e345f384ab702da5ec2b754f8eceaaf528805
+- path: verification/r3_compaction_observability/input_audit.md
+  sha256: c8cda946c2b7d233898f76deaee862ebed697d22cca101ca36f5271a0fde1340
+scope: Документальная проверка измерительной модели и наблюдаемости по R5-COMP-W03/W04; пригодность реальной установки и безопасность не проверялись.
+checks:
+- id: CHK-R5-R3-OBS-DOCUMENT
+  method: inspection
+  expected: Проверить обработку W03/W04 и точность входов.
+  observed: По акту R5 документально обработаны границы, неопределённость, синхронизация и наблюдаемость; реальные каналы и критерии UNKNOWN.
+  reasoning: Постановка является черновиком, перечисление полей не доказывает применимости методики.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Дальнейшая документальная разработка и независимая профильная проверка.
+excluded_claims:
+- Применимая методика, выбор средств, безопасность и подтверждение состояний
+- Закрытие R5-COMP-W03/W04, B01–B03 или G1
+warning_owner_and_due:
+  owner_role: R3
+  owner_session: r3-safety-01
+  due: До согласования и применения будущей методики
+  restriction: Установить фактические данные, модель и бюджет измерений, пригодность каналов и независимые основания наблюдаемости.
+closure_criteria:
+- Разработать и независимо проверить применимую методику в установленной области
+traceability_and_revisions: Регистрация R3 по независимому акту R5 в commit 644d74178fefb4cb40150276532b08c6a8381b98; не самостоятельный R5 review.
+reproduction_artifacts:
+- verification/r5_r3_compaction_observability_review/review.md
+supersedes: null
+```
