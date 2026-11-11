@@ -25,7 +25,7 @@ ID после создания не меняется. Для параллель�
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
 | T-r4-linked-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | RECHECK WARNING; ограниченная приёмка предлагается после интеграции | G1 |
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
-| T-r4-layout-build-01 | TASK | P2 | @R4 | READY | NONE | claim PENDING_MAIN; W03 подготовительное задание | G1 |
+| T-r4-layout-build-01 | TASK | P2 | @R4 | IN_PROGRESS | r4-linked-20261111 | claim принят PR #35; условное построение | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -81,8 +81,8 @@ PR #32 принят на main `116b280ffbe579e7545de51282ccfa96aa6cdefd`; пов
 
 ## T-r4-layout-build-01 — построение условной параметрической сборки всего пресса A/B
 
-- TASK, P2, адресат @R4; статус READY; owner_session в main NONE; proposed_owner_session r4-linked-20261111 / Codex / R4. Назначение R4 подтверждено пользователем; текущее поручение — подготовить задачу и предложить отдельный claim, не начинать построение.
-- claim_acceptance PROPOSED / PENDING_MAIN; base_commit c00c75dda08889c3e19169476051b3e6980be721; branch work-r4/prepare-layout-build/r4-linked-20261111; assignment_utc / heartbeat_utc 2026-11-11T18:06:24Z; proposed lease_expires_at 2026-11-12T18:06:24Z. Предложен срок на принятие и ближайший исследовательский результат, не продление старого claim. Claim на постановку не покрывает построение.
+- TASK, P2, адресат @R4; статус IN_PROGRESS; owner_session r4-linked-20261111 / Codex / R4; claim принят PR #35. Назначение R4 подтверждено пользователем; текущее поручение — подготовить задачу и предложить отдельный claim, не начинать построение.
+- claim_acceptance ACCEPTED_MAIN; claim_record_commit 79e9c3aa9aaca33778814957fafecd93a4adc392; acceptance_commit 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 (PR #35), подтверждено пользователем и ancestry; base_commit c00c75dda08889c3e19169476051b3e6980be721; branch work-r4/prepare-layout-build/r4-linked-20261111; assignment_utc / heartbeat_utc 2026-11-11T18:06:24Z; proposed lease_expires_at 2026-11-12T18:06:24Z. Предложен срок на принятие и ближайший исследовательский результат, не продление старого claim. Claim на постановку не покрывает построение.
 - Входы: постановка cad/layout/whole_press_layout_brief.md после ответов W01/W02/W03, исполнимое задание cad/layout/model_build_task.md и отдельный conditional_inputs.template.json из этого подготовительного PR (точный C фиксируется в эстафете); review REV-R5-LAYOUT-01-001 на a621f466aac7c31e7812b91ab84c327157411fbc, WARNING на предыдущую постановку 32481da; process/supply_boundary_options.md и OP-REV-07…11, предыдущая main c00c75d. Изменённая постановка не объявляется повторно независимо проверенной.
 - Инструмент и формат: FreeCAD 1.0.0 через /usr/bin/python3 3.13.5 + модуль Part; импорт проверен без создания документа/геометрии; .FCStd и параметрические Python/JSON исходники, STEP и виды/разрезы/отчёты. freecadcmd launcher в текущей среде падает, поэтому исполняемый путь и ограничения указаны в задании.
 - Scope и критерии: все узлы A/B, общие и локальные базы, собственный исследовательский ASSUMED-набор, воспроизводимый build/reopen/recompute/export, четыре геометрических исхода на A/B, полный перечень пар/фаз/сервисных конфигураций с фактическими результатами и INDETERMINATE для неподдержанного. Подробные пути/entrypoints и критерии — model_build_task.md. Реальные параметры REV UNKNOWN.
