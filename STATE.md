@@ -427,3 +427,7 @@ R1 принял карту по RECHECK R3 WARNING только как пост�
 ## Постановка данных формования R2
 
 Claim T-r2-compaction-data-01 принят PR #24 на `6f22d966de85a7072cea43d2288d560edfb3b558`; owner `e98b8ef8-7302-453a-ac8d-1edbb7d8860c`, lease до 2026-11-12T11:36:00Z. Проект схем отбора, связей и материального баланса — verification/r2_compaction_data/specification.md, независимый review NOT_RUN, задача IN_REVIEW. R5-COMP-W01–W05, B01–B03 и G1 OPEN; методы и пределы UNKNOWN, пробы/испытания NOT_RUN.
+
+## Постановка данных формования — проект интеграции
+
+Постановка `146f17de0f9e06f590f97f191a431f77a0b1c176`, независимый акт R5 `9a6488a8673f6025f48e75e9081fafedaa067bd8` и проект решения verification/r2_compaction_data/disposition.md подготовлены к интеграции как документальный черновик с WARNING. До принятия PR задача IN_REVIEW. R5-COMP-W01–W05, B01–B03 и G1 OPEN; методы/пределы UNKNOWN, пробы и испытания NOT_RUN.
