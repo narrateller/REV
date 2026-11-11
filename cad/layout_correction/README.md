@@ -1,5 +1,24 @@
 # Геометрическая корректировка T-r4-layout-build-01
 
+## Текущее исправление новой аналитики
+
+Входной акт 04b9f2950a34492b15e1d7c893f680b82f9183b9 подтвердил целевую геометрию C 120a958, но отклонил новые classify/run_revision/verify по R5-LAYOUT-NEW-B01/B02. Исправления представлены, блокеры OPEN до независимого RECHECK. Геометрия и 15 frozen core-файлов не меняются.
+
+Unsupported/неполные методы или evidence не дают CLEAR. Sufficient требует полного подтверждённого limited цикла с link/transition/continuity/lifecycle/READY, а не только свободного пути. verify_output проверяет raw scenes отдельными assertions (verify_cycles.py), не вызывает oracle outcomes.py.
+
+В run.json раздельны execution (выполнение/exit), test_evaluation (ожидание теста), limited_outcomes.geometric_scene_outcome (геометрический limited cycle) и geometric_result (целевые объёмы/whole assembly). PASS отрицательного теста не является READY. Известная блокировка и неизвестный обязательный результат никогда не дают limited_cycle_success=true.
+
+83 unit tests, 15 classifier и 40 cycle counterexamples с actual outcomes сохранены в output/regressions. Полный отрицательный R5 вход можно воспроизвести без изменения штатной геометрии:
+
+```sh
+/usr/bin/python3 cad/layout_correction/run_revision.py --inputs verification/r5_layout_correction_review/evidence/unlinked_inputs.json --out /tmp/rev-unlinked-recheck
+/usr/bin/python3 cad/layout_correction/verify_output.py --out /tmp/rev-unlinked-recheck
+```
+
+Обе команды **должны вернуть ненулевой код**: CAD строится, sufficient link/return не подтверждены. Это ожидаемый regression rejection, не процессный crash и не достаточная сцена. Фактические отрицательные commands/run/outcomes/verify — verification/r4_analysis_fix/negative_full_*.json/log. Штатные команды ниже должны exit 0 при strict test PASS и сохраняют BLOCKED/INDETERMINATE у соответствующих отрицательных сцен.
+
+Геометрия и исходные доказательства C 120a958 сохранены, повтор R5 geometry_probe в verification/r4_analysis_fix/geometry_reproduced.json. R4-воспроизведение reviewer script не заменяет новый независимый RECHECK. Старая политика касаний/сервисная геометрия не утверждены как реальные функции/безопасность. Исторический текст ниже относится к геометрической итерации и её ограниченной самопроверке.
+
 Исследовательские A/B, не конструкция REV. Tool code de377f0 побайтно сохранён; его WARNING review 214b055 не является review нового набора геометрии или нового анализатора.
 
 Из корня после materialize LFS:

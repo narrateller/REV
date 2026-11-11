@@ -4,6 +4,7 @@ Uses the frozen tool's event partitions. Strict AABB overlap is classified
 exactly over each region; native samples are witnesses, not full BRep coverage.
 """
 import copy,gzip,json,sys,io
+from functools import lru_cache
 from pathlib import Path
 from fractions import Fraction as F
 ROOT=Path(__file__).resolve().parents[2]
@@ -13,10 +14,56 @@ from layout_common import load,config,bounds,selected
 
 TARGETS=[('inlet_gate','pocket_R'),('inlet_gate','pocket_R_lower'),('lock','guard_right'),('lock','stop_support'),('lock','stop_support_L'),('end_stop','guard_right'),('end_stop','stop_support'),('end_stop','stop_support_L')]
 
+@lru_cache(maxsize=8192)
+def _linear_body(motion,lo,hi,delta):
+    return checked.engine.body({'motion':motion,'lo':lo,'hi':hi,'delta':delta})
+
+
+def validated_body(body):
+    vectors=[None if body.get(k) is None else tuple(body[k]) for k in ('lo','hi','delta')]
+    return _linear_body(body.get('motion'),*vectors)
+
+
 def box_at(body,time,interval):
-    if body.get('delta') is None:return None
-    u=(F(time)-F(interval[0]))/(F(interval[1])-F(interval[0]))
-    return ([F(x)+u*F(d) for x,d in zip(body['lo'],body['delta'])],[F(x)+u*F(d) for x,d in zip(body['hi'],body['delta'])])
+    try:
+        lo,hi,delta=validated_body(body);start,end=map(checked.engine.q,interval);at=checked.engine.q(str(time))
+        if not start<end or not start<=at<=end:return None
+        u=(at-start)/(end-start)
+        return ([x+u*d for x,d in zip(lo,delta)],[x+u*d for x,d in zip(hi,delta)])
+    except (KeyError,TypeError,ValueError,ZeroDivisionError,NotImplementedError):return None
+
+
+def support_failure(row,state,interval):
+    """Applicability and complete evidence are prerequisites even for CLEAR."""
+    try:
+        start,end=map(checked.engine.q,interval)
+        if not start<end:raise ValueError('invalid interval')
+        if len(row['pair'])!=2:raise ValueError('invalid pair')
+        for name in row['pair']:
+            b=state[name]
+            if not isinstance(b.get('exact_box'),bool):raise ValueError('shape/bounding method not declared '+name)
+            try:validated_body(b)
+            except (KeyError,TypeError,ValueError,ZeroDivisionError,NotImplementedError) as exc:raise ValueError(name+': '+str(exc)) from exc
+        evidence=row['evidence']
+        if evidence.get('input_status')!='SUPPORTED':raise ValueError('raw method/input status '+str(evidence.get('input_status')))
+        regions=evidence.get('segments')
+        if not regions:raise ValueError('empty interval evidence')
+        cursor=start;point=True
+        for r in regions:
+            left,right=checked.engine.q(r['from']),checked.engine.q(r['to'])
+            if r['collision_status'] not in ('CLEAR','COLLISION','ALLOWED_CONTACT'):raise ValueError('unknown/invalid interval evidence')
+            if point:
+                if r['interval']!='point' or left!=cursor or right!=cursor:raise ValueError('missing point boundary or evidence gap')
+            else:
+                if r['interval']!='open' or left!=cursor or not left<right<=end:raise ValueError('missing open interval or evidence gap')
+                cursor=right
+            point=not point
+        if point or cursor!=end:raise ValueError('interval coverage incomplete')
+        if row['status']=='CLEAR' and any(r['collision_status']!='CLEAR' for r in regions):raise ValueError('raw CLEAR contradicts interval evidence')
+        if row['status']=='INVALID_INPUT':raise ValueError('raw INVALID_INPUT')
+        return None
+    except (KeyError,TypeError,ValueError,ZeroDivisionError,NotImplementedError) as exc:return str(exc)
+
 
 def overlap(a,b):
     lengths=[min(a[1][i],b[1][i])-max(a[0][i],b[0][i]) for i in range(3)]
@@ -49,6 +96,8 @@ POLICY=allowed_interfaces()
 
 
 def classify(row,state,interval,variant):
+    reason=support_failure(row,state,interval)
+    if reason is not None:return {'pair':row.get('pair'),'raw_status':row.get('status'),'class':'INDETERMINATE','reason':reason,'exact_box_sign_coverage':'NOT_ESTABLISHED','raw_evidence':row.get('evidence')}
     a,b=row['pair'];ba,bb=state[a],state[b];evidence=[];has_unknown=False;positive=False;touch=False;allowed=True
     if row['status']=='CLEAR':return {'pair':row['pair'],'raw_status':'CLEAR','class':'CLEAR','basis':'complete separation already proved by frozen tool; no pair excluded'}
     envelope=ba.get('group')=='routes' or bb.get('group')=='routes'
@@ -73,6 +122,12 @@ def classify(row,state,interval,variant):
         evidence.append({'region':[region['from'],region['to'],region['interval']],'witness_time':str(time),'kind':status,'positive_overlap_m3':str(measure) if status=='PENETRATION' else '0','touch_face_area_m2':str(measure) if status=='TOUCH' else None,'touch_axes':zeros,'conditional_touch_policy':rule[1] if permitted and rule else 'checked punch/product contact' if permitted else None})
     status='ENVELOPE_INTERSECTION' if positive and envelope else 'PENETRATION' if positive else 'INDETERMINATE' if has_unknown else 'ALLOWED_SYNTHETIC_TOUCH' if touch and allowed else 'INDETERMINATE' if touch else 'CLEAR'
     return {'pair':row['pair'],'raw_status':row['status'],'class':status,'exact_box_sign_coverage':'complete checked event partition' if not has_unknown else 'incomplete','regions':evidence}
+
+
+def scene_geometric_status(counts):
+    if any(counts.get(k,0) for k in ('PENETRATION','NATIVE_PENETRATION_WITNESS')):return 'BLOCKED'
+    if any(counts.get(k,0) for k in ('INDETERMINATE','ENVELOPE_INTERSECTION')):return 'INDETERMINATE'
+    return 'CLEAR_IN_SUPPORTED_METHOD'
 
 
 def service_scenes(data,variant):
@@ -104,7 +159,7 @@ class NativeWitness:
     def at(self,variant,pair,state,time,interval):
         if any(n not in self.objects[variant] for n in pair):return {'status':'INDETERMINATE','reason':'injected scenario body has no persisted native object'}
         positions=[box_at(state[n],time,interval) for n in pair]
-        if any(p is None for p in positions):return {'status':'INDETERMINATE'}
+        if any(p is None for p in positions):return {'status':'INDETERMINATE','reason':'native pose requires complete supported linear motion'}
         key=(variant,tuple(pair),tuple(tuple(p[0]) for p in positions))
         if key in self.cache:return self.cache[key]
         shapes=[]
@@ -135,7 +190,7 @@ def function_witness(data,scenes,native):
     return report
 
 
-def analyze(data,models,raw,out):
+def analyze(data,models,raw,out,cycle_suite=None):
     out=Path(out);scenes=json.loads(gzip.decompress(Path(raw).read_bytes()));scenes+=service_scenes(data,'A')+service_scenes(data,'B');native=NativeWitness(models)
     targets=[];summary=[];stream=gzip.GzipFile(filename=str(out/'classifications.jsonl.gz'),mode='wb',mtime=0)
     try:
@@ -159,10 +214,10 @@ def analyze(data,models,raw,out):
                     if scene['case'].startswith('service_') and any(any(F(d)!=0 for d in stage['state'][n]['delta']) for n in pair) and result['class'] in ('PENETRATION','ENVELOPE_INTERSECTION','NATIVE_PENETRATION_WITNESS'):
                         moving_bad.append({'phase':stage['phase'],'pair':pair,'class':result['class']})
                     stream.write((json.dumps({'variant':scene['variant'],'case':scene['case'],'phase':stage['phase'],**result},sort_keys=True,separators=(',',':'))+'\n').encode())
-            summary.append({'variant':scene['variant'],'case':scene['case'],'counts':counts,'target_rows':target_count,'target_penetration_rows':target_bad,'service_moving_penetrations':moving_bad,'continuity_status':scene.get('continuity_status'),'positions_restored':scene.get('positions_restored'),'whole_press_READY':'INDETERMINATE'})
+            summary.append({'variant':scene['variant'],'case':scene['case'],'counts':counts,'geometric_scene_outcome':scene_geometric_status(counts),'target_rows':target_count,'target_penetration_rows':target_bad,'service_moving_penetrations':moving_bad,'continuity_status':scene.get('continuity_status'),'positions_restored':scene.get('positions_restored'),'whole_press_READY':'INDETERMINATE'})
         stream.close()
         with gzip.GzipFile(filename=str(out/'service_scenes.json.gz'),mode='wb',mtime=0) as f:
             with io.TextIOWrapper(f,encoding='utf-8') as text:json.dump([s for s in scenes if s['case'].startswith('service_')],text,sort_keys=True,separators=(',',':'))
-        result={'analysis_maturity':'NEW_ANALYSIS_REQUIRES_INDEPENDENT_REVIEW','frozen_tool':'de377f012da08f34796b2e59aee663ba0b2b3d2b','scenes':summary,'target_pairs':targets,'function_witnesses':functions,'touch_policy':[{ 'pair':list(k),'axis':v[0],'reason':v[1],'scope':'conditional exact synthetic face only, no physical approval'} for k,v in POLICY.items()],'limits':['raw checked statuses are retained, no core exclusions added','strict box-overlap sign proven on all event regions; native samples are only witnesses','edge/point/unclassified contacts INDETERMINATE','curved BRep continuity not proved by sampled witnesses','geometric feed aperture/closure/load-face continuity not physical performance or safety'],'whole_assembly_READY':'INDETERMINATE','raw_metadata_caveat':'source_commit_inputs and known_native_penetrations/tool_blockers strings in frozen check_layout are historical baseline metadata, not provenance or review of revised geometry; use this run manifest and new evidence'}
+        result={'cycle_test_evaluation':{'status':cycle_suite['status'],'scene_results':cycle_suite['scene_results']} if cycle_suite else {'status':'NOT_EVALUATED'},'analysis_maturity':'NEW_ANALYSIS_REQUIRES_INDEPENDENT_REVIEW','frozen_tool':'de377f012da08f34796b2e59aee663ba0b2b3d2b','scenes':summary,'target_pairs':targets,'function_witnesses':functions,'touch_policy':[{ 'pair':list(k),'axis':v[0],'reason':v[1],'scope':'conditional exact synthetic face only, no physical approval'} for k,v in POLICY.items()],'limits':['raw checked statuses are retained, no core exclusions added','strict box-overlap sign proven on all event regions; native samples are only witnesses','edge/point/unclassified contacts INDETERMINATE','curved BRep continuity not proved by sampled witnesses','geometric feed aperture/closure/load-face continuity not physical performance or safety'],'whole_assembly_READY':'INDETERMINATE','raw_metadata_caveat':'source_commit_inputs and known_native_penetrations/tool_blockers strings in frozen check_layout are historical baseline metadata, not provenance or review of revised geometry; use this run manifest and new evidence'}
         (out/'assessment.json').write_text(json.dumps(result,indent=2)+'\n');return result
     finally:stream.close();native.close()

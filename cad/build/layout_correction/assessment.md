@@ -1,3 +1,52 @@
+# Исправление оркестрации и классификатора по R5
+
+2026-11-11T21:32:34Z, R4 r4-linked-20261111, T-r4-layout-build-01. Входной акт REV-R5-LAYOUT-CORRECTION-01-001 на 04b9f2950a34492b15e1d7c893f680b82f9183b9 проверил C 120a9582f4835e81cdf324605a14f632ce7db2cb: целевые проникновения устранены в его области, новая аналитика REJECT_WITH_BLOCKER. R5-LAYOUT-NEW-B01/B02 OPEN до независимого RECHECK; автор не закрывает их.
+
+Геометрия inputs rev6, builder, 15 frozen файлов, все native manifest.objects и 8 PNG неизменны от C 120a958. Рабочие raw matrices, service_scenes и before_after_native совпали с исходным C по SHA-256. Пересобранные FCStd/STEP/PDF могут менять служебные timestamps/hashes, не формы. Геометрические результаты прежнего независимого review сохраняются; новая проверка не утверждает работоспособность REV.
+
+## Фактические проверки
+
+Основные команды:
+
+```sh
+/usr/bin/python3 cad/layout_correction/run_revision.py
+/usr/bin/python3 cad/layout_correction/verify_output.py
+```
+
+Обе exit 0, 10 subprocess-команд run_revision exit 0. Пройдены 83 unit tests (73 прежних + 10 новых/сохранённых analysis tests), в них 15 записанных method/evidence-контрпримеров и 40 cycle-контрпримеров, включая составные. Данные — regressions/classifier_regressions.json и cycle_regressions.json. Исходный analysis_probe.py R5 прочитан и повторён до правки; его старые assertions фиксировали ошибки, исходный результат сохранён в verification/r4_analysis_fix/baseline_counterexamples.json. После исправления критерий — новые ожидаемые INDETERMINATE/rejection, не успешный старый probe.
+
+Full CAD контрпример R5: использован неизменный evidence/unlinked_inputs.json с десятичным смещением продукта на 0.01 м в A/B, отдельный output-каталог. Native builds/check_layout exit 0; новая orchestration завершилась exit 1 с execution=COMPLETED/test_evaluation=FAIL, sufficient A/B BLOCKED, actual LINK_ABSENT, limited_cycle_success=false. Verify_output также exit 1. Regression PASS означает именно ожидаемый отказ обеих команд, а не положительный исход sufficient. Команды/exit codes/сводки и полный отрицательный run — verification/r4_analysis_fix/negative_full_*.json/log. Штатный input не изменялся.
+
+Повторён оригинальный R5 geometry_probe.py: 130453 рабочих + 121470 сервисных = 251923 строки без пропусков/дубликатов; 618 target rows без strict overlap, 58 native start/mid/end checks без положительного объёма. Все 12 сервисных последовательностей непрерывны и восстановлены. Сохранены остальные положительные native/frame/service witnesses. Результат verification/r4_analysis_fix/geometry_reproduced.json — воспроизведение скрипта reviewer автором, не новый независимый акт.
+
+## Изменение B01
+
+CLEAR допускается только после проверки полного линейного метода/входов и complete supported evidence всех point/open интервалов. Проверяются motion, exact-rational vectors/time, экстенты, присутствие тел, SUPPORTED input_status, состав и последовательность регионов без пропусков, допустимые статусы и согласованность raw CLEAR. Rotation/spline/пропущенное движение/неизвестный delta/пустое или неполное evidence дают INDETERMINATE с reason и NOT_ESTABLISHED coverage. box_at и NativeWitness не экстраполируют неподдерживаемое движение линейно.
+
+Raw evidence сохраняется; доказанный PENETRATION другой поддержанной пары сохраняет BLOCKED при одновременном unsupported/UNKNOWN. Пересечение conservative envelopes не превращается в native penetration; отсутствие native witness в одной точке не доказывает весь BRep-ход.
+
+## Изменение B02 и схема результата
+
+Sufficient требует одновременно geometry sufficient, NO_COLLISION, actual и reported LINK_CONFIRMED, ALLOWED_FOR_PATH_SUBSET, CONTINUOUS и RESTORED_FOR_PATH_SUBSET. Повторно вычисляются обязательная связь/выход/ограниченный path, покрытие пар, стадии, actual continuity/lifecycle и конечная геометрия. Нужны корректный REMOVE только после выхода, обязательные RETURN/RESET/READY-RETURNED и восстановленный реестр/позы. Любой отсутствующий, неизвестный, BLOCKED/отрицательный обязательный результат исключает success. Критерий sufficient не ослаблен и не переименован в негативный тест.
+
+verify_output имеет отдельные assertions по raw сценам, не вызывает oracle outcomes.assess_scene: проверяет все шесть обязательных полей, actual link и выход, стадии, motion/парное покрытие, смежность времени/координаты, lifecycle и восстановленную READY-геометрию. Полный неподтверждённый run не может пройти по одному совпадению geometry/collision.
+
+| Уровень | Поле | Значение/смысл |
+|---|---|---|
+| Выполнение команды | execution.status / exit_code | COMPLETED/0 штатно; COMPLETED/1 при явном validation rejection; FAILED/1 при ошибке выполнения |
+| Совпадение с тестом | test_evaluation.status; matches_expectation | PASS/FAIL по полному строгому контракту, не физическая готовность |
+| Исход сцены | limited_outcomes.geometric_scene_outcome | LIMITED_READY_CONFIRMED только у достаточных подтверждённых limited cycles; BLOCKED/INDETERMINATE у отрицательных/неизвестных |
+| Целевые объёмы | geometric_result.target_status | NO_STRICT_TARGET_PENETRATION после фактической проверки; NOT_EVALUATED_IN_THIS_RUN при раннем отказе |
+| Вся установка | whole_assembly_READY | INDETERMINATE, полный пресс не принят |
+
+Short/collision/unknown могут совпасть с ожиданием теста, сохраняя BLOCKED/INDETERMINATE и limited_cycle_success=false. Штатные sufficient A/B имеют LIMITED_READY_CONFIRMED только для заданного подмножества. Положительная геометрия чужой пары не скрывает отрицательный link/return; известная коллизия не скрывается неизвестной связью другого результата.
+
+Неизменные прочие проникновения и физические UNKNOWN перечислены в assessment.json/classifications.jsonl.gz и исторической оценке ниже. Архитектура/ТЗ не утверждены, реальные параметры/работоспособность/прочность/безопасность UNKNOWN, физические испытания NOT_RUN, G1 открыт. Задача IN_REVIEW, новый независимый RECHECK NOT_RUN. Точный C кода и результатов записывается следующим H в эстафету.
+
+---
+
+## История оценки C 120a958 (до исправления новой аналитики)
+
 # Геометрическая корректировка исследовательских A/B
 
 2026-11-11T20:29:56Z, R4 r4-linked-20261111, T-r4-layout-build-01. Исходный инструмент de377f012da08f34796b2e59aee663ba0b2b3d2b, акт R5 214b055f04d5b061a68dfd744afb6c956ac9a9d1 (WARNING). Задача IN_REVIEW, независимый OUTPUT review новой геометрии и нового анализатора NOT_RUN. Проверенные модули не изменялись; точный C результата фиксируется следующим H в NEXT_MODEL/капсуле.
