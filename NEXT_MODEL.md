@@ -97,3 +97,7 @@ REV-R5-TZ-REVIEW-01-001, reviewer `r5-implementation-02`, reviewed SHA `bff66903
 ## Результат ограниченного RECHECK ТЗ
 
 REV-R5-TZ-RECHECK-01-001: W01…04 CLOSED в документальной области, B01…03 OPEN; reviewed commit a02420fd3b100447550740a417d75c8608206cd7. Результаты и условия дальнейшей проверки: verification/r5_tz_recheck_01/review.md. R1 проверяет действующие claim/lease и продолжает B01…03 без выдумывания UNKNOWN; G1 OPEN.
+
+## Независимый OUTPUT-review R2
+
+REV-R5-R2-MATERIAL-01-001, reviewer `r5-implementation-02`, проверенный SHA c78a745fb431b459bf6272b585d17a7fad977845: WARNING в пределах документального сравнения; R2/R1 рассматривают R5-MAT-W01…04 до выбора методики и программы, см. verification/r5_r2_material_review/review.md. Первоисточники/пригодность не подтверждены, пробы отложены. B01–B03 и G1 OPEN.

@@ -878,3 +878,111 @@ closure_criteria:
 - Проверенные риск и нормативная область
 supersedes: null
 ```
+
+## REV-R5-R2-MATERIAL-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-MATERIAL-01-001
+kind: OUTPUT
+task_id: T-r2-material-01
+created_at_utc: '2026-11-11T00:09:19Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: Сессия R5 не автор входного акта и сравнения R2; ранее проверяла
+  ТЗ. Независимость ограничена текущим результатом.
+reviewed_commit: c78a745fb431b459bf6272b585d17a7fad977845
+scope: Документальное сравнение пяти групп кандидатов и аналитическая проверка формул;
+  стандарты, редакции, испытания и реальная применимость вне области
+parameter_refs: []
+artifacts:
+- path: verification/r2_material_methods/input_audit.md
+  sha256: 0ba1bf9b2d303983510adb7a567b22b0ba53d62752e872764565b105edcb0104
+- path: verification/r2_material_methods/comparison.md
+  sha256: 83e3a2af17ab027202f3aa0bf4416f5f4f9188e382d60e88ad97e4373d2ba86e
+- path: process/input_material_measurement_passport.md
+  sha256: 0594773a7bc60ad6eeba57cb826edc8aee50021e52bb85a03e2997d65d391e56
+- path: process/feedstock.md
+  sha256: 826bfbab4ba938b8ae4e9dbeb604eb4719c042215a1e8b3b325d356e3c97ddda
+- path: process/sampling_plan.md
+  sha256: 0ed4415b20157ae43d8ee27cc543ed83f6bd9a3bb58317a0c8916e2571ea962d
+checks:
+- id: CHK-MAT-01
+  method: inspection
+  expected: Исходный паспорт и план отбора сохранены, известное отделено от UNKNOWN
+  observed: Три blob совпали с базой, SP-REV-06 кандидат, результаты NOT_RUN
+  reasoning: Сверены репозиторные источники; исходная стенограмма не проверена
+  result: PASS
+- id: CHK-MAT-02
+  method: independent_derivation
+  expected: Пересчёт влажности и пределы математически согласованы
+  observed: Четыре рациональных примера, прямой и обратный переход согласованы; нулевые
+    знаменатели исключаются
+  reasoning: Формулы для потери массы, доказательство в отчёте
+  result: PASS
+- id: CHK-MAT-03
+  method: inspection
+  expected: Ограничения для неоднородной смеси и источников явно указаны
+  observed: Представительность, потери, редкие металлы и отсутствие нормативных источников
+    отражены; W01–W04 на дальнейшую разработку
+  reasoning: Это сравнение кандидатов, а не квалификация метода
+  result: PASS
+- id: CHK-MAT-04
+  method: inspection
+  expected: Подтверждение стандартов и фактической пригодности для REV
+  observed: Первоисточники и лабораторная валидация недоступны или не выполнены
+  reasoning: Вне области данной документальной оценки, нормативные выводы исключены
+  result: NOT_RUN
+findings:
+- finding_id: R5-MAT-W01
+  severity: WARNING
+  evidence: verification/r5_r2_material_review/review.md
+  impact: Требует проработки до выбора метода и утверждения программы
+  owner_role: R2
+  task_id: T-r2-material-01
+- finding_id: R5-MAT-W02
+  severity: WARNING
+  evidence: verification/r5_r2_material_review/review.md
+  impact: Требует проработки до выбора метода и утверждения программы
+  owner_role: R2
+  task_id: T-r2-material-01
+- finding_id: R5-MAT-W03
+  severity: WARNING
+  evidence: verification/r5_r2_material_review/review.md
+  impact: Требует проработки до выбора метода и утверждения программы
+  owner_role: R2
+  task_id: T-r2-material-01
+- finding_id: R5-MAT-W04
+  severity: WARNING
+  evidence: verification/r5_r2_material_review/review.md
+  impact: Требует проработки до выбора метода и утверждения программы
+  owner_role: R2
+  task_id: T-r2-material-01
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Документальная проработка методов и подготовка программы
+  с ограничениями; без отбора и выбора утверждённых методов
+excluded_claims:
+- Применимость или актуальность стандартов
+- Реальная представительность и пригодность приборов
+- Закрытие B01–B03, R5-OBS-01…04 или G1
+- Физические испытания
+warning_owner_and_due:
+  owner_role: R2
+  owner_session: r2-material-01
+  due: До выбора методик и утверждения программы
+  restriction: Ни методы ни требования не утверждаются данным review
+closure_criteria:
+- Разработать условия влажности и интерпретации потери массы
+- Обосновать обнаружение редких металлов и представительность
+- Обеспечить контроль потерь и пересчёт баз
+- Проверить доступные первоисточники и пригодность с компетентной лабораторией
+supersedes: null
+```

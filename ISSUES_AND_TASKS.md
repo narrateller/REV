@@ -362,3 +362,7 @@ R1 подготовил проект process/input_material_measurement_passport
 ## Передача T-r2-material-01 на независимый review
 
 R2 / r2-material-01: входной акт `verification/r2_material_methods/input_audit.md`, сравнение `verification/r2_material_methods/comparison.md`. Точная неизменяемая версия передаётся SHA коммита, содержащего эту запись; независимый OUTPUT review NOT_RUN. Проверить физические основания, формулы, репрезентативность, применимость и полноту пяти групп; отдельной оценке подлежат источники и нормативные редакции, пока не проверенные. Методы и пределы не утверждены. Пробы/испытания NOT_RUN; B01–B03 и G1 OPEN; owner T-INIT не меняется.
+
+## OUTPUT-review T-r2-material-01 — REV-R5-R2-MATERIAL-01-001
+
+Независимый R5 `r5-implementation-02`, проверенный SHA c78a745fb431b459bf6272b585d17a7fad977845: WARNING для ограниченного документального сравнения пяти групп; R5-MAT-W01…04 требуют обработки до выбора методик и программы. Подробности verification/r5_r2_material_review/review.md; стандарт/пригодность не подтверждены, пробы/испытания NOT_RUN. B01–B03 и G1 OPEN; owner R2 не меняется.
