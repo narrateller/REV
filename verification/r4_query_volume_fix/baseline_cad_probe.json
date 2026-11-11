@@ -1,0 +1,180 @@
+[
+  {
+    "case": "pristine_actual_CAD",
+    "passed": true,
+    "status": "PASS",
+    "counts": {
+      "A": 65,
+      "B": 61
+    }
+  },
+  {
+    "case": "manifest_only",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "CAD_INPUT_INVALID",
+      "reason": "actual CAD missing/empty: /tmp/tmp7q9xapno/A/layout_A.FCStd"
+    },
+    "mutation": {}
+  },
+  {
+    "case": "missing_step_and_bad_fcstd",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "CAD_INPUT_INVALID",
+      "reason": "actual CAD hash mismatch: /tmp/tmpcrdiwsbu/A/layout_A.FCStd"
+    },
+    "mutation": {}
+  },
+  {
+    "case": "bad_fcstd_old_hash",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "CAD_INPUT_INVALID",
+      "reason": "actual CAD hash mismatch: /tmp/tmp6tqbudzx/A/layout_A.FCStd"
+    },
+    "mutation": {}
+  },
+  {
+    "case": "bad_fcstd_forged_hash",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "NATIVE_VALIDATION_FAILED",
+      "reason": "native CAD validation did not complete successfully",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "",
+      "native": {
+        "status": "FAILED",
+        "reason": "File is not a zip file",
+        "exception": "BadZipFile"
+      }
+    },
+    "mutation": {}
+  },
+  {
+    "case": "bad_step_forged_hash",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "NATIVE_VALIDATION_FAILED",
+      "reason": "native CAD validation did not complete successfully",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "",
+      "native": {
+        "status": "FAILED",
+        "reason": "FreeCAD exception thrown (Error in reading STEP)",
+        "exception": "RuntimeError"
+      }
+    },
+    "mutation": {}
+  },
+  {
+    "case": "variant_step_substitution_forged_hash",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "NATIVE_VALIDATION_FAILED",
+      "reason": "native CAD validation did not complete successfully",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "",
+      "native": {
+        "status": "FAILED",
+        "reason": "invalid STEP/count A",
+        "exception": "ValueError"
+      }
+    },
+    "mutation": {}
+  },
+  {
+    "case": "native_fcstd_shift_forged_hash_and_manifest",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "NATIVE_VALIDATION_FAILED",
+      "reason": "native CAD validation did not complete successfully",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "",
+      "native": {
+        "status": "FAILED",
+        "reason": "actual FCStd geometry mismatch base_L",
+        "exception": "ValueError"
+      }
+    },
+    "mutation": {}
+  },
+  {
+    "case": "native_step_shift_forged_hash",
+    "expected": "FAILED",
+    "status": "FAILED",
+    "passed": true,
+    "evidence": {
+      "status": "FAILED",
+      "code": "NATIVE_VALIDATION_FAILED",
+      "reason": "native CAD validation did not complete successfully",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "",
+      "native": {
+        "status": "FAILED",
+        "reason": "actual STEP geometry mismatch base_L",
+        "exception": "ValueError"
+      }
+    },
+    "mutation": {}
+  },
+  {
+    "case": "query_volume_mutation",
+    "expected": "FAILED",
+    "status": "PASS",
+    "passed": false,
+    "evidence": {
+      "A": "PASS",
+      "B": "PASS"
+    },
+    "mutation": {
+      "object": "CylinderRemoval",
+      "before_height_mm": 1740.0,
+      "before_expressions": "[('.Placement.Base.x', 'Inputs.param_79'), ('.Placement.Base.y', 'Inputs.param_80 - Inputs.param_82'), ('.Placement.Base.z', 'Inputs.param_81 - Inputs.param_82'), ('Height', '2 * Inputs.param_82 + Inputs.param_371'), ('Length', 'Inputs.param_83'), ('Width', '2 * Inputs.param_82')]",
+      "after_height_mm": 99999.0
+    },
+    "CLI": {
+      "command_suffix": [
+        "/workspace/REV/cad/layout/check_layout.py",
+        "--inputs",
+        "/workspace/REV/cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "/tmp/tmp4ezjllz2",
+        "--out",
+        "/tmp/tmp4ezjllz2/checks"
+      ],
+      "exit_code": 0,
+      "status": "COMPLETED_WITH_KNOWN_INTERFERENCES",
+      "CAD_statuses": {
+        "A": "PASS",
+        "B": "PASS"
+      }
+    }
+  }
+]
