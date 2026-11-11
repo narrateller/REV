@@ -337,3 +337,7 @@ REV-R5-R2-VERSION-REVIEW-01-001 на cec689d77087d912ebfe34425cb8d288768637c2: R
 R2 исправил укороченный SHA openalex-src02.json и сохранил прежнее значение и локальные доказательства в version_inquiry/report.md. Исторический акт R5 STALE к новой редакции; R5-VERSION-B01 OPEN до независимой сверки. Даты/версия/значение AR UNKNOWN и исключены из проектного использования; пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
 
 REV-R5-VERSION-HASH-RECHECK-01-001 на 4605f3435c5882550d540ff797e7322613723769: R5-VERSION-B01 CLOSED по Git и доступной копии, WARNING; временная исходная копия недоступна для независимого cmp. verification/r5_version_hash_recheck/review.md; B01–B03 и G1 OPEN.
+
+## Документальная приёмка реестра источников R2
+
+R1 принял ограниченную документальную карту с WARNING; источники/редакции/лабораторная применимость и R5-SRC-W01 остаются открытыми. T-r2-sources-01 IN_REVIEW до интеграции; B01–B03 и G1 OPEN. См. verification/r2_primary_sources/r1_acceptance.md.

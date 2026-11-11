@@ -18,7 +18,7 @@ ID после создания не меняется. Для параллель�
 | ID | Тип | P | Адресат | Статус | Owner | Зависимости | Ворота |
 |---|---|---|---|---|---|---|---|
 | T-INIT | TASK | P1 | @R1 | CLAIMED | codex-01 | NONE | G1 |
-| T-r2-sources-01 | TASK | P1 | @R2 | IN_REVIEW | r2-material-01 | независимая проверка источников | G1 |
+| T-r2-sources-01 | TASK | P1 | @R2 | IN_REVIEW | r2-material-01 | документальный результат с WARNING; интеграция | G1 |
 | T-r2-material-01 | TASK | P1 | @R2 | DONE | r2-material-01 | только документальное сравнение с WARNING; условия выбора методов открыты | G1 |
 | Q-codex-01-01 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
@@ -459,3 +459,7 @@ R2 сопоставил сохранившийся первоначальный 
 ## RECHECK R5-VERSION-B01 — REV-R5-VERSION-HASH-RECHECK-01-001
 
 R5 `r5-implementation-02`, проверенный SHA 4605f3435c5882550d540ff797e7322613723769: R5-VERSION-B01 CLOSED в ограниченной области контрольной суммы и доступных Git-байтов, WARNING; временная копия R2 недоступна R5, её cmp NOT_RUN, внешнее происхождение не удостоверено. verification/r5_version_hash_recheck/review.md; B01–B03 и G1 OPEN.
+
+## Решение R1 по реестру первоисточников R2
+
+Результат принят как ограниченная документальная карта с WARNING: verification/r2_primary_sources/r1_acceptance.md. R5-SRC-B01 и R5-LAP-01/02 CLOSED только в описанной области; R5-VERSION-B01 CLOSED по доступным Git-байтам, независимое сравнение исходного /tmp NOT_RUN. Происхождение версий/правильное AR UNKNOWN; R5-SRC-W01, B01–B03 и G1 OPEN. Задача IN_REVIEW до интеграции.
