@@ -423,3 +423,7 @@ R1 принял карту по RECHECK R3 WARNING только как пост�
 ## Предварительные замечания R2 к программе формования
 
 Результат `e939c146f51d4a40daba75b1bb21bd694e12bccc` не принят как review: claim R2 PENDING_MAIN, в предлагаемой записи нет явного heartbeat/lease. R1 подготовил документальные уточнения W01–W05 в verification/compaction_measurement_program_draft.md; они ожидают независимой проверки. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+## Постановка данных формования R2
+
+Claim T-r2-compaction-data-01 принят PR #24 на `6f22d966de85a7072cea43d2288d560edfb3b558`; owner `e98b8ef8-7302-453a-ac8d-1edbb7d8860c`, lease до 2026-11-12T11:36:00Z. Проект схем отбора, связей и материального баланса — verification/r2_compaction_data/specification.md, независимый review NOT_RUN, задача IN_REVIEW. R5-COMP-W01–W05, B01–B03 и G1 OPEN; методы и пределы UNKNOWN, пробы/испытания NOT_RUN.
