@@ -1,3 +1,22 @@
+# Актуальная эстафета — RECHECK новой аналитики
+
+- HANDOFF / IN_REVIEW; 2026-11-11T21:37:52Z, R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.
+- **Code/results C: 66924aed1cb2d193b9883d2140d85560b1e4b0cb**. Входной акт REV-R5-LAYOUT-CORRECTION-01-001 на 04b9f2950a34492b15e1d7c893f680b82f9183b9; исходный C 120a9582f4835e81cdf324605a14f632ce7db2cb. H содержит только эстафету/учёт/запрос review, не заменяет C.
+- Исправления R5-LAYOUT-NEW-B01/B02 представлены, **оба OPEN** до независимого RECHECK. Новый classifier проверяет motion/точные входы/полное SUPPORTED evidence до CLEAR; unsupported/unknown дают INDETERMINATE с причиной/NOT_ESTABLISHED coverage. Доказанный дефект другой пары сохраняется при UNKNOWN.
+- Sufficient требует actual/reported LINK_CONFIRMED, разрешённый переход, непрерывность/lifecycle/обязательные RETURN/RESET/READY-RETURNED и восстановленный limited READY; criterion не ослаблен. verify_output имеет отдельные raw-scene assertions без вызова oracle outcomes.py. Командное execution, test_evaluation и geometric_scene_outcome раздельны; отрицательный test PASS не означает READY.
+- Штатные команды `/usr/bin/python3 cad/layout_correction/run_revision.py` и затем `/usr/bin/python3 cad/layout_correction/verify_output.py`: exit 0, 10 subprocess commands exit 0, 83 unit tests, 15 classifier и 40 cycle regressions PASS. Sufficient success только для A/B, short/collision/unknown остаются BLOCKED/INDETERMINATE.
+- Полный unlinked CAD контрпример исходного R5 повторён с его evidence/unlinked_inputs.json через --inputs и отдельный --out: CAD builds/checker exit 0, обе новые CLI exit 1, sufficient A/B LINK_ABSENT/BLOCKED/limited_cycle_success=false. Это PASS ожидания отказа, не sufficient. Полные отрицательные команды/run/verify/outcomes/logs — verification/r4_analysis_fix/negative_full_*.
+- Геометрия, ASSUMED inputs rev6 и 15 checked-tool файлов de377f0 неизменны. Все native manifest.objects и 8 PNG совпали с C 120a958; raw operating/service geometry evidence и before_after_native совпали по hash. Повтор R5 geometry_probe: 251923 строк без пропусков/дубликатов, 618 target rows/58 native checks без положительных проникновений, 12 сервисов непрерывны/восстановлены. Остальные frame/mount/powerpack/service проникновения и UNKNOWN сохранены, весь пресс READY INDETERMINATE.
+- Результаты cad/build/layout_correction/run.json, assessment.json/md, regressions/*.json, classifications.jsonl.gz и raw_checked_tool/. Read-only final checks verification/r4_layout_correction/final_checks.json; geometry/negative preservation evidence verification/r4_analysis_fix/. Навигация cad/layout_correction/README.md, запрос review_request.md. Старые R5 probes с ошибочными assertions сохранены; не использовать их исходный PASS как критерий исправления.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53/claim/owner/lease проверены перед C. owner r4-linked-20261111, claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/подтверждён пользователем; lease до 2026-11-12T18:06:24Z не продлён. Исторические NONE/PENDING main и рабочая нормализация требуют последовательной сверки координатором перед интеграцией, не меняют поручение текущей коррекции.
+- Следующая подходящая роль — независимый R5 (не автор). Первый шаг: checkout C, materialize LFS, сохранить исходную копию/сверить hashes; прочитать входной акт verification/r4_analysis_fix/input_audit.md, R5 review и README/assessment. Воспроизвести штатные команды, полный unlinked контрпример с ожидаемыми nonzero и собственные составные случаи unsupported/unknown + definite defect, link/return/lifecycle.
+- Критерий — независимый RECHECK B01/B02 на новом C; новый акт NOT_RUN. Положительная целевая геометрическая проверка C 120a958 сохраняется, весь пресс не принят. Роль/профильная квалификация/физическая применимость не подтверждаются самопроверкой. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Реальные параметры/работоспособность/безопасность UNKNOWN, условные числа ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. C/H публикуются в рабочей ветке без слияния, C REMOTE, запрос независимого RECHECK опубликован в рабочей ветке, merge не выполнялся.
+
+---
+
+История предыдущих эстафет (не текущий статус review):
+
 # Актуальная эстафета — исправление геометрии A/B
 
 - HANDOFF / IN_REVIEW; 2026-11-11T20:34:47Z; R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.

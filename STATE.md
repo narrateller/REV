@@ -1,6 +1,14 @@
 # STATE — панель проекта
 
-## Текущий результат R4 — геометрическая корректировка (2026-11-11T20:34:47Z)
+## Текущий результат R4 — исправление аналитики (2026-11-11T21:37:52Z)
+
+T-r4-layout-build-01 IN_REVIEW, C `66924aed1cb2d193b9883d2140d85560b1e4b0cb`, ветка work-r4/build-layout/r4-linked-20261111. Вход R5 04b9f2950a34492b15e1d7c893f680b82f9183b9: целевая геометрия C 120a958 подтверждена в её области, новый classifier/orchestration REJECT_WITH_BLOCKER. Представлены method/evidence gate и строгий sufficient contract с отдельными verifier assertions. R5-LAYOUT-NEW-B01/B02 OPEN до независимого RECHECK (NOT_RUN).
+
+Execution/test/scene outcomes разделены. 83 unit tests, 15 classifier и 40 cycle regressions PASS; штатные обе CLI exit 0. Full-unlinked CAD counterexample теперь rejected обеими CLI exit 1, actual LINK_ABSENT/BLOCKED/false у sufficient A/B. Inputs/native geometry/PNG/15 frozen core/evidence неизменны; R5 geometry_probe воспроизвёл 251923 строк, 618 target/58 native без positive, сервисы restored. Прочие проникновения и UNKNOWN не скрыты, whole press READY INDETERMINATE.
+
+Owner/claim/lease/main сверены до C; срок не расширялся, предварительный учёт main требует сверки координатором перед интеграцией. Registry/COTS/models неизменны, реальные параметры UNKNOWN, условные ASSUMED отдельно; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Текущая эстафета NEXT_MODEL.md, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md; результаты cad/build/layout_correction/ и verification/r4_analysis_fix/.
+
+## История результата R4 — геометрическая корректировка (2026-11-11T20:34:47Z)
 
 T-r4-layout-build-01 IN_REVIEW, C `120a9582f4835e81cdf324605a14f632ce7db2cb`, ветка work-r4/build-layout/r4-linked-20261111. На базе checked tool de377f0/review 214b055 целевые gate/pocket и B lock/stop/guard/support positive-volume пересечения устранены в поддержанной исследовательской геометрии по всему ходу/возврату/сервисам. Все исходные ID сохранены; 70/68 тел. 15 checked-tool файлов не менялись. Отдельные новые orchestration/classifier/face-touch policy требуют независимого review вместе с геометрией.
 
@@ -76,7 +84,7 @@ Code/results `6bb66a566719593a59935e341b1b5c80a1cbc9a7`, ветка `work-r4/bui
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
 | T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T17:42:58Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
-| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T20:45:46Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
+| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T21:38:17Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
 
 ## Active Handoff Capsule
 
