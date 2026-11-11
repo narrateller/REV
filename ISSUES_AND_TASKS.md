@@ -450,3 +450,8 @@ R2 подготовил verification/r2_primary_sources/version_inquiry/report.m
 ## OUTPUT-review исследования версий — REV-R5-R2-VERSION-REVIEW-01-001
 
 R5 `r5-implementation-02` по cec689d77087d912ebfe34425cb8d288768637c2: R5-LAP-01/02 и R5-SRC-B01 CLOSED только в документальной области при исключении спорных данных; правильное AR и происхождение версий UNKNOWN. Новый R5-VERSION-B01 OPEN: неверный неполный SHA openalex-src02.json в отчёте R2; вердикт пакету REJECT_WITH_BLOCKER. verification/r5_r2_version_recheck/review.md; B01–B03 и G1 OPEN.
+
+
+## Исправление R5-VERSION-B01
+
+R2 сопоставил сохранившийся первоначальный ответ /tmp, файл и Git blob; обновил полный SHA-256 в verification/r2_primary_sources/version_inquiry/report.md с сохранением старой строки и истории. Акт REV-R5-R2-VERSION-REVIEW-01-001 STALE к изменённому отчёту; R5-VERSION-B01 OPEN до независимого RECHECK. R5-SRC-B01 ранее закрыт R5 в ограниченной документальной области; спорные даты/версия PDF/значение AR UNKNOWN и исключены из использования. Методы не утверждены, пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.

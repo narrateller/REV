@@ -1533,7 +1533,7 @@ findings:
   owner_role: R2
   task_id: T-r2-sources-01
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 blocker_ids:
 - R5-VERSION-B01
 allowed_downstream_scope: Ограниченное документальное использование проверенных копий

@@ -330,3 +330,8 @@ RECHECK REV-R5-R2-LAP-RECHECK-01-001: пакет 3bc59174fb850e9cf818df23ec55f9b
 R2 подготовил verification/r2_primary_sources/version_inquiry/: расхождения установлены, но причина и версионная привязка UNKNOWN. R5-SRC-B01 OPEN, независимый review дополнения NOT_RUN; методы не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
 
 REV-R5-R2-VERSION-REVIEW-01-001 на cec689d77087d912ebfe34425cb8d288768637c2: R5-SRC-B01 CLOSED в ограниченной документальной области при исключении неизвестных дат/AR; новый R5-VERSION-B01 OPEN из-за неверного SHA JSON, исследование REJECT_WITH_BLOCKER. verification/r5_r2_version_recheck/review.md; B01–B03 и G1 OPEN.
+
+
+## Исправление SHA источника SRC-02
+
+R2 исправил укороченный SHA openalex-src02.json и сохранил прежнее значение и локальные доказательства в version_inquiry/report.md. Исторический акт R5 STALE к новой редакции; R5-VERSION-B01 OPEN до независимой сверки. Даты/версия/значение AR UNKNOWN и исключены из проектного использования; пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
