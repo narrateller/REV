@@ -366,3 +366,8 @@ R2 / r2-material-01: входной акт `verification/r2_material_methods/inp
 ## OUTPUT-review T-r2-material-01 — REV-R5-R2-MATERIAL-01-001
 
 Независимый R5 `r5-implementation-02`, проверенный SHA c78a745fb431b459bf6272b585d17a7fad977845: WARNING для ограниченного документального сравнения пяти групп; R5-MAT-W01…04 требуют обработки до выбора методик и программы. Подробности verification/r5_r2_material_review/review.md; стандарт/пригодность не подтверждены, пробы/испытания NOT_RUN. B01–B03 и G1 OPEN; owner R2 не меняется.
+
+
+## Ответ R2 на REV-R5-R2-MATERIAL-01-001
+
+R2 / r2-material-01 подготовил `verification/r2_material_methods/response_r5_material_01.md` на акте `08d75ec9bc86afae14663a6037958e384b1965e0`. Задача T-r2-material-01 IN_REVIEW; R5-MAT-W01…04 OPEN до независимого RECHECK точного commit ответа. Внешние источники и пригодность методов NOT_RUN; численные пределы UNKNOWN; пробы и испытания NOT_RUN. B01–B03 и G1 OPEN. Владелец T-INIT не меняется.
