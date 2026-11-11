@@ -1,3 +1,15 @@
+# Независимый R5 RECHECK — T-r4-linked-01
+
+- Проверить точный code/results commit 8896d70983648ccd33c0f861c9bc9d28327ff9eb, ветка work-r4/linked-scene/r4-linked-20261111; автор r4-linked-20261111, независимый reviewer не автор. Входной акт 2f3c318813474d9c0ff850e83e15b659fc0e3f14, копия verification/r5_linked_scene_output_review/review.md.
+- R5-LINKED-IMPL-B01…B03 и R5-LINKED-IMPL-W01 OPEN до независимого акта. Проверить отдельно доказанное исчезновение вместе с UNKNOWN CREATE/SPLIT, ошибки времени/ID/типа и лишние/дублированные события, точные рациональные времена, рёберный/точечный и малый положительный контакт; проверить приоритеты и раздельные доказательства.
+- Команды из корня: python3 models/rev_linked_scene/run.py; python3 -m unittest discover -s models/rev_linked_scene -p 'test_*.py'; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 scripts/check_registry.py --check-git. Отчёт models/rev_linked_scene/results/report.json, хэши файлов внутри; реестр снимка рядом.
+- Результат автора: 8/8 сцен, 27/27 негативных примеров, 33 новых и 20 прежних тестов, registry PASS, JSON воспроизводим и хэши сверены. Проверить свежий вывод и фактические доказательства, а не только счётчики.
+- verification/r5_linked_scene_output_review/probe.py — исторический probe, assertions намеренно требуют СТАРОГО ошибочного результата; exit 0 на старом SHA не означает исправления и на исправленном SHA не является passing регрессией.
+- Claim: PR #31 в main 76666e8eb1d11d51be144c59980587e4ffa6a1f1 содержит предложение a90927a; старые поля PENDING/NONE в main ещё противоречивы. Сверка R1 ea4fe28af7e4771977928d2262bcf32357744abb опубликована отдельно, её принятие не подтверждено; R5-LINKED-CLAIM-W01 OPEN до интеграции. Lease до 2026-11-12T16:05:29Z.
+- Только synthetic линейные AABB; реальная физика, удержание, разгрузка, безопасность UNKNOWN, испытания NOT_RUN, G1 открыт. Капсула handoffs/T-r4-linked-01/r4-linked-20261111.md.
+
+## Предыдущая эстафета (история)
+
 # Эстафета независимому R5 — T-r4-linked-01
 
 - Автор реализации r4-linked-20261111 / R4; точный code/results C: d11c3e0505d455cfdcf15847aea5b06180659e1b, ветка work-r4/linked-scene/r4-linked-20261111. Claim принят PR #31 на 76666e8eb1d11d51be144c59980587e4ffa6a1f1; срок до 2026-11-12T16:05:29Z. Новый независимый OUTPUT review NOT_RUN.

@@ -458,3 +458,7 @@ Claim T-r2-compaction-comparison-01 принят PR #28 в `d5c7abcb13c24c31c41e
 ## R4 — связанные synthetic-сцены
 
 T-r4-linked-01 IN_REVIEW в рабочей ветке; R5-LINKED-W01 OPEN, независимый OUTPUT review NOT_RUN. Контракт 7b519238; акт d2ab72f относится к предыдущей редакции bb31d82. Физика/безопасность REV UNKNOWN, G1 открыт.
+
+## Исправления после OUTPUT R5
+
+T-r4-linked-01: code/results 8896d70983648ccd33c0f861c9bc9d28327ff9eb; R5-LINKED-IMPL-B01…B03 и R5-LINKED-IMPL-W01 OPEN до независимого RECHECK. R5-LINKED-CLAIM-W01 OPEN до интеграции сверки. Физика REV UNKNOWN, G1 открыт.
