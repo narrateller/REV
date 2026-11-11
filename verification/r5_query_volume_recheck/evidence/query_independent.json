@@ -1,0 +1,979 @@
+{
+  "baseline": [
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "source": "cylinder_barrel",
+      "position_mm": [
+        -3000.0,
+        -220.0,
+        -220.0
+      ],
+      "size_mm": [
+        2200.0,
+        440.0,
+        1740.0
+      ],
+      "max_bounds_error_mm": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "source": "doser_slide",
+      "position_mm": [
+        200.0,
+        150.0,
+        660.0
+      ],
+      "size_mm": [
+        400.0,
+        360.0,
+        1420.0
+      ],
+      "max_bounds_error_mm": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "source": "cylinder_barrel",
+      "position_mm": [
+        -3000.0,
+        -220.0,
+        -220.0
+      ],
+      "size_mm": [
+        2200.0,
+        440.0,
+        1740.0
+      ],
+      "max_bounds_error_mm": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "source": "doser_slide",
+      "position_mm": [
+        200.0,
+        150.0,
+        660.0
+      ],
+      "size_mm": [
+        400.0,
+        360.0,
+        1420.0
+      ],
+      "max_bounds_error_mm": 0.0,
+      "passed": true
+    }
+  ],
+  "mutations": [
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "height",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch A/CylinderRemoval/Height",
+          "exception": "ValueError"
+        }
+      },
+      "CLI": {
+        "exit": 1,
+        "status": "FAILED",
+        "scenarios": "NOT_RUN"
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "form",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch A/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "local",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch A/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "global",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query global placement mismatch A/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "role",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query role/registry mismatch A",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "delete_forged_registry",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "manifest query registry differs from canonical inputs A",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "empty",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "empty native query geometry A/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "parent_local_compensation",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch A/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "CylinderRemoval",
+      "mode": "size_and_forged_manifest",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch A/CylinderRemoval/Height",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "height",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch A/DoserRemoval/Height",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "form",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch A/DoserRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "local",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch A/DoserRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "global",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query global placement mismatch A/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "role",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query role/registry mismatch A",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "delete_forged_registry",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "manifest query registry differs from canonical inputs A",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "empty",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "empty native query geometry A/DoserRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "parent_local_compensation",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query global placement mismatch A/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "name": "DoserRemoval",
+      "mode": "size_and_forged_manifest",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch A/DoserRemoval/Height",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "height",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch B/CylinderRemoval/Height",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "form",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch B/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "local",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch B/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "global",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query global placement mismatch B/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "role",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query role/registry mismatch B",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "delete_forged_registry",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "manifest query registry differs from canonical inputs B",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "empty",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "empty native query geometry B/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "parent_local_compensation",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch B/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "CylinderRemoval",
+      "mode": "size_and_forged_manifest",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1740.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch B/CylinderRemoval/Height",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "height",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch B/DoserRemoval/Height",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "form",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch B/DoserRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "local",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query local placement mismatch B/DoserRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "global",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query global placement mismatch B/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "role",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query role/registry mismatch B",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "delete_forged_registry",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "manifest query registry differs from canonical inputs B",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "empty",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "empty native query geometry B/DoserRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "parent_local_compensation",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query global placement mismatch B/CylinderRemoval",
+          "exception": "ValueError"
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "name": "DoserRemoval",
+      "mode": "size_and_forged_manifest",
+      "hash_refreshed": true,
+      "before": {
+        "height_mm": 1420.0,
+        "type": "Part::Box"
+      },
+      "expected": "FAILED",
+      "passed": true,
+      "evidence": {
+        "status": "FAILED",
+        "code": "NATIVE_VALIDATION_FAILED",
+        "reason": "native CAD validation did not complete successfully",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "",
+        "native": {
+          "status": "FAILED",
+          "reason": "native query dimension mismatch B/DoserRemoval/Height",
+          "exception": "ValueError"
+        }
+      }
+    }
+  ]
+}
