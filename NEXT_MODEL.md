@@ -1,3 +1,19 @@
+# Актуальная эстафета — исследовательские компоновки A/B
+
+- Состояние HANDOFF / IN_REVIEW; UTC 2026-11-11T18:33:56Z; автор R4 / r4-linked-20261111.
+- Проект REV, https://github.com/narrateller/REV; ветка `work-r4/build-layout/r4-linked-20261111`. **Code/results C: 6bb66a566719593a59935e341b1b5c80a1cbc9a7**. H содержит только эстафету/учёт, не заменяет этот C для проверки.
+- T-r4-layout-build-01: claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35 на main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 и подтверждён пользователем. owner_session r4-linked-20261111, lease до 2026-11-12T18:06:24Z; срок не продлён. Предварительные NONE/PENDING в принятом тексте main исправлены в рабочем трекере по основанию принятия; история предложений сохранена.
+- Построены отдельные редактируемые FreeCAD A/B, STEP, общие виды PNG/SVG/PDF, сечение, фазовые схемы и схема силового пути. Команда: `/usr/bin/python3 cad/layout/run_all.py`. Навигация/инструменты: cad/layout/BUILD_README.md; фактическая оценка: cad/build/research_layout/assessment.md; воспроизводимость/команды: validation.json; полный JSON всех пар с gzip в checks/.
+- Самопроверка: 60 тестов, 8 ограниченных исходов A/B, reopen/recompute/edit probe, STEP и чистый семантический повтор PASS. 107486 полных записей пар и 556 сервисных. **Полная установка имеет условные пересечения и whole_assembly_ready=INDETERMINATE**; ограниченный путь не доказывает работоспособность всего пресса. Реальная физика/безопасность UNKNOWN.
+- Входы: неизменённый model_build_task.md/шаблон из пакета 2c6743d39b59e38d85d21684059b4f4afd1ca248; review предыдущей постановки REV-R5-LAYOUT-01-001 на a621f466aac7c31e7812b91ab84c327157411fbc (WARNING). ASSUMED-числа зафиксированы до применения на 4865fbfabf861a7c856a2f61300e2a9fc4ab0872 и 6db54ea4168e83118de70144e2fd08c8750b5d6c; метаданные без изменения чисел на 0d587fa (полный SHA в отчёте). Реальный registry/COTS и проверенные models/ неизменны.
+- Следующая подходящая роль — независимый R5 с входами R2/R3/R6; это предложение review, не назначение и не самоприёмка. Прежний акт не проверял новые CAD/адаптер. W01–W03 автором не закрыты, новый OUTPUT review NOT_RUN.
+- Первый атомарный шаг reviewer: checkout точного C, `git lfs pull`, прочитать аудит/задание/README/assessment, сверить hashes, выполнить команду воспроизведения и проверить полноту матриц, границы метода и отображение непроверенных условий. Критерий — собственный независимый акт на C; при отсутствии данных сохранять INDETERMINATE. Архитектура/ТЗ не утверждены, физические пробы/испытания NOT_RUN, G1 открыт.
+- Капсула: handoffs/T-r4-layout-build-01/r4-linked-20261111.md. Публикация C/H — рабочая ветка для review, без слияния; доступность C REMOTE, все 12 новых LFS-объектов загружены. Draft PR не создан: GitHub GraphQL API Forbidden; текст cad/layout/output_review_request.md, ссылка создания https://github.com/narrateller/REV/pull/new/work-r4/build-layout/r4-linked-20261111 .
+
+---
+
+Исторические эстафеты ниже сохранены; не выполнять их как текущее поручение.
+
 # Подготовительный PR W01/W02/W03 и claim построения
 
 - C подготовительного пакета/предложения claim: 79e9c3aa9aaca33778814957fafecd93a4adc392; ветка work-r4/prepare-layout-build/r4-linked-20261111; база main c00c75dda08889c3e19169476051b3e6980be721.

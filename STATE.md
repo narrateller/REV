@@ -1,5 +1,11 @@
 # STATE — панель проекта
 
+## Текущий результат R4 — T-r4-layout-build-01 (2026-11-11T18:33:56Z)
+
+Code/results `6bb66a566719593a59935e341b1b5c80a1cbc9a7`, ветка `work-r4/build-layout/r4-linked-20261111`; IN_REVIEW, независимый OUTPUT review NOT_RUN. Claim принят PR #35 на main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, owner r4-linked-20261111, lease до 2026-11-12T18:06:24Z. Предварительный учёт NONE/PENDING нормализован по принятому claim, история сохранена. Эстафета: NEXT_MODEL.md и handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+
+Редактируемые условные A/B, виды, STEP, код/отчёты опубликованы для независимой проверки; 60 тестов и 8 исходов ограниченного пути PASS. Полная сборка не принята: условные пересечения и неподдержанные условия сохранены, READY всей установки INDETERMINATE. Все численные входы ASSUMED отдельно, реальные параметры REV UNKNOWN; registry/COTS/старые модели неизменны. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Детали: cad/layout/BUILD_README.md, cad/build/research_layout/assessment.md. Старые сводки ниже — история, включая капсулу R1; она не заменяет текущую эстафету R4.
+
 ## Паспорт
 
 | Поле | Значение |
@@ -50,6 +56,7 @@
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
 | T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T17:42:58Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T18:33:56Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
 
 ## Active Handoff Capsule
 
