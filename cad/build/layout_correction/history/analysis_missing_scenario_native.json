@@ -1,0 +1,140 @@
+{
+  "error": "'research_obstacle'",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 7.527s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/rev_linked_scene",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.426s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/kinematic_press",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.266s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout_correction",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/workspace/REV/cad/build/layout_correction/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 70 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/workspace/REV/cad/build/layout_correction/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 68 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "/workspace/REV/cad/layout_correction/inputs.assumed.json",
+        "--models",
+        "/workspace/REV/cad/build/layout_correction",
+        "--out",
+        "/workspace/REV/cad/build/layout_correction/raw_checked_tool"
+      ],
+      "exit_code": 0,
+      "stdout": "A sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 15761, 'ALLOWED_CONTACT': 4, 'COLLISION': 884, 'INDETERMINATE': 49, 'INVALID_INPUT': 0}\nA short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 9123, 'ALLOWED_CONTACT': 4, 'COLLISION': 505, 'INDETERMINATE': 28, 'INVALID_INPUT': 0}\nA collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 9400, 'ALLOWED_CONTACT': 4, 'COLLISION': 507, 'INDETERMINATE': 29, 'INVALID_INPUT': 0}\nA unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 9055, 'ALLOWED_CONTACT': 3, 'COLLISION': 505, 'INDETERMINATE': 97, 'INVALID_INPUT': 0}\nB sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 27692, 'ALLOWED_CONTACT': 8, 'COLLISION': 1488, 'INDETERMINATE': 91, 'INVALID_INPUT': 0}\nB short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 17243, 'ALLOWED_CONTACT': 8, 'COLLISION': 917, 'INDETERMINATE': 56, 'INVALID_INPUT': 0}\nB collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 17784, 'ALLOWED_CONTACT': 8, 'COLLISION': 919, 'INDETERMINATE': 57, 'INVALID_INPUT': 0}\nB unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 17177, 'ALLOWED_CONTACT': 7, 'COLLISION': 917, 'INDETERMINATE': 123, 'INVALID_INPUT': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-geometry-repeat-c9n6a1tl/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 70 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-geometry-repeat-c9n6a1tl/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 68 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    }
+  ]
+}
