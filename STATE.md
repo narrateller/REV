@@ -446,3 +446,11 @@ T-r3-compaction-measure-01 IN_REVIEW; claim `5f046982b59376eb26d89541adb81955b27
 ## Проект интеграции R3 W03/W04
 
 Постановка `026bd890d7957526bfbee5ffb2745e9fe7b0c43e` и R5 OUTPUT-review `644d74178fefb4cb40150276532b08c6a8381b98` подготовлены к интеграции как документальный черновик с WARNING, см. verification/r3_compaction_observability/disposition.md. До принятия PR задача IN_REVIEW; R5-COMP-W03/W04 остаются OPEN до разработки и проверки применимой методики. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+## Проект сравнения A/B R2
+
+Claim T-r2-compaction-comparison-01 принят PR #28 в `d5c7abcb13c24c31c41e9f8e257178429f7554f6`, owner `e98b8ef8-7302-453a-ac8d-1edbb7d8860c`, lease до 2026-11-12T13:21:00Z. Проект verification/r2_compaction_comparison/specification.md подготовлен для независимого review; задача IN_REVIEW. R5-COMP-W01–W05, B01–B03 и G1 OPEN; методы и численные пределы UNKNOWN, пробы и испытания NOT_RUN.
+
+## Проект интеграции сравнения A/B
+
+Постановка `61286a4b2f83696e4ed82b8486bd057b70cdaaac`, независимый акт R5 `1b4d34a98a18c3897fbbe4ec5b25b74a2862f6c4` и проект решения verification/r2_compaction_comparison/disposition.md подготовлены к интеграции только как документальный черновик с WARNING. До принятия PR задача IN_REVIEW; R5-COMP-W05 OPEN до разработки, независимой проверки и согласования применимой методики. W01–W04, B01–B03 и G1 OPEN; методы и пределы UNKNOWN, пробы/испытания NOT_RUN.
