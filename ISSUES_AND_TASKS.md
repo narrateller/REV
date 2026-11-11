@@ -23,12 +23,28 @@ ID после создания не меняется. Для параллель�
 | T-r2-material-01 | TASK | P1 | @R2 | DONE | r2-material-01 | только документальное сравнение с WARNING; условия выбора методов открыты | G1 |
 | Q-codex-01-01 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
+| T-r4-linked-01 | TASK | P2 | @R4 | READY | NONE | claim PENDING_MAIN; контракт 7b519238; W01 review NOT_RUN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
 | T-r3-safety-01-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | принята документальная карта с WARNING, PR #18; B03 OPEN | G1 |
 | T-r3-norms-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | документальная карта с WARNING; применимость не установлена | G1 |
 | T-r3-compaction-measure-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; R5-COMP-W03/W04 OPEN | G1 |
+
+## T-r4-linked-01 — ограниченные связные synthetic-сцены A/B
+
+- Тип TASK; адресат @R4; приоритет P2; статус READY / claim PENDING_MAIN; owner_session в принятой main: NONE. Прежняя T-codex-01-01 DONE в её ограниченной области; она не переоткрывается и её claim не продлевается.
+- Предложенный исполнитель: r4-linked-20261111 / Codex / R4; новая сессия после смены модели; роль R4 назначена пользователем в этой беседе, текущая задача прямо поручена пользователем. Назначение не подменяет принятие claim.
+- base_commit: 0b54471e9e5a7f148558804c93d3302f19907ce4; branch: work-r4/claim-linked-scene/r4-linked-20261111.
+- assignment_utc / heartbeat_utc: 2026-11-11T16:05:29Z; proposed lease_expires_at: 2026-11-12T16:05:29Z. Срок предложен на принятие и первую подзадачу, не является продлением другого claim. Перед принятием/началом сверить фактический UTC, owner, конкурирующие claims и входы.
+- capabilities: Git read, локальная запись, Python 3.12.14, PyYAML 6.0.3 проверены; Git push проверяется отдельно; CAD/CAE UNAVAILABLE (не запускались), профильная квалификация UNKNOWN.
+- immutable input: models/rev_linked_scene_contract.md на 7b5192382b06d4f148a6c98ffecc8e4d50ec4e66, SHA-256 c4269ebcf7c9886431b3f86f5719dbda95a8a1a361cdab642e26c0e2af20364e; документальный REV-R5-LINKED-CONTACT-01-001 на d2ab72f24028f1cc5d8e9cb3a11d14744e46273f, проверил предыдущую редакцию bb31d82b4aacebd6ccff8b6b343837d4443f8150 (WARNING). Последующее уточнение схемы W01 и весь новый код требуют независимого review; не приписывать актуальной редакции проверку акта.
+- Scope: только синхронные поступательные линейные AABB; A/B по четыре связных исхода, отдельные контакт и обязательная связь, сегменты и границы времени, полный реестр пар, lifecycle, UNKNOWN/INVALID/коллизии и отрицательные случаи C01/дополнительные из §5. Реальные удержание, разгрузка, выдача, безопасность и параметры REV UNKNOWN; пробы и испытания NOT_RUN; G1 открыт.
+- Выходы: запускаемый код, изолированные синтетические fixtures, подробные результаты, воспроизводимая команда, хэши кода/входов/снимка реестра и точный commit для независимого R5. Покрытие и полнота метода подтверждаются review, не самим claim.
+- claim_acceptance: PENDING_MAIN; claim_record_commit указывается последующим commit, не собственным SHA. Инженерная реализация NOT_STARTED до последовательного принятия claim в актуальную main и оформления входного акта.
+- Ограничения: оценка W01 на новом SHA независимым R5 NOT_RUN; исходный акт даёт WARNING и допускает передачу по проверенной семантике с учётом W01. Не закрывать вопросы/ворота или приписывать review непроверенным файлам.
+- Принятие: в main принят этот claim с owner_session r4-linked-20261111 и неистёкшим lease; отсутствуют конкурирующие владельцы; проверены hash и фактические входы. При изменении условий остановиться и согласовать по протоколу.
+- Эстафета: handoffs/T-r4-linked-01/r4-linked-20261111.md.
 
 ## T-INIT
 
