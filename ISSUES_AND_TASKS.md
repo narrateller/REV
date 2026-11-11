@@ -446,3 +446,7 @@ R5 `r5-implementation-02` на 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6 полу
 ## Исследование R5-LAP-01/02
 
 R2 подготовил verification/r2_primary_sources/version_inquiry/report.md и сохранил ответы каталогов для независимой сверки. Происхождение дат 42620 и правильность/версионная привязка отношения SRC-02 UNKNOWN; неутверждённые утверждения предложено исключить из использования. R5-SRC-B01 OPEN до решения R5; методы не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## OUTPUT-review исследования версий — REV-R5-R2-VERSION-REVIEW-01-001
+
+R5 `r5-implementation-02` по cec689d77087d912ebfe34425cb8d288768637c2: R5-LAP-01/02 и R5-SRC-B01 CLOSED только в документальной области при исключении спорных данных; правильное AR и происхождение версий UNKNOWN. Новый R5-VERSION-B01 OPEN: неверный неполный SHA openalex-src02.json в отчёте R2; вердикт пакету REJECT_WITH_BLOCKER. verification/r5_r2_version_recheck/review.md; B01–B03 и G1 OPEN.

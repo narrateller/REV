@@ -168,3 +168,7 @@ REV-R5-R2-SOURCES-RECHECK-02-001 на c0a101a3471942e169599086365941bbaa67ce94: 
 ## RECHECK LAP и карточки
 
 REV-R5-R2-LAP-RECHECK-01-001: три копии и JSON пакета 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6 получены, сверены и прочитаны в заявленной области. R5-SRC-B01 OPEN: R5-LAP-01 — 42620 2008/2010; R5-LAP-02 — связь версии SRC-02 и расхождение аннотаций. Подробнее verification/r5_r2_lap_recheck/review.md. Пробы/испытания NOT_RUN, актуальность и пригодность не утверждены; B01–B03 и G1 OPEN.
+
+## Review исследования версий
+
+REV-R5-R2-VERSION-REVIEW-01-001: R5-SRC-B01 CLOSED только в документальной области при исключении неподтверждённых данных; R5-VERSION-B01 OPEN из-за ошибочного SHA `openalex-src02.json` в отчёте R2. R2 сверяет происхождение и готовит исправление, затем независимый recheck; см. verification/r5_r2_version_recheck/review.md. История версий/правильное AR UNKNOWN; B01–B03 и G1 OPEN.

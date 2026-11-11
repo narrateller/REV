@@ -1454,3 +1454,97 @@ closure_criteria:
   ограничить доказательство на согласованном основании
 supersedes: null
 ```
+
+## REV-R5-R2-VERSION-REVIEW-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-VERSION-REVIEW-01-001
+kind: OUTPUT
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T01:52:15Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 автор прежнего акта, не автор проверяемого исследования R2;
+  независимость ограничена данным исследованием.
+reviewed_commit: cec689d77087d912ebfe34425cb8d288768637c2
+scope: Сверка сохранённых копий и исследования дат/версий, исключение неподтверждённых
+  выводов; не действительность стандартов и пригодность REV
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/version_inquiry/report.md
+  sha256: ba0cfc2fd5283ac2b0a4242b00533d9daf4c55c74979d60538846fac4440e952
+- path: verification/r2_primary_sources/version_inquiry/openalex-42620.json
+  sha256: 62fd29dc0950d6e540e0fafd24bb02d721da169a968e5ed8a2bff96c33d8779c
+- path: verification/r2_primary_sources/version_inquiry/openalex-src02.json
+  sha256: 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443
+- path: verification/r2_primary_sources/version_inquiry/crossref-src02.json
+  sha256: 195cbb4e30c020e19eadc039866bd7e9796d3ccefa38726a4ec938b53e618754
+- path: verification/r2_primary_sources/lap_evidence/NREL-42620.pdf
+  sha256: e3d3afc47572ff3fa28dff1258da31348f217b8a9d127a68132a603371786e1c
+- path: verification/r2_primary_sources/lap_evidence/osti-1328338.json
+  sha256: 7073a0d546e63902e4c6c7a156c84d302263b38be5811fde34d4940e2a64f4ea
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+- path: verification/r2_primary_sources/copies/SRC-04.pdf
+  sha256: 1bd9adaf21a3a7691ec18382a3cf02156ee1ba2ad4e7d93e905bfd6ee0b3a6b3
+checks:
+- id: CHK-LAP-01
+  method: inspection
+  expected: Сверить свидетельства разных дат и не утверждать неизвестную историю
+  observed: Титул 2008, PDF metadata 08/08/2008, библиография SRC-04 2010; причина
+    UNKNOWN
+  reasoning: Сохранена только область конкретной копии 2008, открытая история исключена
+    из использования
+  result: PASS
+- id: CHK-LAP-02
+  method: inspection
+  expected: Проверить внутреннее расхождение SRC-02 и исключить неподтверждённое отношение
+  observed: Аннотация и §3.4/заключение противоположны; версия и правильный результат
+    UNKNOWN
+  reasoning: Карточка поддерживает направление текста, но не идентифицирует байты
+  result: PASS
+- id: CHK-HASH
+  method: inspection
+  expected: SHA каждой сохранённой копии совпадает с отчётом
+  observed: 'openalex-src02.json: в отчёте 55 символов и не совпадает; Git blob и
+    файл имеют SHA 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443'
+  reasoning: Две независимые проверки сохранённых байтов, другие проверенные хэши
+    совпали
+  result: FAIL
+- id: CHK-ACTUAL
+  method: inspection
+  expected: Подтвердить актуальность стандартов и пригодность REV
+  observed: Не исследовались, данных нет
+  reasoning: Не входят в документальную область
+  result: NOT_RUN
+findings:
+- finding_id: R5-VERSION-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_version_recheck/review.md
+  impact: В отчёте R2 ошибочный и неполный SHA OpenAlex JSON; полная прослеживаемость
+    пакета не принята
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-VERSION-B01
+allowed_downstream_scope: Ограниченное документальное использование проверенных копий
+  с исключением спорных дат и AR; R5-SRC-B01 закрыт в этой области
+excluded_claims:
+- Действительность редакций и пригодность к REV
+- Правильное AR и происхождение версий
+- Закрытие B01–B03 и G1
+- Физические пробы и испытания
+closure_criteria:
+- R2 сверяет происхождение OpenAlex JSON и исправляет контрольную сумму в новой ревизии
+- Независимо сверить новый SHA с Git blob и предоставленной копией
+supersedes: null
+```
