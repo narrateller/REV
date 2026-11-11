@@ -1,6 +1,12 @@
 # STATE — панель проекта
 
-## Текущий результат R4 — T-r4-layout-build-01 (2026-11-11T18:33:56Z)
+## Текущий RECHECK-пакет инструмента R4 (2026-11-11T19:07:56Z)
+
+T-r4-layout-build-01 IN_REVIEW, C `5449fb9bc4c20fcbc40fdec932876dcecc90ef4d`, ветка work-r4/build-layout/r4-linked-20261111. Входной акт R5 e939b41d0139b0a3a08a5950eeeec6e92324cf9b на исходный C 6bb66a5: REJECT_WITH_BLOCKER. Исправления lifecycle и actual-CAD validation представлены; R5-CAD-TOOL-B01/B02 OPEN до независимого RECHECK (NOT_RUN). 69 unit tests, 33 lifecycle, 14 CAD-negative и 8 limited outcomes PASS; код/команды/результаты в BUILD_README/assessment/validation/checks. Пробы независимого R5 и история сохранены.
+
+Геометрия и все 107486 записей фаз/пар неизменны, проникновения подтверждены повторными native probes; полная сборка не принята, READY INDETERMINATE. Owner/claim/lease прежние, main 06d68b0 повторно сверена; нормализация предварительного учёта main требует последовательной интеграции координатором. Registry/COTS/models неизменны, реальные данные UNKNOWN, условные ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Актуальная эстафета NEXT_MODEL.md, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+
+## История результата R4 — T-r4-layout-build-01 (2026-11-11T18:33:56Z)
 
 Code/results `6bb66a566719593a59935e341b1b5c80a1cbc9a7`, ветка `work-r4/build-layout/r4-linked-20261111`; IN_REVIEW, независимый OUTPUT review NOT_RUN. Claim принят PR #35 на main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, owner r4-linked-20261111, lease до 2026-11-12T18:06:24Z. Предварительный учёт NONE/PENDING нормализован по принятому claim, история сохранена. Эстафета: NEXT_MODEL.md и handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
 
@@ -56,7 +62,7 @@ Code/results `6bb66a566719593a59935e341b1b5c80a1cbc9a7`, ветка `work-r4/bui
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
 | T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T17:42:58Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
-| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T18:33:56Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
+| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T19:08:17Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
 
 ## Active Handoff Capsule
 
