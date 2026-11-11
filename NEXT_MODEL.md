@@ -1,3 +1,9 @@
+# R3 — отдельный claim для W03/W04 после PR #25
+
+На main `461a9abcc4bb0011291f6f7a1747524713b371ec` принят документальный черновик R2 с WARNING. Пользователь поручил R3 постановку измерительной модели и наблюдаемости R5-COMP-W03/W04. T-r3-compaction-measure-01 READY; claim r3-safety-01 PROPOSED / PENDING_MAIN, lease предложен до `2026-11-12T12:29:35Z`. Исследование NOT_STARTED: сначала принять claim последовательно в main, проверить owner/lease/входы и оформить входной акт. T-INIT R1 не перехватывать, его lease истёк. См. трекер и handoffs/T-r3-compaction-measure-01/r3-safety-01.md. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
 # Эстафета — документальная интеграция проекта программы
 
 - R1 оформил verification/compaction_program_r1_disposition.md по программе `48b339263d7ab9991cc5384d0b05d22e6dbaa879` и актам R2, R3 и R5; приёмка только как документального черновика с WARNING. R5-COMP-W01–W05 OPEN для будущей методики.
