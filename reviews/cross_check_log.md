@@ -1272,3 +1272,83 @@ closure_criteria:
 - Сохранить ограничения на актуальность и применимость
 supersedes: null
 ```
+
+## REV-R5-R2-SOURCES-RECHECK-02-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-SOURCES-RECHECK-02-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T01:09:23Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 автор предыдущего review, не автор исправленного реестра R2;
+  независимость относится к проверяемым исправлениям.
+reviewed_commit: c0a101a3471942e169599086365941bbaa67ce94
+scope: Ограниченный RECHECK реестра SRC-02…04 и R5-SRC-B01; отсутствующие LAP и актуальность
+  методов вне проверенной области
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/registry.md
+  sha256: 6eec6aa5f45ad8b1715973e3ce2a9affbb6679c6388e6ffce452665d0931d346
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+- path: verification/r2_primary_sources/copies/SRC-03.pdf
+  sha256: c9ffd5e57941e397b9d30d49e2baddc302f0a182736af2f0f08a3cbe7579736b
+- path: verification/r2_primary_sources/copies/SRC-04.pdf
+  sha256: 1bd9adaf21a3a7691ec18382a3cf02156ee1ba2ad4e7d93e905bfd6ee0b3a6b3
+checks:
+- id: CHK-03
+  method: inspection
+  expected: Разделы SRC-03 перечислены в соответствии с текстом
+  observed: §§2.1–2.2 план/площадка; §2.3 плотность и влажность; §2.4 просев
+  reasoning: Сверены PDF-страницы 7–11 и обновлённый реестр
+  result: PASS
+- id: CHK-04
+  method: inspection
+  expected: Оговорка о номерах ссылок соответствует оригиналу
+  observed: В §1.3 ash5/lignin6, в references №5 lignin/№6 ash
+  reasoning: Предупреждение сохранено без исправления первоисточника
+  result: PASS
+- id: CHK-02
+  method: inspection
+  expected: Атрибуты из карточки отделены от атрибутов PDF
+  observed: Источник атрибутов указан, подтверждение R5 и связь с версией PDF NOT_RUN
+  reasoning: Независимый запрос карточки CONNECT 403
+  result: PASS
+- id: CHK-B01
+  method: inspection
+  expected: Прочитать три LAP и проверить все необходимые источники
+  observed: Три LAP отсутствуют; карточка OSTI SRC-02 не получена
+  reasoning: Не полученные тексты и атрибуты не могут быть подтверждены
+  result: NOT_RUN
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_sources_recheck_02/review.md
+  impact: Три LAP и атрибуты карточки SRC-02 не проверены независимо
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Использование сверенных разделов с ограничениями и получение
+  недостающих источников
+excluded_claims:
+- Подтверждение действующих редакций и применимости к REV
+- Прочтение отсутствующих LAP
+- Закрытие B01–B03 или G1
+- Физические пробы и испытания
+closure_criteria:
+- Получить и независимо прочитать LAP 42620, 42621 и 42622
+- Проверить либо явно разрешить оставшиеся библиографические атрибуты SRC-02
+supersedes: null
+```

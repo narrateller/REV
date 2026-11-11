@@ -428,3 +428,7 @@ R5 `r5-implementation-02` проверил пакет d9bc2f101ca001de763b5418db
 ## Уточнение реестра по REV-R5-R2-SOURCES-RECHECK-01-001
 
 R2 уточнил SRC-02…04 по акту `5bc8db4ba1aff28a62a41edcbbf5e950d0c5cb4f` в verification/r2_primary_sources/registry.md. NREL 42620/42621/42622: повторные запросы CONNECT 403, тексты/редакции NOT_RUN. R5-SRC-B01 OPEN; оба прежних акта STALE относительно изменённого реестра, исторические выводы сохраняются; уточнённый реестр ожидает независимого RECHECK. Методы и применимость не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## RECHECK исправлений реестра — REV-R5-R2-SOURCES-RECHECK-02-001
+
+R5 `r5-implementation-02` по c0a101a3471942e169599086365941bbaa67ce94: SRC-03 R5-SRC-R01 и оговорка SRC-04 R5-SRC-R02 CLOSED документально; SRC-02 разделяет карточку и PDF, самостоятельное чтение карточки NOT_RUN. R5-SRC-B01 OPEN: три LAP не получены, атрибуты SRC-02 не подтверждены. Подробности verification/r5_r2_sources_recheck_02/review.md. B01–B03 и G1 OPEN.

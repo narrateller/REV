@@ -152,3 +152,7 @@ REV-R5-R2-SOURCES-01-001: REJECT_WITH_BLOCKER для независимой св
 ## RECHECK четырёх копий источников
 
 REV-R5-R2-SOURCES-RECHECK-01-001: проверены четыре LFS PDF d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2 по реестру 25745de1; R5-SRC-B01 OPEN по отсутствующим трём LAP и неподтверждённым атрибутам. R2 уточняет SRC-03 и SRC-04 и проверяет библиографические атрибуты SRC-02, см. verification/r5_r2_sources_recheck_01/review.md. Актуальность и применимость REV NOT_RUN, B01–B03 и G1 OPEN.
+
+## RECHECK исправленного реестра
+
+REV-R5-R2-SOURCES-RECHECK-02-001 на c0a101a3471942e169599086365941bbaa67ce94: исправления SRC-03/04 приняты в документальной области; атрибуты SRC-02 разделены, карточка независимо NOT_RUN. R5-SRC-B01 OPEN: LAP 42620/42621/42622 не прочитаны, остаются библиографические атрибуты. verification/r5_r2_sources_recheck_02/review.md; B01–B03 и G1 OPEN.

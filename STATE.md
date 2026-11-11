@@ -314,3 +314,5 @@ RECHECK REV-R5-R2-SOURCES-RECHECK-01-001: четыре LFS копии на d9bc2
 ## Уточнение реестра источников после RECHECK R5
 
 R2 уточнил SRC-02…04 и повторил запросы NREL 42620/42621/42622: CONNECT 403, тексты NOT_RUN; R5-SRC-B01 OPEN до независимой оценки. Методы не утверждены; пробы и испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+Ограниченный RECHECK REV-R5-R2-SOURCES-RECHECK-02-001: SRC-03/04 документально исправлены, SRC-02 корректно отделяет источники атрибутов; R5-SRC-B01 OPEN по отсутствующим LAP и непроверенным атрибутам. См. verification/r5_r2_sources_recheck_02/review.md; B01–B03 и G1 OPEN.
