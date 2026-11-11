@@ -432,3 +432,8 @@ R2 уточнил SRC-02…04 по акту `5bc8db4ba1aff28a62a41edcbbf5e950d0c
 ## RECHECK исправлений реестра — REV-R5-R2-SOURCES-RECHECK-02-001
 
 R5 `r5-implementation-02` по c0a101a3471942e169599086365941bbaa67ce94: SRC-03 R5-SRC-R01 и оговорка SRC-04 R5-SRC-R02 CLOSED документально; SRC-02 разделяет карточку и PDF, самостоятельное чтение карточки NOT_RUN. R5-SRC-B01 OPEN: три LAP не получены, атрибуты SRC-02 не подтверждены. Подробности verification/r5_r2_sources_recheck_02/review.md. B01–B03 и G1 OPEN.
+
+
+## LAP NREL и карточка OSTI — передача R5
+
+R2 получил три PDF NREL 42620/42621/42622 через docs.nlr.gov и сохранил их вместе с неизменённым ответом OSTI по SRC-02 в verification/r2_primary_sources/lap_evidence/. Манифест содержит источники, проверенные титулы и SHA-256. Полная проверка методик, действительность и связь карточки с конкретной версией PDF NOT_RUN; R5-SRC-B01 OPEN до независимой оценки. Методы не утверждены; пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
