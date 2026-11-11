@@ -1,3 +1,13 @@
+# Передача R1 — документальное исправление R5-LINKED-FIX-W01
+
+- Документальный C: 4ebf47a5f6f96708a65653acaf0cebeee1b84c26; ветка work-r4/linked-scene/r4-linked-20261111. Изменена одна строка README: 27 отрицательных примеров и ссылка на проверенный code/results 8896d70983648ccd33c0f861c9bc9d28327ff9eb. Остальные файлы models/ побайтно неизменны; отчёты не перегенерировались.
+- Исходный OUTPUT-review 2f3c318813474d9c0ff850e83e15b659fc0e3f14 и независимый RECHECK 82d60717ed9621af7f9fee4e57135d12f22cfc32 сохранены с probe/результатами и включены в ancestry через merge a48aee1be35d8217cc96e1764feac76ba24ca21d. Оба probe имеют разное назначение: первый фиксирует старые ошибки, второй — исправленные исходы.
+- RECHECK WARNING закрыл имплементационные B01…B03/W01 только для указанной synthetic-области проверенного C; задача не объявлена принятой. Следующий шаг R1: самостоятельно оформить решение об ограниченной приёмке и интеграции, повторно проверить актуальную main/owner/lease перед merge.
+- Main при проверке 116b280ffbe579e7545de51282ccfa96aa6cdefd; owner r4-linked-20261111, lease до 2026-11-12T16:05:29Z. В main принят учёт claim PR #32. Изменения этой рабочей ветки в main не интегрированы.
+- Проверки git ancestry/байтов, git diff --check и check_registry.py --check-git PASS. JSON SHA-256 c65665332583dfc65b37958321927544a20bd73ee32939eb7876e53c2da52c7f. Физика/безопасность UNKNOWN, G1 открыт.
+
+## Предыдущая эстафета (история)
+
 # Независимый R5 RECHECK — T-r4-linked-01
 
 - Проверить точный code/results commit 8896d70983648ccd33c0f861c9bc9d28327ff9eb, ветка work-r4/linked-scene/r4-linked-20261111; автор r4-linked-20261111, независимый reviewer не автор. Входной акт 2f3c318813474d9c0ff850e83e15b659fc0e3f14, копия verification/r5_linked_scene_output_review/review.md.
