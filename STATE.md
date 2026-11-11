@@ -389,3 +389,8 @@ REV-R5-R3-SAFETY-01-001 (`ec5662a386aabbe894c94cb8b97897d182d55580`) — REJECT_
 ## Предварительная карта опасностей R3
 
 R1 принял документальную карту с WARNING после RECHECK; T-r3-safety-01-01 IN_REVIEW до интеграции. Это не законченный анализ риска и не подтверждение защит/нормативной применимости. B01–B03, R5-OBS-01…04 и G1 OPEN. См. verification/r3_press_safety/r1_acceptance.md.
+
+
+## После PR #18: новая задача нормативных источников
+
+PR #18 принят в main `2b26e56f0d35119631bba959da50b32cccaac621`: T-r3-safety-01-01 DONE только как документальная карта с WARNING. Предыдущие записи IN_REVIEW относятся к моменту до интеграции. Отдельная T-r3-norms-01 READY; claim r3-safety-01 PROPOSED / PENDING_MAIN, lease предложен до 2026-11-12T08:12:00Z; исследование NOT_STARTED до принятия. Капсула handoffs/T-r3-norms-01/r3-safety-01.md. Место эксплуатации UNKNOWN; B01–B03, R5-OBS-01…04 и G1 OPEN.
