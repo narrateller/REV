@@ -1077,3 +1077,549 @@ closure_criteria:
 - Подготовить и независимо проверить программу
 supersedes: null
 ```
+
+## REV-R5-R2-SOURCES-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-SOURCES-01-001
+kind: OUTPUT
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T00:50:28Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 не автор входного акта и реестра R2; ранее проверял предшествующие
+  документы. Независимость относится к текущему результату.
+reviewed_commit: 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9
+scope: Документальный OUTPUT-review реестра и попытки доступа к источникам; чтение
+  источников, лаборатория и методики не проверены
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/input_audit.md
+  sha256: 156163594860133e8d23a3fe00cbd6a654a719b6371e520ae19e84a60819a1f8
+- path: verification/r2_primary_sources/registry.md
+  sha256: 726c7185438e6a59d033caed3deff90f622f3c1a95c9abb8790784bd05c7b928
+checks:
+- id: CHK-SRC-01
+  method: inspection
+  expected: Установить доступность и независимо проверить прочитанные R2 разделы SRC-01…04
+  observed: Четыре запроса OSTI CONNECT 403, документы не получены
+  reasoning: Описания, SHA PDF и редакции независимо сверить невозможно
+  result: NOT_RUN
+- id: CHK-SRC-02
+  method: inspection
+  expected: Независимо прочитать три NREL LAP
+  observed: Три запроса CONNECT 403
+  reasoning: Полные тексты и их редакции недоступны в текущей среде
+  result: NOT_RUN
+- id: CHK-SRC-03
+  method: inspection
+  expected: Пробел по физическим включениям отделён от анализа растворённых металлов
+  observed: В реестре явно указан UNKNOWN/NOT_RUN и различие с химическим анализом
+  reasoning: Вывод относится к формулировке реестра; поиск OSTI самостоятельно не
+    проверен
+  result: PASS
+- id: CHK-SRC-04
+  method: inspection
+  expected: Данные других материалов не присвоены REV
+  observed: Реестр маркирует другие матрицы, ограничения и неизвестную пригодность
+  reasoning: Оценён текст реестра, не недоступные документы
+  result: PASS
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_sources_review/review.md
+  impact: Независимая сверка прочитанных разделов и редакций не выполнена из-за CONNECT
+    403
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-W01
+  severity: WARNING
+  evidence: verification/r5_r2_sources_review/review.md
+  impact: Нет подтверждённого метода физических металлических включений
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-W02
+  severity: WARNING
+  evidence: verification/r5_r2_sources_review/review.md
+  impact: Требуется проверка редакций и лабораторной пригодности
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Документальная работа с явно непроверенными ссылками и ограничениями,
+  получение первоисточников
+excluded_claims:
+- Подтверждение заявленных R2 разделов, хэшей PDF или редакций
+- Утверждение методов, стандартов или лабораторной пригодности
+- Физические испытания, закрытие B01–B03 и G1
+closure_criteria:
+- Получить доступные копии, проверить хэши, названия, версии и прочесть конкретные
+  заявленные разделы
+- Независимо повторить сверку и зафиксировать недоступные части
+supersedes: null
+```
+
+## REV-R5-R2-SOURCES-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-SOURCES-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T00:59:23Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: Reviewer автор предыдущего акта, но не автор реестра R2 или переданного
+  пакета; независимость относится к этой сверке.
+reviewed_commit: d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2
+scope: Сверка LFS копий SRC-01…04 и реестра 25745de1; три LAP, действительность редакций
+  и применимость REV NOT_RUN
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/registry.md
+  sha256: 726c7185438e6a59d033caed3deff90f622f3c1a95c9abb8790784bd05c7b928
+- path: verification/r2_primary_sources/copies/README.md
+  sha256: 9bedf66d0a6ea870ea877d4a4b1562a4fcc71a14e63e2634860fa41cd25147b6
+- path: verification/r2_primary_sources/copies/SRC-01.pdf
+  sha256: 7556a16ba04626ced124b698cd02fc6c35a6871aaabc9f083ecdd266a6827200
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+- path: verification/r2_primary_sources/copies/SRC-03.pdf
+  sha256: c9ffd5e57941e397b9d30d49e2baddc302f0a182736af2f0f08a3cbe7579736b
+- path: verification/r2_primary_sources/copies/SRC-04.pdf
+  sha256: 1bd9adaf21a3a7691ec18382a3cf02156ee1ba2ad4e7d93e905bfd6ee0b3a6b3
+checks:
+- id: CHK-SRC-01
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш, титул, даты версии и §§1–5 проверены; область водоросли
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: PASS
+- id: CHK-SRC-02
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш и титул/аннотация/введение/§§2.1–2.3 проверены; дата OSTI, DOI и статус
+    рукописи в копии не подтверждены
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: PASS
+- id: CHK-SRC-03
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш, титул и препринт проверены; детали плотности/влажности в §2.3, просев
+    §2.4, требуется уточнение реестра
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: FAIL
+- id: CHK-SRC-04
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш, титул, §1.3 и библиография проверены; номера ссылок ash/lignin в
+    источнике противоречат списку
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: PASS
+- id: CHK-LAP
+  method: inspection
+  expected: Проверить три NREL LAP и их редакции
+  observed: Три текста отсутствуют в пакете и непрочитаны
+  reasoning: Библиография в SRC-04 не заменяет тексты LAP
+  result: NOT_RUN
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_sources_recheck_01/review.md
+  impact: Четыре копии получены, но три LAP и некоторые атрибуты остаются непроверенными
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-R01
+  severity: WARNING
+  evidence: SRC-03 §§2.1–2.4 и реестр SRC-03
+  impact: Требуется явно исправить ссылки на разделы в реестре
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-R02
+  severity: WARNING
+  evidence: SRC-04 §1.3 и список references
+  impact: Номера 5 и 6 в тексте выглядят перепутанными; сверять по названию
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Документальная работа с подтверждёнными разделами и указанными
+  ограничениями; получение и сверка недостающих LAP
+excluded_claims:
+- Актуальность редакций и нормативных документов
+- Пригодность методов к REV или квалификация лаборатории
+- Эксперименты и закрытие B01–B03 или G1
+closure_criteria:
+- Уточнить реестр SRC-03 и атрибуты SRC-02
+- Получить и независимо прочитать три LAP; проверить версию и содержание
+- Сохранить ограничения на актуальность и применимость
+supersedes: null
+```
+
+## REV-R5-R2-SOURCES-RECHECK-02-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-SOURCES-RECHECK-02-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T01:09:23Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 автор предыдущего review, не автор исправленного реестра R2;
+  независимость относится к проверяемым исправлениям.
+reviewed_commit: c0a101a3471942e169599086365941bbaa67ce94
+scope: Ограниченный RECHECK реестра SRC-02…04 и R5-SRC-B01; отсутствующие LAP и актуальность
+  методов вне проверенной области
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/registry.md
+  sha256: 6eec6aa5f45ad8b1715973e3ce2a9affbb6679c6388e6ffce452665d0931d346
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+- path: verification/r2_primary_sources/copies/SRC-03.pdf
+  sha256: c9ffd5e57941e397b9d30d49e2baddc302f0a182736af2f0f08a3cbe7579736b
+- path: verification/r2_primary_sources/copies/SRC-04.pdf
+  sha256: 1bd9adaf21a3a7691ec18382a3cf02156ee1ba2ad4e7d93e905bfd6ee0b3a6b3
+checks:
+- id: CHK-03
+  method: inspection
+  expected: Разделы SRC-03 перечислены в соответствии с текстом
+  observed: §§2.1–2.2 план/площадка; §2.3 плотность и влажность; §2.4 просев
+  reasoning: Сверены PDF-страницы 7–11 и обновлённый реестр
+  result: PASS
+- id: CHK-04
+  method: inspection
+  expected: Оговорка о номерах ссылок соответствует оригиналу
+  observed: В §1.3 ash5/lignin6, в references №5 lignin/№6 ash
+  reasoning: Предупреждение сохранено без исправления первоисточника
+  result: PASS
+- id: CHK-02
+  method: inspection
+  expected: Атрибуты из карточки отделены от атрибутов PDF
+  observed: Источник атрибутов указан, подтверждение R5 и связь с версией PDF NOT_RUN
+  reasoning: Независимый запрос карточки CONNECT 403
+  result: PASS
+- id: CHK-B01
+  method: inspection
+  expected: Прочитать три LAP и проверить все необходимые источники
+  observed: Три LAP отсутствуют; карточка OSTI SRC-02 не получена
+  reasoning: Не полученные тексты и атрибуты не могут быть подтверждены
+  result: NOT_RUN
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_sources_recheck_02/review.md
+  impact: Три LAP и атрибуты карточки SRC-02 не проверены независимо
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Использование сверенных разделов с ограничениями и получение
+  недостающих источников
+excluded_claims:
+- Подтверждение действующих редакций и применимости к REV
+- Прочтение отсутствующих LAP
+- Закрытие B01–B03 или G1
+- Физические пробы и испытания
+closure_criteria:
+- Получить и независимо прочитать LAP 42620, 42621 и 42622
+- Проверить либо явно разрешить оставшиеся библиографические атрибуты SRC-02
+supersedes: null
+```
+
+## REV-R5-R2-LAP-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-LAP-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T01:41:01Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 не автор пакета R2; ранее проверял реестр и является автором
+  предыдущих актов. Независимость относится к новой передаче.
+reviewed_commit: 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6
+scope: Сверка конкретных трёх LAP копий и сохранённой карточки SRC-02; не нормативная
+  актуальность и не пригодность REV
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/lap_evidence/README.md
+  sha256: 95f004a3436f2f448c42ae998108e451757e855aa7af55d9be6bc76aff598fb4
+- path: verification/r2_primary_sources/lap_evidence/NREL-42620.pdf
+  sha256: e3d3afc47572ff3fa28dff1258da31348f217b8a9d127a68132a603371786e1c
+- path: verification/r2_primary_sources/lap_evidence/NREL-42621.pdf
+  sha256: bca9e0a067a83a8ed2a092bbf5ef7a594b63db86596a6da883aedaff1e41e8c3
+- path: verification/r2_primary_sources/lap_evidence/NREL-42622.pdf
+  sha256: ae20ddf840f27d11297e8960fe1c7abbb47cf074f355602eab131b358d24bda6
+- path: verification/r2_primary_sources/lap_evidence/osti-1328338.json
+  sha256: 7073a0d546e63902e4c6c7a156c84d302263b38be5811fde34d4940e2a64f4ea
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+checks:
+- id: CHK-LAP-HASH
+  method: inspection
+  expected: Скачать и сверить SHA трёх PDF и JSON
+  observed: Все четыре SHA совпадают с манифестом
+  reasoning: sha256sum и git lfs pull, точные хэши в отчёте
+  result: PASS
+- id: CHK-LAP-CONTENT
+  method: inspection
+  expected: Прочитать титулы и необходимые разделы трёх копий
+  observed: Титулы и указанные §§ прочитаны; 42620 титул 2008, SRC-04 библиография
+    2010
+  reasoning: Конкретные страницы и границы в отчёте, статус 2010 не установлен
+  result: PASS
+- id: CHK-LAP-CARD
+  method: inspection
+  expected: Прочитать карточку и оценить связь с конкретным PDF SRC-02
+  observed: Поля и fulltext URL подтверждены в сохранённом JSON; конкретная версия
+    и байтовая связь не доказаны; аннотации расходятся
+  reasoning: Совпадение URL и заголовка не заменяет идентификатор файла или сверку
+    версий
+  result: FAIL
+- id: CHK-LAP-CURRENT
+  method: inspection
+  expected: Установить действующие редакции и пригодность REV
+  observed: Актуальность и лабораторная оценка не проверены
+  reasoning: Вне области и без необходимых доказательств
+  result: NOT_RUN
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_lap_recheck/review.md
+  impact: Три копии и карточка прочитаны; конкретная связь карточки с PDF и расхождение
+    дат LAP 42620 остаются неразрешёнными
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-LAP-01
+  severity: WARNING
+  evidence: LAP 42620 титул и SRC-04 библиография
+  impact: 2008 на титуле против 2010 в библиографии; происхождение версии неизвестно
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-LAP-02
+  severity: WARNING
+  evidence: osti-1328338.json description и SRC-02 PDF abstract
+  impact: Противоположные формулировки aspect ratio не позволяют приписать PDF конкретной
+    версии
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Работа с прочитанными разделами только как с данными конкретных
+  копий; уточнение происхождения и версий
+excluded_claims:
+- Актуальность редакций или применимость стандартов REV
+- Подлинность источников и версия SRC-02 доказаны
+- Испытания, отбор, закрытие B01–B03 или G1
+closure_criteria:
+- Независимо разрешить библиографическое расхождение 42620 или установить достаточное
+  обоснование пределов идентификации
+- Проверить происхождение и версию SRC-02 и объяснить расхождение аннотаций либо документально
+  ограничить доказательство на согласованном основании
+supersedes: null
+```
+
+## REV-R5-R2-VERSION-REVIEW-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-VERSION-REVIEW-01-001
+kind: OUTPUT
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T01:52:15Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 автор прежнего акта, не автор проверяемого исследования R2;
+  независимость ограничена данным исследованием.
+reviewed_commit: cec689d77087d912ebfe34425cb8d288768637c2
+scope: Сверка сохранённых копий и исследования дат/версий, исключение неподтверждённых
+  выводов; не действительность стандартов и пригодность REV
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/version_inquiry/report.md
+  sha256: ba0cfc2fd5283ac2b0a4242b00533d9daf4c55c74979d60538846fac4440e952
+- path: verification/r2_primary_sources/version_inquiry/openalex-42620.json
+  sha256: 62fd29dc0950d6e540e0fafd24bb02d721da169a968e5ed8a2bff96c33d8779c
+- path: verification/r2_primary_sources/version_inquiry/openalex-src02.json
+  sha256: 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443
+- path: verification/r2_primary_sources/version_inquiry/crossref-src02.json
+  sha256: 195cbb4e30c020e19eadc039866bd7e9796d3ccefa38726a4ec938b53e618754
+- path: verification/r2_primary_sources/lap_evidence/NREL-42620.pdf
+  sha256: e3d3afc47572ff3fa28dff1258da31348f217b8a9d127a68132a603371786e1c
+- path: verification/r2_primary_sources/lap_evidence/osti-1328338.json
+  sha256: 7073a0d546e63902e4c6c7a156c84d302263b38be5811fde34d4940e2a64f4ea
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+- path: verification/r2_primary_sources/copies/SRC-04.pdf
+  sha256: 1bd9adaf21a3a7691ec18382a3cf02156ee1ba2ad4e7d93e905bfd6ee0b3a6b3
+checks:
+- id: CHK-LAP-01
+  method: inspection
+  expected: Сверить свидетельства разных дат и не утверждать неизвестную историю
+  observed: Титул 2008, PDF metadata 08/08/2008, библиография SRC-04 2010; причина
+    UNKNOWN
+  reasoning: Сохранена только область конкретной копии 2008, открытая история исключена
+    из использования
+  result: PASS
+- id: CHK-LAP-02
+  method: inspection
+  expected: Проверить внутреннее расхождение SRC-02 и исключить неподтверждённое отношение
+  observed: Аннотация и §3.4/заключение противоположны; версия и правильный результат
+    UNKNOWN
+  reasoning: Карточка поддерживает направление текста, но не идентифицирует байты
+  result: PASS
+- id: CHK-HASH
+  method: inspection
+  expected: SHA каждой сохранённой копии совпадает с отчётом
+  observed: 'openalex-src02.json: в отчёте 55 символов и не совпадает; Git blob и
+    файл имеют SHA 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443'
+  reasoning: Две независимые проверки сохранённых байтов, другие проверенные хэши
+    совпали
+  result: FAIL
+- id: CHK-ACTUAL
+  method: inspection
+  expected: Подтвердить актуальность стандартов и пригодность REV
+  observed: Не исследовались, данных нет
+  reasoning: Не входят в документальную область
+  result: NOT_RUN
+findings:
+- finding_id: R5-VERSION-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_version_recheck/review.md
+  impact: В отчёте R2 ошибочный и неполный SHA OpenAlex JSON; полная прослеживаемость
+    пакета не принята
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+blocker_ids:
+- R5-VERSION-B01
+allowed_downstream_scope: Ограниченное документальное использование проверенных копий
+  с исключением спорных дат и AR; R5-SRC-B01 закрыт в этой области
+excluded_claims:
+- Действительность редакций и пригодность к REV
+- Правильное AR и происхождение версий
+- Закрытие B01–B03 и G1
+- Физические пробы и испытания
+closure_criteria:
+- R2 сверяет происхождение OpenAlex JSON и исправляет контрольную сумму в новой ревизии
+- Независимо сверить новый SHA с Git blob и предоставленной копией
+supersedes: null
+```
+
+## REV-R5-VERSION-HASH-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-VERSION-HASH-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T02:04:03Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 автор предыдущего review, не автор исправленного отчёта R2;
+  независимость относится к этому исправлению.
+reviewed_commit: 4605f3435c5882550d540ff797e7322613723769
+scope: 'Ограниченный RECHECK R5-VERSION-B01: сумма, локальная копия, история и оговорка;
+  без подтверждения внешнего происхождения'
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/version_inquiry/report.md
+  sha256: 6c5b2df19889e97886e0be9c5b1ac5d48ffbf282a7c65481f3595b8f7cdd6e3b
+- path: verification/r2_primary_sources/version_inquiry/openalex-src02.json
+  sha256: 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443
+checks:
+- id: CHK-HASH-01
+  method: inspection
+  expected: SHA исправленного отчёта совпадает с Git-байтами и доступной копией
+  observed: 'Все три SHA рабочего файла, исходного и нового Git blobs совпали: 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443'
+  reasoning: sha256sum и git show | sha256sum; данные не изменялись
+  result: PASS
+- id: CHK-HASH-02
+  method: inspection
+  expected: История исправления и предыдущий акт сохранены
+  observed: Предыдущий акт предок; исходная строка сохранена в Git и процитирована;
+    акт STALE к новому результату
+  reasoning: git merge-base, git show и diff
+  result: PASS
+- id: CHK-HASH-03
+  method: inspection
+  expected: Внешнее происхождение не утверждается без доказательства
+  observed: Отчёт оговаривает отсутствие независимого подтверждения; R2 сообщает о
+    cmp в своей среде
+  reasoning: Оговорка корректна и не устанавливает подлинность
+  result: PASS
+- id: CHK-HASH-04
+  method: inspection
+  expected: Независимый повтор сравнения с первоначальным временным файлом
+  observed: Файл /tmp/rev_src02_openalex.json отсутствует в среде R5
+  reasoning: Заявленный R2 cmp не воспроизведён, источник сетевого ответа не удостоверен
+  result: NOT_RUN
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: R5-VERSION-B01 CLOSED по сохранённым Git-байтам и доступной
+  копии; документальное исследование с ограничениями
+excluded_claims:
+- Независимая проверка отсутствующей временной копии и сетевого происхождения
+- Актуальность редакций и пригодность REV
+- Закрытие B01–B03 или G1
+warning_owner_and_due:
+  owner_role: R2
+  owner_session: r2-material-01
+  due: До использования внешних данных в качестве подтверждённого источника
+  restriction: Внешнее происхождение и подлинность требуют независимого подтверждения
+closure_criteria:
+- Для внешнего источника — независимое подтверждение происхождения и применимости
+  при необходимости
+supersedes: null
+```

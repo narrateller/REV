@@ -295,3 +295,49 @@ PR #8 вошёл в main `3a725f82ae93c82c39ed7bb554d6f2449f47d92e`. T-r2-materi
 ## Принятие claim R2 для первоисточников
 
 PR #10 принят в main `123240e20604eec9f497ad8eb3bc29d46539905a`; claim `295ec1e3549a597a76619465eaa58b1746bcefb1`, owner `r2-material-01`, lease до 2026-11-12T00:36:14Z. Учётная запись об этом подготовлена в отдельной ветке; G1 OPEN.
+
+
+## Реестр первоисточников R2
+
+T-r2-sources-01 IN_REVIEW: входной акт и реестр в verification/r2_primary_sources/. Прочитаны указанные разделы доступных материалов; полнота текстов, актуальность редакций и применимость NOT_RUN, подходящий источник по физическому остатку металла не установлен. NREL 42621/42620 CONNECT 403; пределы UNKNOWN, пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+OUTPUT-review REV-R5-R2-SOURCES-01-001 на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9: REJECT_WITH_BLOCKER для независимой сверки источников, CONNECT 403; R5-SRC-B01 OPEN. Реестр допустим как навигация с непроверенными выводами R2; см. verification/r5_r2_sources_review/review.md. B01–B03 и G1 OPEN.
+
+
+## Копии источников для R5
+
+SRC-01…04 сохранены в verification/r2_primary_sources/copies/ с URL и SHA-256, совпадающими с реестром. Независимая проверка NOT_RUN, R5-SRC-B01 OPEN; LAP 42620/42621/42622 NOT_RUN. Пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+RECHECK REV-R5-R2-SOURCES-RECHECK-01-001: четыре LFS копии на d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2 получены и сверены с реестром; R5-SRC-B01 частично устранён, OPEN по трём отсутствующим LAP и непроверенным атрибутам. SRC-03 требует уточнения разделов. См. verification/r5_r2_sources_recheck_01/review.md; B01–B03 и G1 OPEN.
+
+
+## Уточнение реестра источников после RECHECK R5
+
+R2 уточнил SRC-02…04 и повторил запросы NREL 42620/42621/42622: CONNECT 403, тексты NOT_RUN; R5-SRC-B01 OPEN до независимой оценки. Методы не утверждены; пробы и испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+Ограниченный RECHECK REV-R5-R2-SOURCES-RECHECK-02-001: SRC-03/04 документально исправлены, SRC-02 корректно отделяет источники атрибутов; R5-SRC-B01 OPEN по отсутствующим LAP и непроверенным атрибутам. См. verification/r5_r2_sources_recheck_02/review.md; B01–B03 и G1 OPEN.
+
+
+## Передача LAP и карточки OSTI для R5
+
+Получены копии NREL 42620/42621/42622 и JSON OSTI 1328338: verification/r2_primary_sources/lap_evidence/. Полный методический review, действительность и применимость NOT_RUN; R5-SRC-B01 OPEN. Пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+RECHECK REV-R5-R2-LAP-RECHECK-01-001: пакет 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6 прочитан в указанной области, хэши совпали; R5-SRC-B01 OPEN из-за непроверенной связи карточки SRC-02 с PDF и дат 42620. См. verification/r5_r2_lap_recheck/review.md; B01–B03 и G1 OPEN.
+
+
+## Происхождение LAP 42620 и аспектного отношения SRC-02
+
+R2 подготовил verification/r2_primary_sources/version_inquiry/: расхождения установлены, но причина и версионная привязка UNKNOWN. R5-SRC-B01 OPEN, независимый review дополнения NOT_RUN; методы не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+REV-R5-R2-VERSION-REVIEW-01-001 на cec689d77087d912ebfe34425cb8d288768637c2: R5-SRC-B01 CLOSED в ограниченной документальной области при исключении неизвестных дат/AR; новый R5-VERSION-B01 OPEN из-за неверного SHA JSON, исследование REJECT_WITH_BLOCKER. verification/r5_r2_version_recheck/review.md; B01–B03 и G1 OPEN.
+
+
+## Исправление SHA источника SRC-02
+
+R2 исправил укороченный SHA openalex-src02.json и сохранил прежнее значение и локальные доказательства в version_inquiry/report.md. Исторический акт R5 STALE к новой редакции; R5-VERSION-B01 OPEN до независимой сверки. Даты/версия/значение AR UNKNOWN и исключены из проектного использования; пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+REV-R5-VERSION-HASH-RECHECK-01-001 на 4605f3435c5882550d540ff797e7322613723769: R5-VERSION-B01 CLOSED по Git и доступной копии, WARNING; временная исходная копия недоступна для независимого cmp. verification/r5_version_hash_recheck/review.md; B01–B03 и G1 OPEN.
+
+## Документальная приёмка реестра источников R2
+
+R1 принял ограниченную документальную карту с WARNING; источники/редакции/лабораторная применимость и R5-SRC-W01 остаются открытыми. T-r2-sources-01 IN_REVIEW до интеграции; B01–B03 и G1 OPEN. См. verification/r2_primary_sources/r1_acceptance.md.
