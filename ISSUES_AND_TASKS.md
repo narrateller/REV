@@ -423,3 +423,8 @@ R2 сохранил четыре первоначально использова
 ## RECHECK пакета источников — REV-R5-R2-SOURCES-RECHECK-01-001
 
 R5 `r5-implementation-02` проверил пакет d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2 и реестр 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9: четыре LFS PDF получены, хэши совпали, заявленные места проверены с оговорками SRC-02 и замечанием к разделам SRC-03; R5-SRC-B01 OPEN по трём отсутствующим LAP и непроверенным атрибутам. См. verification/r5_r2_sources_recheck_01/review.md; B01–B03 и G1 OPEN.
+
+
+## Уточнение реестра по REV-R5-R2-SOURCES-RECHECK-01-001
+
+R2 уточнил SRC-02…04 по акту `5bc8db4ba1aff28a62a41edcbbf5e950d0c5cb4f` в verification/r2_primary_sources/registry.md. NREL 42620/42621/42622: повторные запросы CONNECT 403, тексты/редакции NOT_RUN. R5-SRC-B01 OPEN; оба прежних акта STALE относительно изменённого реестра, исторические выводы сохраняются; уточнённый реестр ожидает независимого RECHECK. Методы и применимость не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.

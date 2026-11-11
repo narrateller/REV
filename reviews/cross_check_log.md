@@ -1152,7 +1152,7 @@ findings:
   owner_role: R2
   task_id: T-r2-sources-01
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 blocker_ids:
 - R5-SRC-B01
 allowed_downstream_scope: Документальная работа с явно непроверенными ссылками и ограничениями,
@@ -1257,7 +1257,7 @@ findings:
   owner_role: R2
   task_id: T-r2-sources-01
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 blocker_ids:
 - R5-SRC-B01
 allowed_downstream_scope: Документальная работа с подтверждёнными разделами и указанными

@@ -309,3 +309,8 @@ OUTPUT-review REV-R5-R2-SOURCES-01-001 на 25745de1c69d2f0dd6adf8a6f10e8f7af593
 SRC-01…04 сохранены в verification/r2_primary_sources/copies/ с URL и SHA-256, совпадающими с реестром. Независимая проверка NOT_RUN, R5-SRC-B01 OPEN; LAP 42620/42621/42622 NOT_RUN. Пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.
 
 RECHECK REV-R5-R2-SOURCES-RECHECK-01-001: четыре LFS копии на d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2 получены и сверены с реестром; R5-SRC-B01 частично устранён, OPEN по трём отсутствующим LAP и непроверенным атрибутам. SRC-03 требует уточнения разделов. См. verification/r5_r2_sources_recheck_01/review.md; B01–B03 и G1 OPEN.
+
+
+## Уточнение реестра источников после RECHECK R5
+
+R2 уточнил SRC-02…04 и повторил запросы NREL 42620/42621/42622: CONNECT 403, тексты NOT_RUN; R5-SRC-B01 OPEN до независимой оценки. Методы не утверждены; пробы и испытания NOT_RUN; B01–B03 и G1 OPEN.
