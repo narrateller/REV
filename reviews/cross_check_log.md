@@ -2118,3 +2118,54 @@ reproduction_artifacts:
 - verification/r3_engineering_input_recheck/review.md
 supersedes: REV-R3-ENGINEERING-INPUT-01-001
 ```
+
+## Ограниченный RECHECK программы формования R3
+
+```yaml
+record_type: review
+review_id: REV-R3-COMPACTION-RECHECK-01-001
+kind: RECHECK
+task_id: T-INIT
+created_at_utc: '2026-11-11T11:25:00Z'
+reviewer:
+  role: R3
+  session_id: r3-safety-01
+  model_label: Codex
+reviewed_roles:
+- R1
+author_sessions:
+- codex-01
+independence_basis: Reviewer не указан автором программы; это тот же reviewer, что составил исходный акт. Организационная независимость и квалификация не установлены.
+reviewed_commit: 48b339263d7ab9991cc5384d0b05d22e6dbaa879
+parameter_refs: []
+artifacts:
+- path: verification/compaction_measurement_program_draft.md
+  sha256: 4ca7ef6fb4d583136497dcc9408f80db203418e04d48d52b0afd4e392b3149c3
+scope: Ограниченный документальный RECHECK R3-COMP-W01–W04, без выбора метода и физических работ.
+checks:
+- id: CHK-R3-COMP-RECHECK
+  method: inspection
+  expected: Сверить границы и знаки, события A/B, время/качество и сопоставимость.
+  observed: W01–W04 обработаны документально; оставшиеся неизвестные указаны отдельно в акте.
+  reasoning: Сравнены текст исходного акта и полный diff программы; реальная наблюдаемость и пригодность не доказаны.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Дальнейшая документальная разработка программы при сохранении ограничений.
+excluded_claims:
+- Пригодность установки и методики, выбор оборудования и пределов
+- Физическая безопасность, сопоставимость A/B и закрытие G1
+warning_owner_and_due:
+  owner_role: R1
+  owner_session: codex-01
+  due: До принятия программы и выполнения физических работ
+  restriction: Определить реальные условия и данные и получить независимые профильные проверки.
+closure_criteria:
+- Разработать и проверить применимую программу и её исходные данные в установленной области
+traceability_and_revisions: Исходный акт на 097d1ce34e7f8c3ff53a62a1f69933c258339dec не является предком проверенного commit; ссылку и историю нужно сохранить при интеграции.
+reproduction_artifacts:
+- verification/r3_compaction_program_recheck/review.md
+supersedes: REV-R3-COMPACTION-01-001
+```
