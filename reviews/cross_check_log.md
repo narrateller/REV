@@ -2010,3 +2010,60 @@ reproduction_artifacts:
 - verification/r5_r3_normative_recheck/review.md
 supersedes: REV-R5-R3-NORMS-01-001
 ```
+
+## Независимая проверка карты инженерных входов
+
+```yaml
+record_type: review
+review_id: REV-R3-ENGINEERING-INPUT-01-001
+kind: OUTPUT
+task_id: T-INIT
+created_at_utc: '2026-11-11T10:48:00Z'
+reviewer:
+  role: R3
+  session_id: r3-safety-01
+  model_label: Codex
+reviewed_roles:
+- R1
+author_sessions:
+- codex-01
+independence_basis: По проектным записям reviewer не автор проверяемого документа; организационная независимость и профильная квалификация этим не удостоверяются.
+reviewed_commit: 53a864de6fd9836f90ba10a04bc44b4edf5ecc22
+parameter_refs: []
+artifacts:
+- path: verification/engineering_input_map.md
+  sha256: 5c1d66b4720269fb0a7d9e8a79c23b3dab75d9eb7924ecd1e2eedca8ed6093bb
+scope: Документальная проверка условных формул, знаков, границ энергии и пробелов данных; реальные свойства, безопасность и оборудование не проверялись.
+checks:
+- id: CHK-R3-INPUT-FORMULAS
+  method: inspection
+  expected: Согласовать силу, расходы, направления, мощность и работу на оговорённых границах.
+  observed: Зависимости согласуются в идеальной модели при уточнённых внешней базе давления и знаках; реальный баланс требует потерь и накопления.
+  reasoning: Проверены проекции сил, изменения объёма, размерности и баланс мощности без чисел изделия.
+  result: PASS
+- id: CHK-R3-INPUT-BOUNDARIES
+  method: inspection
+  expected: Определить границы применимости и отсутствующие данные для привода и A/B.
+  observed: Уточнения и ограничения R3-INPUT-W01–W04 перечислены в отдельном акте; данные и критерии UNKNOWN.
+  reasoning: Документ предназначен для постановки вопросов, а не выбора привода или подтверждения физики.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: STALE
+blocker_ids: []
+allowed_downstream_scope: Ограниченная документальная постановка будущих измерений при соблюдении уточнений акта.
+excluded_claims:
+- Выбор оборудования, архитектуры и параметров
+- Безопасность, физическая применимость и приёмка G1
+warning_owner_and_due:
+  owner_role: R1
+  owner_session: codex-01
+  due: До применения зависимостей для подбора привода или принятия решений
+  restriction: Уточнить знаки, базу давлений, границы и методы независимой проверки с R2/R3/R5.
+closure_criteria:
+- Проверить границы и знаки будущей методики, задать измерения и независимую оценку неопределённости
+traceability_and_revisions: Проверен точный commit; независимый пересчёт выполнен аналитически без данных REV.
+reproduction_artifacts:
+- verification/r3_engineering_input_review/review.md
+supersedes: null
+```
