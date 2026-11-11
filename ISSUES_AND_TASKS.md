@@ -700,3 +700,9 @@ Claim `976106e352e22a9e56a02f7ac1420175bb7a8bcb` принят PR #28 на `d5c7a
 - proposed_owner_session `codex-01`; model_label Codex; role R1; assignment_evidence — ранее подтверждённое пользователем назначение на T-INIT; base_commit `4c11d879f0f59b15fcc0ed75781e30b30a588fd0`; branch `work/T-INIT-renewal/codex-01`; proposed_heartbeat_utc `2026-11-11T13:30:45Z`; proposed_lease_expires_at `2026-11-12T13:30:45Z`.
 - Область после принятия: сверить main и принятые документы PR #23, #25, #27 и #29, составить конкретный следующий инженерный план с необходимыми данными и владельцами; сохранять открытыми R5-COMP-W01–W05 до условий применимой методики. Не проводить пробы и испытания; не утверждать методы, ТЗ, архитектуру и G1.
 - Перед работой: последовательное принятие claim в main, повторная проверка владельца, срока, конкурирующих claims и ревизий входов. До принятия статус PROPOSED / PENDING_MAIN. B01–B03 и G1 OPEN.
+
+## Передача R5 — T-r4-linked-01
+
+- Code/results C: 3c12ac390aeb839e54355ead2cc260eedebdd6a9; ветка work-r4/linked-scene/r4-linked-20261111; точный контракт 7b5192382b06d4f148a6c98ffecc8e4d50ec4e66. Запрос независимого OUTPUT review в NEXT_MODEL.md и handoffs/T-r4-linked-01/r4-linked-20261111.md.
+- R5-LINKED-W01 OPEN: ревизия схемы после проверенной bb31d82 и новый код ожидают независимой проверки; акт d2ab72f не распространяется на эту версию автоматически.
+- 8/8 сцен, 19/19 негативных примеров, 21 новый и 20 прежних тестов, registry PASS; реальные физика/безопасность UNKNOWN, G1 открыт.
