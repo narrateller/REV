@@ -26,7 +26,7 @@ ID после создания не меняется. Для параллель�
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
-| T-r3-safety-01-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; B01–B03 OPEN | G1 |
+| T-r3-safety-01-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | документальная приёмка с WARNING; интеграция | G1 |
 
 ## T-INIT
 
@@ -547,3 +547,7 @@ R2 обнаружил шесть первоначальных HTML, сравни
 - REV-R5-R3-SAFETY-01-001: независимый R5 `r5-r3-safety-output-20261111-0740`, акт `verification/r5_r3_safety_output/review.md` из commit `ec5662a386aabbe894c94cb8b97897d182d55580`, проверен результат `43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c`; REJECT_WITH_BLOCKER.
 - R5-SAFETY-B01 OPEN до независимого RECHECK; W01–W05 OPEN до проверки. Исправлена ревизия и документирована сверка rev6/rev7; дополнены стадии, отказы, F, пробелы REQ/VAL и вопросы ответственности. Самостоятельно замечания не закрываются.
 - Статус задачи IN_REVIEW для повторной независимой проверки нового SHA. B01–B03 проекта, R5-OBS-01…04 и G1 OPEN; пробы и испытания NOT_RUN, нормативная применимость и защитные решения UNKNOWN.
+
+## Решение R1 по предварительной карте R3
+
+R1 принимает результат `2d4791f83ac1f67b2b35c2971b0380301803f344` только как документальную карту с WARNING; см. verification/r3_press_safety/r1_acceptance.md. R5-SAFETY-B01 и W01–W05 CLOSED только в документальной области; B01–B03 проекта, R5-OBS-01…04 и G1 OPEN. T-r3-safety-01-01 IN_REVIEW до интеграции.

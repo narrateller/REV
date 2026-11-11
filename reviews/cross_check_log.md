@@ -1774,3 +1774,127 @@ reproduction_artifacts:
 - verification/r5_r2_metal_independent_recheck/access_manifest.json
 supersedes: null
 ```
+
+## Регистрация OUTPUT-review R3
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-SAFETY-01-001
+kind: OUTPUT
+task_id: T-r3-safety-01-01
+created_at_utc: '2026-11-11T08:05:54Z'
+reviewer:
+  role: R5
+  session_id: r5-r3-safety-output-20261111-0740
+  model_label: Codex
+reviewed_roles:
+- R3
+author_sessions:
+- r3-safety-01
+independence_basis: На основании опубликованного акта reviewer не автор проверяемой
+  редакции; ID не удостоверяет организационную независимость или профессиональную
+  компетентность. Запись зарегистрирована R1 по опубликованному акту.
+reviewed_commit: 43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c
+parameter_refs: []
+artifacts:
+- path: verification/r3_press_safety/input_audit.md
+  sha256: 7a53ae522a3ba682cbe718600abca401a9f617fb26fc95a637ddb0d924cbce3a
+- path: verification/r3_press_safety/preliminary_hazards.md
+  sha256: 016fa3703232c36176d63ea1350f5ff5564d1a704ac8b190e2cb2478dafe71cd
+- path: verification/r3_press_safety/traceability.md
+  sha256: 018143d72710cd9b49efad4c9221c491e2b2ac85d1374fa8eca967e4bd6ed577
+- path: verification/r3_press_safety/normative_scope_questions.md
+  sha256: c1dcfeb34966367ffb9445868a803335fa19e921fc640d424faa10b57f32cd47
+scope: Документальная проверка входного акта, карты опасностей, REQ/VAL и нормативных
+  вопросов; физическая безопасность и применимость норм вне области.
+checks:
+- id: CHK-SAFETY-REGISTRATION
+  method: inspection
+  expected: Воспроизводимая ревизия входа VAL
+  observed: Акт R5 выявил rev6 в аудите при rev7 в файле
+  reasoning: Несоответствие входной базы требует исправления и независимого RECHECK.
+  result: FAIL
+findings: []
+verdict: REJECT_WITH_BLOCKER
+validity: STALE
+blocker_ids:
+- R5-SAFETY-B01
+allowed_downstream_scope: Только документальная подготовка и независимая проверка,
+  без утверждения защит или ТЗ.
+excluded_claims:
+- Исчерпывающий анализ риска и эффективность защит
+- Нормативная применимость и прохождение G1
+- Реальные измерения и испытания
+warning_owner_and_due: null
+closure_criteria:
+- Исправить ревизию VAL и независимо проверить влияние различий
+traceability_and_revisions: Запись оформлена R1 при интеграции по опубликованному
+  акту; created_at_utc — время регистрации, а не исходного запуска review.
+reproduction_artifacts:
+- verification/r5_r3_safety_output/review.md
+supersedes: null
+```
+
+## Регистрация RECHECK R3
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-SAFETY-RECHECK-01-001
+kind: RECHECK
+task_id: T-r3-safety-01-01
+created_at_utc: '2026-11-11T08:05:54Z'
+reviewer:
+  role: R5
+  session_id: r5-r3-safety-recheck-20261111-0800
+  model_label: Codex
+reviewed_roles:
+- R3
+author_sessions:
+- r3-safety-01
+independence_basis: На основании опубликованного акта reviewer не автор проверяемой
+  редакции; ID не удостоверяет организационную независимость или профессиональную
+  компетентность. Запись зарегистрирована R1 по опубликованному акту.
+reviewed_commit: 2d4791f83ac1f67b2b35c2971b0380301803f344
+parameter_refs: []
+artifacts:
+- path: verification/r3_press_safety/input_audit.md
+  sha256: 34e28facd0a6f8bf744647f3eafe6422455d35498fa84fe7a6fc2157d144b003
+- path: verification/r3_press_safety/preliminary_hazards.md
+  sha256: 4092d921f50492f91523fe742725bcb360e163bdd7f56c9ad29d5e6b41d14a85
+- path: verification/r3_press_safety/traceability.md
+  sha256: 501b152e0deb7a6d43fee034e45e163f50c30e066da55c5ba40b6d43191c5ed1
+- path: verification/r3_press_safety/normative_scope_questions.md
+  sha256: 58adf3ea4b7afe6b00421215aa23405662d89b5bbbdf954ca9c4b60ee8d89e16
+scope: Документальная проверка входного акта, карты опасностей, REQ/VAL и нормативных
+  вопросов; физическая безопасность и применимость норм вне области.
+checks:
+- id: CHK-SAFETY-REGISTRATION
+  method: inspection
+  expected: Проверить ревизии, влияние изменений и обработку B01/W01–W05
+  observed: Акт R5 сообщает B01 и W01–W05 CLOSED документально
+  reasoning: Это не оценка полноты инженерного риска, защит и нормативной применимости.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Только документальная подготовка и независимая проверка,
+  без утверждения защит или ТЗ.
+excluded_claims:
+- Исчерпывающий анализ риска и эффективность защит
+- Нормативная применимость и прохождение G1
+- Реальные измерения и испытания
+warning_owner_and_due:
+  owner_role: R3
+  owner_session: r3-safety-01
+  due: До утверждения ТЗ и выбора мер
+  restriction: Разработать с профильными специалистами недостающие инженерные данные,
+    оценку риска и применимость нормативных источников.
+closure_criteria:
+- Сохранить UNKNOWN и провести отдельную профильную инженерную и нормативную оценку
+traceability_and_revisions: Запись оформлена R1 при интеграции по опубликованному
+  акту; created_at_utc — время регистрации, а не исходного запуска review.
+reproduction_artifacts:
+- verification/r5_r3_safety_recheck/review.md
+supersedes: null
+```
