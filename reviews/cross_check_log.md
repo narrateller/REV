@@ -1167,3 +1167,108 @@ closure_criteria:
 - Независимо повторить сверку и зафиксировать недоступные части
 supersedes: null
 ```
+
+## REV-R5-R2-SOURCES-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-SOURCES-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T00:59:23Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: Reviewer автор предыдущего акта, но не автор реестра R2 или переданного
+  пакета; независимость относится к этой сверке.
+reviewed_commit: d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2
+scope: Сверка LFS копий SRC-01…04 и реестра 25745de1; три LAP, действительность редакций
+  и применимость REV NOT_RUN
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/registry.md
+  sha256: 726c7185438e6a59d033caed3deff90f622f3c1a95c9abb8790784bd05c7b928
+- path: verification/r2_primary_sources/copies/README.md
+  sha256: 9bedf66d0a6ea870ea877d4a4b1562a4fcc71a14e63e2634860fa41cd25147b6
+- path: verification/r2_primary_sources/copies/SRC-01.pdf
+  sha256: 7556a16ba04626ced124b698cd02fc6c35a6871aaabc9f083ecdd266a6827200
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+- path: verification/r2_primary_sources/copies/SRC-03.pdf
+  sha256: c9ffd5e57941e397b9d30d49e2baddc302f0a182736af2f0f08a3cbe7579736b
+- path: verification/r2_primary_sources/copies/SRC-04.pdf
+  sha256: 1bd9adaf21a3a7691ec18382a3cf02156ee1ba2ad4e7d93e905bfd6ee0b3a6b3
+checks:
+- id: CHK-SRC-01
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш, титул, даты версии и §§1–5 проверены; область водоросли
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: PASS
+- id: CHK-SRC-02
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш и титул/аннотация/введение/§§2.1–2.3 проверены; дата OSTI, DOI и статус
+    рукописи в копии не подтверждены
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: PASS
+- id: CHK-SRC-03
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш, титул и препринт проверены; детали плотности/влажности в §2.3, просев
+    §2.4, требуется уточнение реестра
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: FAIL
+- id: CHK-SRC-04
+  method: inspection
+  expected: Проверить копию, титул и заявленные места в источнике
+  observed: Хэш, титул, §1.3 и библиография проверены; номера ссылок ash/lignin в
+    источнике противоречат списку
+  reasoning: PDF-страницы и ограничения в verification/r5_r2_sources_recheck_01/review.md
+  result: PASS
+- id: CHK-LAP
+  method: inspection
+  expected: Проверить три NREL LAP и их редакции
+  observed: Три текста отсутствуют в пакете и непрочитаны
+  reasoning: Библиография в SRC-04 не заменяет тексты LAP
+  result: NOT_RUN
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_sources_recheck_01/review.md
+  impact: Четыре копии получены, но три LAP и некоторые атрибуты остаются непроверенными
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-R01
+  severity: WARNING
+  evidence: SRC-03 §§2.1–2.4 и реестр SRC-03
+  impact: Требуется явно исправить ссылки на разделы в реестре
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-SRC-R02
+  severity: WARNING
+  evidence: SRC-04 §1.3 и список references
+  impact: Номера 5 и 6 в тексте выглядят перепутанными; сверять по названию
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Документальная работа с подтверждёнными разделами и указанными
+  ограничениями; получение и сверка недостающих LAP
+excluded_claims:
+- Актуальность редакций и нормативных документов
+- Пригодность методов к REV или квалификация лаборатории
+- Эксперименты и закрытие B01–B03 или G1
+closure_criteria:
+- Уточнить реестр SRC-03 и атрибуты SRC-02
+- Получить и независимо прочитать три LAP; проверить версию и содержание
+- Сохранить ограничения на актуальность и применимость
+supersedes: null
+```

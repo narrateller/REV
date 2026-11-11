@@ -144,3 +144,7 @@ REV-R5-R2-MATERIAL-RECHECK-01-001: W01–W04 CLOSED в области докум
 ## Независимый review реестра источников R2
 
 REV-R5-R2-SOURCES-01-001: REJECT_WITH_BLOCKER для независимой сверки заявленных разделов на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9; OSTI и NREL в этой среде дали CONNECT 403. R5-SRC-B01 OPEN до получения проверяемых копий/доступа и независимого чтения; R5-SRC-W01/02 — дальнейшая работа. См. verification/r5_r2_sources_review/review.md. Пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## RECHECK четырёх копий источников
+
+REV-R5-R2-SOURCES-RECHECK-01-001: проверены четыре LFS PDF d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2 по реестру 25745de1; R5-SRC-B01 OPEN по отсутствующим трём LAP и неподтверждённым атрибутам. R2 уточняет SRC-03 и SRC-04 и проверяет библиографические атрибуты SRC-02, см. verification/r5_r2_sources_recheck_01/review.md. Актуальность и применимость REV NOT_RUN, B01–B03 и G1 OPEN.

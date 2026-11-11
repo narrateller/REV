@@ -419,3 +419,7 @@ R5 `r5-implementation-02` проверил реестр на 25745de1c69d2f0dd6a
 ## Передача копий по R5-SRC-B01
 
 R2 сохранил четыре первоначально использованные PDF-копии в verification/r2_primary_sources/copies/ с URL и SHA-256; хэши совпали с реестром на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9. Требуется независимый R5 RECHECK доступности Git LFS, хэшей, титулов и заявленных разделов; R5-SRC-B01 остаётся OPEN. NREL 42620/42621/42622 NOT_RUN; методы не утверждены, пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## RECHECK пакета источников — REV-R5-R2-SOURCES-RECHECK-01-001
+
+R5 `r5-implementation-02` проверил пакет d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2 и реестр 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9: четыре LFS PDF получены, хэши совпали, заявленные места проверены с оговорками SRC-02 и замечанием к разделам SRC-03; R5-SRC-B01 OPEN по трём отсутствующим LAP и непроверенным атрибутам. См. verification/r5_r2_sources_recheck_01/review.md; B01–B03 и G1 OPEN.
