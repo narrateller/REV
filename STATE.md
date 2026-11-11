@@ -302,3 +302,8 @@ PR #10 принят в main `123240e20604eec9f497ad8eb3bc29d46539905a`; claim `2
 T-r2-sources-01 IN_REVIEW: входной акт и реестр в verification/r2_primary_sources/. Прочитаны указанные разделы доступных материалов; полнота текстов, актуальность редакций и применимость NOT_RUN, подходящий источник по физическому остатку металла не установлен. NREL 42621/42620 CONNECT 403; пределы UNKNOWN, пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
 
 OUTPUT-review REV-R5-R2-SOURCES-01-001 на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9: REJECT_WITH_BLOCKER для независимой сверки источников, CONNECT 403; R5-SRC-B01 OPEN. Реестр допустим как навигация с непроверенными выводами R2; см. verification/r5_r2_sources_review/review.md. B01–B03 и G1 OPEN.
+
+
+## Копии источников для R5
+
+SRC-01…04 сохранены в verification/r2_primary_sources/copies/ с URL и SHA-256, совпадающими с реестром. Независимая проверка NOT_RUN, R5-SRC-B01 OPEN; LAP 42620/42621/42622 NOT_RUN. Пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.

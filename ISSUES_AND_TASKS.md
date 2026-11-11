@@ -414,3 +414,8 @@ R2 / r2-material-01 подготовил verification/r2_primary_sources/input_a
 ## OUTPUT-review T-r2-sources-01 — REV-R5-R2-SOURCES-01-001
 
 R5 `r5-implementation-02` проверил реестр на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9: REJECT_WITH_BLOCKER для независимой сверки разделов; R5-SRC-B01 OPEN, ссылки OSTI/NREL в среде дают CONNECT 403, тексты и редакции NOT_RUN. R5-SRC-W01/02 для дальнейшей работы. См. verification/r5_r2_sources_review/review.md; B01–B03 и G1 OPEN.
+
+
+## Передача копий по R5-SRC-B01
+
+R2 сохранил четыре первоначально использованные PDF-копии в verification/r2_primary_sources/copies/ с URL и SHA-256; хэши совпали с реестром на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9. Требуется независимый R5 RECHECK доступности Git LFS, хэшей, титулов и заявленных разделов; R5-SRC-B01 остаётся OPEN. NREL 42620/42621/42622 NOT_RUN; методы не утверждены, пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
