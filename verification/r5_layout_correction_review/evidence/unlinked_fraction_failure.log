@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/tmp/rev-layout-correction-unlinked/cad/layout_correction/run_revision.py", line 84, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/tmp/rev-layout-correction-unlinked/cad/layout_correction/run_revision.py", line 34, in main
+    run(['/usr/bin/python3','cad/layout/check_layout.py','--inputs',str(INPUT),'--models',str(OUT),'--out',str(OUT/'raw_checked_tool')])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/rev-layout-correction-unlinked/cad/layout_correction/run_revision.py", line 21, in run
+    if p.returncode:raise RuntimeError('command failed: '+' '.join(args)+'\n'+p.stderr)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: command failed: /usr/bin/python3 cad/layout/check_layout.py --inputs /tmp/rev-layout-correction-unlinked/cad/layout_correction/inputs.assumed.json --models /tmp/rev-layout-correction-unlinked/cad/build/layout_correction --out /tmp/rev-layout-correction-unlinked/cad/build/layout_correction/raw_checked_tool
+{"status": "FAILED", "classification": "ASSUMED_RESEARCH_ONLY_NOT_REV", "cad_adapter": {"status": "FAILED", "code": "NATIVE_VALIDATION_FAILED", "reason": "native CAD validation did not complete successfully", "exit_code": 1, "stdout": "", "stderr": "", "native": {"status": "FAILED", "reason": "actual FCStd geometry mismatch product_A", "exception": "ValueError"}}, "scenarios": "NOT_RUN", "previous_pair_files": "STALE/NOT_USED"}

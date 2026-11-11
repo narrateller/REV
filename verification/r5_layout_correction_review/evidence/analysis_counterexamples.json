@@ -1,0 +1,81 @@
+[
+  {
+    "case": "unsupported_motion_becomes_clear",
+    "expected": "INDETERMINATE; linear partition not applicable",
+    "raw": {
+      "pair": [
+        "moving",
+        "wall"
+      ],
+      "status": "INDETERMINATE",
+      "basis": "exact axis-aligned synthetic solids",
+      "evidence": {
+        "segments": [
+          {
+            "from": "0",
+            "to": "1",
+            "interval": "closed",
+            "collision_status": "INDETERMINATE",
+            "reason": "motion is not linear"
+          }
+        ],
+        "link": "NOT_REQUIRED",
+        "input_status": "INDETERMINATE"
+      }
+    },
+    "classified": {
+      "pair": [
+        "moving",
+        "wall"
+      ],
+      "raw_status": "INDETERMINATE",
+      "class": "CLEAR",
+      "exact_box_sign_coverage": "complete checked event partition",
+      "regions": []
+    }
+  },
+  {
+    "case": "sufficient_oracle_ignores_link_A",
+    "expected": "reject sufficient outcome without confirmed link/return",
+    "product_offset_m": "1/100",
+    "run_revision_outcome_predicate": true,
+    "result": {
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "path_collision": "NO_COLLISION",
+      "required_link": "LINK_ABSENT",
+      "path_transition": "BLOCKED",
+      "path_ready": "NOT_CONFIRMED",
+      "continuity_status": "CONTINUOUS"
+    },
+    "phases": [
+      "A-READY",
+      "A-FILL",
+      "A-ISOLATE",
+      "A-PRESS-OUT"
+    ]
+  },
+  {
+    "case": "sufficient_oracle_ignores_link_B",
+    "expected": "reject sufficient outcome without confirmed link/return",
+    "product_offset_m": "1/100",
+    "run_revision_outcome_predicate": true,
+    "result": {
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "path_collision": "NO_COLLISION",
+      "required_link": "LINK_ABSENT",
+      "path_transition": "BLOCKED",
+      "path_ready": "NOT_CONFIRMED",
+      "continuity_status": "CONTINUOUS"
+    },
+    "phases": [
+      "B-READY",
+      "B-FILL",
+      "B-ISOLATE",
+      "B-PRESS",
+      "B-UNLOAD",
+      "B-OPEN-LOCK",
+      "B-OPEN-STOP",
+      "B-EJECT"
+    ]
+  }
+]
