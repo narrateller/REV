@@ -1,3 +1,44 @@
+# T-r4-linked-01 — предложение ограниченной приёмки
+
+R1 оформил `verification/r4_linked_scene_r1_disposition.md` по коду/результатам `8896d70983648ccd33c0f861c9bc9d28327ff9eb`, RECHECK `82d60717ed9621af7f9fee4e57135d12f22cfc32` и документальной правке README `4ebf47a5f6f96708a65653acaf0cebeee1b84c26`. Предлагается принять после интеграции только в проверенной synthetic-области с WARNING; до слияния IN_REVIEW. R5-LINKED-FIX-W01 OPEN до независимой сверки README.
+
+Следующее действие: последовательно интегрировать результат и обе истории проверок после сверки main, владельца, срока и входов. После слияния зафиксировать статус задачи в ограниченной области и выбрать следующий инженерный шаг, не принимая архитектуру. G1 OPEN, физические испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Передача R1 — документальное исправление R5-LINKED-FIX-W01
+
+- Документальный C: 4ebf47a5f6f96708a65653acaf0cebeee1b84c26; ветка work-r4/linked-scene/r4-linked-20261111. Изменена одна строка README: 27 отрицательных примеров и ссылка на проверенный code/results 8896d70983648ccd33c0f861c9bc9d28327ff9eb. Остальные файлы models/ побайтно неизменны; отчёты не перегенерировались.
+- Исходный OUTPUT-review 2f3c318813474d9c0ff850e83e15b659fc0e3f14 и независимый RECHECK 82d60717ed9621af7f9fee4e57135d12f22cfc32 сохранены с probe/результатами и включены в ancestry через merge a48aee1be35d8217cc96e1764feac76ba24ca21d. Оба probe имеют разное назначение: первый фиксирует старые ошибки, второй — исправленные исходы.
+- RECHECK WARNING закрыл имплементационные B01…B03/W01 только для указанной synthetic-области проверенного C; задача не объявлена принятой. Следующий шаг R1: самостоятельно оформить решение об ограниченной приёмке и интеграции, повторно проверить актуальную main/owner/lease перед merge.
+- Main при проверке 116b280ffbe579e7545de51282ccfa96aa6cdefd; owner r4-linked-20261111, lease до 2026-11-12T16:05:29Z. В main принят учёт claim PR #32. Изменения этой рабочей ветки в main не интегрированы.
+- Проверки git ancestry/байтов, git diff --check и check_registry.py --check-git PASS. JSON SHA-256 c65665332583dfc65b37958321927544a20bd73ee32939eb7876e53c2da52c7f. Физика/безопасность UNKNOWN, G1 открыт.
+
+## Предыдущая эстафета (история)
+
+# Независимый R5 RECHECK — T-r4-linked-01
+
+- Проверить точный code/results commit 8896d70983648ccd33c0f861c9bc9d28327ff9eb, ветка work-r4/linked-scene/r4-linked-20261111; автор r4-linked-20261111, независимый reviewer не автор. Входной акт 2f3c318813474d9c0ff850e83e15b659fc0e3f14, копия verification/r5_linked_scene_output_review/review.md.
+- R5-LINKED-IMPL-B01…B03 и R5-LINKED-IMPL-W01 OPEN до независимого акта. Проверить отдельно доказанное исчезновение вместе с UNKNOWN CREATE/SPLIT, ошибки времени/ID/типа и лишние/дублированные события, точные рациональные времена, рёберный/точечный и малый положительный контакт; проверить приоритеты и раздельные доказательства.
+- Команды из корня: python3 models/rev_linked_scene/run.py; python3 -m unittest discover -s models/rev_linked_scene -p 'test_*.py'; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 scripts/check_registry.py --check-git. Отчёт models/rev_linked_scene/results/report.json, хэши файлов внутри; реестр снимка рядом.
+- Результат автора: 8/8 сцен, 27/27 негативных примеров, 33 новых и 20 прежних тестов, registry PASS, JSON воспроизводим и хэши сверены. Проверить свежий вывод и фактические доказательства, а не только счётчики.
+- verification/r5_linked_scene_output_review/probe.py — исторический probe, assertions намеренно требуют СТАРОГО ошибочного результата; exit 0 на старом SHA не означает исправления и на исправленном SHA не является passing регрессией.
+- Claim: PR #31 в main 76666e8eb1d11d51be144c59980587e4ffa6a1f1 содержит предложение a90927a; старые поля PENDING/NONE в main ещё противоречивы. Сверка R1 ea4fe28af7e4771977928d2262bcf32357744abb опубликована отдельно, её принятие не подтверждено; R5-LINKED-CLAIM-W01 OPEN до интеграции. Lease до 2026-11-12T16:05:29Z.
+- Только synthetic линейные AABB; реальная физика, удержание, разгрузка, безопасность UNKNOWN, испытания NOT_RUN, G1 открыт. Капсула handoffs/T-r4-linked-01/r4-linked-20261111.md.
+
+## Предыдущая эстафета (история)
+
+# Эстафета независимому R5 — T-r4-linked-01
+
+- Автор реализации r4-linked-20261111 / R4; точный code/results C: d11c3e0505d455cfdcf15847aea5b06180659e1b, ветка work-r4/linked-scene/r4-linked-20261111. Claim принят PR #31 на 76666e8eb1d11d51be144c59980587e4ffa6a1f1; срок до 2026-11-12T16:05:29Z. Новый независимый OUTPUT review NOT_RUN.
+- Вход: контракт 7b5192382b06d4f148a6c98ffecc8e4d50ec4e66. R5 d2ab72f24028f1cc5d8e9cb3a11d14744e46273f проверял предыдущую редакцию bb31d82b4aacebd6ccff8b6b343837d4443f8150 с WARNING. Уточнение схемы ALLOWED_CONTACT/LINK_* и R5-LINKED-W01 остаются OPEN до независимого review нового текста и реализации.
+- Код и полные результаты: models/rev_linked_scene/; JSON results/report.json и снимок реестра. Команды: python3 models/rev_linked_scene/run.py; python3 -m unittest discover -s models/rev_linked_scene -p 'test_*.py'; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 scripts/check_registry.py --check-git.
+- Авторские результаты: 8/8 сценариев A/B, 19/19 негативных примеров, 23 новых и 20 прежних tests OK. 48 фаз, 3 784 парные строки и 11 458 временных записей. JSON повторно воспроизведён и хэши всех входов совпали. Эти счётчики не подтверждают полноту метода и не заменяют review.
+- R5: независимо проверить полноту разбиения времени по корням и границам контакта, контактную политику/покрытие обязательной связи и W01, непрерывность и REMOVE/неподдерживаемые CREATE/SPLIT, полные множества пар, негативные примеры и приоритет COLLISION+UNKNOWN, READY и точный C. Оформить независимый акт отдельным commit; не автором проверяемой версии.
+- Реальные параметры, удержание, разгрузка, выдача и безопасность REV UNKNOWN; условная геометрия не является изделием; испытания NOT_RUN, G1 открыт. Капсула handoffs/T-r4-linked-01/r4-linked-20261111.md.
+
+## Предыдущая эстафета (история)
+
 # Эстафета R4 — отдельный claim T-r4-linked-01
 
 - Пользователь поручил R4 ограниченную реализацию связанных synthetic-сцен A/B. Claim PROPOSED / PENDING_MAIN; engineering NOT_STARTED. Прежняя T-codex-01-01 завершена в ранее проверенной области; её claim не переиспользуется.
