@@ -2169,3 +2169,60 @@ reproduction_artifacts:
 - verification/r2_compaction_program_recheck/review.md
 supersedes: null
 ```
+
+## Документальный OUTPUT-review программы формования R3
+
+```yaml
+record_type: review
+review_id: REV-R3-COMPACTION-01-001
+kind: OUTPUT
+task_id: T-INIT
+created_at_utc: '2026-11-11T11:20:00Z'
+reviewer:
+  role: R3
+  session_id: r3-safety-01
+  model_label: Codex
+reviewed_roles:
+- R1
+author_sessions:
+- codex-01
+independence_basis: Reviewer не указан автором программы в проектных записях; организационная независимость и профильная квалификация не удостоверены.
+reviewed_commit: 03290fe5e5392697303dd5eac552996e61df01ff
+parameter_refs: []
+artifacts:
+- path: verification/compaction_measurement_program_draft.md
+  sha256: 8d8228e34272a56aaa2e41b3f9c27eb98332097bac25b9781189529aa36a12aa
+scope: Документальная проверка границ силы, гидравлики, сигналов, фаз и сопоставимости A/B с учётом акта R2.
+checks:
+- id: CHK-R3-COMP-BOUNDARIES
+  method: inspection
+  expected: Проверить границы измерений, косвенность сигналов и физические состояния A/B.
+  observed: Программа содержит общие ограничения; нужны карта границ, каналов и событий и независимые основания выводов.
+  reasoning: Давление и положение сами не подтверждают силу на материал, разгрузку, удержание или полную выдачу.
+  result: PASS
+- id: CHK-R3-COMP-COMPARABILITY
+  method: inspection
+  expected: Выявить различия установок и условия сопоставимости.
+  observed: Условия и неизвестные приведены в акте; фактическая сопоставимость не установлена.
+  reasoning: Различия оснастки, состояния материала и границ измерений могут смешать эффекты.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Документальная доработка проекта программы и последующая независимая проверка.
+excluded_claims:
+- Утверждение методики, оборудования, численных пределов и безопасности
+- Доказательство работоспособности A/B или закрытие G1
+warning_owner_and_due:
+  owner_role: R1
+  owner_session: codex-01
+  due: До утверждения программы и физической работы
+  restriction: Уточнить открытые замечания R3-COMP-W01–W04 с участием R2/R3/R5 и независимой проверкой.
+closure_criteria:
+- Подготовить карту фаз и границ, доказать пригодность каналов и условия сопоставимости в будущей методике
+traceability_and_revisions: Акт R2 на 15663157ad1bafc610d17be69f57b1ea5c2f883e рассмотрен; проверенные файлы имеют одинаковый SHA-256.
+reproduction_artifacts:
+- verification/r3_compaction_program_review/review.md
+supersedes: null
+```
