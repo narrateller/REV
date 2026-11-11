@@ -1,0 +1,14 @@
+{
+  "scope": "synthetic values in metres and seconds, not REV",
+  "contact_patch_yz": [[0,1],[0,1]],
+  "full_travel": 2,
+  "short_travel": 1,
+  "exit_boundary": 2,
+  "obstacle_x": ["3/2","7/4"],
+  "expected": {
+    "sufficient": {"geometry":"GEOMETRY_SUFFICIENT", "collision":"NO_COLLISION", "transition":"ALLOWED", "ready":"READY"},
+    "short": {"geometry":"SHORT_STROKE", "collision":"NO_COLLISION", "transition":"BLOCKED", "ready":"BLOCKED"},
+    "collision": {"geometry":"GEOMETRY_SUFFICIENT", "collision":"COLLISION", "transition":"BLOCKED", "ready":"BLOCKED"},
+    "unknown": {"geometry":"INDETERMINATE", "collision":"INDETERMINATE", "transition":"INDETERMINATE", "ready":"INDETERMINATE"}
+  }
+}

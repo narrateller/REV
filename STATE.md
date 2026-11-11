@@ -454,3 +454,7 @@ Claim T-r2-compaction-comparison-01 принят PR #28 в `d5c7abcb13c24c31c41e
 ## Проект интеграции сравнения A/B
 
 Постановка `61286a4b2f83696e4ed82b8486bd057b70cdaaac`, независимый акт R5 `1b4d34a98a18c3897fbbe4ec5b25b74a2862f6c4` и проект решения verification/r2_compaction_comparison/disposition.md подготовлены к интеграции только как документальный черновик с WARNING. До принятия PR задача IN_REVIEW; R5-COMP-W05 OPEN до разработки, независимой проверки и согласования применимой методики. W01–W04, B01–B03 и G1 OPEN; методы и пределы UNKNOWN, пробы/испытания NOT_RUN.
+
+## R4 — связанные synthetic-сцены
+
+T-r4-linked-01 IN_REVIEW в рабочей ветке; R5-LINKED-W01 OPEN, независимый OUTPUT review NOT_RUN. Контракт 7b519238; акт d2ab72f относится к предыдущей редакции bb31d82. Физика/безопасность REV UNKNOWN, G1 открыт.
