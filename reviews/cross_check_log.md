@@ -2275,3 +2275,9 @@ reproduction_artifacts:
 - verification/r5_whole_press_layout_review/review.md
 supersedes: null
 ```
+
+## REV-R4-FRAME-MOUNT-OUTPUT-01 — запрос независимой проверки
+
+- Автор R4 r4-linked-20261111, T-r4-layout-build-01, 2026-11-11T22:52:59.303177Z. Входной акт R5 04efe5703e339112b7d007665b9f3672f0572d37 (закрытие B01/B02 в его ограниченной области); он не принимает новую геометрию.
+- Результат: cad/frame_mount/README.md, review_request.md; cad/build/frame_mount/assessment.md, geometry_evidence.json и publication_manifest.json. Точный неизменяемый code/results C — в следующем H/NEXT_MODEL/капсуле. Проверять C отдельно от H.
+- R4 self-check PASS в указанной ограниченной области; независимый reviewer/result NOT_ASSIGNED/NOT_RUN. Все прежние code/review/probe и CAD/evidence сохранены, 23 модуля неизменны. Остальные 20 native penetration пар и unknown interfaces OPEN, whole press READY INDETERMINATE. Задача IN_REVIEW, не принятие. G1 OPEN.

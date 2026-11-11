@@ -1,0 +1,55 @@
+"""Generate a readable report from the saved facts, not an acceptance decision."""
+import json,sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/'cad/layout'))
+from layout_common import load,bounds,digest
+
+
+def main():
+    out=ROOT/'cad/build/frame_mount'
+    def read(path):return json.loads(Path(path).read_text())
+    run=read(out/'run.json');proof=read(out/'geometry_evidence.json');joints=read(out/'interfaces.json');inventory=read(out/'inventory/inventory.json');assessment=read(out/'assessment.json');cycles=read(out/'strict_cycles.json')
+    old=load(ROOT/'cad/layout_correction/inputs.assumed.json');new=load(ROOT/'cad/frame_mount/inputs.assumed.json');oldmap={c['id']:c for c in old['components']};changes=[]
+    for c in new['components']:
+        if c['id'] in oldmap and bounds(old,oldmap[c['id']])==bounds(new,c):continue
+        def extent(data,component):return [[str(x) for x in side] for side in bounds(data,component)]
+        changes.append({'id':c['id'],'before_bounds_m':extent(old,oldmap[c['id']]) if c['id'] in oldmap else None,'after_bounds_m':extent(new,c),'parameter_refs':{k:[{'id':r,'revision':new['parameters'][r]['revision'],'value':new['parameters'][r]['value'],'unit':new['parameters'][r]['unit']} for r in c[k]] for k in ('position','size')}})
+    (out/'changes.json').write_text(json.dumps(changes,indent=2)+'\n')
+    lines=['# Исследовательская рамная/монтажная группа A/B — результат R4','',
+      'Самопроверка, REQUIRES_INDEPENDENT_R5. Задача T-r4-layout-build-01; owner_session r4-linked-20261111. Результат продолжает C 66924aed1cb2d193b9883d2140d85560b1e4b0cb с учётом акта 04efe5703e339112b7d007665b9f3672f0572d37. Интеграции в main и принятия сборки нет.',
+      '', '## Область и причина', '',
+      'Конечный реестр до изменения: verification/r4_frame_mount/before/inventory.json/md, 409 пар. Выбрана связная группа поперечин, боковых рельсов и опор цилиндра, включая стык задней опоры и выходной опоры с поперечинами. Остальные узлы не исправлялись. Все прежние ID сохранены, добавлены две щеки U-опоры, её поперечная опора и шесть стоек от основания к верхним рельсам.',
+      '',
+      'Поперечины размещены между внутренними гранями рельсов с совпадающими верхними плоскостями. Нижняя плоскость исключает внедрение в выходную опору. Задняя опора поднята до опорной плоскости поперечины с сохранением покрытия заднего торца цилиндра. Передняя сплошная плита перенесена к торцу цилиндра и разделена на нижний исходный элемент и две новые щеки; открытый верх сохраняет вертикальный коридор штока. Все тела моделируются и проверяются, исключений пар и удаления старых тел нет.',
+      '', '## Геометрия до/после', '',
+      'В changes.json — фактические границы SI и ссылки ID@revision. Все численные входы ASSUMED, отдельный inputs.assumed.json rev7 заранее зафиксирован на 17501de. Реальные registry/COTS неизменны. Следующие объёмы — результаты native Part.common, не допуски и не данные REV.', '',
+      '| Вариант | Пара | До, мм³ | После, мм³ |', '|---|---|---:|---:|']
+    for r in proof['before_after_native']:
+        lines.append(f"| {r['variant']} | {' / '.join(r['pair'])} | {r['before']['common_volume_mm3']:.9g} | {r['after']['common_volume_mm3']:.9g} |")
+    lines += ['', 'Виды: frame_before_after.svg/png; crossbar_before_after.svg/png; seat_before_after.svg/png; service_before_after.svg/png. Это проекции нативных тел разных осевых плоскостей, не самостоятельное доказательство коллизии по наложению проекций. Общие виды, реальные сечения, FCStd и STEP в A/ и B/. Скрытые для обзора ограждения в общих изображениях сохранены в моделях и матрицах.', '', '## Сопряжения и условный силовой путь', '',
+      f"interfaces.json: {len(joints)} записей (A/B), нулевой нативный общий объём и положительная площадь пересечения именно контактных граней. Минимальная фактическая площадь {min(r['native_contact_face_area_mm2'] for r in joints):.9g} мм². Эта проверка относится к исходной сборочной позиции; при сервисном движении контакт может исчезать. Отсутствие объёмного проникновения на всём ходе доказывается отдельно. Нулевой common volume сам по себе не принят как доказательство связи.", '',
+      'Условные цепи: задний торец цилиндра → задняя опора → crossbar0 → оба side_rail → upper_post → base; передний торец → нижний элемент/щеки U → cylinder_seat_bridge → рельсы → стойки → основания. Сохранена условная реакционная цепь B end_stop → lock → две стойки → мост → рельсы; неизменны геометрия подачи/отсечения/выхода, оси, цилиндр/шток и рабочие ходы. Проверены открытие/перекрытие подающего окна.', '',
+      'Передача сдвига и момента на торцевых стыках требует будущих закреплений. Болты/швы, фланцы цилиндра, удержание от радиального смещения, предварительный натяг и жёсткость UNKNOWN. Положительная площадь геометрического контакта не подтверждает силовую способность. Концептуальный силовой контур не объявляется рассчитанным или конструктивно завершённым.', '', '## Полный ход, возврат и сервис', '',
+      f"Матрицы включают ВСЕ пары каждого этапа: {proof['coverage_rows']} строк, coverage errors {len(proof['coverage_errors'])}. Нет новых исключений. Из {proof['changed_group_rows']} строк, затрагивающих изменённые тела, точные линейные неравенства дают: {json.dumps(proof['changed_group_counts'],ensure_ascii=False)}. Все намеренно неизвестные движения изделия остаются INDETERMINATE. Для известных поддерживаемых движений отсутствие положительного объёма охватывает весь интервал, включая границы, а не только кадры. Консервативное отсутствие перекрытия bounding boxes также исключает объёмное пересечение содержащихся в них цилиндров; отсутствие коллизии по одним нативным выборкам не утверждается.", '',
+      f"Регрессия ранее устранённых gate/pocket/lock/end_stop/guard/portal проникновений: {proof['previous_target_rows']} строк, {json.dumps(proof['previous_target_counts'],ensure_ascii=False)}. Исторические нативные контрпримеры R5 воспроизведены в geometry_evidence.json. Отдельно проверенные guard/pump_motor и portal_bridge/output_support сохраняются в полном потоке classifications.jsonl.gz.", '',
+      f"Сервис цилиндра отдельно, штока отдельно и цилиндр+шток вместе: {proof['cylinder_service_rows']} строк, {json.dumps(proof['cylinder_service_counts'],ensure_ascii=False)}. Взяты прежний вход service_lift и точный UP/DOWN, без изменения траектории для скрытия конфликтов. В 14 последовательностях сохранены все тела, непрерывность и восстановление исходных координат. Это геометрические исследовательские последовательности: снятие крепежа, отключение гидравлики, инструменты, стропы, устойчивость и безопасное выполнение UNKNOWN.", '',
+      '| Вариант | Сервис | Непрерывность/возврат | Строки конфликтов движущихся тел |', '|---|---|---|---:|']
+    for s in assessment['scenes']:
+        if s['case'].startswith('service_'):lines.append(f"| {s['variant']} | {s['case']} | {s['continuity_status']} / {s['positions_restored']} | {len(s['service_moving_penetrations'])} |")
+    lines += ['', 'Восемь исходных limited-cycle сценариев проверены strict oracle и отдельными assertions; их статусы отделены от exit code команды и готовности всего пресса.', '', '| Вариант | Сценарий | Ожидание теста | Геометрический исход ограниченной сцены |', '|---|---|---|---|']
+    for s in cycles['scene_results']:lines.append(f"| {s['variant']} | {s['case']} | {s['matches_expectation']} | {s['geometric_scene_outcome']} |")
+    lines += ['', 'Limited sufficient требует фактически подтверждённой связи, разрешённой выдачи, непрерывности, валидного REMOVE и возврата READY. Его успех относится к прежнему подмножеству пути; не к всей сборке.', '', '## Остаток и предел готовности', '',
+      f"Конечный перечень после изменения — inventory/inventory.md/json: {len(inventory['rows'])} непустых пар, {json.dumps(inventory['summary'],ensure_ascii=False)}. Для каждой пары сохранены исходные классы, все контексты, нативные свидетельства и отдельно отрицательные controls. CONDITIONAL_MATING — предполагаемое геометрическое сопряжение с описанным основанием, не утверждённая посадка/крепление. Сервисные нативные выборки не заменяют непрерывное доказательство. Известные положительные проникновения ниже не объявлены допустимыми сопряжениями.", '', '| ID | Вариант | Оставшееся нативное проникновение | Свидетельство, мм³ |', '|---|---|---|---:|']
+    for r in inventory['rows']:
+        if r['classification']=='NATIVE_PENETRATION':lines.append(f"| {r['id']} | {r['variant']} | {' / '.join(r['pair'])} | {max(w.get('common_volume_mm3',0) for w in r['native_representatives']):.9g} |")
+    lines += ['',
+      'Следующие связные группы ещё OPEN: монтажные стыки дозатора/кармана и бункера; извлечение дозатора через hopper_R/hopper_floor_right/receiving_rim_right; hydraulic_tank/pump_motor. Остальные непредписанные касания и численно неразличимые контакты — INDETERMINATE, коммуникационные/маршрутные оболочки — отдельный класс, реальное внутреннее устройство/прочность/зазоры/допуски/крепёж/нормы доступа UNKNOWN. Полный конечный список не сокращён до этих примеров.', '',
+      'FCStd/STEP фактически проверены frozen native adapter, включая все QueryVolumes. Повтор построения воспроизвёл семантические manifests и восемь PNG. Все 23 прежних Python-модуля неизменны относительно 66924ae; прежние 83 теста и пять новых тестов supplementary interval audit прошли. Новые run/inventory/evidence/report/figures/verify файлы — отдельная область независимой проверки. Hardcoded metadata frozen check_layout о прежней базе не являются provenance новой редакции; текущие хэши в run.json и publication_manifest.json.', '',
+      '**Весь пресс: BLOCKED оставшимися ASSUMED-проникновениями; READY INDETERMINATE.** Готов только пакет ограниченной геометрической коррекции для независимого R5. Задача IN_REVIEW, не DONE. Реальные размеры/ходы/нагрузки/сырьё/физика/безопасность UNKNOWN, архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN.', '', '## Воспроизведение', '', 'Из корня репозитория, материализовав Git LFS:', '', '```bash','git lfs pull','/usr/bin/python3 cad/frame_mount/run.py','/usr/bin/python3 cad/frame_mount/geometry_evidence.py','/usr/bin/python3 cad/frame_mount/figures.py','/usr/bin/python3 cad/frame_mount/report.py','/usr/bin/python3 cad/frame_mount/verify_output.py','```', '',
+      'FreeCAD 1.0.0/Part и Python 3.13.5; launcher /usr/bin/python3, не падающий freecadcmd. Только входной путь внутри текущего ROOT подтверждён: предупреждение R5 о внешних путях сохраняется. Самостоятельно выбирать новые реальные параметры нельзя. Исходные сохранённые FCStd/STEP не обязаны совпасть побайтно после повторного сохранения (служебные данные); semantic/native соответствие проверяется заново.']
+    (out/'assessment.md').write_text('\n'.join(lines)+'\n')
+    print('assessment.md and changes.json generated from saved results')
+
+
+if __name__=='__main__':main()
