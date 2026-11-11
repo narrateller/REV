@@ -1696,7 +1696,7 @@ findings:
   owner_role: R2
   task_id: T-r2-metal-01
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
 blocker_ids:
 - R5-METAL-B01
 allowed_downstream_scope: Документальное исследование с явно не подтверждёнными источниками;
