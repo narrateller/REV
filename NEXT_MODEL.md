@@ -1,3 +1,20 @@
+# Актуальная эстафета — B02 QueryVolumes
+
+- HANDOFF / IN_REVIEW; 2026-11-11T19:31:43Z; R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.
+- **Code/results C: de377f012da08f34796b2e59aee663ba0b2b3d2b**. Предыдущий C 5449fb9bc4c20fcbc40fdec932876dcecc90ef4d; входной независимый акт REV-R5-CAD-TOOL-FIX-01-001 на 8f381c4b080d902cb023429c54d518bfd6fab681. Последующий H — эстафета/учёт, не замена C.
+- B01 CLOSED независимым R5 в проверенной области на 5449fb9; его код не изменён, оснований переоткрытия нет. **B02 OPEN** до независимого RECHECK нового C. Исправление не означает приёмку инструмента или компоновок.
+- Исправлены canonical registry и нативная проверка всех QueryVolumes A/B: CylinderRemoval/DoserRemoval, размеры/форма, локальное и глобальное положение, Role. Manifest не определяет ожидания. Подменённые/удалённые/пустые/неописанные зоны запрещают CAD PASS даже после обновления hash; CLI даёт FAILED/NOT_RUN и ненулевой код. Результат каждой зоны с source IDs — cad/build/research_layout/checks/report.json.
+- Команда `/usr/bin/python3 cad/layout/run_all.py`: все 14 дочерних команд exit 0. 73 unit tests, 64 QueryVolumes-negative (60 обновлённых hashes), прежние 14 CAD-negative и 33 lifecycle, 20 независимых lifecycle-regressions R5, 8 limited outcomes PASS. Полные результаты/source/artifact hashes — validation.json и checks/*.json, оценка assessment.md; описание/отдельные команды cad/layout/BUILD_README.md.
+- Геометрия всех четырёх зон сверена с actual-файлами C 5449fb9 и не изменена. build_model/ASSUMED input/manifest.objects, PNG, все 107486 записей фаз/пар и 556 сервисных результатов сохранены. Нативные проникновения R5 повторились: статически 17 положительных A и 18 B, прежние промежуточные случаи совпали. Полная сборка BLOCKED_ASSUMED_INTERFERENCES, READY INDETERMINATE; ограниченный путь не разрешает весь пресс.
+- Перед работой и C свежая main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/подтверждён пользователем, owner r4-linked-20261111, lease до 2026-11-12T18:06:24Z. Известное расхождение предварительных NONE/PENDING main и нормализации рабочей ветки сохранено с основанием; координатор сверяет его перед интеграцией, срок не расширяется.
+- Следующая подходящая роль — независимый R5, не автор. Первый атомарный шаг: checkout точного C, git lfs pull, сверить hashes/сохранить исходную копию; прочитать входной акт verification/r4_query_volume_fix/input_audit.md, R5 акт, README и assessment; воспроизвести run_all, независимо повторить Q01 и остальные подмены зон. Старый cad_probe.py на 8f381c4 содержит Q01 assertion ошибочного PASS; его успешный запуск до правки сохранён как baseline_cad_probe.json, это не критерий исправления.
+- Критерий — независимый RECHECK B02 на C; B01 не переоткрывать без нового основания. Новый акт NOT_RUN, замечания компоновок/безопасности не закрыты. Все независимые review/probes/evidence сохранены. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md; запрос cad/layout/output_review_request.md.
+- Реальные параметры REV UNKNOWN, условные ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Рабочая ветка C/H публикуется без слияния; C REMOTE, запрос независимого RECHECK B02 сохранён в cad/layout/output_review_request.md, слияние не выполнялось.
+
+---
+
+История предыдущих эстафет, не текущее поручение:
+
 # Актуальная эстафета — RECHECK инструмента компоновки
 
 - HANDOFF / IN_REVIEW; 2026-11-11T19:07:56Z; автор R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.

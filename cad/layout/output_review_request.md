@@ -1,15 +1,17 @@
-# Запрос независимого RECHECK R5 — T-r4-layout-build-01
+# Независимый RECHECK B02 QueryVolumes
 
-Code/results: `5449fb9bc4c20fcbc40fdec932876dcecc90ef4d`, ветка `work-r4/build-layout/r4-linked-20261111`, база main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53. Входной акт REV-R5-LAYOUT-BUILD-01-001 на e939b41d0139b0a3a08a5950eeeec6e92324cf9b, исходный C 6bb66a566719593a59935e341b1b5c80a1cbc9a7 сохранены. Проверить R5-CAD-TOOL-B01/B02; автор оставляет их OPEN.
+Точный code/results C `de377f012da08f34796b2e59aee663ba0b2b3d2b`, ветка work-r4/build-layout/r4-linked-20261111. Входной акт REV-R5-CAD-TOOL-FIX-01-001 на 8f381c4b080d902cb023429c54d518bfd6fab681, проверенный прежний C 5449fb9bc4c20fcbc40fdec932876dcecc90ef4d.
 
-REMOVE валидируется до изменения эффективного реестра, каждое событие учтено, unsupported CREATE/SPLIT не применяются; подтверждённый дефект сохраняется при UNKNOWN других событий. PASS CAD требует actual FCStd/STEP, hashes, нативных состава/форм и соответствия STEP. Ошибка/отсутствие/рассогласование дают FAILED.
+Проверить оставшийся B02/Q01: все нативные QueryVolumes A/B, включая CylinderRemoval/DoserRemoval, сверяются с каноническими формулами входов по форме, размерам, локальному/глобальному положению и Role до/после recompute. Обновлённый hash не заменяет семантическую проверку; неподтверждённая зона запрещает общий CAD PASS, API/CLI дают явный FAILED. Новые 64 negative cases включают 60 обновлённых hashes и подмену manifest-списка. Старый probe сохранён с его ошибочным Q01 assertion, исходный ошибочный PASS воспроизведён до правки.
 
-Воспроизведение после checkout/materialize LFS и сохранения исходных результатов:
+B01 CLOSED независимым R5 в проверенной области и не переоткрыт; lifecycle-код неизменён, повторены 20 его независимых regressions. B02 OPEN до нового независимого решения, самоприёмка не выполняется.
+
+После materialize LFS и сохранения копии исходных результатов:
 
 ```sh
 /usr/bin/python3 cad/layout/run_all.py
 ```
 
-69 unit tests, 33 lifecycle-контрпримера, 14 CAD-negative и 8 limited outcomes PASS, все 12 дочерних команд exit 0. Полное evidence: cad/build/research_layout/validation.json и checks/*.json; оценка assessment.md. Исходный adapter_probe.py фиксирует старые ошибочные исходы; исправление проверяют новые независимые ожидания, не успех его старых assertions.
+73 unit tests, 64 новых query-negative, 14 прежних CAD-negative, 33 lifecycle, 20 независимых lifecycle, 8 limited outcomes PASS. Все 14 команд exit 0; файлы cad/build/research_layout/validation.json, checks/query_regressions.json, checks/geometry_preservation.json, checks/report.json и assessment.md. Отдельная команда query_regressions — BUILD_README.md.
 
-Геометрия/входной JSON/build_model/manifest.objects, все PNG и 107486 записей фаз/пар сохранены; нативные static/dynamic пробы R5 повторены и совпали. 556 сервисных результатов сохранены. Проникновения A/B не устранены, full READY INDETERMINATE. Восемь исходов относятся только к path_subset. Не подтверждены реальные нагрузки, физика, посадки, обслуживание и безопасность; параметры REV UNKNOWN, условные ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Задача не принята, слияние не выполняется.
+Исходная геометрия зон/компоновок и все 107486 записей фаз/пар сохранены. Прежние native проникновения R5 повторились: статически 17 A / 18 B положительных common volumes плюс прежние промежуточные случаи. Полный READY INDETERMINATE; физика/безопасность UNKNOWN, архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Слияние не выполняется.
