@@ -25,6 +25,7 @@ ID после создания не меняется. Для параллель�
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
 | T-r4-linked-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | RECHECK WARNING; ограниченная приёмка предлагается после интеграции | G1 |
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
+| T-r4-layout-build-01 | TASK | P2 | @R4 | READY | NONE | claim PENDING_MAIN; W03 подготовительное задание | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -68,7 +69,7 @@ PR #32 принят на main `116b280ffbe579e7545de51282ccfa96aa6cdefd`; пов
 
 - Тип TASK; приоритет P2; адресат @R4, входы/проверки по областям @R1/@R2/@R3/@R5. Статус IN_REVIEW; owner_session: r4-linked-20261111; claim ACCEPTED_MAIN через PR #34 на c00c75dda08889c3e19169476051b3e6980be721. Принятие подтверждено пользователем и ancestry claim-коммита; исторические PENDING/NONE остались в тексте принятого предложения.
 - Основание назначения: прямое поручение пользователя продолжить REV после PR #33 и подготовить постановку первой параметрической компоновки всего пресса; роль R4 ранее подтверждена в текущей беседе. Предлагаемый исполнитель session_id r4-linked-20261111 / model_label Codex / role R4. Роль повторно не запрашивается.
-- base_commit: b2d13541225ceb092559747443ec351ecfd0ef84 (main, merge PR #33); branch work-r4/claim-whole-press-layout/r4-linked-20261111; assignment_utc / heartbeat_utc 2026-11-11T17:43:20Z; proposed lease_expires_at 2026-11-12T17:43:20Z. Предлагаемый срок на принятие и ближайшую документальную подзадачу; старый claim не продлевается.
+- base_commit: b2d13541225ceb092559747443ec351ecfd0ef84 (main, merge PR #33); branch work-r4/claim-whole-press-layout/r4-linked-20261111; assignment_utc / heartbeat_utc 2026-11-11T17:43:20Z; accepted lease_expires_at 2026-11-12T17:43:20Z, принят с claim через PR #34. Исходный предложенный срок сохранён в истории; эта запись не продлевает claim.
 - Проверенная граница прежнего claim: T-r4-linked-01, owner r4-linked-20261111, lease до 2026-11-12T16:05:29Z, ограниченные synthetic AABB. Его наличие и PR #33 не разрешают автоматически новую инженерную постановку; новая задача отдельная.
 - capabilities: Git read и локальная запись/commits; Python 3.12.14 и PyYAML 6.0.3 ранее проверены; Git push проверяется отдельно для новой ветки; CAD/CAE UNAVAILABLE (не запускались), профильная квалификация UNKNOWN.
 - Входы на b2d13541225ceb092559747443ec351ecfd0ef84: AGENTS.md, AGENT_PROTOCOL.md, STATE.md, NEXT_MODEL.md, ISSUES_AND_TASKS.md, roles/role_profiles_summary.md, params/registry.yaml, concepts/press_functional_alternatives.md, controls/press_variant_state_tables.md, models/first_digital_model_brief.md, requirements/system_requirements.md, requirements/verification_matrix.md, process/feedstock.md, sources/index.md, drives/cots_catalog.yaml, verification/engineering_input_map.md, verification/r4_linked_scene_r1_disposition.md и применимые независимые акты по ссылкам. До исполнения проверить точные входы/ревизии и оформить входной аудит; наличие ссылки не означает прочтение/приёмку инженерного содержания.
@@ -77,6 +78,18 @@ PR #32 принят на main `116b280ffbe579e7545de51282ccfa96aa6cdefd`; пов
 - Ограничения: архитектуру не выбирать, ТЗ и физические свойства/безопасность не утверждать, synthetic-сцены не выдавать за конструкцию REV. Пробы/испытания NOT_RUN, G1 открыт. Сохраняются ограничения прежних актов и открытые инженерные пробелы.
 - claim_acceptance ACCEPTED_MAIN; claim_record_commit 1683e24d3be2dfcf8ac91eda102e4d376c834d80; acceptance_commit c00c75dda08889c3e19169476051b3e6980be721, PR #34. Область и срок не расширены. После принятия: fetch main, сверить owner/lease/отсутствие конкурирующего claim/входные SHA и оформить входной акт; только затем подготовить постановку.
 - Эстафета handoffs/T-r4-layout-01/r4-linked-20261111.md; ожидаемый независимый reviewer по предмету и протоколу, отдельный OUTPUT-review NOT_RUN.
+
+## T-r4-layout-build-01 — построение условной параметрической сборки всего пресса A/B
+
+- TASK, P2, адресат @R4; статус READY; owner_session в main NONE; proposed_owner_session r4-linked-20261111 / Codex / R4. Назначение R4 подтверждено пользователем; текущее поручение — подготовить задачу и предложить отдельный claim, не начинать построение.
+- claim_acceptance PROPOSED / PENDING_MAIN; base_commit c00c75dda08889c3e19169476051b3e6980be721; branch work-r4/prepare-layout-build/r4-linked-20261111; assignment_utc / heartbeat_utc 2026-11-11T18:06:24Z; proposed lease_expires_at 2026-11-12T18:06:24Z. Предложен срок на принятие и ближайший исследовательский результат, не продление старого claim. Claim на постановку не покрывает построение.
+- Входы: постановка cad/layout/whole_press_layout_brief.md после ответов W01/W02/W03, исполнимое задание cad/layout/model_build_task.md и отдельный conditional_inputs.template.json из этого подготовительного PR (точный C фиксируется в эстафете); review REV-R5-LAYOUT-01-001 на a621f466aac7c31e7812b91ab84c327157411fbc, WARNING на предыдущую постановку 32481da; process/supply_boundary_options.md и OP-REV-07…11, предыдущая main c00c75d. Изменённая постановка не объявляется повторно независимо проверенной.
+- Инструмент и формат: FreeCAD 1.0.0 через /usr/bin/python3 3.13.5 + модуль Part; импорт проверен без создания документа/геометрии; .FCStd и параметрические Python/JSON исходники, STEP и виды/разрезы/отчёты. freecadcmd launcher в текущей среде падает, поэтому исполняемый путь и ограничения указаны в задании.
+- Scope и критерии: все узлы A/B, общие и локальные базы, собственный исследовательский ASSUMED-набор, воспроизводимый build/reopen/recompute/export, четыре геометрических исхода на A/B, полный перечень пар/фаз/сервисных конфигураций с фактическими результатами и INDETERMINATE для неподдержанного. Подробные пути/entrypoints и критерии — model_build_task.md. Реальные параметры REV UNKNOWN.
+- Первый шаг только после принятия: fetch main, проверить owner/lease/конкурирующие записи/immutable входы, оформить аудит, заполнить и зафиксировать отдельный исследовательский реестр ASSUMED перед построением. Проверенная прежняя модель применима только к своему синхронному линейному AABB-классу, адаптер/перенос проверяются заново.
+- Output: модели/виды/экспорт/параметры/полные результаты/хэши и команды, точный C для независимого R5; самоприёмка не разрешена. В подготовительном PR модель, код build/check и численный ASSUMED-набор NOT_STARTED; шаблон не является готовыми входами модели.
+- Ограничения: не утверждать архитектуру/ТЗ/посадки/силы, не проводить физические испытания, не подтверждать безопасность; G1 открыт. Новый claim пока не действует, до принятия построение запрещено пользовательским условием и §4 протокола.
+- Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md. Предложение claim не меняет владельца задачи T-r4-layout-01 и T-INIT.
 
 ## T-INIT
 
@@ -755,3 +768,7 @@ Claim `976106e352e22a9e56a02f7ac1420175bb7a8bcb` принят PR #28 на `d5c7a
 - Запрос независимого OUTPUT-review: R5 и профильные R1/R2/R3/R6 проверяют полноту границ, интерфейсов и входов по своим областям; reviewer должен не быть соавтором текущей постановки. Независимое назначение/акт NOT_RUN; задача не DONE.
 
 - T-r4-layout-01: точный документальный C результата 32481da99f436d260e9af6f0bcc9b0979b952cff; эстафета NEXT_MODEL.md и handoffs/T-r4-layout-01/r4-linked-20261111.md; независимый OUTPUT-review NOT_RUN, задача IN_REVIEW.
+
+## Учёт W02 — T-r4-layout-01 после PR #34
+
+Claim 1683e24d3be2dfcf8ac91eda102e4d376c834d80 принят PR #34, merge main c00c75dda08889c3e19169476051b3e6980be721; ancestry повторно проверено. owner_session r4-linked-20261111, срок до 2026-11-12T17:43:20Z; иной принятый владелец не обнаружен. Предварительные READY/NONE/PENDING исходного предложения были ошибочно оставлены в main и исправляются этим подготовительным PR; исходная запись и основание PR #34 сохранены в Git-истории. Новая задача построения отдельная, срок старого claim не расширен. W02 предложен к документальному закрытию после последовательной интеграции и сверки R1, не объявляется автором закрытым в ещё не изменённой main.

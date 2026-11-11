@@ -2255,7 +2255,7 @@ checks:
   result: PASS
 findings: []
 verdict: WARNING
-validity: CURRENT
+validity: STALE
 blocker_ids: []
 allowed_downstream_scope: Отдельная исследовательская компоновка A/B с явно условными ASSUMED-входами после постановки задачи и claim.
 excluded_claims:
