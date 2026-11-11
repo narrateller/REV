@@ -1,13 +1,6 @@
-# Текущий шаг R3 — задача и claim на принятие
+# Результат R3 — независимый review
 
-Пользователь назначил R3 / r3-safety-01 для T-r3-safety-01-01 по
-verification/press_risk_analysis_brief.md на main
-0e65bee44fb72fab9b79849d61061dd55589c239. Claim PROPOSED / PENDING_MAIN;
-аналитическая работа не начата. Сначала последовательное принятие в main,
-проверка owner/lease/входов; затем входной аудит и документальный результат.
-См. ISSUES_AND_TASKS.md и handoffs/T-r3-safety-01-01/r3-safety-01.md.
-B01–B03 и G1 OPEN; уровни риска, защиты и нормативная применимость UNKNOWN;
-пробы и испытания NOT_RUN. Предыдущие эстафеты сохранены ниже.
+Claim T-r3-safety-01-01 принят PR #17 в main `b28a99594e31bc6a34c35646e4717a2ccea5943a`; owner r3-safety-01, lease до 2026-11-12T04:14:00Z. После входного акта подготовлены документы verification/r3_press_safety/. Задача IN_REVIEW; независимый reviewer проверяет опубликованный SHA, область и пробелы; перед интеграцией сверить main, owner и срок. B01–B03, R5-OBS-01…04 и G1 OPEN; пробы и испытания NOT_RUN.
 
 # Эстафета — после PR #15: проект анализа опасностей
 

@@ -1,18 +1,8 @@
-# R3 — публикация задачи и claim
+# R3 — передача на независимую проверку
 
-- task_id: T-r3-safety-01-01
-- role / session_id / model_label: R3 / r3-safety-01 / Codex
-- author_sessions: [r3-safety-01]
-- assignment_evidence: прямое назначение пользователя 2026-11-11 в текущем чате
-- base_commit: 0e65bee44fb72fab9b79849d61061dd55589c239
-- branch: work/T-r3-safety-01-01/r3-safety-01
-- claim: PROPOSED / PENDING_MAIN; owner_session r3-safety-01
-- heartbeat_utc: 2026-11-11T04:14:00Z
-- lease_expires_at: 2026-11-12T04:14:00Z
-- completed: сверена main; прочитаны протокол, состояние, эстафета, задание; оформлены отдельная задача и предложение claim.
-- changed_files: ISSUES_AND_TASKS.md, STATE.md, NEXT_MODEL.md, настоящая капсула. Реестр параметров и инженерные артефакты не менялись.
-- unfinished: принятие claim в main; входной аудит; документальный реестр, нормативные вопросы и REQ/VAL-матрица.
-- next_action: принять опубликованный claim последовательно в main; проверить точный SHA/owner/lease/изменения входов; только после этого выполнить входной аудит и ограниченную документальную задачу.
-- stop_conditions: claim не принят, lease истёк, конкурентный владелец, изменены входы без аудита, нужны неподтверждённые инженерные выводы.
-- limitations: B01–B03, R5-OBS-01…04 и G1 OPEN; риск/защиты/нормативная применимость UNKNOWN; пробы/испытания NOT_RUN.
-- review: независимый review результата NOT_RUN; самоприёмка запрещена.
+- task_id: T-r3-safety-01-01; owner_session: r3-safety-01; author_sessions: [r3-safety-01]; role R3.
+- claim_record: 356b76a1a6711e31f04388ed5ab34cea55be5da1; принят PR #17 на b28a99594e31bc6a34c35646e4717a2ccea5943a. Lease до 2026-11-12T04:14:00Z.
+- Входы и область, результаты аудита: verification/r3_press_safety/input_audit.md.
+- Результат: preliminary_hazards.md, traceability.md, normative_scope_questions.md в verification/r3_press_safety/.
+- Независимый review NOT_RUN; следующий шаг — проверка точного опубликованного SHA специалистами R5 и профильными компетенциями при участии R1/R6.
+- Перед интеграцией проверить main, владельца, lease, изменения входов. B01–B03, R5-OBS-01…04 и G1 OPEN; испытания и пробы NOT_RUN; нормативная применимость и защита UNKNOWN.
