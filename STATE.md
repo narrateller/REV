@@ -1,6 +1,14 @@
 # STATE — панель проекта
 
-## Текущий результат R4 — B02 QueryVolumes (2026-11-11T19:31:43Z)
+## Текущий результат R4 — геометрическая корректировка (2026-11-11T20:34:47Z)
+
+T-r4-layout-build-01 IN_REVIEW, C `120a9582f4835e81cdf324605a14f632ce7db2cb`, ветка work-r4/build-layout/r4-linked-20261111. На базе checked tool de377f0/review 214b055 целевые gate/pocket и B lock/stop/guard/support positive-volume пересечения устранены в поддержанной исследовательской геометрии по всему ходу/возврату/сервисам. Все исходные ID сохранены; 70/68 тел. 15 checked-tool файлов не менялись. Отдельные новые orchestration/classifier/face-touch policy требуют независимого review вместе с геометрией.
+
+73 прежних + 6 новых tests, 8 limited outcomes и CAD/STEP/query/repeat PASS; 130453 рабочих + 121470 сервисных строк, 618 target rows без strict penetration, 6 native before/after zero volume. 216 дополнительных design-контрольных строк и новые тела без положительных/envelope пересечений, 12 сервисных последовательностей восстановлены. Показаны геометрические feed/isolation/reaction witnesses; реальные усилия/физика/безопасность UNKNOWN. Прочие проникновения/сервисы/неопределённость не скрыты, whole-press READY INDETERMINATE, весь пресс не принят. Геометрический OUTPUT review NOT_RUN.
+
+Owner/lease/claim/main сверены до C, scope исходной задачи покрывает исправление геометрии, срок не продлён. Историческое расхождение NONE/PENDING main требует сверки координатором перед интеграцией. Реальный registry/COTS/models неизменны, все числа отдельно ASSUMED. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Актуальная эстафета NEXT_MODEL.md, handoffs/T-r4-layout-build-01/r4-linked-20261111.md; результаты cad/build/layout_correction/, навигация cad/layout_correction/README.md.
+
+## История результата R4 — B02 QueryVolumes (2026-11-11T19:31:43Z)
 
 T-r4-layout-build-01 IN_REVIEW, C `de377f012da08f34796b2e59aee663ba0b2b3d2b`, ветка work-r4/build-layout/r4-linked-20261111. Входной акт 8f381c4b080d902cb023429c54d518bfd6fab681 закрыл B01 в проверенной области и оставил B02 OPEN/Q01. Исправлена проверка всех канонических нативных зон по входам; новый независимый RECHECK B02 NOT_RUN, автор не закрывает блокер. Lifecycle неизменен, B01 не переоткрывается. 73 unit tests / 64 query-negative / 14 прежних CAD-negative / 33 lifecycle / 20 независимых lifecycle / 8 limited outcomes PASS, 14 команд exit 0.
 
@@ -68,7 +76,7 @@ Code/results `6bb66a566719593a59935e341b1b5c80a1cbc9a7`, ветка `work-r4/bui
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
 | T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T17:42:58Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
-| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T19:32:13Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
+| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T20:45:46Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
 
 ## Active Handoff Capsule
 
