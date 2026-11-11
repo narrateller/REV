@@ -269,3 +269,21 @@ R1 подготовил process/input_material_measurement_passport.md для б
 ## Принятие claim R2
 
 PR #6 принят в main `6ccc31bef5a49a600d162cb7ab99fd0aed40d457`, claim `dd57126ae68fccddcfaeeef087efe07e995d0e60` для `r2-material-01`, lease до 2026-11-11T23:45:21Z. Учётное исправление трекера в этой ветке ещё требует интеграции. Пробы/испытания NOT_RUN, G1 OPEN.
+
+
+## Сравнение методов R2 — ожидает независимого review
+
+T-r2-material-01 / r2-material-01 IN_REVIEW: входной акт и сравнение пяти групп в verification/r2_material_methods/. Исходные три документа сохранены на базе 47511c3f7f3eebe69e2c8f8e4863d68c74d36b72; внешние нормативные редакции не подтверждены. Пять групп — кандидаты, методы/пределы не утверждены, пробы и испытания NOT_RUN; B01–B03 OPEN, G1 OPEN. Точный SHA результата передаётся отдельно после фиксации.
+
+OUTPUT-review REV-R5-R2-MATERIAL-01-001 на c78a745fb431b459bf6272b585d17a7fad977845: WARNING только на документальное сравнение пяти групп; R5-MAT-W01…04 для дальнейшей программы, методики и стандарты не утверждены. См. verification/r5_r2_material_review/review.md; B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+
+## Ответ R2 на замечания R5 к методам сырья
+
+R2 подготовил verification/r2_material_methods/response_r5_material_01.md к акту 08d75ec9bc86afae14663a6037958e384b1965e0. T-r2-material-01 IN_REVIEW; W01–W04 OPEN до независимого RECHECK. Источники и пригодность NOT_RUN, пределы UNKNOWN; пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+Ограниченный RECHECK REV-R5-R2-MATERIAL-RECHECK-01-001 на fcbeefae46b4fd999c194bd214b5dda7c476b0ec: W01–W04 CLOSED только документально; WARNING, применимость методов и источники не подтверждены. verification/r5_r2_material_recheck_01/review.md; B01–B03 и G1 OPEN.
+
+## Документальное сравнение методов R2
+
+Результат R2 принят R1 в ограниченной документальной области с WARNING; W01…04 CLOSED только для ответа, последующая проверка источников и пригодности остаётся обязательной. T-r2-material-01 IN_REVIEW до интеграции; B01–B03 и G1 OPEN. См. verification/r2_material_methods/r1_acceptance.md.

@@ -18,7 +18,7 @@ ID после создания не меняется. Для параллель�
 | ID | Тип | P | Адресат | Статус | Owner | Зависимости | Ворота |
 |---|---|---|---|---|---|---|---|
 | T-INIT | TASK | P1 | @R1 | CLAIMED | codex-01 | NONE | G1 |
-| T-r2-material-01 | TASK | P1 | @R2 | CLAIMED | r2-material-01 | входной акт и документальная работа | G1 |
+| T-r2-material-01 | TASK | P1 | @R2 | IN_REVIEW | r2-material-01 | документальное сравнение принято R1 с ограничениями; интеграция | G1 |
 | Q-codex-01-01 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
@@ -338,7 +338,7 @@ R1 подготовил проект process/input_material_measurement_passport
 
 ## T-r2-material-01 — документальное сравнение методов для сырья
 
-- Тип: TASK; родитель: T-INIT; приоритет P1; адресат R2; статус CLAIMED; owner r2-material-01 после последовательного принятия claim PR #6 в main.
+- Тип: TASK; родитель: T-INIT; приоритет P1; адресат R2; статус IN_REVIEW; owner r2-material-01 после последовательного принятия claim PR #6 в main.
 - Назначение: пользователь прямо назначил Codex на R2 по T-INIT и поручил отдельную задачу и claim. Сессия r2-material-01; model_label Codex; assignment_utc 2026-11-10T23:45:21Z.
 - База: 47511c3f7f3eebe69e2c8f8e4863d68c74d36b72; origin/main сверена на этом SHA. Входы на этой базе: process/input_material_measurement_passport.md, process/feedstock.md, process/sampling_plan.md; применимые требования и review по необходимости.
 - Результат после принятия claim и входного акта: документальное сравнение вариантов измерения состава, остаточного металла, влажности, размеров частиц и насыпной плотности с основаниями, областью применимости, ограничениями, неопределённостями и недостающими данными. Источники и их проверяемые редакции указывать по фактической доступности, непроверенные не выдавать за установленные. Выход предназначен для последующего независимого review.
@@ -357,3 +357,25 @@ R1 подготовил проект process/input_material_measurement_passport
 ## Принятие claim R2 в PR #6
 
 Сверены main `6ccc31bef5a49a600d162cb7ab99fd0aed40d457`, merge PR #6, и вхождение claim `dd57126ae68fccddcfaeeef087efe07e995d0e60`; на исходной базе конкурирующий owner отсутствовал. Сессия `r2-material-01` получила claim до `2026-11-11T23:45:21Z`. Перед работой сверить актуальные main/owner/lease/входы и оформить входной акт; пробы и испытания не запускать. G1 OPEN.
+
+
+## Передача T-r2-material-01 на независимый review
+
+R2 / r2-material-01: входной акт `verification/r2_material_methods/input_audit.md`, сравнение `verification/r2_material_methods/comparison.md`. Точная неизменяемая версия передаётся SHA коммита, содержащего эту запись; независимый OUTPUT review NOT_RUN. Проверить физические основания, формулы, репрезентативность, применимость и полноту пяти групп; отдельной оценке подлежат источники и нормативные редакции, пока не проверенные. Методы и пределы не утверждены. Пробы/испытания NOT_RUN; B01–B03 и G1 OPEN; owner T-INIT не меняется.
+
+## OUTPUT-review T-r2-material-01 — REV-R5-R2-MATERIAL-01-001
+
+Независимый R5 `r5-implementation-02`, проверенный SHA c78a745fb431b459bf6272b585d17a7fad977845: WARNING для ограниченного документального сравнения пяти групп; R5-MAT-W01…04 требуют обработки до выбора методик и программы. Подробности verification/r5_r2_material_review/review.md; стандарт/пригодность не подтверждены, пробы/испытания NOT_RUN. B01–B03 и G1 OPEN; owner R2 не меняется.
+
+
+## Ответ R2 на REV-R5-R2-MATERIAL-01-001
+
+R2 / r2-material-01 подготовил `verification/r2_material_methods/response_r5_material_01.md` на акте `08d75ec9bc86afae14663a6037958e384b1965e0`. Задача T-r2-material-01 IN_REVIEW; R5-MAT-W01…04 OPEN до независимого RECHECK точного commit ответа. Внешние источники и пригодность методов NOT_RUN; численные пределы UNKNOWN; пробы и испытания NOT_RUN. B01–B03 и G1 OPEN. Владелец T-INIT не меняется.
+
+## RECHECK ответа R2 — REV-R5-R2-MATERIAL-RECHECK-01-001
+
+R5 `r5-implementation-02`, проверенный commit fcbeefae46b4fd999c194bd214b5dda7c476b0ec: W01–W04 CLOSED в области документального ответа, вердикт WARNING; фактические методики и первоисточники не утверждены и не проверены. Подробности verification/r5_r2_material_recheck_01/review.md; выбор методик и программа требуют дальнейших доказательств. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+## Решение R1 по документальному сравнению R2
+
+R1 принимает результат в ограниченной документальной области с WARNING по verification/r2_material_methods/r1_acceptance.md. W01…04 CLOSED только для ответа; источники/редакции/пригодность и компетенция лаборатории требуют последующей проверки до выбора методов. Задача IN_REVIEW до интеграции; B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
