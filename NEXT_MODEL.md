@@ -160,3 +160,7 @@ REV-R5-R2-SOURCES-RECHECK-01-001: проверены четыре LFS PDF d9bc2f
 ## RECHECK исправленного реестра
 
 REV-R5-R2-SOURCES-RECHECK-02-001 на c0a101a3471942e169599086365941bbaa67ce94: исправления SRC-03/04 приняты в документальной области; атрибуты SRC-02 разделены, карточка независимо NOT_RUN. R5-SRC-B01 OPEN: LAP 42620/42621/42622 не прочитаны, остаются библиографические атрибуты. verification/r5_r2_sources_recheck_02/review.md; B01–B03 и G1 OPEN.
+
+## RECHECK LAP и карточки
+
+REV-R5-R2-LAP-RECHECK-01-001: три копии и JSON пакета 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6 получены, сверены и прочитаны в заявленной области. R5-SRC-B01 OPEN: R5-LAP-01 — 42620 2008/2010; R5-LAP-02 — связь версии SRC-02 и расхождение аннотаций. Подробнее verification/r5_r2_lap_recheck/review.md. Пробы/испытания NOT_RUN, актуальность и пригодность не утверждены; B01–B03 и G1 OPEN.

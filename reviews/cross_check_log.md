@@ -1352,3 +1352,105 @@ closure_criteria:
 - Проверить либо явно разрешить оставшиеся библиографические атрибуты SRC-02
 supersedes: null
 ```
+
+## REV-R5-R2-LAP-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-R2-LAP-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T01:41:01Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 не автор пакета R2; ранее проверял реестр и является автором
+  предыдущих актов. Независимость относится к новой передаче.
+reviewed_commit: 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6
+scope: Сверка конкретных трёх LAP копий и сохранённой карточки SRC-02; не нормативная
+  актуальность и не пригодность REV
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/lap_evidence/README.md
+  sha256: 95f004a3436f2f448c42ae998108e451757e855aa7af55d9be6bc76aff598fb4
+- path: verification/r2_primary_sources/lap_evidence/NREL-42620.pdf
+  sha256: e3d3afc47572ff3fa28dff1258da31348f217b8a9d127a68132a603371786e1c
+- path: verification/r2_primary_sources/lap_evidence/NREL-42621.pdf
+  sha256: bca9e0a067a83a8ed2a092bbf5ef7a594b63db86596a6da883aedaff1e41e8c3
+- path: verification/r2_primary_sources/lap_evidence/NREL-42622.pdf
+  sha256: ae20ddf840f27d11297e8960fe1c7abbb47cf074f355602eab131b358d24bda6
+- path: verification/r2_primary_sources/lap_evidence/osti-1328338.json
+  sha256: 7073a0d546e63902e4c6c7a156c84d302263b38be5811fde34d4940e2a64f4ea
+- path: verification/r2_primary_sources/copies/SRC-02.pdf
+  sha256: d5ddb2e3cf0ac960cdec843df5917d46046c3bc77b47c7a13454105245b6e8c4
+checks:
+- id: CHK-LAP-HASH
+  method: inspection
+  expected: Скачать и сверить SHA трёх PDF и JSON
+  observed: Все четыре SHA совпадают с манифестом
+  reasoning: sha256sum и git lfs pull, точные хэши в отчёте
+  result: PASS
+- id: CHK-LAP-CONTENT
+  method: inspection
+  expected: Прочитать титулы и необходимые разделы трёх копий
+  observed: Титулы и указанные §§ прочитаны; 42620 титул 2008, SRC-04 библиография
+    2010
+  reasoning: Конкретные страницы и границы в отчёте, статус 2010 не установлен
+  result: PASS
+- id: CHK-LAP-CARD
+  method: inspection
+  expected: Прочитать карточку и оценить связь с конкретным PDF SRC-02
+  observed: Поля и fulltext URL подтверждены в сохранённом JSON; конкретная версия
+    и байтовая связь не доказаны; аннотации расходятся
+  reasoning: Совпадение URL и заголовка не заменяет идентификатор файла или сверку
+    версий
+  result: FAIL
+- id: CHK-LAP-CURRENT
+  method: inspection
+  expected: Установить действующие редакции и пригодность REV
+  observed: Актуальность и лабораторная оценка не проверены
+  reasoning: Вне области и без необходимых доказательств
+  result: NOT_RUN
+findings:
+- finding_id: R5-SRC-B01
+  severity: BLOCKER
+  evidence: verification/r5_r2_lap_recheck/review.md
+  impact: Три копии и карточка прочитаны; конкретная связь карточки с PDF и расхождение
+    дат LAP 42620 остаются неразрешёнными
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-LAP-01
+  severity: WARNING
+  evidence: LAP 42620 титул и SRC-04 библиография
+  impact: 2008 на титуле против 2010 в библиографии; происхождение версии неизвестно
+  owner_role: R2
+  task_id: T-r2-sources-01
+- finding_id: R5-LAP-02
+  severity: WARNING
+  evidence: osti-1328338.json description и SRC-02 PDF abstract
+  impact: Противоположные формулировки aspect ratio не позволяют приписать PDF конкретной
+    версии
+  owner_role: R2
+  task_id: T-r2-sources-01
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-SRC-B01
+allowed_downstream_scope: Работа с прочитанными разделами только как с данными конкретных
+  копий; уточнение происхождения и версий
+excluded_claims:
+- Актуальность редакций или применимость стандартов REV
+- Подлинность источников и версия SRC-02 доказаны
+- Испытания, отбор, закрытие B01–B03 или G1
+closure_criteria:
+- Независимо разрешить библиографическое расхождение 42620 или установить достаточное
+  обоснование пределов идентификации
+- Проверить происхождение и версию SRC-02 и объяснить расхождение аннотаций либо документально
+  ограничить доказательство на согласованном основании
+supersedes: null
+```

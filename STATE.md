@@ -321,3 +321,5 @@ R2 уточнил SRC-02…04 и повторил запросы NREL 42620/4262
 ## Передача LAP и карточки OSTI для R5
 
 Получены копии NREL 42620/42621/42622 и JSON OSTI 1328338: verification/r2_primary_sources/lap_evidence/. Полный методический review, действительность и применимость NOT_RUN; R5-SRC-B01 OPEN. Пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+RECHECK REV-R5-R2-LAP-RECHECK-01-001: пакет 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6 прочитан в указанной области, хэши совпали; R5-SRC-B01 OPEN из-за непроверенной связи карточки SRC-02 с PDF и дат 42620. См. verification/r5_r2_lap_recheck/review.md; B01–B03 и G1 OPEN.
