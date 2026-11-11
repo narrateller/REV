@@ -415,3 +415,11 @@ T-r3-norms-01 IN_REVIEW: claim `3345b050966fc4e52b317e64381c0dd7bc087b2a` при
 ## Документальная приёмка инженерной карты
 
 R1 принял карту по RECHECK R3 WARNING только как постановку будущих измерений; см. verification/engineering_input_map_acceptance.md. W01–W04 закрыты документально, реальная методика/данные UNKNOWN; интеграция ожидается. B01–B03 и G1 OPEN.
+
+## Проект программы данных формования
+
+После PR #21 R1 подготовил verification/compaction_measurement_program_draft.md для документальной проверки R2/R3/R5. Фактические данные и критерии UNKNOWN; пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## Предварительные замечания R2 к программе формования
+
+Результат `e939c146f51d4a40daba75b1bb21bd694e12bccc` не принят как review: claim R2 PENDING_MAIN, в предлагаемой записи нет явного heartbeat/lease. R1 подготовил документальные уточнения W01–W05 в verification/compaction_measurement_program_draft.md; они ожидают независимой проверки. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.

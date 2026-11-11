@@ -2118,3 +2118,54 @@ reproduction_artifacts:
 - verification/r3_engineering_input_recheck/review.md
 supersedes: REV-R3-ENGINEERING-INPUT-01-001
 ```
+
+## Документальный RECHECK программы формования R2
+
+```yaml
+record_type: review
+review_id: REV-R2-COMPACTION-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-compaction-review-01
+created_at_utc: '2026-11-11T11:16:00Z'
+reviewer:
+  role: R2
+  session_id: e98b8ef8-7302-453a-ac8d-1edbb7d8860c
+  model_label: Codex
+reviewed_roles:
+- R1
+author_sessions:
+- codex-01
+independence_basis: По доступным проектным записям данная сессия не автор проверенной программы; организационная независимость и квалификация не удостоверены.
+reviewed_commit: 03290fe5e5392697303dd5eac552996e61df01ff
+parameter_refs: []
+artifacts:
+- path: verification/compaction_measurement_program_draft.md
+  sha256: 8d8228e34272a56aaa2e41b3f9c27eb98332097bac25b9781189529aa36a12aa
+scope: Документальная проверка обработки предварительных замечаний W01–W05, без приёмки методики, безопасности и физических свойств.
+checks:
+- id: CHK-R2-COMP-W01-W05
+  method: Сопоставление пяти замечаний с исправленной редакцией и diff.
+  expected: Документально адресовать область вывода, величины, связи, потери и сопоставимость.
+  observed: Все пять замечаний обработаны в ограниченной документальной области; конкретные условия и методы остаются UNKNOWN.
+  reasoning: Основания и ограничения для каждого замечания приведены в отдельном акте.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: STALE
+blocker_ids: []
+allowed_downstream_scope: Подготовка проекта методики и дальнейшая профильная проверка.
+excluded_claims:
+- Представительность реальных партий и фактический материальный баланс
+- Утверждение методов, безопасности, архитектуры и закрытие G1
+warning_owner_and_due:
+  owner_role: R1
+  owner_session: codex-01
+  due: До согласования и применения будущей методики
+  restriction: Установить отсутствующие данные, методы и условия, получить оценки R3 и R5.
+closure_criteria:
+- Согласовать пригодную методику и провести необходимые независимые профильные проверки.
+traceability_and_revisions: Проверен точный commit вне main; предварительный акт e939c146f51d4a40daba75b1bb21bd694e12bccc является историей и не был принятым review.
+reproduction_artifacts:
+- verification/r2_compaction_program_recheck/review.md
+supersedes: null
+```
