@@ -474,3 +474,7 @@ T-r4-layout-01: отдельная документальная постанов
 ## Постановка компоновки всего пресса R4
 
 T-r4-layout-01: документальный черновик cad/layout/whole_press_layout_brief.md IN_REVIEW в рабочей ветке; claim принят PR #34, owner r4-linked-20261111. Независимый OUTPUT-review NOT_RUN. Реальные размеры/ходы/нагрузки UNKNOWN, CAD/расчёты/пробы/испытания NOT_RUN; архитектура и ТЗ не утверждены, G1 открыт.
+
+## Подготовка построения R4
+
+Пакет 79e9c3aa9aaca33778814957fafecd93a4adc392 отвечает W01/W02/W03, новая T-r4-layout-build-01 и claim PROPOSED/PENDING_MAIN. Геометрия и build/check код NOT_STARTED. Только импорт FreeCAD/Part проверен, физика/посадки/архитектура не приняты. PR без слияния; G1 открыт.

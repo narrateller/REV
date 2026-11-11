@@ -1,3 +1,15 @@
+# Подготовительный PR W01/W02/W03 и claim построения
+
+- C подготовительного пакета/предложения claim: 79e9c3aa9aaca33778814957fafecd93a4adc392; ветка work-r4/prepare-layout-build/r4-linked-20261111; база main c00c75dda08889c3e19169476051b3e6980be721.
+- История WARNING review REV-R5-LAYOUT-01-001 a621f466aac7c31e7812b91ab84c327157411fbc включена fast-forward. Новая редакция постановки помечает старый review STALE для изменённого текста, исходный проверенный SHA/вердикт сохранены. Ответы — cad/layout/preparation_review_response.md; manifest рядом.
+- W01: передача предварительно после дробления/просева, проверка включений и возможная допподготовка — существующая линия, выход — выход пресса. Неподтверждённые характеристики, транспорт/буфер UNKNOWN. W02: учёт принятого claim постановки PR #34 исправляется этим PR, история и основание сохранены. W03: cad/layout/model_build_task.md задаёт FreeCAD, .FCStd/STEP/виды, состав/базы, отдельный template conditional inputs и будущие команды/проверки.
+- Новая задача T-r4-layout-build-01 READY; claim PROPOSED/PENDING_MAIN, proposed_owner r4-linked-20261111. Срок в трекере и капсуле. До принятия отдельного claim в main построение и код build/check NOT_STARTED. Условные значения назначать после принятия, до применения фиксировать отдельный ASSUMED-реестр; реальные параметры REV UNKNOWN.
+- Ветка/PR публикуется БЕЗ слияния. После review/принятия PR повторно проверить main/owner/lease/входы и оформить входной акт. Прежний принятый claim постановки сам по себе не разрешает построение.
+- Проверки: check_registry.py --check-git и git diff --check PASS; импорт FreeCAD 1.0.0/Part через системный Python 3.13.5 проверен без документов/геометрии; native freecadcmd падает, выбран путь через Python. Сам build/reopen/export ещё не проверен и выполняется только после принятия claim.
+- Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN; G1 открыт.
+
+## Предыдущая эстафета (история)
+
 # OUTPUT-review постановки компоновки всего пресса
 
 R5 / Codex / session `01a1c552-4e0c-75cf-86ba-2922ccdb30f3` проверил `cad/layout/whole_press_layout_brief.md` на `32481da99f436d260e9af6f0bcc9b0979b952cff`; акт `verification/r5_whole_press_layout_review/review.md`, вердикт WARNING. Текущая сессия не автор документа, но ранее как R1 участвовала в разработке части его входов; организационная независимость и квалификация не удостоверены.
