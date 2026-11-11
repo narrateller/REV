@@ -1711,3 +1711,66 @@ closure_criteria:
 - Оценить достаточность документальной области R5-SRC-W01 отдельным актом
 supersedes: null
 ```
+
+## Регистрация независимой сверки M01–M06
+
+```yaml
+record_type: review
+review_id: REV-R5-METAL-INDEPENDENT-01-001
+kind: RECHECK
+task_id: T-r2-metal-01
+created_at_utc: '2026-11-11T04:00:45Z'
+reviewer:
+  role: R5
+  session_id: 6af3e1ba-0700-8191-a54b-0e6076cdc076
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: По акту новая runtime-сессия не участвовала в создании R2 по доступной
+  истории; идентификаторы не удостоверяют личность и неизвестное участие. Регистрирует
+  R1, без приписывания ID к акту 2a8d43b.
+reviewed_commit: 39f54598e3ab9997ea60d34fd2b203a28bc44822
+parameter_refs: []
+artifacts:
+- path: verification/r2_metal_detection/research.md
+  sha256: d47c287635a8abe0f9b627a2bffc52e3be3df16c4a588e5daa47cec9c71b472b
+- path: verification/r2_metal_detection/source_excerpts.md
+  sha256: 925da34b688dc0c61cbed3048ca2d786ff631fb2b68a3e9dba4f195657766c6d
+scope: Документальная сверка утверждений по M01–M06 и ограничений; пригодность REV
+  и эксперимент вне области.
+checks:
+- id: CHK-METAL-SOURCES
+  method: inspection
+  expected: Независимо прочитать шесть страниц и сопоставить с утверждениями и областью
+  observed: По опубликованному акту все шесть HTTP 200, хэши совпали; утверждения
+    сверены в контексте.
+  reasoning: Данные — заявления изготовителей, а не независимая валидация или пригодность
+    REV.
+  result: PASS
+findings: []
+verdict: WARNING
+validity: CURRENT
+allowed_downstream_scope: Документальная подготовка программы и изучение кандидатов.
+excluded_claims:
+- Применимость, обнаруживаемость и эффективность для REV
+- Выбор метода или прибора; безопасность и G1
+- Пробы и испытания
+blocker_ids: []
+warning_owner_and_due:
+  owner_role: R2
+  owner_session: r2-material-01
+  due: До выбора метода и утверждения программы
+  restriction: Реальные свойства потока, область и проверка обнаружения UNKNOWN; независимая
+    оценка программы обязательна.
+closure_criteria:
+- Определить условия потока и охват, обосновать вероятность обнаружения
+- Согласовать и независимо проверить программу до выбора метода
+traceability_and_revisions: R1 регистрирует предоставленный акт без изменения его
+  содержания; ID записи присвоен при регистрации.
+reproduction_artifacts:
+- verification/r5_r2_metal_independent_recheck/review.md
+- verification/r5_r2_metal_independent_recheck/access_manifest.json
+supersedes: null
+```
