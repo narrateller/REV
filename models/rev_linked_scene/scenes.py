@@ -1,7 +1,7 @@
 """Explicit synthetic scenes; none of these numbers are REV parameters."""
 import copy
 from fractions import Fraction as F
-from engine import evaluate_phase, body, boundary, pair
+from engine import evaluate_phase, body, boundary, pair, q
 
 COMMON=['punch','doser','inlet_gate','chamber_top','chamber_bottom','chamber_left','chamber_right','frame_mount']
 EXTRAS={'A':['channel_top','channel_bottom','channel_left','channel_right','clamp'], 'B':['end_stop','lock']}
@@ -46,7 +46,7 @@ def run(variant,outcome,config):
         for name in ('A-READY','A-FILL','A-ISOLATE'): stage(name)
     else:
         for name in ('B-READY','B-FILL','B-PRESS','B-UNLOAD'): stage(name)
-        stage('B-OPEN-LOCK',{'lock':(0,2,0)});stage('B-OPEN-STOP',{'end_stop':(0,2,0)})
+        stage('B-OPEN-LOCK',{'lock':(2,0,0)});stage('B-OPEN-STOP',{'end_stop':(0,2,0)})
     travel=config['short_travel'] if outcome=='short' else config['full_travel']
     moving='A-PRESS-OUT' if variant=='A' else 'B-EJECT'
     stage(moving,{'punch':(travel,0,0),product:(travel,0,0)},required=True,unknown=outcome=='unknown')
@@ -56,16 +56,16 @@ def run(variant,outcome,config):
     linked=next(p['link'] for p in stages[-1]['output']['pairs'] if {p['body_a'],p['body_b']}=={'punch',product})
     rear=None if outcome=='unknown' else body(bodies[product])[0][0]
     geometry='INDETERMINATE' if rear is None or linked=='LINK_INDETERMINATE' else 'GEOMETRY_SUFFICIENT' if rear>=F(config['exit_boundary']) else 'SHORT_STROKE'
-    prior_boundaries=[boundary(a['input'],b['input'],events) for a,b in zip(stages,stages[1:])]
+    prior_boundaries=[boundary(a['input'],b['input'],[e for e in events if q(e['time'])==q(a['input']['time'][1])]) for a,b in zip(stages,stages[1:])]
     allowed=collision=='NO_COLLISION' and linked=='LINK_CONFIRMED' and geometry=='GEOMETRY_SUFFICIENT' and all(x['status']=='CONTINUOUS' for x in prior_boundaries)
     if allowed:
         events.append({'type':'REMOVE','id':product,'time':clock,'reason':'entire synthetic product beyond x boundary and in specified receiving zone', 'rear':str(rear),'boundary':str(config['exit_boundary']),'receiving_zone':'x>=2, 0<=y,z<=1','geometry':copy.deepcopy(bodies[product])})
         del bodies[product]
         stage('A-RETURN' if variant=='A' else 'B-RESET-PUNCH',{'punch':(-travel,0,0)})
         if variant=='B':
-            stage('B-RESET-STOP',{'end_stop':(0,-2,0)});stage('B-RESET-LOCK',{'lock':(0,-2,0)})
+            stage('B-RESET-STOP',{'end_stop':(0,-2,0)});stage('B-RESET-LOCK',{'lock':(-2,0,0)})
     for before,after in zip(stages,stages[1:]):
-        continuity.append(boundary(before['input'],after['input'],events))
+        continuity.append(boundary(before['input'],after['input'],[e for e in events if q(e['time'])==q(before['input']['time'][1])]))
     statuses=[seg['collision_status'] for st in stages for p in st['output']['pairs'] for seg in p['segments']]
     collision='COLLISION' if 'COLLISION' in statuses else 'INDETERMINATE' if any(x in statuses for x in ('INDETERMINATE','INVALID_INPUT')) or any(p['input_status']!='SUPPORTED' for st in stages for p in st['output']['pairs']) else 'NO_COLLISION'
     broken=any(c['status'] in ('DISCONTINUITY','INVALID_INPUT') for c in continuity)

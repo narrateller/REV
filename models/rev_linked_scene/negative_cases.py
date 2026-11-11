@@ -34,4 +34,16 @@ def execute():
     following={'phase':'B-RESET','time':[1,2],'registry':[],'bodies':{}}
     event={'type':'REMOVE','id':'product_B','time':1,'boundary':2,'geometry':box([1,0,0],[2,1,1])}
     p=boundary(previous,following,[event]);record('PREMATURE-REMOVE',p,p['status']=='DISCONTINUITY')
+    cube=box([0,0,0],[1,1,1]); previous={'phase':'before','time':[0,1],'registry':['residue_1'],'bodies':{'residue_1':cube}}; following={'phase':'after','time':[1,2],'registry':['product_new'],'bodies':{'product_new':cube}}
+    p=boundary(previous,following,[{'type':'CREATE','id':'product_new','time':1}]);record('R5-B01-MISSING-RESIDUE-UNKNOWN-CREATE',p,p['status']=='DISCONTINUITY' and p['unexplained_removed']==['residue_1'] and bool(p['event_uncertainties']))
+    same={'phase':'after','time':[1,2],'registry':['residue_1'],'bodies':{'residue_1':cube}}
+    p=boundary(previous,same,[{'type':'CREATE','id':'other','time':1}]);record('R5-B02-EXTRA-CREATE',p,p['status']=='INVALID_INPUT')
+    edge_rule=dict(rule,patch_yz=[[0,2],[0,1]])
+    p=pair(box([-1,0,0],[0,1,1]),box([0,1,0],[1,2,1]),[0,1],edge_rule,[0,1]);record('R5-B03-ZERO-AREA-EDGE',p,p['link']!='LINK_CONFIRMED' and all(x['collision_status']=='COLLISION' for x in p['segments']))
+    p=pair(box([-1,0,0],[0,1,1]),box([0,1,1],[1,2,2]),[0,1],edge_rule,[0,1]);record('R5-B03-ZERO-AREA-POINT',p,p['link']!='LINK_CONFIRMED')
+    p=pair(box([-1,0,0],[0,1,1]),box([0,'999999/1000000',0],[1,2,1]),[0,1],edge_rule,[0,1]);record('R5-B03-SMALL-POSITIVE-AREA',p,p['link']=='LINK_CONFIRMED')
+    previous['time']=[0,'1'];same['time']=['2/2',2];p=boundary(previous,same,[]);record('R5-W01-EQUIVALENT-TIME',p,p['status']=='CONTINUOUS' and p['time_contiguous'])
+    empty={'phase':'before','time':[0,1],'registry':[],'bodies':{}};new={'phase':'after','time':[1,2],'registry':['product_new'],'bodies':{'product_new':cube}};ev={'type':'CREATE','id':'product_new','time':1}
+    p=boundary(empty,new,[ev,dict(ev,time='2/2')]);record('R5-B02-DUPLICATE-EVENT',p,p['status']=='INVALID_INPUT')
+    p=boundary(empty,new,[dict(ev,time=2)]);record('R5-W01-WRONG-EVENT-TIME',p,p['status']=='INVALID_INPUT')
     return result

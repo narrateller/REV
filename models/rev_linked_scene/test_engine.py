@@ -117,4 +117,56 @@ class EventTests(unittest.TestCase):
         a={'phase':'A','time':[0,1],'registry':['punch'],'bodies':{'punch':box([0,0,0],[1,1,1])}}
         b={'phase':'B','time':[1,2],'registry':['punch'],'bodies':{'punch':box([1,0,0],[0,1,1])}}
         self.assertEqual(boundary(a,b,[])['status'],'INVALID_INPUT')
+    def test_unexplained_residue_persists_with_unknown_create_and_split(self):
+        cube=box([0,0,0],[1,1,1])
+        a={'phase':'a','time':[0,1],'registry':['residue_1','product'],'bodies':{'residue_1':cube,'product':cube}}
+        b={'phase':'b','time':[1,2],'registry':['new'],'bodies':{'new':cube}}
+        for event in ([{'type':'CREATE','id':'new','time':1}], [{'type':'SPLIT','id':'product','targets':['new'],'time':1}]):
+            with self.subTest(event=event):
+                result=boundary(a,b,event)
+                self.assertEqual(result['status'],'DISCONTINUITY')
+                self.assertIn('residue_1',result['unexplained_removed'])
+                self.assertTrue(result['event_uncertainties'])
+    def test_extra_duplicate_conflicting_and_mistimed_events_rejected(self):
+        cube=box([0,0,0],[1,1,1]);a={'phase':'a','time':[0,1],'registry':['a'],'bodies':{'a':cube}};b={'phase':'b','time':[1,2],'registry':['a'],'bodies':{'a':cube}}
+        examples=[[{'type':'CREATE','id':'x','time':1}], [{'type':'REMOVE','id':'a','time':1}], [{'type':'SPLIT','id':'a','time':1}], [{'type':'unknown','id':'a','time':1}], [{'type':'CREATE','id':'x','time':2}], [{'type':'CREATE','id':'x','time':1},{'type':'CREATE','id':'x','time':1}]]
+        for event in examples:
+            with self.subTest(event=event): self.assertEqual(boundary(a,b,event)['status'],'INVALID_INPUT')
+    def test_time_rational_equality_and_event_validation(self):
+        cube=box([0,0,0],[1,1,1]); a={'phase':'a','time':[0,'1'],'registry':['a'],'bodies':{'a':cube}}; b={'phase':'b','time':['2/2',2],'registry':['a'],'bodies':{'a':cube}}
+        self.assertEqual(boundary(a,b,[])['status'],'CONTINUOUS')
+        a={'phase':'a','time':[0,'1'],'registry':[],'bodies':{}};b={'phase':'b','time':[1,2],'registry':['x'],'bodies':{'x':cube}}
+        self.assertEqual(boundary(a,b,[{'type':'CREATE','id':'x','time':'2/2'}])['status'],'INDETERMINATE')
+        self.assertEqual(boundary(a,b,[{'type':'CREATE','id':'x','time':'bad'}])['status'],'INVALID_INPUT')
+        a['time']=[0,'bad'];self.assertEqual(boundary(a,b,[])['status'],'INVALID_INPUT')
+    def test_edge_point_and_small_positive_contact(self):
+        a=box([-1,0,0],[0,1,1]); rule=dict(self.rule,patch_yz=[[0,1],[0,1]])
+        for b in (box([0,1,0],[1,2,1]),box([0,1,1],[1,2,2])):
+            with self.subTest(b=b):
+                r=pair(a,b,[0,1],rule,[0,1]);self.assertNotEqual(r['link'],'LINK_CONFIRMED')
+                self.assertTrue(all(x['collision_status']=='COLLISION' for x in r['segments']))
+        small=box([0,'999999/1000000',0],[1,2,1]);r=pair(a,small,[0,1],rule,[0,1])
+        self.assertEqual(r['link'],'LINK_CONFIRMED')
+    def test_synthetic_exact_patch_boundary_is_allowed(self):
+        a=box([-1,0,0],[0,1,1]);b=box([0,0,0],[1,1,1]);r=pair(a,b,[0,1],self.rule,[0,1]);self.assertEqual(r['link'],'LINK_CONFIRMED')
+    def test_duplicate_create_with_actual_added_id_is_invalid(self):
+        cube=box([0,0,0],[1,1,1]);a={'phase':'a','time':[0,1],'registry':[],'bodies':{}};b={'phase':'b','time':[1,2],'registry':['x'],'bodies':{'x':cube}}
+        event={'type':'CREATE','id':'x','time':'1'}
+        r=boundary(a,b,[event,dict(event,time='2/2')]);self.assertEqual(r['status'],'INVALID_INPUT')
+        self.assertIn('duplicate',r['event_errors'][0])
+    def test_valid_remove_at_equivalent_rational_time(self):
+        cube=box([2,0,0],[3,1,1]);a={'phase':'a','time':[0,'1'],'registry':['x'],'bodies':{'x':cube}};b={'phase':'b','time':['2/2',2],'registry':[],'bodies':{}}
+        r=boundary(a,b,[{'type':'REMOVE','id':'x','time':'3/3','boundary':2,'geometry':cube}])
+        self.assertEqual(r['status'],'CONTINUOUS');self.assertEqual(r['event_results'][0]['status'],'VALID')
+    def test_small_positive_area_on_both_axes(self):
+        a=box([-1,0,0],[0,1,1]);b=box([0,'999999/1000000','999999/1000000'],[1,2,2])
+        r=pair(a,b,[0,1],self.rule,[0,1]);self.assertEqual(r['link'],'LINK_CONFIRMED')
+    def test_missing_residue_and_invalid_event_evidence_are_both_preserved(self):
+        cube=box([0,0,0],[1,1,1]);a={'phase':'a','time':[0,1],'registry':['residue_1'],'bodies':{'residue_1':cube}};b={'phase':'b','time':[1,2],'registry':['new'],'bodies':{'new':cube}}
+        r=boundary(a,b,[{'type':'CREATE','id':'new','time':2}])
+        self.assertEqual(r['status'],'DISCONTINUITY');self.assertEqual(r['unexplained_removed'],['residue_1']);self.assertTrue(r['event_errors'])
+    def test_unrelated_split_cannot_hide_disappeared_residue(self):
+        cube=box([0,0,0],[1,1,1]);a={'phase':'a','time':[0,1],'registry':['residue','source'],'bodies':{'residue':cube,'source':cube}};b={'phase':'b','time':[1,2],'registry':['child'],'bodies':{'child':cube}}
+        r=boundary(a,b,[{'type':'SPLIT','id':'source','targets':['child'],'time':'1'}])
+        self.assertEqual(r['status'],'DISCONTINUITY');self.assertEqual(r['unexplained_removed'],['residue']);self.assertTrue(r['event_uncertainties'])
 if __name__=='__main__': unittest.main()
