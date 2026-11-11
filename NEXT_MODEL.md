@@ -176,3 +176,7 @@ REV-R5-R2-LAP-RECHECK-01-001: три копии и JSON пакета 3bc59174fb8
 ## Review исследования версий
 
 REV-R5-R2-VERSION-REVIEW-01-001: R5-SRC-B01 CLOSED только в документальной области при исключении неподтверждённых данных; R5-VERSION-B01 OPEN из-за ошибочного SHA `openalex-src02.json` в отчёте R2. R2 сверяет происхождение и готовит исправление, затем независимый recheck; см. verification/r5_r2_version_recheck/review.md. История версий/правильное AR UNKNOWN; B01–B03 и G1 OPEN.
+
+## RECHECK исправления SHA
+
+REV-R5-VERSION-HASH-RECHECK-01-001: R5-VERSION-B01 CLOSED для проверенных Git-байтов на 4605f3435c5882550d540ff797e7322613723769; исходная временная копия недоступна R5 и внешнее происхождение не удостоверено. Подробности verification/r5_version_hash_recheck/review.md. История версий и правильное AR UNKNOWN, B01–B03 и G1 OPEN.

@@ -455,3 +455,7 @@ R5 `r5-implementation-02` по cec689d77087d912ebfe34425cb8d288768637c2: R5-LAP-
 ## Исправление R5-VERSION-B01
 
 R2 сопоставил сохранившийся первоначальный ответ /tmp, файл и Git blob; обновил полный SHA-256 в verification/r2_primary_sources/version_inquiry/report.md с сохранением старой строки и истории. Акт REV-R5-R2-VERSION-REVIEW-01-001 STALE к изменённому отчёту; R5-VERSION-B01 OPEN до независимого RECHECK. R5-SRC-B01 ранее закрыт R5 в ограниченной документальной области; спорные даты/версия PDF/значение AR UNKNOWN и исключены из использования. Методы не утверждены, пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+## RECHECK R5-VERSION-B01 — REV-R5-VERSION-HASH-RECHECK-01-001
+
+R5 `r5-implementation-02`, проверенный SHA 4605f3435c5882550d540ff797e7322613723769: R5-VERSION-B01 CLOSED в ограниченной области контрольной суммы и доступных Git-байтов, WARNING; временная копия R2 недоступна R5, её cmp NOT_RUN, внешнее происхождение не удостоверено. verification/r5_version_hash_recheck/review.md; B01–B03 и G1 OPEN.

@@ -1548,3 +1548,78 @@ closure_criteria:
 - Независимо сверить новый SHA с Git blob и предоставленной копией
 supersedes: null
 ```
+
+## REV-R5-VERSION-HASH-RECHECK-01-001
+
+```yaml
+record_type: review
+review_id: REV-R5-VERSION-HASH-RECHECK-01-001
+kind: RECHECK
+task_id: T-r2-sources-01
+created_at_utc: '2026-11-11T02:04:03Z'
+reviewer:
+  role: R5
+  session_id: r5-implementation-02
+  model_label: Codex
+reviewed_roles:
+- R2
+author_sessions:
+- r2-material-01
+independence_basis: R5 автор предыдущего review, не автор исправленного отчёта R2;
+  независимость относится к этому исправлению.
+reviewed_commit: 4605f3435c5882550d540ff797e7322613723769
+scope: 'Ограниченный RECHECK R5-VERSION-B01: сумма, локальная копия, история и оговорка;
+  без подтверждения внешнего происхождения'
+parameter_refs: []
+artifacts:
+- path: verification/r2_primary_sources/version_inquiry/report.md
+  sha256: 6c5b2df19889e97886e0be9c5b1ac5d48ffbf282a7c65481f3595b8f7cdd6e3b
+- path: verification/r2_primary_sources/version_inquiry/openalex-src02.json
+  sha256: 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443
+checks:
+- id: CHK-HASH-01
+  method: inspection
+  expected: SHA исправленного отчёта совпадает с Git-байтами и доступной копией
+  observed: 'Все три SHA рабочего файла, исходного и нового Git blobs совпали: 3877bc34cbdf94f20170d82a506dd9a960a0aeb633bd7f1208be8fd33a43e443'
+  reasoning: sha256sum и git show | sha256sum; данные не изменялись
+  result: PASS
+- id: CHK-HASH-02
+  method: inspection
+  expected: История исправления и предыдущий акт сохранены
+  observed: Предыдущий акт предок; исходная строка сохранена в Git и процитирована;
+    акт STALE к новому результату
+  reasoning: git merge-base, git show и diff
+  result: PASS
+- id: CHK-HASH-03
+  method: inspection
+  expected: Внешнее происхождение не утверждается без доказательства
+  observed: Отчёт оговаривает отсутствие независимого подтверждения; R2 сообщает о
+    cmp в своей среде
+  reasoning: Оговорка корректна и не устанавливает подлинность
+  result: PASS
+- id: CHK-HASH-04
+  method: inspection
+  expected: Независимый повтор сравнения с первоначальным временным файлом
+  observed: Файл /tmp/rev_src02_openalex.json отсутствует в среде R5
+  reasoning: Заявленный R2 cmp не воспроизведён, источник сетевого ответа не удостоверен
+  result: NOT_RUN
+findings: []
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: R5-VERSION-B01 CLOSED по сохранённым Git-байтам и доступной
+  копии; документальное исследование с ограничениями
+excluded_claims:
+- Независимая проверка отсутствующей временной копии и сетевого происхождения
+- Актуальность редакций и пригодность REV
+- Закрытие B01–B03 или G1
+warning_owner_and_due:
+  owner_role: R2
+  owner_session: r2-material-01
+  due: До использования внешних данных в качестве подтверждённого источника
+  restriction: Внешнее происхождение и подлинность требуют независимого подтверждения
+closure_criteria:
+- Для внешнего источника — независимое подтверждение происхождения и применимости
+  при необходимости
+supersedes: null
+```
