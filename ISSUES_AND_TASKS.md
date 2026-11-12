@@ -27,7 +27,7 @@ ID после создания не меняется. Для параллель�
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
 | T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
 | T-r4-calculated-layout-01 | TASK | P2 | @R4 | READY | NONE | PR #39 / BASE_A, BASE_B fixed-budget; claim PROPOSED_PENDING_MAIN | G1 |
-| T-r4-cycle-contract-01 | TASK | P1 | @R4 | READY | NONE | CYC-01 + early CYC-08/09; PR #42 / R5 e69a8af; claim PROPOSED_PENDING_MAIN | G1 |
+| T-r4-cycle-contract-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | R5-CC-B01; ARB-R1-CC-01 разрешает только исправления и RECHECK | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -37,7 +37,7 @@ ID после создания не меняется. Для параллель�
 
 ## T-r4-cycle-contract-01 — материальный контракт и ранние CYC-08/09
 
-- TASK, P1, адресат @R4; статус READY; **owner_session: NONE**, claim_acceptance PROPOSED_PENDING_MAIN. Предлагаемый owner r4-linked-20261111 / Codex / R4; роль и новое документальное поручение подтверждены пользователем, принятие нового claim не заявляется.
+- TASK, P1, адресат @R4; статус BLOCKED до независимого RECHECK B01; owner_session r4-linked-20261111 / Codex / R4; claim_acceptance ACCEPTED_MAIN через PR #43 на d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9, claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff. Прежние предварительные NONE/PENDING сохранены в Git-истории; срок 2026-11-13T18:16:39Z не продлён.
 - base_commit: b1a4e398741b84d482c96f00a605e98b720ff929 (PR #42); branch: work-r4/T-r4-cycle-contract-01/r4-linked-20261111. assignment_utc / heartbeat_utc: 2026-11-12T18:16:39Z; proposed lease_expires_at: **2026-11-13T18:16:39Z**. Новый срок только для новой документальной задачи; прежние claims/сроки не расширяются. На момент preflight новый task отсутствовал в main, другого принятого owner не найдено.
 - Основание отдельного scope: старый T-r4-calculated-layout-01 — CAD BASE_A/B по численным R3 входам; его принятый claim PR #40 действует до 2026-11-13T13:17:33Z, owner тот же. Последующая карта цикла и R5 требуют отдельного назначения до материального/resource/READY контракта, не общего rebuild. Старый CAD C 3591a5f92f78b1edea07d3fc5354fd0a99090798 остаётся отдельным кандидатом, не интегрируется этой задачей.
 - Immutable inputs: цикл/приоритеты C 43f03359fabe2b664935b17f9ac7851504093ece, акт e69a8afbe4df3d53c4cc8b5883319e00eb8130af REV-R5-R3-CYCLE-TRACE-01-001, decisions/PR42-CYCLE-TRACE-INTEGRATION.md и обе передачи R3 на c115f75fd900525d9ddc89d85e097ac5a0f00bc1. Точные blobs/SHA-256 и protected trees в verification/r4_cycle_contract/preflight.json. CAD-контекст — declared coordinates / author witnesses, independent native NOT_RUN, не доказанная этой задачей геометрия.
@@ -1037,7 +1037,11 @@ CYC-01…09 и R5-CYCLE-W01/W02 остаются OPEN: план ранних к�
 
 ## Q-R1-CC-ARBITRATION-01 — второй отказ по контракту цикла
 
-- Тип QUESTION, P1, адресат @R1; статус PROPOSED для последовательного принятия. Родитель T-INIT; затронута T-r4-cycle-contract-01. Связанные замечания R5-CC-B01 OPEN, W01 CLOSED только документально на проверенном SHA, W02 OPEN. consecutive_rejections=2: исходный акт `d99afb4c3231d641d4a4921f39987264ce5ffc23` и RECHECK `c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b` на исправленный C `4f31ed624336e1101b0ba04857f4316c73e4d375`.
+- Тип QUESTION, P1, адресат @R1; статус DONE только для арбитражного вопроса: решение decisions/ARB-R1-CC-01.md. Родитель T-INIT; затронута T-r4-cycle-contract-01. Связанные замечания R5-CC-B01 OPEN, W01 CLOSED только документально на проверенном SHA, W02 OPEN. consecutive_rejections=2: исходный акт `d99afb4c3231d641d4a4921f39987264ce5ffc23` и RECHECK `c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b` на исправленный C `4f31ed624336e1101b0ba04857f4316c73e4d375`.
 - По §6.1 остановить следующую итерацию исправлений, задача контракта BLOCKED до записи решения и плана проверки. CYC-02/03 NO-GO как зависимые от стабильного контракта; независимые исследования не блокируются.
 - Предмет арбитража: адресность материального отказа/его снятия и сохранение истории отклонённых operation ID. Варианты для оценки: локальные проверки текущего helper либо явная накопительная история отказов/операций с адресным восстановлением. Недопустимы снятие чужого отказа, забывание раннего отвергнутого ID, подмена UNKNOWN разрешением или общий запрет восстановления, создающий тупик.
 - Выход R1: воспроизвести случаи из независимого probe, определить допустимую семантику и область памяти/адресации, сформулировать изменения и набор проверок (чужой/верный адрес, A→B→A для отвергнутых ID, свежая уникальная операция, сочетания FALSE/UNKNOWN). Арбитраж сам не закрывает B01 и W02; закрытие — независимый RECHECK. Требования, CAD, источники/численные значения и G1 не менять.
+
+## ARB-R1-CC-01 — принятое в полномочиях R1 решение
+
+Claim R1 восстановлен PR #44 на `8a82b30d185a10c71dbedbb8b581cf6b5162b1b7`, owner codex-01, срок до 2026-11-13T22:14:32Z. Конкурирующий принятый owner T-INIT в трекере не обнаружен. R1 воспроизвёл 3/45 расхождения R5, JSON совпал с актом; 26/26 исходных исправлены. Решение `decisions/ARB-R1-CC-01.md`: адресные сохраняемые записи отказов и накопительная история отвергнутых ID; локальное снятие по guard/память только последнего ID отклонены. Разрешены только исправления R4 после фиксации точного SHA решения и проверки действующего claim. До независимого RECHECK R5-CC-B01 OPEN, contract BLOCKED, CYC-02/03 NO-GO как стабильная зависимость; consecutive_rejections=2 не обнуляется. W01 CLOSED только документально для проверенной редакции, W02 OPEN и не расширяется до полного материального движка в этой итерации. CAD/расчёты не менять, G1 OPEN.
