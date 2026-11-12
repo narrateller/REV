@@ -1,3 +1,19 @@
+# Актуальная эстафета — RECHECK readonly verifier
+
+- HANDOFF / IN_REVIEW; 2026-11-12T00:36:54Z; R4 r4-linked-20261111. **Code/results C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`**, REMOTE, ветка work-r4/build-layout/r4-linked-20261111. H только эстафета/учёт, проверять неизменяемый C.
+- Входной R5 акт `0b4788dd36f811e4acb202b96d6a76a6a06b63ad` принял геометрическую группу C 5198e01 с WARNING, но отклонил новый процесс выпуска: R5-FRAME-NEW-B01 OPEN. Новый независимый RECHECK NOT_RUN, автор не закрывает B01.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 повторно проверена 12 ноября; claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/пользователем, owner_session r4-linked-20261111, lease до 2026-11-12T18:06:24Z (21:06 МСК), без продления. Исторический предварительный NONE/PENDING main координатор сверяет до интеграции; scope прежней задачи достаточен для исправления.
+- Verifier теперь только читает сохранённые manifest/input/CAD/evidence и выдаёт JSON stdout/exit, без обновления файлов на успехе/отказе. Явный generate.py выполняет полный выпуск/manifest; run.artifacts не захватывает предыдущий manifest или поздние стадии. 23 frozen модуля и геометрический код неизменны, необходимый diff release-кода выделен для RECHECK.
+- 95 tests PASS; 18 regression случаев/23 команды: две explicit generation поверх существующего пакета, по два одинаковых readonly verifier и ещё два после восстановления fixtures; 15 missing/corrupt/stale отказов без auto repair. На текущем пакете также два одинаковых verifier PASS с неизменностью всех 92 файлов по байтам/mtime.
+- 35 исходных geometry/evidence хэшей и native manifest.objects A79/B77 сохранены. Все 18 устранённых и 20 оставшихся native пар без изменения области; все прочие контакты/неизвестности видимы. Metadata FCStd/STEP/PDF при явном rebuild могут меняться, геометрия и semantic/native repeat неизменны. Whole press READY INDETERMINATE, сборка/задача не приняты.
+- Полные команды/результаты verification/r4_frame_fix/README.md, final_checks.json, read_only_repeat.json, unit_tests.json, regressions/. Запрос verification/r4_frame_fix/recheck_request.md; SHA-256 evidence_sha256.json. Артефакты cad/build/frame_mount/, publication_manifest.json версии 2. Исторический final_checks.json в r4_frame_mount сохранён, verifier его не переписывает.
+- Следующий независимый R5: checkout C, materialize LFS, сохранить оригинал, проверить опубликованный пакет дважды ДО генерации. Затем в отдельной копии explicit generate/двойной verifier/fault cases, сверить DAG, CAD/все QueryVolumes, сохранность исходного evidence. Критерий — независимый RECHECK B01, затем отдельное решение координатора об интеграции. Merge не выполнялся.
+- Размеры ASSUMED, реальные параметры/физика/безопасность UNKNOWN; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+
+---
+
+История прежних эстафет ниже:
+
 # Актуальная эстафета — рамная/монтажная геометрия A/B
 
 - HANDOFF / IN_REVIEW; 2026-11-11T22:56:14Z; R4 r4-linked-20261111. **Code/results C: 5198e0184b35978701ed1ce762d9e4fcd44997b3**, ветка work-r4/build-layout/r4-linked-20261111, REMOTE. H — только эстафета, проверять неизменяемый C.

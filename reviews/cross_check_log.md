@@ -2289,3 +2289,5 @@ supersedes: null
 - Автор R4 r4-linked-20261111, T-r4-layout-build-01; входной независимый акт 0b4788dd36f811e4acb202b96d6a76a6a06b63ad. Новый reviewer/result NOT_ASSIGNED/NOT_RUN; B01 OPEN, не закрыт автором.
 - Readonly verifier/явная генерация, 95 tests и 18 release-regression случаев PASS. 23 frozen модуля и 35 геометрических/evidence хэшей unchanged, 18 устранённых и 20 оставшихся native-пар сохранены. Полные факты verification/r4_frame_fix/final_checks.json и regressions/, команды README, запрос recheck_request.md.
 - Точный C сообщается следующей документальной эстафетой. Весь пресс READY INDETERMINATE, физические испытания NOT_RUN, архитектура/ТЗ не утверждены, G1 OPEN.
+
+Неизменяемый объект REV-R4-FRAME-FIX-OUTPUT-01: C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`, REMOTE. Новый независимый reviewer/result NOT_ASSIGNED/NOT_RUN, R5-FRAME-NEW-B01 OPEN. Следующий H только эстафета.

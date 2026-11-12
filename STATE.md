@@ -1,6 +1,16 @@
 # STATE — панель проекта
 
-## Текущий результат R4 — рамная/монтажная коррекция (2026-11-11T22:56:14Z)
+## Текущий результат R4 — readonly verifier (2026-11-12T00:36:54Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`**, REMOTE. Входной акт R5 0b4788d: ограниченная геометрическая группа принята с WARNING, новый процесс выпуска отклонён по R5-FRAME-NEW-B01. Исправление передано на независимый RECHECK (NOT_RUN), B01 OPEN.
+
+Verifier больше не пишет manifest/входы/evidence/diagnostic reports, результат только stdout/exit. Явная генерация generate.py отдельно; односторонние хэши стадий. 95 tests и 18 регрессионных случаев/23 команды PASS: две отдельные генерации, по два неизменяющих verifier, 15 missing/corrupt/stale отказов без auto repair. Два verifier текущего пакета также идентичны, 92 файла без изменения байтов/mtime. Все 23 frozen модуля неизменны; необходимый release diff выделен для review.
+
+Геометрический scope не менялся: 35 исходных deterministic evidence/source хэшей сохранены, native семантика A79/B77 одинакова, 18 устранённых и 20 оставшихся native-пар сохранены. Остальные UNKNOWN/оболочки/непредписанные контакты видимы, **whole press READY INDETERMINATE**. Пересохранение native служебных metadata при явном build не является изменением геометрии.
+
+main/owner/claim/lease проверены 12 ноября, срок без продления; историческую нормализацию учёта main сверяет координатор до интеграции. Текущие команды/доказательства verification/r4_frame_fix/, текущий пакет cad/build/frame_mount/, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md и NEXT_MODEL.md. Старые review/RECHECK/probes сохранены. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, реальные UNKNOWN/условные ASSUMED, G1 OPEN; merge не выполнялся.
+
+## История результата R4 — рамная/монтажная коррекция (2026-11-11T22:56:14Z)
 
 T-r4-layout-build-01 IN_REVIEW, **C `5198e0184b35978701ed1ce762d9e4fcd44997b3`**, REMOTE в work-r4/build-layout/r4-linked-20261111. Входной R5 04efe57 закрыл B01/B02 только в проверенной программной области. Новая коррекция/дополнительный код требуют независимого OUTPUT review, NOT_RUN. Задача и компоновки не приняты.
 
