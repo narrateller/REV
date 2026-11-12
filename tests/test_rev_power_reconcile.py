@@ -115,3 +115,12 @@ class PowerReconciliationTests(unittest.TestCase):
         for x in [-1.,float('nan'),True]:
             with self.subTest(x=x),self.assertRaises(ValueError):reconcile(self.base,'A',dict(self.alloc,hold_total_cap=x))
         with self.assertRaises(ValueError):assess_hold(30e6,1.2,.9)
+
+    def test_nonzero_legacy_leak_without_hold_model_cannot_hide_behind_cap(self):
+        p=dict(self.base,leak_hold=.001,t_approach=1000.,t_work=1000.,t_eject=1000.,t_return=1000.)
+        o,f=reconcile(p,'A',self.alloc)
+        self.assertEqual(f['fixed_budget_status'],'BLOCKED')
+        self.assertIsNone(o['fixed_budget_cycle']);self.assertIsNone(o['fixed_budget_mass_rate'])
+        self.assertIn('NONZERO_LEAKAGE_REQUIRES_EXPLICIT_HOLD_MODEL',f['blockers'])
+        self.assertEqual(f['fixed_times_status'],'BLOCKED_ENVELOPE_MISMATCH')
+        self.assertIsNone(o['fixed_times_required_peak_bound'])

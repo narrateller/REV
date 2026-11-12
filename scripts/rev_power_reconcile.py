@@ -77,6 +77,8 @@ def reconcile(p,variant,allocation,*,hold_power=None,motion_extra=None,pause_pow
     reserve=allocation['motion_extra_cap'];available=budget-reserve
     pause_t=p['t_aux_a'] if variant=='A' else p['t_unload_b']+p['t_open_b']
     reason=[]
+    if p['leak_hold']>0 and hold_power is None:
+        reason.append('NONZERO_LEAKAGE_REQUIRES_EXPLICIT_HOLD_MODEL')
     if available<=0:reason.append('NO_MOTION_POWER_ALLOCATION')
     if allocation['hold_total_cap']>budget:reason.append('HOLD_ENVELOPE_EXCEEDS_BUDGET')
     if allocation['pause_total_cap']>budget:reason.append('PAUSE_ENVELOPE_EXCEEDS_BUDGET')
@@ -142,7 +144,7 @@ def reconcile(p,variant,allocation,*,hold_power=None,motion_extra=None,pause_pow
            'actual_whole_machine_feasibility':'INDETERMINATE',
            'B_open_permission':legacy_flags['B_open_permission'],
            'architecture_approved':False,'G1':'OPEN'}
-    if any('EXCEEDS_ALLOCATION' in x for x in reason):
+    if any('EXCEEDS_ALLOCATION' in x or 'REQUIRES_EXPLICIT_HOLD_MODEL' in x for x in reason):
         for key in ('fixed_times_required_peak_bound','fixed_times_energy_bound','fixed_times_average_bound'):o[key]=None
         flags['fixed_times_status']='BLOCKED_ENVELOPE_MISMATCH'
     return o,flags
