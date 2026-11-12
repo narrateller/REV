@@ -1,3 +1,17 @@
+# Сквозная проверка цикла — новая задача/claim ожидает принятия
+
+Предложение **C `7ec621cb8aa306192536df8598e390daf8726b1d`**, T-r3-cycle-trace-01; role R3 / Codex, proposed owner r3-sizing-20261112, owner_session NONE, READY / PROPOSED_PENDING_MAIN. Полная конкретная постановка — verification/r3_cycle_trace/task.md, состояние/хэши входов — preflight.json. Предложенный отдельный lease указан в задаче; старые claims R3/R4 не расширены и не продлены.
+
+Main 0353414369e8cffdd7b4289eafd665cc35c0ee36 содержит PR #39 и принятие claim R4 PR #40. Прежнее PENDING в R4 сводках — история до merge, не фактическое состояние принятия. CAD 3591a5f92f78b1edea07d3fc5354fd0a99090798 доступен в отдельной ветке и не включён в main. Сопоставление должно использовать именно этот C, а расчёт — c115f75fd900525d9ddc89d85e097ac5a0f00bc1 и акты R5 PR #39.
+
+Следующий шаг — последовательное принятие нового claim в main оператором/координатором; затем fetch/owner/lease/input audit и выполнение задачи. До этого содержательное чтение первичных инструкций/схем и единая инженерная таблица стадий A/B NOT_STARTED. PDF materialized/hash checked не означает прочтение.
+
+Будущий результат: source page/scheme → решение/условия → REV A/B → параметр → CAD position/stroke → transition proof → gap для всех стадий, плюс приоритеты/конкретные изменения R4 до перестройки и точный C/H для независимого review. Нельзя изменять проверенные расчёты/CAD/registry или объявлять неподтверждённое решение принятым. Контроль: четыре PDF hashes matched, 88 protected files unchanged, registry --check-git/diff --check PASS. Архитектура/ТЗ/оборудование не утверждены, physical tests NOT_RUN, G1 OPEN.
+
+---
+
+## История прежних задач
+
 # R4 после PR #39 — новая задача/claim ожидает принятия
 
 **C предложения `e8ab3272d0fe4b1425779b7d2faac9832562d85d`**, REMOTE, ветка `work-r4/T-r4-calculated-layout-01/r4-linked-20261111`. T-r4-calculated-layout-01 READY / owner_session NONE / PROPOSED_PENDING_MAIN; предлагаемый исполнитель r4-linked-20261111 / Codex / R4, proposed lease до 2026-11-13T13:17:33Z (13 ноября 2026, 16:17:33 МСК). H только учёт/эстафета, не принимает claim и не меняет пакет C.
