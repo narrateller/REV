@@ -1,0 +1,148 @@
+{
+  "status": "PASS",
+  "scope": "author regression, independent R5 NOT_RUN",
+  "baseline": "5198e0184b35978701ed1ce762d9e4fcd44997b3",
+  "cases": [
+    {
+      "case": "generation-1",
+      "verifier_exits": [
+        0,
+        0
+      ],
+      "identical_results": true,
+      "checked_files_unchanged": true,
+      "snapshot_files": 535
+    },
+    {
+      "case": "generation-2",
+      "verifier_exits": [
+        0,
+        0
+      ],
+      "identical_results": true,
+      "checked_files_unchanged": true,
+      "snapshot_files": 535
+    },
+    {
+      "case": "missing-manifest",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "[Errno 2] No such file or directory: '/tmp/rev-frame-readonly-8j1hnm9m/REV/cad/build/frame_mount/publication_manifest.json'"
+    },
+    {
+      "case": "corrupt-manifest",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "case": "stale-manifest",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication manifest schema missing/stale; explicit generation required"
+    },
+    {
+      "case": "missing-A-layout_A.FCStd",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication catalog mismatch: missing=['cad/build/frame_mount/A/layout_A.FCStd']; unrecorded=[]"
+    },
+    {
+      "case": "missing-B-layout_B.step",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication catalog mismatch: missing=['cad/build/frame_mount/B/layout_B.step']; unrecorded=[]"
+    },
+    {
+      "case": "missing-A-isometric.png",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication catalog mismatch: missing=['cad/build/frame_mount/A/isometric.png']; unrecorded=[]"
+    },
+    {
+      "case": "missing-geometry_evidence.json",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication catalog mismatch: missing=['cad/build/frame_mount/geometry_evidence.json']; unrecorded=[]"
+    },
+    {
+      "case": "missing-inventory-inventory.json",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication catalog mismatch: missing=['cad/build/frame_mount/inventory/inventory.json']; unrecorded=[]"
+    },
+    {
+      "case": "corrupt-A-layout_A.FCStd",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication hash mismatch: cad/build/frame_mount/A/layout_A.FCStd"
+    },
+    {
+      "case": "corrupt-B-layout_B.step",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication hash mismatch: cad/build/frame_mount/B/layout_B.step"
+    },
+    {
+      "case": "corrupt-A-isometric.png",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication hash mismatch: cad/build/frame_mount/A/isometric.png"
+    },
+    {
+      "case": "corrupt-geometry_evidence.json",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication hash mismatch: cad/build/frame_mount/geometry_evidence.json"
+    },
+    {
+      "case": "corrupt-inventory-inventory.json",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication hash mismatch: cad/build/frame_mount/inventory/inventory.json"
+    },
+    {
+      "case": "stale-valid-report",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication hash mismatch: cad/build/frame_mount/assessment.md"
+    },
+    {
+      "case": "stale-valid-input",
+      "exit_code": 1,
+      "checked_files_unchanged": true,
+      "diagnostic": "publication hash mismatch: cad/frame_mount/inputs.assumed.json"
+    },
+    {
+      "case": "restored-fixture",
+      "verifier_exits": [
+        0,
+        0
+      ],
+      "identical_results": true,
+      "checked_files_unchanged": true,
+      "snapshot_files": 535
+    }
+  ],
+  "generation_replay": "two explicit full builds over existing published outputs, each followed by two read-only checks",
+  "geometry_preservation": "all preservation.json hashes and native semantic objects identical",
+  "command_count": 23,
+  "verifier_writes": 0,
+  "remaining_native_pairs": 20,
+  "eliminated_native_pairs": 18,
+  "physical_trials": "NOT_RUN",
+  "G1": "OPEN",
+  "source_hashes": {
+    "cad/frame_mount/publication.py": "a1ebd216f60a0fae76d50ec823875e888b14d6e7c1eaa32678d1e1e6d0acff15",
+    "cad/frame_mount/inventory.py": "482e7cbba3e9a253d1abc17911e88ab3983881cab5d40472d336ffbc8de8bbd3",
+    "cad/frame_mount/verify_output.py": "fd863985f9af4693a5b373d7a6447eb7cc2ba299858ab4741025298609893bd4",
+    "cad/frame_mount/regress_verifier.py": "a8afc4d44f233c85823ec9c1df38b9a07234d23b0dd87b23f1242690c0a03859",
+    "cad/frame_mount/generate.py": "27dfdaaebcad40591200c53daa1dc649d49c98501b9a73ac813aa773ffada1c5",
+    "cad/frame_mount/run.py": "e64996a9d630638d304f1006b04cddd5e9dcea27c121230780a1603a26930f42",
+    "cad/frame_mount/report.py": "194bad8241613f3e92cbfcce1017b8f5254ed7ec43315fc7dc67c79e57639d45",
+    "cad/frame_mount/test_publication.py": "838afd477e609997d4c424c71d0f0c58c6ba10215d8679b4af89a27cc408587f",
+    "cad/frame_mount/geometry_evidence.py": "e05ea7ea3fbfcf31fbd11471bbd2f8b333ac6058916b6df078de39f00d03c538",
+    "cad/frame_mount/figures.py": "26f2f7cd067accfc993a6139e0347392cc2f68937e21ec68a0fabfb8ac860011",
+    "cad/frame_mount/test_geometry_evidence.py": "8d9fad64089c6624efc17578c5d9f211d205d96f91241943c14d5661ec285efd"
+  }
+}
