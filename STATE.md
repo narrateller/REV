@@ -1,3 +1,75 @@
+# R4 — корректировка CYC-01/08/09 передана на независимый RECHECK
+
+**Неизменяемый C `4f31ed624336e1101b0ba04857f4316c73e4d375`, REMOTE**, https://github.com/narrateller/REV,
+ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`. T-r4-cycle-contract-01
+**IN_REVIEW**, owner_session **r4-linked-20261111** / Codex / R4. Main сверена:
+`d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9`. Claim принят PR #43,
+`9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff`; lease до **13 ноября 2026, 21:16:39 МСК**
+/ 2026-11-13T18:16:39Z, без продления. Входной акт проверки owner/lease/входов:
+verification/r4_cycle_contract_fix/input_audit.json/md. Этот H только учёт и
+эстафета; содержимое C не меняется, main автором не изменялась.
+
+Основание: исправление исходного C `3cf32daef67a91f393b808adb0dc07ba4c73cac2`
+по **REV-R5-R4-CYCLE-CONTRACT-01-001 / d99afb4c3231d641d4a4921f39987264ce5ffc23**.
+Акт/probe/результаты R5 включены полным Git-предком без изменения. Только индекс
+validity прежнего review помечен STALE для новых файлов по протоколу; его
+REJECT_WITH_BLOCKER, reviewed C, findings и artifact hashes неизменны.
+**R5-CC-B01/W01/W02 остаются OPEN** до независимого решения, не самозакрыты.
+
+[Пакет и команды](verification/r4_cycle_contract_fix/README.md),
+[причины каждого расхождения](verification/r4_cycle_contract_fix/causes.md),
+[разрешения/актуальность/распространение/восстановление](verification/r4_cycle_contract/permissions.md),
+[таблица каждого действия](verification/r4_cycle_contract/action_conditions.md).
+Entry атомарно включает обязательные READY-target conditions; completion и
+наблюдённый факт отделены. Ни один исходный required guard не удалён. Возврат
+первого столба A требует удержания/реакции; потеря основания даёт UNCONFIRMED
+без исчезновения inventory. Известный отказ сохраняется, UNKNOWN не разрешает
+зависимое действие. Recovery имеет собственные условия, не требует общего READY
+или своей достигнутой цели на старте. Unready intake не теряется из учёта фактов.
+
+**Фактические авторские проверки:** старые 26 случаев R5/10 расхождений
+воспроизведены точным probe на старых Git blobs, baseline совпал побайтно.
+На новом C **26/26 ожидаемых исходов, 10 → 0 расхождений**, всего **154** checks
+(26 R5 + 45 сочетаний + 83 evidence/propagation/recovery/fact cases).
+59 прежних примеров/две state traces соответствуют расширенным ASSUMED условиям;
+это не entity-level ledger, W02 OPEN. Оба document checkers ×2 readonly, одинаковый
+stdout, 537 файлов без изменения SHA/size/mtime. Registry --check-git PASS,
+diff --check PASS. Полные results.json/integrity_checks.json/publication_checks.json
+в verification/r4_cycle_contract_fix/. Первоначальный registry FAIL и обязательная
+правка актуальности старого review сохранены в publication_checks.json.
+
+Входы следующего участника: новый C, task.md, input_audit.json и preflight.json;
+карта `43f03359fabe2b664935b17f9ac7851504093ece`, upstream R5
+`e69a8afbe4df3d53c4cc8b5883319e00eb8130af`, решение PR42, старый контракт и акт d99afb4.
+17 input blobs и 11 защищённых деревьев неизменны; ledger_examples.md/resources.json
+сохранены. CAD-кандидат `3591a5f92f78b1edea07d3fc5354fd0a99090798` по-прежнему
+отдельный документальный контекст: declared coordinates / author native witnesses /
+independent native NOT_RUN. Старые геометрические блокировки/unknown не закрыты.
+Проверенные CAD/численные modules не менялись; diff documentary helpers
+check_documents.py, permission_examples.py и check_fix.py входит в новый review.
+
+**Следующая подходящая роль — независимый R5** с отдельным подтверждённым
+назначением/claim; автор r4-linked-20261111 не проверяет себя. Первый атомарный
+шаг — получить точный C, сверить входы и выполнить
+[recheck_request.md](verification/r4_cycle_contract_fix/recheck_request.md): независимо
+проверить 26 случаев, mandatory bindings, entry/completion/facts, scope/epoch/
+invalidation, отказ+UNKNOWN и отсутствие логического тупика recovery. Успех
+команды/совпадение отрицательного теста не разрешение реального действия.
+Критерий — отдельный акт на этот C; при недоступном входе прекратить зависимый
+вывод и сохранить UNKNOWN. Статус stable входа CYC-02/03 NO-GO до RECHECK;
+документальные вопросы/исследование по upstream scope допускаются с WARNING.
+
+**G1 OPEN**, CYC-01…09/R5-CYCLE-W01/W02 OPEN. Независимый RECHECK NOT_RUN.
+Реальные guards/параметры/физика UNKNOWN; открытие B, физический L-путь и полный
+реальный цикл INDETERMINATE. Расчёты/CAD/registry и их evidence не менялись;
+solver/CAD/rebuild/physical tests NOT_RUN. Архитектура/ТЗ/COTS/весь пресс не
+утверждены. Не выполнять общий rebuild по этой эстафете. Капсула:
+handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md; UTC 2026-11-12T21:49:35.686445+00:00.
+
+---
+
+## История перед корректировкой
+
 # R4 — CYC-01 и ранние CYC-08/09 переданы на независимый review
 
 **Неизменяемый C результата `3cf32daef67a91f393b808adb0dc07ba4c73cac2` — REMOTE.** Проект REV,

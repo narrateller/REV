@@ -3231,3 +3231,7 @@ supersedes: null
 ## R4: корректирующий кандидат по R5-CC-B01/W01, не независимый review
 
 2026-11-12T21:36:34.236086+00:00; r4-linked-20261111 / T-r4-cycle-contract-01. Входной акт d99afb4c3231d641d4a4921f39987264ce5ffc23 сохранён неизменным полным предком. 26 независимых baseline случаев / 10 расхождений воспроизведены, кандидат: 0 расхождений в тех же 26 и 154 документальных checks MATCH. Entry каждого действия включает mandatory READY-target; completion и наблюдаемые факты раздельны; текущее evidence/инвалидация/распространение и recovery без общего READY описаны. Code helpers только документальные, не CAD/численные tools. results.json и recheck_request.md в verification/r4_cycle_contract_fix/. Точный C следующим H. R5-CC-B01/W01/W02 остаются OPEN, новый RECHECK NOT_RUN, G1 OPEN.
+
+### Публикация кандидата RECHECK, не акт приёмки
+
+2026-11-12T21:49:35.686445+00:00; C 4f31ed624336e1101b0ba04857f4316c73e4d375 REMOTE; H только учёт/эстафета. Полный исходный R5 d99afb4 сохранён, прежняя formal record validity STALE из-за новых artifacts, verdict/findings/digests не изменены. 154 checks MATCH, 26 R5 cases corrected, 0 mismatches, 537 readonly files, registry/diff PASS. Новый R5 RECHECK NOT_RUN; B01/W01/W02/CYC/G1 OPEN. Calculations/CAD/rebuild/physical tests NOT_RUN.

@@ -60,6 +60,8 @@ ID после создания не меняется. Для параллель�
 
 R5-CC-B01: BLOCKER P1 OPEN, адресат R4 в T-r4-cycle-contract-01. Исправленный кандидат представлен на RECHECK, автор не закрывает. W01 OPEN (удержание первого столба, исправлено в кандидате); W02 OPEN (state trace не entity-level material ledger, при последующей реализации). Основание/критерии в verification/r5_r4_cycle_contract_review/review.md, история акта сохранена.
 
+- Исправленный C **4f31ed624336e1101b0ba04857f4316c73e4d375**, REMOTE; следующий H только эстафета. Heartbeat_utc 2026-11-12T21:49:35.686445+00:00; lease/owner без изменений. 154 document checks, 26 R5 cases / 0 remaining mismatches, 537 readonly files, registry/diff PASS. Запрос verification/r4_cycle_contract_fix/recheck_request.md; R5-CC-B01/W01/W02 OPEN, IN_REVIEW, G1 OPEN.
+
 ## T-r4-calculated-layout-01 — расчётно связанная исследовательская компоновка A/B
 
 - Тип TASK; P2; адресат @R4; статус READY; **owner_session: NONE**; claim_acceptance PROPOSED_PENDING_MAIN. Предлагаемый owner_session r4-linked-20261111 / Codex / R4; роль и новое поручение подтверждены пользователем, принятие claim ещё не выполнено.
