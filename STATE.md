@@ -1,3 +1,21 @@
+# R4 после PR #39 — новая задача/claim ожидает принятия
+
+**C предложения `e8ab3272d0fe4b1425779b7d2faac9832562d85d`**, REMOTE, ветка `work-r4/T-r4-calculated-layout-01/r4-linked-20261111`. T-r4-calculated-layout-01 READY / owner_session NONE / PROPOSED_PENDING_MAIN; предлагаемый исполнитель r4-linked-20261111 / Codex / R4, proposed lease до 2026-11-13T13:17:33Z (13 ноября 2026, 16:17:33 МСК). H только учёт/эстафета, не принимает claim и не меняет пакет C.
+
+main `c0053ff7f22fbc10e93efff2691ca6aa1ef90a06` содержит merge PR #39 и прежний исследовательский CAD. Старый claim T-r4-layout-build-01 принят/действовал до 2026-11-12T18:06:24Z; область/срок не расширены. Новые размерные/power входы и новый результат вынесены в отдельную задачу по прямому поручению пользователя. Исторические сводки ниже сохраняются, их слова «PR #39 не merged» не описывают текущую main.
+
+44 строки источников BASE_A/BASE_B fixed-budget в verification/r4_calculated_layout/source_bindings.md/json — **NOT_APPLIED**, не готовый CAD. Точные 30 input blobs/snapshots/code/review refs в input_manifest.json. Оба R3 readonly solver повторены, исходные 80 публикационных файлов CAD/инструмента/доказательств unchanged, registry --check-git и diff --check PASS. Проверенные акты распространяются только на свои входы; новые CAD/геометрические проверки/OUTPUT review NOT_STARTED/NOT_RUN.
+
+Следующий шаг координатора: последовательно принять предложение claim C в main, записать owner_session r4-linked-20261111 и ещё неистёкший срок, проверить отсутствие конкурирующего owner/новых входов; отдельно нормализовать статус принятия. Затем R4 fetch, ancestry/owner/lease/input hashes, входной акт §6 и реализация строго по verification/r4_calculated_layout/task.md. До этого инженерные изменения не начинаются по AGENT_PROTOCOL §4. Капсула handoffs/T-r4-calculated-layout-01/r4-linked-20261111.md.
+
+Будущий результат: отдельные редактируемые A/B, STEP/виды/сечения, фактическая параметрическая таблица до/после с ID@revision/source/status/узлами, полный ход/выдача/возврат/сервисы, новые raw outcomes и независимый R5. Камера/цилиндр/ходы из sizing C 8a1ad4199fea09d1157972d7aa28eaad1e8e0337; t/v только fixed-budget power C c115f75fd900525d9ddc89d85e097ac5a0f00bc1. Не подбирать COTS/крепления/станцию по мощности, не менять размеры ради энергетики; прежние блокировки/UNKNOWN видимы. B opening/L physical INDETERMINATE, реальные REV UNKNOWN, архитектура/ТЗ/COTS не утверждены, испытания NOT_RUN, G1 OPEN.
+
+Git push проверен. gh GraphQL/REST дают Forbidden: PR через API не создан; опубликованная ветка доступна для последовательного принятия предложения. Main не изменялась. Обновлено 2026-11-12T13:22:39Z.
+
+---
+
+## История предыдущих эстафет
+
 # Итог подготовки PR #39
 
 Commit подготовки с обеими историями R5: **bcb2ab470bca87534a5b96c795649e89a083ddc7**. Проверенный расчётный C **c115f75fd900525d9ddc89d85e097ac5a0f00bc1** и исходные сценарии неизменны; оба акта d92cebd5a539d6845fe114515154e79c639bcb7e и 54c918bc82612a38f74056ff8ff5b62632d3a210 входят в историю ветки. Локальные проверки: 100 tests OK, оба readonly replay OK, итоговый registry --check-git PASS, diff --check PASS. Контроль: 88 расчётных и 45 review-файлов идентичны. Подробности verification/pr39_integration/checks.json.
