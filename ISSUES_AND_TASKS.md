@@ -25,7 +25,7 @@ ID после создания не меняется. Для параллель�
 | T-codex-01-01 | TASK | P2 | @R4 | DONE | r4-model-01 | Принято только synthetic AABB на debfd085; G1 OPEN | G1 |
 | T-r4-linked-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | RECHECK WARNING; ограниченная приёмка предлагается после интеграции | G1 |
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
-| T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #35; условное построение | G1 |
+| T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -898,3 +898,7 @@ Claim 1683e24d3be2dfcf8ac91eda102e4d376c834d80 принят PR #34, merge main c
 ## Неизменяемая передача FP semantic fix
 
 - Code/results C 7d1bd1c92c7cedc4282e3a903463e88205b86fa3 REMOTE; следующий H только учёт/эстафета. T-r4-layout-build-01 IN_REVIEW, owner r4-linked-20261111, heartbeat_utc 2026-11-12T03:05:59Z, lease без изменения. R5-FP-NEW-B01 OPEN до независимого R5; запрос verification/r4_fp_fix/recheck_request.md. 110 tests/25 chain commands PASS, геометрия/34 frozen модуля preserved, physical L INDETERMINATE, legacy6 BLOCKED. G1 OPEN, merge не выполнен.
+
+## Сводное решение R1 по исследовательской компоновке
+
+База main `06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53`, финальный code/results `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`, независимый RECHECK `05f149332bc173eaa008250e1a5ab21e4d7611cf`: R5-FP-NEW-B01 CLOSED в проверенной области, код принят с WARNING. Предлагается интеграция без изменения CAD/геометрии/пакета по `decisions/R1-RESEARCH-LAYOUT-ACCEPTANCE.md`. До merge задача IN_REVIEW; после merge завершён только ограниченный исследовательский результат, весь пресс не принят. 6 legacy UP-пар BLOCKED/OPEN; физический L-сервис INDETERMINATE. B01–B03 проекта, R5-OBS-01…04, R5-COMP-W01…05 и G1 OPEN. Прежние OPEN/отказы в истории сохраняются с исходными SHA. Claim build принят PR #35, owner r4-linked-20261111, срок до 2026-11-12T18:06:24Z; предварительные NONE/PENDING main сверены с Git и заменены в этой ветке без продления lease. R1 claim PR #30 действует до 2026-11-12T13:30:45Z. Следующая инженерная задача — реальные условия крепления, отсоединения и подъёма дозатора для сервисного пути; физические испытания NOT_RUN.
