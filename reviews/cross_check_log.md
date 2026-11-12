@@ -2283,3 +2283,9 @@ supersedes: null
 - R4 self-check PASS в указанной ограниченной области; независимый reviewer/result NOT_ASSIGNED/NOT_RUN. Все прежние code/review/probe и CAD/evidence сохранены, 23 модуля неизменны. Остальные 20 native penetration пар и unknown interfaces OPEN, whole press READY INDETERMINATE. Задача IN_REVIEW, не принятие. G1 OPEN.
 
 Неизменяемый объект запроса REV-R4-FRAME-MOUNT-OUTPUT-01: C `5198e0184b35978701ed1ce762d9e4fcd44997b3`, REMOTE. Author r4-linked-20261111, независимый reviewer/result NOT_ASSIGNED/NOT_RUN; точный запрос и критерии cad/frame_mount/review_request.md. Следующий H только эстафета, не новая модель и не приёмка.
+
+## REV-R4-FRAME-FIX-OUTPUT-01 — запрос RECHECK R5-FRAME-NEW-B01
+
+- Автор R4 r4-linked-20261111, T-r4-layout-build-01; входной независимый акт 0b4788dd36f811e4acb202b96d6a76a6a06b63ad. Новый reviewer/result NOT_ASSIGNED/NOT_RUN; B01 OPEN, не закрыт автором.
+- Readonly verifier/явная генерация, 95 tests и 18 release-regression случаев PASS. 23 frozen модуля и 35 геометрических/evidence хэшей unchanged, 18 устранённых и 20 оставшихся native-пар сохранены. Полные факты verification/r4_frame_fix/final_checks.json и regressions/, команды README, запрос recheck_request.md.
+- Точный C сообщается следующей документальной эстафетой. Весь пресс READY INDETERMINATE, физические испытания NOT_RUN, архитектура/ТЗ не утверждены, G1 OPEN.
