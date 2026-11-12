@@ -81,6 +81,8 @@ def validate(v,out):
             assert doc.Assembly.ExactSourceRecordsJSON==json.dumps(data['source_records'],sort_keys=True,separators=(',',':')),'exact source records changed'
             assert doc.Assembly.PhysicalFeasibility=='INDETERMINATE'
             assert doc.Assembly.BOpenPermission==('INDETERMINATE' if v=='B' else 'NOT_APPLICABLE')
+            assert all(close_number(a,b) for a,b in zip(doc.Assembly.getGlobalPlacement().toMatrix().A,App.Placement().toMatrix().A)),'assembly global datum changed'
+            assert all(close_number(a,b) for a,b in zip(doc.References.getGlobalPlacement().toMatrix().A,App.Placement().toMatrix().A)),'reference global datum changed'
             for i,(pid,alias) in enumerate(aliases(data).items(),1):
                 r=data['source_records'][pid];want='='+str(r['value'])+(' '+r['unit'] if r['unit']!='1' else '')
                 quantity=doc.Sources.get(alias);wanted=App.Units.Quantity(str(r['value'])+(' '+r['unit'] if r['unit']!='1' else ''))
@@ -116,6 +118,12 @@ def validate(v,out):
             unmatched=list(step.Solids)
             for c in selected(data,v):
                 n=c['id'];obj=objects[n];pos=App.Vector(*[float(F(data['parameters'][k]['value']))*1000 for k in c['position']])
+                assert obj.TypeId==('Part::Box' if c['kind']=='box' else 'Part::Cylinder'),'editable primitive type changed '+n
+                for prop,expected_value in [('ResearchStatus','ASSUMED_NOT_REV'),('InputID',n),('Family',c['group']),('RigidGroup',c['rigid_group'])]:assert getattr(obj,prop)==expected_value,'native descriptor changed '+n+'/'+prop
+                expected_expr={f'Placement.Base.{axis}':'Inputs.param_'+str(list(data['parameters']).index(ref)+1) for axis,ref in zip('xyz',c['position'])}
+                dimrefs=list(zip(('Length','Width','Height'),c['size'])) if c['kind']=='box' else [('Radius',c['radius']),('Height',c['length'])]
+                expected_expr.update({prop:'Inputs.param_'+str(list(data['parameters']).index(ref)+1) for prop,ref in dimrefs})
+                assert {k.lstrip('.'):x for k,x in obj.ExpressionEngine}==expected_expr,'native parameter links changed '+n
                 expected=Part.makeBox(*[float(F(data['parameters'][k]['value']))*1000 for k in c['size']],pos) if c['kind']=='box' else Part.makeCylinder(float(F(data['parameters'][c['radius']]['value']))*1000,float(F(data['parameters'][c['length']]['value']))*1000,pos,App.Vector(1,0,0))
                 assert same_shape(obj.Shape,expected),'native BRep mismatch '+n
                 assert all(close_number(a,b) for a,b in zip(records[n]['cad_bounds_mm'],shape_bounds(obj.Shape))),'native manifest mismatch '+n

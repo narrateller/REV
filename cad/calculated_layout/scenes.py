@@ -32,9 +32,9 @@ def work_scene(data,v,case,evaluator):
     if v=='A':stage('AUX',values['R3_IN_T_AUX_A'])
     else:
         stage('UNLOAD',values['R3_IN_T_UNLOAD_B'])
-        dt=values['R3_IN_T_OPEN_B']/2
-        stage('OPEN-LOCK',dt,{'lock':(z,config(data,'open_lock_y'),z)})
-        stage('OPEN-STOP',dt,{'end_stop':(z,config(data,'open_stop_y'),z)})
+        allocation=json.loads((SOURCE/'diagnostic_inputs.json').read_text())['parameters']['ASSUMED-CL-B-OPEN-LOCK-SHARE'];share=F(allocation['value']);assert allocation['status']=='ASSUMED' and 0<share<1
+        stage('OPEN-LOCK',values['R3_IN_T_OPEN_B']*share,{'lock':(z,config(data,'open_lock_y'),z)})
+        stage('OPEN-STOP',values['R3_IN_T_OPEN_B']*(1-share),{'end_stop':(z,config(data,'open_stop_y'),z)})
     eject=g['EJECT_STROKE']/2 if case=='short' else g['EJECT_STROKE']
     stage('EJECT',time('EJECT'),axis(eject,True),case=='unknown');active=stages[-1]
     # No premature REMOVE: actual preserved CAD output has not been reached.

@@ -6,12 +6,14 @@ from scenes import make_scenes,assess_scenes
 def fingerprint(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 
 def source_check():
+    import common
+    frozen=common.freeze() # validate actual imported legacy modules, not only their catalog file
     m=json.loads((AUDIT/'input_manifest.json').read_text())
     for p,r in m['sources'].items():
         if p!='ISSUES_AND_TASKS.md':assert digest(ROOT/p)==r['sha256'],'accepted source changed '+p
     for p,h in m['prior_publication_manifest_80_files'].items():assert digest(ROOT/p)==h,'prior publication changed '+p
     for v in VARS:assert load(input_path(v))==make_input(v),'registered bridge input stale '+v
-    return {'accepted_input_files':len(m['sources'])-1,'old_publication_files':len(m['prior_publication_manifest_80_files']),'44_bindings':'UNCHANGED','old_tool_and_geometry':'UNCHANGED'}
+    return {'accepted_input_files':len(m['sources'])-1,'old_publication_files':len(m['prior_publication_manifest_80_files']),'frozen_modules_sha256':frozen['sha256'],'44_bindings':'UNCHANGED','old_tool_and_geometry':'UNCHANGED'}
 
 def native_command(v,out,build=False):
     cmd=['/usr/bin/python3','-B',str(SOURCE/'native.py'),'--variant',v,'--out',str(out)]+(['--build'] if build else [])
@@ -46,6 +48,7 @@ def compute(v,out,write=False):
         with tempfile.TemporaryDirectory(prefix='rev-cl-pairs-') as temp:
             rows=Path(out)/v/'pair_checks.jsonl.gz' if write else Path(temp)/'pairs.gz'
             report=assess_scenes(data,v,scenes,evaluator,rows)
+            report=json.loads(json.dumps(report)) # canonical JSON types, including pair tuples
             if not write:
                 with gzip.open(rows,'rb') as a,gzip.open(Path(out)/v/'pair_checks.jsonl.gz','rb') as b:
                     for x,y in itertools.zip_longest(a,b):assert x==y,'saved pair classification/proof differs '+v
