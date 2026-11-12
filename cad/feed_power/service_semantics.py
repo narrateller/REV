@@ -47,6 +47,7 @@ class Evaluator:
     def __init__(self,data,models=None):
         self.data=data;self.raw_cache={};self.proof_cache={};self.class_cache={};self.native=None;self.models=models
         self.kinds={c['id']:c['kind'] for c in data['components']}
+        self.groups={c['id']:c['group'] for c in data['components']}
     def raw(self,v,pair,state,time):
         key=(v,tuple(pair),body_key(state[pair[0]]),body_key(state[pair[1]]),tuple(time))
         if key not in self.raw_cache:self.raw_cache[key]=checked.evaluate_pair(state[pair[0]],state[pair[1]],*pair,time,v)
@@ -93,8 +94,9 @@ def evaluate_scene(scene,data,evaluator):
         for n,b in state.items():
             try:
                 validated_body(b)
-                if n not in evaluator.kinds or b.get('exact_box')!=(evaluator.kinds[n]=='box'):raise ValueError('shape method does not match registered native primitive')
+                if n not in evaluator.kinds:raise ValueError('body has no registered native primitive')
                 methods[n]=True
+                if b.get('exact_box')!=(evaluator.kinds[n]=='box') or b.get('group')!=evaluator.groups[n]:known.append({'phase':phase,'body':n,'reason':'scene shape/group descriptor differs from registered native input'})
             except (ValueError,TypeError,KeyError,ZeroDivisionError,NotImplementedError) as e:
                 methods[n]=False;unknown.append({'phase':phase,'body':n,'reason':'unsupported/unknown mandatory method: '+(str(e) or repr(e))})
         if i<len(expected):
@@ -120,7 +122,7 @@ def evaluate_scene(scene,data,evaluator):
             proof=evaluator.proof(state[pair[0]],state[pair[1]]) if valid_time and all(methods[n] for n in pair) else {'status':'INDETERMINATE','reason':'mandatory method/time not established'}
             proof_hash.update(fingerprint({'pair':pair,**proof}).encode())
             if proof['status']=='POSITIVE_BOUND_OVERLAP':
-                if all(evaluator.kinds.get(n)=='box' and state[n].get('group')!='routes' for n in pair):
+                if all(evaluator.kinds.get(n)=='box' and evaluator.groups.get(n)!='routes' for n in pair):
                     collisions.append({'phase':phase,'pair':pair,**proof,'basis':'exact registered boxes over complete supported linear interval'});positive+=1
                 else:pair_unknown+=1;unknown.append({'phase':phase,'pair':pair,'reason':'conservative curved/envelope overlap cannot establish solid clearance'})
             elif proof['status']=='INDETERMINATE':pair_unknown+=1
@@ -159,20 +161,23 @@ def evaluate_scene(scene,data,evaluator):
         fresh_continuity=checked.assess_continuity(stages,[])
         if scene.get('continuity')!=fresh_continuity:evidence_bad.append({'reason':'saved continuity evidence stale'})
     except (TypeError,ValueError,KeyError,ZeroDivisionError):unknown.append({'reason':'continuity evidence cannot be recomputed'})
-    geometry='BLOCKED' if collisions else 'INDETERMINATE' if unknown else 'CONFIRMED_NO_POSITIVE_VOLUME'
+    interval_geometry='BLOCKED' if collisions else 'INDETERMINATE' if unknown else 'CONFIRMED_NO_POSITIVE_VOLUME'
+    # A collision-free collection of intervals is not a confirmed whole path
+    # when their ordering, continuity or required nominal return is violated.
+    geometry='BLOCKED' if collisions or known else 'INDETERMINATE' if unknown else 'CONFIRMED_NO_POSITIVE_VOLUME'
     limited=geometry=='CONFIRMED_NO_POSITIVE_VOLUME' and not known and continuity=='CONTINUOUS' and restored and not evidence_bad
     outcome='BLOCKED' if collisions or known else 'INDETERMINATE' # physical mandatory conditions UNKNOWN in this model
     expected_collision_pairs=LEGACY if specification and specification['legacy'] else set()
     actual_collision_pairs={tuple(x['pair']) for x in collisions}
     matches=bool(specification) and not known and not unknown and not evidence_bad and continuity=='CONTINUOUS' and restored and (geometry=='BLOCKED' and actual_collision_pairs==expected_collision_pairs if expected_collision_pairs else limited)
-    return {'variant':v,'case':case,'scope':'complete registered pair/phase geometric model only','geometric_path_outcome':geometry,'overall_service_outcome':outcome,'limited_geometry_success':bool(limited),'physical_feasibility':'INDETERMINATE','physical_reason':'real actuator, disconnection, contact/fixtures, loads and rigging UNKNOWN','required_pair_rows':total,'method_status':'INDETERMINATE' if unknown else 'SUPPORTED','plan_status':'BLOCKED' if known else 'INDETERMINATE' if unknown else 'CONFIRMED','continuity_status':continuity,'nominal_return':'RESTORED' if restored else 'INDETERMINATE' if return_unknown else 'NOT_RESTORED','proven_collisions':collisions,'unknown_mandatory_conditions':unknown,'protocol_defects':known,'saved_evidence_mismatches':evidence_bad,'phases':phase_results,'source_state_time_sha256':fingerprint([{'phase':s.get('phase'),'time':s.get('time'),'state':s.get('state')} for s in stages]),'matches_test_expectation':bool(matches),'negative_test_is_path_success':False}
+    return {'variant':v,'case':case,'scope':'complete registered pair/phase geometric model only','interval_geometry_outcome':interval_geometry,'geometric_path_outcome':geometry,'overall_service_outcome':outcome,'limited_geometry_success':bool(limited),'physical_feasibility':'INDETERMINATE','physical_reason':'real actuator, disconnection, contact/fixtures, loads and rigging UNKNOWN','required_pair_rows':total,'method_status':'INDETERMINATE' if unknown else 'SUPPORTED','plan_status':'BLOCKED' if known else 'INDETERMINATE' if unknown else 'CONFIRMED','continuity_status':continuity,'nominal_return':'RESTORED' if restored else 'INDETERMINATE' if return_unknown else 'NOT_RESTORED','proven_collisions':collisions,'unknown_mandatory_conditions':unknown,'protocol_defects':known,'saved_evidence_mismatches':evidence_bad,'phases':phase_results,'source_state_time_sha256':fingerprint([{'phase':s.get('phase'),'time':s.get('time'),'state':s.get('state')} for s in stages]),'matches_test_expectation':bool(matches),'negative_test_is_path_success':False}
 
 
 def evaluate_services(data,scenes,evaluator=None):
     evaluator=evaluator or Evaluator(data)
     results=[evaluate_scene(s,data,evaluator) for s in scenes]
     required={(v,c) for v in 'AB' for c in protocols(data,v)};seen=[(r['variant'],r['case']) for r in results];complete=len(seen)==len(set(seen)) and set(seen)==required
-    return json.loads(json.dumps({'calculation_execution':'COMPLETED','test_evaluation':'PASS' if complete and all(r['matches_test_expectation'] for r in results) else 'FAIL','complete_required_service_set':complete,'service_scenes':results,'geometric_path_counts':dict(collections.Counter(r['geometric_path_outcome'] for r in results)),'overall_service_counts':dict(collections.Counter(r['overall_service_outcome'] for r in results)),'physical_feasibility':'INDETERMINATE','whole_press_READY':'INDETERMINATE','G1':'OPEN'}))
+    return json.loads(json.dumps({'calculation_execution':'COMPLETED','test_evaluation':'PASS' if complete and all(r['matches_test_expectation'] for r in results) else 'FAIL','complete_required_service_set':complete,'missing_required_services':sorted(required-set(seen)),'duplicate_services':sorted(k for k,c in collections.Counter(seen).items() if c>1),'service_scenes':results,'geometric_path_counts':dict(collections.Counter(r['geometric_path_outcome'] for r in results)),'overall_service_counts':dict(collections.Counter(r['overall_service_outcome'] for r in results)),'physical_feasibility':'INDETERMINATE','whole_press_READY':'INDETERMINATE','G1':'OPEN'}))
 
 
 def attach_assessment(assessment,semantics):

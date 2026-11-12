@@ -53,7 +53,7 @@ def main():
         actual=check_cad_adapter(data,OUT,INPUT);assert actual==json.loads((OUT/'cad_validation.json').read_text())
         work=read_packed(OUT/'raw_checked_tool/all_pairs.json.gz');suite=evaluate_suite(work,data);assert suite['status']=='PASS' and suite==json.loads((OUT/'cycles.json').read_text())
         assert verify_cycles(work,data)==json.loads((OUT/'cycle_assertions.json').read_text())
-        all_services=read_packed(OUT/'service_scenes.json.gz');assert len(all_services)==22
+        all_services=read_packed(OUT/'service_scenes.json.gz')
         evaluator=Evaluator(data,OUT);semantics=evaluate_services(data,all_services,evaluator);require_expected(semantics)
         derived=verify_derived(data,work,all_services,semantics,evaluator)
         assert json.loads((OUT/'service_report.json').read_text())==semantics,'saved report differs from fresh service calculation'

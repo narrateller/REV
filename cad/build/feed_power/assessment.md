@@ -1,18 +1,62 @@
-# Дозатор и гидростанция A/B — ограниченная исследовательская коррекция
+# Дозатор и гидростанция — фактический сервисный исход
 
-R4 self-check, новый независимый OUTPUT review NOT_RUN. База a5d5bad6dd8928045512bca16836fd1d2544b7ca, RECHECK c2e96a58d7efd64ea3364b2bcbfb3f0642bbc430. Все размеры ASSUMED, реальные параметры UNKNOWN, G1 OPEN.
+R4 self-check, независимый RECHECK NOT_RUN. Расчёт выполнен заново из текущих service state/time, всех обязательных пар, состава движения и declared plan. Команда/тестовое ожидание/пригодность пути — разные результаты. Физическая выполнимость всегда INDETERMINATE, G1 OPEN.
 
-## Изменения и причины
+Выполнение расчёта: COMPLETED; совпадение с обязательными ожиданиями: PASS. Геометрические исходы: {'CONFIRMED_NO_POSITIVE_VOLUME': 20, 'BLOCKED': 2}; общие сервисные исходы: {'INDETERMINATE': 20, 'BLOCKED': 2}.
 
-Pocket collar поднятия не требует: его верхняя грань опущена до существующей нижней плоскости дозирующего кольца. Стенки дозатора укорочены до нижней плоскости hopper floor, расширены вдоль Y для поддержки извлечённого ползуна. Кольцо нормализовано до точных общих номинальных рёбер. Рабочий doser_slide, его ось и ход не менялись. Изменения до/после и ID@revision — changes.json/change_plan.json.
+Подтверждённая коллизия блокирует успех даже вместе с unknown. Неподдержанный/неизвестный обязательный метод, участок, пара или boundary не дают подтверждённого геометрического пути. Ни совпадение отрицательного теста, ни exit 0 не означают физическую пригодность.
 
-Outboard tray и guide разбиты вокруг прежнего вертикального коридора gate_service_cap; непрерывные боковины обходят этот коридор и поддерживают обе секции. Это условные геометрические связи: реальные крепёж, опора длинной консоли, жёсткость/зазоры и привод UNKNOWN. Наличие опорной поверхности не подтверждает её силовую способность.
+## Текущие сервисные сцены
 
-Motor поднят над tank, сохраняет ось X/радиус/длину, опирается условными торцевыми гранями на две плиты. Плиты стоят на верхней грани tank. Tank смещён от ограждения, его низ связан через две опорные балки/кронштейна с base_R. Реальная конструкция стенки tank, фланцы, крепёж, масса и несущая способность UNKNOWN.
+| Вариант | Сцена | Геометрия | Метод | План | Continuity / return | Общий сервис | Физика | Ожидание теста |
+|---|---|---|---|---|---|---|---|---|
+| A | service_cylinder_module | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_cylinder_module | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_fp_doser_retract_lift | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_fp_motor | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_fp_powerpack_module | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_fp_tank_after_motor_park | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_fp_doser_retract_lift | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_fp_motor | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_fp_powerpack_module | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_fp_tank_after_motor_park | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_gate | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_cylinder_barrel | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_rod | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| A | service_doser_slide | BLOCKED | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | BLOCKED | INDETERMINATE | True |
+| A | service_clamp_L | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_gate | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_cylinder_barrel | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_rod | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_doser_slide | BLOCKED | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | BLOCKED | INDETERMINATE | True |
+| B | service_lock | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_end_stop | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
+| B | service_portal | CONFIRMED_NO_POSITIVE_VOLUME | SUPPORTED | CONFIRMED | CONTINUOUS / RESTORED | INDETERMINATE | INDETERMINATE | True |
 
-## Каждая из 20 прежних пар
+Все stage/pair digests, ошибки/неизвестности метода/плана/непрерывности/возврата и current collision intervals — service_report.json. Это свежий расчёт, не копия сохранённого assessment.
 
-| Вариант | Пара | Native до, мм³ | Native после в том же состоянии, мм³ | Решение |
+## Доказанные коллизии текущих сервисных путей
+
+| Вариант | Сцена | Фаза | Пара | Нормированный интервал положительного перекрытия |
+|---|---|---|---|---|
+| A | service_doser_slide | A-SERVICE-doser_slide-1 | doser_slide / hopper_R | ['6/65', '129/130'] |
+| A | service_doser_slide | A-SERVICE-doser_slide-1 | doser_slide / hopper_floor_right | ['7/130', '12/65'] |
+| A | service_doser_slide | A-SERVICE-doser_slide-1 | doser_slide / receiving_rim_right | ['9/10', '1'] |
+| A | service_doser_slide | A-SERVICE-doser_slide-2 | doser_slide / hopper_R | ['1/130', '59/65'] |
+| A | service_doser_slide | A-SERVICE-doser_slide-2 | doser_slide / hopper_floor_right | ['53/65', '123/130'] |
+| A | service_doser_slide | A-SERVICE-doser_slide-2 | doser_slide / receiving_rim_right | ['0', '1/10'] |
+| B | service_doser_slide | B-SERVICE-doser_slide-1 | doser_slide / hopper_R | ['6/65', '129/130'] |
+| B | service_doser_slide | B-SERVICE-doser_slide-1 | doser_slide / hopper_floor_right | ['7/130', '12/65'] |
+| B | service_doser_slide | B-SERVICE-doser_slide-1 | doser_slide / receiving_rim_right | ['9/10', '1'] |
+| B | service_doser_slide | B-SERVICE-doser_slide-2 | doser_slide / hopper_R | ['1/130', '59/65'] |
+| B | service_doser_slide | B-SERVICE-doser_slide-2 | doser_slide / hopper_floor_right | ['53/65', '123/130'] |
+| B | service_doser_slide | B-SERVICE-doser_slide-2 | doser_slide / receiving_rim_right | ['0', '1/10'] |
+
+## Сохранённая геометрия и before/after исходного CAD
+
+Эта таблица относится к сохранённым native моделям исходной компоновки, а не автоматически к произвольному изменённому сервисному пути. Подменённая траектория оценивается таблицами выше. Actual FCStd/STEP/QueryVolumes и соответствие всех сохранённых доказательств обязан проверить отдельный readonly verifier. Геометрические изображения показывают исходную компоновку и сами не подтверждают текущую траекторию.
+
+| Вариант | Пара | Native до, мм³ | Native после, мм³ | Область |
 |---|---|---:|---:|---|
 | A | doser_floor_front / pocket_front | 416000 | 0 | STATIC_PENETRATION_REMOVED |
 | A | doser_floor_left / pocket_L | 320000 | 0 | STATIC_PENETRATION_REMOVED |
@@ -35,71 +79,21 @@ Motor поднят над tank, сохраняет ось X/радиус/дли�
 | B | doser_slide / receiving_rim_right | 240000 | 240000 | LEGACY_VERTICAL_BLOCKED_NOT_RELABELED |
 | B | hydraulic_tank / pump_motor | 7248108.07 | 0 | STATIC_PENETRATION_REMOVED |
 
-**14 статических native проникновений устранены. Шесть проникновений на старом straight-UP сервисе остаются доказанными и BLOCKED.** Они не переименованы в INDETERMINATE и не исключены из матриц. Для дозатора предложена другая исследовательская последовательность на существующей оси Y: retract → lift → lower → return. Старый подъём через неподвижный hopper остаётся обязательным отрицательным контрпримером. Реальный дополнительный ход привода, условия отсоединения и безопасный подъём UNKNOWN, поэтому фактическая реализуемость нового сервиса INDETERMINATE.
+В проверенном исходном CAD 14 static проникновений устранены; 6 native legacy-UP пар BLOCKED сохранены. Нельзя объявить эти шесть устранёнными по успешному тестовому ожиданию. Полный геометрический diff/ID@revision: changes.json и cad/feed_power/change_plan.json. Нативные модели A/B, STEP, PNG/SVG/PDF и before/after виды сохранены.
 
-## Сервис и регрессия
+62 условных nominal interfaces не подтверждают реальные болты/швы/фланцы, радиальную фиксацию, tank wall или несущую способность. Путь сырья/номинальное окно и рабочие ходы сохраняются в исходном CAD; реальные подача/сырьё/физика UNKNOWN.
 
-Motor извлекается/возвращается отдельно; powerpack поднимается вместе с tank/двумя motor plates; отдельный tank извлекается после подъёма и парковки motor/plates по Y, затем все тела возвращаются. Ни одно тело не удаляется lifecycle-событием. Никакого вывода о безопасном подъёме или реальной расстыковке нет.
+Конечный baseline inventory — inventory/inventory.json/md, исходные классы/контексты не удаляются. Достоверность current classifications, interval_rows, assessment и их соответствие текущим сценам проверяются пересчётом, не только внешним manifest hash.
 
-Все пары каждого этапа сохранены: 638919 строк. Точный affine interval solver проверил 507043 критических строк; 878 прежних gate/portal target строк без положительного объёма. Все положительные критические строки относятся только к трём прежним doser/hopper парам A/B на явно BLOCKED прямом подъёме. Неизвестные control движения остаются INDETERMINATE.
+**Весь пресс не принят, READY INDETERMINATE.** Архитектура/ТЗ не утверждены, размеры ASSUMED, реальные параметры UNKNOWN, физические испытания NOT_RUN, G1 OPEN.
 
-| Вариант | Сервис | Continuity / return | Конфликтные строки движущихся тел |
-|---|---|---|---:|
-| A | service_cylinder_module | CONTINUOUS / True | 0 |
-| B | service_cylinder_module | CONTINUOUS / True | 0 |
-| A | service_fp_doser_retract_lift | CONTINUOUS / True | 0 |
-| A | service_fp_motor | CONTINUOUS / True | 0 |
-| A | service_fp_powerpack_module | CONTINUOUS / True | 0 |
-| A | service_fp_tank_after_motor_park | CONTINUOUS / True | 0 |
-| B | service_fp_doser_retract_lift | CONTINUOUS / True | 0 |
-| B | service_fp_motor | CONTINUOUS / True | 0 |
-| B | service_fp_powerpack_module | CONTINUOUS / True | 0 |
-| B | service_fp_tank_after_motor_park | CONTINUOUS / True | 0 |
-| A | service_gate | CONTINUOUS / True | 0 |
-| A | service_cylinder_barrel | CONTINUOUS / True | 0 |
-| A | service_rod | CONTINUOUS / True | 0 |
-| A | service_doser_slide | CONTINUOUS / True | 6 |
-| A | service_clamp_L | CONTINUOUS / True | 0 |
-| B | service_gate | CONTINUOUS / True | 0 |
-| B | service_cylinder_barrel | CONTINUOUS / True | 0 |
-| B | service_rod | CONTINUOUS / True | 0 |
-| B | service_doser_slide | CONTINUOUS / True | 6 |
-| B | service_lock | CONTINUOUS / True | 0 |
-| B | service_end_stop | CONTINUOUS / True | 0 |
-| B | service_portal | CONTINUOUS / True | 0 |
-
-В новых 8 сервисах нет положительного перекрытия движущихся тел на полном ходе/возврате. Возврат координат сам по себе не исправляет старый blocked UP. Общие виды/STEP/FCStd A/B и три native profile before/after представлены рядом. Проекции разных плоскостей не самостоятельное доказательство коллизии.
-
-## Сопряжения, сырьё и предел
-
-62 условных номинальных интерфейсов: positive-area native face intersection и нулевой solid common; interfaces.json содержит причины. Это не утверждение физической посадки, крепежа или силовой способности. Frozen classifier не получил новых разрешающих исключений; непредписанные касания сохраняют INDETERMINATE в его полном потоке.
-
-Вход после имеющихся дробления/просева, throat hopper → дозатор → pocket → прежнее окно gate/chamber и выход пресса сохраняются. Целевое номинальное central aperture сохранено; точные legacy дробные границы колец нормализованы и показаны в changes.json. Фактическое общее положительное окно и его точные границы пересчитываются в verifier JSON. Рабочие doser/punch/gate/lock/stop ходы не менялись. Реальные подача/включения/влажность/трение/зависание/герметичность/производительность UNKNOWN; присутствие ползуна в окне и транспорт сырья физически не моделируются.
-
-Конечный реестр — inventory/inventory.md/json, все non-CLEAR пары с контекстами. Оставшиеся native пары:
-
-| Вариант | Пара | Статус |
-|---|---|---|
-| A | doser_slide / hopper_R | BLOCKED legacy UP; реальная альтернативная service feasibility INDETERMINATE |
-| A | doser_slide / hopper_floor_right | BLOCKED legacy UP; реальная альтернативная service feasibility INDETERMINATE |
-| A | doser_slide / receiving_rim_right | BLOCKED legacy UP; реальная альтернативная service feasibility INDETERMINATE |
-| B | doser_slide / hopper_R | BLOCKED legacy UP; реальная альтернативная service feasibility INDETERMINATE |
-| B | doser_slide / hopper_floor_right | BLOCKED legacy UP; реальная альтернативная service feasibility INDETERMINATE |
-| B | doser_slide / receiving_rim_right | BLOCKED legacy UP; реальная альтернативная service feasibility INDETERMINATE |
-
-Остальные контакты отдельно: условные сопряжения (interfaces.json), conservative envelope intersections и INDETERMINATE — inventory/classes. Нативные положительные объёмы не объявляются допустимыми сопряжениями. Восемь cycle ожиданий проверены прежним strict oracle и verify_cycles; это прежнее ограниченное path-подмножество, не весь пресс.
-
-Все 34 прежних Python-модуля неизменны. Новые адаптация/оркестрация/проверки cad/feed_power требуют отдельного R5 review. Исторические hardcoded metadata frozen checker не являются provenance новой редакции; актуальны inputs SHA/generation/publication manifest.
-
-**Весь пресс не принят, READY INDETERMINATE.** Реальные размеры/нагрузки/крепления/сырьё/безопасность UNKNOWN, архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN.
-
-## Воспроизведение
+## Команды
 
 ```bash
-git lfs pull
-/usr/bin/python3 -B cad/feed_power/generate.py
+/usr/bin/python3 -B cad/feed_power/service_semantics.py
+/usr/bin/python3 -B cad/feed_power/generate.py --reanalyze
 /usr/bin/python3 -B cad/feed_power/verify_output.py
 /usr/bin/python3 -B cad/feed_power/verify_output.py
 ```
 
-Генерация — явная запись; verifier только читает сохранённый пакет и печатает JSON/exit. Перед повторением сохранить исходный C. Stdout сохранять вне проверяемого каталога. FreeCAD 1.0.0/Part, Python 3.13.5, PIL/reportlab/PySide2.QtSvg.
+Reanalysis — явная генерация новых derived результатов из сохранённых poses, без изменения CAD. Полный build: generate.py без --reanalyze. Verifier ничего не исправляет/не пишет, только JSON stdout/exit. Перед воспроизведением сохранять исходный C.

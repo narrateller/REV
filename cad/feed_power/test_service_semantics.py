@@ -34,6 +34,16 @@ class CompleteServiceSemantics(unittest.TestCase):
         for name,s,want in self.cases:
             if name.startswith('compound_') and want=='BLOCKED':
                 r=evaluate_scene(s,self.data,self.evaluator);self.assertTrue(r['proven_collisions']);self.assertTrue(r['unknown_mandatory_conditions']);self.assertEqual(r['overall_service_outcome'],'BLOCKED')
+    def test_clear_intervals_with_a_known_time_gap_are_not_a_confirmed_path(self):
+        s=copy.deepcopy(next(s for s in self.scenes if s['variant']=='A' and s['case']=='service_fp_doser_retract_lift'))
+        d=config(self.data,'phase_duration');s['stages'][2]['time']=[str(F(t)+d) for t in s['stages'][2]['time']];s=refresh(s,self.evaluator)
+        r=evaluate_scene(s,self.data,self.evaluator);self.assertFalse(r['proven_collisions']);self.assertFalse(r['limited_geometry_success']);self.assertEqual(r['geometric_path_outcome'],'BLOCKED');self.assertEqual(r['continuity_status'],'BLOCKED')
+    def test_missing_service_is_an_explicit_missing_mandatory_condition(self):
+        r=evaluate_services(self.data,[],self.evaluator);self.assertEqual(r['test_evaluation'],'FAIL');self.assertEqual(len(r['missing_required_services']),22);self.assertEqual(r['physical_feasibility'],'INDETERMINATE')
+    def test_scene_group_cannot_hide_a_registered_solid_collision(self):
+        s=copy.deepcopy(self.cases[0][1])
+        for st in s['stages']:st['state']['doser_slide']['group']='routes'
+        r=evaluate_scene(refresh(s,self.evaluator),self.data,self.evaluator);self.assertTrue(r['proven_collisions']);self.assertEqual(r['geometric_path_outcome'],'BLOCKED')
 
 
 if __name__=='__main__':unittest.main()
