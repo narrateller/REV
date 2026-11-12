@@ -3075,3 +3075,7 @@ reproduction_artifacts:
 - verification/r5_r3_cycle_trace_review/object_identity.json
 supersedes: null
 ```
+
+## Предложение отдельного R4 claim — CYC-01 + ранние CYC-08/09
+
+2026-11-12T18:16:39Z; автор r4-linked-20261111 / R4, T-r4-cycle-contract-01 READY / owner NONE / PROPOSED_PENDING_MAIN. База b1a4e398741b84d482c96f00a605e98b720ff929, карта 43f03359fabe2b664935b17f9ac7851504093ece, акт e69a8afbe4df3d53c4cc8b5883319e00eb8130af. Постановка и защита источников verification/r4_cycle_contract/. Это административная подготовка, не контракт/не независимый review. Новый OUTPUT review NOT_RUN; R5-CYCLE-W01/W02 и CYC OPEN, G1 OPEN. Расчёты/CAD/их код/registry не меняются, solver/rebuild/физические испытания NOT_RUN. Точный C предложения — в следующем H.
