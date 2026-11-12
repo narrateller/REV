@@ -1,0 +1,29 @@
+{
+  "observed_at_utc": "2026-11-12T16:12:47.501961+00:00",
+  "main": "0353414369e8cffdd7b4289eafd665cc35c0ee36",
+  "claim": "PROPOSED_PENDING_MAIN",
+  "checks": [
+    {
+      "command": ".venv/bin/python -B scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "log": "registry_check.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "check": "four PDFs SHA-256/size/materialization vs source_manifest",
+      "passed": true
+    },
+    {
+      "check": "88 protected calculation files unchanged",
+      "passed": true
+    }
+  ],
+  "source_review_and_cycle_matrix": "NOT_STARTED_PENDING_CLAIM",
+  "CAD_rebuild": "NOT_RUN",
+  "physical_tests": "NOT_RUN",
+  "G1": "OPEN",
+  "main_updated": false
+}
