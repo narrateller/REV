@@ -1,0 +1,65 @@
+{
+  "observed_at_utc": "2026-11-12T17:47:11.359293+00:00",
+  "kind": "INTEGRATION_PREPARATION_AUTHOR_CHECKS_NOT_NEW_INDEPENDENT_REVIEW",
+  "main": "65dca013833b64b446157c6faf4042643d909451",
+  "owner_session": "r3-sizing-20261112",
+  "claim": "ACCEPTED_MAIN_PR41",
+  "lease_expires_at": "2026-11-13T16:08:52Z",
+  "lease_extended": false,
+  "reviewed_C": "43f03359fabe2b664935b17f9ac7851504093ece",
+  "R5_act": "e69a8afbe4df3d53c4cc8b5883319e00eb8130af",
+  "verdict": "ACCEPT_WITH_WARNING_DOCUMENTARY_SCOPE",
+  "commands": [
+    {
+      "command": ".venv/bin/python -B verification/pr42_integration/verify_preservation.py",
+      "exit_code": 0,
+      "log": "preservation.log"
+    },
+    {
+      "command": "sha256sum -c verification/r3_cycle_trace/artifacts.sha256",
+      "exit_code": 0,
+      "log": "artifact_manifest.log"
+    },
+    {
+      "command": ".venv/bin/python -B verification/r3_cycle_trace/verify_trace.py",
+      "exit_code": 0,
+      "log": "trace.log"
+    },
+    {
+      "command": ".venv/bin/python -B verification/r3_cycle_trace/render_documents.py",
+      "exit_code": 0,
+      "log": "render.log"
+    },
+    {
+      "command": ".venv/bin/python -B scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "log": "registry.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "decision_sha256": "64b7f5993d5e545cd32af60f4a5bf734c4687270407cfec2b48f79a80397c31e",
+  "unchanged_counts": {
+    "result_directory_files": 27,
+    "new_R5_files": 23,
+    "calculation_files": 88,
+    "historical_R5_files": 45
+  },
+  "CAD_review": "NOT_AVAILABLE",
+  "general_rebuild": "NOT_READY",
+  "whole_cycle": "INDETERMINATE",
+  "B_opening": "INDETERMINATE",
+  "findings_open": [
+    "R5-CYCLE-W01",
+    "R5-CYCLE-W02"
+  ],
+  "all_CYC_01_to_09": "OPEN",
+  "G1": "OPEN",
+  "physical_tests": "NOT_RUN",
+  "models_or_CAD_rebuilt": false,
+  "legacy_tests": "Not rerun locally: protected code/tests unchanged; CI executes repository suite",
+  "CI": "Inspect workflow for exact published final SHA; no self-referential success claim",
+  "PR_merge_performed": false
+}

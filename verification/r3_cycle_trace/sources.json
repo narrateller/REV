@@ -1,0 +1,317 @@
+{
+  "observed_at_utc": "2026-11-12T16:35:30.839759+00:00",
+  "page_numbering": "PDF index is authoritative; printed numbers noted separately. OCR is navigation, specified images manually read.",
+  "sources": {
+    "BP": {
+      "path": "sources/raw/Target_object_BP500.pdf",
+      "sha256": "bf7276191a73b3d9a22ef516316bc59aac5d12fd708a7adc454bd6d9da4bec0c",
+      "PDF_pages": 5,
+      "substantive_read_pages": [
+        2,
+        3,
+        4
+      ],
+      "visually_read_pages": [
+        3,
+        4
+      ],
+      "identity_and_scope": "BP500 / UMP Technika, локальный рекламный документ; не внутренний чертёж/контроллер",
+      "other_pages": "navigation only or NOT_READ; no claim of complete technical review",
+      "extraction": "pdftotext -layout plus specified visual pages"
+    },
+    "WE": {
+      "path": "sources/raw/additional_Weima200.pdf",
+      "sha256": "477fcb54af5f7210afc9640137391fbb97a950be41daa52cc7d8b601e4f5e135",
+      "PDF_pages": 41,
+      "substantive_read_pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        18,
+        19,
+        20,
+        21,
+        33,
+        35,
+        36
+      ],
+      "visually_read_pages": [
+        7,
+        18,
+        33,
+        35,
+        36
+      ],
+      "identity_and_scope": "WEIMA th200 Galant 1; hydraulic sheet th200–th200S Rev.0, electrical Rev.1; совместимость исполнений не удостоверена",
+      "other_pages": "navigation only or NOT_READ; no claim of complete technical review",
+      "extraction": "pdftotext -layout plus specified visual pages"
+    },
+    "PR": {
+      "path": "sources/raw/additional_Prodeco_E55.pdf",
+      "sha256": "27d27b7e41247e1098531204581953e6cba388ec918418fa2ee64891bda4cc87",
+      "PDF_pages": 43,
+      "substantive_read_pages": [
+        4,
+        5,
+        7,
+        14,
+        15,
+        30,
+        31,
+        32,
+        33
+      ],
+      "visually_read_pages": [
+        5,
+        14,
+        30,
+        33
+      ],
+      "identity_and_scope": "PRODECO E55, use/maintenance manual, wood-relevant conditions; not REV",
+      "other_pages": "navigation only or NOT_READ; no claim of complete technical review",
+      "extraction": "pdftotext -layout plus specified visual pages"
+    },
+    "AR": {
+      "path": "sources/raw/additional_Ars_Rst_500.pdf",
+      "sha256": "631b7186c7f2d38251625b77a70e790d2c257cdeb1dd3343befe3783cd983c40",
+      "PDF_pages": 46,
+      "substantive_read_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "visually_read_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "identity_and_scope": "ARS RST 500-1025, June 15 2001, mixed scrap/chips machine; not a wood-only equivalent",
+      "other_pages": "navigation only or NOT_READ; no claim of complete technical review",
+      "extraction": "OCR navigation then visual reading"
+    }
+  },
+  "claims": {
+    "BP-FEED": {
+      "source": "BP",
+      "pages": [
+        3,
+        4
+      ],
+      "locator": "Technical highlights: Electricals / Vertical column / Material infeed",
+      "short_quote": "Material infeed amount is adjustable.",
+      "described_solution": "Подача шнеком/мешалкой, уровень бункера и пауза/возобновление; вертикальное предварительное уплотнение контролируется по давлению и расстоянию.",
+      "applicability": "Функции конкретного BP500; сухая биомасса и квалификация прочих материалов по изготовителю.",
+      "not_proven_for_REV": "Нет описания полного механизма отсечения, пустого канала A, отпирания B или полной циклограммы."
+    },
+    "BP-BOUNDARY": {
+      "source": "BP",
+      "pages": [
+        3,
+        4
+      ],
+      "locator": "Hydraulics / Main compaction / Throughput",
+      "short_quote": "Throughput of the machine depends on material and machine parameters.",
+      "described_solution": "Гидросистема и контроль прессования/производительности описаны на уровне границ и заявлений.",
+      "applicability": "Максимум давления масла не воздействие на материал; буквальные kg/cm² неоднозначны, грань/ходы не заданы; масса/длина/частота не произвольные независимые данные REV.",
+      "not_proven_for_REV": "Не основание чисел штока/насоса/продолжительности/совмещений REV; рекламная частота не циклограмма."
+    },
+    "WE-USE": {
+      "source": "WE",
+      "pages": [
+        7
+      ],
+      "locator": "printed p.6: Bestimmungsgemäße Verwendung / Gewährleistung",
+      "short_quote": "Holz und ähnlichen Werkstoffen",
+      "described_solution": "Древесина/сходные материалы, материалозависимая влажность и ограничения загрязнений.",
+      "applicability": "th200 Galant 1; применимость к фактической подготовленной смеси REV и базе влажности UNKNOWN.",
+      "not_proven_for_REV": "Не объединять интервал влажности с другими аналогами в рабочую норму."
+    },
+    "WE-START": {
+      "source": "WE",
+      "pages": [
+        18
+      ],
+      "locator": "printed p.17: Inbetriebnahme / Autom. Betrieb",
+      "short_quote": "Stand-by Betrieb",
+      "described_solution": "Пуск в Hand, затем Auto/standby; автоматическое включение по уровню материала и регулируемый выбег при его снижении.",
+      "applicability": "Это описание режима конкретного WEIMA, а не доказательство состояний рабочего органа REV.",
+      "not_proven_for_REV": "В прочитанном разделе не найдена квалифицированная процедура создания/удержания первоначального столба в пустом канале REV."
+    },
+    "WE-HYD": {
+      "source": "WE",
+      "pages": [
+        33
+      ],
+      "locator": "Hydraulikplan HS-4-01-006 Rev.0, Blatt 1",
+      "short_quote": "Zangenzylinder / Presszylinder / Füllzylinder",
+      "described_solution": "Раздельные цилиндры зажима, прессования, заполнения на общей гидравлической схеме; клапаны и pressure switches.",
+      "applicability": "Лист подписан th200–th200S, не подтверждение конкретного serial/config REV; численные ratings/уставки не переносятся.",
+      "not_proven_for_REV": "Схема не доказывает реальную силу удержания/ход зажима/свойства материала или полный PLC-порядок REV."
+    },
+    "WE-IO": {
+      "source": "WE",
+      "pages": [
+        35,
+        36
+      ],
+      "locator": "ES-4-01-073 Rev.1, Blatt 2/3 и 3/3",
+      "short_quote": "Presszylinder vor / zurück; Füllzylinder vor / zurück; Zange auf",
+      "described_solution": "Концевые положения и реле давления представлены отдельными входами; выходы пресс/подача/зажим разделены.",
+      "applicability": "Это наблюдаемость/команды аналога, не сертифицированная схема управления REV и не полный прочитанный PLC program.",
+      "not_proven_for_REV": "Нельзя заменить реальные подтверждения таймером сцены или объявить fail-safe удержание по одному символу."
+    },
+    "PR-FEED": {
+      "source": "PR",
+      "pages": [
+        5,
+        30
+      ],
+      "locator": "§2.2; §12.1.1 Loading",
+      "short_quote": "completely shut",
+      "described_solution": "Подающая коробка перемещает материал; основной пресс начинает фазу после конца хода полностью закрытой коробки.",
+      "applicability": "E55, своя геометрия feed box; независимый затвор REV — только функциональная замена при доказанном отсечении/свободном пути.",
+      "not_proven_for_REV": "Не задана подача REV; возврат REV дозатора и закрытие затвора не становятся допустимыми одновременно по этой цитате."
+    },
+    "PR-HOLD": {
+      "source": "PR",
+      "pages": [
+        5
+      ],
+      "locator": "§2.4 Press tongs",
+      "short_quote": "stop the material exiting during the plunger-return phase",
+      "described_solution": "Разрезная втулка/гидравлические клещи удерживают материал при возврате пуансона.",
+      "applicability": "E55; материал и состояние по §9.1; размер втулки и давление не масштабируются в прямоугольный REV.",
+      "not_proven_for_REV": "Нет доказанной удерживающей способности/контактов REV и инструкции заполнения пустого A."
+    },
+    "PR-CYCLE": {
+      "source": "PR",
+      "pages": [
+        30
+      ],
+      "locator": "§12.1.2–3 Compaction / Return phase",
+      "short_quote": "The box slide and the plunger perform the return stroke simultaneously.",
+      "described_solution": "При ходе прессования противодействуют регулируемые по материалу клещи; конечный выключатель запускает возврат; коробка/плунжер возвращаются совместно, связанный диск подаёт следующую порцию.",
+      "applicability": "У конкретного E55 механизм колеса связан с плунжером; это не свободное совмещение произвольных приводов REV.",
+      "not_proven_for_REV": "Нельзя копировать одновременность без swept volumes/ресурсной проверки и следующей дозы; не подтверждена требуемая сила/скорость REV."
+    },
+    "PR-USE": {
+      "source": "PR",
+      "pages": [
+        14
+      ],
+      "locator": "§9.1–9.2",
+      "short_quote": "Nails, pieces of iron or metal material",
+      "described_solution": "Сырьё/влажность ограничены; металлические включения запрещены из-за заклинивания коробки/втулки.",
+      "applicability": "Древесные sawdust cases E55; фактическая смесь/подготовка REV должна быть отдельно квалифицирована.",
+      "not_proven_for_REV": "Не разрешение смеси строительных отходов и не общая норма безопасности/влажности для всех аналогов."
+    },
+    "PR-SET": {
+      "source": "PR",
+      "pages": [
+        33
+      ],
+      "locator": "§12.6 Operating parameters",
+      "short_quote": "When light material is used",
+      "described_solution": "Настройки давления зажима/насоса и открытия коробки в своём материальном/машинном контексте.",
+      "applicability": "E55; значения и указанное без единицы setting pressure switch не получают единицу/статус REV автоматически.",
+      "not_proven_for_REV": "Не переносить source pressure/открытие в REV и не приравнивать давление тисков к воздействию на сырьё."
+    },
+    "AR-USE": {
+      "source": "AR",
+      "pages": [
+        4,
+        5
+      ],
+      "locator": "printed p.3–4, §4.6–4.7",
+      "short_quote": "The machine can briquette the material listed in the Item 4.6 only.",
+      "described_solution": "Перечень допускает разные стружки/сwarf/опилки, но другие материалы/крупные куски не разрешены.",
+      "applicability": "Именно RST500-1025; закрытая камера с другой геометрией/материалами, нет эквивалентности подготовленной смеси REV.",
+      "not_proven_for_REV": "Числа давления/производительности/диаметра/реологии и свойства стружки не становятся данными древесного REV."
+    },
+    "AR-TOPO": {
+      "source": "AR",
+      "pages": [
+        5,
+        6,
+        7
+      ],
+      "locator": "printed p.4–6, §5.1.1–5.1.4",
+      "short_quote": "MAIN CYLINDER PARTIALLY EXTENDED",
+      "described_solution": "Gather box предварительно уплотняет; главный цилиндр имеет отдельные положения retract/partial/full; дверь имеет OPEN/CLOSED; мешалка связана с возвратом главного цилиндра.",
+      "applicability": "Многоприводная/ступенчатая гидросистема RST, не схема REV.",
+      "not_proven_for_REV": "Источник не задаёт отдельный замок B как в CAD; отпирание/силовая реакция REV UNKNOWN."
+    },
+    "AR-HOME": {
+      "source": "AR",
+      "pages": [
+        8,
+        15
+      ],
+      "locator": "printed p.7/14; HOME lamp / §9.1.1.A",
+      "short_quote": "the main cylinder is fully retracted",
+      "described_solution": "HOME — главный и gather цилиндры возвращены, дверь закрыта; перед Auto требуют HOME, при отсутствии — восстановление исходного состояния.",
+      "applicability": "Описание конкретной машины, sensor/механизм REV не определён; дверь шкафа с disconnect lock не путать с прессовой дверью.",
+      "not_proven_for_REV": "Набор признаков аналогичен требуемому контракту READY, не доказательство контроля REV или допустимости закрытия на продукте."
+    },
+    "AR-CYCLE": {
+      "source": "AR",
+      "pages": [
+        16,
+        17
+      ],
+      "locator": "printed p.15–16, Description + automatic sequence diagram",
+      "short_quote": "it continues to gather material before ejecting a briquette",
+      "described_solution": "Если давление не достигнуто до partial extend, выполняется повторный набор; ветвь pressure switch включает короткий retract, открытие двери, дальнейшее выталкивание, затем retract main/gather и закрытие двери.",
+      "applicability": "Схема RST; порядок при одновременных событиях/реальная unloading dynamics не выводятся сверх диаграммы.",
+      "not_proven_for_REV": "Указанные в ARS 0.15 s — source-only timer, не критерий нулевой реакции REV. Не разрешает пустой A, не доказывает безопасное отпирание B. Требование источника не работать без материала не переносится как универсальная методика пуска REV."
+    },
+    "AR-PAUSE": {
+      "source": "AR",
+      "pages": [
+        8,
+        18
+      ],
+      "locator": "printed p.7/17: selector / automatic stop",
+      "short_quote": "oil flows from the pump to the tank",
+      "described_solution": "Останов/покой управления отделён от отключения мотора; автоматический стоп/рестарт по уровню, предусмотрен conveyor.",
+      "applicability": "Насос/клапаны/потребители конкретного RST.",
+      "not_proven_for_REV": "Пауза не означает нулевую электрическую мощность REV; транспорт/пуск/другие оси не учтены одним временем main-axis."
+    },
+    "AR-LENGTH": {
+      "source": "AR",
+      "pages": [
+        19
+      ],
+      "locator": "printed p.18, §9.2.4 / §9.3.1",
+      "short_quote": "limit switch for the opening of the gather cylinder",
+      "described_solution": "Регулирование длины связано с открытием gather/дозой; перед новым материалом регулируют свойства/длину.",
+      "applicability": "Свой конкретный материал/машина/ограничение длины; не ход выдачи REV.",
+      "not_proven_for_REV": "Не смешивать настройки подачи/длины брикета с прессовым/выдающим/возвратным ходом."
+    }
+  },
+  "limits": "No complete-manual, manufacturer-authenticity, hydraulic/PLC qualification or applicability approval asserted."
+}

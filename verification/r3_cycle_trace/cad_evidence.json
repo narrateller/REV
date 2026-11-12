@@ -1,0 +1,7110 @@
+{
+  "CAD_C": "3591a5f92f78b1edea07d3fc5354fd0a99090798",
+  "calculation_C": "c115f75fd900525d9ddc89d85e097ac5a0f00bc1",
+  "input_blob_sha256": {
+    "cad/build/calculated_layout/A/scenes.json.gz": "85f1ec766d5c9bb4972dd4582b9f3214fe62caebe3913ba196ccbe9f87831580",
+    "cad/build/calculated_layout/A/results.json": "b7e478c350ab51fdad7d3ffe6723cfca492f5239a7fc7d5bae4412e3b0f60744",
+    "cad/calculated_layout/inputs.BASE_A.json": "cee05532b3fccaf4ab1d987991e09c6dfe82bf4cf4d80e65fcce5eda0080027f",
+    "cad/build/calculated_layout/A/manifest.json": "c8f448bab3bbaffa1be86d722263b45317e35c1e0c6b9c942fc1adf673f3eb06",
+    "cad/build/calculated_layout/B/scenes.json.gz": "50b4fb8f4d7cce1be0af3556e6047b1b72c10a7bbd2d1118f321f1d6da7c10a4",
+    "cad/build/calculated_layout/B/results.json": "b36bae7d9f57bf4f2ce99323907e674636444318193b59fc2a037d6622d4bce7",
+    "cad/calculated_layout/inputs.BASE_B.json": "05d7b981dbae1d93705676bd7898a5aed610114dbef566effa5da701138c387c",
+    "cad/build/calculated_layout/B/manifest.json": "48c490d45d069ade3c75a46e8c9fbc9b3c874a6695c75892c46d3091da09d5ac",
+    "verification/r4_calculated_layout/functional_interfaces.json": "cd4b0b211e640e0049bcb6b9a35cf729eb746fc92e1e310f226cae9063a367ab"
+  },
+  "variants": {
+    "A": {
+      "source_paths": {
+        "scenes": "cad/build/calculated_layout/A/scenes.json.gz",
+        "results": "cad/build/calculated_layout/A/results.json",
+        "inputs": "cad/calculated_layout/inputs.BASE_A.json",
+        "manifest": "cad/build/calculated_layout/A/manifest.json"
+      },
+      "summary": {
+        "product_rear_after_eject": "2291/3600",
+        "r3_nominal_exit": "2183/3600",
+        "actual_CAD_exit": "1207/720",
+        "fixed_budget_interval": [
+          "3",
+          "22868807252232791/400000000000000"
+        ],
+        "fixed_budget_duration": "21668807252232791/400000000000000",
+        "registered_fixed_budget_cycle": "2166880725223279/40000000000000",
+        "full_diagnostic_duration": "23668807252232791/400000000000000",
+        "nominal_return": "RESTORED_TOOLS_ONLY",
+        "READY": "NOT_CONFIRMED",
+        "product_removed": false,
+        "B_open_permission": "NOT_APPLICABLE",
+        "scope": "rigid preformed-product surrogate, no real compression, no controller or physical transition permission"
+      },
+      "config": {
+        "exit_A": {
+          "id": "ASSUMED-LAYOUT-CL-A-EXIT-A",
+          "value": "1207/720",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "R3-linked conditional geometry; see derivation and source refs",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.exit_A",
+          "scope": [
+            "BASE_A fixed-budget research only"
+          ],
+          "author_session": "r4-linked-20261111",
+          "derivation": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
+          "source_refs": [
+            "verification/r3_parametric_sizing/results/BASE_A.json",
+            "verification/r3_power_reconcile/results/BASE_A.json"
+          ],
+          "source_lifecycle": "CALCULATED_FROM_ASSUMED"
+        },
+        "open_stop_y": {
+          "id": "ASSUMED-LAYOUT-OPEN-STOP-Y",
+          "value": "0.7",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "independent illustrative research choice, not REV or COTS",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.open_stop_y",
+          "scope": [
+            "both"
+          ],
+          "author_session": "r4-linked-20261111"
+        },
+        "open_lock_y": {
+          "id": "ASSUMED-LAYOUT-OPEN-LOCK-Y",
+          "value": "0.85",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "independent illustrative research choice, not REV or COTS",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.open_lock_y",
+          "scope": [
+            "both"
+          ],
+          "author_session": "r4-linked-20261111"
+        },
+        "gate_isolate_y": {
+          "id": "ASSUMED-LAYOUT-CL-A-GATE-ISOLATE-Y",
+          "value": "-9/50",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "R3-linked conditional geometry; see derivation and source refs",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.gate_isolate_y",
+          "scope": [
+            "BASE_A fixed-budget research only"
+          ],
+          "author_session": "r4-linked-20261111",
+          "derivation": "Working transverse feeder motion follows explicit feeder Y transform",
+          "source_refs": [
+            "verification/r3_parametric_sizing/results/BASE_A.json",
+            "verification/r3_power_reconcile/results/BASE_A.json"
+          ],
+          "source_lifecycle": "CALCULATED_FROM_ASSUMED"
+        },
+        "doser_fill_y": {
+          "id": "ASSUMED-LAYOUT-CL-A-DOSER-FILL-Y",
+          "value": "-9/80",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "R3-linked conditional geometry; see derivation and source refs",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.doser_fill_y",
+          "scope": [
+            "BASE_A fixed-budget research only"
+          ],
+          "author_session": "r4-linked-20261111",
+          "derivation": "Working transverse feeder motion follows explicit feeder Y transform",
+          "source_refs": [
+            "verification/r3_parametric_sizing/results/BASE_A.json",
+            "verification/r3_power_reconcile/results/BASE_A.json"
+          ],
+          "source_lifecycle": "CALCULATED_FROM_ASSUMED"
+        },
+        "phase_duration": {
+          "id": "ASSUMED-LAYOUT-PHASE-DURATION",
+          "value": "1",
+          "unit": "s",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "independent illustrative research choice, not REV or COTS",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.phase_duration",
+          "scope": [
+            "both"
+          ],
+          "author_session": "r4-linked-20261111"
+        }
+      },
+      "exact_geometry": {
+        "CHAMBER_LENGTH": "83/144",
+        "OCCUPIED_LENGTH": "83/180",
+        "APPROACH_STROKE": "83/720",
+        "WORK_STROKE": "79/225",
+        "EJECT_STROKE": "17/100",
+        "RETURN_STROKE": "2291/3600"
+      },
+      "phases": {
+        "A-READY": {
+          "time": [
+            "0",
+            "1"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        },
+        "A-FILL": {
+          "time": [
+            "1",
+            "2"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "-9/80",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "doser_slide"
+          ]
+        },
+        "A-ISOLATE": {
+          "time": [
+            "2",
+            "3"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "-9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "63/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "9/80",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "-9/50",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "doser_slide",
+            "inlet_gate"
+          ]
+        },
+        "A-APPROACH": {
+          "time": [
+            "3",
+            "735470808724521/62500000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "83/720",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "83/720",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "punch",
+            "rod"
+          ]
+        },
+        "A-WORK": {
+          "time": [
+            "735470808724521/62500000000000",
+            "19235768440452453/500000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "79/225",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-97/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/720",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "79/225",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-493/720",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "-97/720",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "79/225",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "product_A",
+            "punch",
+            "rod"
+          ]
+        },
+        "A-HOLD": {
+          "time": [
+            "19235768440452453/500000000000000",
+            "19735768440452453/500000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        },
+        "A-AUX": {
+          "time": [
+            "19735768440452453/500000000000000",
+            "20235768440452453/500000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        },
+        "A-EJECT": {
+          "time": [
+            "20235768440452453/500000000000000",
+            "17912544120725179/400000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "17/100",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "17/100",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "17/100",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "product_A",
+            "punch",
+            "rod"
+          ]
+        },
+        "A-RETURN": {
+          "time": [
+            "17912544120725179/400000000000000",
+            "22868807252232791/400000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "1391/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2291/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "-2291/3600",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-589/3600",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "1391/3600",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "-2291/3600",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "punch",
+            "rod"
+          ]
+        },
+        "A-RESET-INLET": {
+          "time": [
+            "22868807252232791/400000000000000",
+            "23268807252232791/400000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "9/50",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "inlet_gate"
+          ]
+        },
+        "A-READY-PROBE": {
+          "time": [
+            "23268807252232791/400000000000000",
+            "23668807252232791/400000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_left": {
+              "lo": [
+                "83/144",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "channel_right": {
+              "lo": [
+                "83/144",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1207/720",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_L": {
+              "lo": [
+                "667/720",
+                "-19/50",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "-6/25",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "clamp_R": {
+              "lo": [
+                "667/720",
+                "6/25",
+                "-7/25"
+              ],
+              "hi": [
+                "191/144",
+                "19/50",
+                "7/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_A": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3098519137108271/40000000000000000",
+                "-3098519137108271/40000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3098519137108271/40000000000000000",
+                "3098519137108271/40000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        }
+      },
+      "author_reported_positive_pairs": [
+        {
+          "phase": "A-WORK",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-WORK",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-WORK",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-WORK",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-WORK",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-WORK",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-HOLD",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-HOLD",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-HOLD",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-HOLD",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-HOLD",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-HOLD",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-AUX",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-AUX",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-AUX",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-AUX",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-AUX",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-AUX",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "chamber_top_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "pocket_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-EJECT",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "chamber_top_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "pocket_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "A-RETURN",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        }
+      ],
+      "author_reported_geometry": "BLOCKED",
+      "checks_on_recorded_coordinates": {
+        "rear_short_of_preserved_CAD_exit": true,
+        "rear_passes_simplified_R3_plane": true,
+        "full_diagnostic_duration_exceeds_main_axis_budget": true,
+        "material_state_is_preformed_product": true,
+        "no_product_remove_event": true
+      },
+      "native_rerun": "NOT_RUN; preserved author witnesses only, not independent BRep validation"
+    },
+    "B": {
+      "source_paths": {
+        "scenes": "cad/build/calculated_layout/B/scenes.json.gz",
+        "results": "cad/build/calculated_layout/B/results.json",
+        "inputs": "cad/calculated_layout/inputs.BASE_B.json",
+        "manifest": "cad/build/calculated_layout/B/manifest.json"
+      },
+      "summary": {
+        "product_rear_after_eject": "2291/3600",
+        "r3_nominal_exit": "2183/3600",
+        "actual_CAD_exit": "523/720",
+        "fixed_budget_interval": [
+          "3",
+          "57153972872986219/1000000000000000"
+        ],
+        "fixed_budget_duration": "54153972872986219/1000000000000000",
+        "registered_fixed_budget_cycle": "6769246609123277/125000000000000",
+        "full_diagnostic_duration": "61153972872986219/1000000000000000",
+        "nominal_return": "RESTORED_TOOLS_ONLY",
+        "READY": "NOT_CONFIRMED",
+        "product_removed": false,
+        "B_open_permission": "INDETERMINATE",
+        "scope": "rigid preformed-product surrogate, no real compression, no controller or physical transition permission"
+      },
+      "config": {
+        "exit_B": {
+          "id": "ASSUMED-LAYOUT-CL-B-EXIT-B",
+          "value": "523/720",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "R3-linked conditional geometry; see derivation and source refs",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.exit_B",
+          "scope": [
+            "BASE_B fixed-budget research only"
+          ],
+          "author_session": "r4-linked-20261111",
+          "derivation": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
+          "source_refs": [
+            "verification/r3_parametric_sizing/results/BASE_B.json",
+            "verification/r3_power_reconcile/results/BASE_B.json"
+          ],
+          "source_lifecycle": "CALCULATED_FROM_ASSUMED"
+        },
+        "open_stop_y": {
+          "id": "ASSUMED-LAYOUT-OPEN-STOP-Y",
+          "value": "0.7",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "independent illustrative research choice, not REV or COTS",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.open_stop_y",
+          "scope": [
+            "both"
+          ],
+          "author_session": "r4-linked-20261111"
+        },
+        "open_lock_y": {
+          "id": "ASSUMED-LAYOUT-OPEN-LOCK-Y",
+          "value": "0.85",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "independent illustrative research choice, not REV or COTS",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.open_lock_y",
+          "scope": [
+            "both"
+          ],
+          "author_session": "r4-linked-20261111"
+        },
+        "gate_isolate_y": {
+          "id": "ASSUMED-LAYOUT-CL-B-GATE-ISOLATE-Y",
+          "value": "-9/50",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "R3-linked conditional geometry; see derivation and source refs",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.gate_isolate_y",
+          "scope": [
+            "BASE_B fixed-budget research only"
+          ],
+          "author_session": "r4-linked-20261111",
+          "derivation": "Working transverse feeder motion follows explicit feeder Y transform",
+          "source_refs": [
+            "verification/r3_parametric_sizing/results/BASE_B.json",
+            "verification/r3_power_reconcile/results/BASE_B.json"
+          ],
+          "source_lifecycle": "CALCULATED_FROM_ASSUMED"
+        },
+        "doser_fill_y": {
+          "id": "ASSUMED-LAYOUT-CL-B-DOSER-FILL-Y",
+          "value": "-9/80",
+          "unit": "m",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "R3-linked conditional geometry; see derivation and source refs",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.doser_fill_y",
+          "scope": [
+            "BASE_B fixed-budget research only"
+          ],
+          "author_session": "r4-linked-20261111",
+          "derivation": "Working transverse feeder motion follows explicit feeder Y transform",
+          "source_refs": [
+            "verification/r3_parametric_sizing/results/BASE_B.json",
+            "verification/r3_power_reconcile/results/BASE_B.json"
+          ],
+          "source_lifecycle": "CALCULATED_FROM_ASSUMED"
+        },
+        "phase_duration": {
+          "id": "ASSUMED-LAYOUT-PHASE-DURATION",
+          "value": "1",
+          "unit": "s",
+          "status": "ASSUMED",
+          "revision": 1,
+          "source": "independent illustrative research choice, not REV or COTS",
+          "uncertainty": "not established; exact nominal for this synthetic calculation",
+          "tolerance": null,
+          "purpose": "config.phase_duration",
+          "scope": [
+            "both"
+          ],
+          "author_session": "r4-linked-20261111"
+        }
+      },
+      "exact_geometry": {
+        "CHAMBER_LENGTH": "83/144",
+        "OCCUPIED_LENGTH": "83/180",
+        "APPROACH_STROKE": "83/720",
+        "WORK_STROKE": "79/225",
+        "EJECT_STROKE": "17/100",
+        "RETURN_STROKE": "2291/3600"
+      },
+      "phases": {
+        "B-READY": {
+          "time": [
+            "0",
+            "1"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        },
+        "B-FILL": {
+          "time": [
+            "1",
+            "2"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "-9/80",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "doser_slide"
+          ]
+        },
+        "B-ISOLATE": {
+          "time": [
+            "2",
+            "3"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "-9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "63/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "9/80",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "-9/50",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "doser_slide",
+            "inlet_gate"
+          ]
+        },
+        "B-APPROACH": {
+          "time": [
+            "3",
+            "11596449940509837/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "83/720",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "83/720",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "punch",
+            "rod"
+          ]
+        },
+        "B-WORK": {
+          "time": [
+            "11596449940509837/1000000000000000",
+            "37779372168954257/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "83/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "811/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "79/225",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-97/720",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/720",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "79/225",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-493/720",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-97/720",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "79/225",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "product_B",
+            "punch",
+            "rod"
+          ]
+        },
+        "B-HOLD": {
+          "time": [
+            "37779372168954257/1000000000000000",
+            "38779372168954257/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        },
+        "B-UNLOAD": {
+          "time": [
+            "38779372168954257/1000000000000000",
+            "39779372168954257/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        },
+        "B-OPEN-LOCK": {
+          "time": [
+            "39779372168954257/1000000000000000",
+            "40279372168954257/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "17/20",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "lock"
+          ]
+        },
+        "B-OPEN-STOP": {
+          "time": [
+            "40279372168954257/1000000000000000",
+            "40779372168954257/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "7/10",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "53/100",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "117/100",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "end_stop"
+          ]
+        },
+        "B-EJECT": {
+          "time": [
+            "40779372168954257/1000000000000000",
+            "45005096958988009/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "23/50",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "47/50",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "53/100",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "117/100",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "1679/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "17/100",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "779/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "1679/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "17/100",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-1201/3600",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "779/3600",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "17/100",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "product_B",
+            "punch",
+            "rod"
+          ]
+        },
+        "B-RETURN": {
+          "time": [
+            "45005096958988009/1000000000000000",
+            "57153972872986219/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "23/50",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "47/50",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "53/100",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "117/100",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "1391/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2291/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "-2291/3600",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-589/3600",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "1391/3600",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "-2291/3600",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "punch",
+            "rod"
+          ]
+        },
+        "B-RESET-STOP": {
+          "time": [
+            "57153972872986219/1000000000000000",
+            "58153972872986219/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "23/50",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "47/50",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "-7/10",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "53/100",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "117/100",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "end_stop"
+          ]
+        },
+        "B-RESET-LOCK": {
+          "time": [
+            "58153972872986219/1000000000000000",
+            "59153972872986219/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "53/100",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "117/100",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "-17/20",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "lock"
+          ]
+        },
+        "B-RESET-INLET": {
+          "time": [
+            "59153972872986219/1000000000000000",
+            "60153972872986219/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "-3/40",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "3/40",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "9/50",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": [
+            "inlet_gate"
+          ]
+        },
+        "B-READY-PROBE": {
+          "time": [
+            "60153972872986219/1000000000000000",
+            "61153972872986219/1000000000000000"
+          ],
+          "permission": "CONDITIONAL_DIAGNOSTIC_ONLY_NOT_PHYSICAL_AUTHORIZATION",
+          "bodies": {
+            "chamber_bottom": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-9/250"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "-3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_left": {
+              "lo": [
+                "0",
+                "-9/100",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "-3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "chamber_right": {
+              "lo": [
+                "0",
+                "3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "83/144",
+                "9/100",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "doser_slide": {
+              "lo": [
+                "83/792",
+                "9/160",
+                "33/50"
+              ],
+              "hi": [
+                "83/264",
+                "153/800",
+                "39/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "end_stop": {
+              "lo": [
+                "83/144",
+                "-6/25",
+                "-6/25"
+              ],
+              "hi": [
+                "487/720",
+                "6/25",
+                "6/25"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "inlet_gate": {
+              "lo": [
+                "83/792",
+                "21/200",
+                "317/4750"
+              ],
+              "hi": [
+                "83/264",
+                "51/200",
+                "229/1900"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "lock": {
+              "lo": [
+                "487/720",
+                "-8/25",
+                "-9/50"
+              ],
+              "hi": [
+                "119/144",
+                "8/25",
+                "9/50"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "product_B": {
+              "lo": [
+                "2291/3600",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "2687/3600",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "punch": {
+              "lo": [
+                "-1/4",
+                "-3/40",
+                "-3/100"
+              ],
+              "hi": [
+                "0",
+                "3/40",
+                "3/100"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": true
+            },
+            "rod": {
+              "lo": [
+                "-4/5",
+                "-3835173907146057/50000000000000000",
+                "-3835173907146057/50000000000000000"
+              ],
+              "hi": [
+                "-1/4",
+                "3835173907146057/50000000000000000",
+                "3835173907146057/50000000000000000"
+              ],
+              "delta": [
+                "0",
+                "0",
+                "0"
+              ],
+              "motion": "linear",
+              "exact_box": false
+            }
+          },
+          "moving_bodies": []
+        }
+      },
+      "author_reported_positive_pairs": [
+        {
+          "phase": "B-WORK",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-WORK",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-WORK",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-WORK",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-WORK",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-WORK",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-HOLD",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-HOLD",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-HOLD",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-HOLD",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-HOLD",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-HOLD",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-UNLOAD",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-UNLOAD",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-UNLOAD",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-UNLOAD",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-UNLOAD",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-UNLOAD",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-LOCK",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-LOCK",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-LOCK",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-LOCK",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-LOCK",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-LOCK",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-STOP",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-STOP",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-STOP",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-STOP",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-STOP",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-OPEN-STOP",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "chamber_top_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "pocket_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-EJECT",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "chamber_bottom",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "chamber_left",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "chamber_right",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "chamber_top_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "chamber_top_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "inlet_gate",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "pocket_front",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RETURN",
+          "pair": [
+            "pocket_rear",
+            "rod"
+          ],
+          "class": "NATIVE_PENETRATION_WITNESS"
+        },
+        {
+          "phase": "B-RESET-STOP",
+          "pair": [
+            "end_stop",
+            "product_B"
+          ],
+          "class": "PENETRATION"
+        },
+        {
+          "phase": "B-RESET-LOCK",
+          "pair": [
+            "end_stop",
+            "product_B"
+          ],
+          "class": "PENETRATION"
+        },
+        {
+          "phase": "B-RESET-LOCK",
+          "pair": [
+            "lock",
+            "product_B"
+          ],
+          "class": "PENETRATION"
+        },
+        {
+          "phase": "B-RESET-INLET",
+          "pair": [
+            "end_stop",
+            "product_B"
+          ],
+          "class": "PENETRATION"
+        },
+        {
+          "phase": "B-RESET-INLET",
+          "pair": [
+            "lock",
+            "product_B"
+          ],
+          "class": "PENETRATION"
+        },
+        {
+          "phase": "B-READY-PROBE",
+          "pair": [
+            "end_stop",
+            "product_B"
+          ],
+          "class": "PENETRATION"
+        },
+        {
+          "phase": "B-READY-PROBE",
+          "pair": [
+            "lock",
+            "product_B"
+          ],
+          "class": "PENETRATION"
+        }
+      ],
+      "author_reported_geometry": "BLOCKED",
+      "checks_on_recorded_coordinates": {
+        "rear_short_of_preserved_CAD_exit": true,
+        "rear_passes_simplified_R3_plane": true,
+        "full_diagnostic_duration_exceeds_main_axis_budget": true,
+        "material_state_is_preformed_product": true,
+        "no_product_remove_event": true,
+        "retained_product_intersects_closed_stop_bounds": true
+      },
+      "native_rerun": "NOT_RUN; preserved author witnesses only, not independent BRep validation"
+    }
+  },
+  "functional_interfaces": {
+    "rows": [
+      {
+        "variant": "A",
+        "pair": [
+          "rod",
+          "punch"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "before_contact_area_mm2": 15393.804002589983,
+        "after_contact_area_mm2": 8929.973189501012,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "A",
+        "pair": [
+          "cylinder_mount_rear",
+          "cylinder_barrel"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "before_contact_area_mm2": 152053.08443374597,
+        "after_contact_area_mm2": 152053.08443374597,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "A",
+        "pair": [
+          "clamp_L",
+          "channel_left"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 150.0
+        },
+        "before_contact_area_mm2": 160000.0,
+        "after_contact_area_mm2": 0.0,
+        "classification": "INDETERMINATE_LOST_INTERFACE",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN",
+        "gap_parameter": "R4CL_A_CLAMP_L_GAP"
+      },
+      {
+        "variant": "A",
+        "pair": [
+          "clamp_R",
+          "channel_right"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 150.0
+        },
+        "before_contact_area_mm2": 160000.0,
+        "after_contact_area_mm2": 0.0,
+        "classification": "INDETERMINATE_LOST_INTERFACE",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN",
+        "gap_parameter": "R4CL_A_CLAMP_R_GAP"
+      },
+      {
+        "variant": "A",
+        "pair": [
+          "clamp_L",
+          "clamp_mount"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 250.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 250.0
+        },
+        "before_contact_area_mm2": 0.0,
+        "after_contact_area_mm2": 0.0,
+        "classification": "INDETERMINATE",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "A",
+        "pair": [
+          "clamp_R",
+          "clamp_mount"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 250.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 250.0
+        },
+        "before_contact_area_mm2": 0.0,
+        "after_contact_area_mm2": 0.0,
+        "classification": "INDETERMINATE",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "A",
+        "pair": [
+          "channel_bottom",
+          "chamber_bottom"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "before_contact_area_mm2": 19199.999999999996,
+        "after_contact_area_mm2": 1080.0,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "B",
+        "pair": [
+          "rod",
+          "punch"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 3.552713678800501e-15
+        },
+        "before_contact_area_mm2": 15393.804002589983,
+        "after_contact_area_mm2": 8890.855867475793,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "B",
+        "pair": [
+          "cylinder_mount_rear",
+          "cylinder_barrel"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "before_contact_area_mm2": 152053.08443374597,
+        "after_contact_area_mm2": 152053.08443374597,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "B",
+        "pair": [
+          "end_stop",
+          "lock"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 1.1368683772161603e-13
+        },
+        "before_contact_area_mm2": 172800.0,
+        "after_contact_area_mm2": 172800.0,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "B",
+        "pair": [
+          "lock",
+          "stop_support"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 1.1368683772161603e-13
+        },
+        "before_contact_area_mm2": 43200.0,
+        "after_contact_area_mm2": 43200.0,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      },
+      {
+        "variant": "B",
+        "pair": [
+          "lock",
+          "stop_support_L"
+        ],
+        "before_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 0.0
+        },
+        "after_native": {
+          "status": "SAMPLED_NATIVE_WITNESS",
+          "time": "0",
+          "common_volume_mm3": 0.0,
+          "common_faces": 0,
+          "distance_mm": 1.1368683772161603e-13
+        },
+        "before_contact_area_mm2": 43200.0,
+        "after_contact_area_mm2": 43200.0,
+        "classification": "ALLOWED_CONDITIONAL_MATING",
+        "physical_load_transfer_and_clamp_stroke": "UNKNOWN"
+      }
+    ],
+    "parameters": {
+      "R4CL_A_CLAMP_L_GAP": {
+        "revision": 1,
+        "value": 0.15,
+        "unit": "m",
+        "lifecycle": "CALCULATED",
+        "scope": "ASSUMED_RESEARCH_ONLY_NOT_REV",
+        "formula": "native distToShape(initial synthetic solids) / 1000",
+        "source_parameters": {
+          "channel_left": {
+            "id": "channel_left",
+            "kind": "box",
+            "variant": "A",
+            "group": "channel",
+            "rigid_group": "channel_left",
+            "position": [
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-PX",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-PY",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-PZ"
+            ],
+            "size": [
+              "ASSUMED-LAYOUT-CHANNEL-LEFT-DX",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-DY",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-DZ"
+            ]
+          },
+          "clamp_L": {
+            "id": "clamp_L",
+            "kind": "box",
+            "variant": "A",
+            "group": "clamp",
+            "rigid_group": "clamp_L",
+            "position": [
+              "ASSUMED-LAYOUT-CL-A-CLAMP-L-PX",
+              "ASSUMED-LAYOUT-CLAMP-L-PY",
+              "ASSUMED-LAYOUT-CLAMP-L-PZ"
+            ],
+            "size": [
+              "ASSUMED-LAYOUT-CLAMP-L-DX",
+              "ASSUMED-LAYOUT-CLAMP-L-DY",
+              "ASSUMED-LAYOUT-CLAMP-L-DZ"
+            ]
+          }
+        },
+        "input_sha256": "cee05532b3fccaf4ab1d987991e09c6dfe82bf4cf4d80e65fcce5eda0080027f",
+        "tolerance": null,
+        "uncertainty": null,
+        "physical_truth": "UNKNOWN"
+      },
+      "R4CL_A_CLAMP_R_GAP": {
+        "revision": 1,
+        "value": 0.15,
+        "unit": "m",
+        "lifecycle": "CALCULATED",
+        "scope": "ASSUMED_RESEARCH_ONLY_NOT_REV",
+        "formula": "native distToShape(initial synthetic solids) / 1000",
+        "source_parameters": {
+          "channel_right": {
+            "id": "channel_right",
+            "kind": "box",
+            "variant": "A",
+            "group": "channel",
+            "rigid_group": "channel_right",
+            "position": [
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-PX",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-PY",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-PZ"
+            ],
+            "size": [
+              "ASSUMED-LAYOUT-CHANNEL-RIGHT-DX",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-DY",
+              "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-DZ"
+            ]
+          },
+          "clamp_R": {
+            "id": "clamp_R",
+            "kind": "box",
+            "variant": "A",
+            "group": "clamp",
+            "rigid_group": "clamp_R",
+            "position": [
+              "ASSUMED-LAYOUT-CL-A-CLAMP-R-PX",
+              "ASSUMED-LAYOUT-CLAMP-R-PY",
+              "ASSUMED-LAYOUT-CLAMP-R-PZ"
+            ],
+            "size": [
+              "ASSUMED-LAYOUT-CLAMP-R-DX",
+              "ASSUMED-LAYOUT-CLAMP-R-DY",
+              "ASSUMED-LAYOUT-CLAMP-R-DZ"
+            ]
+          }
+        },
+        "input_sha256": "cee05532b3fccaf4ab1d987991e09c6dfe82bf4cf4d80e65fcce5eda0080027f",
+        "tolerance": null,
+        "uncertainty": null,
+        "physical_truth": "UNKNOWN"
+      }
+    },
+    "calculation": {
+      "script_sha256": "1b3f39af239d70dfc093dc8e71c1b0b63ca2c2514f40bb935e7fbd1cc970fe50",
+      "native_models": {
+        "cad/build/feed_power/B/layout_B.FCStd": "e45d9c9edbd6904271c0a3ffed2fae601bb9a711e50c51bbb8a72005cdbf6d90",
+        "cad/build/feed_power/A/layout_A.FCStd": "d2a358fc112c490deb21f8b10b3f735ecb254bd7bc61a67529b39f47ba55be39",
+        "cad/build/calculated_layout/B/layout_B.FCStd": "0e5ece9029f532bece9b017070ef8b31dca39a3bd15a456923ce400ea1befa96",
+        "cad/build/calculated_layout/A/layout_A.FCStd": "f4252a2082fadf1901f54d7263c9258b1862aeab6156d9cc8c6659f705fd8a9b"
+      }
+    },
+    "scope": "additional functional topology, not a proof of physical force closure",
+    "G1": "OPEN"
+  },
+  "scope": "documentary consistency and exact recorded coordinates; no CAD rebuild/native replay/physical test"
+}
