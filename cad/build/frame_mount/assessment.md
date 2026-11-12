@@ -122,11 +122,10 @@ FCStd/STEP фактически проверены frozen native adapter, вкл
 
 ```bash
 git lfs pull
-/usr/bin/python3 cad/frame_mount/run.py
-/usr/bin/python3 cad/frame_mount/geometry_evidence.py
-/usr/bin/python3 cad/frame_mount/figures.py
-/usr/bin/python3 cad/frame_mount/report.py
+/usr/bin/python3 cad/frame_mount/generate.py
 /usr/bin/python3 cad/frame_mount/verify_output.py
 ```
+
+generate.py — явная команда перестроения/обновления manifest. verify_output.py только читает сохранённый пакет, включая publication manifest, и выводит JSON/stdout с exit code; файлы проверки не обновляет даже при отказе. Исторический final_checks.json относится к исходной редакции. Два последовательных verifier должны иметь одинаковый результат.
 
 FreeCAD 1.0.0/Part и Python 3.13.5; launcher /usr/bin/python3, не падающий freecadcmd. Только входной путь внутри текущего ROOT подтверждён: предупреждение R5 о внешних путях сохраняется. Самостоятельно выбирать новые реальные параметры нельзя. Исходные сохранённые FCStd/STEP не обязаны совпасть побайтно после повторного сохранения (служебные данные); semantic/native соответствие проверяется заново.
