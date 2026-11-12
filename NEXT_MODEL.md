@@ -1,3 +1,21 @@
+# Сквозная проверка цикла A/B — результат на независимый review
+
+**Code/results C `43f03359fabe2b664935b17f9ac7851504093ece`**, опубликован в ветке `work-r3/T-r3-cycle-trace-01/r3-sizing-20261112`. T-r3-cycle-trace-01 IN_REVIEW; owner_session r3-sizing-20261112 / Codex / R3, claim ACCEPTED_MAIN: C 7ec621cb8aa306192536df8598e390daf8726b1d принят PR #41 в main 65dca013833b64b446157c6faf4042643d909451. Lease до 2026-11-13T16:08:52Z (13 ноября 19:08:52 МСК) не продлён; heartbeat 2026-11-12T16:49:05.882240+00:00. Main повторно получена явно с удалённого refs/heads/main; входы не изменились. H — только статус/эстафета, без изменения результата C.
+
+Готовы [единая таблица 20 цепочек A/B](verification/r3_cycle_trace/cycle_table.md), [девять приоритетных OPEN исправлений R4](verification/r3_cycle_trace/r4_priorities.md), [17 source claims/страницы/схемы/условия](verification/r3_cycle_trace/source_ledger.md). Расчёт c115f75fd900525d9ddc89d85e097ac5a0f00bc1 и CAD 3591a5f92f78b1edea07d3fc5354fd0a99090798 сопоставлены по exact Git blobs; CAD-кандидат остаётся отдельным входом, не принят/не интегрирован этим результатом. Материальные ограничения аналогов сохранены; гипотезы ASSUMED, неизвестное UNKNOWN/null.
+
+До перестройки: материальный контракт/пуск A и повторный набор B → интерфейсы дозатора/затвора/пуансона и силовой путь → удержание A либо разгрузка/отпирание/открытие B → фактическая выдача/приём/ход → RESET B → общий ресурсный граф/READY. Для A SHORT_STROKE текущего surrogate не обосновывает автоматическое удлинение хода на весь канал: сначала определить retained column/выходящий сегмент. Сохранённые penetration/interface/reset отрицательные данные не скрыты; независимый native/BRep replay NOT_RUN.
+
+Проверки C: trace links/14 обязательных ячеек/параметры/координаты/DAG PASS, rendered tables PASS, оба R3 readonly replay PASS, registry --check-git PASS, diff --check PASS. 88 расчётных и 45 review-файлов R5 неизменны; четыре PDF hashes match, CAD/генераторы/registry не изменены. Логи/границы — result_checks.json/result_preservation.json и artifacts.sha256 в verification/r3_cycle_trace/. Новый независимый OUTPUT review **NOT_RUN**; [запрос](verification/r3_cycle_trace/review_request.md). Это авторская документальная проверка, не приёмка физического цикла.
+
+Fixed-budget — условная база с caps и увеличенными временами; fixed-times — отдельный неутверждённый ресурс. Полный цикл и B opening INDETERMINATE, схема/утечки/насос/aux UNKNOWN, не ноль. Архитектура/ТЗ/оборудование не утверждены, физические испытания NOT_RUN, G1 OPEN. Новых исправлений расчёта/геометрии нет; их реализация требует следующего согласования/задачи.
+
+Следующий атомарный шаг: независимый R5 проверяет точный C по review_request.md, самостоятельно сверяет первичные страницы и координатные/материальные/ресурсные выводы; затем координатор согласует входы/интерфейсные предложения R4. Не исполнять старое ожидание claim ниже — это история до принятия. Полная капсула: handoffs/T-r3-cycle-trace-01/r3-sizing-20261112.md. Merge автором не выполняется.
+
+---
+
+## История предыдущих состояний и предложений
+
 # Сквозная проверка цикла — новая задача/claim ожидает принятия
 
 Предложение **C `7ec621cb8aa306192536df8598e390daf8726b1d`**, T-r3-cycle-trace-01; role R3 / Codex, proposed owner r3-sizing-20261112, owner_session NONE, READY / PROPOSED_PENDING_MAIN. Полная конкретная постановка — verification/r3_cycle_trace/task.md, состояние/хэши входов — preflight.json. Предложенный отдельный lease указан в задаче; старые claims R3/R4 не расширены и не продлены.
