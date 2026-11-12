@@ -3235,3 +3235,192 @@ supersedes: null
 ### Публикация кандидата RECHECK, не акт приёмки
 
 2026-11-12T21:49:35.686445+00:00; C 4f31ed624336e1101b0ba04857f4316c73e4d375 REMOTE; H только учёт/эстафета. Полный исходный R5 d99afb4 сохранён, прежняя formal record validity STALE из-за новых artifacts, verdict/findings/digests не изменены. 154 checks MATCH, 26 R5 cases corrected, 0 mismatches, 537 readonly files, registry/diff PASS. Новый R5 RECHECK NOT_RUN; B01/W01/W02/CYC/G1 OPEN. Calculations/CAD/rebuild/physical tests NOT_RUN.
+
+
+## REV-R5-R4-CYCLE-CONTRACT-RECHECK-01-001 — адресность отказов и восстановление
+
+Акт: [review.md](../verification/r5_r4_cycle_contract_recheck/review.md). Прямые READY bindings и W01 исправлены в документальной области; B01 OPEN из-за неадресного снятия материального отказа и потери operation ID, W02 OPEN. CYC-02/03 stable contract NO-GO; расчёты/CAD сохранены, G1 OPEN.
+
+```yaml
+record_type: review
+review_id: REV-R5-R4-CYCLE-CONTRACT-RECHECK-01-001
+kind: RECHECK
+task_id: T-r4-cycle-contract-01
+created_at_utc: '2026-11-12T22:10:15.229937Z'
+reviewer:
+  role: R5
+  session_id: 6af41aff-4210-8191-94a3-5d9c4bd75076
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-linked-20261111
+independence_basis: Reviewer не автор исправлений; независимые ожидаемые исходы и составные контрпримеры. Организационная
+  независимость не удостоверена.
+reviewed_commit: 4f31ed624336e1101b0ba04857f4316c73e4d375
+parameter_refs: []
+artifacts:
+- path: verification/r4_cycle_contract/README.md
+  sha256: 1c75dac1f093693f4ed394ca6b23be8a042e04e3bb5d7fdf257004e6ff8923bb
+- path: verification/r4_cycle_contract/action_conditions.md
+  sha256: ac3d5bd4fa9700eec072fb601209c4bfb93d6f81f6b93413678055397942cebb
+- path: verification/r4_cycle_contract/assumptions_unknowns.md
+  sha256: da0774a2a13cd21d74903cc51b0e8cfd5ce764eb9f1b58549865f6d4cbc91c16
+- path: verification/r4_cycle_contract/check_documents.py
+  sha256: 5b58fdfd1b60a5c2271dae0440a37a93bf55974599ee95f6bf067761a0fb5386
+- path: verification/r4_cycle_contract/checks.json
+  sha256: f28c4c1f6b2559594308fb873299288afdbf06fbfdf7684eb6874ab8f0a84d0c
+- path: verification/r4_cycle_contract/claim.md
+  sha256: 1514e649739e94c6dd9621b113ccc5b9cca3be55b5707e28838544e3b10a86a2
+- path: verification/r4_cycle_contract/contract.json
+  sha256: 7c48adc7c72be806df5524d1924e7125267cb470738964556d78fe1bc986fb28
+- path: verification/r4_cycle_contract/document_checks.json
+  sha256: 99d82d5954a980b765e5e1dcb2f8ac806e6d37ce15841fbe2993807db3b721da
+- path: verification/r4_cycle_contract/events.md
+  sha256: 07c75a23c18d4dbb48ed69303639f37790f18be0fefcac247313c002751556ec
+- path: verification/r4_cycle_contract/input_acceptance.json
+  sha256: 7b2048d14e557eb5cffccdafa819a7fe051e2f014b4cf5558dc56b4f25094a56
+- path: verification/r4_cycle_contract/input_audit.md
+  sha256: 8bce2984d29870b24570ae465ce3485672f637132e6d4ea95897fde293a16507
+- path: verification/r4_cycle_contract/integrity_checks.json
+  sha256: c63c4dce2a04189500077ced3353998404f4c92dd2c66cc464251324b27b9007
+- path: verification/r4_cycle_contract/ledger_examples.md
+  sha256: c2ab0d59794f8334a4363863492c05761489ed00a293a22c4dee0de7456f63d2
+- path: verification/r4_cycle_contract/material_contract.md
+  sha256: 38776a369b09f8de4eb4a2867cc287390ee26ee47e1222408d8048dc0fee2bb4
+- path: verification/r4_cycle_contract/permission_examples.py
+  sha256: 3fee23ad5e6ebdec03292242081a68e97feedd7a4fb1ea6f955b623ff6c7140a
+- path: verification/r4_cycle_contract/permissions.md
+  sha256: ac7b4b50bc051bee5301d76d86dbc648be9504bdef108407591c7ac0408aac4e
+- path: verification/r4_cycle_contract/preflight.json
+  sha256: d027e8836f625a47be6d4d85d74123508698ae73b6f22d50931c0d7747e6c065
+- path: verification/r4_cycle_contract/publication_checks.json
+  sha256: a48041d29de81443616a51e56ad6e7b901ad093a398df65c145ac219daef947e
+- path: verification/r4_cycle_contract/questions.json
+  sha256: 24ee611d4233a295ecdbcdeda59d9e400d3f11086a7a46d95bbbda95c1721a84
+- path: verification/r4_cycle_contract/questions.md
+  sha256: 6ff83b22199bef97b656aaef1086ef182b267b5c9c0c5892e87115e86d928230
+- path: verification/r4_cycle_contract/ready_draft.md
+  sha256: b3cfe2136592686eed02462d7b3e7daa0130042bab3c0c242eeb435c02e10fd6
+- path: verification/r4_cycle_contract/resources.json
+  sha256: 1d8d199a15f49d2cd17130292168dba7f387596d60ce84bfecf64129dd6fd450
+- path: verification/r4_cycle_contract/resources_draft.md
+  sha256: ff074caca835b4e33a4bcf4f6dd20b46e7c1f1d8d9120a6086d2f954ec5a051e
+- path: verification/r4_cycle_contract/review_request.md
+  sha256: b6dc14eaf8849b44b21778fed72039d9234b96fee933fa0a1966811243f988b6
+- path: verification/r4_cycle_contract/sequence_examples.json
+  sha256: a60c22c754b48f509c5131b9945a03ac89b73ea8d508466dd917b7fc3c9f4e47
+- path: verification/r4_cycle_contract/task.md
+  sha256: 96bb22b40c2cb1f6112142ea9cfd98bf9c3466ec19bcaf2c75e8feb6ecb8511d
+- path: verification/r4_cycle_contract/traceability.json
+  sha256: 9eb06d9941ae4418036925e8b816508d70797c897f57e897ca7a8d913508cab3
+- path: verification/r4_cycle_contract/traceability.md
+  sha256: e5ff8a4e904c1b0cc92ae71412d97bfec604b54a50bf058982fc660f065e772e
+- path: verification/r4_cycle_contract/transition_examples.json
+  sha256: 584ca25fd6d29fa3af620950c0b145fe1e53e33bc55e6775b022a00d6ee96381
+- path: verification/r4_cycle_contract/transition_examples.md
+  sha256: d0b5217ae39a0fd7b48e0c44afa8efc50d79d47e99b7a9bb3af253b936b33ce9
+- path: verification/r4_cycle_contract_fix/README.md
+  sha256: d54a1573830391ff45f1a7ada2cd998d091bc3dd03cd40a35bdd34248661fd45
+- path: verification/r4_cycle_contract_fix/baseline_probe.json
+  sha256: 0a8fd35239459fbb329392219b237cbb991b2445352620956b062dacf82df4cc
+- path: verification/r4_cycle_contract_fix/causes.md
+  sha256: 68ea1ceda0df7da8aa2e42e1efc60a81a55410d4a22b957e251a599671f0a1c2
+- path: verification/r4_cycle_contract_fix/check_fix.py
+  sha256: 74111b4f72418ee8473ec1ceafd33df1b1c5ba1196e5a474ce557d9aefa06536
+- path: verification/r4_cycle_contract_fix/history.md
+  sha256: c9f9f2327e4a476021c8be42907d246542f75e43960416e3e7c57986c37eca95
+- path: verification/r4_cycle_contract_fix/input_audit.json
+  sha256: 0a9b5385400437da0fedc756f830cb34bc98061cd97f699318f74bd4309483d9
+- path: verification/r4_cycle_contract_fix/input_audit.md
+  sha256: b706b849c9ea57ca5e9e84e96b6a808072cfaabe5b52ae87a2020df59eb56109
+- path: verification/r4_cycle_contract_fix/integrity_checks.json
+  sha256: 4f16bafc5549be5232867b54f0e0b42d2cc47b6099bcc66534cc8653d445ff24
+- path: verification/r4_cycle_contract_fix/publication_checks.json
+  sha256: b80db39ada2838a31ac9890dea67e972bd7b813a74d9b557bf58c970d8957a97
+- path: verification/r4_cycle_contract_fix/recheck_request.md
+  sha256: 0f7d508f61bb155e2d3f6195bd513ecb1c75886da22f65ffcdf9a0856cd31dfe
+- path: verification/r4_cycle_contract_fix/results.json
+  sha256: fa2372aaf652a85575fd1bd4b0bc4b6d40618bee66c53e0b569b7c75f09b39f4
+scope: Документальный RECHECK разрешений/READY, актуальности, распространения и адресного восстановления; физика,
+  контроллер, entity-level mass engine и CAD не принимаются.
+checks:
+- id: CHK-CC-RC-ORIGINAL26
+  method: Независимая интервальная трёхзначная conjunction; исходный probe только на старых blobs.
+  expected: Сохранить 16 правильных исходов и исправить 10 прежних ошибок.
+  observed: 26/26 на новом C; historical baseline воспроизвёл 10/26 расхождений.
+  reasoning: Проверка заданной документальной семантики, не физических guards.
+  result: PASS
+- id: CHK-CC-RC-READY
+  method: Прочтение helper/JSON/таблицы и 12 state/target bindings всех 44 переходов.
+  expected: Обязательные READY conditions включены в entry; completion не требуется заранее.
+  observed: Bindings включены, прямые UNKNOWN/FALSE случаи исправлены; 154 авторских checks повторены дважды.
+  reasoning: Успех авторских regression не покрывает новую память отказов.
+  result: PASS
+- id: CHK-CC-RC-FAULT-SUBJECT
+  method: Известный отказ material-1, аудит unrelated-material-2 в новой партии, затем сверка истории.
+  expected: Чужое evidence не закрывает исходный отказ; history BLOCKED.
+  observed: ALLOWED_ASSUMED очищает LEDGER_VALID, затем DEPENDENCY_VALID; inventory_refs material-1 сохранены.
+  reasoning: Fault не хранит предметную область; recover сравнивает proof с новым context и pop по guard.
+  result: FAIL
+- id: CHK-CC-RC-REJECTED-ID
+  method: Реально отклонить A и B через evaluate/propagate, повторить A с новым обычным evidence.
+  expected: A остаётся BLOCKED, новый уникальный audit ID допустим.
+  observed: 'A получает ALLOWED_ASSUMED: одиночный слот EVENT_FRESH перезаписан B. Новый уникальный audit ID
+    также допустим.'
+  reasoning: Постоянство отклонения ID по failure_scope не обеспечено.
+  result: FAIL
+- id: CHK-CC-RC-RECOVERY
+  method: Частичное/неизвестное B восстановление и полный адресный путь той же сущности.
+  expected: Без логического круга, неизвестное не разрешает, открытые причины не амнистируются.
+  observed: В корректном same-subject пути цель восстанавливается, затем history/next; partial/unknown не продвигаются,
+    неизвестный ресурс новой B-LOAD остаётся INDETERMINATE.
+  reasoning: Это условная логическая возможность, не доказательство физического восстановления.
+  result: PASS
+- id: CHK-CC-RC-PRESERVATION
+  method: Git trees/blobs и SHA/size/mtime до/после.
+  expected: Расчёты/CAD/старый R5 неизменны; неизвестные ресурсы не нули.
+  observed: 11 main trees, candidate CAD trees, 17 blobs, 537 integrity hashes, 543 files неизменны; resources
+    20 rows/240 null; old R5 tree неизменён.
+  reasoning: Сохранность, не новая инженерная приёмка.
+  result: PASS
+findings:
+- id: R5-CC-B01
+  status: OPEN
+  priority: P1
+  description: Прямые READY bindings исправлены; адресность восстановления материального отказа и память нескольких
+    отвергнутых operation_id нарушены. Два механизма/три независимых расхождения.
+- id: R5-CC-W01
+  status: CLOSED
+  description: 'Только документальная редакция C: established-startup возврат A требует RETAINED_STABLE/A_REACTION_DEFINED;
+    FALSE/UNKNOWN не разрешают. Реальное удержание UNKNOWN.'
+- id: R5-CC-W02
+  status: OPEN
+  description: Traces и pending queue не entity-level mass ledger; требуются адресные lifecycle/balance доказательства
+    при реализации.
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+stale_reason: null
+blocker_ids:
+- R5-CC-B01
+allowed_downstream_scope: Стабильный binding input CYC-02/03 NO-GO; исследование альтернатив, словарь/L1–L5/ресурсные
+  черновики и вопросы допустимы с WARNING.
+excluded_claims:
+- Реальный полный цикл, удержание/разгрузка/выдача/READY и безопасность
+- Физическое открытие B, CAD дефекты и их устранение
+- Утверждение оборудования, архитектуры, ТЗ и G1
+closure_criteria:
+- Предметная идентичность открытых причин и адресное восстановление спорной сущности при смене batch/state;
+  чужое evidence не закрывает старый fault.
+- Сохранять все отвергнутые operation IDs; A→B→A BLOCKED при допустимом новом уникальном audit ID.
+- Исправленные текст/JSON/helpers и независимый RECHECK нового C с сохранением original26 и допустимого recovery.
+reproduction_artifacts:
+- verification/r5_r4_cycle_contract_recheck/review.md
+- verification/r5_r4_cycle_contract_recheck/reproduction.json
+- verification/r5_r4_cycle_contract_recheck/independent_probe.py
+- verification/r5_r4_cycle_contract_recheck/independent_results.json
+- verification/r5_r4_cycle_contract_recheck/object_identity.json
+supersedes: null
+rechecks_review_id: REV-R5-R4-CYCLE-CONTRACT-01-001
+rechecks_review_commit: d99afb4c3231d641d4a4921f39987264ce5ffc23
+```

@@ -1,0 +1,4472 @@
+$ python3 -B verification/r4_cycle_contract_fix/check_fix.py
+exit=0
+STDOUT
+{
+  "scope": "DOCUMENTARY_PERMISSION_REGRESSIONS_ONLY",
+  "command_execution": "COMPLETED",
+  "original_R5_case_count": 26,
+  "baseline_mismatches": 10,
+  "remaining_R5_mismatches": 0,
+  "R5_cases": [
+    {
+      "id": "material_loss_and_unknown_receipt",
+      "action": "A-RECEIVE",
+      "before": "A_OUTSIDE_PENDING",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "FALSE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIPT_VALID": "UNKNOWN",
+        "RECEIVER_DEFINED": "TRUE",
+        "WHOLE_BEYOND_EXIT": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "unknown_loss_not_zero",
+      "action": "B-NEXT",
+      "before": "B_RECEIVED_RESIDUAL",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "B_RESET_CONFIRMED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "INVENTORY_KNOWN": "UNKNOWN",
+        "LEDGER_VALID": "UNKNOWN",
+        "RESIDUE_ALLOWED": "TRUE",
+        "TRANSFER_LEDGER_CLOSED": "TRUE"
+      },
+      "old_actual": "INDETERMINATE",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "active_parent_plus_children_double_count",
+      "action": "A-SEGMENT",
+      "before": "A_COMPACTED_CANDIDATE",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "FALSE",
+        "PARTITION_DEFINED": "FALSE",
+        "RETAINED_STABLE": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "overlapping_partition_with_unknown_method",
+      "action": "A-SEGMENT",
+      "before": "A_COMPACTED_CANDIDATE",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "FALSE",
+        "PARTITION_DEFINED": "FALSE",
+        "RETAINED_STABLE": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "missing_remainder_and_unknown_receiver",
+      "action": "B-RECEIVE",
+      "before": "B_OUTSIDE_PENDING",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "FALSE",
+        "PARTITION_DEFINED": "FALSE",
+        "RECEIPT_VALID": "TRUE",
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "WHOLE_BEYOND_EXIT": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "basis_mismatch_and_unknown_receipt",
+      "action": "B-RECEIVE",
+      "before": "B_OUTSIDE_PENDING",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "FALSE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIPT_VALID": "UNKNOWN",
+        "RECEIVER_DEFINED": "TRUE",
+        "WHOLE_BEYOND_EXIT": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "whole_outside_but_receipt_unknown",
+      "action": "A-RECEIVE",
+      "before": "A_OUTSIDE_PENDING",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIPT_VALID": "UNKNOWN",
+        "RECEIVER_DEFINED": "TRUE",
+        "WHOLE_BEYOND_EXIT": "TRUE"
+      },
+      "old_actual": "INDETERMINATE",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "partial_exit_and_unknown_receipt",
+      "action": "B-CROSS",
+      "before": "B_EXITING",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "UNKNOWN",
+        "WHOLE_BEYOND_EXIT": "FALSE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "premature_REMOVE_before_acceptance",
+      "action": "A-REMOVE",
+      "before": "A_OUTSIDE_PENDING",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "NO_MODEL_INTERACTION": "TRUE",
+        "RECEIPT_VALID": "TRUE",
+        "WHOLE_BEYOND_EXIT": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "received_but_model_interaction_unknown",
+      "action": "B-REMOVE",
+      "before": "B_RECEIVED_RESIDUAL",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "NO_MODEL_INTERACTION": "UNKNOWN",
+        "RECEIPT_VALID": "TRUE",
+        "WHOLE_BEYOND_EXIT": "TRUE"
+      },
+      "old_actual": "INDETERMINATE",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "valid_ACK_but_reset_collision_and_unknown_method",
+      "action": "B-RESET",
+      "before": "B_RECEIVED_RESIDUAL",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "B_RESET_CONFIRMED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "UNKNOWN",
+        "RECEIPT_VALID": "TRUE",
+        "RESET_SWEEP_CLEAR": "FALSE",
+        "RESOURCES_READY": "TRUE",
+        "RESTORE_SEQUENCE_DEFINED": "TRUE",
+        "TOOLS_HOME": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "duplicate_ACK_plus_unknown_receiver",
+      "action": "B-RECEIVE",
+      "before": "B_OUTSIDE_PENDING",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "FALSE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIPT_VALID": "TRUE",
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "WHOLE_BEYOND_EXIT": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "raw_material_cannot_be_ejected",
+      "action": "B-EJECT",
+      "before": "B_RAW_LOADED",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "B_OPEN_SEQUENCE_VALID": "TRUE",
+        "B_UNLOADED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EJECTION_PATH_CLEAR": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "LOCK_CLEAR": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "TRUE",
+        "STOP_OPEN": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "tools_home_does_not_resolve_material",
+      "action": "B-READY-LOAD",
+      "before": "B_ACCEPTABLE_INITIAL",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "B_RESET_CONFIRMED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "FEED_CLEAR": "TRUE",
+        "INVENTORY_KNOWN": "UNKNOWN",
+        "LEDGER_VALID": "TRUE",
+        "RECEIVER_DEFINED": "TRUE",
+        "RESIDUE_ALLOWED": "UNKNOWN",
+        "RESOURCES_READY": "TRUE",
+        "TOOLS_HOME": "TRUE",
+        "TRANSFER_LEDGER_CLOSED": "TRUE"
+      },
+      "old_actual": "INDETERMINATE",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "known_bad_residue_and_unknown_resource",
+      "action": "B-READY-LOAD",
+      "before": "B_ACCEPTABLE_INITIAL",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "B_RESET_CONFIRMED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "FEED_CLEAR": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "RECEIVER_DEFINED": "TRUE",
+        "RESIDUE_ALLOWED": "FALSE",
+        "RESOURCES_READY": "UNKNOWN",
+        "TOOLS_HOME": "TRUE",
+        "TRANSFER_LEDGER_CLOSED": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "wrong_B_open_sequence_and_unknown_unload",
+      "action": "B-OPEN-CONFIRM",
+      "before": "B_COMPACTED",
+      "guard_values": {
+        "AUDIT_CHANNEL_READY": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "B_OPEN_SEQUENCE_VALID": "FALSE",
+        "B_UNLOADED": "UNKNOWN",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "LOCK_CLEAR": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "STOP_OPEN": "TRUE"
+      },
+      "old_actual": "BLOCKED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "A_eject_after_unknown_receiver_READY",
+      "action": "A-EJECT",
+      "before": "A_SEGMENT_READY",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EJECTION_PATH_CLEAR": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "TRUE",
+        "RETAINED_STABLE": "TRUE"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "A_eject_false_resource_unknown_receiver",
+      "action": "A-EJECT",
+      "before": "A_SEGMENT_READY",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EJECTION_PATH_CLEAR": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "FALSE",
+        "RETAINED_STABLE": "TRUE"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "B_press_reset_false_resources_unknown",
+      "action": "B-COMPACT",
+      "before": "B_BATCH_SELECTED",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "BATCH_CRITERION": "TRUE",
+        "B_RESET_CONFIRMED": "FALSE",
+        "COMPACTION_CRITERION": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "ISOLATION_CONFIRMED": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "RESOURCES_READY": "UNKNOWN"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "B_load_resources_unknown",
+      "action": "B-LOAD",
+      "before": "B_ACCEPTABLE_INITIAL",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "B_RESET_CONFIRMED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "DOSE_DELIVERED": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "FEED_CLEAR": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "RECEIVER_DEFINED": "TRUE",
+        "RESIDUE_ALLOWED": "TRUE",
+        "RESOURCES_READY": "UNKNOWN",
+        "TOOLS_HOME": "TRUE",
+        "TRANSFER_LEDGER_CLOSED": "TRUE"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "B_refill_resources_unknown",
+      "action": "B-REFILL",
+      "before": "B_GATHERED_PARTIAL",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "DOSE_DELIVERED": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "FEED_CLEAR": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "PARTIAL_CRITERION": "TRUE",
+        "RESOURCES_READY": "UNKNOWN"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "A_compact_resources_unknown",
+      "action": "A-COMPACT",
+      "before": "A_STEADY_LOADED",
+      "guard_values": {
+        "A_REACTION_DEFINED": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "COMPACTION_CRITERION": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "ISOLATION_CONFIRMED": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "RESOURCES_READY": "UNKNOWN",
+        "RETAINED_STABLE": "TRUE"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "A_start_partial_gather_resources_unknown",
+      "action": "A-GATHER",
+      "before": "A_STARTUP_RAW",
+      "guard_values": {
+        "A_REACTION_DEFINED": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "ISOLATION_CONFIRMED": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "PARTIAL_CRITERION": "TRUE",
+        "RESOURCES_READY": "UNKNOWN"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "B_eject_receiver_unknown_resources_unknown",
+      "action": "B-EJECT",
+      "before": "B_EJECTABLE",
+      "guard_values": {
+        "BASIS_DEFINED": "TRUE",
+        "B_OPEN_SEQUENCE_VALID": "TRUE",
+        "B_UNLOADED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EJECTION_PATH_CLEAR": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "LOCK_CLEAR": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "PARTITION_DEFINED": "TRUE",
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "UNKNOWN",
+        "STOP_OPEN": "TRUE"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "A_column_startup_return_retention_unknown",
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "before": "A_COLUMN_ESTABLISHED",
+      "guard_values": {
+        "A_REACTION_DEFINED": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "FEED_CLEAR": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "RESOURCES_READY": "TRUE",
+        "RETAINED_STABLE": "UNKNOWN"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "A_column_startup_return_retention_false",
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "before": "A_COLUMN_ESTABLISHED",
+      "guard_values": {
+        "A_REACTION_DEFINED": "TRUE",
+        "BASIS_DEFINED": "TRUE",
+        "CONTINUITY_CONFIRMED": "TRUE",
+        "DEPENDENCY_VALID": "TRUE",
+        "EVENT_FRESH": "TRUE",
+        "FEEDBACK_VALID": "TRUE",
+        "FEED_CLEAR": "TRUE",
+        "INVENTORY_KNOWN": "TRUE",
+        "LEDGER_VALID": "TRUE",
+        "METHOD_SUPPORTED": "TRUE",
+        "RESOURCES_READY": "TRUE",
+        "RETAINED_STABLE": "FALSE"
+      },
+      "old_actual": "ALLOWED_ASSUMED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    }
+  ],
+  "combinations": [
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "TRUE",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "FALSE",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "TRUE",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "FALSE",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "TRUE"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-EJECT",
+      "overrides": {
+        "RECEIVER_DEFINED": "UNKNOWN",
+        "RESOURCES_READY": "UNKNOWN",
+        "PARTITION_DEFINED": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "TRUE",
+        "RESOURCES_READY": "TRUE"
+      },
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "TRUE",
+        "RESOURCES_READY": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "TRUE",
+        "RESOURCES_READY": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "FALSE",
+        "RESOURCES_READY": "TRUE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "FALSE",
+        "RESOURCES_READY": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "FALSE",
+        "RESOURCES_READY": "UNKNOWN"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "UNKNOWN",
+        "RESOURCES_READY": "TRUE"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "UNKNOWN",
+        "RESOURCES_READY": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "B-COMPACT",
+      "overrides": {
+        "B_RESET_CONFIRMED": "UNKNOWN",
+        "RESOURCES_READY": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "TRUE",
+        "A_REACTION_DEFINED": "TRUE"
+      },
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "TRUE",
+        "A_REACTION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "TRUE",
+        "A_REACTION_DEFINED": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "FALSE",
+        "A_REACTION_DEFINED": "TRUE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "FALSE",
+        "A_REACTION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "FALSE",
+        "A_REACTION_DEFINED": "UNKNOWN"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "UNKNOWN",
+        "A_REACTION_DEFINED": "TRUE"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "UNKNOWN",
+        "A_REACTION_DEFINED": "FALSE"
+      },
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "overrides": {
+        "RETAINED_STABLE": "UNKNOWN",
+        "A_REACTION_DEFINED": "UNKNOWN"
+      },
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    }
+  ],
+  "evidence_propagation_recovery_cases": [
+    {
+      "id": "fresh-complete-assumed-action",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "ALLOWED_ASSUMED",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_EXITING",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "stale-scope-scenario_id",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "PARTITION_DEFINED": "UNKNOWN",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "SCOPE_MISMATCH:scenario_id",
+          "CONTINUITY_CONFIRMED": "SCOPE_MISMATCH:scenario_id",
+          "DEPENDENCY_VALID": "SCOPE_MISMATCH:scenario_id",
+          "EJECTION_PATH_CLEAR": "SCOPE_MISMATCH:scenario_id",
+          "EVENT_FRESH": "SCOPE_MISMATCH:scenario_id",
+          "FEEDBACK_VALID": "SCOPE_MISMATCH:scenario_id",
+          "LEDGER_VALID": "SCOPE_MISMATCH:scenario_id",
+          "METHOD_SUPPORTED": "SCOPE_MISMATCH:scenario_id",
+          "PARTITION_DEFINED": "SCOPE_MISMATCH:scenario_id",
+          "RECEIVER_DEFINED": "SCOPE_MISMATCH:scenario_id",
+          "RESOURCES_READY": "SCOPE_MISMATCH:scenario_id",
+          "RETAINED_STABLE": "SCOPE_MISMATCH:scenario_id"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "stale-scope-variant",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "PARTITION_DEFINED": "UNKNOWN",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "SCOPE_MISMATCH:variant",
+          "CONTINUITY_CONFIRMED": "SCOPE_MISMATCH:variant",
+          "DEPENDENCY_VALID": "SCOPE_MISMATCH:variant",
+          "EJECTION_PATH_CLEAR": "SCOPE_MISMATCH:variant",
+          "EVENT_FRESH": "SCOPE_MISMATCH:variant",
+          "FEEDBACK_VALID": "SCOPE_MISMATCH:variant",
+          "LEDGER_VALID": "SCOPE_MISMATCH:variant",
+          "METHOD_SUPPORTED": "SCOPE_MISMATCH:variant",
+          "PARTITION_DEFINED": "SCOPE_MISMATCH:variant",
+          "RECEIVER_DEFINED": "SCOPE_MISMATCH:variant",
+          "RESOURCES_READY": "SCOPE_MISMATCH:variant",
+          "RETAINED_STABLE": "SCOPE_MISMATCH:variant"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "stale-scope-mode",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "PARTITION_DEFINED": "UNKNOWN",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "SCOPE_MISMATCH:mode",
+          "CONTINUITY_CONFIRMED": "SCOPE_MISMATCH:mode",
+          "DEPENDENCY_VALID": "SCOPE_MISMATCH:mode",
+          "EJECTION_PATH_CLEAR": "SCOPE_MISMATCH:mode",
+          "EVENT_FRESH": "SCOPE_MISMATCH:mode",
+          "FEEDBACK_VALID": "SCOPE_MISMATCH:mode",
+          "LEDGER_VALID": "SCOPE_MISMATCH:mode",
+          "METHOD_SUPPORTED": "SCOPE_MISMATCH:mode",
+          "PARTITION_DEFINED": "SCOPE_MISMATCH:mode",
+          "RECEIVER_DEFINED": "SCOPE_MISMATCH:mode",
+          "RESOURCES_READY": "SCOPE_MISMATCH:mode",
+          "RETAINED_STABLE": "SCOPE_MISMATCH:mode"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "stale-scope-cycle_epoch",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "PARTITION_DEFINED": "UNKNOWN",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "SCOPE_MISMATCH:cycle_epoch",
+          "CONTINUITY_CONFIRMED": "SCOPE_MISMATCH:cycle_epoch",
+          "DEPENDENCY_VALID": "SCOPE_MISMATCH:cycle_epoch",
+          "EJECTION_PATH_CLEAR": "SCOPE_MISMATCH:cycle_epoch",
+          "EVENT_FRESH": "SCOPE_MISMATCH:cycle_epoch",
+          "FEEDBACK_VALID": "SCOPE_MISMATCH:cycle_epoch",
+          "LEDGER_VALID": "SCOPE_MISMATCH:cycle_epoch",
+          "METHOD_SUPPORTED": "SCOPE_MISMATCH:cycle_epoch",
+          "PARTITION_DEFINED": "SCOPE_MISMATCH:cycle_epoch",
+          "RECEIVER_DEFINED": "SCOPE_MISMATCH:cycle_epoch",
+          "RESOURCES_READY": "SCOPE_MISMATCH:cycle_epoch",
+          "RETAINED_STABLE": "SCOPE_MISMATCH:cycle_epoch"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "stale-scope-subject_id",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "PARTITION_DEFINED": "UNKNOWN",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "SCOPE_MISMATCH:subject_id",
+          "CONTINUITY_CONFIRMED": "SCOPE_MISMATCH:subject_id",
+          "DEPENDENCY_VALID": "SCOPE_MISMATCH:subject_id",
+          "EJECTION_PATH_CLEAR": "SCOPE_MISMATCH:subject_id",
+          "EVENT_FRESH": "SCOPE_MISMATCH:subject_id",
+          "FEEDBACK_VALID": "SCOPE_MISMATCH:subject_id",
+          "LEDGER_VALID": "SCOPE_MISMATCH:subject_id",
+          "METHOD_SUPPORTED": "SCOPE_MISMATCH:subject_id",
+          "PARTITION_DEFINED": "SCOPE_MISMATCH:subject_id",
+          "RECEIVER_DEFINED": "SCOPE_MISMATCH:subject_id",
+          "RESOURCES_READY": "SCOPE_MISMATCH:subject_id",
+          "RETAINED_STABLE": "SCOPE_MISMATCH:subject_id"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "stale-scope-operation_id",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "PARTITION_DEFINED": "UNKNOWN",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "SCOPE_MISMATCH:operation_id",
+          "CONTINUITY_CONFIRMED": "SCOPE_MISMATCH:operation_id",
+          "DEPENDENCY_VALID": "SCOPE_MISMATCH:operation_id",
+          "EJECTION_PATH_CLEAR": "SCOPE_MISMATCH:operation_id",
+          "EVENT_FRESH": "SCOPE_MISMATCH:operation_id",
+          "FEEDBACK_VALID": "SCOPE_MISMATCH:operation_id",
+          "LEDGER_VALID": "SCOPE_MISMATCH:operation_id",
+          "METHOD_SUPPORTED": "SCOPE_MISMATCH:operation_id",
+          "PARTITION_DEFINED": "SCOPE_MISMATCH:operation_id",
+          "RECEIVER_DEFINED": "SCOPE_MISMATCH:operation_id",
+          "RESOURCES_READY": "SCOPE_MISMATCH:operation_id",
+          "RETAINED_STABLE": "SCOPE_MISMATCH:operation_id"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "invalid-evidence-action",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "WRONG_ACTION_OR_PHASE",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "invalid-evidence-phase",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "WRONG_ACTION_OR_PHASE",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "invalid-evidence-method",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "MISSING_PROVENANCE",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "invalid-evidence-evidence_id",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "MISSING_PROVENANCE",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "invalid-evidence-valid_for_operation_interval",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "INTERVAL_NOT_COVERED",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "truthy-string-is-not-interval-proof",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "INTERVAL_NOT_COVERED",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "boolean-is-not-a-subject-revision",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "STALE_SUBJECT:EXIT_RECEIVER",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "float-is-not-an-exact-revision-id",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "STALE_SUBJECT:EXIT_RECEIVER",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "empty-operation-id-is-not-current-proof",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "PARTITION_DEFINED": "UNKNOWN",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "SCOPE_MISMATCH:operation_id",
+          "CONTINUITY_CONFIRMED": "SCOPE_MISMATCH:operation_id",
+          "DEPENDENCY_VALID": "SCOPE_MISMATCH:operation_id",
+          "EJECTION_PATH_CLEAR": "SCOPE_MISMATCH:operation_id",
+          "EVENT_FRESH": "SCOPE_MISMATCH:operation_id",
+          "FEEDBACK_VALID": "SCOPE_MISMATCH:operation_id",
+          "LEDGER_VALID": "SCOPE_MISMATCH:operation_id",
+          "METHOD_SUPPORTED": "SCOPE_MISMATCH:operation_id",
+          "PARTITION_DEFINED": "SCOPE_MISMATCH:operation_id",
+          "RECEIVER_DEFINED": "SCOPE_MISMATCH:operation_id",
+          "RESOURCES_READY": "SCOPE_MISMATCH:operation_id",
+          "RETAINED_STABLE": "SCOPE_MISMATCH:operation_id"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "missing-receiver-proof",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "MISSING_EVIDENCE",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "READY-becomes-stale-after-receiver-change",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "STALE_SUBJECT:EXIT_RECEIVER",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "STALE_SUBJECT:EXIT_RECEIVER",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "resource-generation-change",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "STALE_SUBJECT:HYDRAULIC",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "nonhydraulic-consumer-change-invalidates-resource-proof",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "STALE_SUBJECT:RESOURCES",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "validated-failure-does-not-age-into-unknown",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "FALSE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "STALE_SUBJECT:EXIT_RECEIVER",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "STALE_SUBJECT:EXIT_RECEIVER",
+          "RESOURCES_READY": "UNRESOLVED_KNOWN_FAILURE",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "rejected-operation-does-not-deadlock-fresh-audit",
+      "action": "REASSESS_MATERIAL",
+      "stage": "ENTRY",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "ALLOWED_ASSUMED",
+        "stage": "ENTRY",
+        "action": "REASSESS_MATERIAL",
+        "values": {
+          "EVENT_FRESH": "TRUE",
+          "AUDIT_CHANNEL_READY": "TRUE",
+          "RECOVERY_METHOD_DEFINED": "TRUE"
+        },
+        "reasons": {
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "AUDIT_CHANNEL_READY": "CURRENT_ASSUMED_RECORD",
+          "RECOVERY_METHOD_DEFINED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_ACCEPTABLE_INITIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "known-resource-failure-dominates-stale-receiver",
+      "action": "A-EJECT",
+      "stage": "COMMIT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "COMMIT",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "UNKNOWN",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "UNKNOWN",
+          "RESOURCES_READY": "FALSE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "STALE_SUBJECT:EXIT_RECEIVER",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "STALE_SUBJECT:EXIT_RECEIVER",
+          "RESOURCES_READY": "UNRESOLVED_KNOWN_FAILURE",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "unknown-B-closure-blocks-dependent-press",
+      "action": "B-COMPACT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "B-COMPACT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "BATCH_CRITERION": "TRUE",
+          "B_RESET_CONFIRMED": "UNKNOWN",
+          "COMPACTION_CRITERION": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BATCH_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "COMPACTION_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_BATCH_SELECTED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "lost-retention-invalidates-assessment",
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "stage": "COMMIT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "COMMIT",
+        "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "FALSE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_ESTABLISHED",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "failure-propagates-to-steady-refill",
+      "action": "A-LOAD-STEADY",
+      "stage": "COMMIT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "COMMIT",
+        "action": "A-LOAD-STEADY",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "COLUMN_CRITERION": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "FALSE",
+          "DOSE_DELIVERED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RETAINED_STABLE": "FALSE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "COLUMN_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "UNRESOLVED_KNOWN_FAILURE",
+          "DOSE_DELIVERED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "UNRESOLVED_KNOWN_FAILURE",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_ESTABLISHED",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "unresolved-unknown-predecessor-does-not-advance",
+      "action": "B-COMPACT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "B-COMPACT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "BATCH_CRITERION": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "COMPACTION_CRITERION": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "UNKNOWN",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BATCH_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "COMPACTION_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_BATCH_SELECTED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "press-start-without-claiming-finished-product",
+      "action": "B-COMPACT",
+      "stage": "ENTRY",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "ALLOWED_ASSUMED",
+        "stage": "ENTRY",
+        "action": "B-COMPACT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "BATCH_CRITERION": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BATCH_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_BATCH_SELECTED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "no-product-commit-before-completion-proof",
+      "action": "B-COMPACT",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "B-COMPACT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "BATCH_CRITERION": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "COMPACTION_CRITERION": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BATCH_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "COMPACTION_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_BATCH_SELECTED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "commit-invalidates-material-proofs",
+      "action": "A-LOAD-START",
+      "stage": "COMMIT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "ALLOWED_ASSUMED",
+        "stage": "COMMIT",
+        "action": "A-LOAD-START",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "DOSE_DELIVERED": "TRUE",
+          "EMPTY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "DOSE_DELIVERED": "CURRENT_ASSUMED_RECORD",
+          "EMPTY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_STARTUP_RAW",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "reset-start-does-not-require-its-own-goal",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "ENTRY",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "ALLOWED_ASSUMED",
+        "stage": "ENTRY",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "reset-completion-requires-new-closure-proof",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "COMMIT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "COMMIT",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_RESET_CONFIRMED": "FALSE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "UNRESOLVED_KNOWN_FAILURE",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "reset-own-clear-failure-dominates-resource-unknown",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "FALSE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "reset-preserves-own-receipt-unknown",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "UNKNOWN",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "reset-preserves-own-continuity-failure-resource-unknown",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "FALSE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "reset-preserves-own-ledger-unknown",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "reset-preserves-own-basis-conflict",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "FALSE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "query-receiver-while-normal-eject-blocked",
+      "action": "RECHECK_RECEIVER",
+      "stage": "ENTRY",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "ALLOWED_ASSUMED",
+        "stage": "ENTRY",
+        "action": "RECHECK_RECEIVER",
+        "values": {
+          "EVENT_FRESH": "TRUE",
+          "AUDIT_CHANNEL_READY": "TRUE",
+          "RECOVERY_METHOD_DEFINED": "TRUE"
+        },
+        "reasons": {
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "AUDIT_CHANNEL_READY": "CURRENT_ASSUMED_RECORD",
+          "RECOVERY_METHOD_DEFINED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "recovery-new-scoped-evidence",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "recovery-unknown-result",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-wrong-epoch-result",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "failed-recovery-latches-new-defect",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "history-audit-cannot-erase-open-closure-fault",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "scoped-recovery-and-inventory-audit-enable-next-step",
+      "action": "B-NEXT",
+      "stage": "COMMIT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "ALLOWED_ASSUMED",
+        "stage": "COMMIT",
+        "action": "B-NEXT",
+        "values": {
+          "AUDIT_CHANNEL_READY": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "AUDIT_CHANNEL_READY": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESIDUE_ALLOWED": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_ACCEPTABLE_INITIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "unready-loading-permission",
+      "action": "B-LOAD",
+      "stage": "COMMIT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "COMMIT",
+        "action": "B-LOAD",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "DOSE_DELIVERED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "DOSE_DELIVERED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESIDUE_ALLOWED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_ACCEPTABLE_INITIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "unexpected-intake-is-recorded-not-permitted",
+      "expected": "PRESERVE_FACT_NO_PROCESS_PERMISSION",
+      "actual": "PRESERVE_FACT_NO_PROCESS_PERMISSION",
+      "matches": true
+    },
+    {
+      "id": "duplicate-observation-no-second-entry",
+      "expected": "PRESERVE_FACT_NO_PROCESS_PERMISSION",
+      "actual": "PRESERVE_FACT_NO_PROCESS_PERMISSION",
+      "matches": true
+    },
+    {
+      "id": "conflicting-fact-preserved-as-fault",
+      "expected": "PRESERVE_FACT_NO_PROCESS_PERMISSION",
+      "actual": "PRESERVE_FACT_NO_PROCESS_PERMISSION",
+      "matches": true
+    },
+    {
+      "id": "unexpected-intake-invalidates-old-reset-clear",
+      "action": "RESTORE_B_CLOSURE",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "RESTORE_B_CLOSURE",
+        "values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "RECEIPT_VALID": "UNKNOWN",
+          "RESET_SWEEP_CLEAR": "UNKNOWN",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "UNKNOWN",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "STALE_SUBJECT:MATERIAL",
+          "CONTINUITY_CONFIRMED": "STALE_SUBJECT:MATERIAL",
+          "EVENT_FRESH": "STALE_SUBJECT:EVIDENCE",
+          "FEEDBACK_VALID": "STALE_SUBJECT:EVIDENCE",
+          "LEDGER_VALID": "STALE_SUBJECT:MATERIAL",
+          "METHOD_SUPPORTED": "STALE_SUBJECT:EVIDENCE",
+          "RECEIPT_VALID": "STALE_SUBJECT:MATERIAL",
+          "RESET_SWEEP_CLEAR": "STALE_SUBJECT:MATERIAL",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "STALE_SUBJECT:EVIDENCE",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "UNCONFIRMED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-LOAD-START-resource-UNKNOWN",
+      "action": "A-LOAD-START",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-LOAD-START",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EMPTY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EMPTY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_EMPTY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-LOAD-START-resource-FALSE",
+      "action": "A-LOAD-START",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-LOAD-START",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EMPTY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EMPTY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_EMPTY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-GATHER-resource-UNKNOWN",
+      "action": "A-GATHER",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-GATHER",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_STARTUP_RAW",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-GATHER-resource-FALSE",
+      "action": "A-GATHER",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-GATHER",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_STARTUP_RAW",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-REFILL-resource-UNKNOWN",
+      "action": "A-REFILL",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-REFILL",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "STARTUP_INVENTORY_PRESERVED": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "STARTUP_INVENTORY_PRESERVED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_BUILDING",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-REFILL-resource-FALSE",
+      "action": "A-REFILL",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-REFILL",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "STARTUP_INVENTORY_PRESERVED": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "STARTUP_INVENTORY_PRESERVED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_BUILDING",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-LOAD-STEADY-resource-UNKNOWN",
+      "action": "A-LOAD-STEADY",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-LOAD-STEADY",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "COLUMN_CRITERION": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "COLUMN_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_ESTABLISHED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-LOAD-STEADY-resource-FALSE",
+      "action": "A-LOAD-STEADY",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-LOAD-STEADY",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "COLUMN_CRITERION": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "RETAINED_STABLE": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "COLUMN_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_ESTABLISHED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-COMPACT-resource-UNKNOWN",
+      "action": "A-COMPACT",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-COMPACT",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_STEADY_LOADED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-COMPACT-resource-FALSE",
+      "action": "A-COMPACT",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-COMPACT",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_STEADY_LOADED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-EJECT-resource-UNKNOWN",
+      "action": "A-EJECT",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-EJECT-resource-FALSE",
+      "action": "A-EJECT",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_SEGMENT_READY",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-RETURN-resource-UNKNOWN",
+      "action": "A-RETURN",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-RETURN",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_RECEIVED_RETAINED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-RETURN-resource-FALSE",
+      "action": "A-RETURN",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-RETURN",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_RECEIVED_RETAINED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-LOAD-resource-UNKNOWN",
+      "action": "B-LOAD",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-LOAD",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESIDUE_ALLOWED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_ACCEPTABLE_INITIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-LOAD-resource-FALSE",
+      "action": "B-LOAD",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-LOAD",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESIDUE_ALLOWED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD",
+          "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_ACCEPTABLE_INITIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-GATHER-resource-UNKNOWN",
+      "action": "B-GATHER",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-GATHER",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RAW_LOADED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-GATHER-resource-FALSE",
+      "action": "B-GATHER",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-GATHER",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RAW_LOADED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-REFILL-resource-UNKNOWN",
+      "action": "B-REFILL",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-REFILL",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "PARTIAL_CRITERION": "TRUE",
+          "RESOURCES_READY": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "PARTIAL_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_GATHERED_PARTIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-REFILL-resource-FALSE",
+      "action": "B-REFILL",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-REFILL",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "PARTIAL_CRITERION": "TRUE",
+          "RESOURCES_READY": "FALSE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "PARTIAL_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_GATHERED_PARTIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-COMPACT-resource-UNKNOWN",
+      "action": "B-COMPACT",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-COMPACT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "BATCH_CRITERION": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BATCH_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_BATCH_SELECTED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-COMPACT-resource-FALSE",
+      "action": "B-COMPACT",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-COMPACT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "BATCH_CRITERION": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BATCH_CRITERION": "CURRENT_ASSUMED_RECORD",
+          "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "ISOLATION_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_BATCH_SELECTED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-EJECT-resource-UNKNOWN",
+      "action": "B-EJECT",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_OPEN_SEQUENCE_VALID": "TRUE",
+          "B_UNLOADED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "LOCK_CLEAR": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "STOP_OPEN": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_OPEN_SEQUENCE_VALID": "CURRENT_ASSUMED_RECORD",
+          "B_UNLOADED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "LOCK_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "STOP_OPEN": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_EJECTABLE",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-EJECT-resource-FALSE",
+      "action": "B-EJECT",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-EJECT",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "B_OPEN_SEQUENCE_VALID": "TRUE",
+          "B_UNLOADED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "LOCK_CLEAR": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "STOP_OPEN": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "B_OPEN_SEQUENCE_VALID": "CURRENT_ASSUMED_RECORD",
+          "B_UNLOADED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EJECTION_PATH_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "LOCK_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "PARTITION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RECEIVER_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "STOP_OPEN": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_EJECTABLE",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-RETURN-resource-UNKNOWN",
+      "action": "B-RETURN",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-RETURN",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-RETURN-resource-FALSE",
+      "action": "B-RETURN",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-RETURN",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-RESET-resource-UNKNOWN",
+      "action": "B-RESET",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-RESET",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-RESET-resource-FALSE",
+      "action": "B-RESET",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-RESET",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_RECEIVED_RESIDUAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-STARTUP-RETURN-A_COLUMN_BUILDING-resource-UNKNOWN",
+      "action": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "STARTUP_INVENTORY_PRESERVED": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "STARTUP_INVENTORY_PRESERVED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_BUILDING",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-STARTUP-RETURN-A_COLUMN_BUILDING-resource-FALSE",
+      "action": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "STARTUP_INVENTORY_PRESERVED": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "STARTUP_INVENTORY_PRESERVED": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_BUILDING",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED-resource-UNKNOWN",
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_ESTABLISHED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED-resource-FALSE",
+      "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+        "values": {
+          "A_REACTION_DEFINED": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "reasons": {
+          "A_REACTION_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RETAINED_STABLE": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "A_COLUMN_ESTABLISHED",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-GATHER-RETURN-resource-UNKNOWN",
+      "action": "B-GATHER-RETURN",
+      "stage": "ENTRY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "INDETERMINATE",
+        "stage": "ENTRY",
+        "action": "B-GATHER-RETURN",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "UNKNOWN"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_GATHERED_PARTIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    },
+    {
+      "id": "B-GATHER-RETURN-resource-FALSE",
+      "action": "B-GATHER-RETURN",
+      "stage": "ENTRY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true,
+      "result": {
+        "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+        "permission_outcome": "BLOCKED",
+        "stage": "ENTRY",
+        "action": "B-GATHER-RETURN",
+        "values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "DEPENDENCY_VALID": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RESOURCES_READY": "FALSE"
+        },
+        "reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "FEED_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD"
+        },
+        "next_state": "B_GATHERED_PARTIAL",
+        "material_assessment": "ASSUMED_IDENTIFIED",
+        "physical_permission": false
+      }
+    }
+  ],
+  "total_checks": 154,
+  "mismatches": [],
+  "expected_outcome_matches": true,
+  "independent_RECHECK": "NOT_RUN",
+  "physical_workability": "INDETERMINATE",
+  "geometry_and_calculation": "NOT_CHANGED_NOT_REBUILT",
+  "G1": "OPEN"
+}
+
+STDERR
