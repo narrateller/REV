@@ -172,7 +172,7 @@ def evaluate_services(data,scenes,evaluator=None):
     evaluator=evaluator or Evaluator(data)
     results=[evaluate_scene(s,data,evaluator) for s in scenes]
     required={(v,c) for v in 'AB' for c in protocols(data,v)};seen=[(r['variant'],r['case']) for r in results];complete=len(seen)==len(set(seen)) and set(seen)==required
-    return {'calculation_execution':'COMPLETED','test_evaluation':'PASS' if complete and all(r['matches_test_expectation'] for r in results) else 'FAIL','complete_required_service_set':complete,'service_scenes':results,'geometric_path_counts':dict(collections.Counter(r['geometric_path_outcome'] for r in results)),'overall_service_counts':dict(collections.Counter(r['overall_service_outcome'] for r in results)),'physical_feasibility':'INDETERMINATE','whole_press_READY':'INDETERMINATE','G1':'OPEN'}
+    return json.loads(json.dumps({'calculation_execution':'COMPLETED','test_evaluation':'PASS' if complete and all(r['matches_test_expectation'] for r in results) else 'FAIL','complete_required_service_set':complete,'service_scenes':results,'geometric_path_counts':dict(collections.Counter(r['geometric_path_outcome'] for r in results)),'overall_service_counts':dict(collections.Counter(r['overall_service_outcome'] for r in results)),'physical_feasibility':'INDETERMINATE','whole_press_READY':'INDETERMINATE','G1':'OPEN'}))
 
 
 def attach_assessment(assessment,semantics):

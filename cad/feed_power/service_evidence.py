@@ -38,7 +38,7 @@ def verify_derived(data,work,services,semantics,evaluator):
     # Follow the original analyzer's traversal/priming so native sample metadata
     # (including its historical first-pose cache timestamp) is comparable.
     if evaluator.native is None:evaluator.native=NativeWitness(OUT)
-    fresh_functions=function_witness(data,scenes,evaluator.native)
+    fresh_functions=json.loads(json.dumps(function_witness(data,scenes,evaluator.native)))
     assessment=json.loads((OUT/'assessment.json').read_text());assert assessment['function_witnesses']==fresh_functions,'stale function witnesses'
     indexed={(s['variant'],s['case']):s for s in assessment['scenes']};acc={};class_total=0
     expected=((s,st,p) for s in scenes for st in s['stages'] for p in itertools.combinations(sorted(st['state']),2))

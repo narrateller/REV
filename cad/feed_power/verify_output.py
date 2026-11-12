@@ -56,6 +56,7 @@ def main():
         all_services=read_packed(OUT/'service_scenes.json.gz');assert len(all_services)==22
         evaluator=Evaluator(data,OUT);semantics=evaluate_services(data,all_services,evaluator);require_expected(semantics)
         derived=verify_derived(data,work,all_services,semantics,evaluator)
+        assert json.loads((OUT/'service_report.json').read_text())==semantics,'saved report differs from fresh service calculation'
         scenes=work+all_services;coverage=0
         for s in scenes:
             for st in s['stages']:
