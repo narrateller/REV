@@ -1,0 +1,124 @@
+{
+  "status": "PASS",
+  "scope": "R4 self-check, independent review NOT_RUN",
+  "cases": [
+    {
+      "case": "two saved-package verifiers",
+      "exits": [
+        0,
+        0
+      ],
+      "identical_results": true,
+      "all_files_unchanged": true
+    },
+    {
+      "case": "missing-A/layout_A.FCStd",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication schema/catalog mismatch"
+    },
+    {
+      "case": "missing-B/layout_B.step",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication schema/catalog mismatch"
+    },
+    {
+      "case": "missing-A/isometric.png",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication schema/catalog mismatch"
+    },
+    {
+      "case": "missing-interval_rows.json.gz",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication schema/catalog mismatch"
+    },
+    {
+      "case": "missing-before_after_native.json",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication schema/catalog mismatch"
+    },
+    {
+      "case": "missing-publication_manifest.json",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "[Errno 2] No such file or directory: '/tmp/rev-fp-readonly-_jwvdc97/REV/cad/build/feed_power/publication_manifest.json'"
+    },
+    {
+      "case": "corrupt-A/layout_A.FCStd",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication hash mismatch cad/build/feed_power/A/layout_A.FCStd"
+    },
+    {
+      "case": "corrupt-B/layout_B.step",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication hash mismatch cad/build/feed_power/B/layout_B.step"
+    },
+    {
+      "case": "corrupt-A/isometric.png",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication hash mismatch cad/build/feed_power/A/isometric.png"
+    },
+    {
+      "case": "corrupt-interval_rows.json.gz",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication hash mismatch cad/build/feed_power/interval_rows.json.gz"
+    },
+    {
+      "case": "corrupt-before_after_native.json",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication hash mismatch cad/build/feed_power/before_after_native.json"
+    },
+    {
+      "case": "corrupt-publication_manifest.json",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "case": "stale-input",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "publication hash mismatch cad/feed_power/inputs.assumed.json"
+    },
+    {
+      "case": "hide-one-native-pair-with-updated-hash",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "AssertionError()"
+    },
+    {
+      "case": "drop-before-after-with-updated-hash",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "AssertionError()"
+    },
+    {
+      "case": "drop-legacy-interval-with-updated-hash",
+      "exit_code": 1,
+      "no_auto_repair": true,
+      "diagnostic": "critical interval coverage/order/duplicate"
+    },
+    {
+      "case": "explicit fixture restoration",
+      "exits": [
+        0,
+        0
+      ],
+      "all_files_unchanged": true
+    }
+  ],
+  "commands": 20,
+  "negative_cases": 16,
+  "verifier_writes": 0,
+  "G1": "OPEN",
+  "source_sha256": "318f541cce39b7ac809dd427f584d31c5ddf2f118c1da3f65057a2c72202316c"
+}

@@ -1,0 +1,13 @@
+# Запрос независимого OUTPUT review — дозатор/гидростанция
+
+Проверять точный C из следующего H/NEXT_MODEL/капсулы, автор r4-linked-20261111, reviewer другая сессия R5. Входная база a5d5bad6dd8928045512bca16836fd1d2544b7ca, RECHECK c2e96a58d7efd64ea3364b2bcbfb3f0642bbc430; прежний B01 CLOSED только в его области и не переоткрывается.
+
+1. Сверить main/claim/lease и frozen_tool/input_manifest, сохранить C до генерации. Материализовать actual FCStd/STEP, дважды выполнить новый readonly verifier, проверить отсутствие записи manifest/inputs/evidence.
+2. Независимо проверить **каждую из 20 before/after пар в том же состоянии**. 14 статических должны иметь native after=0; **6 legacy UP остаются положительными/BLOCKED**, не принимать их за устранённые. Исходные тела не удалены. Новая реальная сервисная реализуемость INDETERMINATE из-за UNKNOWN актуатора/расстыковки/оснастки, размеры дополнительного хода ASSUMED.
+3. Проверить полный рабочий/обратный ход и все 22 сервисные последовательности, особенно новый side-then-UP дозатор, motor, module powerpack и tank после park motor. Сравнить все пары, не выборочные кадры. В 507043 critical rows должны сохраняться 12 legacy positive строк; потеря unchanged doser/hopper пар недопустима. В новых 8 сервисах positive overlap не ожидается.
+4. Проверить cap UP corridor между split tray/guides и непрерывные боковины, positive supporting/guide areas на горизонтальном ходе; путь сырья и номинальные throat стыки не подменять подтверждением реальной подачи. Проверить 62 conditional native interfaces и сохранённые 58 frame interfaces, reaction chain B, предыдущие gate/portal/frame исправления. Strength/real fixing UNKNOWN.
+5. Фактические native модели A91/B89, Spreadsheet edit/reopen/recompute/STEP correspondence и canonical QueryVolumes. DoserRemoval остаётся старым BLOCKED UP; новый L-путь доказан posed bodies/exact interval, не новым native query. Отдельно оценить этот предел и необходимость новых данных перед физическим сервисом.
+6. Полный конечный inventory 557 non-CLEAR пар: 6 native/2 envelope controls/15 policy contacts/534 INDETERMINATE. Условные новые сопряжения не дают blanket allow-list; старые положительные объёмы не переименованы в неопределённость. Все 34 checked модуля неизменны, **новые cad/feed_power adapters отдельно требуют review**.
+7. Воспроизвести generation отдельно и проверку отдельно; missing/corrupt/stale и updated-hash semantic fixtures из verification/r4_feed_power/regressions.py дополнить собственными. Проверить сохранность исходных актов/independent probes, всех old ID и реального registry/COTS.
+
+Автор не принимает задачу/сборку. Интеграция отдельно координатором; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN.

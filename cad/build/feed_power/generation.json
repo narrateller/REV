@@ -1,0 +1,140 @@
+{
+  "execution": {
+    "status": "COMPLETED",
+    "exit_code": 0
+  },
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/feed_power/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/workspace/REV/cad/build/feed_power/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 91 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/feed_power/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/workspace/REV/cad/build/feed_power/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 89 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "/workspace/REV/cad/feed_power/inputs.assumed.json",
+        "--models",
+        "/workspace/REV/cad/build/feed_power",
+        "--out",
+        "/workspace/REV/cad/build/feed_power/raw_checked_tool"
+      ],
+      "exit_code": 0,
+      "stdout": "A sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 27129, 'ALLOWED_CONTACT': 4, 'COLLISION': 1206, 'INDETERMINATE': 56, 'INVALID_INPUT': 0}\nA short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 15655, 'ALLOWED_CONTACT': 4, 'COLLISION': 689, 'INDETERMINATE': 32, 'INVALID_INPUT': 0}\nA collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 16016, 'ALLOWED_CONTACT': 4, 'COLLISION': 691, 'INDETERMINATE': 33, 'INVALID_INPUT': 0}\nA unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 15566, 'ALLOWED_CONTACT': 3, 'COLLISION': 689, 'INDETERMINATE': 122, 'INVALID_INPUT': 0}\nB sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 48270, 'ALLOWED_CONTACT': 8, 'COLLISION': 2086, 'INDETERMINATE': 104, 'INVALID_INPUT': 0}\nB short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 29971, 'ALLOWED_CONTACT': 8, 'COLLISION': 1285, 'INDETERMINATE': 64, 'INVALID_INPUT': 0}\nB collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 30680, 'ALLOWED_CONTACT': 8, 'COLLISION': 1287, 'INDETERMINATE': 65, 'INVALID_INPUT': 0}\nB unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 29884, 'ALLOWED_CONTACT': 7, 'COLLISION': 1285, 'INDETERMINATE': 152, 'INVALID_INPUT': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/feed_power/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-fp-repeat-w_2d741r/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 91 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/feed_power/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-fp-repeat-w_2d741r/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 89 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/feed_power/present.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Native before/after views and report generated\n",
+      "stderr": "QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-agent'\nFontconfig error: No writable cache directories\n"
+    }
+  ],
+  "repeat": {
+    "A": {
+      "semantics": "PASS",
+      "PNG": {
+        "front.png": true,
+        "side.png": true,
+        "isometric.png": true,
+        "top.png": true
+      }
+    },
+    "B": {
+      "semantics": "PASS",
+      "PNG": {
+        "front.png": true,
+        "side.png": true,
+        "isometric.png": true,
+        "top.png": true
+      }
+    }
+  },
+  "frozen_modules": 34,
+  "input_sha256": "8332b00f141e8b5a047ea81213c29c49f6467f99e039e3c3e661cae7edccf6b9",
+  "body_inventory": {
+    "A": {
+      "before": 79,
+      "after": 91,
+      "all_original_IDs_retained": true
+    },
+    "B": {
+      "before": 77,
+      "after": 89,
+      "all_original_IDs_retained": true
+    }
+  },
+  "static_original_native_pairs_removed": 14,
+  "legacy_service_native_pairs_still_BLOCKED": 6,
+  "new_service_sequences": 8,
+  "new_service_moving_positive_overlap": 0,
+  "whole_press_READY": "INDETERMINATE",
+  "physical_parameters": "UNKNOWN",
+  "G1": "OPEN",
+  "raw_metadata_caveat": "historical source_commit_inputs/known_native_penetrations/tool_blockers in frozen checker are not current provenance; use this manifest/input hash"
+}
