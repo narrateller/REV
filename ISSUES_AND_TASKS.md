@@ -26,12 +26,26 @@ ID после создания не меняется. Для параллель�
 | T-r4-linked-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | RECHECK WARNING; ограниченная приёмка предлагается после интеграции | G1 |
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
 | T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
+| T-r4-calculated-layout-01 | TASK | P2 | @R4 | READY | NONE | PR #39 / BASE_A, BASE_B fixed-budget; claim PROPOSED_PENDING_MAIN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
 | T-r3-safety-01-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | принята документальная карта с WARNING, PR #18; B03 OPEN | G1 |
 | T-r3-norms-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | документальная карта с WARNING; применимость не установлена | G1 |
 | T-r3-compaction-measure-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; R5-COMP-W03/W04 OPEN | G1 |
+
+## T-r4-calculated-layout-01 — расчётно связанная исследовательская компоновка A/B
+
+- Тип TASK; P2; адресат @R4; статус READY; **owner_session: NONE**; claim_acceptance PROPOSED_PENDING_MAIN. Предлагаемый owner_session r4-linked-20261111 / Codex / R4; роль и новое поручение подтверждены пользователем, принятие claim ещё не выполнено.
+- base_commit: c0053ff7f22fbc10e93efff2691ca6aa1ef90a06 (PR #39 MERGED); branch: work-r4/T-r4-calculated-layout-01/r4-linked-20261111. assignment_utc / heartbeat_utc: 2026-11-12T13:17:33Z; **proposed lease_expires_at: 2026-11-13T13:17:33Z**. Новый срок относится к новой задаче; не продлевает прежний claim. При принятии проверить фактическое время/конкурирующего владельца/входы, не принимать истёкшее предложение.
+- Основание отдельной задачи: первая компоновка T-r4-layout-build-01 уже интегрирована PR #36 в прежней ASSUMED-области; расчётные входы PR #39 и fixed-budget требуют новой привязки и выходного review. Старый claim owner r4-linked-20261111 до 2026-11-12T18:06:24Z действовал при сверке; ни срок, ни область, ни исторические статусы старой задачи этим предложением не изменяются.
+- Входы: verification/r3_parametric_sizing/r4_inputs.md на C 8a1ad4199fea09d1157972d7aa28eaad1e8e0337 и verification/r3_power_reconcile/r4_inputs.md на C c115f75fd900525d9ddc89d85e097ac5a0f00bc1, BASE_A/BASE_B JSON и snapshots/registry. R5 d92cebd5a539d6845fe114515154e79c639bcb7e и 54c918bc82612a38f74056ff8ff5b62632d3a210 — ограниченный ACCEPT_WITH_WARNING. Прежний CAD C 7d1bd1c92c7cedc4282e3a903463e88205b86fa3 / RECHECK 05f149332bc173eaa008250e1a5ab21e4d7611cf / решение R1 — неизменяемая база сравнения, не проверка новых входов.
+- Исполнимое задание: verification/r4_calculated_layout/task.md; claim.md; preflight.json и input_manifest.json. 44 строки source_bindings.md/json — только точный каталог источников NOT_APPLIED, не новая геометрия. Оба readonly расчёта повторены, 80 прежних publication files unchanged. Новая задача отсутствовала в принятой main при preflight; другого принятого владельца её не найдено.
+- Scope: BASE_A и BASE_B только fixed-budget; камера, продукт, D/d и ходы — из размерного слоя; новые t/v — из power reconciliation; зарегистрированные источники/оси/зависимости/старое-новое/UNKNOWN. Не менять размеры молча ради мощности. COTS не утверждены: D/d не задают наружный корпус/монтаж; бак/мотор/крепления/линии не выводить из одной мощности.
+- Output: отдельные новые редактируемые FCStd A/B/STEP/виды/сечения, SI parameter mapping с ID@revision/status/source/node и до/после; полные рабочие/выдача/возврат/service результаты, пары/фазы/метод/continuity/link/READY отдельно, команды/хэши/точный C и независимый R5. Предыдущие файлы/акты/доказательства не перезаписывать. Прежние 6 прямых UP BLOCKED и физически INDETERMINATE L остаются видимыми; новая геометрия проверяется заново, false PASS регрессии сохраняются.
+- Критерий реализации: точная прослеживаемость к обоим слоям, повторяемое построение/reopen/recompute/native CAD и все QueryVolumes, generation отдельно от readonly verifier, отсутствие скрытых коллизий/UNKNOWN; регрессии ядра/сервисов и конечный перечень остатка. До принятия claim инженерные изменения/новые CAD NOT_STARTED, новые проверки NOT_RUN; после принятия fetch/owner/lease/inputs и входной акт §6 до работы.
+- Ограничения: реальные размеры/свойства REV UNKNOWN, новые допущения отдельно ASSUMED, расчётные зависимости CALCULATED без самоповышения. B_open_permission INDETERMINATE, физическая выполнимость L INDETERMINATE, whole press не принят. Архитектура/ТЗ/COTS не утверждаются, физические испытания NOT_RUN, G1 OPEN. DONE требует независимого review и отдельного решения, не зелёного CLI.
+- Handoff: handoffs/T-r4-calculated-layout-01/r4-linked-20261111.md (следующий H с точным C). Назначение реализации ожидает последовательного принятия claim в main по AGENT_PROTOCOL §4.
 
 ## T-r4-linked-01 — ограниченные связные synthetic-сцены A/B
 

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task": "T-r4-calculated-layout-01",
+  "base_main": "c0053ff7f22fbc10e93efff2691ca6aa1ef90a06",
+  "observed_at_utc": "2026-11-12T13:17:33Z",
+  "proposed_owner_session": "r4-linked-20261111",
+  "owner_session": "NONE",
+  "role": "R4",
+  "claim_acceptance": "PROPOSED_PENDING_MAIN",
+  "assignment_utc": "2026-11-12T13:17:33Z",
+  "heartbeat_utc": "2026-11-12T13:17:33Z",
+  "proposed_lease_expires_at": "2026-11-13T13:17:33Z",
+  "branch": "work-r4/T-r4-calculated-layout-01/r4-linked-20261111",
+  "old_claim": {
+    "task": "T-r4-layout-build-01",
+    "owner_session": "r4-linked-20261111",
+    "claim_record_commit": "79e9c3aa9aaca33778814957fafecd93a4adc392",
+    "lease_expires_at": "2026-11-12T18:06:24Z",
+    "valid_at_preflight": true,
+    "extended": false,
+    "scope_expanded": false
+  },
+  "new_task_absent_from_main": true,
+  "competing_owner_for_new_task_in_main": false,
+  "assignment_basis": "Direct user request after merged PR 39; new task proposal does not self-accept claim",
+  "source_manifest": "verification/r4_calculated_layout/input_manifest.json",
+  "source_files": 30,
+  "baseline_manifest_files_unchanged": 80,
+  "catalog_rows": 44,
+  "read_only_replay": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/rev_parametric.py"
+      ],
+      "exit_code": 0,
+      "stdout": "8 conditional cases, 696 registered scalar outputs; recomputed and verified without writes\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/rev_power_reconcile.py"
+      ],
+      "exit_code": 0,
+      "stdout": "8 original incompatible cases, two explicit alternatives each, 376 registered scalar outputs; verified without writes\n",
+      "stderr": ""
+    }
+  ],
+  "controlled_sources_hash_size_mtime_unchanged": 29,
+  "capabilities": {
+    "git_fetch": "PASS",
+    "git_push": "TO_BE_VERIFIED",
+    "github_api_graphql": "FORBIDDEN",
+    "github_api_rest": "FORBIDDEN",
+    "FreeCAD_Part_import": "1.0.0 via /usr/bin/python3",
+    "python_venv_from_R3_handoff": "ABSENT",
+    "R3_readonly_system_python3": "PASS"
+  },
+  "implementation": "NOT_STARTED",
+  "CAD_generation": "NOT_RUN",
+  "new_geometry_checks": "NOT_RUN",
+  "new_output_review": "NOT_RUN",
+  "real_REV": "UNKNOWN",
+  "B_open_permission": "INDETERMINATE",
+  "L_path_physical_feasibility": "INDETERMINATE",
+  "physical_tests": "NOT_RUN",
+  "G1": "OPEN"
+}

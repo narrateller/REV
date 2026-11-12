@@ -2627,3 +2627,7 @@ supersedes: null
 rechecks:
 - REV-R5-R3-PARAMETRIC-OUTPUT-01-001
 ```
+
+## Предложение нового R4 claim — расчётно связанная компоновка после PR #39
+
+2026-11-12T13:17:33Z, R4 r4-linked-20261111. T-r4-calculated-layout-01 READY / owner NONE / PROPOSED_PENDING_MAIN. База c0053ff7f22fbc10e93efff2691ca6aa1ef90a06, точные входы/каталог и постановка verification/r4_calculated_layout/. Это предложение задачи и сверка источников, **не акт независимой проверки и не результат CAD**. Новый OUTPUT review NOT_RUN. Роль действует по пользователю, claim ждёт принятия main; прежняя ограниченная приёмка/история/геометрия не меняются. G1 OPEN, B opening/L physical INDETERMINATE, физические испытания NOT_RUN.
