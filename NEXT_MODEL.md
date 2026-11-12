@@ -1,3 +1,20 @@
+# Актуальная эстафета — R5-FP-NEW-B01 semantic RECHECK
+
+- HANDOFF / IN_REVIEW; 2026-11-12T03:05:59Z; R4 r4-linked-20261111. **Code/results C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`**, REMOTE в work-r4/build-layout/r4-linked-20261111. H только учёт/эстафета, проверять неизменяемый C.
+- Вход 2592b470940cea886e033a999c889c15a92889f6 по исходному 8fbbef00023e146e32cb6ff290a0c19408ca13b5. Геометрические 14 fixes/L-path остаются ACCEPT_WITH_WARNING в конечной области, новый semantic adapter был REJECT_WITH_BLOCKER. Исправление на независимый RECHECK NOT_RUN, R5-FP-NEW-B01 OPEN, автор не закрывает.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 повторно проверена; accepted claim 79e9c3aa9aaca33778814957fafecd93a4adc392/PR #35/пользователь, owner r4-linked-20261111, lease до 2026-11-12T18:06:24Z (21:06 МСК) без расширения. Исторический NONE/PENDING main координатор сверяет/нормализует перед интеграцией.
+- Пять false PASS воспроизведены до изменений; причины каждого в verification/r4_fp_fix/causes.md. Теперь fresh current state/time/participants/plan/whole interval/all-pairs/method/continuity/return связаны с сохранёнными matrices/interval results/classifications/assessment/report. Registered metadata не даёт скрыть solid collision; mandatory sets выводятся из inputs/current scene, все пары сервисов включены.
+- Результаты раздельны: execution, test expectation, interval geometry, whole geometric path, overall/physical service. Known collision/confirmed discontinuity/plan-return defect блокируют whole path; unknown method/mandatory condition не дают успех. Исходный L остаётся limited geometry success, физическая пригодность INDETERMINATE. Expected legacy negative PASS не делает путь успешным.
+- 110 tests PASS. Тот же independent R5 probe после правки: все 5 verifier exits1, первые 4 BLOCKED/rotation INDETERMINATE, без записи. 25 цепочечных command records и 4 compound/unknown случая; calculation/report/reanalysis CLI тоже отвергают неверные пути. Восстановленные baseline verifier exit0/0, идентичный stdout/stderr, SHA/size/mtime unchanged.
+- Все 638919 pair matrices и classifications пересчитаны, 593931 mandatory interval rows сверены по значениям. Исходный набор: 20 CONFIRMED_NO_POSITIVE_VOLUME/2 legacy BLOCKED, общий физический сервис 20 INDETERMINATE/2 BLOCKED. 34 frozen модуля и 46 native/input/scene/classification files byte-identical, 14 static fixes/6 legacy native conflicts сохранены; CAD/STEP не пересохранялись.
+- Файлы/команды verification/r4_fp_fix/README.md/final_checks.json, before_counterexamples.json, after/, запрос recheck_request.md. Новые service_semantics/service_evidence/fixtures/tests плюс common/generate/present/verify diff — отдельная область review. Metadata/cached stages не заменяют fresh calculation. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Следующий независимый R5: checkout C, materialize LFS, сохранить оригинал, verifier дважды до generation; затем в отдельной копии пять native/unsupported случаев, compounds/time gaps/missing phase/scene/pair/group/return и вся calculation→aggregation→report→verifier→CLI цепочка. Критерий — независимый RECHECK B01 по C; интеграция координатором отдельно, merge не выполнен.
+- R4-FP-SERVICE-01 и реальные UNKNOWN сохраняются; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN, весь пресс READY INDETERMINATE. C REMOTE.
+
+---
+
+История прежних эстафет ниже:
+
 # Актуальная эстафета — дозатор и гидростанция A/B
 
 - HANDOFF / IN_REVIEW; 2026-11-12T01:34:06Z; R4 r4-linked-20261111. **Code/results C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`**, REMOTE в work-r4/build-layout/r4-linked-20261111. H только учёт/эстафета, проверять неизменяемый C.

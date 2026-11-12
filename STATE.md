@@ -1,6 +1,16 @@
 # STATE — панель проекта
 
-## Текущий результат R4 — дозатор/гидростанция (2026-11-12T01:34:06Z)
+## Текущий результат R4 — сервисный semantic fix (2026-11-12T03:05:59Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`**, REMOTE. Входной R5 2592b47: исходная геометрия/условный L-path с WARNING подтверждены, новый adapter REJECT_WITH_BLOCKER R5-FP-NEW-B01. Исправление требует независимого RECHECK (NOT_RUN), B01 OPEN, не самоприёмка.
+
+Fresh service calculation учитывает все registered phases/participants/pairs/метод/план/continuity/return; все cached matrices/interval/classification/assessment/report сверяются по значениям. Command execution/test expectation/actual path/physical feasibility разделены. 110 tests; 5 original исправленных verifier exits1 (4 BLOCKED/1 INDETERMINATE), 25 цепочечных command records и compounds PASS. Два restored readonly verifier идентичны/без записи. Все 638919 matrices/classifications и 593931 interval rows пересчитаны.
+
+34 frozen модуля, 46 source/native/input/scene/classification preservation files unchanged; CAD/STEP не сохранялись. Исходный L геометрически сохраняется; 14 static fixes/6 legacy native BLOCKED сохранены. 20 model geometric paths confirmed /2 BLOCKED, но overall physical service 20 INDETERMINATE/2 BLOCKED. Expected negative не означает пригодность. Весь пресс READY INDETERMINATE, сборка/задача не приняты.
+
+Main/owner/claim/lease проверены, срок/область не расширены; исторический учёт main координатор сверяет до интеграции. Текущие данные/команды verification/r4_fp_fix/, запрос recheck_request.md, source cad/feed_power/, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md и NEXT_MODEL.md. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, размеры ASSUMED/реальные UNKNOWN, G1 OPEN, merge не выполнялся.
+
+## История результата R4 — дозатор/гидростанция (2026-11-12T01:34:06Z)
 
 T-r4-layout-build-01 IN_REVIEW, **C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`**, REMOTE. База a5d5bad, RECHECK c2e96a5 закрывает прежний B01 только в его области. Новый FP OUTPUT review NOT_RUN; весь пресс не принят.
 

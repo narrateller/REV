@@ -2304,3 +2304,5 @@ supersedes: null
 - Автор r4-linked-20261111, входной R5 акт 2592b470940cea886e033a999c889c15a92889f6. Новый reviewer/result NOT_ASSIGNED/NOT_RUN; R5-FP-NEW-B01 OPEN до независимого решения.
 - Пять исходных false PASS воспроизведены; исправленные CLI отклоняют их со fresh BLOCKED/INDETERMINATE, связаны calculation→aggregation→report→verifier, негативное ожидание отделено от path success. 110 tests и 25 цепочечных команд PASS, compound/unknown покрыты, readonly сохранён.
 - 34 frozen модуля и исходная геометрия unchanged, L physical feasibility INDETERMINATE, 6 legacy BLOCKED/14 static fixes сохранены. Полные результаты verification/r4_fp_fix/, точный C следующим H, запрос recheck_request.md. G1 OPEN, физические испытания NOT_RUN.
+
+Неизменяемый объект REV-R4-FP-SEMANTIC-FIX-OUTPUT-01: C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`, REMOTE. H только эстафета. Reviewer/result NOT_ASSIGNED/NOT_RUN, R5-FP-NEW-B01 OPEN до независимого RECHECK.
