@@ -1,0 +1,132 @@
+[
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "cad/layout",
+      "-p",
+      "test_*.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 5.530s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "models/rev_linked_scene",
+      "-p",
+      "test_*.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.263s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "models/kinematic_press",
+      "-p",
+      "test_*.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.185s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "cad/layout_correction",
+      "-p",
+      "test_*.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 22.652s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "cad/frame_mount",
+      "-p",
+      "test_*.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "cad/frame_mount/run.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "{\"execution\": {\"status\": \"COMPLETED\", \"exit_code\": 0}, \"test_evaluation\": {\"status\": \"PASS\", \"scope\": \"eight limited cycle expectations, not whole assembly\"}, \"geometry\": {\"changed_group_positive_overlap_rows\": 0, \"previous_target_positive_overlap_rows\": 0, \"whole_press_READY\": \"INDETERMINATE\"}, \"remaining\": {\"INDETERMINATE\": 368, \"CONDITIONAL_MATING\": 73, \"NATIVE_PENETRATION\": 20, \"CONDITIONAL_ENVELOPE_INTERSECTION\": 2}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "cad/frame_mount/geometry_evidence.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "{\"coverage_rows\": 346709, \"changed_group_rows\": 114184, \"changed_group_counts\": {\"NO_POSITIVE_VOLUME_ON_INTERVAL\": 114156, \"INDETERMINATE\": 28}, \"previous_target_rows\": 658, \"cylinder_service_rows\": 3672}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "cad/frame_mount/figures.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "4 before/after native-profile SVG figures generated; general A/B PNG/SVG/PDF from frozen native builder\n",
+    "stderr": "QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-agent'\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "cad/frame_mount/report.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 0,
+    "stdout": "assessment.md and changes.json generated from saved results\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "cad/frame_mount/verify_output.py"
+    ],
+    "cwd": "/tmp/rev-frame-519",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "SELF-CHECK FAILED: 'utf-8' codec can't decode byte 0x93 in position 379: invalid start byte\n"
+  }
+]
