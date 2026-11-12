@@ -3079,3 +3079,7 @@ supersedes: null
 ## Предложение отдельного R4 claim — CYC-01 + ранние CYC-08/09
 
 2026-11-12T18:16:39Z; автор r4-linked-20261111 / R4, T-r4-cycle-contract-01 READY / owner NONE / PROPOSED_PENDING_MAIN. База b1a4e398741b84d482c96f00a605e98b720ff929, карта 43f03359fabe2b664935b17f9ac7851504093ece, акт e69a8afbe4df3d53c4cc8b5883319e00eb8130af. Постановка и защита источников verification/r4_cycle_contract/. Это административная подготовка, не контракт/не независимый review. Новый OUTPUT review NOT_RUN; R5-CYCLE-W01/W02 и CYC OPEN, G1 OPEN. Расчёты/CAD/их код/registry не меняются, solver/rebuild/физические испытания NOT_RUN. Точный C предложения — в следующем H.
+
+## R4 CYC-01 / ранние CYC-08/09 — авторский результат, не независимый review
+
+2026-11-12T19:14:28.746890+00:00; T-r4-cycle-contract-01 / r4-linked-20261111. Main d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9, claim принят PR #43, lease до 2026-11-13T18:16:39Z. Входы/акт input_audit.md и input_acceptance.json в verification/r4_cycle_contract/. ASSUMED_INTERFACE_PROPOSAL: материальный ledger/состояния/переходы, ранний resource/READY контракт, 59 примеров и 2 условные трассы. Документальная проверка не подтверждает числа/физику/контроллер/CAD. Запрос независимого OUTPUT review review_request.md; полный C в следующем H. CYC-01…09/R5-CYCLE-W01/W02 OPEN; G1 OPEN. Чужие акты/расчёты/CAD не изменены, numerical solver/CAD/rebuild/physical tests NOT_RUN.

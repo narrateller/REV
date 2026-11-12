@@ -1,0 +1,664 @@
+[
+  {
+    "id": "A-STARTUP-THEN-STEADY",
+    "status": "ASSUMED_LOGICAL_TRACE",
+    "initial_state": "A_UNKNOWN",
+    "final_state": "A_COLUMN_ESTABLISHED",
+    "steps": [
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-1",
+        "transition": "A-AUDIT",
+        "before": "A_UNKNOWN",
+        "after": "A_EMPTY",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "EMPTY_CONFIRMED": "TRUE"
+        },
+        "inventory_effect": "Фиксация проверенного empty case, без продукта"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-2",
+        "transition": "A-READY-START-LOAD",
+        "before": "A_EMPTY",
+        "after": "A_EMPTY",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "EMPTY_CONFIRMED": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-3",
+        "transition": "A-LOAD-START",
+        "before": "A_EMPTY",
+        "after": "A_STARTUP_RAW",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "DOSE_DELIVERED": "TRUE",
+          "FEED_CLEAR": "TRUE"
+        },
+        "inventory_effect": "UPSTREAM → PRESS_ACCOUNT: новая сырая доза, L2"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-4",
+        "transition": "A-GATHER",
+        "before": "A_STARTUP_RAW",
+        "after": "A_COLUMN_BUILDING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "A_REACTION_DEFINED": "TRUE",
+          "PARTIAL_CRITERION": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "То же вещество; накопление/частичное сжатие, L3; не product"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-5",
+        "transition": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+        "before": "A_COLUMN_BUILDING",
+        "after": "A_COLUMN_BUILDING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "FEED_CLEAR": "TRUE"
+        },
+        "inventory_effect": "Возврат/освобождение refill пути с сохранением startup inventory; если столб уже установлен, state не понижается"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-6",
+        "transition": "A-REFILL",
+        "before": "A_COLUMN_BUILDING",
+        "after": "A_COLUMN_BUILDING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "DOSE_DELIVERED": "TRUE",
+          "FEED_CLEAR": "TRUE"
+        },
+        "inventory_effect": "Новая доза к стартовому запасу; Δretained не обнуляется"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-7",
+        "transition": "A-GATHER",
+        "before": "A_COLUMN_BUILDING",
+        "after": "A_COLUMN_BUILDING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "A_REACTION_DEFINED": "TRUE",
+          "PARTIAL_CRITERION": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "То же вещество; накопление/частичное сжатие, L3; не product"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-8",
+        "transition": "A-COLUMN",
+        "before": "A_COLUMN_BUILDING",
+        "after": "A_COLUMN_ESTABLISHED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "COLUMN_CRITERION": "TRUE",
+          "A_REACTION_DEFINED": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "inventory_effect": "Тот же стартовый запас, критерий H-A, L3"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-9",
+        "transition": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+        "before": "A_COLUMN_ESTABLISHED",
+        "after": "A_COLUMN_ESTABLISHED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "FEED_CLEAR": "TRUE"
+        },
+        "inventory_effect": "Возврат/освобождение refill пути с сохранением startup inventory; если столб уже установлен, state не понижается"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-10",
+        "transition": "A-READY-STEADY-LOAD",
+        "before": "A_COLUMN_ESTABLISHED",
+        "after": "A_COLUMN_ESTABLISHED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "RETAINED_STABLE": "TRUE",
+          "COLUMN_CRITERION": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-11",
+        "transition": "A-LOAD-STEADY",
+        "before": "A_COLUMN_ESTABLISHED",
+        "after": "A_STEADY_LOADED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "DOSE_DELIVERED": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "inventory_effect": "Доза + существующий столб без двойного счёта"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-12",
+        "transition": "A-COMPACT",
+        "before": "A_STEADY_LOADED",
+        "after": "A_COMPACTED_CANDIDATE",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "A_REACTION_DEFINED": "TRUE",
+          "RETAINED_STABLE": "TRUE",
+          "COMPACTION_CRITERION": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Преобразование того же вещества L3, без нового прихода"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-13",
+        "transition": "A-SEGMENT",
+        "before": "A_COMPACTED_CANDIDATE",
+        "after": "A_SEGMENT_READY",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "PARTITION_DEFINED": "TRUE",
+          "RETAINED_STABLE": "TRUE"
+        },
+        "inventory_effect": "Исчерпывающий outgoing + retained partition; не доказанный физический рез"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-14",
+        "transition": "A-EJECT",
+        "before": "A_SEGMENT_READY",
+        "after": "A_EXITING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "RETAINED_STABLE": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Только location, масса пока PRESS_ACCOUNT"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-15",
+        "transition": "A-CROSS",
+        "before": "A_EXITING",
+        "after": "A_OUTSIDE_PENDING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "WHOLE_BEYOND_EXIT": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Location вне выхода, custody не меняется"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-16",
+        "transition": "A-RECEIVE",
+        "before": "A_OUTSIDE_PENDING",
+        "after": "A_RECEIVED_RETAINED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "WHOLE_BEYOND_EXIT": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "PARTITION_DEFINED": "TRUE"
+        },
+        "inventory_effect": "Только segment PRESS → RECEIVER_ACCOUNT, retained остаётся, L4"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-17",
+        "transition": "A-RETURN",
+        "before": "A_RECEIVED_RETAINED",
+        "after": "A_RECEIVED_RETAINED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "RETAINED_STABLE": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "inventory_effect": "Только позы, не READY/REMOVE"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-18",
+        "transition": "A-NEXT",
+        "before": "A_RECEIVED_RETAINED",
+        "after": "A_COLUMN_ESTABLISHED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "RETAINED_STABLE": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "inventory_effect": "Фиксация следующего retained inventory, не новая масса"
+      },
+      {
+        "step_id": "A-STARTUP-THEN-STEADY-event-19",
+        "transition": "A-READY-STEADY-LOAD",
+        "before": "A_COLUMN_ESTABLISHED",
+        "after": "A_COLUMN_ESTABLISHED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "RETAINED_STABLE": "TRUE",
+          "COLUMN_CRITERION": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск"
+      }
+    ],
+    "material_note": "Каждый DELIVER_DOSE имеет новый dose_id и вклад M_dose_i; retained/residue и pending включены в PRESS_ACCOUNT; ACK переносит только согласованный segment/product, REMOVE не используется для получения READY. Численные массы/физическая возможность UNKNOWN.",
+    "physical_permission": false
+  },
+  {
+    "id": "B-REPEAT-THEN-NEXT",
+    "status": "ASSUMED_LOGICAL_TRACE",
+    "initial_state": "B_UNKNOWN",
+    "final_state": "B_ACCEPTABLE_INITIAL",
+    "steps": [
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-1",
+        "transition": "B-AUDIT",
+        "before": "B_UNKNOWN",
+        "after": "B_ACCEPTABLE_INITIAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE"
+        },
+        "inventory_effect": "Empty или определённый допустимый остаток, без готового product"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-2",
+        "transition": "B-READY-LOAD",
+        "before": "B_ACCEPTABLE_INITIAL",
+        "after": "B_ACCEPTABLE_INITIAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-3",
+        "transition": "B-LOAD",
+        "before": "B_ACCEPTABLE_INITIAL",
+        "after": "B_RAW_LOADED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "DOSE_DELIVERED": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE"
+        },
+        "inventory_effect": "Доставленная доза + начальный остаток L2"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-4",
+        "transition": "B-GATHER",
+        "before": "B_RAW_LOADED",
+        "after": "B_GATHERED_PARTIAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "PARTIAL_CRITERION": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Только partial transform той же массы, не готовый product"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-5",
+        "transition": "B-GATHER-RETURN",
+        "before": "B_GATHERED_PARTIAL",
+        "after": "B_GATHERED_PARTIAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "FEED_CLEAR": "TRUE"
+        },
+        "inventory_effect": "Возврат к refill без удаления partial batch"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-6",
+        "transition": "B-READY-REFILL",
+        "before": "B_GATHERED_PARTIAL",
+        "after": "B_GATHERED_PARTIAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "PARTIAL_CRITERION": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-7",
+        "transition": "B-REFILL",
+        "before": "B_GATHERED_PARTIAL",
+        "after": "B_RAW_LOADED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "DOSE_DELIVERED": "TRUE",
+          "FEED_CLEAR": "TRUE"
+        },
+        "inventory_effect": "Новая доза к тому же batch/history; не новая выдача"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-8",
+        "transition": "B-SELECT",
+        "before": "B_RAW_LOADED",
+        "after": "B_BATCH_SELECTED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "BATCH_CRITERION": "TRUE",
+          "INVENTORY_KNOWN": "TRUE"
+        },
+        "inventory_effect": "Фиксация множества доз/остатка, не создание массы"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-9",
+        "transition": "B-COMPACT",
+        "before": "B_BATCH_SELECTED",
+        "after": "B_COMPACTED",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "ISOLATION_CONFIRMED": "TRUE",
+          "COMPACTION_CRITERION": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Product candidate из batch; partition с явным остатком ещё требуется"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-10",
+        "transition": "B-OPEN-CONFIRM",
+        "before": "B_COMPACTED",
+        "after": "B_EJECTABLE",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "B_UNLOADED": "TRUE",
+          "LOCK_CLEAR": "TRUE",
+          "STOP_OPEN": "TRUE",
+          "B_OPEN_SEQUENCE_VALID": "TRUE",
+          "PARTITION_DEFINED": "TRUE"
+        },
+        "inventory_effect": "Подтверждение уже выполненных UNLOAD → UNLOCK → OPEN, не команда двигать всё одновременно"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-11",
+        "transition": "B-EJECT",
+        "before": "B_EJECTABLE",
+        "after": "B_EXITING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "B_UNLOADED": "TRUE",
+          "LOCK_CLEAR": "TRUE",
+          "STOP_OPEN": "TRUE",
+          "B_OPEN_SEQUENCE_VALID": "TRUE",
+          "EJECTION_PATH_CLEAR": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Только движение выбранного продукта, residue сохраняется"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-12",
+        "transition": "B-CROSS",
+        "before": "B_EXITING",
+        "after": "B_OUTSIDE_PENDING",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "WHOLE_BEYOND_EXIT": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Location за выходом, пока PRESS_ACCOUNT"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-13",
+        "transition": "B-RECEIVE",
+        "before": "B_OUTSIDE_PENDING",
+        "after": "B_RECEIVED_RESIDUAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "WHOLE_BEYOND_EXIT": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "PARTITION_DEFINED": "TRUE"
+        },
+        "inventory_effect": "Product PRESS → RECEIVER_ACCOUNT, residue сохраняется"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-14",
+        "transition": "B-RETURN",
+        "before": "B_RECEIVED_RESIDUAL",
+        "after": "B_RECEIVED_RESIDUAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "METHOD_SUPPORTED": "TRUE"
+        },
+        "inventory_effect": "Только позы; reset отдельно"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-15",
+        "transition": "B-RESET",
+        "before": "B_RECEIVED_RESIDUAL",
+        "after": "B_RECEIVED_RESIDUAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE"
+        },
+        "inventory_effect": "Подтверждённые восстановленные stop/lock; продукт/остатки не исчезают"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-16",
+        "transition": "B-NEXT",
+        "before": "B_RECEIVED_RESIDUAL",
+        "after": "B_ACCEPTABLE_INITIAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE"
+        },
+        "inventory_effect": "Следующий остаток известен и допустим, не фиктивная empty камера"
+      },
+      {
+        "step_id": "B-REPEAT-THEN-NEXT-event-17",
+        "transition": "B-READY-LOAD",
+        "before": "B_ACCEPTABLE_INITIAL",
+        "after": "B_ACCEPTABLE_INITIAL",
+        "guard_values": {
+          "EVENT_FRESH": "TRUE",
+          "BASIS_DEFINED": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "INVENTORY_KNOWN": "TRUE",
+          "RESIDUE_ALLOWED": "TRUE",
+          "B_RESET_CONFIRMED": "TRUE",
+          "TOOLS_HOME": "TRUE",
+          "FEED_CLEAR": "TRUE",
+          "TRANSFER_LEDGER_CLOSED": "TRUE",
+          "RECEIVER_DEFINED": "TRUE",
+          "RESOURCES_READY": "TRUE"
+        },
+        "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск"
+      }
+    ],
+    "material_note": "Каждый DELIVER_DOSE имеет новый dose_id и вклад M_dose_i; retained/residue и pending включены в PRESS_ACCOUNT; ACK переносит только согласованный segment/product, REMOVE не используется для получения READY. Численные массы/физическая возможность UNKNOWN.",
+    "physical_permission": false
+  }
+]
