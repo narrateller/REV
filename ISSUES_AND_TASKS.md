@@ -1,3 +1,15 @@
+## T-r5-cc-b01-recheck — независимая документальная проверка
+
+- Session/owner review-пакета: r5-cc-b01-20261112 / Codex / R5; прямое поручение пользователя.
+- Scope: RECHECK точного C 0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed по ARB-R1-CC-01, без takeover R4.
+- Status: REVIEW_COMPLETE, результат в отдельной ветке; main claim/интеграция не приняты.
+- Base H 4c00bd1603e7ebb6afad80ca3c17b38f4b472670; assignment/heartbeat UTC: 2026-11-12T23:54:51.982014+00:00.
+- Result: REV-R5-CC-B01-RECHECK-02-001, WARNING; B01 CLOSED только документально на C, W01 документально CLOSED, W02 OPEN.
+- 205 авторских + 587 собственных checks MATCH; оба исторических отказа сохранены, consecutive_rejections=2.
+- CYC-02/03: conditional documentary input допустим с WARNING; executable material/physical READY и closure NO-GO до W02/новых доказательств.
+- Parent T-r4-cycle-contract-01 не DONE; owner/lease неизменны. Физические испытания NOT_RUN, архитектура/ТЗ не утверждены, G1 OPEN.
+- Evidence: verification/r5_cc_b01_recheck/review.md, commands.json, preservation.json, independent_results.json.
+
 # ISSUES_AND_TASKS — задачи, вопросы, блокеры
 
 Единственный межролевой трекер. Одна запись — одна проверяемая задача либо вопрос.

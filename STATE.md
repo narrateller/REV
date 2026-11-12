@@ -1,3 +1,30 @@
+# Независимый RECHECK B01 — R5
+
+Проверен C `0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed`, H
+`4c00bd1603e7ebb6afad80ca3c17b38f4b472670`, решение ARB-R1-CC-01
+на `616135755d1b6cbaa09ae9800bad5af8bbc28aed`.
+R5 / Codex / session `r5-cc-b01-20261112`, прямое поручение пользователя.
+Акт `REV-R5-CC-B01-RECHECK-02-001`: verification/r5_cc_b01_recheck/review.md.
+
+**B01 CLOSED только на точном C в документальной области; общий WARNING.**
+205/205 авторских и 587/587 собственных checks, оба historical baseline с
+прежними ошибками воспроизведены. 17 blobs/11 protected trees/отдельный CAD и
+1117 прежних tracked files сохранены во время проверки; расчёты/CAD не менялись.
+Два REJECT_WITH_BLOCKER d99afb4…/c56e494… и consecutive_rejections=2 сохранены.
+W01 CLOSED только документально; **W02 OPEN/NOT_IMPLEMENTED**.
+
+Для CYC-02/03 допускаются условные документальные интерфейсы с WARNING,
+ASSUMED/UNKNOWN и явным планом W02. Исполняемый material contract, физический
+READY, приёмка геометрии и закрытие CYC — NO-GO. Parent не объявлен DONE;
+owner/lease R4 не менялись, main claim/merge review не выполнены.
+**G1 OPEN**, архитектура/ТЗ не утверждены, physical tests/solver/rebuild NOT_RUN.
+Следующий шаг — рассмотрение опубликованного точного review SHA и отдельное
+решение об интеграции; далее W02 и профильные входы R2/R3/CYC, без общего rebuild.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # R4 — B01 по ARB-R1-CC-01: кандидат независимого RECHECK
 
 **Неизменяемый C `0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed`, REMOTE**, https://github.com/narrateller/REV,
