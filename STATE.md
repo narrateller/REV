@@ -559,3 +559,7 @@ T-r4-layout-01: документальный черновик cad/layout/whole_p
 ## Подготовка построения R4
 
 Пакет 79e9c3aa9aaca33778814957fafecd93a4adc392 отвечает W01/W02/W03, новая T-r4-layout-build-01 и claim PROPOSED/PENDING_MAIN. Геометрия и build/check код NOT_STARTED. Только импорт FreeCAD/Part проверен, физика/посадки/архитектура не приняты. PR без слияния; G1 открыт.
+
+## Исходная база BP500 R2 — на независимую проверку
+
+T-r2-bp500-design-basis-01: claim принят PR #37 на `680946b8abba9d921c5723b523be573554c15eca`, owner `42c24056-d31b-4bac-9215-5d99222eb70d`, lease до 2026-11-13T07:59:51Z. Пакет verification/r2_bp500_design_basis/, реестр и условный вычислитель scripts/bp500_basis.py подготовлены, IN_REVIEW. Данные референса, гипотезы и производные разделены; рабочая нагрузка/ходы/свойства сырья UNKNOWN, полный подбор INDETERMINATE. Архитектура/ТЗ не утверждены, B01–B03 и G1 OPEN, физические испытания NOT_RUN.
