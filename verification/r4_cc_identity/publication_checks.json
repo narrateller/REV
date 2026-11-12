@@ -1,0 +1,52 @@
+{
+  "observed_at_utc": "2026-11-12T23:12:47.747589+00:00",
+  "main": "8a82b30d185a10c71dbedbb8b581cf6b5162b1b7",
+  "decision": "616135755d1b6cbaa09ae9800bad5af8bbc28aed",
+  "owner_session": "r4-linked-20261111",
+  "lease_expires_at": "2026-11-13T18:16:39Z",
+  "lease_valid": true,
+  "lease_extended": false,
+  "consecutive_rejections": 2,
+  "old_reviews": [
+    "d99afb4c3231d641d4a4921f39987264ce5ffc23",
+    "c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b"
+  ],
+  "review_verdict_findings_artifact_hashes": "UNCHANGED",
+  "current_review_index": "STALE_FOR_NEW_ARTIFACTS",
+  "baseline": "EXACT_R5_AND_R1_45_CASES_3_OLD_MISMATCHES_NOT_ACCEPTANCE",
+  "checks": {
+    "original_26": true,
+    "recheck_45_mismatches": 0,
+    "arbitration_cases": 134,
+    "total": 205,
+    "readonly_files": 572,
+    "readonly_runs_each": 2,
+    "document_examples": 59,
+    "state_traces": 2
+  },
+  "registry": {
+    "command": "python3 -B scripts/check_registry.py --check-git",
+    "exit_code": 0,
+    "stdout": "PASS: repository consistency checks; engineering acceptance NOT assessed\n",
+    "initial_metadata_error": "FAIL: reviews: Duplicate YAML key: stale_reason\n",
+    "remedy": "Duplicate stale_reason removed; only validity/stale_reason changed, original formal data preserved."
+  },
+  "code_files": {
+    "verification/r4_cycle_contract/permission_examples.py": "e4bce420b1cec04e65600d5caf979287797d255d5a718b769f7490d50b4e8ac3",
+    "verification/r4_cycle_contract/check_documents.py": "5dbf649d96dcb9357272b0cd2edd6293c7175d282f520310f8c9733b0f926fa4",
+    "verification/r4_cycle_contract_fix/check_fix.py": "550f137e4971f905278aff1175f2d8c7a601e0ee1b103913dadfc4aab908fdc9",
+    "verification/r4_cc_identity/fixtures.py": "15a65455ac05746e0a7300741a64a4f6bcbc737c059a0592c09f1b06119276b9",
+    "verification/r4_cc_identity/replay_r5.py": "5bbbc5542e207b50f2d9a67f01e177dc13feec2a2ce1083285f94da51c6e0215",
+    "verification/r4_cc_identity/verify.py": "e55203391fe54b961e9b10da35f7753b861b70f7251d308991ec75f6ec33d138"
+  },
+  "source_blobs": 17,
+  "protected_main_trees": 11,
+  "original_required_guards": "PRESERVED",
+  "R5_R1_input_trees": "UNCHANGED",
+  "numerical_calculation_CAD_rebuild_physical_tests": "NOT_RUN",
+  "independent_RECHECK": "NOT_RUN",
+  "B01": "OPEN",
+  "W02": "OPEN_OUT_OF_SCOPE",
+  "parent_status": "BLOCKED",
+  "G1": "OPEN"
+}

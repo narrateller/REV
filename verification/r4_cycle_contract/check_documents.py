@@ -46,6 +46,9 @@ def classify(transition, before, guards):
 
 def main():
     c = read('contract.json')
+    require(c['arbitration_decision'] == '616135755d1b6cbaa09ae9800bad5af8bbc28aed', 'missing R1 decision')
+    require(c['consecutive_rejections'] == 2, 'rejection history reset')
+    require(c['fault_policy']['schema'] == 'rev-permission-history/1', 'invalid fault history schema')
     questions = index(read('questions.json'))
     guards = index(c['guards'])
     transitions = index(c['transitions'])
@@ -54,6 +57,7 @@ def main():
     require(len(c['events']) == len(set(c['events'])), 'duplicate event')
     source_rows = {r['id'] for r in json.loads((HERE.parent / 'r3_cycle_trace/cycle_table.json').read_text())}
     for g in guards.values():
+        require(g['fault_subject_kind'] in {'MATERIAL','REQUEST','RESOURCE','INTERFACE_OR_ASSEMBLY_STATE'}, 'missing fault domain')
         require(g['question'] in questions, 'unowned guard')
         require(g['actual_value'] is None and g['status'] == 'UNKNOWN' and g['unknown_reason'], 'actual guard fabricated')
     for t in transitions.values():

@@ -1,3 +1,9 @@
+# Текущая редакция 3: B01 по решению R1
+
+Актуальный кандидат/команды/205 проверок: [r4_cc_identity](../r4_cc_identity/README.md). Адресация fault_id и накопительная история — [fault_identity.md](../r4_cycle_contract/fault_identity.md). Оба отказа и consecutive_rejections=2 сохранены; parent BLOCKED, B01 OPEN до независимого RECHECK, W02 вне итерации, G1 OPEN.
+
+## История предыдущих редакций (не текущий результат)
+
 # Коррекция R5-CC-B01 / W01 — кандидат RECHECK
 
 Вход: `3cf32daef67a91f393b808adb0dc07ba4c73cac2`, независимый акт

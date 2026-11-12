@@ -3399,8 +3399,8 @@ findings:
   description: Traces и pending queue не entity-level mass ledger; требуются адресные lifecycle/balance доказательства
     при реализации.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
-stale_reason: null
+validity: STALE
+stale_reason: New B01 corrective candidate under ARB-R1-CC-01; original rejected C, verdict and finding history unchanged; independent RECHECK required.
 blocker_ids:
 - R5-CC-B01
 allowed_downstream_scope: Стабильный binding input CYC-02/03 NO-GO; исследование альтернатив, словарь/L1–L5/ресурсные
@@ -3424,3 +3424,7 @@ supersedes: null
 rechecks_review_id: REV-R5-R4-CYCLE-CONTRACT-01-001
 rechecks_review_commit: d99afb4c3231d641d4a4921f39987264ce5ffc23
 ```
+
+## R4 B01 по ARB-R1-CC-01 — авторский кандидат, не RECHECK
+
+2026-11-12T23:10:35.928830+00:00; r4-linked-20261111, решение 616135755d1b6cbaa09ae9800bad5af8bbc28aed / main 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7. Два REJECT_WITH_BLOCKER d99afb4/c56e494 сохранены полными предками, consecutive_rejections=2. Изменён только validity/stale_reason индекса последнего review для новых artifacts, не verdict/findings/hashes. 26+45 старых правильных ожиданий и 134 последовательных/адресных кейса R1 совпали (205), исходный R5 probe на 4f31ed6 по-прежнему воспроизводит старые 3 ошибки, не выдаётся за приёмку. results/recheck_request в verification/r4_cc_identity/. Полный C следующей эстафетой. B01 OPEN / parent BLOCKED, W01 документально CLOSED на старом C, W02/G1 OPEN. Расчёты/CAD/rebuild/физические испытания NOT_RUN.

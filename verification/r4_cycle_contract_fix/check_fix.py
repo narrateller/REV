@@ -218,4 +218,8 @@ def main():
 
 
 if __name__=='__main__':
+    if not sys.argv[1:] and json.loads((SRC/'contract.json').read_text())['schema']=='rev-cycle-document-contract/3':
+        # Old guard-keyed fixture ABI is historical. New explicit fault-ID suite
+        # includes all frozen R5 expectations and the R1 sequential plan.
+        sys.exit(subprocess.run([sys.executable,'-B',str(ROOT/'verification/r4_cc_identity/verify.py')],cwd=ROOT).returncode)
     main()

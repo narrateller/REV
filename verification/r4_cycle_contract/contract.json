@@ -1,5 +1,5 @@
 {
-  "schema": "rev-cycle-document-contract/2",
+  "schema": "rev-cycle-document-contract/3",
   "status": "ASSUMED_INTERFACE_PROPOSAL",
   "scope": "DOCUMENT_CONSISTENCY_ONLY",
   "states": {
@@ -60,7 +60,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-01",
       "evidence_domains": [
         "MATERIAL"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "EVENT_FRESH",
@@ -71,7 +72,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "REQUEST"
     },
     {
       "id": "INVENTORY_KNOWN",
@@ -82,7 +84,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-05",
       "evidence_domains": [
         "MATERIAL"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "LEDGER_VALID",
@@ -93,7 +96,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-01",
       "evidence_domains": [
         "MATERIAL"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "EMPTY_CONFIRMED",
@@ -104,7 +108,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-03",
       "evidence_domains": [
         "MATERIAL"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "DOSE_DELIVERED",
@@ -116,7 +121,8 @@
       "evidence_domains": [
         "MATERIAL",
         "FEED"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "FEED_CLEAR",
@@ -129,7 +135,8 @@
         "MATERIAL",
         "FEED",
         "AXIS"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "ISOLATION_CONFIRMED",
@@ -140,7 +147,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
       "evidence_domains": [
         "FEED"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "A_REACTION_DEFINED",
@@ -152,7 +160,8 @@
       "evidence_domains": [
         "MATERIAL",
         "RETENTION"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "COLUMN_CRITERION",
@@ -164,7 +173,8 @@
       "evidence_domains": [
         "MATERIAL",
         "RETENTION"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "RETAINED_STABLE",
@@ -177,7 +187,8 @@
         "MATERIAL",
         "RETENTION",
         "AXIS"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "PARTIAL_CRITERION",
@@ -189,7 +200,8 @@
       "evidence_domains": [
         "MATERIAL",
         "AXIS"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "BATCH_CRITERION",
@@ -200,7 +212,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-04",
       "evidence_domains": [
         "MATERIAL"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "COMPACTION_CRITERION",
@@ -212,7 +225,8 @@
       "evidence_domains": [
         "MATERIAL",
         "AXIS"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "PARTITION_DEFINED",
@@ -223,7 +237,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-05",
       "evidence_domains": [
         "MATERIAL"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "EJECTION_PATH_CLEAR",
@@ -236,7 +251,8 @@
         "MATERIAL",
         "AXIS",
         "EXIT_RECEIVER"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "CONTINUITY_CONFIRMED",
@@ -248,7 +264,8 @@
       "evidence_domains": [
         "MATERIAL",
         "AXIS"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "WHOLE_BEYOND_EXIT",
@@ -260,7 +277,8 @@
       "evidence_domains": [
         "MATERIAL",
         "EXIT_RECEIVER"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RECEIVER_DEFINED",
@@ -271,7 +289,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-03",
       "evidence_domains": [
         "EXIT_RECEIVER"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RECEIPT_VALID",
@@ -283,7 +302,8 @@
       "evidence_domains": [
         "MATERIAL",
         "EXIT_RECEIVER"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "NO_MODEL_INTERACTION",
@@ -296,7 +316,8 @@
         "MATERIAL",
         "AXIS",
         "EXIT_RECEIVER"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "B_UNLOADED",
@@ -308,7 +329,8 @@
       "evidence_domains": [
         "B_CLOSURE",
         "HYDRAULIC"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "B_OPEN_SEQUENCE_VALID",
@@ -319,7 +341,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
       "evidence_domains": [
         "B_CLOSURE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "LOCK_CLEAR",
@@ -330,7 +353,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
       "evidence_domains": [
         "B_CLOSURE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "STOP_OPEN",
@@ -341,7 +365,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
       "evidence_domains": [
         "B_CLOSURE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RESET_SWEEP_CLEAR",
@@ -354,7 +379,8 @@
         "MATERIAL",
         "B_CLOSURE",
         "AXIS"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "TOOLS_HOME",
@@ -365,7 +391,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
       "evidence_domains": [
         "AXIS"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "B_RESET_CONFIRMED",
@@ -376,7 +403,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
       "evidence_domains": [
         "B_CLOSURE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RESIDUE_ALLOWED",
@@ -387,7 +415,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-04",
       "evidence_domains": [
         "MATERIAL"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "TRANSFER_LEDGER_CLOSED",
@@ -399,7 +428,8 @@
       "evidence_domains": [
         "MATERIAL",
         "EXIT_RECEIVER"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RESOURCES_READY",
@@ -411,7 +441,8 @@
       "evidence_domains": [
         "RESOURCES",
         "HYDRAULIC"
-      ]
+      ],
+      "fault_subject_kind": "RESOURCE"
     },
     {
       "id": "FEEDBACK_VALID",
@@ -422,7 +453,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "METHOD_SUPPORTED",
@@ -433,7 +465,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "TIMING_BASIS_COMPLETE",
@@ -444,7 +477,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-04",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RESOURCE_BASIS_COMPLETE",
@@ -455,7 +489,8 @@
       "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-05",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "DEPENDENCY_VALID",
@@ -466,7 +501,8 @@
       "unknown_reason": "Нет реального подтверждения REV; Q-R3-01",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     },
     {
       "id": "AUDIT_CHANNEL_READY",
@@ -477,7 +513,8 @@
       "unknown_reason": "Нет реального подтверждения REV; Q-R3-01",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RECOVERY_METHOD_DEFINED",
@@ -488,7 +525,8 @@
       "unknown_reason": "Нет реального подтверждения REV; Q-R3-01",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "RESTORE_SEQUENCE_DEFINED",
@@ -499,7 +537,8 @@
       "unknown_reason": "Нет реального подтверждения REV; Q-R3-02",
       "evidence_domains": [
         "EVIDENCE"
-      ]
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
     },
     {
       "id": "STARTUP_INVENTORY_PRESERVED",
@@ -511,7 +550,8 @@
       "evidence_domains": [
         "MATERIAL",
         "RETENTION"
-      ]
+      ],
+      "fault_subject_kind": "MATERIAL"
     }
   ],
   "transitions": [
@@ -2210,6 +2250,7 @@
       "required_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EMPTY_CONFIRMED",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2232,6 +2273,7 @@
       "entry_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EMPTY_CONFIRMED",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2262,6 +2304,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2282,6 +2325,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2309,6 +2353,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2329,6 +2374,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2356,6 +2402,7 @@
         "BASIS_DEFINED",
         "COLUMN_CRITERION",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2378,6 +2425,7 @@
         "BASIS_DEFINED",
         "COLUMN_CRITERION",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2408,6 +2456,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2429,6 +2478,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2456,6 +2506,7 @@
       "required_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EJECTION_PATH_CLEAR",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2476,6 +2527,7 @@
       "entry_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EJECTION_PATH_CLEAR",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2505,6 +2557,7 @@
         "BASIS_DEFINED",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2528,6 +2581,7 @@
         "BASIS_DEFINED",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2558,6 +2612,7 @@
       "required_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2576,6 +2631,7 @@
       "entry_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2604,6 +2660,7 @@
         "BATCH_CRITERION",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2625,6 +2682,7 @@
         "BATCH_CRITERION",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2654,6 +2712,7 @@
         "B_OPEN_SEQUENCE_VALID",
         "B_UNLOADED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EJECTION_PATH_CLEAR",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2678,6 +2737,7 @@
         "B_OPEN_SEQUENCE_VALID",
         "B_UNLOADED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EJECTION_PATH_CLEAR",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2750,6 +2810,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2771,6 +2832,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2799,6 +2861,7 @@
         "BASIS_DEFINED",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2819,6 +2882,7 @@
         "BASIS_DEFINED",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2854,6 +2918,7 @@
       "required_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EMPTY_CONFIRMED",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2881,6 +2946,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2904,6 +2970,7 @@
         "BASIS_DEFINED",
         "COLUMN_CRITERION",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -2929,6 +2996,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -2952,6 +3020,7 @@
       "required_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EJECTION_PATH_CLEAR",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -2976,6 +3045,7 @@
         "BASIS_DEFINED",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -3001,6 +3071,7 @@
       "required_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -3024,6 +3095,7 @@
         "BATCH_CRITERION",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -3048,6 +3120,7 @@
         "B_OPEN_SEQUENCE_VALID",
         "B_UNLOADED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EJECTION_PATH_CLEAR",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
@@ -3074,6 +3147,7 @@
         "A_REACTION_DEFINED",
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "FEED_CLEAR",
@@ -3098,6 +3172,7 @@
         "BASIS_DEFINED",
         "B_RESET_CONFIRMED",
         "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -3139,7 +3214,7 @@
     "actual_thresholds_and_time_limits": null,
     "unknown_reason": "Численные окна валидности/датчики REV не определены",
     "resource_scope": "RESOURCES revision changes on any required consumer availability change, not only hydraulic supply; each proof is specific to the action",
-    "failure_scope": "Physical/material failures persist by subject; EVENT_FRESH rejection is scoped to the failed operation_id and is never reused for that ID. A new recovery operation may use fresh evidence; material identity conflicts remain latched LEDGER_VALID failures."
+    "failure_scope": "Immutable per-fault origin plus explicit target fault ID; current view never replaces original subject. All rejected IDs persist."
   },
   "recovery_actions": [
     {
@@ -3554,9 +3629,12 @@
       "changed_domains": [
         "EVIDENCE"
       ],
-      "requires_no_other_known_faults": true,
-      "effect": "Переаудит истории после устранения причин; только новое scope-correct evidence. Другой открытый отказ не очищается этим аудитом.",
-      "physical_permission": false
+      "effect": "Адресная сверка причин конкретного dependency fault; отдельно допускается подтверждение обработки отклонённого запроса, но rejected operation ID никогда не разрешается повторно.",
+      "physical_permission": false,
+      "requires_resolved_cause_fault_ids": true,
+      "may_acknowledge": [
+        "EVENT_FRESH"
+      ]
     }
   ],
   "fact_ingestion": {
@@ -3645,5 +3723,65 @@
     "RESOURCE_DRAFT": [
       "AUDIT"
     ]
+  },
+  "arbitration_decision": "616135755d1b6cbaa09ae9800bad5af8bbc28aed",
+  "consecutive_rejections": 2,
+  "fault_policy": {
+    "schema": "rev-permission-history/1",
+    "identity_fields": [
+      "scenario_id",
+      "variant",
+      "mode",
+      "subject_id",
+      "batch_id",
+      "cycle_epoch",
+      "basis_id",
+      "basis_revision"
+    ],
+    "representation": "faults is a map keyed by immutable fault_id, never by guard",
+    "id": "F- + SHA256 of canonical immutable origin",
+    "origin_fields": [
+      "guard",
+      "reason",
+      "kind",
+      "truth",
+      "scope",
+      "operation_id",
+      "evidence_id",
+      "revisions",
+      "cause_fault_ids",
+      "evidence"
+    ],
+    "mutable_fields": [
+      "status",
+      "expected_revisions",
+      "revision_history",
+      "resolution_attempts",
+      "resolution"
+    ],
+    "unknown_address": "INDETERMINATE; never match null to null",
+    "recovery": "explicit fault_id, exact original scope/base/origin revisions, confirmed current target revisions; retain all other faults",
+    "causality": "DEPENDENCY fault can resolve only after all its cause_fault_ids have status RESOLVED",
+    "rejected_operations": "cumulative rejected_operation_ids plus append-only rejected_operations records; no clearing across scope/epoch/recovery",
+    "persistence": "export_context/restore_context retain all faults and IDs; missing trusted hash anchor makes history unconfirmed",
+    "W02": "NOT_IMPLEMENTED",
+    "recovery_evidence_fields": [
+      "fault_id",
+      "guard",
+      "target_scope",
+      "origin_revisions",
+      "revisions",
+      "action",
+      "phase",
+      "operation_id",
+      "evidence_id",
+      "method",
+      "source",
+      "value",
+      "valid_for_operation_interval"
+    ],
+    "canonical_pipeline": "decide atomically evaluates and persists all denials; propagate rejects a result from another input_context_hash",
+    "basis_applicability": "Required original basis_id/basis_revision for MATERIAL; explicit NOT_APPLICABLE_BY_GUARD_SCOPE for other subject kinds, never infer a numerical basis.",
+    "rejected_request_resolution": "Explicit DENIED_REQUEST_ACKNOWLEDGED addresses old fault/operation/rejection record IDs; old operation stays rejected forever, no EVENT_FRESH truth restoration."
   }
 }

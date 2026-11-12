@@ -1,3 +1,9 @@
+# Текущая редакция 3: B01 по решению R1
+
+Актуальный кандидат/команды/205 проверок: [r4_cc_identity](../r4_cc_identity/README.md). Адресация fault_id и накопительная история — [fault_identity.md](../r4_cycle_contract/fault_identity.md). Оба отказа и consecutive_rejections=2 сохранены; parent BLOCKED, B01 OPEN до независимого RECHECK, W02 вне итерации, G1 OPEN.
+
+## История предыдущих редакций (не текущий результат)
+
 # Корректирующая редакция 2 — разрешения CYC-01/08/09
 
 **IN_REVIEW / независимый RECHECK NOT_RUN.** Входной акт R5 d99afb4c3231d641d4a4921f39987264ce5ffc23 отклонил binding-контракт на старом C 3cf32daef67a91f393b808adb0dc07ba4c73cac2. B01/W01/W02 остаются OPEN до его независимого решения. Текущая правка — кандидат, не самоприёмка.
