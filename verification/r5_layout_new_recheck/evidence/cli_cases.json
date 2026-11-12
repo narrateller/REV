@@ -1,0 +1,222 @@
+{
+  "count": 9,
+  "passed": 9,
+  "cases": [
+    {
+      "id": "fresh_unlinked",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/rev-analysis-unlinked-669-rerun"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: [Errno 2] No such file or directory: '/tmp/rev-analysis-unlinked-669-rerun/assessment.json'\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "[Errno 2] No such file or directory: '/tmp/rev-analysis-unlinked-669-rerun/assessment.json'"
+      },
+      "expected_reason": "assessment.json",
+      "pass": true
+    },
+    {
+      "id": "unlinked_with_assessment",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/unlinked_with_assessment"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: run execution or strict test evaluation failed\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "run execution or strict test evaluation failed"
+      },
+      "expected_reason": "strict test evaluation failed",
+      "pass": true
+    },
+    {
+      "id": "forged_success_over_unlinked",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/forged_success_over_unlinked"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: ('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_ABSENT', 'BLOCKED', 'CONTINUOUS', 'NOT_CONFIRMED'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_ABSENT', 'BLOCKED', 'CONTINUOUS', 'NOT_CONFIRMED'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))"
+      },
+      "expected_reason": "mandatory outcome",
+      "pass": true
+    },
+    {
+      "id": "forged_report_and_raw_link",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/forged_report_and_raw_link"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: ('A', 'sufficient', 'actual required link')\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "('A', 'sufficient', 'actual required link')"
+      },
+      "expected_reason": "actual required link",
+      "pass": true
+    },
+    {
+      "id": "lost_transition",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/lost_transition"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: ('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'BLOCKED', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'BLOCKED', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))"
+      },
+      "expected_reason": "mandatory outcome",
+      "pass": true
+    },
+    {
+      "id": "lost_continuity",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/lost_continuity"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: ('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'INDETERMINATE', 'RESTORED_FOR_PATH_SUBSET'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'INDETERMINATE', 'RESTORED_FOR_PATH_SUBSET'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))"
+      },
+      "expected_reason": "mandatory outcome",
+      "pass": true
+    },
+    {
+      "id": "lost_lifecycle",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/lost_lifecycle"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: \n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": ""
+      },
+      "expected_reason": "",
+      "pass": true
+    },
+    {
+      "id": "lost_READY",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/lost_READY"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: ('A', 'sufficient', 'phase sequence')\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "('A', 'sufficient', 'phase sequence')"
+      },
+      "expected_reason": "phase sequence",
+      "pass": true
+    },
+    {
+      "id": "compound_lifecycle_return_unknown",
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/r5-669-verifier-fixtures-s5iqmfrw/compound_lifecycle_return_unknown"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "VERIFICATION FAILED: ('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_INDETERMINATE', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))\n",
+      "report": {
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "test_evaluation": {
+          "status": "FAIL"
+        },
+        "reason": "('A', 'sufficient', 'mandatory outcome', ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_INDETERMINATE', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'), ('GEOMETRY_SUFFICIENT', 'NO_COLLISION', 'LINK_CONFIRMED', 'ALLOWED_FOR_PATH_SUBSET', 'CONTINUOUS', 'RESTORED_FOR_PATH_SUBSET'))"
+      },
+      "expected_reason": "mandatory outcome",
+      "pass": true
+    }
+  ]
+}

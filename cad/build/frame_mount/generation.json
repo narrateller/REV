@@ -1,0 +1,51 @@
+{
+  "execution": {
+    "status": "COMPLETED",
+    "exit_code": 0
+  },
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/workspace/REV/cad/frame_mount/run.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"execution\": {\"status\": \"COMPLETED\", \"exit_code\": 0}, \"test_evaluation\": {\"status\": \"PASS\", \"scope\": \"eight limited cycle expectations, not whole assembly\"}, \"geometry\": {\"changed_group_positive_overlap_rows\": 0, \"previous_target_positive_overlap_rows\": 0, \"whole_press_READY\": \"INDETERMINATE\"}, \"remaining\": {\"INDETERMINATE\": 368, \"CONDITIONAL_MATING\": 73, \"NATIVE_PENETRATION\": 20, \"CONDITIONAL_ENVELOPE_INTERSECTION\": 2}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/workspace/REV/cad/frame_mount/geometry_evidence.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"coverage_rows\": 346709, \"changed_group_rows\": 114184, \"changed_group_counts\": {\"NO_POSITIVE_VOLUME_ON_INTERVAL\": 114156, \"INDETERMINATE\": 28}, \"previous_target_rows\": 658, \"cylinder_service_rows\": 3672}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/workspace/REV/cad/frame_mount/figures.py"
+      ],
+      "exit_code": 0,
+      "stdout": "4 before/after native-profile SVG figures generated; general A/B PNG/SVG/PDF from frozen native builder\n",
+      "stderr": "QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-agent'\nFontconfig error: No writable cache directories\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/workspace/REV/cad/frame_mount/report.py"
+      ],
+      "exit_code": 0,
+      "stdout": "assessment.md and changes.json generated from saved results\n",
+      "stderr": ""
+    }
+  ],
+  "verification": "NOT_RUN; use verify_output.py separately",
+  "whole_press_READY": "INDETERMINATE",
+  "G1": "OPEN"
+}

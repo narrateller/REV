@@ -1,0 +1,140 @@
+{
+  "error": "command failed: /usr/bin/python3 cad/layout/tool_regressions.py --inputs cad/layout/conditional_inputs.assumed.json --models /workspace/REV/cad/build/research_layout --out /workspace/REV/cad/build/research_layout/checks/tool_regressions.json\n",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 2.431s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/rev_linked_scene",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.451s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/kinematic_press",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.308s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "cad/build/research_layout/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 65 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "cad/build/research_layout/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 61 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "cad/build/research_layout",
+        "--out",
+        "cad/build/research_layout/checks"
+      ],
+      "exit_code": 0,
+      "stdout": "A sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 13593, 'ALLOWED_CONTACT': 4, 'COLLISION': 729, 'INDETERMINATE': 42, 'INVALID_INPUT': 0}\nA short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 7876, 'ALLOWED_CONTACT': 4, 'COLLISION': 416, 'INDETERMINATE': 24, 'INVALID_INPUT': 0}\nA collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 8133, 'ALLOWED_CONTACT': 4, 'COLLISION': 418, 'INDETERMINATE': 25, 'INVALID_INPUT': 0}\nA unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 7813, 'ALLOWED_CONTACT': 3, 'COLLISION': 416, 'INDETERMINATE': 88, 'INVALID_INPUT': 0}\nB sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 22247, 'ALLOWED_CONTACT': 8, 'COLLISION': 1157, 'INDETERMINATE': 78, 'INVALID_INPUT': 0}\nB short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 13874, 'ALLOWED_CONTACT': 8, 'COLLISION': 710, 'INDETERMINATE': 48, 'INVALID_INPUT': 0}\nB collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 14359, 'ALLOWED_CONTACT': 8, 'COLLISION': 712, 'INDETERMINATE': 49, 'INVALID_INPUT': 0}\nB unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 13815, 'ALLOWED_CONTACT': 7, 'COLLISION': 710, 'INDETERMINATE': 108, 'INVALID_INPUT': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-layout-repeat-q7sr7l83/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 65 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-layout-repeat-q7sr7l83/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 61 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/tool_regressions.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "/workspace/REV/cad/build/research_layout",
+        "--out",
+        "/workspace/REV/cad/build/research_layout/checks/tool_regressions.json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

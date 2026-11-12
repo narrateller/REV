@@ -1,0 +1,319 @@
+{
+  "status": "TARGET_GEOMETRIC_PENETRATIONS_REMOVED",
+  "new_orchestration_and_analysis": "REQUIRES_INDEPENDENT_REVIEW",
+  "baseline_review": "214b055f04d5b061a68dfd744afb6c956ac9a9d1",
+  "checked_tool": {
+    "checked_commit": "de377f012da08f34796b2e59aee663ba0b2b3d2b",
+    "review_commit": "214b055f04d5b061a68dfd744afb6c956ac9a9d1",
+    "sha256": {
+      "cad/layout/build_model.py": "e4cb5d776b156b8397a249b1fa3952d35191806e373d7f26162ec4b7ba49c05a",
+      "cad/layout/cad_validation.py": "db9b542c37beca46f2bacebf32c4b9f8d15bad6872729cbad14d56a7fa0a2557",
+      "cad/layout/check_layout.py": "425155b935efef55ca2b18e016f3fb5193fe7a2d914e813aa83765fe583a6431",
+      "cad/layout/geometry_preservation.py": "a44c7a3bf26972571013525e955d9c920c7da59b7cb50243b4c18156693da449",
+      "cad/layout/layout_common.py": "4e4f80e384f43a26362207258c3c6a208d943ef016965a28c2d3ebcf2f557a90",
+      "cad/layout/layout_lifecycle.py": "641670bd2fad5a4276d4a791dc009b739fb9bf8460ba87fd66fd3a8c9a3e4193",
+      "cad/layout/query_regressions.py": "c6d58e21f17514cded9f05013643380d7e5a80c35116d1735407d39108853545",
+      "cad/layout/query_volumes.py": "557d8ce028cc305f4b7abc5498dc5421a1955ca6c910c524c7d794c3ba8d52b5",
+      "cad/layout/run_all.py": "2505ee78c1004fc1c10adbf2042b1cd45884b4078c6ad8868a08deeb4c8479a7",
+      "cad/layout/test_cad_artifacts.py": "2519b35a2be63cfa9a99269ab97173fe41df979dfa31e00703ff09f8f4142cc6",
+      "cad/layout/test_layout.py": "bf22ea7a9f0a8b94e2d3a8c3e82521159188c5f5c608a29e85f09790445b8e2c",
+      "cad/layout/test_lifecycle.py": "214a607fbf6a4482af5e46e1f0f380162fdda6750f79b10eed8ef23aed0e10f5",
+      "cad/layout/test_query_volumes.py": "3a49110da2cb52d32fefda0ad492282b104b17e48285348a3ca503fd89040ae6",
+      "cad/layout/tool_regressions.py": "38d4f07c3e9c08d0309392ec7f33e20f468057aeab404818cef4b3ba198b6566",
+      "models/rev_linked_scene/engine.py": "aa8190e9b4addc48d6a6dc1627c51bd7c2e9a5305870db777bc51874bf278708"
+    }
+  },
+  "input_sha256": "1d407dd7cfaf430130629b4cd51e2cd6562ba0a03e8fb8eb8bd4fc0e7d8b238a",
+  "source_hashes": {
+    "cad/layout_correction/inputs.assumed.json": "1d407dd7cfaf430130629b4cd51e2cd6562ba0a03e8fb8eb8bd4fc0e7d8b238a",
+    "verification/r4_layout_correction/frozen_tool.json": "1fa4cf1d369cac8cf0324f69178160bf22dd59dea9d2eb9b15bf4b6877dd1c4e",
+    "cad/layout_correction/run_revision.py": "0a959334fc67f03e5875bf94c18c4437d256a75f08a735652d598b146d34c333",
+    "cad/layout_correction/assess.py": "9d75a4e550a96fa2a42d151f1f9cf3ea4306fa328fa89531468d51f043486051",
+    "cad/layout_correction/test_assess.py": "5fe2cef733a95d10b71d9624eb405eb8ffd772cca16d7e8c50b481aec7214c7c",
+    "cad/layout_correction/figures.py": "2e9147684c5dcea4cb7daf60f9aa06a042ef1f17b9bcbc5c559a25159376290c"
+  },
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 5.795s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/rev_linked_scene",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.263s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/kinematic_press",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.189s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout_correction",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/tmp/rev-layout-correction-120a/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-layout-correction-120a/cad/build/layout_correction/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 70 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/tmp/rev-layout-correction-120a/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-layout-correction-120a/cad/build/layout_correction/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 68 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "/tmp/rev-layout-correction-120a/cad/layout_correction/inputs.assumed.json",
+        "--models",
+        "/tmp/rev-layout-correction-120a/cad/build/layout_correction",
+        "--out",
+        "/tmp/rev-layout-correction-120a/cad/build/layout_correction/raw_checked_tool"
+      ],
+      "exit_code": 0,
+      "stdout": "A sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 15775, 'ALLOWED_CONTACT': 4, 'COLLISION': 877, 'INDETERMINATE': 42, 'INVALID_INPUT': 0}\nA short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 9131, 'ALLOWED_CONTACT': 4, 'COLLISION': 501, 'INDETERMINATE': 24, 'INVALID_INPUT': 0}\nA collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 9408, 'ALLOWED_CONTACT': 4, 'COLLISION': 503, 'INDETERMINATE': 25, 'INVALID_INPUT': 0}\nA unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 9063, 'ALLOWED_CONTACT': 3, 'COLLISION': 501, 'INDETERMINATE': 93, 'INVALID_INPUT': 0}\nB sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 27718, 'ALLOWED_CONTACT': 8, 'COLLISION': 1475, 'INDETERMINATE': 78, 'INVALID_INPUT': 0}\nB short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 17259, 'ALLOWED_CONTACT': 8, 'COLLISION': 909, 'INDETERMINATE': 48, 'INVALID_INPUT': 0}\nB collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 17800, 'ALLOWED_CONTACT': 8, 'COLLISION': 911, 'INDETERMINATE': 49, 'INVALID_INPUT': 0}\nB unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 17193, 'ALLOWED_CONTACT': 7, 'COLLISION': 909, 'INDETERMINATE': 115, 'INVALID_INPUT': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/tmp/rev-layout-correction-120a/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-geometry-repeat-krzwr60b/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 70 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/tmp/rev-layout-correction-120a/cad/layout_correction/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-geometry-repeat-krzwr60b/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 68 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/figures.py",
+        "/tmp/rev-layout-correction-120a/cad/build/layout_correction"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "inventory": {
+    "A": {
+      "all_original_IDs_retained": true,
+      "before_count": 65,
+      "after_count": 70
+    },
+    "B": {
+      "all_original_IDs_retained": true,
+      "before_count": 61,
+      "after_count": 68
+    }
+  },
+  "repeat": {
+    "A": "PASS",
+    "B": "PASS"
+  },
+  "limited_outcomes": [
+    {
+      "variant": "A",
+      "case": "sufficient",
+      "matches": true,
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "path_collision": "NO_COLLISION",
+      "path_ready": "RESTORED_FOR_PATH_SUBSET"
+    },
+    {
+      "variant": "A",
+      "case": "short",
+      "matches": true,
+      "geometry": "SHORT_STROKE",
+      "path_collision": "NO_COLLISION",
+      "path_ready": "NOT_CONFIRMED"
+    },
+    {
+      "variant": "A",
+      "case": "collision",
+      "matches": true,
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "path_collision": "COLLISION",
+      "path_ready": "NOT_CONFIRMED"
+    },
+    {
+      "variant": "A",
+      "case": "unknown",
+      "matches": true,
+      "geometry": "INDETERMINATE",
+      "path_collision": "INDETERMINATE",
+      "path_ready": "NOT_CONFIRMED"
+    },
+    {
+      "variant": "B",
+      "case": "sufficient",
+      "matches": true,
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "path_collision": "NO_COLLISION",
+      "path_ready": "RESTORED_FOR_PATH_SUBSET"
+    },
+    {
+      "variant": "B",
+      "case": "short",
+      "matches": true,
+      "geometry": "SHORT_STROKE",
+      "path_collision": "NO_COLLISION",
+      "path_ready": "NOT_CONFIRMED"
+    },
+    {
+      "variant": "B",
+      "case": "collision",
+      "matches": true,
+      "geometry": "GEOMETRY_SUFFICIENT",
+      "path_collision": "COLLISION",
+      "path_ready": "NOT_CONFIRMED"
+    },
+    {
+      "variant": "B",
+      "case": "unknown",
+      "matches": true,
+      "geometry": "INDETERMINATE",
+      "path_collision": "INDETERMINATE",
+      "path_ready": "NOT_CONFIRMED"
+    }
+  ],
+  "target_positive_volume_rows": 0,
+  "whole_assembly_READY": "INDETERMINATE",
+  "physical_performance_and_safety": "UNKNOWN",
+  "artifacts": {
+    "before_after_native.json": "da1052364c004ec255e8afb44c5690095497d7e05ec3d469890b6549530c5cbc",
+    "gate_before_after.svg": "65f1a7a8c672f71eb89d5e575cb2a5f28ea52dd277dd90092dfbdb04409cf793",
+    "stop_before_after.svg": "7de6b1d4552d55e0ae489aa069f2fbf206e376257237cd9ffd4fc15c3d5e3268",
+    "assessment.json": "eac393d9cef9c17195c2638c77d88afbe16867e5379b96f6eed9554ee1346f8d",
+    "service_scenes.json.gz": "5843ea79b1c9914a375e413e8a19412b2f50f6a54f4dbc3b9d6d6badf980bfdb",
+    "changes.json": "e42deaafcec4e2ceb5a977cb1a2852499b18000697ffbd10f305c332a0321e5e",
+    "classifications.jsonl.gz": "d13f23eb8d1780a6b058d9cf0e33df76ad525822fde21c8c28d27065da260a70",
+    "A/side.pdf": "8d2c4b01bddb358c563ea4054547ae903fc65bc35acb7125d4e6c1203261187b",
+    "A/side.svg": "a6887050cc49c54b289afed01bb89dad1b3dd6e589d0ec69061c930050f2bae5",
+    "A/manifest.json": "f81f3705a72520c030429783d504345bf72011bf6a2040f456fbbf71f5a04ade",
+    "A/layout_A.step": "9dee9db133acf2559384f25f2fba3244d23bf5cd0f6cc690b0189217217d4302",
+    "A/top.pdf": "fc9208f47d0c1f4b52bb94fd98abd4277f65e9b40ea70d1801f21fb659104841",
+    "A/front.pdf": "8a9f1014c8215e2e4f9ab57dca3a6d877517b5d1870bcc99a5beba4cdba183c6",
+    "A/side.png": "8694489667fce5f79b008c3e58880a010b8f16d7c4614af8e3989cf7ec604e9a",
+    "A/isometric.svg": "c929d8bd4a88fa9a42c5b1443d0b7c793b59856b4cb1b60f3d253828240eedbf",
+    "A/section_y0.svg": "55ce9a389c0ed979666207fd170ac2f9eac3607f5634fec4070f248c571284d8",
+    "A/top.svg": "53d8971eb0e26540f424c4b0309f7e7518be6746113d569af79f5287a110ea2d",
+    "A/top.png": "d6b08f94dbcdd99fa91cd165606bcfc83cc0ed0e55436788dd95d3564c8fcaac",
+    "A/load_path.svg": "81551d243c35652cae935c6cb50dcf6c0373681a165b22221ef3f2c6dfc1c99d",
+    "A/isometric.png": "bc0890c8ade3e7afcdb1ab2ef57b3b5745519675598cad84d88b5b529f48a625",
+    "A/layout_A.FCStd": "1c4dd0b5ba503966ea638bcd5a532de2f7db0c81df5f156cacb430a68b5080b3",
+    "A/isometric.pdf": "cdff882cd94ca544314ac1b8cbfdc573a11f571ea666c73e604ed35668431f99",
+    "A/front.svg": "1fc87c4112414f63fc316a85215ad95dcee7a777d9f75dc4f3e71bdd598aaac1",
+    "A/phase_views.svg": "7a5ef1ee67b43f90a434a0d0af7af1b626fce24b6748ec3c5d22bc5c4bf47feb",
+    "A/front.png": "9542f860ba36c52c2ada86b713ea98c5c67eff8e2ba64640513eafb3c76f79e1",
+    "history/trial1_portal_output_overlap.json": "d6f55f047316cbedb568c0d9e99e8ed5e07e80009809ea163707cbdbc5e1bb9b",
+    "history/trial2_guard_pump_native.json": "2191309095f7f33cf7c1235a3817d0ec645853407c8df2e00a00dff288dbe0b0",
+    "history/analysis_missing_scenario_native.json": "6f0554da011e8444a86cd943fdbd91daefeb89dad99d908bdf454cab70e2f781",
+    "B/side.pdf": "f11bd15f29efcb8c60891739006b2ad8b72da6011122a64e98193052f4b1f0bc",
+    "B/side.svg": "ae0fd71a7496bfcdb227566b49f54518f1f7c2987dfa4380d95ca178ace1a769",
+    "B/manifest.json": "a6a6515ba2aa52151f89e09441b2eee533b7af3dc1d45f345e616338777fffc7",
+    "B/top.pdf": "1c83e7b3c7992a4e48589d670d90b60e8190666e91ce2bbfe4d66a6d04a27f9e",
+    "B/front.pdf": "eb2d619327002001070b940dc47634679cd474e40b8cb64e2c1bb56723d5ae90",
+    "B/side.png": "1102bef631e7ab8de8a8f4f0b5b0718181d3c3c6b4c76dd6000b0a5d5a8b4678",
+    "B/isometric.svg": "8cbb6064a370369d104a3d91257699d370b241c47853ccd5331054834eff5f5f",
+    "B/section_y0.svg": "b2337642dd7bc95c83f814d59af91a079a9998d890b5212f14a98a9c50a00338",
+    "B/top.svg": "c10c2ba81f5cf8d6235d679724af438e785a47da6526522cef39cf6ce79550d2",
+    "B/layout_B.step": "6f12aa74f5bbd11bdc5fe0baa5abcb5de845c8f1e925917b442ef77eef9d769e",
+    "B/top.png": "3e53ed9e2d9d7361d6ac69ca4b8a13b7982e6b402cb40bc12e098666020e7f59",
+    "B/layout_B.FCStd": "ef1a5b5d0712f70867ac3174fcc7adae7577bb979a576936313ef729399c36ec",
+    "B/load_path.svg": "94b1e6c8905b9acf96824d8d5753ab3de784b3d4159de2c377206fd539b0a19c",
+    "B/isometric.png": "56bd889b93e9dd15ff20e7609faffe4c21d4191b99d7eb61ee50c97b9d24b157",
+    "B/isometric.pdf": "039002a4337da680791b51fcf7ca4cf90f689f96ae6cf0f9ca6099f84adc81df",
+    "B/front.svg": "3ae18740df26eb98885df6935fd85210c736d249b190c0d4214eabd2e2663f1c",
+    "B/phase_views.svg": "547f1c4df01eb7420756f77f61c8c83f510ca54ea6e0c550b50684b48038ea67",
+    "B/front.png": "3831799eedb414de3953b1c290c92add0f62d8507f18755ba2d2b73f4e48a688",
+    "raw_checked_tool/report.json": "b939bb896104dc019df73878bc41e1a015d0ddb595f50280b02663cf84b089d1",
+    "raw_checked_tool/all_pairs.json.gz": "d1e4ef0e6c95004ee21374f729d6574de97cf30e90ef03fae8b82fca03b1b0d4",
+    "raw_checked_tool/service_pairs.json.gz": "fc5f22d9fad0056e83387f8b35df7b77a691827554122392a9f37f7862d4a628"
+  },
+  "original_raw_metadata": "hardcoded source_commit_inputs/known_native_penetrations/tool_blockers are historical; current input hash and this manifest are authoritative for this iteration"
+}

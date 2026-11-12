@@ -1,0 +1,225 @@
+{
+  "execution": {
+    "status": "COMPLETED",
+    "exit_code": 0
+  },
+  "test_evaluation": {
+    "status": "PASS",
+    "scope": "eight limited cycle expectations, not whole assembly"
+  },
+  "geometry": {
+    "changed_group_positive_overlap_rows": 0,
+    "previous_target_positive_overlap_rows": 0,
+    "whole_press_READY": "INDETERMINATE"
+  },
+  "review_status": "REQUIRES_INDEPENDENT_R5",
+  "input_commit": "17501de",
+  "input_sha256": "79b190d8db24727120a76ec12704275c940b617fd0d100d79368576eedf7ef05",
+  "frozen_tool": {
+    "reference_commit": "66924aed1cb2d193b9883d2140d85560b1e4b0cb",
+    "independent_review": "04efe5703e339112b7d007665b9f3672f0572d37",
+    "sha256": {
+      "cad/layout/build_model.py": "e4cb5d776b156b8397a249b1fa3952d35191806e373d7f26162ec4b7ba49c05a",
+      "cad/layout/cad_validation.py": "db9b542c37beca46f2bacebf32c4b9f8d15bad6872729cbad14d56a7fa0a2557",
+      "cad/layout/check_layout.py": "425155b935efef55ca2b18e016f3fb5193fe7a2d914e813aa83765fe583a6431",
+      "cad/layout/geometry_preservation.py": "a44c7a3bf26972571013525e955d9c920c7da59b7cb50243b4c18156693da449",
+      "cad/layout/layout_common.py": "4e4f80e384f43a26362207258c3c6a208d943ef016965a28c2d3ebcf2f557a90",
+      "cad/layout/layout_lifecycle.py": "641670bd2fad5a4276d4a791dc009b739fb9bf8460ba87fd66fd3a8c9a3e4193",
+      "cad/layout/query_regressions.py": "c6d58e21f17514cded9f05013643380d7e5a80c35116d1735407d39108853545",
+      "cad/layout/query_volumes.py": "557d8ce028cc305f4b7abc5498dc5421a1955ca6c910c524c7d794c3ba8d52b5",
+      "cad/layout/run_all.py": "2505ee78c1004fc1c10adbf2042b1cd45884b4078c6ad8868a08deeb4c8479a7",
+      "cad/layout/test_cad_artifacts.py": "2519b35a2be63cfa9a99269ab97173fe41df979dfa31e00703ff09f8f4142cc6",
+      "cad/layout/test_layout.py": "bf22ea7a9f0a8b94e2d3a8c3e82521159188c5f5c608a29e85f09790445b8e2c",
+      "cad/layout/test_lifecycle.py": "214a607fbf6a4482af5e46e1f0f380162fdda6750f79b10eed8ef23aed0e10f5",
+      "cad/layout/test_query_volumes.py": "3a49110da2cb52d32fefda0ad492282b104b17e48285348a3ca503fd89040ae6",
+      "cad/layout/tool_regressions.py": "38d4f07c3e9c08d0309392ec7f33e20f468057aeab404818cef4b3ba198b6566",
+      "cad/layout_correction/assess.py": "94d671a871e0ec9a8d1317291f9ed104785c290cfaeda8ffb98305a43dcf3248",
+      "cad/layout_correction/figures.py": "2e9147684c5dcea4cb7daf60f9aa06a042ef1f17b9bcbc5c559a25159376290c",
+      "cad/layout_correction/outcomes.py": "bef88c4956927804eeb07c10b51af097511c98f6ef3154390012f6ee6ec981c1",
+      "cad/layout_correction/run_revision.py": "564d904e74dc2beb9d3679db4c8d83790c56949e6cf85b1cc4911b0e913356c7",
+      "cad/layout_correction/test_assess.py": "5fe2cef733a95d10b71d9624eb405eb8ffd772cca16d7e8c50b481aec7214c7c",
+      "cad/layout_correction/test_review_regressions.py": "52339769b48d98219de737ce64bfeda3af2cccea40451cf4407d40df91688ccd",
+      "cad/layout_correction/verify_cycles.py": "29afe114a11fb10d34300b7feb395e76bf8a397d26d03a8eef40bed6fdb1841c",
+      "cad/layout_correction/verify_output.py": "f8102dfd026b26c9e1c2f3a4f1c8343e7de66ebd6de1b1b8b9e0359e11091a3c",
+      "models/rev_linked_scene/engine.py": "aa8190e9b4addc48d6a6dc1627c51bd7c2e9a5305870db777bc51874bf278708"
+    },
+    "scope": "all prior CAD/core/analysis Python modules frozen; new frame_mount reporting/orchestration separately requires review"
+  },
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/frame_mount/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/workspace/REV/cad/build/frame_mount/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 79 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/frame_mount/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/workspace/REV/cad/build/frame_mount/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 77 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "/workspace/REV/cad/frame_mount/inputs.assumed.json",
+        "--models",
+        "/workspace/REV/cad/build/frame_mount",
+        "--out",
+        "/workspace/REV/cad/build/frame_mount/raw_checked_tool"
+      ],
+      "exit_code": 0,
+      "stdout": "A sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 20284, 'ALLOWED_CONTACT': 4, 'COLLISION': 996, 'INDETERMINATE': 49, 'INVALID_INPUT': 0}\nA short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 11723, 'ALLOWED_CONTACT': 4, 'COLLISION': 569, 'INDETERMINATE': 28, 'INVALID_INPUT': 0}\nA collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 12036, 'ALLOWED_CONTACT': 4, 'COLLISION': 571, 'INDETERMINATE': 29, 'INVALID_INPUT': 0}\nA unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 11646, 'ALLOWED_CONTACT': 3, 'COLLISION': 569, 'INDETERMINATE': 106, 'INVALID_INPUT': 0}\nB sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 35863, 'ALLOWED_CONTACT': 8, 'COLLISION': 1696, 'INDETERMINATE': 91, 'INVALID_INPUT': 0}\nB short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 22299, 'ALLOWED_CONTACT': 8, 'COLLISION': 1045, 'INDETERMINATE': 56, 'INVALID_INPUT': 0}\nB collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 22912, 'ALLOWED_CONTACT': 8, 'COLLISION': 1047, 'INDETERMINATE': 57, 'INVALID_INPUT': 0}\nB unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 22224, 'ALLOWED_CONTACT': 7, 'COLLISION': 1045, 'INDETERMINATE': 132, 'INVALID_INPUT': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/frame_mount/inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-frame-repeat-74uzetvi/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 79 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "/workspace/REV/cad/frame_mount/inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-frame-repeat-74uzetvi/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 77 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    }
+  ],
+  "repeat": {
+    "A": {
+      "semantic": "PASS",
+      "images": {
+        "front.png": true,
+        "side.png": true,
+        "isometric.png": true,
+        "top.png": true
+      }
+    },
+    "B": {
+      "semantic": "PASS",
+      "images": {
+        "front.png": true,
+        "side.png": true,
+        "isometric.png": true,
+        "top.png": true
+      }
+    }
+  },
+  "native_cad": "PASS: actual FCStd/STEP/all QueryVolumes; see native_cad_validation.json",
+  "body_inventory": {
+    "A": {
+      "before": 70,
+      "after": 79,
+      "all_original_IDs_retained": true
+    },
+    "B": {
+      "before": 68,
+      "after": 77,
+      "all_original_IDs_retained": true
+    }
+  },
+  "remaining_inventory": {
+    "INDETERMINATE": 368,
+    "CONDITIONAL_MATING": 73,
+    "NATIVE_PENETRATION": 20,
+    "CONDITIONAL_ENVELOPE_INTERSECTION": 2
+  },
+  "source_hashes": {
+    "cad/frame_mount/change_plan.json": "bb427acd4d11cbc51483c80986113a8ded6a6af8739aac95b70e9af4044d339c",
+    "cad/frame_mount/inputs.assumed.json": "79b190d8db24727120a76ec12704275c940b617fd0d100d79368576eedf7ef05",
+    "cad/frame_mount/inventory.py": "482e7cbba3e9a253d1abc17911e88ab3983881cab5d40472d336ffbc8de8bbd3",
+    "cad/frame_mount/run.py": "126f31e8ffb6b2d9274eeae0d439b2dd4e1fc7a77707c86437d196e58fa2da9a"
+  },
+  "raw_metadata_caveat": "hardcoded frozen checker source_commit_inputs/known_native_penetrations/tool_blockers are historical; use current input hash and this run",
+  "physical_parameters_and_safety": "UNKNOWN",
+  "G1": "OPEN",
+  "artifacts": {
+    "A/front.pdf": "32a2ffc183a5e5344e9f695ccedbef069c4f58dfaae4d8928069cf9b6e4f8deb",
+    "A/front.png": "f7847db99c87e41022e1ad153550dd861dc8d4d3c413f55239008a200b1c8301",
+    "A/front.svg": "72fedb90b69f098d46ff8f6e3f8f3e090782b1cb30ed5fc72a43e24e5cbbf0f9",
+    "A/isometric.pdf": "b6a58063cc77c7f256f4a5fdd48f95f5c225f5d005b179334a9f407e191fa623",
+    "A/isometric.png": "be58470922d78b17a6490c949be31f9c9253c76358df2cb059e898eb997b6277",
+    "A/isometric.svg": "1ba2ea7b81d996ca2b1bbc9a8be9818ed178ef75b933da91303c30e8dc6ce982",
+    "A/layout_A.FCStd": "80ffab1ae5c6eb621924b683265e8c3b73abf637218440810a206aa3dc194c7f",
+    "A/layout_A.step": "2d9e4920438689d05a62b8010cf6390a9e5f09df0ed53348022d1404cf98a40d",
+    "A/load_path.svg": "81551d243c35652cae935c6cb50dcf6c0373681a165b22221ef3f2c6dfc1c99d",
+    "A/manifest.json": "377128f3d2c3da4f39a2d92ce5a0b46399263fc94b3f08b4afbb2fb100739bb1",
+    "A/phase_views.svg": "7a5ef1ee67b43f90a434a0d0af7af1b626fce24b6748ec3c5d22bc5c4bf47feb",
+    "A/section_y0.svg": "c7f3f609bd5594a1693e32ce929d275fdae71eda9acaf0beaf249ab7524d4555",
+    "A/side.pdf": "cb45a32f8d26636250b8c9af2f189a7c496d96079b5174737fa490d55d295cb8",
+    "A/side.png": "9e567efc370743125ebb04f63ba0c6f4a8e739a4f9ac77432c83d7ab1f9184e6",
+    "A/side.svg": "0979c932aad987107df72d106144931dee1be7eb0d23809115c9e6d5e4fa5abb",
+    "A/top.pdf": "3b9f4c531185b3c3a5bdc4ee3db4e2800e7eba79a1ecd6ccaea8417228639100",
+    "A/top.png": "cd6c22e8374085ab9664f6a1c8585059e7b204790cb29db9ff16982d6b662dcf",
+    "A/top.svg": "fa74b231245ae5296ee5144e7432097d251363cfd004ede889b4a176d9d63d68",
+    "B/front.pdf": "27c64069d3e7dedf9ced044195b1dfe8506c2875dbe0b8ba483f63de51cef22f",
+    "B/front.png": "e29e015b0dd3ca14589c220cd7af8542970e4f351beaa8b82efb7ed11ad2f4c2",
+    "B/front.svg": "dd11638030d1b5d1e4dc8126520106e6dc33aec47de594a3e1981856d7e9c271",
+    "B/isometric.pdf": "625602668092edac52d5ae622d8ccee97f231212502389c25044d94ecdc0e454",
+    "B/isometric.png": "2a85efc756fd16af78293613c381f34229e91464dd269f6f1487d56d74a3ee2e",
+    "B/isometric.svg": "ebcd54ee631aebf9a700b8b66a444c99d00cda79c47d0ea192baa07c17b1daf1",
+    "B/layout_B.FCStd": "d81b41283d4a13923ec874c20d5e00cb5af893dbaa6c7a22059ab8ae91b9cd89",
+    "B/layout_B.step": "57e15079795d2594c03af57521b0e3ef309ef0512b6548f1cf2150177f1e421c",
+    "B/load_path.svg": "94b1e6c8905b9acf96824d8d5753ab3de784b3d4159de2c377206fd539b0a19c",
+    "B/manifest.json": "07701eae83151877a81effb268dda10c2eed47a5f8968a4de09c3ab6c437894c",
+    "B/phase_views.svg": "547f1c4df01eb7420756f77f61c8c83f510ca54ea6e0c550b50684b48038ea67",
+    "B/section_y0.svg": "976b436bae91330811426ea0a600a911ac6fa4d4e0afd870462a97993e2cb6b5",
+    "B/side.pdf": "f35ec9d88c49b7828255d25937085288f9970bad0648d291da198a56372f3118",
+    "B/side.png": "1fe0f28081e1efbc88308fe6f0107f38bee93cf99e587ccd381df01519b7a012",
+    "B/side.svg": "2975756c29b4e6392657a0571e1311666150715de3b2965a65ba59ef2bd63050",
+    "B/top.pdf": "0bff51303ff2ec3a1e2ee9fac0e98d51ace083d7c4a749b7fa904560b1c2b0cf",
+    "B/top.png": "633e3ad5fc2f64d48db4b089ce8006da6998755192231f76f9c494e2e13c57da",
+    "B/top.svg": "900999fb0b76458ff629c3d28c237a1da0176f2bc16f3e34d14e980115564d3d",
+    "assessment.json": "5475e7a3ca70fd428821bc08ba86f99e6df0e9672136e8d0d30c8de9a1eb4f85",
+    "classifications.jsonl.gz": "106cebc4c3d698c7c7fee359b09b4956e59c683d9536ff4eccdbab4c8fc875be",
+    "cycle_assertions.json": "6810dcdf554eab0ea83dd9f7f6c3b653eed8d8069daf56306c347b12221b7e5e",
+    "interfaces.json": "7b23791d5187418184fb8aaedaae317ff2cdc60571a52fdcde2bdc6e3dacad54",
+    "interval_evidence.json": "a04599c6a6ebd24156e49ecc440662ad771dcac65e537284e3acdfc85b23c329",
+    "inventory/inventory.json": "2520442d78d67fc8303cfd4e35b09d7e0307903c7c06624e1134c6b095b9300c",
+    "inventory/inventory.md": "284056b52e542b40059cd5d6a64efd8e7e7421cc5fecc6f36d28c19517ded237",
+    "native_cad_validation.json": "7ac0da43f707c83d9bf7acd56f06a64831954c7981acb9568ae19f88a8ddd5a9",
+    "raw_checked_tool/all_pairs.json.gz": "0e96987fca9c674085ae93839e5618dbaa18f08d2f971809710daf2dc2c2a869",
+    "raw_checked_tool/report.json": "96cada010dfb918d6abc2520633216a428de9886d9225af430f5bdf4b2d6f4cd",
+    "raw_checked_tool/service_pairs.json.gz": "45828a2d87cfbb6425343a2b1d40f5e454bbfb0a4ee11287391e2cbf3ca69f94",
+    "service_scenes.json.gz": "6097b8cbdc99596eaf14a13c120e4a52fca783171e1f0a790a930e94a0deb86f",
+    "strict_cycles.json": "5495da82e9d4ec9c49a53be1eb9e5c28c2bedff89986d18cf5f779f0e24d8705",
+    "work_and_module_service.json.gz": "4d9799830fef90f47b820dd29ef60ee35d0bc6391d351b60b6d5594da16b775c"
+  }
+}

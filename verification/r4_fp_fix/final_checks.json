@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "maturity": "R4_SELF_CHECK_REQUIRES_INDEPENDENT_RECHECK",
+  "blocker": "R5-FP-NEW-B01 OPEN until independent R5",
+  "main": "06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53",
+  "owner_session": "r4-linked-20261111",
+  "claim": "79e9c3aa9aaca33778814957fafecd93a4adc392",
+  "lease_expires_at": "2026-11-12T18:06:24Z",
+  "audit_utc": "2026-11-12T03:02:23.999003Z",
+  "input_review": "2592b470940cea886e033a999c889c15a92889f6",
+  "baseline": "8fbbef00023e146e32cb6ff290a0c19408ca13b5",
+  "unit_tests": 110,
+  "original_counterexamples_reproduced_false_PASS": 5,
+  "original_after_verifier_exits": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "original_after_outcomes": [
+    {
+      "id": "A_new_service_with_retract_omitted",
+      "path_outcomes": {
+        "CONFIRMED_NO_POSITIVE_VOLUME": 19,
+        "BLOCKED": 3
+      }
+    },
+    {
+      "id": "B_new_service_with_retract_omitted",
+      "path_outcomes": {
+        "CONFIRMED_NO_POSITIVE_VOLUME": 19,
+        "BLOCKED": 3
+      }
+    },
+    {
+      "id": "A_lift_before_retract",
+      "path_outcomes": {
+        "CONFIRMED_NO_POSITIVE_VOLUME": 19,
+        "BLOCKED": 3
+      }
+    },
+    {
+      "id": "A_powerpack_module_missing_moving_front_plate",
+      "path_outcomes": {
+        "CONFIRMED_NO_POSITIVE_VOLUME": 19,
+        "BLOCKED": 3
+      }
+    },
+    {
+      "id": "A_unsupported_motor_motion",
+      "path_outcomes": {
+        "CONFIRMED_NO_POSITIVE_VOLUME": 19,
+        "INDETERMINATE": 1,
+        "BLOCKED": 2
+      }
+    }
+  ],
+  "compound_and_unknown_cases": 4,
+  "end_to_end_commands": 25,
+  "chain_stages": [
+    "fresh all-pair calculation",
+    "whole-path aggregation",
+    "actual report CLI",
+    "explicit reanalysis CLI",
+    "readonly verifier CLI"
+  ],
+  "derived_evidence": {
+    "matrix_pair_rows_recomputed": 638919,
+    "interval_rows_recomputed": 593931,
+    "classification_rows_recomputed": 638919,
+    "all_saved_aggregates_current": true
+  },
+  "frozen_modules_unchanged": 34,
+  "original_geometry_files_byte_identical": 46,
+  "baseline_service_geometry_counts": {
+    "CONFIRMED_NO_POSITIVE_VOLUME": 20,
+    "BLOCKED": 2
+  },
+  "baseline_service_overall_counts": {
+    "INDETERMINATE": 20,
+    "BLOCKED": 2
+  },
+  "L_path_geometry_preserved": true,
+  "L_path_physical_feasibility": "INDETERMINATE",
+  "legacy_native_pairs_BLOCKED": 6,
+  "previous_static_fixes_preserved": 14,
+  "readonly_final_restored_verifiers": "exit0/exit0, identical stdout/stderr; all saved bytes/size/mtime unchanged",
+  "whole_press_READY": "INDETERMINATE",
+  "physical_trials": "NOT_RUN",
+  "G1": "OPEN",
+  "necessary_diff": [
+    "cad/feed_power/common.py",
+    "cad/feed_power/generate.py",
+    "cad/feed_power/present.py",
+    "cad/feed_power/verify_output.py",
+    "new service_semantics.py/service_evidence.py/service_fixtures.py/test_service_semantics.py"
+  ]
+}

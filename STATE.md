@@ -1,4 +1,84 @@
+# Предложение интеграции исследовательского CAD-пакета
+
+R1: решение `decisions/R1-RESEARCH-LAYOUT-ACCEPTANCE.md`, финальный C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`, независимый RECHECK `05f149332bc173eaa008250e1a5ab21e4d7611cf`. До merge IN_REVIEW. Приёмка предлагается только как исследовательского результата с WARNING, не геометрически/физически готового пресса. 6 legacy UP-пар BLOCKED, физическая выполнимость L-пути INDETERMINATE; G1 OPEN.
+
+## Предыдущая сводка (история)
+
 # STATE — панель проекта
+
+## Текущий результат R4 — сервисный semantic fix (2026-11-12T03:05:59Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`**, REMOTE. Входной R5 2592b47: исходная геометрия/условный L-path с WARNING подтверждены, новый adapter REJECT_WITH_BLOCKER R5-FP-NEW-B01. Исправление требует независимого RECHECK (NOT_RUN), B01 OPEN, не самоприёмка.
+
+Fresh service calculation учитывает все registered phases/participants/pairs/метод/план/continuity/return; все cached matrices/interval/classification/assessment/report сверяются по значениям. Command execution/test expectation/actual path/physical feasibility разделены. 110 tests; 5 original исправленных verifier exits1 (4 BLOCKED/1 INDETERMINATE), 25 цепочечных command records и compounds PASS. Два restored readonly verifier идентичны/без записи. Все 638919 matrices/classifications и 593931 interval rows пересчитаны.
+
+34 frozen модуля, 46 source/native/input/scene/classification preservation files unchanged; CAD/STEP не сохранялись. Исходный L геометрически сохраняется; 14 static fixes/6 legacy native BLOCKED сохранены. 20 model geometric paths confirmed /2 BLOCKED, но overall physical service 20 INDETERMINATE/2 BLOCKED. Expected negative не означает пригодность. Весь пресс READY INDETERMINATE, сборка/задача не приняты.
+
+Main/owner/claim/lease проверены, срок/область не расширены; исторический учёт main координатор сверяет до интеграции. Текущие данные/команды verification/r4_fp_fix/, запрос recheck_request.md, source cad/feed_power/, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md и NEXT_MODEL.md. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, размеры ASSUMED/реальные UNKNOWN, G1 OPEN, merge не выполнялся.
+
+## История результата R4 — дозатор/гидростанция (2026-11-12T01:34:06Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`**, REMOTE. База a5d5bad, RECHECK c2e96a5 закрывает прежний B01 только в его области. Новый FP OUTPUT review NOT_RUN; весь пресс не принят.
+
+ASSUMED rev8 заморожен до построения на 450e869. 14 static native пар устранены; 6 legacy doser-UP native пар остаются BLOCKED, предложенный side/lift path геометрически свободен, реальный дополнительный ход/подъём INDETERMINATE из-за UNKNOWN данных. R4-FP-SERVICE-01 OPEN. Не заявлять все 20 устранёнными. Сохранены все old ID, A91/B89; 62 новых и 58 прежних conditional interfaces, реальные силы/крепления UNKNOWN.
+
+638919 all-pair/507043 critical rows, 878 прежних target rows без регрессии. 22 continuous/restored сервиса, 8 новых без positive overlap; 102 tests/18 package-regression cases PASS, 16 faults rejected без записи/auto repair. Actual native/STEP/канонические queries/repeat проверены; старый DoserRemoval всё ещё blocked UP. 34 прежних Python-модуля и old CAD/review/probes неизменны; новые FP wrappers отдельно для review. Генерация и readonly verifier отдельно.
+
+Конечный список 557 non-CLEAR пар с 6 native legacy penetrations и всеми INDETERMINATE/оболочками сохранён. **Whole press READY INDETERMINATE**. Main/claim/lease проверены, scope/срок не расширены, нормализация исторического учёта main координатором до интеграции. Файлы/команды cad/feed_power/, cad/build/feed_power/, verification/r4_feed_power/. Текущая капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md, NEXT_MODEL.md. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, реальные UNKNOWN/условные ASSUMED, G1 OPEN; merge не выполнялся.
+
+## История результата R4 — readonly verifier (2026-11-12T00:36:54Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`**, REMOTE. Входной акт R5 0b4788d: ограниченная геометрическая группа принята с WARNING, новый процесс выпуска отклонён по R5-FRAME-NEW-B01. Исправление передано на независимый RECHECK (NOT_RUN), B01 OPEN.
+
+Verifier больше не пишет manifest/входы/evidence/diagnostic reports, результат только stdout/exit. Явная генерация generate.py отдельно; односторонние хэши стадий. 95 tests и 18 регрессионных случаев/23 команды PASS: две отдельные генерации, по два неизменяющих verifier, 15 missing/corrupt/stale отказов без auto repair. Два verifier текущего пакета также идентичны, 92 файла без изменения байтов/mtime. Все 23 frozen модуля неизменны; необходимый release diff выделен для review.
+
+Геометрический scope не менялся: 35 исходных deterministic evidence/source хэшей сохранены, native семантика A79/B77 одинакова, 18 устранённых и 20 оставшихся native-пар сохранены. Остальные UNKNOWN/оболочки/непредписанные контакты видимы, **whole press READY INDETERMINATE**. Пересохранение native служебных metadata при явном build не является изменением геометрии.
+
+main/owner/claim/lease проверены 12 ноября, срок без продления; историческую нормализацию учёта main сверяет координатор до интеграции. Текущие команды/доказательства verification/r4_frame_fix/, текущий пакет cad/build/frame_mount/, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md и NEXT_MODEL.md. Старые review/RECHECK/probes сохранены. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, реальные UNKNOWN/условные ASSUMED, G1 OPEN; merge не выполнялся.
+
+## История результата R4 — рамная/монтажная коррекция (2026-11-11T22:56:14Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `5198e0184b35978701ed1ce762d9e4fcd44997b3`**, REMOTE в work-r4/build-layout/r4-linked-20261111. Входной R5 04efe57 закрыл B01/B02 только в проверенной программной области. Новая коррекция/дополнительный код требуют независимого OUTPUT review, NOT_RUN. Задача и компоновки не приняты.
+
+ASSUMED rev7 заморожен до построения на 17501de. Поперечины/рельсы/опоры цилиндра/выхода исправлены, открытый U-коридор и связи к основанию; старые ID сохранены A79/B77. 18 native before/after пар zero volume, 58 условных positive-area интерфейсов, крепёж/реальные силы UNKNOWN. Все 23 reviewed Python-модуля неизменны.
+
+346709 all-pair строк, 114156 поддерживаемых строк новой группы без positive overlap +28 INDETERMINATE unknown-control. 658 прежних target строк без регрессии, 3672 строки цилиндровых сервисов, 14 continuous/restored сервисных последовательностей; actual CAD/STEP/all QueryVolumes/repeat/8 limited outcomes/83+5 tests PASS. Осталось 20 native penetration пар и прочие неопределённости; конечный inventory 463 пары. Дозаторный монтаж/извлечение и бак/мотор OPEN, **whole press READY INDETERMINATE**.
+
+Owner/claim/lease/main сверены, срок не расширен; историческую нормализацию учёта main сверяет координатор перед интеграцией. Код/результаты cad/frame_mount/, cad/build/frame_mount/; команды README и independent review request. Текущая R4 капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md, NEXT_MODEL.md. Старые исходники/модели/акты/RECHECK/probes сохранены. Реальные параметры UNKNOWN, все исследовательские размеры ASSUMED; архитектура/ТЗ не утверждены, испытания NOT_RUN, G1 OPEN. Merge не выполнялся.
+
+## История результата R4 — исправление аналитики (2026-11-11T21:37:52Z)
+
+T-r4-layout-build-01 IN_REVIEW, C `66924aed1cb2d193b9883d2140d85560b1e4b0cb`, ветка work-r4/build-layout/r4-linked-20261111. Вход R5 04b9f2950a34492b15e1d7c893f680b82f9183b9: целевая геометрия C 120a958 подтверждена в её области, новый classifier/orchestration REJECT_WITH_BLOCKER. Представлены method/evidence gate и строгий sufficient contract с отдельными verifier assertions. R5-LAYOUT-NEW-B01/B02 OPEN до независимого RECHECK (NOT_RUN).
+
+Execution/test/scene outcomes разделены. 83 unit tests, 15 classifier и 40 cycle regressions PASS; штатные обе CLI exit 0. Full-unlinked CAD counterexample теперь rejected обеими CLI exit 1, actual LINK_ABSENT/BLOCKED/false у sufficient A/B. Inputs/native geometry/PNG/15 frozen core/evidence неизменны; R5 geometry_probe воспроизвёл 251923 строк, 618 target/58 native без positive, сервисы restored. Прочие проникновения и UNKNOWN не скрыты, whole press READY INDETERMINATE.
+
+Owner/claim/lease/main сверены до C; срок не расширялся, предварительный учёт main требует сверки координатором перед интеграцией. Registry/COTS/models неизменны, реальные параметры UNKNOWN, условные ASSUMED отдельно; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Текущая эстафета NEXT_MODEL.md, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md; результаты cad/build/layout_correction/ и verification/r4_analysis_fix/.
+
+## История результата R4 — геометрическая корректировка (2026-11-11T20:34:47Z)
+
+T-r4-layout-build-01 IN_REVIEW, C `120a9582f4835e81cdf324605a14f632ce7db2cb`, ветка work-r4/build-layout/r4-linked-20261111. На базе checked tool de377f0/review 214b055 целевые gate/pocket и B lock/stop/guard/support positive-volume пересечения устранены в поддержанной исследовательской геометрии по всему ходу/возврату/сервисам. Все исходные ID сохранены; 70/68 тел. 15 checked-tool файлов не менялись. Отдельные новые orchestration/classifier/face-touch policy требуют независимого review вместе с геометрией.
+
+73 прежних + 6 новых tests, 8 limited outcomes и CAD/STEP/query/repeat PASS; 130453 рабочих + 121470 сервисных строк, 618 target rows без strict penetration, 6 native before/after zero volume. 216 дополнительных design-контрольных строк и новые тела без положительных/envelope пересечений, 12 сервисных последовательностей восстановлены. Показаны геометрические feed/isolation/reaction witnesses; реальные усилия/физика/безопасность UNKNOWN. Прочие проникновения/сервисы/неопределённость не скрыты, whole-press READY INDETERMINATE, весь пресс не принят. Геометрический OUTPUT review NOT_RUN.
+
+Owner/lease/claim/main сверены до C, scope исходной задачи покрывает исправление геометрии, срок не продлён. Историческое расхождение NONE/PENDING main требует сверки координатором перед интеграцией. Реальный registry/COTS/models неизменны, все числа отдельно ASSUMED. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Актуальная эстафета NEXT_MODEL.md, handoffs/T-r4-layout-build-01/r4-linked-20261111.md; результаты cad/build/layout_correction/, навигация cad/layout_correction/README.md.
+
+## История результата R4 — B02 QueryVolumes (2026-11-11T19:31:43Z)
+
+T-r4-layout-build-01 IN_REVIEW, C `de377f012da08f34796b2e59aee663ba0b2b3d2b`, ветка work-r4/build-layout/r4-linked-20261111. Входной акт 8f381c4b080d902cb023429c54d518bfd6fab681 закрыл B01 в проверенной области и оставил B02 OPEN/Q01. Исправлена проверка всех канонических нативных зон по входам; новый независимый RECHECK B02 NOT_RUN, автор не закрывает блокер. Lifecycle неизменен, B01 не переоткрывается. 73 unit tests / 64 query-negative / 14 прежних CAD-negative / 33 lifecycle / 20 независимых lifecycle / 8 limited outcomes PASS, 14 команд exit 0.
+
+Геометрия зон и компоновок сохранена, 107486 записей фаз/пар и нативные проникновения R5 совпали. Полная сборка не принята, READY INDETERMINATE. Main/claim/owner/lease прежние и сверены до C; предварительный учёт main требует отдельной сверки координатором перед интеграцией. Реальные параметры UNKNOWN, условные ASSUMED отдельно, registry/COTS/models неизменны. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Актуальные пути — NEXT_MODEL.md, handoffs/T-r4-layout-build-01/r4-linked-20261111.md, cad/build/research_layout/assessment.md и validation.json.
+
+## История RECHECK-пакета инструмента R4 (2026-11-11T19:07:56Z)
+
+T-r4-layout-build-01 IN_REVIEW, C `5449fb9bc4c20fcbc40fdec932876dcecc90ef4d`, ветка work-r4/build-layout/r4-linked-20261111. Входной акт R5 e939b41d0139b0a3a08a5950eeeec6e92324cf9b на исходный C 6bb66a5: REJECT_WITH_BLOCKER. Исправления lifecycle и actual-CAD validation представлены; R5-CAD-TOOL-B01/B02 OPEN до независимого RECHECK (NOT_RUN). 69 unit tests, 33 lifecycle, 14 CAD-negative и 8 limited outcomes PASS; код/команды/результаты в BUILD_README/assessment/validation/checks. Пробы независимого R5 и история сохранены.
+
+Геометрия и все 107486 записей фаз/пар неизменны, проникновения подтверждены повторными native probes; полная сборка не принята, READY INDETERMINATE. Owner/claim/lease прежние, main 06d68b0 повторно сверена; нормализация предварительного учёта main требует последовательной интеграции координатором. Registry/COTS/models неизменны, реальные данные UNKNOWN, условные ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Актуальная эстафета NEXT_MODEL.md, капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+
+## История результата R4 — T-r4-layout-build-01 (2026-11-11T18:33:56Z)
+
+Code/results `6bb66a566719593a59935e341b1b5c80a1cbc9a7`, ветка `work-r4/build-layout/r4-linked-20261111`; IN_REVIEW, независимый OUTPUT review NOT_RUN. Claim принят PR #35 на main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, owner r4-linked-20261111, lease до 2026-11-12T18:06:24Z. Предварительный учёт NONE/PENDING нормализован по принятому claim, история сохранена. Эстафета: NEXT_MODEL.md и handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+
+Редактируемые условные A/B, виды, STEP, код/отчёты опубликованы для независимой проверки; 60 тестов и 8 исходов ограниченного пути PASS. Полная сборка не принята: условные пересечения и неподдержанные условия сохранены, READY всей установки INDETERMINATE. Все численные входы ASSUMED отдельно, реальные параметры REV UNKNOWN; registry/COTS/старые модели неизменны. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Детали: cad/layout/BUILD_README.md, cad/build/research_layout/assessment.md. Старые сводки ниже — история, включая капсулу R1; она не заменяет текущую эстафету R4.
 
 ## Паспорт
 
@@ -50,6 +130,7 @@
 | task_id | Роль | session_id / model_label | База | Claim / heartbeat / lease | Капсула |
 |---|---|---|---|---|---|
 | T-INIT | R1 | codex-01 / Codex | 2e479849cea10dab9376a68cb44d2ff716c215da | ACCEPTED_MAIN (PR #1); claim_record_commit: a31a6d86cde8799807e6d21454deda8db55b695a; heartbeat: 2026-11-10T17:42:58Z; lease_expires_at: 2026-11-11T12:06:09Z | handoffs/T-INIT/codex-01.md |
+| T-r4-layout-build-01 | R4 | r4-linked-20261111 / Codex | 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 | ACCEPTED_MAIN PR #35; heartbeat 2026-11-11T21:38:17Z; lease 2026-11-12T18:06:24Z; IN_REVIEW | handoffs/T-r4-layout-build-01/r4-linked-20261111.md |
 
 ## Active Handoff Capsule
 

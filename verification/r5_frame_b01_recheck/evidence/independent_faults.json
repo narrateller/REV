@@ -1,0 +1,808 @@
+{
+  "cases": [
+    {
+      "case": "saved_fixture_baseline",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 0,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "PASS",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 0
+        },
+        "test_evaluation": {
+          "status": "PASS"
+        },
+        "reviewed_modules_unchanged": 23,
+        "native_CAD": {
+          "A": {
+            "solids": 79,
+            "queries": 2,
+            "status": "PASS"
+          },
+          "B": {
+            "solids": 77,
+            "queries": 2,
+            "status": "PASS"
+          }
+        },
+        "all_pair_rows": 346709,
+        "finite_inventory_rows": 463,
+        "changed_group_rows": 114184,
+        "changed_group_counts": {
+          "NO_POSITIVE_VOLUME_ON_INTERVAL": 114156,
+          "INDETERMINATE": 28
+        },
+        "target_regression_rows": 658,
+        "cylinder_service_rows": 3672,
+        "full_service_sequences": 14,
+        "native_before_after_pairs": 18,
+        "native_interfaces": 58,
+        "remaining_native_penetration_pairs": 20,
+        "design_counterexample_controls": [
+          {
+            "pair": [
+              "guard_right",
+              "pump_motor"
+            ],
+            "full_interval_rows": 116
+          },
+          {
+            "pair": [
+              "output_support",
+              "stop_support_bridge"
+            ],
+            "full_interval_rows": 71
+          }
+        ],
+        "historical_code_CAD_reviews_probes": "UNCHANGED from 04efe57",
+        "commands": [
+          "/usr/bin/python3 cad/frame_mount/generate.py",
+          "/usr/bin/python3 cad/frame_mount/verify_output.py"
+        ],
+        "publication": {
+          "status": "PASS",
+          "files_checked": 91
+        }
+      },
+      "stderr": "",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_A/layout_A.FCStd",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['cad/build/frame_mount/A/layout_A.FCStd']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['cad/build/frame_mount/A/layout_A.FCStd']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "corrupt_A/layout_A.FCStd",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/A/layout_A.FCStd"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/A/layout_A.FCStd\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_B/layout_B.step",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['cad/build/frame_mount/B/layout_B.step']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['cad/build/frame_mount/B/layout_B.step']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "corrupt_B/layout_B.step",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/B/layout_B.step"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/B/layout_B.step\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_B/isometric.png",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['cad/build/frame_mount/B/isometric.png']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['cad/build/frame_mount/B/isometric.png']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "corrupt_B/isometric.png",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/B/isometric.png"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/B/isometric.png\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_geometry_evidence.json",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['cad/build/frame_mount/geometry_evidence.json']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['cad/build/frame_mount/geometry_evidence.json']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "corrupt_geometry_evidence.json",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/geometry_evidence.json"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/geometry_evidence.json\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_inventory/inventory.json",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['cad/build/frame_mount/inventory/inventory.json']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['cad/build/frame_mount/inventory/inventory.json']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "corrupt_inventory/inventory.json",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/inventory/inventory.json"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/inventory/inventory.json\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_generation.json",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['cad/build/frame_mount/generation.json']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['cad/build/frame_mount/generation.json']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "corrupt_generation.json",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/generation.json"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/generation.json\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_publication_manifest",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "[Errno 2] No such file or directory: '/tmp/rev-frame-fault-a5/cad/build/frame_mount/publication_manifest.json'"
+      },
+      "stderr": "SELF-CHECK FAILED: [Errno 2] No such file or directory: '/tmp/rev-frame-fault-a5/cad/build/frame_mount/publication_manifest.json'\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "corrupt_publication_manifest",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+      },
+      "stderr": "SELF-CHECK FAILED: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "stale_schema1_manifest",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication manifest schema missing/stale; explicit generation required"
+      },
+      "stderr": "SELF-CHECK FAILED: publication manifest schema missing/stale; explicit generation required\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "incomplete_manifest_catalog",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=[]; unrecorded=['cad/build/frame_mount/A/front.pdf', 'cad/build/frame_mount/A/front.png', 'cad/build/frame_mount/A/front.svg', 'cad/build/frame_mount/A/isometric.pdf', 'cad/build/frame_mount/A/isometric.png', 'cad/build/frame_mount/A/isometric.svg', 'cad/build/frame_mount/A/layout_A.FCStd', 'cad/build/frame_mount/A/layout_A.step', 'cad/build/frame_mount/A/load_path.svg', 'cad/build/frame_mount/A/manifest.json', 'cad/build/frame_mount/A/phase_views.svg', 'cad/build/frame_mount/A/section_y0.svg', 'cad/build/frame_mount/A/side.pdf', 'cad/build/frame_mount/A/side.png', 'cad/build/frame_mount/A/side.svg', 'cad/build/frame_mount/A/top.pdf', 'cad/build/frame_mount/A/top.png', 'cad/build/frame_mount/A/top.svg', 'cad/build/frame_mount/B/front.pdf', 'cad/build/frame_mount/B/front.png', 'cad/build/frame_mount/B/front.svg', 'cad/build/frame_mount/B/isometric.pdf', 'cad/build/frame_mount/B/isometric.png', 'cad/build/frame_mount/B/isometric.svg', 'cad/build/frame_mount/B/layout_B.FCStd', 'cad/build/frame_mount/B/layout_B.step', 'cad/build/frame_mount/B/load_path.svg', 'cad/build/frame_mount/B/manifest.json', 'cad/build/frame_mount/B/phase_views.svg', 'cad/build/frame_mount/B/section_y0.svg', 'cad/build/frame_mount/B/side.pdf', 'cad/build/frame_mount/B/side.png', 'cad/build/frame_mount/B/side.svg', 'cad/build/frame_mount/B/top.pdf', 'cad/build/frame_mount/B/top.png', 'cad/build/frame_mount/B/top.svg', 'cad/build/frame_mount/assessment.json', 'cad/build/frame_mount/assessment.md', 'cad/build/frame_mount/changes.json', 'cad/build/frame_mount/classifications.jsonl.gz', 'cad/build/frame_mount/crossbar_before_after.png', 'cad/build/frame_mount/crossbar_before_after.svg', 'cad/build/frame_mount/cycle_assertions.json', 'cad/build/frame_mount/figure_manifest.json', 'cad/build/frame_mount/frame_before_after.png', 'cad/build/frame_mount/frame_before_after.svg', 'cad/build/frame_mount/generation.json', 'cad/build/frame_mount/geometry_evidence.json', 'cad/build/frame_mount/inequality_rows.json.gz', 'cad/build/frame_mount/interfaces.json', 'cad/build/frame_mount/interval_evidence.json', 'cad/build/frame_mount/inventory/inventory.json', 'cad/build/frame_mount/inventory/inventory.md', 'cad/build/frame_mount/native_cad_validation.json', 'cad/build/frame_mount/raw_checked_tool/all_pairs.json.gz', 'cad/build/frame_mount/raw_checked_tool/report.json', 'cad/build/frame_mount/raw_checked_tool/service_pairs.json.gz', 'cad/build/frame_mount/run.json', 'cad/build/frame_mount/seat_before_after.png', 'cad/build/frame_mount/seat_before_after.svg', 'cad/build/frame_mount/service_before_after.png', 'cad/build/frame_mount/service_before_after.svg', 'cad/build/frame_mount/service_scenes.json.gz', 'cad/build/frame_mount/strict_cycles.json', 'cad/build/frame_mount/work_and_module_service.json.gz', 'cad/frame_mount/README.md', 'cad/frame_mount/change_plan.json', 'cad/frame_mount/figures.py', 'cad/frame_mount/generate.py', 'cad/frame_mount/geometry_evidence.py', 'cad/frame_mount/inputs.assumed.json', 'cad/frame_mount/inventory.py', 'cad/frame_mount/publication.py', 'cad/frame_mount/regress_verifier.py', 'cad/frame_mount/report.py', 'cad/frame_mount/review_request.md', 'cad/frame_mount/run.py', 'cad/frame_mount/test_geometry_evidence.py', 'cad/frame_mount/test_publication.py', 'cad/frame_mount/verify_output.py', 'verification/r4_frame_mount/baseline_tests.json', 'verification/r4_frame_mount/before/inventory.json', 'verification/r4_frame_mount/before/inventory.md', 'verification/r4_frame_mount/final_checks.json', 'verification/r4_frame_mount/frozen_tool.json', 'verification/r4_frame_mount/geometry.log', 'verification/r4_frame_mount/history.md', 'verification/r4_frame_mount/input_audit.md', 'verification/r4_frame_mount/input_manifest.json', 'verification/r4_frame_mount/registry_snapshot.yaml', 'verification/r4_frame_mount/run.log']"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=[]; unrecorded=['cad/build/frame_mount/A/front.pdf', 'cad/build/frame_mount/A/front.png', 'cad/build/frame_mount/A/front.svg', 'cad/build/frame_mount/A/isometric.pdf', 'cad/build/frame_mount/A/isometric.png', 'cad/build/frame_mount/A/isometric.svg', 'cad/build/frame_mount/A/layout_A.FCStd', 'cad/build/frame_mount/A/layout_A.step', 'cad/build/frame_mount/A/load_path.svg', 'cad/build/frame_mount/A/manifest.json', 'cad/build/frame_mount/A/phase_views.svg', 'cad/build/frame_mount/A/section_y0.svg', 'cad/build/frame_mount/A/side.pdf', 'cad/build/frame_mount/A/side.png', 'cad/build/frame_mount/A/side.svg', 'cad/build/frame_mount/A/top.pdf', 'cad/build/frame_mount/A/top.png', 'cad/build/frame_mount/A/top.svg', 'cad/build/frame_mount/B/front.pdf', 'cad/build/frame_mount/B/front.png', 'cad/build/frame_mount/B/front.svg', 'cad/build/frame_mount/B/isometric.pdf', 'cad/build/frame_mount/B/isometric.png', 'cad/build/frame_mount/B/isometric.svg', 'cad/build/frame_mount/B/layout_B.FCStd', 'cad/build/frame_mount/B/layout_B.step', 'cad/build/frame_mount/B/load_path.svg', 'cad/build/frame_mount/B/manifest.json', 'cad/build/frame_mount/B/phase_views.svg', 'cad/build/frame_mount/B/section_y0.svg', 'cad/build/frame_mount/B/side.pdf', 'cad/build/frame_mount/B/side.png', 'cad/build/frame_mount/B/side.svg', 'cad/build/frame_mount/B/top.pdf', 'cad/build/frame_mount/B/top.png', 'cad/build/frame_mount/B/top.svg', 'cad/build/frame_mount/assessment.json', 'cad/build/frame_mount/assessment.md', 'cad/build/frame_mount/changes.json', 'cad/build/frame_mount/classifications.jsonl.gz', 'cad/build/frame_mount/crossbar_before_after.png', 'cad/build/frame_mount/crossbar_before_after.svg', 'cad/build/frame_mount/cycle_assertions.json', 'cad/build/frame_mount/figure_manifest.json', 'cad/build/frame_mount/frame_before_after.png', 'cad/build/frame_mount/frame_before_after.svg', 'cad/build/frame_mount/generation.json', 'cad/build/frame_mount/geometry_evidence.json', 'cad/build/frame_mount/inequality_rows.json.gz', 'cad/build/frame_mount/interfaces.json', 'cad/build/frame_mount/interval_evidence.json', 'cad/build/frame_mount/inventory/inventory.json', 'cad/build/frame_mount/inventory/inventory.md', 'cad/build/frame_mount/native_cad_validation.json', 'cad/build/frame_mount/raw_checked_tool/all_pairs.json.gz', 'cad/build/frame_mount/raw_checked_tool/report.json', 'cad/build/frame_mount/raw_checked_tool/service_pairs.json.gz', 'cad/build/frame_mount/run.json', 'cad/build/frame_mount/seat_before_after.png', 'cad/build/frame_mount/seat_before_after.svg', 'cad/build/frame_mount/service_before_after.png', 'cad/build/frame_mount/service_before_after.svg', 'cad/build/frame_mount/service_scenes.json.gz', 'cad/build/frame_mount/strict_cycles.json', 'cad/build/frame_mount/work_and_module_service.json.gz', 'cad/frame_mount/README.md', 'cad/frame_mount/change_plan.json', 'cad/frame_mount/figures.py', 'cad/frame_mount/generate.py', 'cad/frame_mount/geometry_evidence.py', 'cad/frame_mount/inputs.assumed.json', 'cad/frame_mount/inventory.py', 'cad/frame_mount/publication.py', 'cad/frame_mount/regress_verifier.py', 'cad/frame_mount/report.py', 'cad/frame_mount/review_request.md', 'cad/frame_mount/run.py', 'cad/frame_mount/test_geometry_evidence.py', 'cad/frame_mount/test_publication.py', 'cad/frame_mount/verify_output.py', 'verification/r4_frame_mount/baseline_tests.json', 'verification/r4_frame_mount/before/inventory.json', 'verification/r4_frame_mount/before/inventory.md', 'verification/r4_frame_mount/final_checks.json', 'verification/r4_frame_mount/frozen_tool.json', 'verification/r4_frame_mount/geometry.log', 'verification/r4_frame_mount/history.md', 'verification/r4_frame_mount/input_audit.md', 'verification/r4_frame_mount/input_manifest.json', 'verification/r4_frame_mount/registry_snapshot.yaml', 'verification/r4_frame_mount/run.log']\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "extra_unrecorded_artifact",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=[]; unrecorded=['cad/build/frame_mount/unrecorded_R5.json']"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=[]; unrecorded=['cad/build/frame_mount/unrecorded_R5.json']\n",
+      "snapshot_files": 634,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "stale_valid_FCStd",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/A/layout_A.FCStd"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/A/layout_A.FCStd\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "stale_valid_assessment",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/build/frame_mount/assessment.md"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/build/frame_mount/assessment.md\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "stale_valid_input",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication hash mismatch: cad/frame_mount/inputs.assumed.json"
+      },
+      "stderr": "SELF-CHECK FAILED: publication hash mismatch: cad/frame_mount/inputs.assumed.json\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "compound_missing_STEP_corrupt_inventory",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['cad/build/frame_mount/A/layout_A.step']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['cad/build/frame_mount/A/layout_A.step']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "missing_historical_final_checks",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "publication catalog mismatch: missing=['verification/r4_frame_mount/final_checks.json']; unrecorded=[]"
+      },
+      "stderr": "SELF-CHECK FAILED: publication catalog mismatch: missing=['verification/r4_frame_mount/final_checks.json']; unrecorded=[]\n",
+      "snapshot_files": 632,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "resealed_missing_18th_pair",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "AssertionError()"
+      },
+      "stderr": "SELF-CHECK FAILED: AssertionError()\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "resealed_hidden_OPEN_penetration",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "finite inventory missing/extra pair"
+      },
+      "stderr": "SELF-CHECK FAILED: finite inventory missing/extra pair\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "resealed_native_query_height_A",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "native CAD validation did not complete successfully"
+      },
+      "stderr": "SELF-CHECK FAILED: native CAD validation did not complete successfully\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "resealed_native_query_height_B",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "native CAD validation did not complete successfully"
+      },
+      "stderr": "SELF-CHECK FAILED: native CAD validation did not complete successfully\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "resealed_A_native_in_B",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 1,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "FAIL",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 1
+        },
+        "reason": "native CAD validation did not complete successfully"
+      },
+      "stderr": "SELF-CHECK FAILED: native CAD validation did not complete successfully\n",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    },
+    {
+      "case": "explicit_fixture_restore_baseline",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "cad/frame_mount/verify_output.py"
+      ],
+      "exit_code": 0,
+      "stdout": {
+        "scope": "R4 self-check; independent R5 NOT_RUN",
+        "whole_press_READY": "INDETERMINATE",
+        "G1": "OPEN",
+        "status": "PASS",
+        "execution": {
+          "status": "COMPLETED",
+          "exit_code": 0
+        },
+        "test_evaluation": {
+          "status": "PASS"
+        },
+        "reviewed_modules_unchanged": 23,
+        "native_CAD": {
+          "A": {
+            "solids": 79,
+            "queries": 2,
+            "status": "PASS"
+          },
+          "B": {
+            "solids": 77,
+            "queries": 2,
+            "status": "PASS"
+          }
+        },
+        "all_pair_rows": 346709,
+        "finite_inventory_rows": 463,
+        "changed_group_rows": 114184,
+        "changed_group_counts": {
+          "NO_POSITIVE_VOLUME_ON_INTERVAL": 114156,
+          "INDETERMINATE": 28
+        },
+        "target_regression_rows": 658,
+        "cylinder_service_rows": 3672,
+        "full_service_sequences": 14,
+        "native_before_after_pairs": 18,
+        "native_interfaces": 58,
+        "remaining_native_penetration_pairs": 20,
+        "design_counterexample_controls": [
+          {
+            "pair": [
+              "guard_right",
+              "pump_motor"
+            ],
+            "full_interval_rows": 116
+          },
+          {
+            "pair": [
+              "output_support",
+              "stop_support_bridge"
+            ],
+            "full_interval_rows": 71
+          }
+        ],
+        "historical_code_CAD_reviews_probes": "UNCHANGED from 04efe57",
+        "commands": [
+          "/usr/bin/python3 cad/frame_mount/generate.py",
+          "/usr/bin/python3 cad/frame_mount/verify_output.py"
+        ],
+        "publication": {
+          "status": "PASS",
+          "files_checked": 91
+        }
+      },
+      "stderr": "",
+      "snapshot_files": 633,
+      "file_changes": {},
+      "pass": true
+    }
+  ],
+  "count": 29,
+  "passed": 29
+}

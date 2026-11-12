@@ -1,0 +1,907 @@
+[
+  {
+    "id": "original_premature_remove",
+    "expected": "BLOCKED",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "BLOCKED",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "0",
+            "exit_boundary": "2"
+          },
+          "status": "BLOCKED",
+          "applied": false,
+          "reasons": [
+            "premature REMOVE: product has not fully exited",
+            "trusted exit boundary missing",
+            "conditional receiving envelope missing",
+            "required link not confirmed",
+            "path clearance not confirmed"
+          ],
+          "proof": {
+            "actual_rear": "0",
+            "exit_boundary": "2",
+            "scope": "limited path only"
+          },
+          "blocking_defects": [
+            "premature REMOVE: product has not fully exited"
+          ],
+          "unknown": [
+            "trusted exit boundary missing",
+            "conditional receiving envelope missing",
+            "required link not confirmed",
+            "path clearance not confirmed"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "original_ghost_create",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "CREATE",
+            "id": "ghost",
+            "time": "1"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "CREATE disagrees with registry delta"
+          ]
+        }
+      ],
+      "registry_defects": [],
+      "retained_ids": [],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "original_supported_shape_unsupported_create",
+    "expected": "INDETERMINATE",
+    "expected_registry": [],
+    "passed": true,
+    "actual": {
+      "status": "INDETERMINATE",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "CREATE",
+            "id": "ghost",
+            "time": "1"
+          },
+          "status": "INDETERMINATE",
+          "applied": false,
+          "reasons": [
+            "CREATE unsupported; no body created"
+          ]
+        }
+      ],
+      "registry_defects": [],
+      "retained_ids": [],
+      "effective_next_registry": []
+    }
+  },
+  {
+    "id": "premature_plus_unknown_create",
+    "expected": "BLOCKED",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "BLOCKED",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "0",
+            "exit_boundary": "2"
+          },
+          "status": "BLOCKED",
+          "applied": false,
+          "reasons": [
+            "premature REMOVE: product has not fully exited"
+          ],
+          "proof": {
+            "actual_rear": "0",
+            "exit_boundary": "2",
+            "scope": "limited path only"
+          },
+          "blocking_defects": [
+            "premature REMOVE: product has not fully exited"
+          ],
+          "unknown": []
+        },
+        {
+          "index": 1,
+          "event": {
+            "type": "CREATE",
+            "id": "ghost",
+            "time": "1"
+          },
+          "status": "INDETERMINATE",
+          "applied": false,
+          "reasons": [
+            "CREATE unsupported; no body created"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "residue_lost_plus_split",
+    "expected": "BLOCKED",
+    "expected_registry": [
+      "product_B",
+      "residue"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "BLOCKED",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "SPLIT",
+            "id": "product_B",
+            "time": "1",
+            "children": [
+              "piece"
+            ]
+          },
+          "status": "INDETERMINATE",
+          "applied": false,
+          "reasons": [
+            "SPLIT unsupported; source retained, children not created"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "residue"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B",
+        "residue"
+      ],
+      "effective_next_registry": [
+        "product_B",
+        "residue"
+      ]
+    }
+  },
+  {
+    "id": "valid_remove",
+    "expected": "VALID",
+    "expected_registry": [],
+    "passed": true,
+    "actual": {
+      "status": "VALID",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "VALIDATED_REMOVE",
+          "applied": true,
+          "reasons": [],
+          "proof": {
+            "actual_rear": "2",
+            "exit_boundary": "2",
+            "scope": "limited path only"
+          },
+          "blocking_defects": [],
+          "unknown": []
+        }
+      ],
+      "registry_defects": [],
+      "retained_ids": [],
+      "effective_next_registry": []
+    }
+  },
+  {
+    "id": "duplicate_mixed_representation_times",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "duplicate/conflicting event claim for ID"
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "2/2",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "duplicate/conflicting event claim for ID"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "unknown_link_plus_proven_path_collision",
+    "expected": "BLOCKED",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "BLOCKED",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "BLOCKED",
+          "applied": false,
+          "reasons": [
+            "proven path collision",
+            "required link not confirmed"
+          ],
+          "proof": {
+            "actual_rear": "2",
+            "exit_boundary": "2",
+            "scope": "limited path only"
+          },
+          "blocking_defects": [
+            "proven path collision"
+          ],
+          "unknown": [
+            "required link not confirmed"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "forged_rear_and_unknown_create",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "claimed rear disagrees with actual geometry"
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "type": "CREATE",
+            "id": "ghost",
+            "time": "1"
+          },
+          "status": "INDETERMINATE",
+          "applied": false,
+          "reasons": [
+            "CREATE unsupported; no body created"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "outside_receipt_plus_unknown_link",
+    "expected": "BLOCKED",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "BLOCKED",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "BLOCKED",
+          "applied": false,
+          "reasons": [
+            "product outside conditional receiving envelope",
+            "required link not confirmed"
+          ],
+          "proof": {
+            "actual_rear": "2",
+            "exit_boundary": "2",
+            "scope": "limited path only"
+          },
+          "blocking_defects": [
+            "product outside conditional receiving envelope"
+          ],
+          "unknown": [
+            "required link not confirmed"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "valid_remove_unknown_unrelated_event",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "duplicate/conflicting event claim for ID"
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "type": "FOLD",
+            "id": "product_B",
+            "time": "1"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "duplicate/conflicting event claim for ID"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "unsupported_event",
+    "expected": "INDETERMINATE",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INDETERMINATE",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "FOLD",
+            "id": "product_B",
+            "time": "1"
+          },
+          "status": "INDETERMINATE",
+          "applied": false,
+          "reasons": [
+            "unsupported event type; no effect applied"
+          ]
+        }
+      ],
+      "registry_defects": [],
+      "retained_ids": [],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "bad_time_0",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "1/2",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "event is not at this boundary"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "bad_time_1",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "2",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "event is not at this boundary"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "bad_time_2",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": false,
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "exact integer or rational string required"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "bad_time_3",
+    "expected": "INVALID_INPUT",
+    "expected_registry": [
+      "product_B"
+    ],
+    "passed": true,
+    "actual": {
+      "status": "INVALID_INPUT",
+      "events": [
+        {
+          "index": 0,
+          "event": {
+            "type": "REMOVE",
+            "id": "product_B",
+            "time": "NaN",
+            "final_rear": "2",
+            "exit_boundary": "2"
+          },
+          "status": "INVALID_INPUT",
+          "applied": false,
+          "reasons": [
+            "Invalid literal for Fraction: 'NaN'"
+          ]
+        }
+      ],
+      "registry_defects": [
+        {
+          "unjustified_disappearance": [
+            "product_B"
+          ]
+        }
+      ],
+      "retained_ids": [
+        "product_B"
+      ],
+      "effective_next_registry": [
+        "product_B"
+      ]
+    }
+  },
+  {
+    "id": "original_continuity_counterexample",
+    "passed": true,
+    "actual": [
+      {
+        "from": "EJECT",
+        "to": "RESET",
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": false,
+        "lifecycle_status": "BLOCKED",
+        "lifecycle_audit": {
+          "status": "BLOCKED",
+          "events": [
+            {
+              "index": 0,
+              "event": {
+                "type": "REMOVE",
+                "id": "product_B",
+                "time": "1",
+                "final_rear": "0",
+                "exit_boundary": "2"
+              },
+              "status": "BLOCKED",
+              "applied": false,
+              "reasons": [
+                "premature REMOVE: product has not fully exited"
+              ],
+              "proof": {
+                "actual_rear": "0",
+                "exit_boundary": "2",
+                "scope": "limited path only"
+              },
+              "blocking_defects": [
+                "premature REMOVE: product has not fully exited"
+              ],
+              "unknown": []
+            }
+          ],
+          "registry_defects": [
+            {
+              "unjustified_disappearance": [
+                "product_B"
+              ]
+            }
+          ],
+          "retained_ids": [
+            "product_B"
+          ],
+          "effective_next_registry": [
+            "product_B"
+          ]
+        },
+        "removed": [
+          "product_B"
+        ],
+        "created": []
+      }
+    ]
+  },
+  {
+    "id": "extraneous_or_inconsistent_boundary_event",
+    "passed": true,
+    "actual": [
+      {
+        "from": "a",
+        "to": "b",
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": true,
+        "lifecycle_status": "VALID",
+        "lifecycle_audit": {
+          "status": "VALID",
+          "events": [],
+          "registry_defects": [],
+          "retained_ids": [],
+          "effective_next_registry": [
+            "product_B"
+          ]
+        },
+        "removed": [],
+        "created": []
+      },
+      {
+        "from": null,
+        "to": null,
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": false,
+        "lifecycle_status": "INVALID_INPUT",
+        "event_index": 0,
+        "event": {
+          "type": "HIDE",
+          "id": "product_B",
+          "time": "3/2"
+        },
+        "reason": "event has no validated consecutive-stage boundary (invalid/extraneous time or event)"
+      }
+    ]
+  },
+  {
+    "id": "extraneous_or_inconsistent_boundary_event",
+    "passed": true,
+    "actual": [
+      {
+        "from": "a",
+        "to": "b",
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": false,
+        "lifecycle_status": "INVALID_INPUT",
+        "lifecycle_audit": {
+          "status": "INVALID_INPUT",
+          "events": [
+            {
+              "index": 0,
+              "event": {
+                "type": "CREATE",
+                "id": "ghost",
+                "time": "1"
+              },
+              "status": "INVALID_INPUT",
+              "applied": false,
+              "reasons": [
+                "CREATE disagrees with registry delta"
+              ]
+            }
+          ],
+          "registry_defects": [],
+          "retained_ids": [],
+          "effective_next_registry": [
+            "product_B"
+          ]
+        },
+        "removed": [],
+        "created": []
+      }
+    ]
+  },
+  {
+    "id": "extraneous_or_inconsistent_boundary_event",
+    "passed": true,
+    "actual": [
+      {
+        "from": "a",
+        "to": "b",
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": true,
+        "lifecycle_status": "VALID",
+        "lifecycle_audit": {
+          "status": "VALID",
+          "events": [],
+          "registry_defects": [],
+          "retained_ids": [],
+          "effective_next_registry": [
+            "product_B"
+          ]
+        },
+        "removed": [],
+        "created": []
+      },
+      {
+        "from": null,
+        "to": null,
+        "time_contiguous": true,
+        "mismatches": [],
+        "unknown": [],
+        "lifecycle_valid": false,
+        "lifecycle_status": "INVALID_INPUT",
+        "event_index": 0,
+        "event": null,
+        "reason": "event has no validated consecutive-stage boundary (invalid/extraneous time or event)"
+      }
+    ]
+  }
+]

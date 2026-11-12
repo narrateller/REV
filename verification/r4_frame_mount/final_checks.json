@@ -1,0 +1,63 @@
+{
+  "scope": "R4 self-check; independent R5 NOT_RUN",
+  "whole_press_READY": "INDETERMINATE",
+  "G1": "OPEN",
+  "status": "PASS",
+  "execution": {
+    "status": "COMPLETED",
+    "exit_code": 0
+  },
+  "test_evaluation": {
+    "status": "PASS"
+  },
+  "reviewed_modules_unchanged": 23,
+  "native_CAD": {
+    "A": {
+      "solids": 79,
+      "queries": 2,
+      "status": "PASS"
+    },
+    "B": {
+      "solids": 77,
+      "queries": 2,
+      "status": "PASS"
+    }
+  },
+  "all_pair_rows": 346709,
+  "finite_inventory_rows": 463,
+  "changed_group_rows": 114184,
+  "changed_group_counts": {
+    "NO_POSITIVE_VOLUME_ON_INTERVAL": 114156,
+    "INDETERMINATE": 28
+  },
+  "target_regression_rows": 658,
+  "cylinder_service_rows": 3672,
+  "full_service_sequences": 14,
+  "native_before_after_pairs": 18,
+  "native_interfaces": 58,
+  "remaining_native_penetration_pairs": 20,
+  "design_counterexample_controls": [
+    {
+      "pair": [
+        "guard_right",
+        "pump_motor"
+      ],
+      "full_interval_rows": 116
+    },
+    {
+      "pair": [
+        "output_support",
+        "stop_support_bridge"
+      ],
+      "full_interval_rows": 71
+    }
+  ],
+  "historical_code_CAD_reviews_probes": "UNCHANGED from 04efe57",
+  "commands": [
+    "/usr/bin/python3 cad/frame_mount/run.py",
+    "/usr/bin/python3 cad/frame_mount/geometry_evidence.py",
+    "/usr/bin/python3 cad/frame_mount/figures.py",
+    "/usr/bin/python3 cad/frame_mount/report.py",
+    "/usr/bin/python3 cad/frame_mount/verify_output.py"
+  ]
+}

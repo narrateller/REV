@@ -1,0 +1,387 @@
+{
+  "classification": "ASSUMED_RESEARCH_NOT_REV",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "cad/layout",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 1.669s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/rev_linked_scene",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.260s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "models/kinematic_press",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.194s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "cad/build/research_layout/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 65 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "cad/build/research_layout/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 61 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/check_layout.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "cad/build/research_layout",
+        "--out",
+        "cad/build/research_layout/checks"
+      ],
+      "exit_code": 0,
+      "stdout": "A sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 13593, 'ALLOWED_CONTACT': 4, 'COLLISION': 729, 'INDETERMINATE': 42, 'INVALID_INPUT': 0}\nA short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 7876, 'ALLOWED_CONTACT': 4, 'COLLISION': 416, 'INDETERMINATE': 24, 'INVALID_INPUT': 0}\nA collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 8133, 'ALLOWED_CONTACT': 4, 'COLLISION': 418, 'INDETERMINATE': 25, 'INVALID_INPUT': 0}\nA unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 7813, 'ALLOWED_CONTACT': 3, 'COLLISION': 416, 'INDETERMINATE': 88, 'INVALID_INPUT': 0}\nB sufficient GEOMETRY_SUFFICIENT NO_COLLISION ALLOWED_FOR_PATH_SUBSET {'CLEAR': 22247, 'ALLOWED_CONTACT': 8, 'COLLISION': 1157, 'INDETERMINATE': 78, 'INVALID_INPUT': 0}\nB short SHORT_STROKE NO_COLLISION BLOCKED {'CLEAR': 13874, 'ALLOWED_CONTACT': 8, 'COLLISION': 710, 'INDETERMINATE': 48, 'INVALID_INPUT': 0}\nB collision GEOMETRY_SUFFICIENT COLLISION BLOCKED {'CLEAR': 14359, 'ALLOWED_CONTACT': 8, 'COLLISION': 712, 'INDETERMINATE': 49, 'INVALID_INPUT': 0}\nB unknown INDETERMINATE INDETERMINATE INDETERMINATE {'CLEAR': 13815, 'ALLOWED_CONTACT': 7, 'COLLISION': 710, 'INDETERMINATE': 108, 'INVALID_INPUT': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "A",
+        "--out",
+        "/tmp/rev-layout-repeat-2c7exvb_/A"
+      ],
+      "exit_code": 0,
+      "stdout": "A 65 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/build_model.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--variant",
+        "B",
+        "--out",
+        "/tmp/rev-layout-repeat-2c7exvb_/B"
+      ],
+      "exit_code": 0,
+      "stdout": "B 61 valid editable bodies; reopened and recomputed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/tool_regressions.py",
+        "--inputs",
+        "cad/layout/conditional_inputs.assumed.json",
+        "--models",
+        "/tmp/rev-cad-tool-fix-5449/cad/build/research_layout",
+        "--out",
+        "/tmp/rev-cad-tool-fix-5449/cad/build/research_layout/checks/tool_regressions.json"
+      ],
+      "exit_code": 0,
+      "stdout": "33 lifecycle cases, 14 CAD negative cases: PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "verification/r5_layout_output_review/cad_probe.py",
+        "/tmp/rev-cad-tool-fix-5449",
+        "/tmp/rev-cad-tool-fix-5449/cad/build/research_layout/checks/native_static_recheck.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{'A': {'objects': 65, 'valid': True, 'bounds_match_manifest': True, 'max_bound_serialization_difference_mm': 4.831690603168681e-13, 'reopened_render_png_matches': {'isometric': True, 'front': True, 'side': True, 'top': True}, 'step_valid': True, 'step_solids': 65, 'step_volume_multiset_matches': True, 'radius_edit': {'parameter': 'ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS', 'before_mm': 220.0, 'edited_mm': 242.00000000000003, 'restored_mm': 220.0, 'passed': True}}, 'B': {'objects': 61, 'valid': True, 'bounds_match_manifest': True, 'max_bound_serialization_difference_mm': 4.831690603168681e-13, 'reopened_render_png_matches': {'isometric': True, 'front': True, 'side': True, 'top': True}, 'step_valid': True, 'step_solids': 61, 'step_volume_multiset_matches': True, 'radius_edit': {'parameter': 'ASSUMED-LAYOUT-CYLINDER-BARREL-RADIUS', 'before_mm': 220.0, 'edited_mm': 242.00000000000003, 'restored_mm': 220.0, 'passed': True}}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "verification/r5_layout_output_review/dynamic_probe.py",
+        "/tmp/rev-cad-tool-fix-5449",
+        "/tmp/rev-cad-tool-fix-5449/cad/build/research_layout/checks/native_dynamic_recheck.json"
+      ],
+      "exit_code": 0,
+      "stdout": "[{'variant': 'A', 'phase': 'A-FILL', 'pair': ['doser_floor_front', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-FILL', 'pair': ['doser_floor_rear', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-FILL', 'pair': ['doser_floor_right', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['gate_support', 'inlet_gate'], 'sample_time': '29/12', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['inlet_gate', 'pocket_R'], 'sample_time': '5/2', 'common_volume_mm3': 560000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['inlet_gate', 'pocket_front'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'A', 'phase': 'A-ISOLATE', 'pair': ['inlet_gate', 'pocket_rear'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-FILL', 'pair': ['doser_floor_front', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-FILL', 'pair': ['doser_floor_rear', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-FILL', 'pair': ['doser_floor_right', 'doser_slide'], 'sample_time': '3/2', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['gate_support', 'inlet_gate'], 'sample_time': '29/12', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['inlet_gate', 'pocket_R'], 'sample_time': '5/2', 'common_volume_mm3': 560000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['inlet_gate', 'pocket_front'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-ISOLATE', 'pair': ['inlet_gate', 'pocket_rear'], 'sample_time': '121/48', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-LOCK', 'pair': ['end_stop', 'lock'], 'sample_time': '443/85', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-LOCK', 'pair': ['guard_right', 'lock'], 'sample_time': '507/85', 'common_volume_mm3': 1620000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-LOCK', 'pair': ['lock', 'stop_support'], 'sample_time': '489/85', 'common_volume_mm3': 3024000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_bottom', 'end_stop'], 'sample_time': '222/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_left', 'end_stop'], 'sample_time': '211/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_right', 'end_stop'], 'sample_time': '222/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['chamber_top_front', 'end_stop'], 'sample_time': '222/35', 'common_volume_mm3': 0.0, 'common_faces': 0, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['end_stop', 'guard_right'], 'sample_time': '977/140', 'common_volume_mm3': 720000.0, 'common_faces': 6, 'distance_mm': 0.0}, {'variant': 'B', 'phase': 'B-OPEN-STOP', 'pair': ['end_stop', 'stop_support'], 'sample_time': '941/140', 'common_volume_mm3': 9360000.0, 'common_faces': 6, 'distance_mm': 0.0}]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout/geometry_preservation.py",
+        "--models",
+        "/tmp/rev-cad-tool-fix-5449/cad/build/research_layout",
+        "--out",
+        "/tmp/rev-cad-tool-fix-5449/cad/build/research_layout/checks/geometry_preservation.json"
+      ],
+      "exit_code": 0,
+      "stdout": "geometry/phase matrix and native R5 penetrations preserved: PASS\n",
+      "stderr": ""
+    }
+  ],
+  "artifacts": {
+    "registry_snapshot.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651",
+    "conditional_inputs.snapshot.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
+    "A/side.pdf": "a2085768d74fc66668516b8e46d0eccf356c73974fe111affb02d9749c4955b1",
+    "A/side.svg": "fdac0f0b46a6be15f75939ab3ad9152e155a4e853fcb6778d2b657c682594b2a",
+    "A/manifest.json": "c1577a6cf057a61aa76030399406d951d104d5b5edcd2b552c97ca5a81e77d7e",
+    "A/layout_A.step": "bbd2529ec6ffb9f28a3696162de64b6079b8c0cb5d5b3c4532a13987e00d1546",
+    "A/top.pdf": "6f826e0394c6988facedc630d9a3ac75a89455674854dee5e1b1acbc02eef6a2",
+    "A/front.pdf": "24b5adf7d886157c197aaec25da2245c3cab15dd971bd48d0d05a771b6272870",
+    "A/side.png": "e93d61ae430206080fb6dd4d5b34dea8d4cddf811aa44df43f8819367a9220de",
+    "A/isometric.svg": "60ebefb68a6998085ee0a18bffd74d57d1f5fc672b6828d5a69c26d97da86349",
+    "A/section_y0.svg": "55ce9a389c0ed979666207fd170ac2f9eac3607f5634fec4070f248c571284d8",
+    "A/top.svg": "c518f8cc4fb276be69e694292f9eaecf675c8291deacfadcd571adbb204fb992",
+    "A/top.png": "e2c486f5da980ce17ec2d6b12f53966e0c156d4a61d7525438f26f4bc5d1db27",
+    "A/load_path.svg": "81551d243c35652cae935c6cb50dcf6c0373681a165b22221ef3f2c6dfc1c99d",
+    "A/isometric.png": "5840401f06afc79a21770eafc44dfc00f92cdf0c2c1aa0c0ef09ae851b3f7e0a",
+    "A/layout_A.FCStd": "2d7940b6e947fe823ae6fb4cff61cfa4dbeaa3501ae1e7034e3594e0c0635766",
+    "A/isometric.pdf": "56bdd1baf6792bac9ee85ffadf6687cdcb73ba185ecabbf066fe79177bcb90a5",
+    "A/front.svg": "a372b839370395b69b228b6c22e467b28c44c93ef87124ca45d9b0d2e8c24c26",
+    "A/phase_views.svg": "7a5ef1ee67b43f90a434a0d0af7af1b626fce24b6748ec3c5d22bc5c4bf47feb",
+    "A/front.png": "072f958e67ab6d15b1a40e0730cec961107ebbd646219739414861b717e9ea44",
+    "history/tool_regression_export_failure.json": "d41aea7013bbebb1dc56d096b52a68781856470eec7bc497fd171de5a449c7ce",
+    "history/adapter_triangulation_failure.json": "9a0c92f0895892125fba9610ab9786339574f7dd6446398219dc6a5b30ecdead",
+    "B/side.pdf": "aec64322c47c2f924f4b558b22ca0f3821f198d1c10cb0d0620e0c32824a2ab0",
+    "B/side.svg": "4de82118fa0034459dfa363b449f9cf54d8cebd3016ed092d141e547497a1838",
+    "B/manifest.json": "11bec58de34a01eef65ac8f7428ab639c54acd8846455c8b75a7d843004bad03",
+    "B/top.pdf": "2c217aaca43feea7c6aefaf98e6bb3d369d54f9ce4998d48e98384b988d94a04",
+    "B/front.pdf": "5c1b7fc54558d92003354b7d64de6d7b5bf00ffb2bf23b6f0409abe45d8e14c8",
+    "B/side.png": "3492230cfd6730ff6ea985cdf5089a0ae422c8cd73578a25b4d9ce87fac4a5b6",
+    "B/isometric.svg": "43773312eb71214529cece996c2a5d3a177371fcf099ec149db7abac31ae7a53",
+    "B/section_y0.svg": "f4a1256bb2cbaed01f03559a281fd5bca32ae295b402b43000ad05be0dea7c90",
+    "B/top.svg": "8f86a5a8b29003c4f8f0502b6c999f62556f3b76698742e7449c294b5048b89c",
+    "B/layout_B.step": "968f43c250cb812d8f1e152ce0ce49897157e0372bb210de90670b8f557c0f03",
+    "B/top.png": "dcaf259cb73a6f3d342bdebd9234b0fe8ec651327845ad03523f16cf1b1f9e90",
+    "B/layout_B.FCStd": "a97dd1ab51d3fce74779f08760b09d0662de651c74cbc6e2ef3d1ea9542f0555",
+    "B/load_path.svg": "94b1e6c8905b9acf96824d8d5753ab3de784b3d4159de2c377206fd539b0a19c",
+    "B/isometric.png": "cf7c0fbf6a01e384ff61cdfe832ab9be92498182be5d4f7afd4487b501be30cd",
+    "B/isometric.pdf": "c667a15cbb91ba7cdeeae9c71607382e5c8316af3a24c6fb09510f5cc290e776",
+    "B/front.svg": "e7aabe7eb96ed361546b983990ccc33e00061d74c1a5c601bf6b8e2175edf776",
+    "B/phase_views.svg": "547f1c4df01eb7420756f77f61c8c83f510ca54ea6e0c550b50684b48038ea67",
+    "B/front.png": "14109faa1f97c0928b851f46beab52a5ec14f4a928c231a6d7896ee0915b8c41",
+    "checks/report.json": "8dcc1dc80d84b54c79148fe61a480beb8c38102b12a3be7463f1674c80d77511",
+    "checks/all_pairs.json.gz": "ec781d2c10f8a137693eca96a483906650b27a313fe55c39448af0be7b0f3f4e",
+    "checks/service_pairs.json.gz": "23a46c191d8bdeac6c4e5efb3f0efebe96856404893758c9a585626af5c4610e",
+    "checks/native_static_recheck.json": "6c061a3906acc037cb8ef8a0df0a1bb9aa1152fc5fe3ab4adfe8188b2cebf633",
+    "checks/geometry_preservation.json": "66600368db3f527358d6f551caa8925f2880778a5f87f2907614ed8c7df0d4b8",
+    "checks/tool_regressions.json": "40c822c3032e8ff04f90f18c45229b1cad11c6486525dc2bfe68c42f39c939c1",
+    "checks/native_dynamic_recheck.json": "084a7cf6101650879bf3bd989c35209ce1d30f36618afd94c50ed56e83ddbdc6"
+  },
+  "reproduce_semantic": {
+    "A": "PASS",
+    "B": "PASS"
+  },
+  "step_roundtrip": {
+    "A": {
+      "solid_count": 65,
+      "valid": true,
+      "matches_manifest_count": true
+    },
+    "B": {
+      "solid_count": 61,
+      "valid": true,
+      "matches_manifest_count": true
+    }
+  },
+  "ejection_subset_tests": [
+    {
+      "variant": "A",
+      "case": "sufficient",
+      "expected_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "NO_COLLISION"
+      ],
+      "observed_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "NO_COLLISION"
+      ],
+      "matches": true,
+      "continuity": "CONTINUOUS",
+      "continuity_matches": true,
+      "return_matches": true
+    },
+    {
+      "variant": "A",
+      "case": "short",
+      "expected_path_only": [
+        "SHORT_STROKE",
+        "NO_COLLISION"
+      ],
+      "observed_path_only": [
+        "SHORT_STROKE",
+        "NO_COLLISION"
+      ],
+      "matches": true,
+      "continuity": "CONTINUOUS",
+      "continuity_matches": true,
+      "return_matches": true
+    },
+    {
+      "variant": "A",
+      "case": "collision",
+      "expected_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "COLLISION"
+      ],
+      "observed_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "COLLISION"
+      ],
+      "matches": true,
+      "continuity": "CONTINUOUS",
+      "continuity_matches": true,
+      "return_matches": true
+    },
+    {
+      "variant": "A",
+      "case": "unknown",
+      "expected_path_only": [
+        "INDETERMINATE",
+        "INDETERMINATE"
+      ],
+      "observed_path_only": [
+        "INDETERMINATE",
+        "INDETERMINATE"
+      ],
+      "matches": true,
+      "continuity": "INDETERMINATE",
+      "continuity_matches": true,
+      "return_matches": true
+    },
+    {
+      "variant": "B",
+      "case": "sufficient",
+      "expected_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "NO_COLLISION"
+      ],
+      "observed_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "NO_COLLISION"
+      ],
+      "matches": true,
+      "continuity": "CONTINUOUS",
+      "continuity_matches": true,
+      "return_matches": true
+    },
+    {
+      "variant": "B",
+      "case": "short",
+      "expected_path_only": [
+        "SHORT_STROKE",
+        "NO_COLLISION"
+      ],
+      "observed_path_only": [
+        "SHORT_STROKE",
+        "NO_COLLISION"
+      ],
+      "matches": true,
+      "continuity": "CONTINUOUS",
+      "continuity_matches": true,
+      "return_matches": true
+    },
+    {
+      "variant": "B",
+      "case": "collision",
+      "expected_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "COLLISION"
+      ],
+      "observed_path_only": [
+        "GEOMETRY_SUFFICIENT",
+        "COLLISION"
+      ],
+      "matches": true,
+      "continuity": "CONTINUOUS",
+      "continuity_matches": true,
+      "return_matches": true
+    },
+    {
+      "variant": "B",
+      "case": "unknown",
+      "expected_path_only": [
+        "INDETERMINATE",
+        "INDETERMINATE"
+      ],
+      "observed_path_only": [
+        "INDETERMINATE",
+        "INDETERMINATE"
+      ],
+      "matches": true,
+      "continuity": "INDETERMINATE",
+      "continuity_matches": true,
+      "return_matches": true
+    }
+  ],
+  "tool_blockers": "R5-CAD-TOOL-B01/B02 OPEN pending independent RECHECK",
+  "whole_assembly": "not accepted; assumed interferences and unknown conditions remain",
+  "source_hashes": {
+    "cad/layout/run_all.py": "6adae46acf8dfdd664900d60f6b07ae18c66fd9edea8970469dc6bf6a3559861",
+    "cad/layout/build_model.py": "e4cb5d776b156b8397a249b1fa3952d35191806e373d7f26162ec4b7ba49c05a",
+    "cad/layout/check_layout.py": "0ca76becdb4f9ff0c768e37af3e5be575e5b09695405ff4382c7e8f52da33edc",
+    "cad/layout/layout_common.py": "4e4f80e384f43a26362207258c3c6a208d943ef016965a28c2d3ebcf2f557a90",
+    "cad/layout/layout_lifecycle.py": "641670bd2fad5a4276d4a791dc009b739fb9bf8460ba87fd66fd3a8c9a3e4193",
+    "cad/layout/cad_validation.py": "5d6a26632533bdeec0ce245148ba31de9b40a2dae47e0ca414bd897c8599e1e7",
+    "cad/layout/geometry_preservation.py": "274ec6581084ecce53c323be44930cee2783a74d14d63aa0e3df0a6a310c423d",
+    "cad/layout/tool_regressions.py": "38d4f07c3e9c08d0309392ec7f33e20f468057aeab404818cef4b3ba198b6566",
+    "cad/layout/test_layout.py": "bf22ea7a9f0a8b94e2d3a8c3e82521159188c5f5c608a29e85f09790445b8e2c",
+    "cad/layout/test_lifecycle.py": "214a607fbf6a4482af5e46e1f0f380162fdda6750f79b10eed8ef23aed0e10f5",
+    "cad/layout/test_cad_artifacts.py": "2519b35a2be63cfa9a99269ab97173fe41df979dfa31e00703ff09f8f4142cc6",
+    "cad/layout/conditional_inputs.assumed.json": "c8905daa529f3b7e80a0abf39301b898f6e680724e262710df7e43743b242836",
+    "params/registry.yaml": "33cdefdb48db66dc7f018d0970de412f920eb14d6a6afdf60035142c30793651"
+  }
+}

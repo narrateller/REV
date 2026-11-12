@@ -1,0 +1,41 @@
+{
+  "regression_expectation": "both commands must reject unlinked sufficient, not return PASS",
+  "regression_status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/run_revision.py",
+        "--inputs",
+        "/workspace/REV/verification/r5_layout_correction_review/evidence/unlinked_inputs.json",
+        "--out",
+        "/tmp/rev-analysis-unlinked-n_nh956w/model"
+      ],
+      "exit_code": 1
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "cad/layout_correction/verify_output.py",
+        "--out",
+        "/tmp/rev-analysis-unlinked-n_nh956w/model"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "input_sha256": "5f1606c1cbf1719c8abbdbb82f2c53422edfab7226e2a650645499ae15e645a3",
+  "sufficient_rejections": [
+    {
+      "variant": "A",
+      "actual": "BLOCKED",
+      "link": "LINK_ABSENT",
+      "limited_cycle_success": false
+    },
+    {
+      "variant": "B",
+      "actual": "BLOCKED",
+      "link": "LINK_ABSENT",
+      "limited_cycle_success": false
+    }
+  ]
+}

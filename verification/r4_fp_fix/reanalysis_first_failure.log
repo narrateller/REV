@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/REV/cad/feed_power/generate.py", line 79, in <module>
+    if __name__=='__main__':sys.exit(main())
+                                     ~~~~^^
+  File "/workspace/REV/cad/feed_power/generate.py", line 28, in main
+    if args.reanalyze:return reanalyze()
+                             ~~~~~~~~~^^
+  File "/workspace/REV/cad/feed_power/generate.py", line 16, in reanalyze
+    derived=verify_derived(data,work,services_now,semantics,evaluator)
+  File "/workspace/REV/cad/feed_power/service_evidence.py", line 42, in verify_derived
+    assessment=json.loads((OUT/'assessment.json').read_text());assert assessment['function_witnesses']==fresh_functions,'stale function witnesses'
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: stale function witnesses

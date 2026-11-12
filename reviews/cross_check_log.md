@@ -2275,3 +2275,34 @@ reproduction_artifacts:
 - verification/r5_whole_press_layout_review/review.md
 supersedes: null
 ```
+
+## REV-R4-FRAME-MOUNT-OUTPUT-01 — запрос независимой проверки
+
+- Автор R4 r4-linked-20261111, T-r4-layout-build-01, 2026-11-11T22:52:59.303177Z. Входной акт R5 04efe5703e339112b7d007665b9f3672f0572d37 (закрытие B01/B02 в его ограниченной области); он не принимает новую геометрию.
+- Результат: cad/frame_mount/README.md, review_request.md; cad/build/frame_mount/assessment.md, geometry_evidence.json и publication_manifest.json. Точный неизменяемый code/results C — в следующем H/NEXT_MODEL/капсуле. Проверять C отдельно от H.
+- R4 self-check PASS в указанной ограниченной области; независимый reviewer/result NOT_ASSIGNED/NOT_RUN. Все прежние code/review/probe и CAD/evidence сохранены, 23 модуля неизменны. Остальные 20 native penetration пар и unknown interfaces OPEN, whole press READY INDETERMINATE. Задача IN_REVIEW, не принятие. G1 OPEN.
+
+Неизменяемый объект запроса REV-R4-FRAME-MOUNT-OUTPUT-01: C `5198e0184b35978701ed1ce762d9e4fcd44997b3`, REMOTE. Author r4-linked-20261111, независимый reviewer/result NOT_ASSIGNED/NOT_RUN; точный запрос и критерии cad/frame_mount/review_request.md. Следующий H только эстафета, не новая модель и не приёмка.
+
+## REV-R4-FRAME-FIX-OUTPUT-01 — запрос RECHECK R5-FRAME-NEW-B01
+
+- Автор R4 r4-linked-20261111, T-r4-layout-build-01; входной независимый акт 0b4788dd36f811e4acb202b96d6a76a6a06b63ad. Новый reviewer/result NOT_ASSIGNED/NOT_RUN; B01 OPEN, не закрыт автором.
+- Readonly verifier/явная генерация, 95 tests и 18 release-regression случаев PASS. 23 frozen модуля и 35 геометрических/evidence хэшей unchanged, 18 устранённых и 20 оставшихся native-пар сохранены. Полные факты verification/r4_frame_fix/final_checks.json и regressions/, команды README, запрос recheck_request.md.
+- Точный C сообщается следующей документальной эстафетой. Весь пресс READY INDETERMINATE, физические испытания NOT_RUN, архитектура/ТЗ не утверждены, G1 OPEN.
+
+Неизменяемый объект REV-R4-FRAME-FIX-OUTPUT-01: C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`, REMOTE. Новый независимый reviewer/result NOT_ASSIGNED/NOT_RUN, R5-FRAME-NEW-B01 OPEN. Следующий H только эстафета.
+
+## REV-R4-FEED-POWER-OUTPUT-01 — запрос независимого review
+
+- Автор R4 r4-linked-20261111; новый reviewer/result NOT_ASSIGNED/NOT_RUN. Входной RECHECK c2e96a58d7efd64ea3364b2bcbfb3f0642bbc430 закрывает прежний B01 в его области. Новая геометрия/FP wrappers не принимаются автоматически.
+- 14 static native pairs removed, 6 legacy doser-UP BLOCKED retained; proposed actual service INDETERMINATE (UNKNOWN actuator/rigging). Все 34 checked модуля unchanged, 102 tests/18 package regression cases PASS. Сводка verification/r4_feed_power/final_checks.json, запрос review_request.md; точный C следующей эстафетой. Whole press READY INDETERMINATE, физические испытания NOT_RUN, G1 OPEN.
+
+Неизменяемый объект REV-R4-FEED-POWER-OUTPUT-01: C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`, REMOTE. H только эстафета, reviewer/result NOT_ASSIGNED/NOT_RUN. Область 14 static fixes, 6 legacy BLOCKED, proposed actual service INDETERMINATE. G1 OPEN.
+
+## REV-R4-FP-SEMANTIC-FIX-OUTPUT-01 — запрос RECHECK
+
+- Автор r4-linked-20261111, входной R5 акт 2592b470940cea886e033a999c889c15a92889f6. Новый reviewer/result NOT_ASSIGNED/NOT_RUN; R5-FP-NEW-B01 OPEN до независимого решения.
+- Пять исходных false PASS воспроизведены; исправленные CLI отклоняют их со fresh BLOCKED/INDETERMINATE, связаны calculation→aggregation→report→verifier, негативное ожидание отделено от path success. 110 tests и 25 цепочечных команд PASS, compound/unknown покрыты, readonly сохранён.
+- 34 frozen модуля и исходная геометрия unchanged, L physical feasibility INDETERMINATE, 6 legacy BLOCKED/14 static fixes сохранены. Полные результаты verification/r4_fp_fix/, точный C следующим H, запрос recheck_request.md. G1 OPEN, физические испытания NOT_RUN.
+
+Неизменяемый объект REV-R4-FP-SEMANTIC-FIX-OUTPUT-01: C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`, REMOTE. H только эстафета. Reviewer/result NOT_ASSIGNED/NOT_RUN, R5-FP-NEW-B01 OPEN до независимого RECHECK.
