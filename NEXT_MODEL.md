@@ -1,3 +1,15 @@
+# R3: согласование мощности/времени — ограниченный RECHECK W01/W02
+
+T-r3-parametric-sizing-01 IN_REVIEW; owner r3-sizing-20261112 / Codex / R3, heartbeat 2026-11-12T09:49:41.426354+00:00. **Новый code/results C `cca7333618ba587505f7e5b8ffbb64eab3ddee32`**. Исходный C 8a1ad4199fea09d1157972d7aa28eaad1e8e0337 и восемь несовместимых режимов сохранены. Входной R5 d92cebd5a539d6845fe114515154e79c639bcb7e принял исходную арифметику с WARNING; новый слой не принят автоматически. Claim PR #38/main 8867521a83bd4608886d81678683ea89cce7e4a3, lease до 2026-11-13T08:50:42Z действует без продления.
+
+Новый пакет verification/r3_power_reconcile/: два явных варианта fixed-budget/fixed-times, отдельные фазовые Q/v/t и power–duration, T/условная производительность, энергия/средняя/пиковая мощность и UNKNOWN. Три power envelopes — явно выбранные ASSUMED границы, не реальные мощности. Actual hold/full energy/average остаются null без схемы/компонентов; при дефиците выдержки новый API даёт BLOCKED и null допустимый цикл. Старое Tlower заморожено для воспроизведения, не для планирования.
+
+99 tests OK (13 новых), реестр --check-git PASS, git diff --check PASS. По два readonly пересчёта старого/нового слоя идентичны; 68 файлов без изменения SHA/mtime/size. 376 новых CALCULATED scalar outputs, прежние определения/численные результаты сохранены. Новые VERIFIED/LOCKED отсутствуют.
+
+Следующий шаг — независимый ограниченный R5 RECHECK **C** по verification/r3_power_reconcile/recheck_request.md: W01 budget deficit/UNKNOWN/насос на выдержке, W02 оба согласования/ресурс/условные caps, таблицы/R4. Автор W01/W02 не закрывает. После независимого акта — отдельное решение координатора об интеграции. B open INDETERMINATE, реальная whole-machine feasibility UNKNOWN; оборудование/архитектура/ТЗ не утверждены, physical tests NOT_RUN, G1 OPEN. Капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md.
+
+---
+
 # Условный расчёт REV — R3, результат на независимой проверке
 
 T-r3-parametric-sizing-01 IN_REVIEW, owner r3-sizing-20261112 / Codex / R3; 2026-11-12T09:08:47.900489+00:00. **Code/results C `8a1ad4199fea09d1157972d7aa28eaad1e8e0337`**; этот последующий H содержит только эстафету/статус/запрос review. Claim `5fdc50bbc8e83241ad2f8754860a503f5de9f418` принят PR #38 на main `8867521a83bd4608886d81678683ea89cce7e4a3`, lease до 2026-11-13T08:50:42Z, не продлён. Исторические NONE/PENDING/NOT_STARTED ниже относятся к состоянию до принятия.
