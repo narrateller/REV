@@ -1,0 +1,18 @@
+# Причины десяти расхождений R5
+
+Все 26 случаев воспроизведены старым неизменённым probe на Git blobs старого C; 10 расхождений совпали с R5 побайтно. Успех baseline runner фиксирует старый REJECT_WITH_BLOCKER. Исправление использует полные entry/action bindings и актуальное evidence.
+
+| Независимый ID | Причина старого ALLOWED_ASSUMED | Обязательный исход | Исправление |
+|---|---|---|---|
+| A_eject_after_unknown_receiver_READY | ready_draft makes receiver mandatory; action omits it and does not require a valid READY result. Пропущено: PARTITION_DEFINED, RECEIVER_DEFINED, RESOURCES_READY. | INDETERMINATE | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| A_eject_false_resource_unknown_receiver | Known unavailable resource plus unknown receiver must not allow next operation. Пропущено: PARTITION_DEFINED, RECEIVER_DEFINED, RESOURCES_READY. | BLOCKED | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| B_press_reset_false_resources_unknown | B-READY-PRESS requires closed/restored stop/lock; B-COMPACT omits it. Пропущено: BATCH_CRITERION, B_RESET_CONFIRMED, INVENTORY_KNOWN, RESOURCES_READY. | BLOCKED | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| B_load_resources_unknown | Unknown loading resource cannot be bypassed by a separate READY self-loop. Пропущено: B_RESET_CONFIRMED, INVENTORY_KNOWN, RECEIVER_DEFINED, RESOURCES_READY, TOOLS_HOME, TRANSFER_LEDGER_CLOSED. | INDETERMINATE | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| B_refill_resources_unknown | Repeated gather must retain the stated refill prerequisites. Пропущено: INVENTORY_KNOWN, PARTIAL_CRITERION, RESOURCES_READY. | INDETERMINATE | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| A_compact_resources_unknown | Unknown pressing resources are mandatory in the written READY target. Пропущено: INVENTORY_KNOWN, RESOURCES_READY. | INDETERMINATE | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| A_start_partial_gather_resources_unknown | Startup pressing/gather has a resource-dependent READY target. Пропущено: INVENTORY_KNOWN, RESOURCES_READY. | INDETERMINATE | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| B_eject_receiver_unknown_resources_unknown | B_EJECTABLE label does not establish receiver or resources. Пропущено: PARTITION_DEFINED, RECEIVER_DEFINED, RESOURCES_READY. | INDETERMINATE | Полные условия READY-target атомарно включены в entry действия; completion отдельно |
+| A_column_startup_return_retention_unknown | resources_draft requires startup return/refill retention; state label is not current holding evidence. No retention guard in this return. Пропущено: RETAINED_STABLE. | INDETERMINATE | RETAINED_STABLE и A_REACTION_DEFINED в возврате первого столба; UNCONFIRMED при потере основания |
+| A_column_startup_return_retention_false | Known lost retention cannot be hidden by keeping A_COLUMN_ESTABLISHED unchanged. Пропущено: RETAINED_STABLE. | BLOCKED | RETAINED_STABLE и A_REACTION_DEFINED в возврате первого столба; UNCONFIRMED при потере основания |
+
+Сохранены все 16 ранее корректных исходов. Статическая таблица сама по себе не доказывает текущую истинность условий: scope/phase/revisions/faults и восстановление отдельно проверяются check_fix.py. Прежние 59 примеров/2 state traces сохранены, новые обязательные TRUE в них явно ASSUMED. Это не entity-level журнал и не физическое доказательство; W02 остаётся OPEN.

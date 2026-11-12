@@ -1,3 +1,24 @@
+# Корректирующая редакция 2 — разрешения CYC-01/08/09
+
+**IN_REVIEW / независимый RECHECK NOT_RUN.** Входной акт R5 d99afb4c3231d641d4a4921f39987264ce5ffc23 отклонил binding-контракт на старом C 3cf32daef67a91f393b808adb0dc07ba4c73cac2. B01/W01/W02 остаются OPEN до его независимого решения. Текущая правка — кандидат, не самоприёмка.
+
+- [Условия, актуальность, распространение и восстановление](permissions.md).
+- [Полная таблица каждого действия](action_conditions.md), contract.json — 44 transitions / 40 guards / 8 recovery actions.
+- [Причины и результаты исправления](../r4_cycle_contract_fix/README.md).
+- Старые 59 примеров и 2 условные state traces сохранены с явными дополнительными ASSUMED guards; это не исполняемый материальный журнал.
+
+```sh
+python3 -B verification/r4_cycle_contract_fix/check_fix.py --baseline > /tmp/rev-cycle-baseline.json
+python3 -B verification/r4_cycle_contract_fix/check_fix.py
+python3 -B verification/r4_cycle_contract/check_documents.py
+python3 -B scripts/check_registry.py --check-git
+git diff --check
+```
+
+Baseline запускает неизменённый R5 probe против старых Git blobs в temp-dir; его exit 0 доказывает воспроизведение старых 10 ошибок. Текущий check_fix печатает actual/expected и завершится ненулевым кодом при расхождении. Командный результат, совпадение ожиданий и разрешение конкретного действия различены. Реальные guards UNKNOWN, физика/READY INDETERMINATE, G1 OPEN. Расчёты/CAD неизменны, rebuild/physical tests NOT_RUN.
+
+## История редакции 1 (актуальные ограничения — выше)
+
 # Контракт CYC-01 и ранние CYC-08/09
 
 **T-r4-cycle-contract-01 IN_REVIEW, owner_session r4-linked-20261111.**

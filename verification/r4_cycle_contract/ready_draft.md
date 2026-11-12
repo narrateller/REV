@@ -1,5 +1,11 @@
 # CYC-09 — ранний контракт совместной готовности
 
+**Редакция 2 по R5-CC-B01:** обязательные условия target атомарно включены в
+entry зависимого действия, а не остаются отдельной необязательной self-loop.
+Полные связи/фазы/актуальность/отказ и восстановление — [permissions.md](permissions.md)
+и [action_conditions.md](action_conditions.md). Разрешение старта и подтверждение
+завершения различаются; запись наблюдённого факта не теряет неразрешённый материал.
+
 **ASSUMED_INTERFACE_PROPOSAL.** READY имеет `variant`, `mode`, `target`, `epoch`
 и набор актуальных оснований. Это документальный predicate будущей модели,
 не разрешение контроллера/безопасности. Реальные значения guards в contract.json
@@ -35,6 +41,8 @@ EVENT_FRESH, LEDGER_VALID, CONTINUITY_CONFIRMED, FEEDBACK_VALID, затем св
 | B-READY-REFILL | B_GATHERED_PARTIAL | Допустимое частичное состояние, известный inventory, восстановленная refill поза/вместимость и ресурсы. Не READY следующего законченного цикла. |
 | B-READY-PRESS | B_BATCH_SELECTED | Набор завершён, отсечение, восстановленный силовой контур stop/lock и ресурсы. Product ещё не объявлен. |
 | B-READY-EJECT | B_EJECTABLE | Подтверждённые разгрузка → unlock → open, partition, весь путь/приёмник/ресурсы. Физика открытия B INDETERMINATE. |
+| A-READY-START-REFILL | A_COLUMN_BUILDING | Сохранённый частичный запас/реакция, refill путь, приёмник и ресурс. Не требует ещё созданного столба. |
+| B-READY-GATHER | B_RAW_LOADED | Инвентарь, отсечение, подтверждённый закрытый силовой контур B, поддерживаемый метод и ресурс для partial gather. |
 
 Следующий цикл выбирает **тот же определённый входной target**, после reconcile,
 а не общий безымянный READY. Для A пуск/steady различаются. Для первого B

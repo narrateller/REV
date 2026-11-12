@@ -27,7 +27,7 @@ ID после создания не меняется. Для параллель�
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
 | T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
 | T-r4-calculated-layout-01 | TASK | P2 | @R4 | READY | NONE | PR #39 / BASE_A, BASE_B fixed-budget; claim PROPOSED_PENDING_MAIN | G1 |
-| T-r4-cycle-contract-01 | TASK | P1 | @R4 | IN_REVIEW | r4-linked-20261111 | CYC-01 + early CYC-08/09; claim ACCEPTED_MAIN PR #43; OUTPUT review NOT_RUN | G1 |
+| T-r4-cycle-contract-01 | TASK | P1 | @R4 | IN_REVIEW | r4-linked-20261111 | CYC-01 + early CYC-08/09; claim ACCEPTED_MAIN PR #43; R5-CC-B01 OPEN, исправление на RECHECK | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -53,6 +53,12 @@ ID после создания не меняется. Для параллель�
 - Результат CYC-01/ранние CYC-08/09: material_contract.md, contract.json, resources_draft.md, ready_draft.md, traceability.json в verification/r4_cycle_contract/. 59 примеров (32 ALLOWED_ASSUMED / 19 BLOCKED / 8 INDETERMINATE), 2 условные трассы, 20 исходных строк, 10 вопросов R2/R3 AWAITING_RESPONSE. Ни одного реального TRUE/нового численного входа; material/custody/READY разделены. Весь пакет IN_REVIEW, независимый review NOT_RUN; точный C фиксируется следующим H. heartbeat_utc 2026-11-12T19:14:28.746890+00:00, срок без продления. Расчёты/CAD/источники неизменны, solver/rebuild/physical tests NOT_RUN, G1 OPEN.
 
 - C результата **3cf32daef67a91f393b808adb0dc07ba4c73cac2**, REMOTE; следующий H только учёт/эстафета. Owner_session r4-linked-20261111, heartbeat_utc 2026-11-12T19:19:04.799073+00:00, lease без продления. 59 примеров/2 условные трассы, registry/diff PASS, 17 blobs/11 protected trees unchanged. Запрос независимого R5 OUTPUT review verification/r4_cycle_contract/review_request.md; IN_REVIEW, не DONE. G1 OPEN.
+
+- Коррекция по REV-R5-R4-CYCLE-CONTRACT-01-001 / d99afb4c3231d641d4a4921f39987264ce5ffc23. Вход main/accepted owner/lease/17 sources сверены в verification/r4_cycle_contract_fix/input_audit.json. Heartbeat_utc 2026-11-12T21:36:34.236086+00:00, lease без продления. 26 baseline cases / 10 прежних расхождений воспроизведены; новый кандидат устраняет все 10, сохраняет 16 правильных, 154 документальных проверок MATCH. Старые 59 примеров/2 условные трассы сохранены с дополнительными ASSUMED условиями. Разрешения entry/completion/facts, scope/invalidation/propagation и recovery без общего READY определены в permissions.md/action_conditions.md. Новый C — в следующем H. IN_REVIEW, не DONE. R5-CC-B01/W01/W02 OPEN до независимого RECHECK. Численные расчёты/CAD/rebuild/physical tests NOT_RUN, G1 OPEN.
+
+### R5-CC-B01 / W01 / W02 — открытые замечания контракта
+
+R5-CC-B01: BLOCKER P1 OPEN, адресат R4 в T-r4-cycle-contract-01. Исправленный кандидат представлен на RECHECK, автор не закрывает. W01 OPEN (удержание первого столба, исправлено в кандидате); W02 OPEN (state trace не entity-level material ledger, при последующей реализации). Основание/критерии в verification/r5_r4_cycle_contract_review/review.md, история акта сохранена.
 
 ## T-r4-calculated-layout-01 — расчётно связанная исследовательская компоновка A/B
 

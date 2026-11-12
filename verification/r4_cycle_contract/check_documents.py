@@ -63,6 +63,17 @@ def main():
         require(len(t['required_guards']) == len(set(t['required_guards'])), 'duplicate required guard')
         require(set(t['source_rows']) <= source_rows and t['source_rows'], 'missing source trace')
         require(t['evidence'] and t['inventory_effect'], 'missing evidence/effect')
+        require(set(t['entry_guards']).isdisjoint(t['completion_guards']), 'entry/completion overlap')
+        require(set(t['required_guards']) == set(t['entry_guards']) | set(t['completion_guards']), 'incomplete action conditions')
+        require(t['allowed_modes'], 'missing action mode')
+        for binding in t['ready_bindings']:
+            target = c['ready_targets'][binding['target']]
+            require(binding['from_state'] in t['from_states'] and binding['from_state'] in target['from_states'], 'wrong READY binding state')
+            require(set(target['required_guards']) <= set(t['entry_guards']), 'dependent action bypasses READY conditions')
+        if t['event'] in {'DELIVER_DOSE','GATHER_PARTIAL','COMPACT','START_EJECTION'}:
+            require({b['from_state'] for b in t['ready_bindings']} == set(t['from_states']), 'action missing a mandatory READY binding')
+        if t['event'] in {'DELIVER_DOSE','GATHER_PARTIAL','COMPACT','START_EJECTION','RETURN_TOOLS','RESET_B'}:
+            require('RESOURCES_READY' in t['entry_guards'], 'motion omits current resource')
         if t['event'] == 'REQUEST_READY':
             require(t['from_states'] == [t['to_state']], 'READY changes material')
         if t['event'] == 'REMOVE_GEOMETRY':
@@ -71,6 +82,10 @@ def main():
         observed = [t for t in transitions.values() if t['event'] == 'REQUEST_READY' and (t['id'] == target or t['id'].startswith(target+'-'))]
         require({s for t in observed for s in t['from_states']} == set(ready['from_states']), 'READY target not covered')
         require(all(set(t['required_guards']) == set(ready['required_guards']) for t in observed), 'READY guards drift')
+    for recovery in c['recovery_actions']:
+        require(not recovery['ready_bindings'], 'recovery depends on global READY')
+        require(not set(recovery['may_reestablish']) & set(recovery['entry_guards']), 'recovery requires its own target at entry')
+        require(set(recovery['required_guards']) == set(recovery['entry_guards']) | set(recovery['completion_guards']), 'incomplete recovery conditions')
     for q in questions.values():
         require(q['response'] is None and q['status'] == 'AWAITING_RESPONSE', 'invented role response')
         require(set(q['blocked_guards']) == {g['id'] for g in guards.values() if g['question'] == q['id']}, 'question/guard drift')

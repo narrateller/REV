@@ -51,7 +51,9 @@
       "B-READY-REFILL",
       "B-READY-PRESS",
       "B-READY-EJECT",
-      "RESOURCE-BASIS"
+      "RESOURCE-BASIS",
+      "A-READY-START-REFILL",
+      "B-READY-GATHER"
     ],
     "response": null
   },
@@ -80,11 +82,14 @@
       "EMPTY_CONFIRMED",
       "A_REACTION_DEFINED",
       "COLUMN_CRITERION",
-      "RETAINED_STABLE"
+      "RETAINED_STABLE",
+      "STARTUP_INVENTORY_PRESERVED"
     ],
     "blocked_transitions": [
       "A-AUDIT",
+      "A-LOAD-START",
       "A-GATHER",
+      "A-REFILL",
       "A-COLUMN",
       "A-LOAD-STEADY",
       "A-COMPACT",
@@ -92,12 +97,15 @@
       "A-EJECT",
       "A-RETURN",
       "A-NEXT",
+      "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+      "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
       "A-READY-START-LOAD",
       "A-READY-START-PRESS-A_STARTUP_RAW",
       "A-READY-START-PRESS-A_COLUMN_BUILDING",
       "A-READY-STEADY-LOAD",
       "A-READY-PRESS",
-      "A-READY-EJECT"
+      "A-READY-EJECT",
+      "A-READY-START-REFILL"
     ],
     "response": null
   },
@@ -118,7 +126,9 @@
       "B-AUDIT",
       "B-LOAD",
       "B-GATHER",
+      "B-REFILL",
       "B-SELECT",
+      "B-COMPACT",
       "B-OPEN-CONFIRM",
       "B-EJECT",
       "B-NEXT",
@@ -142,12 +152,22 @@
     "blocked_transitions": [
       "A-AUDIT",
       "A-LOAD-START",
+      "A-GATHER",
+      "A-REFILL",
+      "A-LOAD-STEADY",
+      "A-COMPACT",
       "A-SEGMENT",
+      "A-EJECT",
       "A-RECEIVE",
       "A-NEXT",
       "B-AUDIT",
+      "B-LOAD",
+      "B-GATHER",
+      "B-REFILL",
       "B-SELECT",
+      "B-COMPACT",
       "B-OPEN-CONFIRM",
+      "B-EJECT",
       "B-RECEIVE",
       "B-NEXT",
       "A-STARTUP-RETURN-A_COLUMN_BUILDING",
@@ -162,7 +182,9 @@
       "B-READY-LOAD",
       "B-READY-REFILL",
       "B-READY-PRESS",
-      "B-READY-EJECT"
+      "B-READY-EJECT",
+      "A-READY-START-REFILL",
+      "B-READY-GATHER"
     ],
     "response": null
   },
@@ -177,7 +199,10 @@
       "DOSE_DELIVERED",
       "CONTINUITY_CONFIRMED",
       "FEEDBACK_VALID",
-      "METHOD_SUPPORTED"
+      "METHOD_SUPPORTED",
+      "DEPENDENCY_VALID",
+      "AUDIT_CHANNEL_READY",
+      "RECOVERY_METHOD_DEFINED"
     ],
     "blocked_transitions": [
       "A-AUDIT",
@@ -221,7 +246,9 @@
       "B-READY-REFILL",
       "B-READY-PRESS",
       "B-READY-EJECT",
-      "RESOURCE-BASIS"
+      "RESOURCE-BASIS",
+      "A-READY-START-REFILL",
+      "B-READY-GATHER"
     ],
     "response": null
   },
@@ -239,7 +266,8 @@
       "STOP_OPEN",
       "RESET_SWEEP_CLEAR",
       "TOOLS_HOME",
-      "B_RESET_CONFIRMED"
+      "B_RESET_CONFIRMED",
+      "RESTORE_SEQUENCE_DEFINED"
     ],
     "blocked_transitions": [
       "A-LOAD-START",
@@ -268,7 +296,9 @@
       "B-READY-LOAD",
       "B-READY-REFILL",
       "B-READY-PRESS",
-      "B-READY-EJECT"
+      "B-READY-EJECT",
+      "A-READY-START-REFILL",
+      "B-READY-GATHER"
     ],
     "response": null
   },
@@ -287,11 +317,15 @@
       "TRANSFER_LEDGER_CLOSED"
     ],
     "blocked_transitions": [
+      "A-LOAD-START",
+      "A-REFILL",
+      "A-LOAD-STEADY",
       "A-EJECT",
       "A-CROSS",
       "A-RECEIVE",
       "A-REMOVE",
       "A-NEXT",
+      "B-LOAD",
       "B-EJECT",
       "B-CROSS",
       "B-RECEIVE",
@@ -302,7 +336,8 @@
       "A-READY-STEADY-LOAD",
       "A-READY-EJECT",
       "B-READY-LOAD",
-      "B-READY-EJECT"
+      "B-READY-EJECT",
+      "A-READY-START-REFILL"
     ],
     "response": null
   },
@@ -331,6 +366,23 @@
       "RESOURCE_BASIS_COMPLETE"
     ],
     "blocked_transitions": [
+      "A-LOAD-START",
+      "A-GATHER",
+      "A-REFILL",
+      "A-LOAD-STEADY",
+      "A-COMPACT",
+      "A-EJECT",
+      "A-RETURN",
+      "B-LOAD",
+      "B-GATHER",
+      "B-REFILL",
+      "B-COMPACT",
+      "B-EJECT",
+      "B-RETURN",
+      "B-RESET",
+      "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+      "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "B-GATHER-RETURN",
       "A-READY-START-LOAD",
       "A-READY-START-PRESS-A_STARTUP_RAW",
       "A-READY-START-PRESS-A_COLUMN_BUILDING",
@@ -341,7 +393,9 @@
       "B-READY-REFILL",
       "B-READY-PRESS",
       "B-READY-EJECT",
-      "RESOURCE-BASIS"
+      "RESOURCE-BASIS",
+      "A-READY-START-REFILL",
+      "B-READY-GATHER"
     ],
     "response": null
   }

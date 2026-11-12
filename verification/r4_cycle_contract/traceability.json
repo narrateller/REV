@@ -37,7 +37,8 @@
     "transitions": [
       "A-LOAD-START",
       "A-REFILL",
-      "A-LOAD-STEADY"
+      "A-LOAD-STEADY",
+      "A-READY-START-REFILL"
     ],
     "states": [
       "A_COLUMN_BUILDING",
@@ -46,7 +47,9 @@
       "A_STARTUP_RAW",
       "A_STEADY_LOADED"
     ],
-    "ready_targets": [],
+    "ready_targets": [
+      "A-READY-START-REFILL"
+    ],
     "resource_row": "A1",
     "questions": [
       "Q-R2-01",
@@ -54,6 +57,7 @@
       "Q-R2-05",
       "Q-R3-01",
       "Q-R3-02",
+      "Q-R3-03",
       "Q-R3-04",
       "Q-R3-05"
     ],
@@ -148,6 +152,7 @@
       "Q-R2-01",
       "Q-R2-02",
       "Q-R2-03",
+      "Q-R2-05",
       "Q-R3-01",
       "Q-R3-02",
       "Q-R3-04",
@@ -196,14 +201,17 @@
     "transitions": [
       "A-RETURN",
       "A-STARTUP-RETURN-A_COLUMN_BUILDING",
-      "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED"
+      "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "A-READY-START-REFILL"
     ],
     "states": [
       "A_COLUMN_BUILDING",
       "A_COLUMN_ESTABLISHED",
       "A_RECEIVED_RETAINED"
     ],
-    "ready_targets": [],
+    "ready_targets": [
+      "A-READY-START-REFILL"
+    ],
     "resource_row": "A6",
     "questions": [
       "Q-R2-01",
@@ -211,6 +219,7 @@
       "Q-R2-05",
       "Q-R3-01",
       "Q-R3-02",
+      "Q-R3-03",
       "Q-R3-04",
       "Q-R3-05"
     ],
@@ -323,6 +332,7 @@
       "Q-R2-05",
       "Q-R3-01",
       "Q-R3-02",
+      "Q-R3-03",
       "Q-R3-04",
       "Q-R3-05"
     ],
@@ -335,7 +345,8 @@
     "transitions": [
       "B-GATHER",
       "B-COMPACT",
-      "B-READY-PRESS"
+      "B-READY-PRESS",
+      "B-READY-GATHER"
     ],
     "states": [
       "B_BATCH_SELECTED",
@@ -344,7 +355,8 @@
       "B_RAW_LOADED"
     ],
     "ready_targets": [
-      "B-READY-PRESS"
+      "B-READY-PRESS",
+      "B-READY-GATHER"
     ],
     "resource_row": "B2",
     "questions": [
@@ -367,7 +379,8 @@
       "B-GATHER",
       "B-SELECT",
       "B-COMPACT",
-      "B-READY-PRESS"
+      "B-READY-PRESS",
+      "B-READY-GATHER"
     ],
     "states": [
       "B_BATCH_SELECTED",
@@ -376,7 +389,8 @@
       "B_RAW_LOADED"
     ],
     "ready_targets": [
-      "B-READY-PRESS"
+      "B-READY-PRESS",
+      "B-READY-GATHER"
     ],
     "resource_row": "B3",
     "questions": [
@@ -523,7 +537,6 @@
       "Q-R2-05",
       "Q-R3-01",
       "Q-R3-02",
-      "Q-R3-03",
       "Q-R3-04",
       "Q-R3-05"
     ],

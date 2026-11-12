@@ -3205,7 +3205,8 @@ findings:
   description: State/guard traces не являются entity-level материальным журналом; дополнить при передаче lifecycle
     реализации.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: New documentary artifact revision; original REJECT_WITH_BLOCKER and reviewed C 3cf32daef67a91f393b808adb0dc07ba4c73cac2 remain preserved, independent RECHECK required.
 blocker_ids:
 - R5-CC-B01
 allowed_downstream_scope: Словарь, L1–L5, ресурсный список и вопросы — черновики с WARNING; CYC02/03 investigation/ответы
@@ -3226,3 +3227,7 @@ reproduction_artifacts:
 - verification/r5_r4_cycle_contract_review/object_identity.json
 supersedes: null
 ```
+
+## R4: корректирующий кандидат по R5-CC-B01/W01, не независимый review
+
+2026-11-12T21:36:34.236086+00:00; r4-linked-20261111 / T-r4-cycle-contract-01. Входной акт d99afb4c3231d641d4a4921f39987264ce5ffc23 сохранён неизменным полным предком. 26 независимых baseline случаев / 10 расхождений воспроизведены, кандидат: 0 расхождений в тех же 26 и 154 документальных checks MATCH. Entry каждого действия включает mandatory READY-target; completion и наблюдаемые факты раздельны; текущее evidence/инвалидация/распространение и recovery без общего READY описаны. Code helpers только документальные, не CAD/численные tools. results.json и recheck_request.md в verification/r4_cycle_contract_fix/. Точный C следующим H. R5-CC-B01/W01/W02 остаются OPEN, новый RECHECK NOT_RUN, G1 OPEN.
