@@ -2298,3 +2298,9 @@ supersedes: null
 - 14 static native pairs removed, 6 legacy doser-UP BLOCKED retained; proposed actual service INDETERMINATE (UNKNOWN actuator/rigging). Все 34 checked модуля unchanged, 102 tests/18 package regression cases PASS. Сводка verification/r4_feed_power/final_checks.json, запрос review_request.md; точный C следующей эстафетой. Whole press READY INDETERMINATE, физические испытания NOT_RUN, G1 OPEN.
 
 Неизменяемый объект REV-R4-FEED-POWER-OUTPUT-01: C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`, REMOTE. H только эстафета, reviewer/result NOT_ASSIGNED/NOT_RUN. Область 14 static fixes, 6 legacy BLOCKED, proposed actual service INDETERMINATE. G1 OPEN.
+
+## REV-R4-FP-SEMANTIC-FIX-OUTPUT-01 — запрос RECHECK
+
+- Автор r4-linked-20261111, входной R5 акт 2592b470940cea886e033a999c889c15a92889f6. Новый reviewer/result NOT_ASSIGNED/NOT_RUN; R5-FP-NEW-B01 OPEN до независимого решения.
+- Пять исходных false PASS воспроизведены; исправленные CLI отклоняют их со fresh BLOCKED/INDETERMINATE, связаны calculation→aggregation→report→verifier, негативное ожидание отделено от path success. 110 tests и 25 цепочечных команд PASS, compound/unknown покрыты, readonly сохранён.
+- 34 frozen модуля и исходная геометрия unchanged, L physical feasibility INDETERMINATE, 6 legacy BLOCKED/14 static fixes сохранены. Полные результаты verification/r4_fp_fix/, точный C следующим H, запрос recheck_request.md. G1 OPEN, физические испытания NOT_RUN.
