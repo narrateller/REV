@@ -1,0 +1,3165 @@
+{
+  "scenario": "BASE_A",
+  "changes": [
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-ROD-RADIUS",
+      "old_id": "ASSUMED-LAYOUT-ROD-RADIUS",
+      "old_value": "7/100",
+      "new_value": "3098519137108271/40000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "R3 minimum rod diameter; real stroke/internal overlap/strength UNKNOWN",
+      "native_spreadsheet_formula": "Sources.calc_rod/2",
+      "affected_nodes": [
+        "rod"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-ROD-LENGTH",
+      "old_id": "ASSUMED-LAYOUT-ROD-LENGTH",
+      "old_value": "7/10",
+      "new_value": "11/20",
+      "unit": "m",
+      "status": "ASSUMED_RESEARCH_TRANSFORM",
+      "reason": "Exposed rod meets punch rear at initial pose; barrel exterior/COTS left unchanged",
+      "native_spreadsheet_formula": null,
+      "affected_nodes": [
+        "rod"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PUNCH-PX",
+      "old_id": "ASSUMED-LAYOUT-PUNCH-PX",
+      "old_value": "-1/10",
+      "new_value": "-1/4",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Source loaded face; existing punch axial thickness retained, chamber-front datum X=0",
+      "native_spreadsheet_formula": "(-0.25 * 1 m)",
+      "affected_nodes": [
+        "punch"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PUNCH-PY",
+      "old_id": "ASSUMED-LAYOUT-PUNCH-PY",
+      "old_value": "-4/25",
+      "new_value": "-3/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Source loaded face; existing punch axial thickness retained, chamber-front datum X=0",
+      "native_spreadsheet_formula": "-Sources.calc_width/2",
+      "affected_nodes": [
+        "punch"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PUNCH-DY",
+      "old_id": "ASSUMED-LAYOUT-PUNCH-DY",
+      "old_value": "8/25",
+      "new_value": "3/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Source loaded face; existing punch axial thickness retained, chamber-front datum X=0",
+      "native_spreadsheet_formula": "(Sources.calc_width/2 - -Sources.calc_width/2)",
+      "affected_nodes": [
+        "punch"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PUNCH-PZ",
+      "old_id": "ASSUMED-LAYOUT-PUNCH-PZ",
+      "old_value": "-4/25",
+      "new_value": "-3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Source loaded face; existing punch axial thickness retained, chamber-front datum X=0",
+      "native_spreadsheet_formula": "-Sources.calc_height/2",
+      "affected_nodes": [
+        "punch"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PUNCH-DZ",
+      "old_id": "ASSUMED-LAYOUT-PUNCH-DZ",
+      "old_value": "8/25",
+      "new_value": "3/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Source loaded face; existing punch axial thickness retained, chamber-front datum X=0",
+      "native_spreadsheet_formula": "(Sources.calc_height/2 - -Sources.calc_height/2)",
+      "affected_nodes": [
+        "punch"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-BOTTOM-DX",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-BOTTOM-DX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.1 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "chamber_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-BOTTOM-PY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-BOTTOM-PY",
+      "old_value": "-6/25",
+      "new_value": "-9/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "chamber_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-BOTTOM-DY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-BOTTOM-DY",
+      "old_value": "12/25",
+      "new_value": "9/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_wratio - (-0.24 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "chamber_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-BOTTOM-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-BOTTOM-PZ",
+      "old_value": "-6/25",
+      "new_value": "-9/250",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "chamber_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-BOTTOM-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-BOTTOM-DZ",
+      "old_value": "1/25",
+      "new_value": "3/500",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((-0.2 * 1 m) * Sources.calc_hratio - (-0.24 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "chamber_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-LEFT-DX",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-LEFT-DX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.1 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "chamber_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-LEFT-PY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-LEFT-PY",
+      "old_value": "-6/25",
+      "new_value": "-9/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "chamber_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-LEFT-DY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-LEFT-DY",
+      "old_value": "1/25",
+      "new_value": "3/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((-0.2 * 1 m) * Sources.calc_wratio - (-0.24 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "chamber_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-LEFT-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-LEFT-PZ",
+      "old_value": "-1/5",
+      "new_value": "-3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.2 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "chamber_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-LEFT-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-LEFT-DZ",
+      "old_value": "2/5",
+      "new_value": "3/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_hratio - (-0.2 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "chamber_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-RIGHT-DX",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-RIGHT-DX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.1 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "chamber_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-RIGHT-PY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-RIGHT-PY",
+      "old_value": "1/5",
+      "new_value": "3/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "chamber_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-RIGHT-DY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-RIGHT-DY",
+      "old_value": "1/25",
+      "new_value": "3/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_wratio - (0.2 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "chamber_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-RIGHT-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-RIGHT-PZ",
+      "old_value": "-1/5",
+      "new_value": "-3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.2 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "chamber_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-RIGHT-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-RIGHT-DZ",
+      "old_value": "2/5",
+      "new_value": "3/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_hratio - (-0.2 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "chamber_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-REAR-DX",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-REAR-DX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "chamber_top_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-REAR-PY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-REAR-PY",
+      "old_value": "-6/25",
+      "new_value": "-9/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "chamber_top_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-REAR-DY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-REAR-DY",
+      "old_value": "12/25",
+      "new_value": "9/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_wratio - (-0.24 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "chamber_top_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-REAR-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-REAR-PZ",
+      "old_value": "1/5",
+      "new_value": "3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "chamber_top_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-REAR-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-REAR-DZ",
+      "old_value": "1/25",
+      "new_value": "3/500",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_hratio - (0.2 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "chamber_top_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-FRONT-PX",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-FRONT-PX",
+      "old_value": "3/5",
+      "new_value": "83/264",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.6 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "chamber_top_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-FRONT-DX",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-FRONT-DX",
+      "old_value": "1/2",
+      "new_value": "415/1584",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.1 * 1 m) * Sources.calc_xratio - (0.6 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "chamber_top_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-FRONT-PY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-FRONT-PY",
+      "old_value": "-6/25",
+      "new_value": "-9/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "chamber_top_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-FRONT-DY",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-FRONT-DY",
+      "old_value": "12/25",
+      "new_value": "9/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_wratio - (-0.24 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "chamber_top_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-FRONT-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-FRONT-PZ",
+      "old_value": "1/5",
+      "new_value": "3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "chamber_top_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHAMBER-TOP-FRONT-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHAMBER-TOP-FRONT-DZ",
+      "old_value": "1/25",
+      "new_value": "3/500",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_hratio - (0.2 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "chamber_top_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-L-PX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-L-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "pocket_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-L-DX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-L-DX",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "pocket_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-L-PY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-L-PY",
+      "old_value": "-13/50",
+      "new_value": "-39/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.26 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "pocket_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-L-DY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-L-DY",
+      "old_value": "1/25",
+      "new_value": "3/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((-0.22 * 1 m) * Sources.calc_wratio - (-0.26 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "pocket_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-L-PZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-L-PZ",
+      "old_value": "6/25",
+      "new_value": "9/250",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.24 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "pocket_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-L-DZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-L-DZ",
+      "old_value": "19/50",
+      "new_value": "73/125",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.62 * 1 m) - (0.24 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "pocket_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-R-PX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-R-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "pocket_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-R-DX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-R-DX",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "pocket_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-R-PY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-R-PY",
+      "old_value": "11/50",
+      "new_value": "33/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.22 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "pocket_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-R-DY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-R-DY",
+      "old_value": "1/25",
+      "new_value": "3/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.26 * 1 m) * Sources.calc_wratio - (0.22 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "pocket_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-R-PZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-R-PZ",
+      "old_value": "3/10",
+      "new_value": "609/4750",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(Sources.calc_top + ((0.3 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m))",
+      "affected_nodes": [
+        "pocket_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-R-DZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-R-DZ",
+      "old_value": "8/25",
+      "new_value": "1168/2375",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.62 * 1 m) - (Sources.calc_top + ((0.3 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)))",
+      "affected_nodes": [
+        "pocket_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-REAR-PX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-REAR-PX",
+      "old_value": "4/25",
+      "new_value": "83/990",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.16 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "pocket_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-REAR-DX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-REAR-DX",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_xratio - (0.16 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "pocket_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-REAR-PY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-REAR-PY",
+      "old_value": "-13/50",
+      "new_value": "-39/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.26 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "pocket_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-REAR-DY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-REAR-DY",
+      "old_value": "13/25",
+      "new_value": "39/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.26 * 1 m) * Sources.calc_wratio - (-0.26 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "pocket_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-REAR-PZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-REAR-PZ",
+      "old_value": "6/25",
+      "new_value": "9/250",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.24 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "pocket_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-REAR-DZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-REAR-DZ",
+      "old_value": "19/50",
+      "new_value": "73/125",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.62 * 1 m) - (0.24 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "pocket_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-FRONT-PX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-FRONT-PX",
+      "old_value": "3/5",
+      "new_value": "83/264",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.6 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "pocket_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-FRONT-DX",
+      "old_id": "ASSUMED-LAYOUT-POCKET-FRONT-DX",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.64 * 1 m) * Sources.calc_xratio - (0.6 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "pocket_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-FRONT-PY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-FRONT-PY",
+      "old_value": "-13/50",
+      "new_value": "-39/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.26 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "pocket_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-FRONT-DY",
+      "old_id": "ASSUMED-LAYOUT-POCKET-FRONT-DY",
+      "old_value": "13/25",
+      "new_value": "39/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.26 * 1 m) * Sources.calc_wratio - (-0.26 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "pocket_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-FRONT-PZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-FRONT-PZ",
+      "old_value": "6/25",
+      "new_value": "9/250",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.24 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "pocket_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-POCKET-FRONT-DZ",
+      "old_id": "ASSUMED-LAYOUT-POCKET-FRONT-DZ",
+      "old_value": "19/50",
+      "new_value": "73/125",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.62 * 1 m) - (0.24 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "pocket_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-INLET-GATE-PX",
+      "old_id": "ASSUMED-LAYOUT-INLET-GATE-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "inlet_gate"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-INLET-GATE-DX",
+      "old_id": "ASSUMED-LAYOUT-INLET-GATE-DX",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "inlet_gate"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-INLET-GATE-PY",
+      "old_id": "ASSUMED-LAYOUT-INLET-GATE-PY",
+      "old_value": "7/25",
+      "new_value": "21/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.28 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "inlet_gate"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-INLET-GATE-DY",
+      "old_id": "ASSUMED-LAYOUT-INLET-GATE-DY",
+      "old_value": "2/5",
+      "new_value": "3/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.68 * 1 m) * Sources.calc_wratio - (0.28 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "inlet_gate"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-INLET-GATE-PZ",
+      "old_id": "ASSUMED-LAYOUT-INLET-GATE-PZ",
+      "old_value": "13/50",
+      "new_value": "317/4750",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m))",
+      "affected_nodes": [
+        "inlet_gate"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-INLET-GATE-DZ",
+      "old_id": "ASSUMED-LAYOUT-INLET-GATE-DZ",
+      "old_value": "7/200",
+      "new_value": "511/9500",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((Sources.calc_top + ((0.295 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)) - (Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)))",
+      "affected_nodes": [
+        "inlet_gate"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-GATE-SUPPORT-PX",
+      "old_id": "ASSUMED-LAYOUT-GATE-SUPPORT-PX",
+      "old_value": "3/20",
+      "new_value": "83/1056",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.15 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "gate_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-GATE-SUPPORT-DX",
+      "old_id": "ASSUMED-LAYOUT-GATE-SUPPORT-DX",
+      "old_value": "1/2",
+      "new_value": "415/1584",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.65 * 1 m) * Sources.calc_xratio - (0.15 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "gate_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-GATE-SUPPORT-PY",
+      "old_id": "ASSUMED-LAYOUT-GATE-SUPPORT-PY",
+      "old_value": "13/50",
+      "new_value": "39/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.26 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "gate_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-GATE-SUPPORT-DY",
+      "old_id": "ASSUMED-LAYOUT-GATE-SUPPORT-DY",
+      "old_value": "23/50",
+      "new_value": "69/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.72 * 1 m) * Sources.calc_wratio - (0.26 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "gate_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-GATE-SUPPORT-PZ",
+      "old_id": "ASSUMED-LAYOUT-GATE-SUPPORT-PZ",
+      "old_value": "47/200",
+      "new_value": "141/4000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.235 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "gate_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-GATE-SUPPORT-DZ",
+      "old_id": "ASSUMED-LAYOUT-GATE-SUPPORT-DZ",
+      "old_value": "1/40",
+      "new_value": "2393/76000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)) - (0.235 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "gate_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-SLIDE-PX",
+      "old_id": "ASSUMED-LAYOUT-DOSER-SLIDE-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_slide"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-SLIDE-DX",
+      "old_id": "ASSUMED-LAYOUT-DOSER-SLIDE-DX",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_slide"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-SLIDE-PY",
+      "old_id": "ASSUMED-LAYOUT-DOSER-SLIDE-PY",
+      "old_value": "3/20",
+      "new_value": "9/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.15 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_slide"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-SLIDE-DY",
+      "old_id": "ASSUMED-LAYOUT-DOSER-SLIDE-DY",
+      "old_value": "9/25",
+      "new_value": "27/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.51 * 1 m) * Sources.calc_wratio - (0.15 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_slide"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-REAR-PX",
+      "old_id": "ASSUMED-LAYOUT-DOSER-REAR-PX",
+      "old_value": "1/10",
+      "new_value": "83/1584",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.1 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-REAR-DX",
+      "old_id": "ASSUMED-LAYOUT-DOSER-REAR-DX",
+      "old_value": "1/20",
+      "new_value": "83/3168",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.15 * 1 m) * Sources.calc_xratio - (0.1 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-REAR-PY",
+      "old_id": "ASSUMED-LAYOUT-DOSER-REAR-PY",
+      "old_value": "-13/20",
+      "new_value": "-39/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.65 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-REAR-DY",
+      "old_id": "ASSUMED-LAYOUT-DOSER-REAR-DY",
+      "old_value": "19/10",
+      "new_value": "57/80",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.25 * 1 m) * Sources.calc_wratio - (-0.65 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-FRONT-PX",
+      "old_id": "ASSUMED-LAYOUT-DOSER-FRONT-PX",
+      "old_value": "13/20",
+      "new_value": "1079/3168",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.65 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-FRONT-DX",
+      "old_id": "ASSUMED-LAYOUT-DOSER-FRONT-DX",
+      "old_value": "1/20",
+      "new_value": "83/3168",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.7 * 1 m) * Sources.calc_xratio - (0.65 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-FRONT-PY",
+      "old_id": "ASSUMED-LAYOUT-DOSER-FRONT-PY",
+      "old_value": "-13/20",
+      "new_value": "-39/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.65 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-FRONT-DY",
+      "old_id": "ASSUMED-LAYOUT-DOSER-FRONT-DY",
+      "old_value": "19/10",
+      "new_value": "57/80",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.25 * 1 m) * Sources.calc_wratio - (-0.65 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-REAR-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-REAR-PY",
+      "old_value": "-11/20",
+      "new_value": "-33/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.55 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-REAR-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-REAR-DY",
+      "old_value": "11/10",
+      "new_value": "33/80",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (-0.55 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-FRONT-PX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-FRONT-PX",
+      "old_value": "4/5",
+      "new_value": "83/198",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.8 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "hopper_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-FRONT-DX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-FRONT-DX",
+      "old_value": "1/20",
+      "new_value": "83/3168",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.85 * 1 m) * Sources.calc_xratio - (0.8 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "hopper_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-FRONT-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-FRONT-PY",
+      "old_value": "-11/20",
+      "new_value": "-33/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.55 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-FRONT-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-FRONT-DY",
+      "old_value": "11/10",
+      "new_value": "33/80",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (-0.55 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-L-DX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-L-DX",
+      "old_value": "4/5",
+      "new_value": "83/198",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.8 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "hopper_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-L-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-L-PY",
+      "old_value": "-11/20",
+      "new_value": "-33/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.55 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-L-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-L-DY",
+      "old_value": "1/20",
+      "new_value": "3/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((-0.5 * 1 m) * Sources.calc_wratio - (-0.55 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-R-DX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-R-DX",
+      "old_value": "4/5",
+      "new_value": "83/198",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.8 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "hopper_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-R-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-R-PY",
+      "old_value": "1/2",
+      "new_value": "3/16",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.5 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER-R-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER-R-DY",
+      "old_value": "1/20",
+      "new_value": "3/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (0.5 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-OUTPUT-SUPPORT-PX",
+      "old_id": "ASSUMED-LAYOUT-OUTPUT-SUPPORT-PX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.1 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "output_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-BOTTOM-PX",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-BOTTOM-PX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.1 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "channel_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-BOTTOM-PY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-BOTTOM-PY",
+      "old_value": "-6/25",
+      "new_value": "-9/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "channel_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-BOTTOM-DY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-BOTTOM-DY",
+      "old_value": "12/25",
+      "new_value": "9/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_wratio - (-0.24 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "channel_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-BOTTOM-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-BOTTOM-PZ",
+      "old_value": "-6/25",
+      "new_value": "-9/250",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "channel_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-BOTTOM-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-BOTTOM-DZ",
+      "old_value": "1/25",
+      "new_value": "3/500",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((-0.2 * 1 m) * Sources.calc_hratio - (-0.24 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "channel_bottom"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-TOP-PX",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-TOP-PX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.1 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "channel_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-TOP-PY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-TOP-PY",
+      "old_value": "-6/25",
+      "new_value": "-9/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "channel_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-TOP-DY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-TOP-DY",
+      "old_value": "12/25",
+      "new_value": "9/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_wratio - (-0.24 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "channel_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-TOP-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-TOP-PZ",
+      "old_value": "1/5",
+      "new_value": "3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "channel_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-TOP-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-TOP-DZ",
+      "old_value": "1/25",
+      "new_value": "3/500",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_hratio - (0.2 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "channel_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-PX",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-LEFT-PX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.1 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "channel_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-PY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-LEFT-PY",
+      "old_value": "-6/25",
+      "new_value": "-9/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(-0.24 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "channel_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-DY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-LEFT-DY",
+      "old_value": "1/25",
+      "new_value": "3/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((-0.2 * 1 m) * Sources.calc_wratio - (-0.24 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "channel_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-LEFT-PZ",
+      "old_value": "-1/5",
+      "new_value": "-3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(-0.2 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "channel_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-LEFT-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-LEFT-DZ",
+      "old_value": "2/5",
+      "new_value": "3/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_hratio - (-0.2 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "channel_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-PX",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-RIGHT-PX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.1 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "channel_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-PY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-RIGHT-PY",
+      "old_value": "1/5",
+      "new_value": "3/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "channel_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-DY",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-RIGHT-DY",
+      "old_value": "1/25",
+      "new_value": "3/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((0.24 * 1 m) * Sources.calc_wratio - (0.2 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "channel_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-PZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-RIGHT-PZ",
+      "old_value": "-1/5",
+      "new_value": "-3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "(-0.2 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "channel_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CHANNEL-RIGHT-DZ",
+      "old_id": "ASSUMED-LAYOUT-CHANNEL-RIGHT-DZ",
+      "old_value": "2/5",
+      "new_value": "3/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_hratio - (-0.2 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "channel_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CLAMP-L-PX",
+      "old_id": "ASSUMED-LAYOUT-CLAMP-L-PX",
+      "old_value": "29/20",
+      "new_value": "667/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.45 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "clamp_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CLAMP-R-PX",
+      "old_id": "ASSUMED-LAYOUT-CLAMP-R-PX",
+      "old_value": "29/20",
+      "new_value": "667/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.45 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "clamp_R"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-CLAMP-MOUNT-PX",
+      "old_id": "ASSUMED-LAYOUT-CLAMP-MOUNT-PX",
+      "old_value": "7/5",
+      "new_value": "631/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.4 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "clamp_mount"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-END-STOP-PX",
+      "old_id": "ASSUMED-LAYOUT-END-STOP-PX",
+      "old_value": "11/10",
+      "new_value": "83/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.1 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "end_stop"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-LOCK-PX",
+      "old_id": "ASSUMED-LAYOUT-LOCK-PX",
+      "old_value": "6/5",
+      "new_value": "487/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.2 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "lock"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-STOP-SUPPORT-PX",
+      "old_id": "ASSUMED-LAYOUT-STOP-SUPPORT-PX",
+      "old_value": "27/20",
+      "new_value": "119/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.35 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "stop_support"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-A-PX",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-A-PX",
+      "old_value": "3/20",
+      "new_value": "83/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "Sources.calc_approach",
+      "affected_nodes": [
+        "product_A"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-A-DX",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-A-DX",
+      "old_value": "1/2",
+      "new_value": "11/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "((Sources.calc_approach + Sources.calc_product) - Sources.calc_approach)",
+      "affected_nodes": [
+        "product_A"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-A-PY",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-A-PY",
+      "old_value": "-4/25",
+      "new_value": "-3/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "-Sources.calc_width/2",
+      "affected_nodes": [
+        "product_A"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-A-DY",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-A-DY",
+      "old_value": "8/25",
+      "new_value": "3/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "(Sources.calc_width/2 - -Sources.calc_width/2)",
+      "affected_nodes": [
+        "product_A"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-A-PZ",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-A-PZ",
+      "old_value": "-4/25",
+      "new_value": "-3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "-Sources.calc_height/2",
+      "affected_nodes": [
+        "product_A"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-A-DZ",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-A-DZ",
+      "old_value": "8/25",
+      "new_value": "3/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "(Sources.calc_height/2 - -Sources.calc_height/2)",
+      "affected_nodes": [
+        "product_A"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-B-PX",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-B-PX",
+      "old_value": "3/20",
+      "new_value": "83/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "Sources.calc_approach",
+      "affected_nodes": [
+        "product_B"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-B-DX",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-B-DX",
+      "old_value": "1/2",
+      "new_value": "11/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "((Sources.calc_approach + Sources.calc_product) - Sources.calc_approach)",
+      "affected_nodes": [
+        "product_B"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-B-PY",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-B-PY",
+      "old_value": "-4/25",
+      "new_value": "-3/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "-Sources.calc_width/2",
+      "affected_nodes": [
+        "product_B"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-B-DY",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-B-DY",
+      "old_value": "8/25",
+      "new_value": "3/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "(Sources.calc_width/2 - -Sources.calc_width/2)",
+      "affected_nodes": [
+        "product_B"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-B-PZ",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-B-PZ",
+      "old_value": "-4/25",
+      "new_value": "-3/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "-Sources.calc_height/2",
+      "affected_nodes": [
+        "product_B"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-PRODUCT-B-DZ",
+      "old_id": "ASSUMED-LAYOUT-PRODUCT-B-DZ",
+      "old_value": "8/25",
+      "new_value": "3/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Already-compacted rigid product surrogate, not raw compression physics; source width/height/length",
+      "native_spreadsheet_formula": "(Sources.calc_height/2 - -Sources.calc_height/2)",
+      "affected_nodes": [
+        "product_B"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_REAR-PY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_REAR-PY",
+      "old_value": "-3/5",
+      "new_value": "-9/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.6 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "receiving_rim_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_REAR-DY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_REAR-DY",
+      "old_value": "6/5",
+      "new_value": "9/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_wratio - (-0.6 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "receiving_rim_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_FRONT-PX",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_FRONT-PX",
+      "old_value": "4/5",
+      "new_value": "83/198",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.8 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "receiving_rim_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_FRONT-DX",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_FRONT-DX",
+      "old_value": "4999999999999999/50000000000000000",
+      "new_value": "414999999999999917/7920000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.9 * 1 m) * Sources.calc_xratio - (0.8 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "receiving_rim_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_FRONT-PY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_FRONT-PY",
+      "old_value": "-3/5",
+      "new_value": "-9/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.6 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "receiving_rim_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_FRONT-DY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_FRONT-DY",
+      "old_value": "6/5",
+      "new_value": "9/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_wratio - (-0.6 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "receiving_rim_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_LEFT-DX",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_LEFT-DX",
+      "old_value": "4/5",
+      "new_value": "83/198",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.8 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "receiving_rim_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_LEFT-PY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_LEFT-PY",
+      "old_value": "-3/5",
+      "new_value": "-9/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.6 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "receiving_rim_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_LEFT-DY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_LEFT-DY",
+      "old_value": "4999999999999999/50000000000000000",
+      "new_value": "14999999999999997/400000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((-0.5 * 1 m) * Sources.calc_wratio - (-0.6 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "receiving_rim_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_RIGHT-DX",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_RIGHT-DX",
+      "old_value": "4/5",
+      "new_value": "83/198",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.8 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "receiving_rim_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_RIGHT-PY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_RIGHT-PY",
+      "old_value": "1/2",
+      "new_value": "3/16",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.5 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "receiving_rim_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RECEIVING_RIM_RIGHT-DY",
+      "old_id": "ASSUMED-LAYOUT-RECEIVING_RIM_RIGHT-DY",
+      "old_value": "4999999999999999/50000000000000000",
+      "new_value": "14999999999999997/400000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_wratio - (0.5 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "receiving_rim_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_REAR-DX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_REAR-DX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_xratio - (0.0 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "hopper_floor_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_REAR-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_REAR-PY",
+      "old_value": "-11/20",
+      "new_value": "-33/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.55 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_floor_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_REAR-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_REAR-DY",
+      "old_value": "11/10",
+      "new_value": "33/80",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (-0.55 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_floor_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_FRONT-PX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_FRONT-PX",
+      "old_value": "3/5",
+      "new_value": "83/264",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.6 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "hopper_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_FRONT-DX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_FRONT-DX",
+      "old_value": "20000000000000007/100000000000000000",
+      "new_value": "184444444444444509/1760000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.8 * 1 m) * Sources.calc_xratio - (0.6 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "hopper_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_FRONT-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_FRONT-PY",
+      "old_value": "-11/20",
+      "new_value": "-33/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.55 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_FRONT-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_FRONT-DY",
+      "old_value": "11/10",
+      "new_value": "33/80",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (-0.55 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_LEFT-PX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_LEFT-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "hopper_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_LEFT-DX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_LEFT-DX",
+      "old_value": "39999999999999997/100000000000000000",
+      "new_value": "3319999999999999751/15840000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "hopper_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_LEFT-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_LEFT-PY",
+      "old_value": "-11/20",
+      "new_value": "-33/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.55 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_LEFT-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_LEFT-DY",
+      "old_value": "35000000000000003/100000000000000000",
+      "new_value": "105000000000000009/800000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((-0.19999999999999998 * 1 m) * Sources.calc_wratio - (-0.55 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_RIGHT-PX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_RIGHT-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "hopper_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_RIGHT-DX",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_RIGHT-DX",
+      "old_value": "39999999999999997/100000000000000000",
+      "new_value": "3319999999999999751/15840000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "hopper_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_RIGHT-PY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_RIGHT-PY",
+      "old_value": "1/5",
+      "new_value": "3/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "hopper_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-HOPPER_FLOOR_RIGHT-DY",
+      "old_id": "ASSUMED-LAYOUT-HOPPER_FLOOR_RIGHT-DY",
+      "old_value": "35000000000000003/100000000000000000",
+      "new_value": "105000000000000009/800000000000000000",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (0.2 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "hopper_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_REAR-PX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_REAR-PX",
+      "old_value": "3/20",
+      "new_value": "83/1056",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.15 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_floor_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_REAR-DX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_REAR-DX",
+      "old_value": "1/20",
+      "new_value": "83/3168",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_xratio - (0.15 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_floor_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_REAR-PY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_REAR-PY",
+      "old_value": "-13/20",
+      "new_value": "-39/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.65 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_floor_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_REAR-DY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_REAR-DY",
+      "old_value": "6/5",
+      "new_value": "9/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (-0.65 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_floor_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_FRONT-PX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_FRONT-PX",
+      "old_value": "3/5",
+      "new_value": "83/264",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.6 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_FRONT-DX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_FRONT-DX",
+      "old_value": "1/20",
+      "new_value": "83/3168",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.65 * 1 m) * Sources.calc_xratio - (0.6 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_FRONT-PY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_FRONT-PY",
+      "old_value": "-13/20",
+      "new_value": "-39/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.65 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_FRONT-DY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_FRONT-DY",
+      "old_value": "6/5",
+      "new_value": "9/20",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (-0.65 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_floor_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_LEFT-PX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_LEFT-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_LEFT-DX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_LEFT-DX",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_LEFT-PY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_LEFT-PY",
+      "old_value": "-13/20",
+      "new_value": "-39/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.65 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_LEFT-DY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_LEFT-DY",
+      "old_value": "9/20",
+      "new_value": "27/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((-0.2 * 1 m) * Sources.calc_wratio - (-0.65 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_floor_left"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_RIGHT-PX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_RIGHT-PX",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_RIGHT-DX",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_RIGHT-DX",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_RIGHT-PY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_RIGHT-PY",
+      "old_value": "1/5",
+      "new_value": "3/40",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER_FLOOR_RIGHT-DY",
+      "old_id": "ASSUMED-LAYOUT-DOSER_FLOOR_RIGHT-DY",
+      "old_value": "7/20",
+      "new_value": "21/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.55 * 1 m) * Sources.calc_wratio - (0.2 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_floor_right"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-POCKET-R-LOWER-POSITION-X",
+      "old_id": "ASSUMED-LAYOUT-RW-POCKET-R-LOWER-POSITION-X",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "pocket_R_lower"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-POCKET-R-LOWER-SIZE-X",
+      "old_id": "ASSUMED-LAYOUT-RW-POCKET-R-LOWER-SIZE-X",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "pocket_R_lower"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-POCKET-R-LOWER-POSITION-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-POCKET-R-LOWER-POSITION-Y",
+      "old_value": "11/50",
+      "new_value": "33/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.22 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "pocket_R_lower"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-POCKET-R-LOWER-SIZE-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-POCKET-R-LOWER-SIZE-Y",
+      "old_value": "1/25",
+      "new_value": "3/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.26 * 1 m) * Sources.calc_wratio - (0.22 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "pocket_R_lower"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-POCKET-R-LOWER-POSITION-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-POCKET-R-LOWER-POSITION-Z",
+      "old_value": "6/25",
+      "new_value": "9/250",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.24 * 1 m) * Sources.calc_hratio",
+      "affected_nodes": [
+        "pocket_R_lower"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-POCKET-R-LOWER-SIZE-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-POCKET-R-LOWER-SIZE-Z",
+      "old_value": "3/200",
+      "new_value": "219/9500",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((Sources.calc_top + ((0.255 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)) - (0.24 * 1 m) * Sources.calc_hratio)",
+      "affected_nodes": [
+        "pocket_R_lower"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-TOP-POSITION-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-TOP-POSITION-X",
+      "old_value": "1/5",
+      "new_value": "83/792",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.2 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "gate_house_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-TOP-SIZE-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-TOP-SIZE-X",
+      "old_value": "2/5",
+      "new_value": "83/396",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.6 * 1 m) * Sources.calc_xratio - (0.2 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "gate_house_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-TOP-POSITION-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-TOP-POSITION-Y",
+      "old_value": "13/50",
+      "new_value": "39/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.26 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "gate_house_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-TOP-SIZE-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-TOP-SIZE-Y",
+      "old_value": "23/50",
+      "new_value": "69/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.72 * 1 m) * Sources.calc_wratio - (0.26 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "gate_house_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-TOP-POSITION-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-TOP-POSITION-Z",
+      "old_value": "3/10",
+      "new_value": "609/4750",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(Sources.calc_top + ((0.3 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m))",
+      "affected_nodes": [
+        "gate_house_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-TOP-SIZE-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-TOP-SIZE-Z",
+      "old_value": "1/50",
+      "new_value": "73/2375",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((Sources.calc_top + ((0.32 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)) - (Sources.calc_top + ((0.3 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)))",
+      "affected_nodes": [
+        "gate_house_top"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-REAR-POSITION-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-REAR-POSITION-X",
+      "old_value": "4/25",
+      "new_value": "83/990",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.16 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "gate_house_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-REAR-SIZE-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-REAR-SIZE-X",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_xratio - (0.16 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "gate_house_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-REAR-POSITION-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-REAR-POSITION-Y",
+      "old_value": "13/50",
+      "new_value": "39/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.26 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "gate_house_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-REAR-SIZE-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-REAR-SIZE-Y",
+      "old_value": "23/50",
+      "new_value": "69/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.72 * 1 m) * Sources.calc_wratio - (0.26 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "gate_house_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-REAR-POSITION-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-REAR-POSITION-Z",
+      "old_value": "13/50",
+      "new_value": "317/4750",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m))",
+      "affected_nodes": [
+        "gate_house_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-REAR-SIZE-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-REAR-SIZE-Z",
+      "old_value": "3/50",
+      "new_value": "219/2375",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((Sources.calc_top + ((0.32 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)) - (Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)))",
+      "affected_nodes": [
+        "gate_house_rear"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-FRONT-POSITION-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-FRONT-POSITION-X",
+      "old_value": "3/5",
+      "new_value": "83/264",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.6 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "gate_house_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-FRONT-SIZE-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-FRONT-SIZE-X",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.64 * 1 m) * Sources.calc_xratio - (0.6 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "gate_house_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-FRONT-POSITION-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-FRONT-POSITION-Y",
+      "old_value": "13/50",
+      "new_value": "39/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.26 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "gate_house_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-FRONT-SIZE-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-FRONT-SIZE-Y",
+      "old_value": "23/50",
+      "new_value": "69/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.72 * 1 m) * Sources.calc_wratio - (0.26 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "gate_house_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-FRONT-POSITION-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-FRONT-POSITION-Z",
+      "old_value": "13/50",
+      "new_value": "317/4750",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m))",
+      "affected_nodes": [
+        "gate_house_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-HOUSE-FRONT-SIZE-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-HOUSE-FRONT-SIZE-Z",
+      "old_value": "3/50",
+      "new_value": "219/2375",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((Sources.calc_top + ((0.32 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)) - (Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)))",
+      "affected_nodes": [
+        "gate_house_front"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-SERVICE-CAP-POSITION-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-SERVICE-CAP-POSITION-X",
+      "old_value": "4/25",
+      "new_value": "83/990",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.16 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "gate_service_cap"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-SERVICE-CAP-SIZE-X",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-SERVICE-CAP-SIZE-X",
+      "old_value": "12/25",
+      "new_value": "83/330",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.64 * 1 m) * Sources.calc_xratio - (0.16 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "gate_service_cap"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-SERVICE-CAP-POSITION-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-SERVICE-CAP-POSITION-Y",
+      "old_value": "18/25",
+      "new_value": "27/100",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.72 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "gate_service_cap"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-SERVICE-CAP-SIZE-Y",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-SERVICE-CAP-SIZE-Y",
+      "old_value": "1/50",
+      "new_value": "3/400",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.74 * 1 m) * Sources.calc_wratio - (0.72 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "gate_service_cap"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-SERVICE-CAP-POSITION-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-SERVICE-CAP-POSITION-Z",
+      "old_value": "13/50",
+      "new_value": "317/4750",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m))",
+      "affected_nodes": [
+        "gate_service_cap"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-GATE-SERVICE-CAP-SIZE-Z",
+      "old_id": "ASSUMED-LAYOUT-RW-GATE-SERVICE-CAP-SIZE-Z",
+      "old_value": "3/50",
+      "new_value": "219/2375",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((Sources.calc_top + ((0.32 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)) - (Sources.calc_top + ((0.26 * 1 m) - (0.24 * 1 m)) * ((0.62 * 1 m) - Sources.calc_top) / (0.38 * 1 m)))",
+      "affected_nodes": [
+        "gate_service_cap"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-STOP-SUPPORT-L-POSITION-X",
+      "old_id": "ASSUMED-LAYOUT-RW-STOP-SUPPORT-L-POSITION-X",
+      "old_value": "27/20",
+      "new_value": "119/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.35 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "stop_support_L"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-RW-STOP-SUPPORT-BRIDGE-POSITION-X",
+      "old_id": "ASSUMED-LAYOUT-RW-STOP-SUPPORT-BRIDGE-POSITION-X",
+      "old_value": "27/20",
+      "new_value": "119/144",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Downstream reaction/output module translated with chamber end; A channel axial length unchanged, channel cross-section follows chamber",
+      "native_spreadsheet_formula": "((1.35 * 1 m) + Sources.calc_chamber - (1.1 * 1 m))",
+      "affected_nodes": [
+        "stop_support_bridge"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-INNER-PX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-INNER-PX",
+      "old_value": "3/20",
+      "new_value": "83/1056",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.15 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_tray_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-INNER-DX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-INNER-DX",
+      "old_value": "1/2",
+      "new_value": "415/1584",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.65 * 1 m) * Sources.calc_xratio - (0.15 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_tray_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-INNER-PY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-INNER-PY",
+      "old_value": "11/20",
+      "new_value": "33/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.55 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_tray_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-INNER-DY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-INNER-DY",
+      "old_value": "3/20",
+      "new_value": "9/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.7 * 1 m) * Sources.calc_wratio - (0.55 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_tray_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-OUTER-PX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-OUTER-PX",
+      "old_value": "3/20",
+      "new_value": "83/1056",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.15 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_tray_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-OUTER-DX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-OUTER-DX",
+      "old_value": "1/2",
+      "new_value": "415/1584",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.65 * 1 m) * Sources.calc_xratio - (0.15 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_tray_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-OUTER-PY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-OUTER-PY",
+      "old_value": "19/25",
+      "new_value": "57/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.76 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_tray_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-TRAY-OUTER-DY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-TRAY-OUTER-DY",
+      "old_value": "49/100",
+      "new_value": "147/800",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.25 * 1 m) * Sources.calc_wratio - (0.76 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_tray_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-INNER-PX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-INNER-PX",
+      "old_value": "4/25",
+      "new_value": "83/990",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.16 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_guide_L_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-INNER-DX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-INNER-DX",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_xratio - (0.16 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_guide_L_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-INNER-PY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-INNER-PY",
+      "old_value": "-13/20",
+      "new_value": "-39/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.65 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_guide_L_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-INNER-DY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-INNER-DY",
+      "old_value": "27/20",
+      "new_value": "81/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.7 * 1 m) * Sources.calc_wratio - (-0.65 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_guide_L_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-OUTER-PX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-OUTER-PX",
+      "old_value": "4/25",
+      "new_value": "83/990",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.16 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_guide_L_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-OUTER-DX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-OUTER-DX",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.2 * 1 m) * Sources.calc_xratio - (0.16 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_guide_L_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-OUTER-PY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-OUTER-PY",
+      "old_value": "19/25",
+      "new_value": "57/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.76 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_guide_L_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-L-OUTER-DY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-L-OUTER-DY",
+      "old_value": "49/100",
+      "new_value": "147/800",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.25 * 1 m) * Sources.calc_wratio - (0.76 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_guide_L_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-INNER-PX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-INNER-PX",
+      "old_value": "3/5",
+      "new_value": "83/264",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.6 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_guide_R_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-INNER-DX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-INNER-DX",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.64 * 1 m) * Sources.calc_xratio - (0.6 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_guide_R_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-INNER-PY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-INNER-PY",
+      "old_value": "-13/20",
+      "new_value": "-39/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(-0.65 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_guide_R_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-INNER-DY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-INNER-DY",
+      "old_value": "27/20",
+      "new_value": "81/160",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.7 * 1 m) * Sources.calc_wratio - (-0.65 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_guide_R_inner"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-OUTER-PX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-OUTER-PX",
+      "old_value": "3/5",
+      "new_value": "83/264",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.6 * 1 m) * Sources.calc_xratio",
+      "affected_nodes": [
+        "doser_guide_R_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-OUTER-DX",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-OUTER-DX",
+      "old_value": "1/25",
+      "new_value": "83/3960",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((0.64 * 1 m) * Sources.calc_xratio - (0.6 * 1 m) * Sources.calc_xratio)",
+      "affected_nodes": [
+        "doser_guide_R_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-OUTER-PY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-OUTER-PY",
+      "old_value": "19/25",
+      "new_value": "57/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "(0.76 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": [
+        "doser_guide_R_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-FP-DOSER-GUIDE-R-OUTER-DY",
+      "old_id": "ASSUMED-LAYOUT-FP-DOSER-GUIDE-R-OUTER-DY",
+      "old_value": "49/100",
+      "new_value": "147/800",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Explicit research process-module transformation; R3 chamber width/height/length, previous feeder upper plane preserved",
+      "native_spreadsheet_formula": "((1.25 * 1 m) * Sources.calc_wratio - (0.76 * 1 m) * Sources.calc_wratio)",
+      "affected_nodes": [
+        "doser_guide_R_outer"
+      ]
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-GATE-ISOLATE-Y",
+      "old_id": "ASSUMED-LAYOUT-GATE-ISOLATE-Y",
+      "old_value": "-12/25",
+      "new_value": "-9/50",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Working transverse feeder motion follows explicit feeder Y transform",
+      "native_spreadsheet_formula": "(-0.48 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": []
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-DOSER-FILL-Y",
+      "old_id": "ASSUMED-LAYOUT-DOSER-FILL-Y",
+      "old_value": "-3/10",
+      "new_value": "-9/80",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Working transverse feeder motion follows explicit feeder Y transform",
+      "native_spreadsheet_formula": "(-0.3 * 1 m) * Sources.calc_wratio",
+      "affected_nodes": []
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-TRAVEL-A",
+      "old_id": "ASSUMED-LAYOUT-TRAVEL-A",
+      "old_value": "21/10",
+      "new_value": "2291/3600",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Full axial extent approach+work+eject, exact source formula",
+      "native_spreadsheet_formula": "Sources.calc_return",
+      "affected_nodes": []
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-TRAVEL-B",
+      "old_id": "ASSUMED-LAYOUT-TRAVEL-B",
+      "old_value": "6/5",
+      "new_value": "2291/3600",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Full axial extent approach+work+eject, exact source formula",
+      "native_spreadsheet_formula": "Sources.calc_return",
+      "affected_nodes": []
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-SHORT-A",
+      "old_id": "ASSUMED-LAYOUT-SHORT-A",
+      "old_value": "1",
+      "new_value": "17/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Separate negative fixture: half the registered ejection stroke, not a proposed machine size",
+      "native_spreadsheet_formula": "Sources.calc_eject/2",
+      "affected_nodes": []
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-SHORT-B",
+      "old_id": "ASSUMED-LAYOUT-SHORT-B",
+      "old_value": "1/2",
+      "new_value": "17/200",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Separate negative fixture: half the registered ejection stroke, not a proposed machine size",
+      "native_spreadsheet_formula": "Sources.calc_eject/2",
+      "affected_nodes": []
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-EXIT-A",
+      "old_id": "ASSUMED-LAYOUT-EXIT-A",
+      "old_value": "11/5",
+      "new_value": "1207/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
+      "native_spreadsheet_formula": "Sources.calc_chamber + (1.1 * 1 m)",
+      "affected_nodes": []
+    },
+    {
+      "cad_parameter_id": "ASSUMED-LAYOUT-CL-A-EXIT-B",
+      "old_id": "ASSUMED-LAYOUT-EXIT-B",
+      "old_value": "5/4",
+      "new_value": "523/720",
+      "unit": "m",
+      "status": "CALCULATED_FROM_ASSUMED",
+      "reason": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
+      "native_spreadsheet_formula": "Sources.calc_chamber + (0.15 * 1 m)",
+      "affected_nodes": []
+    }
+  ],
+  "rounding_audit": [
+    {
+      "id": "R3_BASE_A_CHAMBER_LENGTH",
+      "registered_float_decimal": "720486111111111/1250000000000000",
+      "model_exact_rational": "83/144",
+      "difference_m": "1/11250000000000000",
+      "meaning": "same R3 formula evaluated in rational arithmetic; no physical tolerance/energy resizing"
+    },
+    {
+      "id": "R3_BASE_A_OCCUPIED_LENGTH",
+      "registered_float_decimal": "4611111111111111/10000000000000000",
+      "model_exact_rational": "83/180",
+      "difference_m": "1/90000000000000000",
+      "meaning": "same R3 formula evaluated in rational arithmetic; no physical tolerance/energy resizing"
+    },
+    {
+      "id": "R3_BASE_A_APPROACH_STROKE",
+      "registered_float_decimal": "720486111111111/6250000000000000",
+      "model_exact_rational": "83/720",
+      "difference_m": "1/56250000000000000",
+      "meaning": "same R3 formula evaluated in rational arithmetic; no physical tolerance/energy resizing"
+    },
+    {
+      "id": "R3_BASE_A_WORK_STROKE",
+      "registered_float_decimal": "3511111111111111/10000000000000000",
+      "model_exact_rational": "79/225",
+      "difference_m": "1/90000000000000000",
+      "meaning": "same R3 formula evaluated in rational arithmetic; no physical tolerance/energy resizing"
+    },
+    {
+      "id": "R3_BASE_A_EJECT_STROKE",
+      "registered_float_decimal": "17/100",
+      "model_exact_rational": "17/100",
+      "difference_m": "0",
+      "meaning": "same R3 formula evaluated in rational arithmetic; no physical tolerance/energy resizing"
+    },
+    {
+      "id": "R3_BASE_A_RETURN_STROKE",
+      "registered_float_decimal": "6363888888888889/10000000000000000",
+      "model_exact_rational": "2291/3600",
+      "difference_m": "-1/90000000000000000",
+      "meaning": "same R3 formula evaluated in rational arithmetic; no physical tolerance/energy resizing"
+    }
+  ],
+  "recipe": {
+    "variant": "A",
+    "mode": "fixed-budget",
+    "camera_origin": [
+      "0",
+      "0",
+      "0"
+    ],
+    "old_camera_end": "11/10",
+    "new_camera_end": "83/144",
+    "feeding_X": "inside [0,old camera end] affine to new chamber length; outside translated/unchanged",
+    "feeding_Y": "affine ratio new width / old cavity width about axis",
+    "feeding_Z": "piecewise old chamber outer top -> new outer top, old pocket/doser plane retained",
+    "downstream_X": "rigid translation by new chamber length minus old length; channel length retained",
+    "frame_and_powerpack": "unchanged; interfaces require recheck",
+    "punch": "old axial thickness retained; face width/height from source; initial front X=0",
+    "rod": "diameter from R3; exposed segment ends at punch rear; internal/closed length/COTS UNKNOWN"
+  },
+  "real_REV": {
+    "dimensions": null,
+    "strokes": null,
+    "loads": null,
+    "feedstock": null,
+    "status": "UNKNOWN"
+  }
+}

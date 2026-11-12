@@ -2631,3 +2631,9 @@ rechecks:
 ## Предложение нового R4 claim — расчётно связанная компоновка после PR #39
 
 2026-11-12T13:17:33Z, R4 r4-linked-20261111. T-r4-calculated-layout-01 READY / owner NONE / PROPOSED_PENDING_MAIN. База c0053ff7f22fbc10e93efff2691ca6aa1ef90a06, точные входы/каталог и постановка verification/r4_calculated_layout/. Это предложение задачи и сверка источников, **не акт независимой проверки и не результат CAD**. Новый OUTPUT review NOT_RUN. Роль действует по пользователю, claim ждёт принятия main; прежняя ограниченная приёмка/история/геометрия не меняются. G1 OPEN, B opening/L physical INDETERMINATE, физические испытания NOT_RUN.
+
+## REV-R4-CALCULATED-LAYOUT-OUTPUT-01 — пакет на независимый OUTPUT review
+
+2026-11-12T14:32:47Z; автор r4-linked-20261111 / R4, T-r4-calculated-layout-01 IN_REVIEW. Это авторская передача/самопроверка, не акт независимого review. C кода/результатов — в следующем H. Входы R3 через PR #39, claim принят PR #40/main 0353414369e8cffdd7b4289eafd665cc35c0ee36; owner/lease проверены, срок не расширен.
+
+44 source rows применены, 478 изменений, FCStd/STEP/виды/отчёты и 833332 interval pair rows. 118 tests, 19 CAD negative, пять исходных R5 counterexamples/compounds, readonly 0/0 и strict exit2, separate repeat PASS; прежняя геометрия/инструмент unchanged. Геометрия рабочего цикла BLOCKED, output SHORT_STROKE/READY NOT_CONFIRMED; lost clamp contact UNKNOWN. Полные результаты verification/r4_calculated_layout/, запрос review_request.md. Reviewer NOT_ASSIGNED, OUTPUT review NOT_RUN. B open/L physical INDETERMINATE, G1 OPEN, испытания NOT_RUN; не приёмка конструкции и не утверждение архитектуры/ТЗ.
