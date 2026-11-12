@@ -67,7 +67,10 @@ def make_input(v):
     def zfeed(x):
         return x*height_scale if x<=F('.24') else outer_top+(x-F('.24'))*(F('.62')-outer_top)/F('.38') if x<F('.62') else x
     def lit(x):
-        x=F(x);return f'({x.numerator} / {x.denominator} * 1 m)'
+        # FreeCAD's expression number tokens have finite precision. Large
+        # Fraction integer tokens can overflow/round before their division.
+        # Preserve exact rationals in JSON; serialize one finite SI decimal.
+        return f'({float(F(x))!r} * 1 m)'
     def xexpr(x):return lit(x) if x<0 else f'{lit(x)} * Sources.calc_xratio' if x<=oldend else f'({lit(x)} + Sources.calc_chamber - {lit(oldend)})'
     def zexpr(x):return f'{lit(x)} * Sources.calc_hratio' if x<=F('.24') else f'(Sources.calc_top + ({lit(x)} - {lit(F(".24"))}) * ({lit(F(".62"))} - Sources.calc_top) / {lit(F(".38"))})' if x<F('.62') else lit(x)
     def set_box(c,lo,hi,why,el=None,eh=None):
