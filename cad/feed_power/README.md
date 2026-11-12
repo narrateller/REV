@@ -31,3 +31,19 @@ Verifier проверяет сохранённые manifest/каталог/хэ�
 До генерации в копии проверяемого C сохранить исходные артефакты и запустить verifier дважды. Затем отдельная явная генерация и проверка. Временные JSON/логи направлять за пределы cad/feed_power и cad/build/feed_power; незарегистрированный файл внутри package даёт отказ каталога.
 
 Весь пресс не принят, whole press READY INDETERMINATE. Остальные касания, оболочки и UNKNOWN видимы. Архитектура и ТЗ не утверждены; физические испытания NOT_RUN; G1 OPEN.
+
+## Исправление R5-FP-NEW-B01
+
+Входной акт `2592b470940cea886e033a999c889c15a92889f6` отклонил новый adapter из-за stale semantic evidence при изменённой траектории. Новая проверка пересчитывает все текущие пары/интервалы и заявленный состав/план движения; полный cached matrix/evidence/classification/assessment должен совпасть со свежим расчётом. `changed_body_IDs` выводится из текущих inputs, все пары сервисов обязательны, moving sets выводятся из реальных delta/method. Manifest hash этого не заменяет.
+
+```bash
+# Чистый расчёт текущих сервисов, JSON/exit без записи:
+/usr/bin/python3 -B cad/feed_power/service_semantics.py
+# Явная повторная генерация только semantic evidence/report, CAD не сохраняется:
+/usr/bin/python3 -B cad/feed_power/generate.py --reanalyze
+# Отдельная readonly проверка полного сохранённого пакета:
+/usr/bin/python3 -B cad/feed_power/verify_output.py
+/usr/bin/python3 -B cad/feed_power/verify_output.py
+```
+
+`CONFIRMED_NO_POSITIVE_VOLUME` — только геометрия полного пути в поддерживаемой модели, не физическое разрешение. Подтверждённый collision даёт BLOCKED, unknown/unsupported mandatory условие — INDETERMINATE; известный blocking дефект сохраняется и при одновременном unknown. Успех команды/negative expectation отделён от `limited_geometry_success`. Общий сервис и физическая выполнимость L-пути остаются INDETERMINATE. Составные ошибки и пять исходных R5 случаев — `test_service_semantics.py` и verification/r4_fp_fix/; B01 OPEN до независимого RECHECK.

@@ -27,6 +27,15 @@ def critical_pair(pair,changed):
     return bool(set(pair)&(changed|OLD_CRITICAL|{'doser_slide','pump_motor','hydraulic_tank'})) or tuple(pair) in LEGACY or tuple(pair) in {tuple(sorted(p)) for p in TARGETS}
 
 
+def changed_bodies(data):
+    old=load(ROOT/'cad/frame_mount/inputs.assumed.json');before={c['id']:c for c in old['components']}
+    return {c['id'] for c in data['components'] if c['id'] not in before or bounds(data,c)!=bounds(old,before[c['id']])}
+
+
+def mandatory_pair(scene,pair,changed):
+    return scene['case'].startswith('service_') or critical_pair(pair,changed)
+
+
 def save(path,data):Path(path).write_text(json.dumps(data,indent=2)+'\n')
 
 
@@ -88,18 +97,17 @@ def verify_manifest():
     return len(files)
 
 
-def geometry(data,scenes):
+def geometry(data,scenes,evaluator=None):
     """All pair coverage; exact interval audit of every new/old critical pair."""
-    old=load(ROOT/'cad/frame_mount/inputs.assumed.json');before={c['id']:c for c in old['components']}
-    changed={c['id'] for c in data['components'] if c['id'] not in before or bounds(data,c)!=bounds(old,before[c['id']])}
+    changed=changed_bodies(data)
     target={tuple(sorted(p)) for p in TARGETS};rows=[];positive=[];counts={};total=0;previous=0
     for s in scenes:
         for st in s['stages']:
             expected=list(itertools.combinations(sorted(st['state']),2));assert [tuple(r['pair']) for r in st['pairs']]==expected,'matrix coverage'
             total+=len(expected)
             for pair in expected:
-                if not critical_pair(pair,changed):continue
-                proof=strict_interval(*(st['state'][n] for n in pair));counts[proof['status']]=counts.get(proof['status'],0)+1
+                if not mandatory_pair(s,pair,changed):continue
+                proof=evaluator.proof(*(st['state'][n] for n in pair)) if evaluator else strict_interval(*(st['state'][n] for n in pair));counts[proof['status']]=counts.get(proof['status'],0)+1
                 r={'variant':s['variant'],'case':s['case'],'phase':st['phase'],'pair':pair,**proof};rows.append(r)
                 if pair in target:
                     previous+=1;assert proof['status']!='POSITIVE_BOUND_OVERLAP',('old target regression',r)

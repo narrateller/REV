@@ -3,6 +3,7 @@ import collections,subprocess,sys,os
 sys.dont_write_bytecode=True
 os.environ['PYTHONDONTWRITEBYTECODE']='1'
 from common import *
+from service_evidence import *
 
 
 def functional(data,scenes):
@@ -44,6 +45,7 @@ def functional(data,scenes):
 
 
 def main():
+    semantics=None;evaluator=None
     try:
         n=verify_manifest();frozen=freeze();data=load(INPUT);generation=json.loads((OUT/'generation.json').read_text());assert generation['execution']=={'status':'COMPLETED','exit_code':0}
         assert generation['input_sha256']==digest(INPUT)
@@ -52,10 +54,8 @@ def main():
         work=read_packed(OUT/'raw_checked_tool/all_pairs.json.gz');suite=evaluate_suite(work,data);assert suite['status']=='PASS' and suite==json.loads((OUT/'cycles.json').read_text())
         assert verify_cycles(work,data)==json.loads((OUT/'cycle_assertions.json').read_text())
         all_services=read_packed(OUT/'service_scenes.json.gz');assert len(all_services)==22
-        for s in all_services:
-            assert s['continuity_status']=='CONTINUOUS' and s['positions_restored']
-            assert checked.continuity_status(checked.assess_continuity(s['stages'],[]))=='CONTINUOUS'
-            initial=s['stages'][0]['state'];last=checked.advance(s['stages'][-1]['state']);assert set(initial)==set(last) and all(initial[k]['lo']==last[k]['lo'] and initial[k]['hi']==last[k]['hi'] for k in initial)
+        evaluator=Evaluator(data,OUT);semantics=evaluate_services(data,all_services,evaluator);require_expected(semantics)
+        derived=verify_derived(data,work,all_services,semantics,evaluator)
         scenes=work+all_services;coverage=0
         for s in scenes:
             for st in s['stages']:
@@ -77,11 +77,11 @@ def main():
         assert all(r['disposition']=='BLOCKED_LEGACY_STRAIGHT_UP' for r in remaining)
         evidence=json.loads((OUT/'interval_evidence.json').read_text());assert evidence['all_pair_rows']==coverage
         rows=read_packed(OUT/'interval_rows.json.gz');assert len(rows)==evidence['audited_critical_rows']
-        changed=set(evidence['changed_body_IDs']);cursor=0
+        changed=changed_bodies(data);assert evidence['changed_body_IDs']==sorted(changed);cursor=0
         for s in scenes:
             for st in s['stages']:
                 for pair in itertools.combinations(sorted(st['state']),2):
-                    if not critical_pair(pair,changed):continue
+                    if not mandatory_pair(s,pair,changed):continue
                     assert cursor<len(rows),'missing critical row'
                     r=rows[cursor];cursor+=1
                     assert (r['variant'],r['case'],r['phase'],tuple(r['pair']))==(s['variant'],s['case'],st['phase'],pair),'critical interval coverage/order/duplicate'
@@ -100,9 +100,11 @@ def main():
             assert not s['target_penetration_rows']
             if s['case'].startswith('service_') and s['case']!='service_doser_slide':assert not s['service_moving_penetrations']
         functions=functional(data,scenes)
-        print(json.dumps({'status':'PASS','scope':'new R4 adapter requires independent review; not whole press acceptance','publication_files':n,'frozen_modules_unchanged':len(frozen['sha256']),'native_CAD':{v:{'solids':x['solid_count'],'queries':x['query_count'],'status':x['status']} for v,x in actual.items()},'all_pair_rows':coverage,'static_pairs_removed':14,'remaining_native_pairs':6,'remaining_status':'BLOCKED legacy straight UP, no positive overlap on new ASSUMED service routes; actual service feasibility INDETERMINATE','service_sequences':22,'functions':functions,'whole_press_READY':'INDETERMINATE','physical_parameters':'UNKNOWN','physical_trials':'NOT_RUN','G1':'OPEN'},indent=2));return 0
+        print(json.dumps({'status':'PASS','execution':{'status':'COMPLETED','exit_code':0},'test_evaluation':'PASS','service_semantics':semantics,'derived_evidence':derived,'scope':'new R4 adapter requires independent review; not whole press acceptance','publication_files':n,'frozen_modules_unchanged':len(frozen['sha256']),'native_CAD':{v:{'solids':x['solid_count'],'queries':x['query_count'],'status':x['status']} for v,x in actual.items()},'all_pair_rows':coverage,'static_pairs_removed':14,'remaining_native_pairs':6,'remaining_status':'BLOCKED legacy straight UP, no positive overlap on new ASSUMED service routes; actual service feasibility INDETERMINATE','service_sequences':22,'functions':functions,'whole_press_READY':'INDETERMINATE','physical_parameters':'UNKNOWN','physical_trials':'NOT_RUN','G1':'OPEN'},indent=2));return 0
     except Exception as e:
-        print(json.dumps({'status':'FAIL','reason':str(e) or repr(e),'whole_press_READY':'INDETERMINATE','G1':'OPEN'},indent=2));return 1
+        print(json.dumps({'status':'FAIL','execution':{'status':'COMPLETED','exit_code':1},'test_evaluation':'FAIL','service_semantics':semantics or {'calculation_execution':'NOT_COMPLETED'},'reason':str(e) or repr(e),'whole_press_READY':'INDETERMINATE','G1':'OPEN'},indent=2));return 1
+    finally:
+        if evaluator:evaluator.close()
 
 
 if __name__=='__main__':sys.exit(main())
