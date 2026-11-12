@@ -27,12 +27,25 @@ ID после создания не меняется. Для параллель�
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
 | T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
 | T-r4-calculated-layout-01 | TASK | P2 | @R4 | READY | NONE | PR #39 / BASE_A, BASE_B fixed-budget; claim PROPOSED_PENDING_MAIN | G1 |
+| T-r4-cycle-contract-01 | TASK | P1 | @R4 | READY | NONE | CYC-01 + early CYC-08/09; PR #42 / R5 e69a8af; claim PROPOSED_PENDING_MAIN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
 | T-r3-safety-01-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | принята документальная карта с WARNING, PR #18; B03 OPEN | G1 |
 | T-r3-norms-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | документальная карта с WARNING; применимость не установлена | G1 |
 | T-r3-compaction-measure-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; R5-COMP-W03/W04 OPEN | G1 |
+
+## T-r4-cycle-contract-01 — материальный контракт и ранние CYC-08/09
+
+- TASK, P1, адресат @R4; статус READY; **owner_session: NONE**, claim_acceptance PROPOSED_PENDING_MAIN. Предлагаемый owner r4-linked-20261111 / Codex / R4; роль и новое документальное поручение подтверждены пользователем, принятие нового claim не заявляется.
+- base_commit: b1a4e398741b84d482c96f00a605e98b720ff929 (PR #42); branch: work-r4/T-r4-cycle-contract-01/r4-linked-20261111. assignment_utc / heartbeat_utc: 2026-11-12T18:16:39Z; proposed lease_expires_at: **2026-11-13T18:16:39Z**. Новый срок только для новой документальной задачи; прежние claims/сроки не расширяются. На момент preflight новый task отсутствовал в main, другого принятого owner не найдено.
+- Основание отдельного scope: старый T-r4-calculated-layout-01 — CAD BASE_A/B по численным R3 входам; его принятый claim PR #40 действует до 2026-11-13T13:17:33Z, owner тот же. Последующая карта цикла и R5 требуют отдельного назначения до материального/resource/READY контракта, не общего rebuild. Старый CAD C 3591a5f92f78b1edea07d3fc5354fd0a99090798 остаётся отдельным кандидатом, не интегрируется этой задачей.
+- Immutable inputs: цикл/приоритеты C 43f03359fabe2b664935b17f9ac7851504093ece, акт e69a8afbe4df3d53c4cc8b5883319e00eb8130af REV-R5-R3-CYCLE-TRACE-01-001, decisions/PR42-CYCLE-TRACE-INTEGRATION.md и обе передачи R3 на c115f75fd900525d9ddc89d85e097ac5a0f00bc1. Точные blobs/SHA-256 и protected trees в verification/r4_cycle_contract/preflight.json. CAD-контекст — declared coordinates / author witnesses, independent native NOT_RUN, не доказанная этой задачей геометрия.
+- Исполнимое задание/критерии: verification/r4_cycle_contract/task.md; claim.md. После принятия main/owner/lease/ancestry/входы повторно проверить, оформить входной акт. До принятия контракт/черновики NOT_STARTED; сейчас подготовлены только scope, источники/защита, задача/claim.
+- Output после принятия: CYC-01 A empty/startup/column/steady/outgoing/retained и B load/repeated gather/compact/eject/residual, одна массовая/влажностная база и ledger; события/guards/непрерывность/обоснованный receiver и REMOVE только после приёма. Ранний CYC-08 — все стадии/перекрытия/потребители, неизвестные t/P/Q не нули, старый main-axis budget не полный цикл. Ранний CYC-09 — READY по узлам и материалу, не одному возврату. Конкретные условно допустимые/запрещённые/UNKNOWN примеры и вопросы R2/R3 с владельцем функции/основанием/блокируемым guard, без выдуманных ответов.
+- «Согласованный» означает внутреннюю согласованность пакета с принятой картой; без ответов R2/R3 и независимого review не объявлять межролевую приёмку. CYC-01…09 и R5-CYCLE-W01/W02 OPEN до отдельных действий. Итоговые CYC-08/09, CYC-02…07 и actual CAD проверки за пределами реализации этой задачи; связи/следующие требования описываются, не закрываются.
+- Ограничения: только документы/учёт/проверки целостности. Никаких изменений расчётов/CAD/их кодов/params/tests/evidence, solver/build/reanalysis/общего rebuild. Новых численных значений/уставок/нулевых подстановок нет; UNKNOWN и ASSUMED раздельны. Архитектура/ТЗ/оборудование не утверждаются, физические испытания NOT_RUN, G1 OPEN. Независимый OUTPUT review нового контракта NOT_RUN.
+- Handoff: handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md (следующий H со ссылкой на C предложения). Первый шаг координатора — последовательное принятие claim в main; автор main не меняет.
 
 ## T-r4-calculated-layout-01 — расчётно связанная исследовательская компоновка A/B
 
