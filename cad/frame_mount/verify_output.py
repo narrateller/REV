@@ -1,10 +1,13 @@
 """Read-only self-check of published geometry and reports. Requires R5 review.
 
-No files under the reviewed tool or historical CAD/evidence are modified.
-Only a separate final_checks/publication_manifest is emitted after assertions.
+No manifest, input, CAD, report or evidence is written on success or failure.
+Emit a deterministic JSON result on stdout; use generate.py explicitly to build.
 """
-import collections,gzip,json,subprocess,sys
+import collections,gzip,json,os,subprocess,sys
 from pathlib import Path
+sys.dont_write_bytecode=True
+os.environ['PYTHONDONTWRITEBYTECODE']='1'
+from publication import verify_manifest
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'cad/layout_correction'))
 sys.path.insert(0,str(ROOT/'cad/layout'))
@@ -15,10 +18,12 @@ from verify_cycles import verify_cycles
 
 
 def main():
-    out=ROOT/'cad/build/frame_mount';verification=ROOT/'verification/r4_frame_mount';data=load(ROOT/'cad/frame_mount/inputs.assumed.json')
+    out=ROOT/'cad/build/frame_mount';verification=ROOT/'verification/r4_frame_mount'
     def read(p):return json.loads(Path(p).read_text())
     report={'scope':'R4 self-check; independent R5 NOT_RUN','whole_press_READY':'INDETERMINATE','G1':'OPEN'}
     try:
+        publication=verify_manifest(ROOT)
+        data=load(ROOT/'cad/frame_mount/inputs.assumed.json')
         run=read(out/'run.json');proof=read(out/'geometry_evidence.json');assessment=read(out/'assessment.json');inventory=read(out/'inventory/inventory.json');interval=read(out/'interval_evidence.json')
         assert run['execution']=={'status':'COMPLETED','exit_code':0} and run['test_evaluation']['status']=='PASS'
         assert run['input_sha256']==digest(ROOT/'cad/frame_mount/inputs.assumed.json')
@@ -80,14 +85,13 @@ def main():
         p=subprocess.run(['git','diff','--exit-code','04efe5703e339112b7d007665b9f3672f0572d37','--',*protected],cwd=ROOT,capture_output=True,text=True)
         assert p.returncode==0,('historical code/geometry/review changed',p.stdout[:1000])
         report.update({'status':'PASS','execution':{'status':'COMPLETED','exit_code':0},'test_evaluation':{'status':'PASS'},'reviewed_modules_unchanged':len(frozen['sha256']),'native_CAD':{v:{'solids':r['solid_count'],'queries':r['query_count'],'status':r['status']} for v,r in actual_cad.items()},'all_pair_rows':total,'finite_inventory_rows':len(inventory['rows']),'changed_group_rows':proof['changed_group_rows'],'changed_group_counts':proof['changed_group_counts'],'target_regression_rows':proof['previous_target_rows'],'cylinder_service_rows':proof['cylinder_service_rows'],'full_service_sequences':len(proof['service_sequences']),'native_before_after_pairs':len(proof['before_after_native']),'native_interfaces':len(joints),'remaining_native_penetration_pairs':len(remaining),'design_counterexample_controls':[{'pair':list(p),'full_interval_rows':n} for p,n in controls.items()],'historical_code_CAD_reviews_probes':'UNCHANGED from 04efe57','commands':['/usr/bin/python3 cad/frame_mount/run.py','/usr/bin/python3 cad/frame_mount/geometry_evidence.py','/usr/bin/python3 cad/frame_mount/figures.py','/usr/bin/python3 cad/frame_mount/report.py','/usr/bin/python3 cad/frame_mount/verify_output.py']})
-        (verification/'final_checks.json').write_text(json.dumps(report,indent=2)+'\n')
-        paths=sorted([p for folder in (ROOT/'cad/frame_mount',out,verification) for p in folder.rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.name not in ('publication_manifest.json',)])
-        (out/'publication_manifest.json').write_text(json.dumps({'scope':'source and saved artifacts; manifest itself excluded to avoid self hash','sha256':{str(p.relative_to(ROOT)):digest(p) for p in paths}},indent=2)+'\n')
-        print('R4 self-check PASS; whole press INDETERMINATE, 20 native penetration pairs OPEN, independent R5 required.');return 0
+        report['publication']=publication
+        report['commands']=['/usr/bin/python3 cad/frame_mount/generate.py','/usr/bin/python3 cad/frame_mount/verify_output.py']
+        print(json.dumps(report,indent=2));return 0
     except Exception as e:
         reason=str(e) or repr(e)
         report.update({'status':'FAIL','execution':{'status':'COMPLETED','exit_code':1},'reason':reason})
-        (verification/'final_checks.json').write_text(json.dumps(report,indent=2)+'\n');print('SELF-CHECK FAILED: '+reason,file=sys.stderr);return 1
+        print(json.dumps(report,indent=2));print('SELF-CHECK FAILED: '+reason,file=sys.stderr);return 1
 
 
 if __name__=='__main__':sys.exit(main())

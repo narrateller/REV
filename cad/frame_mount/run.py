@@ -203,7 +203,11 @@ def main():
             check_cad_adapter(data,Path(tmp),INPUT)
         freeze()
         report={'execution':{'status':'COMPLETED','exit_code':0},'test_evaluation':{'status':suite['status'],'scope':'eight limited cycle expectations, not whole assembly'},'geometry':{'changed_group_positive_overlap_rows':len(interval['changed_body_positive_overlap_rows']),'previous_target_positive_overlap_rows':len(interval['previous_target_positive_overlap_rows']),'whole_press_READY':'INDETERMINATE'},'review_status':'REQUIRES_INDEPENDENT_R5','input_commit':'17501de','input_sha256':digest(INPUT),'frozen_tool':json.loads(FROZEN.read_text()),'commands':commands,'repeat':repeat,'native_cad':'PASS: actual FCStd/STEP/all QueryVolumes; see native_cad_validation.json','body_inventory':{v:{'before':len(selected(baseline,v)),'after':len(selected(data,v)),'all_original_IDs_retained':True} for v in 'AB'},'remaining_inventory':after['summary'],'source_hashes':{str(p.relative_to(ROOT)):digest(p) for p in sorted((ROOT/'cad/frame_mount').glob('*')) if p.is_file()},'raw_metadata_caveat':'hardcoded frozen checker source_commit_inputs/known_native_penetrations/tool_blockers are historical; use current input hash and this run','physical_parameters_and_safety':'UNKNOWN','G1':'OPEN'}
-        report['artifacts']={str(p.relative_to(out)):digest(p) for p in sorted(out.rglob('*')) if p.is_file() and p.name not in ('run.json','failed_run.json')}
+        # Hash only artifacts produced by THIS stage. Later evidence/figure/
+        # human report/generation/manifest outputs must not feed back into run.
+        owned=[p for directory in ('A','B','raw_checked_tool','inventory') for p in (out/directory).rglob('*') if p.is_file()]
+        owned += [out/name for name in ('native_cad_validation.json','strict_cycles.json','cycle_assertions.json','work_and_module_service.json.gz','assessment.json','classifications.jsonl.gz','service_scenes.json.gz','interfaces.json','interval_evidence.json')]
+        report['artifacts']={str(p.relative_to(out)):digest(p) for p in sorted(owned)}
         save(out/'run.json',report); print(json.dumps({'execution':report['execution'],'test_evaluation':report['test_evaluation'],'geometry':report['geometry'],'remaining':after['summary']}));return 0
     except Exception as e:
         failure={'execution':{'status':'FAILED','exit_code':1},'error':str(e),'commands':commands,'test_evaluation':suite,'whole_press_READY':'INDETERMINATE'}

@@ -17,14 +17,24 @@ R4 / r4-linked-20261111, T-r4-layout-build-01. Продолжение `66924aed1
 
 ```bash
 git lfs pull
-/usr/bin/python3 cad/frame_mount/run.py
-/usr/bin/python3 cad/frame_mount/geometry_evidence.py
-/usr/bin/python3 cad/frame_mount/figures.py
-/usr/bin/python3 cad/frame_mount/report.py
-/usr/bin/python3 cad/frame_mount/verify_output.py
+/usr/bin/python3 -B cad/frame_mount/generate.py
+/usr/bin/python3 -B cad/frame_mount/verify_output.py
+/usr/bin/python3 -B cad/frame_mount/verify_output.py
 ```
 
-FCStd и STEP нужно материализовать из LFS **до** проверки. `run.py` повторно строит модель и создаёт свои manifests; `verify_output.py` читает уже сохранённые результаты и заново проверяет actual CAD, все пары и сохранность истории. Он не перегенерирует геометрию перед проверкой. `publication_manifest.json` фиксирует код и сохранённые артефакты, кроме собственного файла; после воспроизведения служебные бинарные данные/временные пути могут отличаться, semantic/native сравнение выполняется заново.
+FCStd и STEP нужно материализовать из LFS **до** проверки. `generate.py` — отдельная явная команда: run → geometry_evidence → figures → report → generation.json → publication_manifest.json. Run хэширует только собственные выходы, не предыдущий publication manifest и не файлы последующих стадий. Manifest версии 2 включает сохранённые исходники/входы/CAD/evidence; сам manifest исключён из собственного списка хэшей.
+
+`verify_output.py` **ничего не записывает**: читает уже сохранённый manifest, проверяет полный каталог/хэши, actual CAD/STEP/все QueryVolumes, матрицы и доказательства, печатает детерминированный JSON в stdout и возвращает exit code. Два последовательных вызова должны дать одинаковый JSON/exit, сохранив байты и mtime проверяемых файлов. Missing/corrupt/stale файлы отклоняются без исправления. Старый `verification/r4_frame_mount/final_checks.json` — сохранённая история исходного C; verifier его больше не обновляет. При необходимости сохранять stdout внешним перенаправлением за пределами проверяемого каталога (например, `/tmp/verify-frame.json`).
+
+После явной повторной генерации возможны отличия бинарных служебных данных FCStd/STEP и временных путей run.json. Проверяются неизменность геометрических/сценарных доказательств и native семантика, а не одинаковый бинарный сериализационный штамп. B01 входного акта `0b4788dd36f811e4acb202b96d6a76a6a06b63ad` остаётся OPEN до независимого RECHECK.
+
+Полная регрессия процесса выпуска в отдельном локальном материализованном checkout (две генерации поверх существующего пакета, по два verifier, missing/corrupt/stale fixtures):
+
+```bash
+/usr/bin/python3 -B cad/frame_mount/regress_verifier.py
+```
+
+Результаты — `verification/r4_frame_fix/regressions/results.json`, команды/полные JSON stdout и снимки файлов рядом. Скрипт тестов сам вводит/восстанавливает faults в изолированной копии; verifier их не исправляет. Исходный probe R5 со старыми assertions сохранён: его exit 0 фиксирует дефект, а не исправление.
 
 Прежние 83 теста сохранены и прошли; пять новых тестов supplementary inequality audit:
 
