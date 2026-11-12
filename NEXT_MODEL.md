@@ -1,3 +1,21 @@
+# Актуальная эстафета — дозатор и гидростанция A/B
+
+- HANDOFF / IN_REVIEW; 2026-11-12T01:34:06Z; R4 r4-linked-20261111. **Code/results C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`**, REMOTE в work-r4/build-layout/r4-linked-20261111. H только учёт/эстафета, проверять неизменяемый C.
+- Входы a5d5bad6dd8928045512bca16836fd1d2544b7ca и независимый RECHECK c2e96a58d7efd64ea3364b2bcbfb3f0642bbc430. Старый R5-FRAME-NEW-B01 CLOSED в его области; новый FP результат не принят автоматически, OUTPUT review NOT_RUN.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, owner_session r4-linked-20261111; claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/пользователем, lease до 2026-11-12T18:06:24Z (21:06 МСК) без продления. Scope прежней all-press задачи достаточен; исторический учёт NONE/PENDING main координатор сверяет до интеграции.
+- ASSUMED rev8 заморожен до построения на 450e869. 14 статических native penetration пар устранены (collar/doser/hopper mounts и tank/motor A/B); 6 legacy straight-UP doser/hopper пар остаются доказанными BLOCKED и видимыми. Новый side→UP→DOWN→return проверен геометрически, реальный actuator extra stroke/отсоединение/подъём UNKNOWN, actual feasibility INDETERMINATE. Не заявлять устранение всех 20 или принятие legacy UP.
+- Дозаторные боковины/лотки/направляющие сохраняют cap UP corridor; motor end-face mounts и tank brackets связаны номинальными faces с frame. Все old ID сохранены, A91/B89. Рабочие doser/punch/rod/cylinder/gate/lock/stop и прежние config/strokes не менялись. 62 новых +58 прежних conditional native interfaces не подтверждают прочность/реальный крепёж/радиальную фиксацию.
+- Все 34 прежних checked Python-модуля/old CAD/reviews/probes неизменны. Новые cad/feed_power adapters — отдельный объект review. Actual CAD/STEP/all canonical queries/repeat/edit/reopen/PNG/eight strict cycle expectations PASS; canonical DoserRemoval намеренно остаётся старым BLOCKED UP, новый L-route проверен posed bodies/full intervals, не новым native query.
+- 638919 all-pair строк; 507043 critical rows: 506934 no-positive, 97 INDETERMINATE controls, 12 positive legacy UP/DOWN. 878 старых target rows без регрессии; 22 continuous/restored сервиса, 8 новых без positive moving overlap. 102 tests и 18 package-regression случаев/20 команд PASS, 16 faults rejected without auto repair, включая updated-hash сокрытие остатка/evidence. Два readonly verifier идентичны и не изменяют пакет.
+- Конечный inventory: 557 non-CLEAR пар, 6 native BLOCKED legacy UP, 2 envelope controls, 15 old-policy synthetic contacts, 534 INDETERMINATE. Условные новые nominal contacts объяснены в interfaces.json без новой разрешающей policy. Весь пресс READY INDETERMINATE, задача не DONE. R4-FP-SERVICE-01 OPEN до реальных service/actuator данных; положительные collision не переименованы в uncertainty.
+- Файлы/команды: cad/feed_power/README.md, cad/build/feed_power/assessment.md и A/B, verification/r4_feed_power/README.md/final_checks.json; запрос review_request.md. Полные причины, bounds/ID@revision, native before/after всех 20 пар, виды/FCStd/STEP, classifications/matrices/intervals сохранены. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Следующий независимый R5: checkout C, materialize LFS, сохранить оригинал, verifier дважды до генерации; затем separate clone/gen/verify и независимая проверка новых services, стыков, всех шести remaining и regressed groups. Критерий — новый OUTPUT акт в ограниченной области и оценка новых wrappers; интеграция координатором отдельно. Merge не выполнен.
+- Реальные параметры/сырьё/физика/безопасность UNKNOWN, условные размеры ASSUMED; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN. C REMOTE, 12 новых LFS объектов загружены.
+
+---
+
+История прежних эстафет ниже:
+
 # Актуальная эстафета — RECHECK readonly verifier
 
 - HANDOFF / IN_REVIEW; 2026-11-12T00:36:54Z; R4 r4-linked-20261111. **Code/results C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`**, REMOTE, ветка work-r4/build-layout/r4-linked-20261111. H только эстафета/учёт, проверять неизменяемый C.

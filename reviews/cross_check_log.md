@@ -2296,3 +2296,5 @@ supersedes: null
 
 - Автор R4 r4-linked-20261111; новый reviewer/result NOT_ASSIGNED/NOT_RUN. Входной RECHECK c2e96a58d7efd64ea3364b2bcbfb3f0642bbc430 закрывает прежний B01 в его области. Новая геометрия/FP wrappers не принимаются автоматически.
 - 14 static native pairs removed, 6 legacy doser-UP BLOCKED retained; proposed actual service INDETERMINATE (UNKNOWN actuator/rigging). Все 34 checked модуля unchanged, 102 tests/18 package regression cases PASS. Сводка verification/r4_feed_power/final_checks.json, запрос review_request.md; точный C следующей эстафетой. Whole press READY INDETERMINATE, физические испытания NOT_RUN, G1 OPEN.
+
+Неизменяемый объект REV-R4-FEED-POWER-OUTPUT-01: C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`, REMOTE. H только эстафета, reviewer/result NOT_ASSIGNED/NOT_RUN. Область 14 static fixes, 6 legacy BLOCKED, proposed actual service INDETERMINATE. G1 OPEN.

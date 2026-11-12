@@ -1,6 +1,16 @@
 # STATE — панель проекта
 
-## Текущий результат R4 — readonly verifier (2026-11-12T00:36:54Z)
+## Текущий результат R4 — дозатор/гидростанция (2026-11-12T01:34:06Z)
+
+T-r4-layout-build-01 IN_REVIEW, **C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`**, REMOTE. База a5d5bad, RECHECK c2e96a5 закрывает прежний B01 только в его области. Новый FP OUTPUT review NOT_RUN; весь пресс не принят.
+
+ASSUMED rev8 заморожен до построения на 450e869. 14 static native пар устранены; 6 legacy doser-UP native пар остаются BLOCKED, предложенный side/lift path геометрически свободен, реальный дополнительный ход/подъём INDETERMINATE из-за UNKNOWN данных. R4-FP-SERVICE-01 OPEN. Не заявлять все 20 устранёнными. Сохранены все old ID, A91/B89; 62 новых и 58 прежних conditional interfaces, реальные силы/крепления UNKNOWN.
+
+638919 all-pair/507043 critical rows, 878 прежних target rows без регрессии. 22 continuous/restored сервиса, 8 новых без positive overlap; 102 tests/18 package-regression cases PASS, 16 faults rejected без записи/auto repair. Actual native/STEP/канонические queries/repeat проверены; старый DoserRemoval всё ещё blocked UP. 34 прежних Python-модуля и old CAD/review/probes неизменны; новые FP wrappers отдельно для review. Генерация и readonly verifier отдельно.
+
+Конечный список 557 non-CLEAR пар с 6 native legacy penetrations и всеми INDETERMINATE/оболочками сохранён. **Whole press READY INDETERMINATE**. Main/claim/lease проверены, scope/срок не расширены, нормализация исторического учёта main координатором до интеграции. Файлы/команды cad/feed_power/, cad/build/feed_power/, verification/r4_feed_power/. Текущая капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md, NEXT_MODEL.md. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, реальные UNKNOWN/условные ASSUMED, G1 OPEN; merge не выполнялся.
+
+## История результата R4 — readonly verifier (2026-11-12T00:36:54Z)
 
 T-r4-layout-build-01 IN_REVIEW, **C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`**, REMOTE. Входной акт R5 0b4788d: ограниченная геометрическая группа принята с WARNING, новый процесс выпуска отклонён по R5-FRAME-NEW-B01. Исправление передано на независимый RECHECK (NOT_RUN), B01 OPEN.
 
