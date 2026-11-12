@@ -1,3 +1,15 @@
+# Условный расчёт REV — R3, результат на независимой проверке
+
+T-r3-parametric-sizing-01 IN_REVIEW, owner r3-sizing-20261112 / Codex / R3; 2026-11-12T09:08:47.900489+00:00. **Code/results C `8a1ad4199fea09d1157972d7aa28eaad1e8e0337`**; этот последующий H содержит только эстафету/статус/запрос review. Claim `5fdc50bbc8e83241ad2f8754860a503f5de9f418` принят PR #38 на main `8867521a83bd4608886d81678683ea89cce7e4a3`, lease до 2026-11-13T08:50:42Z, не продлён. Исторические NONE/PENDING/NOT_STARTED ниже относятся к состоянию до принятия.
+
+Вход R2 `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50`, R5 `81e5dba4bb47cf8a552b3eb55733454ac4f9742d` ACCEPT_WITH_WARNING только для исходной базы. Отдельные копии/хэши входов сохранены. Восемь выбранных ASSUMED-сценариев, 696 CALCULATED scalar outputs; реальные UNKNOWN null, новых VERIFIED/LOCKED нет. Камера/доза/ходы, нагрузка, обе полости/направления цилиндра, Q/v/t/P/E, A удержание и B разгрузка/выдача разобраны в verification/r3_parametric_sizing/.
+
+При исходных временах все наборы превышают выбранный электрический бюджет; более длительный бюджет вычислен условно. D/d — нижняя геометрия из заданного отношения штока, не подбор/прочность. B opening и whole-cycle feasibility INDETERMINATE. Полная проверка ПО 86 tests OK, реестр --check-git PASS, два readonly пересчёта идентичны, 34 проверенных файла без изменения SHA/mtime/size. Это не независимый инженерный review.
+
+Следующий шаг: независимый R5 проверяет **C**, не переносит старый акт на новый код; запрос verification/r3_parametric_sizing/review_request.md, результаты/таблицы report.md, formulas model.md, R4 входы r4_inputs.md; капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md. После R5 — отдельное решение координатора об интеграции, без самоприёмки. G1 и прежние блокеры OPEN, конкретные цилиндр/насос и архитектура/ТЗ не утверждены, physical tests NOT_RUN.
+
+---
+
 # Ожидает принятия: отдельный claim условного расчёта R3
 
 T-r3-parametric-sizing-01 READY / PROPOSED_PENDING_MAIN; owner_session NONE, proposed owner r3-sizing-20261112 / R3 / Codex. Постановка и claim C `5fdc50bbc8e83241ad2f8754860a503f5de9f418`; main при сверке `680946b8abba9d921c5723b523be573554c15eca`. Входы R2 `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50`, R5 `81e5dba4bb47cf8a552b3eb55733454ac4f9742d` (ACCEPT_WITH_WARNING) доступны в Git, в main ещё не интегрированы.
