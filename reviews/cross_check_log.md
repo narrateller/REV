@@ -3087,3 +3087,142 @@ supersedes: null
 ### Неизменяемый C и публикация документального результата
 
 2026-11-12T19:19:04.799073+00:00: C 3cf32daef67a91f393b808adb0dc07ba4c73cac2 REMOTE, work-r4/T-r4-cycle-contract-01/r4-linked-20261111. Проверки авторской согласованности/целостности сохранены в document_checks.json, integrity_checks.json, publication_checks.json; registry --check-git PASS / engineering acceptance NOT assessed. Следующий H только учёт/эстафета. Независимый review NOT_RUN, CYC/R5-CYCLE-W01/W02 OPEN, G1 OPEN. Никаких расчётных/CAD/rebuild/physical изменений.
+
+
+## REV-R5-R4-CYCLE-CONTRACT-01-001 — контракт материала/READY
+
+Акт: [review.md](../verification/r5_r4_cycle_contract_review/review.md). Результат REJECT_WITH_BLOCKER для binding-контракта; журнал/ресурсы как черновики WARNING, расчёты/CAD сохранены.
+
+```yaml
+record_type: review
+review_id: REV-R5-R4-CYCLE-CONTRACT-01-001
+kind: OUTPUT
+task_id: T-r4-cycle-contract-01
+created_at_utc: '2026-11-12T21:01:16.648611Z'
+reviewer:
+  role: R5
+  session_id: 6af41aff-4210-8191-94a3-5d9c4bd75076
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-linked-20261111
+independence_basis: Reviewer не автор контракта; отдельная трёхзначная модель и символические material-set проверки,
+  авторский classify только объект сопоставления. Организационная независимость не удостоверена.
+reviewed_commit: 3cf32daef67a91f393b808adb0dc07ba4c73cac2
+parameter_refs: []
+artifacts:
+- path: verification/r4_cycle_contract/README.md
+  sha256: a50ee9e06840ed6934077df65cccfff6058845c22120d8d5c4eb8d5e87736ead
+- path: verification/r4_cycle_contract/assumptions_unknowns.md
+  sha256: da0774a2a13cd21d74903cc51b0e8cfd5ce764eb9f1b58549865f6d4cbc91c16
+- path: verification/r4_cycle_contract/check_documents.py
+  sha256: fe2e5aa7e53ba651faf38872751ccd66311676615be5fd169bcce6d8c3347571
+- path: verification/r4_cycle_contract/checks.json
+  sha256: f28c4c1f6b2559594308fb873299288afdbf06fbfdf7684eb6874ab8f0a84d0c
+- path: verification/r4_cycle_contract/claim.md
+  sha256: 1514e649739e94c6dd9621b113ccc5b9cca3be55b5707e28838544e3b10a86a2
+- path: verification/r4_cycle_contract/contract.json
+  sha256: 9aa032703183234bccfc786fa51e9acf53f0997850e5701d4b08219f6b371f28
+- path: verification/r4_cycle_contract/document_checks.json
+  sha256: 91f229b2d5a3960f277c2e17f01ba960893f5a3dd6153e7c078392afd2eb449b
+- path: verification/r4_cycle_contract/events.md
+  sha256: 38c0573654e540bd48177d4eb0dc153974044d744aa504fd841119af55ef537f
+- path: verification/r4_cycle_contract/input_acceptance.json
+  sha256: 7b2048d14e557eb5cffccdafa819a7fe051e2f014b4cf5558dc56b4f25094a56
+- path: verification/r4_cycle_contract/input_audit.md
+  sha256: 8bce2984d29870b24570ae465ce3485672f637132e6d4ea95897fde293a16507
+- path: verification/r4_cycle_contract/integrity_checks.json
+  sha256: 41db49c40d8dab3221e7cf574a22604caef4733447e3aae35d210e1a3692e538
+- path: verification/r4_cycle_contract/ledger_examples.md
+  sha256: c2ab0d59794f8334a4363863492c05761489ed00a293a22c4dee0de7456f63d2
+- path: verification/r4_cycle_contract/material_contract.md
+  sha256: 9a7e92a01dde6ca3e49b669b7ef14a7c75e17a62ee9aa38403f91732c7f958fa
+- path: verification/r4_cycle_contract/preflight.json
+  sha256: d027e8836f625a47be6d4d85d74123508698ae73b6f22d50931c0d7747e6c065
+- path: verification/r4_cycle_contract/publication_checks.json
+  sha256: 060518c25d455fd0c07f21500a9af88fd304a751858d4a00845ca4a7dddc9d83
+- path: verification/r4_cycle_contract/questions.json
+  sha256: b06eaabb38e98eadb1692406d7ce58680c19f3995467dfabe80574f51d96c621
+- path: verification/r4_cycle_contract/questions.md
+  sha256: 6ff83b22199bef97b656aaef1086ef182b267b5c9c0c5892e87115e86d928230
+- path: verification/r4_cycle_contract/ready_draft.md
+  sha256: bdd9121f8b1157ec99c46aee56974a8d6e456310f05cd289c46da58c95b16d41
+- path: verification/r4_cycle_contract/resources.json
+  sha256: 1d8d199a15f49d2cd17130292168dba7f387596d60ce84bfecf64129dd6fd450
+- path: verification/r4_cycle_contract/resources_draft.md
+  sha256: 5f9ff50c754895eb8e08922b96d3f2609c3382cb53c3dcfdbb6de0e92a5df36f
+- path: verification/r4_cycle_contract/review_request.md
+  sha256: b6dc14eaf8849b44b21778fed72039d9234b96fee933fa0a1966811243f988b6
+- path: verification/r4_cycle_contract/sequence_examples.json
+  sha256: de69e8a987474c41cfe7eed589bca03c169aba379e6b0988174a642a19d758dd
+- path: verification/r4_cycle_contract/task.md
+  sha256: 96bb22b40c2cb1f6112142ea9cfd98bf9c3466ec19bcaf2c75e8feb6ecb8511d
+- path: verification/r4_cycle_contract/traceability.json
+  sha256: 6d57008726dfe6abe2b087f5dc6ab45cb10576b5d9bb4cc097b4a54c32b32952
+- path: verification/r4_cycle_contract/traceability.md
+  sha256: def947b8afe7b9393d769a22d55b4fffe91996c4f4c5d7da5591139eabc3ac54
+- path: verification/r4_cycle_contract/transition_examples.json
+  sha256: a8fd20d894bca641ae07a2436138e605ae16285ade198ae3949293d3493cc1e3
+- path: verification/r4_cycle_contract/transition_examples.md
+  sha256: d0b5217ae39a0fd7b48e0c44afa8efc50d79d47e99b7a9bb3af253b936b33ce9
+scope: Документальная согласованность CYC01/ранних CYC08/09, не физическая выполнимость, lifecycle implementation
+  или CAD review.
+checks:
+- id: CHK-CC-EXAMPLES
+  method: Независимая трёхзначная conjunction и сверка before/after, state/event непрерывности.
+  expected: Авторские 59 примеров и две условные трассы соответствуют собственной записанной таблице.
+  observed: '59/59 совпали: 32 ALLOWED_ASSUMED, 19 BLOCKED, 8 INDETERMINATE; трассы 19/17 шагов.'
+  reasoning: Это не материальный движок и не доказательство guards/физики.
+  result: PASS
+- id: CHK-CC-READY-BINDING
+  method: Общий неизменный контекст READY и действия с потерей receiver/resource/closed-stop условий.
+  expected: Неизвестное обязательное условие не разрешает действие; FALSE доминирует UNKNOWN.
+  observed: Восемь составных случаев дают ALLOWED_ASSUMED действию несмотря на BLOCKED/INDETERMINATE READY; отсутствует
+    обязательная binding semantics.
+  reasoning: Операции имеют более узкие guard sets, REQUEST_READY self-loop не обязателен. Это документальный блокер,
+    не поведение реального пресса.
+  result: FAIL
+- id: CHK-CC-LEDGER-RESOURCE-PRESERVATION
+  method: Символические conservation witnesses, составные нарушения журнала, проверка UNKNOWN слотов и Git/файлов.
+  expected: Pending не второй запас, parent/children не дублируются, REMOVE не теряет массу, unknown resources не
+    нули; старые расчёты/CAD неизменны.
+  observed: Принципы L1–L5 согласованы; 240 slots null; 17 blobs/11 main trees/candidate trees/508 hashes совпали,
+    512 файлов неизменны.
+  reasoning: Две независимые symbolic witnesses не доказывают реализованный журнал или физический процесс.
+  result: PASS
+findings:
+- id: R5-CC-B01
+  status: OPEN
+  priority: P1
+  description: Обязательные условия mode/epoch READY не связаны с разрешением действия; различить разрешение и регистрацию
+    факта, не теряя массу.
+- id: R5-CC-W01
+  status: OPEN
+  description: Возврат после established startup column A не требует актуального удержания и оставляет state неизменным.
+- id: R5-CC-W02
+  status: OPEN
+  description: State/guard traces не являются entity-level материальным журналом; дополнить при передаче lifecycle
+    реализации.
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-CC-B01
+allowed_downstream_scope: Словарь, L1–L5, ресурсный список и вопросы — черновики с WARNING; CYC02/03 investigation/ответы
+  разрешены, стабильный binding contract NO-GO до RECHECK.
+excluded_claims:
+- Реальные удержание/разгрузка/выдача/READY, полный цикл, производительность и безопасность
+- Физическое открытие B, actual CAD defects и их устранение
+- Утверждение архитектуры, ТЗ, оборудования и G1
+closure_criteria:
+- Явная связь action с обязательным READY/полным набором предпосылок и context/epoch; при FALSE/UNKNOWN действие
+  не продвигается.
+- Различить командное разрешение и учёт фактического материального события, включая unready arrival без потери массы.
+- Исправленные положительные/отрицательные примеры и независимый RECHECK нового C.
+reproduction_artifacts:
+- verification/r5_r4_cycle_contract_review/review.md
+- verification/r5_r4_cycle_contract_review/reproduction.json
+- verification/r5_r4_cycle_contract_review/independent_results.json
+- verification/r5_r4_cycle_contract_review/object_identity.json
+supersedes: null
+```
