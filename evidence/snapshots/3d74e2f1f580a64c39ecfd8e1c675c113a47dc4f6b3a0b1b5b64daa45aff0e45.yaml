@@ -1,0 +1,4408 @@
+schema_version: '1.1'
+project_id: REV
+domains:
+  kinematics_and_drive:
+    R3_IN_WIDTH:
+      revision: 1
+      name: условная нагруженная ширина R2; ориентация не подтверждена
+      value: 0.15
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условная нагруженная ширина R2; ориентация не подтверждена; реальные
+        свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условная нагруженная ширина R2; ориентация не подтверждена
+      author: &id001
+        role: R3
+        session_id: r3-sizing-20261112
+      author_sessions: &id002
+      - r3-sizing-20261112
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_HEIGHT:
+      revision: 1
+      name: условная нагруженная высота R2
+      value: 0.06
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условная нагруженная высота R2; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условная нагруженная высота R2
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_PRODUCT_LENGTH:
+      revision: 1
+      name: выбранная длина условного изделия; не ход
+      value: 0.11
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: выбранная длина условного изделия; не ход; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: выбранная длина условного изделия; не ход
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_MASS:
+      revision: 1
+      name: одна доза/изделие; масса взята как гипотеза из рекламного reference, связь
+        с длиной не доказана
+      value: 0.83
+      unit: kg
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: одна доза/изделие; масса взята как гипотеза из рекламного reference,
+        связь с длиной не доказана; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: одна доза/изделие; масса взята как гипотеза из рекламного reference,
+          связь с длиной не доказана
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_RHO:
+      revision: 1
+      name: произвольная плотность занятого объёма после подачи; не измерена
+      value: 200.0
+      unit: kg/m^3
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: произвольная плотность занятого объёма после подачи; не измерена; реальные
+        свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: произвольная плотность занятого объёма после подачи; не измерена
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_PHI:
+      revision: 1
+      name: занятая доля свободной камеры; не повторный коэффициент для уже усреднённой
+        плотности
+      value: 0.8
+      unit: '1'
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: занятая доля свободной камеры; не повторный коэффициент для уже усреднённой
+        плотности; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: занятая доля свободной камеры; не повторный коэффициент для уже усреднённой
+          плотности
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_SIGMA_START:
+      revision: 1
+      name: начало линейного по ходу условного среднего нормального воздействия
+      value: 0.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: начало линейного по ходу условного среднего нормального воздействия;
+        реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: начало линейного по ходу условного среднего нормального воздействия
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_SIGMA_END:
+      revision: 1
+      name: пик условного воздействия R2; наследует прочтение kgf/cm2 и нагруженную
+        грань
+      value: 166713050.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: пик условного воздействия R2; наследует прочтение kgf/cm2 и нагруженную
+        грань; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: пик условного воздействия R2; наследует прочтение kgf/cm2 и нагруженную
+          грань
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_KAPPA:
+      revision: 1
+      name: выбранное d/D; не результат устойчивости/прочности
+      value: 0.6
+      unit: '1'
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: выбранное d/D; не результат устойчивости/прочности; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: выбранное d/D; не результат устойчивости/прочности
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_SUPPLY_WORK:
+      revision: 1
+      name: условный доступный inlet supply; равен reference max лишь как выбранная
+        точка, не рабочий перепад REV
+      value: 30000000.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условный доступный inlet supply; равен reference max лишь как выбранная
+        точка, не рабочий перепад REV; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условный доступный inlet supply; равен reference max лишь как выбранная
+          точка, не рабочий перепад REV
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_SUPPLY_EJECT:
+      revision: 1
+      name: условное давление supply выдачи
+      value: 10000000.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условное давление supply выдачи; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условное давление supply выдачи
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_SUPPLY_RETURN:
+      revision: 1
+      name: условное давление supply возврата в штоковую полость
+      value: 12000000.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условное давление supply возврата в штоковую полость; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условное давление supply возврата в штоковую полость
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_BACK_FORWARD:
+      revision: 1
+      name: противодавление штоковой полости при прямом ходе gauge
+      value: 1000000.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: противодавление штоковой полости при прямом ходе gauge; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: противодавление штоковой полости при прямом ходе gauge
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_BACK_RETURN:
+      revision: 1
+      name: противодавление поршневой полости при возврате gauge
+      value: 1000000.0
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: противодавление поршневой полости при возврате gauge; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: противодавление поршневой полости при возврате gauge
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_CHANNEL_SLIDE:
+      revision: 1
+      name: произвольное постоянное сопротивление канала A при движении
+      value: 30000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: произвольное постоянное сопротивление канала A при движении; реальные
+        свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: произвольное постоянное сопротивление канала A при движении
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_CHANNEL_HOLD:
+      revision: 1
+      name: независимая гипотеза удерживающей способности A; не приравнена трению
+        скольжения
+      value: 40000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: независимая гипотеза удерживающей способности A; не приравнена трению
+        скольжения; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: независимая гипотеза удерживающей способности A; не приравнена трению
+          скольжения
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_REBOUND:
+      revision: 1
+      name: гипотеза отжимной силы A, не измерена
+      value: 10000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: гипотеза отжимной силы A, не измерена; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: гипотеза отжимной силы A, не измерена
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_GUIDE:
+      revision: 1
+      name: постоянное направляющее сопротивление условной оси
+      value: 2000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: постоянное направляющее сопротивление условной оси; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: постоянное направляющее сопротивление условной оси
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_SEAL:
+      revision: 1
+      name: постоянная сила трения уплотнений обоих направлений
+      value: 5000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: постоянная сила трения уплотнений обоих направлений; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: постоянная сила трения уплотнений обоих направлений
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_RETURN_LOAD:
+      revision: 1
+      name: постоянное внешнее сопротивление возврата
+      value: 10000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: постоянное внешнее сопротивление возврата; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: постоянное внешнее сопротивление возврата
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_EJECT_LOAD_B:
+      revision: 1
+      name: выбранное сопротивление выдачи B после предполагаемого освобождения
+      value: 20000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: выбранное сопротивление выдачи B после предполагаемого освобождения;
+        реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: выбранное сопротивление выдачи B после предполагаемого освобождения
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_IN_EJECT_TRAVEL:
+      revision: 1
+      name: isolated chosen what-if EJECT_DOUBLE_B eject_travel
+      value: 0.34
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: isolated chosen what-if EJECT_DOUBLE_B eject_travel; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: isolated chosen what-if EJECT_DOUBLE_B eject_travel
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_CLEARANCE:
+      revision: 1
+      name: условный зазор до свободной выходной плоскости
+      value: 0.03
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условный зазор до свободной выходной плоскости; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условный зазор до свободной выходной плоскости
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_ETA_PUMP:
+      revision: 1
+      name: выбранный полный КПД насосного преобразования; не характеристика COTS
+      value: 0.85
+      unit: '1'
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: выбранный полный КПД насосного преобразования; не характеристика COTS;
+        реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: выбранный полный КПД насосного преобразования; не характеристика
+          COTS
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_ETA_MOTOR:
+      revision: 1
+      name: выбранный КПД электропривода
+      value: 0.9
+      unit: '1'
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: выбранный КПД электропривода; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: выбранный КПД электропривода
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_ELECTRIC_LIMIT:
+      revision: 1
+      name: условный электрический бюджет; не перенос паспортного motor power BP500
+        в допустимую мощность REV
+      value: 30000.0
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условный электрический бюджет; не перенос паспортного motor power BP500
+        в допустимую мощность REV; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условный электрический бюджет; не перенос паспортного motor power
+          BP500 в допустимую мощность REV
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_LEAK_HOLD:
+      revision: 1
+      name: идеальная нулевая утечка выдержки; не прогноз потребления реальной установки
+      value: 0.0
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: идеальная нулевая утечка выдержки; не прогноз потребления реальной
+        установки; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: идеальная нулевая утечка выдержки; не прогноз потребления реальной
+          установки
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_APPROACH:
+      revision: 1
+      name: условное время подхода
+      value: 1.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условное время подхода; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условное время подхода
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_WORK:
+      revision: 1
+      name: условное время прессования
+      value: 2.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условное время прессования; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условное время прессования
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_EJECT:
+      revision: 1
+      name: условное время выдачи
+      value: 1.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условное время выдачи; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условное время выдачи
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_RETURN:
+      revision: 1
+      name: условное время возврата
+      value: 2.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условное время возврата; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условное время возврата
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_HOLD:
+      revision: 1
+      name: условная выдержка без изменения объёма/упругой энергии
+      value: 1.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: условная выдержка без изменения объёма/упругой энергии; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: условная выдержка без изменения объёма/упругой энергии
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_AUX_A:
+      revision: 1
+      name: бюджет прочих действий A, без мощности прочих осей
+      value: 1.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: бюджет прочих действий A, без мощности прочих осей; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: бюджет прочих действий A, без мощности прочих осей
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_UNLOAD_B:
+      revision: 1
+      name: гипотетический бюджет разгрузки B; не доказательство разгрузки
+      value: 1.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: гипотетический бюджет разгрузки B; не доказательство разгрузки; реальные
+        свойства/реалистичность не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: гипотетический бюджет разгрузки B; не доказательство разгрузки
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_IN_T_OPEN_B:
+      revision: 1
+      name: гипотетический бюджет открытия B, разрешение UNKNOWN
+      value: 1.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: ASSUMED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_WHAT_IF_ONLY
+      meaning: гипотетический бюджет открытия B, разрешение UNKNOWN; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: USER_AUTHORIZED_WHAT_IF
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: гипотетический бюджет открытия B, разрешение UNKNOWN
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: []
+      calculation: null
+      evidence:
+      - verification/r3_parametric_sizing/input_audit.md
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: ASSUMED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_AREA:
+      revision: 1
+      name: EJECT_DOUBLE_B area
+      value: 0.009
+      unit: m^2
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B area; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B area
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: &id003
+      - id: R3_IN_WIDTH
+        revision: 1
+      - id: R3_IN_HEIGHT
+        revision: 1
+      - id: R3_IN_PRODUCT_LENGTH
+        revision: 1
+      - id: R3_IN_MASS
+        revision: 1
+      - id: R3_IN_RHO
+        revision: 1
+      - id: R3_IN_PHI
+        revision: 1
+      - id: R3_IN_SIGMA_START
+        revision: 1
+      - id: R3_IN_SIGMA_END
+        revision: 1
+      - id: R3_IN_KAPPA
+        revision: 1
+      - id: R3_IN_SUPPLY_WORK
+        revision: 1
+      - id: R3_IN_SUPPLY_EJECT
+        revision: 1
+      - id: R3_IN_SUPPLY_RETURN
+        revision: 1
+      - id: R3_IN_BACK_FORWARD
+        revision: 1
+      - id: R3_IN_BACK_RETURN
+        revision: 1
+      - id: R3_IN_CHANNEL_SLIDE
+        revision: 1
+      - id: R3_IN_CHANNEL_HOLD
+        revision: 1
+      - id: R3_IN_REBOUND
+        revision: 1
+      - id: R3_IN_GUIDE
+        revision: 1
+      - id: R3_IN_SEAL
+        revision: 1
+      - id: R3_IN_RETURN_LOAD
+        revision: 1
+      - id: R3_IN_EJECT_LOAD_B
+        revision: 1
+      - id: R3_EJECT_DOUBLE_B_IN_EJECT_TRAVEL
+        revision: 1
+      - id: R3_IN_CLEARANCE
+        revision: 1
+      - id: R3_IN_ETA_PUMP
+        revision: 1
+      - id: R3_IN_ETA_MOTOR
+        revision: 1
+      - id: R3_IN_ELECTRIC_LIMIT
+        revision: 1
+      - id: R3_IN_LEAK_HOLD
+        revision: 1
+      - id: R3_IN_T_APPROACH
+        revision: 1
+      - id: R3_IN_T_WORK
+        revision: 1
+      - id: R3_IN_T_EJECT
+        revision: 1
+      - id: R3_IN_T_RETURN
+        revision: 1
+      - id: R3_IN_T_HOLD
+        revision: 1
+      - id: R3_IN_T_AUX_A
+        revision: 1
+      - id: R3_IN_T_UNLOAD_B
+        revision: 1
+      - id: R3_IN_T_OPEN_B
+        revision: 1
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[area]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: &id004
+        - scripts/rev_parametric.py
+        - scripts/repo_support.py
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_CHAMBER_VOLUME:
+      revision: 1
+      name: EJECT_DOUBLE_B chamber_volume
+      value: 0.005187499999999999
+      unit: m^3
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B chamber_volume; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B chamber_volume
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[chamber_volume]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_CHAMBER_LENGTH:
+      revision: 1
+      name: EJECT_DOUBLE_B chamber_length
+      value: 0.5763888888888888
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B chamber_length; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B chamber_length
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[chamber_length]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_OCCUPIED_LENGTH:
+      revision: 1
+      name: EJECT_DOUBLE_B occupied_length
+      value: 0.4611111111111111
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B occupied_length; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B occupied_length
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[occupied_length]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_STROKE:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_stroke
+      value: 0.11527777777777776
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_stroke; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_stroke
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_stroke]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_STROKE:
+      revision: 1
+      name: EJECT_DOUBLE_B work_stroke
+      value: 0.3511111111111111
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_stroke; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_stroke
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_stroke]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_STROKE:
+      revision: 1
+      name: EJECT_DOUBLE_B return_stroke
+      value: 0.8063888888888888
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_stroke; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_stroke
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_stroke]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_STROKE:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_stroke
+      value: 0.34
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_stroke; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_stroke
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_stroke]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_PRODUCT_DENSITY:
+      revision: 1
+      name: EJECT_DOUBLE_B product_density
+      value: 838.3838383838383
+      unit: kg/m^3
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B product_density; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B product_density
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[product_density]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_FORCE_WORK_START:
+      revision: 1
+      name: EJECT_DOUBLE_B force_work_start
+      value: 2000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B force_work_start; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B force_work_start
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[force_work_start]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_FORCE_WORK_PEAK:
+      revision: 1
+      name: EJECT_DOUBLE_B force_work_peak
+      value: 1502417.45
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B force_work_peak; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B force_work_peak
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[force_work_peak]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_FORCE_EJECT:
+      revision: 1
+      name: EJECT_DOUBLE_B force_eject
+      value: 22000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B force_eject; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B force_eject
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[force_eject]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_FORCE_RETURN_REQUIRED:
+      revision: 1
+      name: EJECT_DOUBLE_B force_return_required
+      value: 12000.0
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B force_return_required; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B force_return_required
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[force_return_required]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_BORE:
+      revision: 1
+      name: EJECT_DOUBLE_B bore
+      value: 0.2556782604764038
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B bore; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B bore
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[bore]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_ROD:
+      revision: 1
+      name: EJECT_DOUBLE_B rod
+      value: 0.15340695628584228
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B rod; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B rod
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[rod]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_BORE_AREA:
+      revision: 1
+      name: EJECT_DOUBLE_B bore_area
+      value: 0.05134255619891008
+      unit: m^2
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B bore_area; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B bore_area
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[bore_area]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_ANNULUS_AREA:
+      revision: 1
+      name: EJECT_DOUBLE_B annulus_area
+      value: 0.032859235967302454
+      unit: m^2
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B annulus_area; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B annulus_area
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[annulus_area]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_FORCE_EXTENSION_CAPACITY:
+      revision: 1
+      name: EJECT_DOUBLE_B force_extension_capacity
+      value: 1502417.45
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B force_extension_capacity; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B force_extension_capacity
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[force_extension_capacity]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_FORCE_RETURN_CAPACITY:
+      revision: 1
+      name: EJECT_DOUBLE_B force_return_capacity
+      value: 337968.2754087193
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B force_return_capacity; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B force_return_capacity
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[force_return_capacity]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_MASS_RESIDUAL:
+      revision: 1
+      name: EJECT_DOUBLE_B mass_residual
+      value: -1.1102230246251565e-16
+      unit: kg
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B mass_residual; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B mass_residual
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[mass_residual]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_B_STOP_PEAK_REACTION:
+      revision: 1
+      name: EJECT_DOUBLE_B B_stop_peak_reaction
+      value: 1500417.45
+      unit: N
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B B_stop_peak_reaction; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B B_stop_peak_reaction
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[B_stop_peak_reaction]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_REQUIRED_GEOMETRY:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_required_geometry
+      value: 0.14
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_required_geometry; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_required_geometry
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_required_geometry]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_GEOMETRY_MARGIN:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_geometry_margin
+      value: 0.20000000000000004
+      unit: m
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_geometry_margin; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_geometry_margin
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_geometry_margin]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_SPEED:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_speed
+      value: 0.11527777777777776
+      unit: m/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_speed; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_speed
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_speed]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_FLOW_SUPPLY:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_flow_supply
+      value: 0.005918655784041022
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_flow_supply; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_flow_supply
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_flow_supply]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_FLOW_RETURN:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_flow_return
+      value: 0.0037879397017862543
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_flow_return; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_flow_return
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_flow_return]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_MEAN_CHAMBER_PRESSURE:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_mean_chamber_pressure
+      value: 776339.140826584
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_mean_chamber_pressure; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_mean_chamber_pressure
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_mean_chamber_pressure]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_SUPPLY_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_supply_power
+      value: 177559.67352123067
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_supply_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_supply_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_supply_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_SUPPLY_ENERGY:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_supply_energy
+      value: 177559.67352123067
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_supply_energy; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_supply_energy
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_supply_energy]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_LOAD_WORK:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_load_work
+      value: 230.55555555555551
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_load_work; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_load_work
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_load_work]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_SEAL_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_seal_loss
+      value: 576.3888888888888
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_seal_loss; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_seal_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_seal_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_BACK_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_back_loss
+      value: 3787.9397017862543
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_back_loss; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_back_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_back_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_VALVE_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_valve_loss
+      value: 172964.78937499996
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_valve_loss; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_valve_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_valve_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_APPROACH_MINIMUM_TIME_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B approach_minimum_time_power
+      value: 7.736804946458853
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B approach_minimum_time_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B approach_minimum_time_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[approach_minimum_time_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_SPEED:
+      revision: 1
+      name: EJECT_DOUBLE_B work_speed
+      value: 0.17555555555555555
+      unit: m/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_speed; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_speed
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_speed]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_FLOW_SUPPLY:
+      revision: 1
+      name: EJECT_DOUBLE_B work_flow_supply
+      value: 0.009013470977141991
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_flow_supply; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_flow_supply
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_flow_supply]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_FLOW_RETURN:
+      revision: 1
+      name: EJECT_DOUBLE_B work_flow_return
+      value: 0.005768621425370875
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_flow_return; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_flow_return
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_flow_return]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_MEAN_CHAMBER_PRESSURE:
+      revision: 1
+      name: EJECT_DOUBLE_B work_mean_chamber_pressure
+      value: 15388169.570413291
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_mean_chamber_pressure; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_mean_chamber_pressure
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_mean_chamber_pressure]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_SUPPLY_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B work_supply_power
+      value: 270404.12931425974
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_supply_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_supply_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_supply_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_SUPPLY_ENERGY:
+      revision: 1
+      name: EJECT_DOUBLE_B work_supply_energy
+      value: 540808.2586285195
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_supply_energy; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_supply_energy
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_supply_energy]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_LOAD_WORK:
+      revision: 1
+      name: EJECT_DOUBLE_B work_load_work
+      value: 264108.8412222222
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_load_work; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_load_work
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_load_work]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_SEAL_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B work_seal_loss
+      value: 1755.5555555555554
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_seal_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_seal_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_seal_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_BACK_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B work_back_loss
+      value: 11537.24285074175
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_back_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_back_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_back_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_VALVE_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B work_valve_loss
+      value: 263406.619
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_valve_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_valve_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_valve_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_WORK_MINIMUM_TIME_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B work_minimum_time_power
+      value: 23.564630005599977
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B work_minimum_time_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B work_minimum_time_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[work_minimum_time_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_SPEED:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_speed
+      value: 0.34
+      unit: m/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_speed; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_speed
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_speed]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_FLOW_SUPPLY:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_flow_supply
+      value: 0.01745646910762943
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_flow_supply; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_flow_supply
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_flow_supply]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_FLOW_RETURN:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_flow_return
+      value: 0.011172140228882835
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_flow_return; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_flow_return
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_flow_return]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_MEAN_CHAMBER_PRESSURE:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_mean_chamber_pressure
+      value: 1165879.5431882523
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_mean_chamber_pressure; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_mean_chamber_pressure
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_mean_chamber_pressure]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_SUPPLY_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_supply_power
+      value: 174564.6910762943
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_supply_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_supply_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_supply_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_SUPPLY_ENERGY:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_supply_energy
+      value: 174564.6910762943
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_supply_energy; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_supply_energy
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_supply_energy]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_LOAD_WORK:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_load_work
+      value: 7480.000000000001
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_load_work; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_load_work
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_load_work]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_SEAL_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_seal_loss
+      value: 1700.0000000000002
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_seal_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_seal_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_seal_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_BACK_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_back_loss
+      value: 11172.140228882836
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_back_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_back_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_back_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_VALVE_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_valve_loss
+      value: 154212.55084741145
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_valve_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_valve_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_valve_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_EJECT_MINIMUM_TIME_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B eject_minimum_time_power
+      value: 7.606304622060753
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B eject_minimum_time_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B eject_minimum_time_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[eject_minimum_time_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_SPEED:
+      revision: 1
+      name: EJECT_DOUBLE_B return_speed
+      value: 0.4031944444444444
+      unit: m/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_speed; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_speed
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_speed]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_FLOW_SUPPLY:
+      revision: 1
+      name: EJECT_DOUBLE_B return_flow_supply
+      value: 0.01324866139070542
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_flow_supply; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_flow_supply
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_flow_supply]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_FLOW_RETURN:
+      revision: 1
+      name: EJECT_DOUBLE_B return_flow_return
+      value: 0.020701033422977216
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_flow_return; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_flow_return
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_flow_return]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_MEAN_CHAMBER_PRESSURE:
+      revision: 1
+      name: EJECT_DOUBLE_B return_mean_chamber_pressure
+      value: 2079858.3468865906
+      unit: Pa
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_mean_chamber_pressure; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_mean_chamber_pressure
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_mean_chamber_pressure]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_SUPPLY_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B return_supply_power
+      value: 158983.93668846504
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_supply_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_supply_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_supply_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_SUPPLY_ENERGY:
+      revision: 1
+      name: EJECT_DOUBLE_B return_supply_energy
+      value: 317967.8733769301
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_supply_energy; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_supply_energy
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_supply_energy]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_LOAD_WORK:
+      revision: 1
+      name: EJECT_DOUBLE_B return_load_work
+      value: 9676.666666666666
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_load_work; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_load_work
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_load_work]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_SEAL_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B return_seal_loss
+      value: 4031.944444444444
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_seal_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_seal_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_seal_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_BACK_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B return_back_loss
+      value: 41402.06684595443
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_back_loss; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_back_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_back_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_VALVE_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B return_valve_loss
+      value: 262857.19541986455
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_valve_loss; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_valve_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_valve_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_RETURN_MINIMUM_TIME_POWER:
+      revision: 1
+      name: EJECT_DOUBLE_B return_minimum_time_power
+      value: 13.85480929746972
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B return_minimum_time_power; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B return_minimum_time_power
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[return_minimum_time_power]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_HOLD_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B hold_loss
+      value: 0.0
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B hold_loss; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B hold_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[hold_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_HYDRAULIC_ENERGY:
+      revision: 1
+      name: EJECT_DOUBLE_B hydraulic_energy
+      value: 1210900.4966029746
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B hydraulic_energy; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B hydraulic_energy
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[hydraulic_energy]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_LOAD_WORK_TOTAL:
+      revision: 1
+      name: EJECT_DOUBLE_B load_work_total
+      value: 281496.06344444444
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B load_work_total; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B load_work_total
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[load_work_total]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_SEAL_LOSS_TOTAL:
+      revision: 1
+      name: EJECT_DOUBLE_B seal_loss_total
+      value: 8063.888888888889
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B seal_loss_total; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B seal_loss_total
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[seal_loss_total]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_BACK_LOSS_TOTAL:
+      revision: 1
+      name: EJECT_DOUBLE_B back_loss_total
+      value: 67899.38962736528
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B back_loss_total; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B back_loss_total
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[back_loss_total]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_VALVE_LOSS_TOTAL:
+      revision: 1
+      name: EJECT_DOUBLE_B valve_loss_total
+      value: 853441.154642276
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B valve_loss_total; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B valve_loss_total
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[valve_loss_total]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_PUMP_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B pump_loss
+      value: 213688.32292993675
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B pump_loss; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B pump_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[pump_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_MOTOR_LOSS:
+      revision: 1
+      name: EJECT_DOUBLE_B motor_loss
+      value: 158287.646614768
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B motor_loss; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B motor_loss
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[motor_loss]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_ELECTRIC_ENERGY:
+      revision: 1
+      name: EJECT_DOUBLE_B electric_energy
+      value: 1582876.4661476794
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B electric_energy; реальные свойства/реалистичность не
+        подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B electric_energy
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[electric_energy]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_MODELED_HEAT:
+      revision: 1
+      name: EJECT_DOUBLE_B modeled_heat
+      value: 1301380.402703235
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B modeled_heat; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B modeled_heat
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[modeled_heat]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_HYDRAULIC_ENERGY_RESIDUAL:
+      revision: 1
+      name: EJECT_DOUBLE_B hydraulic_energy_residual
+      value: 0.0
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B hydraulic_energy_residual; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B hydraulic_energy_residual
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[hydraulic_energy_residual]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_ELECTRIC_ENERGY_RESIDUAL:
+      revision: 1
+      name: EJECT_DOUBLE_B electric_energy_residual
+      value: -2.0372681319713593e-10
+      unit: J
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B electric_energy_residual; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B electric_energy_residual
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[electric_energy_residual]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_FLOW_PEAK:
+      revision: 1
+      name: EJECT_DOUBLE_B flow_peak
+      value: 0.01745646910762943
+      unit: m^3/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B flow_peak; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B flow_peak
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[flow_peak]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_HYDRAULIC_POWER_PEAK:
+      revision: 1
+      name: EJECT_DOUBLE_B hydraulic_power_peak
+      value: 270404.12931425974
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B hydraulic_power_peak; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B hydraulic_power_peak
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[hydraulic_power_peak]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_ELECTRIC_POWER_PEAK:
+      revision: 1
+      name: EJECT_DOUBLE_B electric_power_peak
+      value: 353469.45008399966
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B electric_power_peak; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B electric_power_peak
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[electric_power_peak]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_CYCLE_BUDGET:
+      revision: 1
+      name: EJECT_DOUBLE_B cycle_budget
+      value: 9.0
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B cycle_budget; реальные свойства/реалистичность не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B cycle_budget
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[cycle_budget]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_CYCLE_BUDGET_POWER_LIMITED:
+      revision: 1
+      name: EJECT_DOUBLE_B cycle_budget_power_limited
+      value: 55.7625488715893
+      unit: s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B cycle_budget_power_limited; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B cycle_budget_power_limited
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[cycle_budget_power_limited]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_ELECTRIC_POWER_MARGIN:
+      revision: 1
+      name: EJECT_DOUBLE_B electric_power_margin
+      value: -323469.45008399966
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B electric_power_margin; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B electric_power_margin
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[electric_power_margin]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_CONDITIONAL_MASS_RATE:
+      revision: 1
+      name: EJECT_DOUBLE_B conditional_mass_rate
+      value: 0.09222222222222222
+      unit: kg/s
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B conditional_mass_rate; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B conditional_mass_rate
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[conditional_mass_rate]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'
+    R3_EJECT_DOUBLE_B_ELECTRIC_POWER_AVERAGE:
+      revision: 1
+      name: EJECT_DOUBLE_B electric_power_average
+      value: 175875.1629052977
+      unit: W
+      tolerance: null
+      uncertainty: null
+      unknown_reason: null
+      lifecycle: CALCULATED
+      validity: CURRENT
+      stale_reason: null
+      scope: REV_R3_CONDITIONAL_ARITHMETIC_ONLY
+      meaning: EJECT_DOUBLE_B electric_power_average; реальные свойства/реалистичность
+        не подтверждены
+      provenance:
+        kind: CONDITIONAL_DERIVATION
+        source_ref: verification/r3_parametric_sizing/input_audit.md
+        locator: EJECT_DOUBLE_B electric_power_average
+      author: *id001
+      author_sessions: *id002
+      verifier: null
+      depends_on: *id003
+      calculation:
+        script: scripts/rev_parametric.py
+        command: .venv/bin/python -B scripts/rev_parametric.py --write
+        expression: solve(p, B)[electric_power_average]; formulas in verification/r3_parametric_sizing/model.md
+        code_files: *id004
+        output: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      evidence:
+      - verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+      baseline_id: null
+      history:
+      - revision: 1
+        from: null
+        to: CALCULATED
+        actor: r3-sizing-20261112
+        reason: 'условное исследование по принятому claim PR #38, не инженерная приёмка'

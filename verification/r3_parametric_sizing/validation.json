@@ -1,0 +1,49 @@
+{
+  "observed_at_utc": "2026-11-12T09:07:36.799641+00:00",
+  "claim_merge": "8867521a83bd4608886d81678683ea89cce7e4a3",
+  "claim_owner": "r3-sizing-20261112",
+  "lease_expires_at": "2026-11-13T08:50:42Z",
+  "cases": 8,
+  "registered_outputs": 696,
+  "registry_counts": {
+    "RAW": 13,
+    "ASSUMED": 44,
+    "CALCULATED": 696,
+    "VERIFIED": 0,
+    "LOCKED": 0
+  },
+  "checks": [
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests": 86,
+      "new_tests": 15,
+      "evidence": "software_tests.log"
+    },
+    {
+      "command": ".venv/bin/python -B scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "evidence": "registry_check.log"
+    },
+    {
+      "command": ".venv/bin/python -B scripts/rev_parametric.py (twice)",
+      "exit_code": 0,
+      "evidence": "repeatability.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "not_run": [
+    "independent review of this new model",
+    "physical tests",
+    "structural/buckling assessment",
+    "full CAD/collision replay",
+    "component selection",
+    "architecture/TZ approval"
+  ],
+  "G1": "OPEN",
+  "all_cases_exceed_assumed_electric_limit": true,
+  "whole_cycle_feasibility": "INDETERMINATE"
+}
