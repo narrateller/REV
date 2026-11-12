@@ -64,6 +64,8 @@ R5-CC-B01: BLOCKER P1 OPEN, адресат R4 в T-r4-cycle-contract-01. Исп�
 
 - B01 итерация по ARB-R1-CC-01: decision_commit **616135755d1b6cbaa09ae9800bad5af8bbc28aed** прочитан и записан в капсулу до правки. Main 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7 / owner r4-linked-20261111 / lease до 2026-11-13T18:16:39Z сверены, срок не продлён; heartbeat_utc 2026-11-12T23:10:35.928830+00:00. Подготовлен кандидат fault_id/original scope/addressed recovery/cumulative rejected IDs. 26 исходных + 45 RECHECK + 134 проверки R1 = 205 ожидаемых исходов; 3 старых расхождения исправлены, исходные required guards сохранены. Пакет verification/r4_cc_identity/, corrective_iteration_status IN_REVIEW, parent BLOCKED до независимого RECHECK; consecutive_rejections=2 не обнулён, B01 OPEN. W01 CLOSED только документально на 4f31ed6, W02/G1 OPEN; расчёты/CAD/rebuild/physical tests NOT_RUN. Точный C следующим H.
 
+- Новый C B01 **0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed**, REMOTE, следующий H только учёт/эстафета. Decision 616135755d1b6cbaa09ae9800bad5af8bbc28aed / consecutive_rejections=2 сохранены; parent BLOCKED, corrective_iteration IN_REVIEW, B01 OPEN до независимого R5. 205 checks MATCH / old26+recheck45 все корректны, 572 readonly files, registry/diff PASS. Heartbeat_utc 2026-11-12T23:14:56.453901+00:00; owner/lease без изменений. Запрос verification/r4_cc_identity/recheck_request.md; W02/G1 OPEN, без CAD/расчётов/rebuild/испытаний.
+
 ## T-r4-calculated-layout-01 — расчётно связанная исследовательская компоновка A/B
 
 - Тип TASK; P2; адресат @R4; статус READY; **owner_session: NONE**; claim_acceptance PROPOSED_PENDING_MAIN. Предлагаемый owner_session r4-linked-20261111 / Codex / R4; роль и новое поручение подтверждены пользователем, принятие claim ещё не выполнено.

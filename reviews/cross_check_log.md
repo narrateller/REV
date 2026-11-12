@@ -3428,3 +3428,7 @@ rechecks_review_commit: d99afb4c3231d641d4a4921f39987264ce5ffc23
 ## R4 B01 по ARB-R1-CC-01 — авторский кандидат, не RECHECK
 
 2026-11-12T23:10:35.928830+00:00; r4-linked-20261111, решение 616135755d1b6cbaa09ae9800bad5af8bbc28aed / main 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7. Два REJECT_WITH_BLOCKER d99afb4/c56e494 сохранены полными предками, consecutive_rejections=2. Изменён только validity/stale_reason индекса последнего review для новых artifacts, не verdict/findings/hashes. 26+45 старых правильных ожиданий и 134 последовательных/адресных кейса R1 совпали (205), исходный R5 probe на 4f31ed6 по-прежнему воспроизводит старые 3 ошибки, не выдаётся за приёмку. results/recheck_request в verification/r4_cc_identity/. Полный C следующей эстафетой. B01 OPEN / parent BLOCKED, W01 документально CLOSED на старом C, W02/G1 OPEN. Расчёты/CAD/rebuild/физические испытания NOT_RUN.
+
+### C B01 по решению R1 опубликован, приёмка не заявляется
+
+2026-11-12T23:14:56.453901+00:00; C 0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed REMOTE, H только эстафета/учёт. Decision 616135755d1b6cbaa09ae9800bad5af8bbc28aed; оба REJECT_WITH_BLOCKER сохранены, consecutive_rejections=2. 205 expected outcomes MATCH, 572 readonly files, registry/diff PASS; не независимая проверка. B01 OPEN / parent BLOCKED / iteration IN_REVIEW, W02/G1 OPEN. Новый независимый RECHECK NOT_RUN, запрос verification/r4_cc_identity/recheck_request.md. Численные/CAD артефакты не изменены, rebuild/физические испытания NOT_RUN.

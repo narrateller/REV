@@ -1,3 +1,83 @@
+# R4 — B01 по ARB-R1-CC-01: кандидат независимого RECHECK
+
+**Неизменяемый C `0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed`, REMOTE**, https://github.com/narrateller/REV,
+ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`. Точное решение R1
+**616135755d1b6cbaa09ae9800bad5af8bbc28aed**, decisions/ARB-R1-CC-01.md, прочитано
+и записано в капсулу до правки. **Parent T-r4-cycle-contract-01 BLOCKED** до
+независимого R5; разрешённая корректирующая итерация B01 **IN_REVIEW**.
+Owner **r4-linked-20261111** / Codex / R4, claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff
+принят PR43. Срок без продления: **13 ноября 2026, 21:16:39 МСК** /
+2026-11-13T18:16:39Z. Актуальная main при входе/публикации
+**8a82b30d185a10c71dbedbb8b581cf6b5162b1b7**, PR44; другого owner нет.
+Этот H только учёт/эстафета, содержимое C не меняется, main автором не менялась.
+
+**Два отказа сохранены, consecutive_rejections=2:** исходный d99afb4c3231d641d4a4921f39987264ce5ffc23
+на 3cf32daef67a91f393b808adb0dc07ba4c73cac2; RECHECK c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b
+на 4f31ed624336e1101b0ba04857f4316c73e4d375. Оба акта/probe/results и R1 decision/evidence
+включены полными Git-предками, не переписаны. В индексе последнего review лишь
+validity/stale_reason помечают новую редакцию STALE; verdict/findings/reviewed
+SHA/artifact hashes сохранены. **R5-CC-B01 OPEN**, W01 CLOSED только в старой
+документальной области 4f31ed6, W02 OPEN/вне итерации. Не объявлять приёмку или
+обнуление отказов из-за новой редакции/сессии.
+
+[Пакет/команды](verification/r4_cc_identity/README.md),
+[семантика fault/ID](verification/r4_cycle_contract/fault_identity.md),
+[таблица действий](verification/r4_cycle_contract/action_conditions.md),
+[история двух отказов](verification/r4_cc_identity/history.md),
+[входной акт](verification/r4_cc_identity/input_audit.json).
+Fault records хранят устойчивые ID и исходные области/evidence; recover принимает
+только явный fault_id. Чужая сущность/база/эпоха/ревизия не снимают fault.
+DEPENDENCY ссылается на причинные IDs, не очищается общей командой. Rejected IDs
+накапливаются и переживают A→B→C→A, смену view/эпохи, чужое восстановление и
+export/restore; недоверенная история не считается чистой. Новый уникальный
+ID допускает адресный аудит по собственным условиям без общего READY. Отдельное
+подтверждение обработки rejected request не разрешает старый ID повторно.
+Наблюдённые факты/UNKNOWN массы/refs сохраняются, W02 engine не добавлен.
+
+**Фактические авторские результаты:** 26/26 исходных + 45/45 RECHECK ожиданий,
+**3 старых расхождения → 0**, 134 проверки плана R1, всего **205**. Обе очередности
+двух material faults и их восстановления, адреса/база/версия/causes, положительный
+путь, rejected ID cycles и доверенное восстановление контекста охвачены.
+Baseline: неизменённый probe c56e494 на старом C4f31ed6 воспроизводит старые
+45/3, JSON совпадает с R5 и R1; его exit 0 не приёмка. Новые fixtures ABI
+явно адаптированы к fault IDs, все правильные ожидания R5 сохранены.
+Документальный checker: 59/59 примеров, две state traces; старые required guards
+не удалены. Оба checker ×2 readonly: одинаковый stdout, **572** файлов без изменения
+SHA/size/mtime. Registry --check-git PASS; diff --check PASS. Полные results.json,
+integrity_checks.json, publication_checks.json в verification/r4_cc_identity/.
+Это воспроизводимость/логика документа, не независимый review/физическая модель.
+
+**Входы следующего участника:** точный новый C; решение 6161357; оба R5 акта;
+verification/r4_cycle_contract/task.md/preflight.json и новый input_audit.json;
+карта 43f03359fabe2b664935b17f9ac7851504093ece / upstream R5 e69a8afbe4df3d53c4cc8b5883319e00eb8130af.
+17 input blobs и 11 protected trees неизменны на актуальной main. ledger_examples.md,
+resources.json и CAD candidate 3591a5f92f78b1edea07d3fc5354fd0a99090798 сохранены;
+declared coordinates / author witnesses / independent native NOT_RUN различаются.
+При отсутствии закреплённого Git объекта получить его точный SHA из preflight,
+не заменять вход или считать его проверенным. Расчётные/CAD tools/артефакты и
+численный слой не менялись. Diff documentary helper/checkers/fixture adapter
+входит в новый review.
+
+**Следующая подходящая роль — независимый R5**, с отдельным назначением/claim,
+не автор r4-linked-20261111. Первый атомарный шаг: fetch нового C, сверка входов,
+[recheck_request.md](verification/r4_cc_identity/recheck_request.md) и полный план
+R1. Проверить самостоятельно subject-addressed recovery и причинность,
+сохранение всех rejected IDs/обоих fault, отсутствие тупика нового уникального
+аудита, READY/ENTRY/COMMIT/facts и сохранность старых условий. Критерий — новый
+независимый акт на **этот C** с ограниченной областью; B01 закрывает R5, не автор
+и не арбитраж R1. При недоступных данных UNKNOWN/NOT_RUN без выдуманного PASS.
+
+**G1 OPEN**, CYC-01…09/R5-CYCLE-W01/W02 OPEN, стабильный вход CYC-02/03 NO-GO
+до независимого RECHECK. Реальные параметры/физика UNKNOWN, B opening/L-путь/
+полный физический цикл INDETERMINATE. W02 не реализован. Solver/CAD/rebuild/
+physical tests NOT_RUN; архитектура/ТЗ/COTS/весь пресс не утверждены. Общий
+rebuild по этой эстафете не выполнять. Капсула:
+handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md; UTC 2026-11-12T23:14:56.453901+00:00.
+
+---
+
+## История до B01 итерации по R1
+
 # R4 — корректировка CYC-01/08/09 передана на независимый RECHECK
 
 **Неизменяемый C `4f31ed624336e1101b0ba04857f4316c73e4d375`, REMOTE**, https://github.com/narrateller/REV,
