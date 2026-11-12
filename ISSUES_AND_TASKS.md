@@ -989,3 +989,7 @@ Claim `5fdc50bbc8e83241ad2f8754860a503f5de9f418` принят операторо
 Независимый RECHECK ACCEPT_WITH_WARNING: W01 CLOSED_IN_LIMITED_NEW_API_SCOPE, W02 CLOSED_FOR_CONDITIONAL_CALCULATION_HANDOFF_ONLY. Это запись решения R5, не самоодобрение автора; реальные требования W02 до подтверждённого цикла/подбора сохраняются. В историческом индексе первого акта validity STALE относится только к старому полному registry hash; полная исходная запись побайтно сохранена отдельно и в Git, verdict/проверки/числа не переписаны. RECHECK CURRENT по точному C.
 
 Fixed-budget — условная база с caps/увеличенными временами; fixed-times — отдельная альтернатива с неутверждённым ресурсом. Полный цикл/B open INDETERMINATE. COTS, архитектура, ТЗ и G1 не утверждаются, physical tests NOT_RUN. Контроль 88 защищённых файлов и 45 файлов актов — preservation.json, текущие проверки — checks.json в verification/pr39_integration/. Следующий шаг — отдельное решение о слиянии PR, которое здесь запрещено пользователем и не выполняется.
+
+## Неизменяемая передача расчётно связанной A/B
+
+- C 3591a5f92f78b1edea07d3fc5354fd0a99090798 REMOTE; следующий H только эстафета, source/native/evidence не меняет. T-r4-calculated-layout-01 IN_REVIEW, owner_session r4-linked-20261111, heartbeat_utc 2026-11-12T14:48:37Z, lease без изменения до 2026-11-13T13:17:33Z. Request verification/r4_calculated_layout/review_request.md, OUTPUT review NOT_RUN. Геометрия BLOCKED/UNKNOWN видима, G1 OPEN, physical tests NOT_RUN, main не сливалась.

@@ -1,3 +1,27 @@
+# R4 — расчётно связанная BASE_A/BASE_B fixed-budget, OUTPUT review
+
+**Неизменяемый C кода/результатов `3591a5f92f78b1edea07d3fc5354fd0a99090798`**, REMOTE, `work-r4/T-r4-calculated-layout-01/r4-linked-20261111`. T-r4-calculated-layout-01 **IN_REVIEW**, owner r4-linked-20261111 / Codex / R4. Независимый OUTPUT review NOT_RUN, reviewer NOT_ASSIGNED; автор не принимает конструкцию. H только учёт/эстафета, пакет C не меняет.
+
+Main `0353414369e8cffdd7b4289eafd665cc35c0ee36` содержит PR #40 с claim e8ab3272d0fe4b1425779b7d2faac9832562d85d. Принятие подтверждено пользователем/ancestry, предварительный NONE/PENDING нормализован в рабочем учёте с сохранением истории. Lease **2026-11-13T13:17:33Z (13 ноября 2026, 16:17:33 МСК)**, без продления; актуальные main/owner/срок и 44 bindings сверены. Следующий координатор сверяет owner/main перед интеграцией, merge этой итерации не выполнялся.
+
+Пакет: cad/calculated_layout/README.md, отдельные inputs.BASE_A/B.json и diagnostic_inputs.json; cad/build/calculated_layout/A и B — редактируемые FCStd/STEP/виды/сечения/графики. Все 44 источника применены в явной геометрической/временной/интерфейсной роли. Таблицы parameter_mapping.md/source_application.json и all_parameter_changes.md; 478 полей input/native Spreadsheet, непосредственно выбранные native тела используют 220 A / 202 B, остальные — config/тайминг/сохранённые шаблоны (parameter_usage.json).
+
+Результаты: 833332 full-interval pair rows, 8 рабочих диагностик и 22 service sequences, полные сцены/пары/классы/источники. **Номинальная граница R3 достигнута, actual CAD output A/B SHORT_STROKE, продукт не удаляется, working READY NOT_CONFIRMED.** rod/chamber/feed дают новые positive native witnesses; B RESET пересекает оставшийся продукт. У A потерян условный контакт clamp/channel (локальные CALCULATED gap outputs в functional_interfaces.json), реальное замыкание UNKNOWN. Размеры не изменены ради энергии или скрытия коллизий.
+
+118 unit tests PASS; 19 actual CAD/query/reference/global-datum/editability negative rejected, пять исходных R5 service counterexamples и compounds/lifecycle проверены. Два readonly verifier exit0/0 одинаковы по stdout/stderr, все файлы SHA/size/mtime unchanged; `--require-clear` exit2. Явная повторная generation в отдельном каталоге и verify exit0/0, native семантика/сцены/результаты/12 PNG совпали, исходный пакет не меняется. Перед публикацией проверены 34 actual frozen module hashes; mock hash negative отвергнут без изменения настоящих файлов. 80 прежних publication files и прежний код/registry/COTS unchanged.
+
+18 рамных, 14 feed/power и 10 A/B gate/stop target-пар без новых подтверждённых проникновений по всему набору; **legacy6 UP BLOCKED сохранены**. Это не отсутствие новых проблем с другими парами. У L strict-positive-volume protocol сохранён, полная классифицированная сцена INDETERMINATE; физическая выполнимость L INDETERMINATE. Unsupported/unknown не становятся CLEAR, известные collisions сохраняются при unknown.
+
+Пределы/полные конечные перечни: verification/r4_calculated_layout/findings.md, finding_scope.json, unverified_conditions.md/json (вставки/clamp_R/поворот ограждений/гибкие линии/доступы и др. не подтверждены); все actual outcomes cad/build/calculated_layout/report.md/results.json/remaining_issues.json/md/native_interfaces.json. Точные источники R3 8a1ad4199fea09d1157972d7aa28eaad1e8e0337 и c115f75fd900525d9ddc89d85e097ac5a0f00bc1 неизменны. Числа только ASSUMED/CALCULATED из ASSUMED; реальные REV UNKNOWN, COTS/архитектура/ТЗ не утверждены.
+
+Первичные проверяемые native модели — **A/layout_A.FCStd и B/layout_B.FCStd**, STEP — соответствующие .step, с Sources/Inputs/References/QueryVolumes. Автоматические timestamped .FCBak сохранены как промежуточные программные backups; они не являются моделями для приёмки/native validation и не заменяют перечисленные FCStd. Их интерпретация как проверенного результата не разрешается.
+
+Следующий шаг независимого R5: checkout **C**, LFS materialize, сохранить исходник; два readonly verifier до generation, затем отдельная копия/независимая проверка связей, полного хода/возврата/сервисов, deliberate negatives и repeat по verification/r4_calculated_layout/review_request.md. Новые adapter/bridge/cycle/native/aggregator требуют отдельного review; прежние акты не расширяются. Результат — исследовательская компоновка с BLOCKED/UNKNOWN, не утверждённая конструкция. **B open/L physical INDETERMINATE; G1 OPEN; physical tests NOT_RUN.** Обновлено 2026-11-12T14:48:37Z.
+
+---
+
+## История предыдущих состояний
+
 # R4 после PR #39 — новая задача/claim ожидает принятия
 
 **C предложения `e8ab3272d0fe4b1425779b7d2faac9832562d85d`**, REMOTE, ветка `work-r4/T-r4-calculated-layout-01/r4-linked-20261111`. T-r4-calculated-layout-01 READY / owner_session NONE / PROPOSED_PENDING_MAIN; предлагаемый исполнитель r4-linked-20261111 / Codex / R4, proposed lease до 2026-11-13T13:17:33Z (13 ноября 2026, 16:17:33 МСК). H только учёт/эстафета, не принимает claim и не меняет пакет C.
