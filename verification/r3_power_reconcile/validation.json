@@ -1,0 +1,55 @@
+{
+  "observed_at_utc": "2026-11-12T09:54:51.293919+00:00",
+  "base_C": "8a1ad4199fea09d1157972d7aa28eaad1e8e0337",
+  "R5": "d92cebd5a539d6845fe114515154e79c639bcb7e",
+  "main": "8867521a83bd4608886d81678683ea89cce7e4a3",
+  "owner_session": "r3-sizing-20261112",
+  "lease_expires_at": "2026-11-13T08:50:42Z",
+  "new_outputs": 376,
+  "original_incompatible_cases_preserved": 8,
+  "frozen_files": 20,
+  "original_engineering_definitions_preserved": 753,
+  "registry_counts": {
+    "RAW": 25,
+    "ASSUMED": 47,
+    "CALCULATED": 1072,
+    "VERIFIED": 0,
+    "LOCKED": 0
+  },
+  "checks": [
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests": 100,
+      "new_tests": 14,
+      "evidence": "software_tests.log"
+    },
+    {
+      "command": ".venv/bin/python -B scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "evidence": "registry_check.log"
+    },
+    {
+      "command": "old and new readonly calculations twice each",
+      "exit_code": 0,
+      "evidence": "repeatability.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "command": "W01 synthetic regression",
+      "status": "BLOCKED with null feasible cycle/rate",
+      "evidence": "W01_counterexample.json"
+    }
+  ],
+  "W01": "OPEN_PENDING_LIMITED_RECHECK",
+  "W02": "OPEN_PENDING_LIMITED_RECHECK",
+  "G1": "OPEN",
+  "B_open_permission": "INDETERMINATE",
+  "physical_tests": "NOT_RUN",
+  "equipment_architecture_TZ_approved": false,
+  "additional_W01_guard": "Nonzero legacy leakage without explicit hold model blocks the new API; finite admissible cycle not returned",
+  "numeric_reconciliation_values_unchanged_after_API_guard": true
+}

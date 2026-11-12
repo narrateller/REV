@@ -1,3 +1,59 @@
+# Итог подготовки PR #39
+
+Commit подготовки с обеими историями R5: **bcb2ab470bca87534a5b96c795649e89a083ddc7**. Проверенный расчётный C **c115f75fd900525d9ddc89d85e097ac5a0f00bc1** и исходные сценарии неизменны; оба акта d92cebd5a539d6845fe114515154e79c639bcb7e и 54c918bc82612a38f74056ff8ff5b62632d3a210 входят в историю ветки. Локальные проверки: 100 tests OK, оба readonly replay OK, итоговый registry --check-git PASS, diff --check PASS. Контроль: 88 расчётных и 45 review-файлов идентичны. Подробности verification/pr39_integration/checks.json.
+
+Fixed-budget — условная база с caps/увеличенными временами; fixed-times — отдельный неутверждённый ресурс. Полный цикл/B open INDETERMINATE; оборудование/архитектура/ТЗ не утверждены, G1 OPEN. Задача IN_REVIEW; слияние PR в main не выполнено. Следующее действие — отдельное рассмотрение подготовленного PR оператором/координатором после проверок опубликованного HEAD. Эта H-запись только сообщает commit подготовки; проверенный расчёт не меняет.
+
+---
+
+# PR #39 подготовлен к интеграции — только ограниченная расчётная область
+
+Расчётный C **c115f75fd900525d9ddc89d85e097ac5a0f00bc1** сохранён без изменения проверенных файлов; исходные восемь несовместимых сценариев сохранены. Ветка включает оба независимых акта и историю: OUTPUT d92cebd5a539d6845fe114515154e79c639bcb7e и RECHECK 54c918bc82612a38f74056ff8ff5b62632d3a210. Вердикт RECHECK ACCEPT_WITH_WARNING; W01 CLOSED_IN_LIMITED_NEW_API_SCOPE, W02 CLOSED_FOR_CONDITIONAL_CALCULATION_HANDOFF_ONLY, без подтверждения реальных условий до полного цикла/подбора. Исторические OPEN/исходные verdict не переписаны.
+
+**Fixed-budget** — условная база с явно выбранными непроверенными caps и увеличенными временами. **Fixed-times** — альтернативный расчёт с отдельным **неутверждённым ресурсом питания**, не совместимый со старым бюджетом при этих временах. **Полный цикл и открытие упора B — INDETERMINATE**. Оборудование, архитектура и ТЗ не утверждены, G1 OPEN, физические испытания NOT_RUN.
+
+T-r3-parametric-sizing-01 IN_REVIEW до отдельного решения об интеграции; owner r3-sizing-20261112 / Codex / R3, heartbeat 2026-11-12T12:11:39.421389+00:00. Main 8867521a83bd4608886d81678683ea89cce7e4a3; claim PR #38, lease до 2026-11-13T08:50:42Z без продления. Подготовка по прямому поручению пользователя, полномочия R1/приёмка изделия не заявлены. Контроль сохранности/актов и границы — verification/pr39_integration/README.md, preservation.json; окончательные результаты проверок — checks.json после завершения. Слияние PR #39 в main не выполнялось.
+
+---
+
+## История предыдущих состояний
+
+# Окончательная передача R3: RECHECK W01/W02
+
+**Финальный code/results C `c115f75fd900525d9ddc89d85e097ac5a0f00bc1`**, исходный расчёт 8a1ad4199fea09d1157972d7aa28eaad1e8e0337, акт R5 d92cebd5a539d6845fe114515154e79c639bcb7e. Промежуточный C cca7333618ba587505f7e5b8ffbb64eab3ddee32 дополнен защитой прямого API-вызова с ненулевой утечкой без модели выдержки; численные значения восьми пар согласования не менялись. Для нового RECHECK использовать только финальный C выше.
+
+T-r3-parametric-sizing-01 IN_REVIEW, owner r3-sizing-20261112 / Codex / R3; heartbeat 2026-11-12T09:55:39.184956+00:00. Принятый claim PR #38/main 8867521a83bd4608886d81678683ea89cce7e4a3 и lease до 2026-11-13T08:50:42Z действуют без продления. Исходные восемь несовместимых сценариев сохранены. Новый слой отдельно показывает fixed-budget Q/v/t/T/rate и fixed-times resource/peak/average/energy bounds, с явными непроверенными caps и actual UNKNOWN. Известный дефицит выдержки или неустановленная модель ненулевой утечки блокируют допустимый цикл (null), а не скрываются длительностью движения/cap.
+
+Окончательно: 100 tests OK (14 новых), registry --check-git PASS, четыре readonly пересчёта, 74 файла SHA/size/mtime unchanged. Данные/ответ reviewer/R4 — verification/r3_power_reconcile/, запрос recheck_request.md. W01/W02 OPEN до независимого ограниченного RECHECK; автором не закрыты. B open INDETERMINATE, G1 OPEN; оборудование/архитектура/ТЗ не утверждены, физические испытания NOT_RUN. H — только эстафета/точный запрос, численный C не изменяет.
+
+---
+
+## История промежуточной передачи
+
+# R3: согласование мощности/времени — ограниченный RECHECK W01/W02
+
+T-r3-parametric-sizing-01 IN_REVIEW; owner r3-sizing-20261112 / Codex / R3, heartbeat 2026-11-12T09:49:41.426354+00:00. **Новый code/results C `cca7333618ba587505f7e5b8ffbb64eab3ddee32`**. Исходный C 8a1ad4199fea09d1157972d7aa28eaad1e8e0337 и восемь несовместимых режимов сохранены. Входной R5 d92cebd5a539d6845fe114515154e79c639bcb7e принял исходную арифметику с WARNING; новый слой не принят автоматически. Claim PR #38/main 8867521a83bd4608886d81678683ea89cce7e4a3, lease до 2026-11-13T08:50:42Z действует без продления.
+
+Новый пакет verification/r3_power_reconcile/: два явных варианта fixed-budget/fixed-times, отдельные фазовые Q/v/t и power–duration, T/условная производительность, энергия/средняя/пиковая мощность и UNKNOWN. Три power envelopes — явно выбранные ASSUMED границы, не реальные мощности. Actual hold/full energy/average остаются null без схемы/компонентов; при дефиците выдержки новый API даёт BLOCKED и null допустимый цикл. Старое Tlower заморожено для воспроизведения, не для планирования.
+
+99 tests OK (13 новых), реестр --check-git PASS, git diff --check PASS. По два readonly пересчёта старого/нового слоя идентичны; 68 файлов без изменения SHA/mtime/size. 376 новых CALCULATED scalar outputs, прежние определения/численные результаты сохранены. Новые VERIFIED/LOCKED отсутствуют.
+
+Следующий шаг — независимый ограниченный R5 RECHECK **C** по verification/r3_power_reconcile/recheck_request.md: W01 budget deficit/UNKNOWN/насос на выдержке, W02 оба согласования/ресурс/условные caps, таблицы/R4. Автор W01/W02 не закрывает. После независимого акта — отдельное решение координатора об интеграции. B open INDETERMINATE, реальная whole-machine feasibility UNKNOWN; оборудование/архитектура/ТЗ не утверждены, physical tests NOT_RUN, G1 OPEN. Капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md.
+
+---
+
+# Условный расчёт REV — R3, результат на независимой проверке
+
+T-r3-parametric-sizing-01 IN_REVIEW, owner r3-sizing-20261112 / Codex / R3; 2026-11-12T09:08:47.900489+00:00. **Code/results C `8a1ad4199fea09d1157972d7aa28eaad1e8e0337`**; этот последующий H содержит только эстафету/статус/запрос review. Claim `5fdc50bbc8e83241ad2f8754860a503f5de9f418` принят PR #38 на main `8867521a83bd4608886d81678683ea89cce7e4a3`, lease до 2026-11-13T08:50:42Z, не продлён. Исторические NONE/PENDING/NOT_STARTED ниже относятся к состоянию до принятия.
+
+Вход R2 `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50`, R5 `81e5dba4bb47cf8a552b3eb55733454ac4f9742d` ACCEPT_WITH_WARNING только для исходной базы. Отдельные копии/хэши входов сохранены. Восемь выбранных ASSUMED-сценариев, 696 CALCULATED scalar outputs; реальные UNKNOWN null, новых VERIFIED/LOCKED нет. Камера/доза/ходы, нагрузка, обе полости/направления цилиндра, Q/v/t/P/E, A удержание и B разгрузка/выдача разобраны в verification/r3_parametric_sizing/.
+
+При исходных временах все наборы превышают выбранный электрический бюджет; более длительный бюджет вычислен условно. D/d — нижняя геометрия из заданного отношения штока, не подбор/прочность. B opening и whole-cycle feasibility INDETERMINATE. Полная проверка ПО 86 tests OK, реестр --check-git PASS, два readonly пересчёта идентичны, 34 проверенных файла без изменения SHA/mtime/size. Это не независимый инженерный review.
+
+Следующий шаг: независимый R5 проверяет **C**, не переносит старый акт на новый код; запрос verification/r3_parametric_sizing/review_request.md, результаты/таблицы report.md, formulas model.md, R4 входы r4_inputs.md; капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md. После R5 — отдельное решение координатора об интеграции, без самоприёмки. G1 и прежние блокеры OPEN, конкретные цилиндр/насос и архитектура/ТЗ не утверждены, physical tests NOT_RUN.
+
+---
+
 # Ожидает принятия: отдельный claim условного расчёта R3
 
 T-r3-parametric-sizing-01 READY / PROPOSED_PENDING_MAIN; owner_session NONE, proposed owner r3-sizing-20261112 / R3 / Codex. Постановка и claim C `5fdc50bbc8e83241ad2f8754860a503f5de9f418`; main при сверке `680946b8abba9d921c5723b523be573554c15eca`. Входы R2 `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50`, R5 `81e5dba4bb47cf8a552b3eb55733454ac4f9742d` (ACCEPT_WITH_WARNING) доступны в Git, в main ещё не интегрированы.

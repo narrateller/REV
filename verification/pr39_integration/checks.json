@@ -1,0 +1,46 @@
+{
+  "observed_at_utc": "2026-11-12T12:16:37.185291+00:00",
+  "calculation_C": "c115f75fd900525d9ddc89d85e097ac5a0f00bc1",
+  "main_checked": "8867521a83bd4608886d81678683ea89cce7e4a3",
+  "claim_owner": "r3-sizing-20261112",
+  "claim_expires_at_utc": "2026-11-13T08:50:42Z",
+  "protected_files_identical": 88,
+  "review_files_identical": 45,
+  "tests": {
+    "command": ".venv/bin/python -B -m unittest discover -s tests -v",
+    "executed": 100,
+    "passed": 100,
+    "exit_code": 0,
+    "log": "tests.log"
+  },
+  "registry": {
+    "command": ".venv/bin/python -B scripts/check_registry.py --check-git",
+    "exit_code": 0,
+    "log": "registry_final.log",
+    "initial_attempt": {
+      "exit_code": 1,
+      "log": "registry_initial.log",
+      "reason": "Old review index was initially read as CURRENT against original whole-registry SHA; historical index validity corrected to STALE, original record retained verbatim, recheck CURRENT"
+    }
+  },
+  "readonly_replay": {
+    "original": {
+      "exit_code": 0,
+      "log": "original_replay.log"
+    },
+    "power": {
+      "exit_code": 0,
+      "log": "power_replay.log"
+    }
+  },
+  "git_diff_check": {
+    "exit_code": 0
+  },
+  "PR_merged": false,
+  "remote_CI": "Report separately for the final published HEAD; not asserted by local checks",
+  "physical_tests": "NOT_RUN",
+  "G1": "OPEN",
+  "full_cycle": "INDETERMINATE",
+  "B_open": "INDETERMINATE",
+  "preparation_commit": "bcb2ab470bca87534a5b96c795649e89a083ddc7"
+}

@@ -1,0 +1,917 @@
+{
+  "schema_version": "1.1",
+  "scope": "REV_R3_CONDITIONAL_ARITHMETIC_ONLY",
+  "inputs": [
+    {
+      "id": "R3_IN_WIDTH",
+      "revision": 1,
+      "engineering_sha256": "d643aa3a03ec008438d5087bc4b3011edfe152875effb725a04feae80a33c1ff",
+      "value": 0.15,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_HEIGHT",
+      "revision": 1,
+      "engineering_sha256": "8c5c16ec5d1055417f306b176bffd22fff62ba9be27c36132ccf54da49581c8a",
+      "value": 0.06,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_PRODUCT_LENGTH",
+      "revision": 1,
+      "engineering_sha256": "6de1c62bb4e3ce436ad93e909cfce9c5450f0f6f3684026969677b1f23aed6b3",
+      "value": 0.11,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_MASS",
+      "revision": 1,
+      "engineering_sha256": "bcce4f5bc3c904d5dc9c299a5e5d5d70e4729ae22c092e4d63eb4b4eb60cfc7d",
+      "value": 0.83,
+      "unit": "kg"
+    },
+    {
+      "id": "R3_IN_RHO",
+      "revision": 1,
+      "engineering_sha256": "08e0f1b501432130a0dd803fb2d16c2b369597777ad73fb23bc37b5354e17150",
+      "value": 200.0,
+      "unit": "kg/m^3"
+    },
+    {
+      "id": "R3_IN_PHI",
+      "revision": 1,
+      "engineering_sha256": "9e7bdce5d57581a516de1c3799e5266adc403f3fca84977b2bfb9a86275d4a43",
+      "value": 0.8,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_SIGMA_START",
+      "revision": 1,
+      "engineering_sha256": "7e4eb0a020c3685982fc1013e96daa9d6ce9bc60925e08881bf6ef5287fa6d05",
+      "value": 0.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_SIGMA_END",
+      "revision": 1,
+      "engineering_sha256": "e7d4a43a42e621ac77a3a1404bd1e4f879530e44732244069019427294694f83",
+      "value": 166713050.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_KAPPA",
+      "revision": 1,
+      "engineering_sha256": "fb7ec913cf454743eb26923bc319da5db73aa9d299b14e082091ba75d4eda7ed",
+      "value": 0.6,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_SUPPLY_WORK",
+      "revision": 1,
+      "engineering_sha256": "dfe5f2f1feab249c34094e6228b02991a2508c92db658b24f7914916c251a8b4",
+      "value": 30000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_SUPPLY_EJECT",
+      "revision": 1,
+      "engineering_sha256": "868ddb8fc1264f682a104369ac0989547655ac72a0b4e23ddbcfd7b4a3332c11",
+      "value": 10000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_SUPPLY_RETURN",
+      "revision": 1,
+      "engineering_sha256": "e0e0f7a60536ac1cfad56345e9761e8e3c62781794b86585fdcd94ce09cb1a01",
+      "value": 12000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_BACK_FORWARD",
+      "revision": 1,
+      "engineering_sha256": "a2e65a2d1a4692844b1ed686210101f5c58e257806fcad1757a3eb48b90da2c2",
+      "value": 1000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_BACK_RETURN",
+      "revision": 1,
+      "engineering_sha256": "c99ff4f661e0ffde7ebdb82ef9f9c94bf6cc9f0b967107c3322a017a336298e7",
+      "value": 1000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_CHANNEL_SLIDE",
+      "revision": 1,
+      "engineering_sha256": "8f9ec5d66ecde7f8d6cf7abf93339e3d5257482d386411f833344727670881b0",
+      "value": 30000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_CHANNEL_HOLD",
+      "revision": 1,
+      "engineering_sha256": "8be165d6478377713e10c8c18afc0943af819939ff07b220f9cf7771e121d326",
+      "value": 40000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_REBOUND",
+      "revision": 1,
+      "engineering_sha256": "d3bfd9e06e08695b6ead63098e4e6c38040f218c9a0dd7f1ea8ad89ef6697687",
+      "value": 10000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_GUIDE",
+      "revision": 1,
+      "engineering_sha256": "4b09c074f85361794a29f873b2fb044f49c72303f6065bbeb12966af026a6932",
+      "value": 2000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_SEAL",
+      "revision": 1,
+      "engineering_sha256": "b0ec8b0ca5feb98ebace9d2dfec8797d72ad19de86714ee3f667b86f6d217c15",
+      "value": 5000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_RETURN_LOAD",
+      "revision": 1,
+      "engineering_sha256": "7716d039bafd70cd49c68856bf13f618e9df1dada723c4c48242b489f298e408",
+      "value": 10000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_EJECT_LOAD_B",
+      "revision": 1,
+      "engineering_sha256": "003dcb28852c91d3a1d34682ba0d59b2f3e747769956b9735091672f546684e9",
+      "value": 20000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_EJECT_TRAVEL",
+      "revision": 1,
+      "engineering_sha256": "1be4abef5a0e5c304802f73d12f5757b3660d6eea6ee04e44adff274672b9cac",
+      "value": 0.17,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_CLEARANCE",
+      "revision": 1,
+      "engineering_sha256": "9f5eacf192d08b9cddde95c48aac7b3ba47cf72bfd4a87ad82191845d4101560",
+      "value": 0.03,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_ETA_PUMP",
+      "revision": 1,
+      "engineering_sha256": "d65bc6d5c68b9bb9e9107844f6fbe0cbc4341f234b94722e2eb4637f41efaa19",
+      "value": 0.85,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_ETA_MOTOR",
+      "revision": 1,
+      "engineering_sha256": "9a7aff9347fa877dd8f5f68a209ea069fd2fe2e46ff2d16c1096ad17ead1afa9",
+      "value": 0.9,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_ELECTRIC_LIMIT",
+      "revision": 1,
+      "engineering_sha256": "f0caad98ee0195b86491b90f5854031e0003469d369ec91522ff5e6ec5c5ed48",
+      "value": 30000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3_IN_LEAK_HOLD",
+      "revision": 1,
+      "engineering_sha256": "8bd7c297069bec45ecfd304b56afae5e4746a177772e0b66fad072927a698d8b",
+      "value": 0.0,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_IN_T_APPROACH",
+      "revision": 1,
+      "engineering_sha256": "b01e1b18bd88aef8cd3b1a8815bc65e8ace5c0abf8e9179ccd51dfd298e7277e",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_WORK",
+      "revision": 1,
+      "engineering_sha256": "9e96e0fc596ec87211240317c81357f33b19be53acb57207b39d973e0c86371c",
+      "value": 2.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_EJECT",
+      "revision": 1,
+      "engineering_sha256": "6b5d1fa0e448e89bbeba683b9eab84c88e422ffc816b6a0d1611817aa8031301",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_RETURN",
+      "revision": 1,
+      "engineering_sha256": "e5e96a64fc71530961c58b7bb081c748b8a735316cff84ddd6885325e6e0a129",
+      "value": 2.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_HOLD",
+      "revision": 1,
+      "engineering_sha256": "f0759326148cfebf7dc4337ae2e5ef1b79b962c953b566b395a4316be136cf72",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_AUX_A",
+      "revision": 1,
+      "engineering_sha256": "2ba2046a9ec4e4b1ae21892942aab4c87e870166088f698d79fd40100a5945dd",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_UNLOAD_B",
+      "revision": 1,
+      "engineering_sha256": "7221e500e68e688fd7f36cb421ee6b9bd9fccf32b25f86e8d93a7a901dbb0f0c",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_OPEN_B",
+      "revision": 1,
+      "engineering_sha256": "85fa59de19c77ee71a01adfd23d779ea0a627df960bf1df8af8235a6ecce4da8",
+      "value": 1.0,
+      "unit": "s"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "R3_BASE_B_AREA",
+      "revision": 1,
+      "engineering_sha256": "696e0ff08da8f8d5eaeee4e6d2191d9d105350735b0c8d9c0772faab6ff2abda",
+      "value": 0.009,
+      "unit": "m^2"
+    },
+    {
+      "id": "R3_BASE_B_CHAMBER_VOLUME",
+      "revision": 1,
+      "engineering_sha256": "a3ae27188d2df4cb54813156c4108f7a16651c1da2b0edeba9402f2ac907ec6f",
+      "value": 0.005187499999999999,
+      "unit": "m^3"
+    },
+    {
+      "id": "R3_BASE_B_CHAMBER_LENGTH",
+      "revision": 1,
+      "engineering_sha256": "7afe1c6d48c8d28d7a9cb559d5f4046d3836b3e959414055f525926645277402",
+      "value": 0.5763888888888888,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_OCCUPIED_LENGTH",
+      "revision": 1,
+      "engineering_sha256": "4deb2f14d824e5d9ae04c9b153d771415f1d3bc87f2ae9ba8f34bfe04e6f2da8",
+      "value": 0.4611111111111111,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_STROKE",
+      "revision": 1,
+      "engineering_sha256": "be79a8938a64066768edfa201035e4a3b7efce29c7560006721ddd71487352ed",
+      "value": 0.11527777777777776,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_WORK_STROKE",
+      "revision": 1,
+      "engineering_sha256": "a469e88240f61257c770eb9eaca4557409ae1c5cd00dbfc945c70a47983816b0",
+      "value": 0.3511111111111111,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_STROKE",
+      "revision": 1,
+      "engineering_sha256": "aac701db499dd41fd2342d71f77e4f945d15d7f6a588d7fb75ab3e549514ea90",
+      "value": 0.6363888888888889,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_STROKE",
+      "revision": 1,
+      "engineering_sha256": "0a3586ecb9e6c8710b89c06daa825c729b64df7d2427abbe0768a4ee51e5f809",
+      "value": 0.17,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_PRODUCT_DENSITY",
+      "revision": 1,
+      "engineering_sha256": "070d0081020d80ad0101aac2990b06ba0020cb7605f706e89587679999f86f80",
+      "value": 838.3838383838383,
+      "unit": "kg/m^3"
+    },
+    {
+      "id": "R3_BASE_B_FORCE_WORK_START",
+      "revision": 1,
+      "engineering_sha256": "2c799121662c4f2666100e0fe2403eaa25e9198a313ec4651a2b9f4795e721de",
+      "value": 2000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_BASE_B_FORCE_WORK_PEAK",
+      "revision": 1,
+      "engineering_sha256": "561b8a3724234fada0e6c6753832ccf319875f71dbf3cb9528fdd8ac486a2016",
+      "value": 1502417.45,
+      "unit": "N"
+    },
+    {
+      "id": "R3_BASE_B_FORCE_EJECT",
+      "revision": 1,
+      "engineering_sha256": "73838d6b69cb1aa9ef7d73c7196f6d4e36af40f73393c640afc5df234a5bd767",
+      "value": 22000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_BASE_B_FORCE_RETURN_REQUIRED",
+      "revision": 1,
+      "engineering_sha256": "2e9f9404d86599641d1ed6fb699927484578a2de1792bdafb1697abff1369137",
+      "value": 12000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_BASE_B_BORE",
+      "revision": 1,
+      "engineering_sha256": "995a9fd66907509880e3d3306f53feeb249b8915a4a79baac6eedf5716237c16",
+      "value": 0.2556782604764038,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_ROD",
+      "revision": 1,
+      "engineering_sha256": "26738f42950bd1441dffe72011b6c64408ea198c0c980d4ad96c9cc914435549",
+      "value": 0.15340695628584228,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_BORE_AREA",
+      "revision": 1,
+      "engineering_sha256": "e203299f38808f399159be005b938e97861ad8600b65770b31259c81349b1740",
+      "value": 0.05134255619891008,
+      "unit": "m^2"
+    },
+    {
+      "id": "R3_BASE_B_ANNULUS_AREA",
+      "revision": 1,
+      "engineering_sha256": "3d12f764675c0e2c2fa0e69e4b6aba358d95821e027edc4572efed1a5ba47f31",
+      "value": 0.032859235967302454,
+      "unit": "m^2"
+    },
+    {
+      "id": "R3_BASE_B_FORCE_EXTENSION_CAPACITY",
+      "revision": 1,
+      "engineering_sha256": "585c24a92c93194d451176cdc6f318b4fde3382504f1e7e0a0b862f50d310eaa",
+      "value": 1502417.45,
+      "unit": "N"
+    },
+    {
+      "id": "R3_BASE_B_FORCE_RETURN_CAPACITY",
+      "revision": 1,
+      "engineering_sha256": "238d2508b36a9da713c865c5ac188711a9f78cee6c493e79e0a461704c120552",
+      "value": 337968.2754087193,
+      "unit": "N"
+    },
+    {
+      "id": "R3_BASE_B_MASS_RESIDUAL",
+      "revision": 1,
+      "engineering_sha256": "a525f173cb31ed983c6f3fae574ad65f0bc7aff4b6d8c60676b781eff7c94235",
+      "value": -1.1102230246251565e-16,
+      "unit": "kg"
+    },
+    {
+      "id": "R3_BASE_B_B_STOP_PEAK_REACTION",
+      "revision": 1,
+      "engineering_sha256": "4fd01a036eb47b91f904b03ed49738a3d6dcab2fb2bdc8ecff356d9501f3cf22",
+      "value": 1500417.45,
+      "unit": "N"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_REQUIRED_GEOMETRY",
+      "revision": 1,
+      "engineering_sha256": "51704a7ea1d07b2beb14bf0f61ff8f03d79c49589f0c4305528e3a3911cfe680",
+      "value": 0.14,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_GEOMETRY_MARGIN",
+      "revision": 1,
+      "engineering_sha256": "f8a3459aa76f7a1fedfe07f144b68152ededec99e0d93b2535c9beeaa24aa9ff",
+      "value": 0.030000000000000013,
+      "unit": "m"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_SPEED",
+      "revision": 1,
+      "engineering_sha256": "b967945e43705488e1433b99ef40b1ad0eda3ac93fd2fb847a6b55a47af3b031",
+      "value": 0.11527777777777776,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_FLOW_SUPPLY",
+      "revision": 1,
+      "engineering_sha256": "0b57e7fe5eaa492305d824b03f7dc3ac04a8bc48712e56711a416a82fcca6d8e",
+      "value": 0.005918655784041022,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_FLOW_RETURN",
+      "revision": 1,
+      "engineering_sha256": "22666bd8ff393bb2657eb925e51ea537684eded298b256befc94c50a2fdde22f",
+      "value": 0.0037879397017862543,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_MEAN_CHAMBER_PRESSURE",
+      "revision": 1,
+      "engineering_sha256": "18cc92d725c0caffffe3c4e66fbcb0a0907d2fb410f1bdbd00030ce1c28b2b98",
+      "value": 776339.140826584,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_SUPPLY_POWER",
+      "revision": 1,
+      "engineering_sha256": "b6f034969b6f8c6671d69dec29005d4e6fbb0e5a3730671387567400aad7c6a2",
+      "value": 177559.67352123067,
+      "unit": "W"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_SUPPLY_ENERGY",
+      "revision": 1,
+      "engineering_sha256": "c589032e900fc4ef3ba253eedbb13699a6a4f402dba7cf709eeab5b7e3ff1b51",
+      "value": 177559.67352123067,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_LOAD_WORK",
+      "revision": 1,
+      "engineering_sha256": "3f07fc598933ccfae14dcc62a69102c41a5cca0874a01f2dfe4d85a406c0e9c1",
+      "value": 230.55555555555551,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_SEAL_LOSS",
+      "revision": 1,
+      "engineering_sha256": "4b0c536462ced087081b3558081b736beae142f4392d99a5b2eb929738d53d73",
+      "value": 576.3888888888888,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_BACK_LOSS",
+      "revision": 1,
+      "engineering_sha256": "f229cf67c1e611bd501ca2e0ac8ff24b5b31d0392c3675c1f1c8d3941b0daa86",
+      "value": 3787.9397017862543,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_VALVE_LOSS",
+      "revision": 1,
+      "engineering_sha256": "38092887feee57206cc3c4ab9103b4c3a6f1bd23f0d5282da8335fa7318b59f9",
+      "value": 172964.78937499996,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_APPROACH_MINIMUM_TIME_POWER",
+      "revision": 1,
+      "engineering_sha256": "2145e3f236243c425571b57c79e1d8031ed498d5b292e1d58c0cf77fbe9f1911",
+      "value": 7.736804946458853,
+      "unit": "s"
+    },
+    {
+      "id": "R3_BASE_B_WORK_SPEED",
+      "revision": 1,
+      "engineering_sha256": "bd0a7136e2eacd2fbb53f8d25d689b2337ab3d28652185e1c6ee6b69ef43e291",
+      "value": 0.17555555555555555,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3_BASE_B_WORK_FLOW_SUPPLY",
+      "revision": 1,
+      "engineering_sha256": "be82ccff1519ed927d9ef78d8e181cee5300d9e6873712363820045b23fe2a26",
+      "value": 0.009013470977141991,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_WORK_FLOW_RETURN",
+      "revision": 1,
+      "engineering_sha256": "7f0fb3d0027b10dbba06304ec6b6de48d8908baf75327e5c06963c6df8271052",
+      "value": 0.005768621425370875,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_WORK_MEAN_CHAMBER_PRESSURE",
+      "revision": 1,
+      "engineering_sha256": "af4e38ec5d172f42f1252a587ddf75082aa66e906d8083cbe11227938be6ad47",
+      "value": 15388169.570413291,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_BASE_B_WORK_SUPPLY_POWER",
+      "revision": 1,
+      "engineering_sha256": "2c4b0915364b816cc56f1211934225b7bd76dbb1aa64359fc15246609daea695",
+      "value": 270404.12931425974,
+      "unit": "W"
+    },
+    {
+      "id": "R3_BASE_B_WORK_SUPPLY_ENERGY",
+      "revision": 1,
+      "engineering_sha256": "2c7bf94bec84feea0c1f9012b23c1a8f760c5ad9c77577716aee359c8dc6f321",
+      "value": 540808.2586285195,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_WORK_LOAD_WORK",
+      "revision": 1,
+      "engineering_sha256": "f472ba392f20e6dc4b7fba57ddc015f8a516122f2c1c45300f5f6178dbcd9ed0",
+      "value": 264108.8412222222,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_WORK_SEAL_LOSS",
+      "revision": 1,
+      "engineering_sha256": "84ee566574d6801a8d9442984198cd79701e1d8b93fab9043c6c43d113df86c9",
+      "value": 1755.5555555555554,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_WORK_BACK_LOSS",
+      "revision": 1,
+      "engineering_sha256": "a9b02a34c5b89d0729c73446ed7fbf09368d962dc2054cc145982ebf360627bc",
+      "value": 11537.24285074175,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_WORK_VALVE_LOSS",
+      "revision": 1,
+      "engineering_sha256": "f09335c158915ce500fdb0c94031bcdd248b9377b7a2714e5f54370c60fd7e9c",
+      "value": 263406.619,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_WORK_MINIMUM_TIME_POWER",
+      "revision": 1,
+      "engineering_sha256": "ce8b80d25c75fc9318b1ef7fc9cc915257ac662768b7a2d8d635cbae6738ad7f",
+      "value": 23.564630005599977,
+      "unit": "s"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_SPEED",
+      "revision": 1,
+      "engineering_sha256": "88d99464b59f3aa088728eec2b1ee3ab00d9c6690890cbcd5456b4cef0ebe1c0",
+      "value": 0.17,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_FLOW_SUPPLY",
+      "revision": 1,
+      "engineering_sha256": "391d1cef117f5980172ab58c9ee6df8123c74992dadd018a8fb2c03552ab62a7",
+      "value": 0.008728234553814714,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_FLOW_RETURN",
+      "revision": 1,
+      "engineering_sha256": "8b65c55f876438905985510aab001e9083323b8edf6f4defe2c5b5414e0fa8cb",
+      "value": 0.0055860701144414176,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_MEAN_CHAMBER_PRESSURE",
+      "revision": 1,
+      "engineering_sha256": "fcdfd1ff39d23b337869a964a643321a70a960d36e7516265798f8cf0e406305",
+      "value": 1165879.5431882523,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_SUPPLY_POWER",
+      "revision": 1,
+      "engineering_sha256": "b8d1b996d1fff29b22f648436653dcffe8cb8a1ee98fa0fdd89a7c0aba1c9619",
+      "value": 87282.34553814714,
+      "unit": "W"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_SUPPLY_ENERGY",
+      "revision": 1,
+      "engineering_sha256": "09328ef21e7123858f3b2c629c529f5c4a70187081794bb9ca30a0df13a1ca9a",
+      "value": 87282.34553814714,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_LOAD_WORK",
+      "revision": 1,
+      "engineering_sha256": "d22eb46ae03fd3faaeab5a6794d19790b5a148bad076034127bff351e17ac003",
+      "value": 3740.0000000000005,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_SEAL_LOSS",
+      "revision": 1,
+      "engineering_sha256": "8d126cdd99021322b90bc827d310be7761ad17b69b23aca097adb68122c6f929",
+      "value": 850.0000000000001,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_BACK_LOSS",
+      "revision": 1,
+      "engineering_sha256": "05a54392db43ae5b7b80d658d0901ebb88c9e96185ea92c4ace527db2b178d93",
+      "value": 5586.070114441418,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_VALVE_LOSS",
+      "revision": 1,
+      "engineering_sha256": "fa5927da6953c4eb7e83f888af4e0acc9468131bcf77fdbff2f1784891db5b98",
+      "value": 77106.27542370572,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_EJECT_MINIMUM_TIME_POWER",
+      "revision": 1,
+      "engineering_sha256": "bf12206068dc1a99bded434456d5e872f320ba45579f0314108bd9d8994fddc9",
+      "value": 3.8031523110303764,
+      "unit": "s"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_SPEED",
+      "revision": 1,
+      "engineering_sha256": "2008aacd94403ae2adbd10e1b33aef1e1038e35cd81f972a0c414b036dc82116",
+      "value": 0.31819444444444445,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_FLOW_SUPPLY",
+      "revision": 1,
+      "engineering_sha256": "79e9426008a8d9fb8ece34f4dc790de119089916d6f61f80796c23b8ece29561",
+      "value": 0.010455626333484711,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_FLOW_RETURN",
+      "revision": 1,
+      "engineering_sha256": "bad1755f037e410c136419b73b61b9fc09265e36ff41f685144f66dd4bd626ee",
+      "value": 0.01633691614606986,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_MEAN_CHAMBER_PRESSURE",
+      "revision": 1,
+      "engineering_sha256": "41e1031529f2d7e26752bda0f44440c94761d8600be0a127b580c511e009743d",
+      "value": 2079858.3468865906,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_SUPPLY_POWER",
+      "revision": 1,
+      "engineering_sha256": "bd8f4ea3dd260f835a73fa0413e575a043c756af66f8bd92ca2b3159a86a50a3",
+      "value": 125467.51600181653,
+      "unit": "W"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_SUPPLY_ENERGY",
+      "revision": 1,
+      "engineering_sha256": "6b662a2735ba3aab92b1aee0c520366a81427bf61d3639890adb9dc19b2443da",
+      "value": 250935.03200363307,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_LOAD_WORK",
+      "revision": 1,
+      "engineering_sha256": "30c5525e93a8c1a381b7dd0baf087143b79815fdc6b9a92feeaaf823f3c034ec",
+      "value": 7636.666666666667,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_SEAL_LOSS",
+      "revision": 1,
+      "engineering_sha256": "ef647543527c7966689f21a8df91b7bcc4d39ed57df71e25093f97137b31ee71",
+      "value": 3181.9444444444443,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_BACK_LOSS",
+      "revision": 1,
+      "engineering_sha256": "95b84c25b9961f3e5effc1374db06a6ccf9030276bbba57403eba2707877f933",
+      "value": 32673.832292139723,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_VALVE_LOSS",
+      "revision": 1,
+      "engineering_sha256": "0f14ccc2bce72d5b0b39ed41d8c5c0c61c5b1c0dfaaea85f3f69ec65b0f45ce0",
+      "value": 207442.58860038224,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_RETURN_MINIMUM_TIME_POWER",
+      "revision": 1,
+      "engineering_sha256": "94ad89d0d4d5c13855a2d4156bed0add7074b02af9d903a171e0d8389f8a884d",
+      "value": 10.93398832259839,
+      "unit": "s"
+    },
+    {
+      "id": "R3_BASE_B_HOLD_LOSS",
+      "revision": 1,
+      "engineering_sha256": "e0924f989b993ad18cb2fbddfc519c57e81658137ed4fb77e3673f6cd5ec6041",
+      "value": 0.0,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_HYDRAULIC_ENERGY",
+      "revision": 1,
+      "engineering_sha256": "302259b24ab1fdf1e5eca026b86d0cdfef9c04b016be250cd2234648aac2b50c",
+      "value": 1056585.3096915304,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_LOAD_WORK_TOTAL",
+      "revision": 1,
+      "engineering_sha256": "ff456000a77b7131851f42a0507d59099e715db20d9ecdf5c2229b10e8502e19",
+      "value": 275716.06344444444,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_SEAL_LOSS_TOTAL",
+      "revision": 1,
+      "engineering_sha256": "cebbdc40386f11b184851aa5013b80e867e7e8c665a1a5439331d8cbf654e700",
+      "value": 6363.888888888889,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_BACK_LOSS_TOTAL",
+      "revision": 1,
+      "engineering_sha256": "bf1475d39ac7aebab9672e987510df0e13d565de4220cfd9fc5955bb76522078",
+      "value": 53585.08495910914,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_VALVE_LOSS_TOTAL",
+      "revision": 1,
+      "engineering_sha256": "e7c457f07c0753b0a526a09e7ed96a3c83a0e5d2906e528a15e234c689b92abe",
+      "value": 720920.2723990879,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_PUMP_LOSS",
+      "revision": 1,
+      "engineering_sha256": "3cf91a4abedce2b74123f33dfbd06dd14cbdfe0f72e0a9a13e5ba65216974a5b",
+      "value": 186456.23112203483,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_MOTOR_LOSS",
+      "revision": 1,
+      "engineering_sha256": "13f456785adc60a5556a2ff68c241fcfa2b81599c8bafcf70b3f12c43260e7ee",
+      "value": 138115.72675706286,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_ELECTRIC_ENERGY",
+      "revision": 1,
+      "engineering_sha256": "1daec05928c3006469877ac129ce8db0ca85e3f46b9c95d523fc1f73feabe7a2",
+      "value": 1381157.267570628,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_MODELED_HEAT",
+      "revision": 1,
+      "engineering_sha256": "7dc4053be10f980676416af27187219829fb13186277e3eba1c505cfb62c058b",
+      "value": 1105441.2041261836,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_HYDRAULIC_ENERGY_RESIDUAL",
+      "revision": 1,
+      "engineering_sha256": "c835e5d484fd1db7b2cce315d04826bcb20cea985583f4335265f9a78e419fb7",
+      "value": 0.0,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_ELECTRIC_ENERGY_RESIDUAL",
+      "revision": 1,
+      "engineering_sha256": "27e4b94c2605044715b434ee1298ebdb96c33148f5344538aec62acc54046aaf",
+      "value": -2.9103830456733704e-11,
+      "unit": "J"
+    },
+    {
+      "id": "R3_BASE_B_FLOW_PEAK",
+      "revision": 1,
+      "engineering_sha256": "c4eeb2515bf084cfb8c9c935dad667b1e2dbd04aae8b14a013fee37165e50999",
+      "value": 0.010455626333484711,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_BASE_B_HYDRAULIC_POWER_PEAK",
+      "revision": 1,
+      "engineering_sha256": "5f3cc63478e1e5fbb640d2779ca60f37ab4da1cb7d1051701251d332f4ddc2d1",
+      "value": 270404.12931425974,
+      "unit": "W"
+    },
+    {
+      "id": "R3_BASE_B_ELECTRIC_POWER_PEAK",
+      "revision": 1,
+      "engineering_sha256": "d3393887835086c288e41b67160519aad74d3ed125a84fbe3442a49794e6d3db",
+      "value": 353469.45008399966,
+      "unit": "W"
+    },
+    {
+      "id": "R3_BASE_B_CYCLE_BUDGET",
+      "revision": 1,
+      "engineering_sha256": "e675699d2abcdddc00dba692d470934c2574fda4da83cfba92bec806fb5353c2",
+      "value": 9.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_BASE_B_CYCLE_BUDGET_POWER_LIMITED",
+      "revision": 1,
+      "engineering_sha256": "fc18a3303e5dc57c7edf745282f2b1f252d76e942c036a1b9c1eb0a16079f391",
+      "value": 49.038575585687596,
+      "unit": "s"
+    },
+    {
+      "id": "R3_BASE_B_ELECTRIC_POWER_MARGIN",
+      "revision": 1,
+      "engineering_sha256": "5b289b76ba5fa5328876f87cade29fc4ffafb5b5e75cb3fd6f93bb16ccda3d39",
+      "value": -323469.45008399966,
+      "unit": "W"
+    },
+    {
+      "id": "R3_BASE_B_CONDITIONAL_MASS_RATE",
+      "revision": 1,
+      "engineering_sha256": "62776acf6abbf041a02bd6d08cf0c2dacfbf17f8de32e8020449f77d1497a0f6",
+      "value": 0.09222222222222222,
+      "unit": "kg/s"
+    },
+    {
+      "id": "R3_BASE_B_ELECTRIC_POWER_AVERAGE",
+      "revision": 1,
+      "engineering_sha256": "59d7f9568706ff8d76aa988e5dcc96effd7465d3ef8f1e02f99648f9aff1b5f0",
+      "value": 153461.91861895868,
+      "unit": "W"
+    }
+  ],
+  "registry_snapshot": "evidence/snapshots/b9981ba8923eae1d11150a7fa5e6760adc21c80822fb6a49e9b6f1058aeebbb0.yaml",
+  "registry_sha256": "b9981ba8923eae1d11150a7fa5e6760adc21c80822fb6a49e9b6f1058aeebbb0",
+  "script_sha256": "df8aa4678035f7c90b56cbe1d8a4cf450f4ef552d95b21fd8cf423de96819e59",
+  "code_files": [
+    {
+      "path": "scripts/rev_parametric.py",
+      "sha256": "df8aa4678035f7c90b56cbe1d8a4cf450f4ef552d95b21fd8cf423de96819e59"
+    },
+    {
+      "path": "scripts/repo_support.py",
+      "sha256": "ca9c504e798a287a9fb1870675dc342c5b69098944e38e4f527679a5d250173c"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "verification/r3_parametric_sizing/inputs/r2_design_basis.txt",
+      "sha256": "fcf3627b5512c66860769222784a9198dfa5ad1590089405cf0a7563e4c2c87d"
+    },
+    {
+      "path": "verification/r3_parametric_sizing/inputs/r2_input_audit.txt",
+      "sha256": "2c4f3079a998ed0526dda91c48a6b55e1b247253103c355d82dbb66902895928"
+    },
+    {
+      "path": "verification/r3_parametric_sizing/inputs/r2_registry.yaml",
+      "sha256": "b2920a4e315f748ea2d19172c6d64a4a89c0c46a3e51deccc39d4419c61cf3bb"
+    },
+    {
+      "path": "verification/r3_parametric_sizing/inputs/r2_script.txt",
+      "sha256": "2e902658e17ffa25bc0963cc9ffa073f503d88df62b535b33f07b245fcdb22c3"
+    },
+    {
+      "path": "verification/r3_parametric_sizing/inputs/r5_review.txt",
+      "sha256": "60f92521591b5e1d8cb4b489452a6bada82e16da87392ed363c2619d64fc5f98"
+    },
+    {
+      "path": "verification/r3_parametric_sizing/cases.json",
+      "sha256": "0e34159de8b1e7f98d7d1d9c6fc645d55b721545a9e69a3f7775d24c476a2a7d"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "pyyaml": "6.0.3"
+  },
+  "conclusions": {
+    "scenario_only": true,
+    "physical_validation": false,
+    "component_selection": false,
+    "A_hold_arithmetic": "NOT_APPLICABLE",
+    "B_open_permission": "INDETERMINATE",
+    "B_residual_stop_force": null,
+    "B_allowed_open_reaction": null,
+    "ejection_geometry_arithmetic": "ENOUGH_AXIAL_TRAVEL",
+    "power_budget_arithmetic": "EXCEEDS_ASSUMED_LIMIT",
+    "whole_cycle_feasibility": "INDETERMINATE"
+  }
+}

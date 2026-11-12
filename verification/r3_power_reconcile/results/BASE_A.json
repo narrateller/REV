@@ -1,0 +1,660 @@
+{
+  "schema_version": "1.1",
+  "scope": "REV_R3_POWER_RECONCILIATION_WHAT_IF_ONLY",
+  "inputs": [
+    {
+      "id": "R3_IN_WIDTH",
+      "revision": 1,
+      "engineering_sha256": "d643aa3a03ec008438d5087bc4b3011edfe152875effb725a04feae80a33c1ff",
+      "value": 0.15,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_HEIGHT",
+      "revision": 1,
+      "engineering_sha256": "8c5c16ec5d1055417f306b176bffd22fff62ba9be27c36132ccf54da49581c8a",
+      "value": 0.06,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_PRODUCT_LENGTH",
+      "revision": 1,
+      "engineering_sha256": "6de1c62bb4e3ce436ad93e909cfce9c5450f0f6f3684026969677b1f23aed6b3",
+      "value": 0.11,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_MASS",
+      "revision": 1,
+      "engineering_sha256": "bcce4f5bc3c904d5dc9c299a5e5d5d70e4729ae22c092e4d63eb4b4eb60cfc7d",
+      "value": 0.83,
+      "unit": "kg"
+    },
+    {
+      "id": "R3_IN_RHO",
+      "revision": 1,
+      "engineering_sha256": "08e0f1b501432130a0dd803fb2d16c2b369597777ad73fb23bc37b5354e17150",
+      "value": 200.0,
+      "unit": "kg/m^3"
+    },
+    {
+      "id": "R3_IN_PHI",
+      "revision": 1,
+      "engineering_sha256": "9e7bdce5d57581a516de1c3799e5266adc403f3fca84977b2bfb9a86275d4a43",
+      "value": 0.8,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_SIGMA_START",
+      "revision": 1,
+      "engineering_sha256": "7e4eb0a020c3685982fc1013e96daa9d6ce9bc60925e08881bf6ef5287fa6d05",
+      "value": 0.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_SIGMA_END",
+      "revision": 1,
+      "engineering_sha256": "e7d4a43a42e621ac77a3a1404bd1e4f879530e44732244069019427294694f83",
+      "value": 166713050.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_KAPPA",
+      "revision": 1,
+      "engineering_sha256": "fb7ec913cf454743eb26923bc319da5db73aa9d299b14e082091ba75d4eda7ed",
+      "value": 0.6,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_SUPPLY_WORK",
+      "revision": 1,
+      "engineering_sha256": "dfe5f2f1feab249c34094e6228b02991a2508c92db658b24f7914916c251a8b4",
+      "value": 30000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_SUPPLY_EJECT",
+      "revision": 1,
+      "engineering_sha256": "868ddb8fc1264f682a104369ac0989547655ac72a0b4e23ddbcfd7b4a3332c11",
+      "value": 10000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_SUPPLY_RETURN",
+      "revision": 1,
+      "engineering_sha256": "e0e0f7a60536ac1cfad56345e9761e8e3c62781794b86585fdcd94ce09cb1a01",
+      "value": 12000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_BACK_FORWARD",
+      "revision": 1,
+      "engineering_sha256": "a2e65a2d1a4692844b1ed686210101f5c58e257806fcad1757a3eb48b90da2c2",
+      "value": 1000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_BACK_RETURN",
+      "revision": 1,
+      "engineering_sha256": "c99ff4f661e0ffde7ebdb82ef9f9c94bf6cc9f0b967107c3322a017a336298e7",
+      "value": 1000000.0,
+      "unit": "Pa"
+    },
+    {
+      "id": "R3_IN_CHANNEL_SLIDE",
+      "revision": 1,
+      "engineering_sha256": "8f9ec5d66ecde7f8d6cf7abf93339e3d5257482d386411f833344727670881b0",
+      "value": 30000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_CHANNEL_HOLD",
+      "revision": 1,
+      "engineering_sha256": "8be165d6478377713e10c8c18afc0943af819939ff07b220f9cf7771e121d326",
+      "value": 40000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_REBOUND",
+      "revision": 1,
+      "engineering_sha256": "d3bfd9e06e08695b6ead63098e4e6c38040f218c9a0dd7f1ea8ad89ef6697687",
+      "value": 10000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_GUIDE",
+      "revision": 1,
+      "engineering_sha256": "4b09c074f85361794a29f873b2fb044f49c72303f6065bbeb12966af026a6932",
+      "value": 2000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_SEAL",
+      "revision": 1,
+      "engineering_sha256": "b0ec8b0ca5feb98ebace9d2dfec8797d72ad19de86714ee3f667b86f6d217c15",
+      "value": 5000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_RETURN_LOAD",
+      "revision": 1,
+      "engineering_sha256": "7716d039bafd70cd49c68856bf13f618e9df1dada723c4c48242b489f298e408",
+      "value": 10000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_EJECT_LOAD_B",
+      "revision": 1,
+      "engineering_sha256": "003dcb28852c91d3a1d34682ba0d59b2f3e747769956b9735091672f546684e9",
+      "value": 20000.0,
+      "unit": "N"
+    },
+    {
+      "id": "R3_IN_EJECT_TRAVEL",
+      "revision": 1,
+      "engineering_sha256": "1be4abef5a0e5c304802f73d12f5757b3660d6eea6ee04e44adff274672b9cac",
+      "value": 0.17,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_CLEARANCE",
+      "revision": 1,
+      "engineering_sha256": "9f5eacf192d08b9cddde95c48aac7b3ba47cf72bfd4a87ad82191845d4101560",
+      "value": 0.03,
+      "unit": "m"
+    },
+    {
+      "id": "R3_IN_ETA_PUMP",
+      "revision": 1,
+      "engineering_sha256": "d65bc6d5c68b9bb9e9107844f6fbe0cbc4341f234b94722e2eb4637f41efaa19",
+      "value": 0.85,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_ETA_MOTOR",
+      "revision": 1,
+      "engineering_sha256": "9a7aff9347fa877dd8f5f68a209ea069fd2fe2e46ff2d16c1096ad17ead1afa9",
+      "value": 0.9,
+      "unit": "1"
+    },
+    {
+      "id": "R3_IN_ELECTRIC_LIMIT",
+      "revision": 1,
+      "engineering_sha256": "f0caad98ee0195b86491b90f5854031e0003469d369ec91522ff5e6ec5c5ed48",
+      "value": 30000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3_IN_LEAK_HOLD",
+      "revision": 1,
+      "engineering_sha256": "8bd7c297069bec45ecfd304b56afae5e4746a177772e0b66fad072927a698d8b",
+      "value": 0.0,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3_IN_T_APPROACH",
+      "revision": 1,
+      "engineering_sha256": "b01e1b18bd88aef8cd3b1a8815bc65e8ace5c0abf8e9179ccd51dfd298e7277e",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_WORK",
+      "revision": 1,
+      "engineering_sha256": "9e96e0fc596ec87211240317c81357f33b19be53acb57207b39d973e0c86371c",
+      "value": 2.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_EJECT",
+      "revision": 1,
+      "engineering_sha256": "6b5d1fa0e448e89bbeba683b9eab84c88e422ffc816b6a0d1611817aa8031301",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_RETURN",
+      "revision": 1,
+      "engineering_sha256": "e5e96a64fc71530961c58b7bb081c748b8a735316cff84ddd6885325e6e0a129",
+      "value": 2.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_HOLD",
+      "revision": 1,
+      "engineering_sha256": "f0759326148cfebf7dc4337ae2e5ef1b79b962c953b566b395a4316be136cf72",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_AUX_A",
+      "revision": 1,
+      "engineering_sha256": "2ba2046a9ec4e4b1ae21892942aab4c87e870166088f698d79fd40100a5945dd",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_UNLOAD_B",
+      "revision": 1,
+      "engineering_sha256": "7221e500e68e688fd7f36cb421ee6b9bd9fccf32b25f86e8d93a7a901dbb0f0c",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3_IN_T_OPEN_B",
+      "revision": 1,
+      "engineering_sha256": "85fa59de19c77ee71a01adfd23d779ea0a627df960bf1df8af8235a6ecce4da8",
+      "value": 1.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3P_IN_MOTION_EXTRA_CAP",
+      "revision": 1,
+      "engineering_sha256": "1fff9a8de90b09e298da53ca1d44640d358bac92237a02b42f0a5ab1c4e0b966",
+      "value": 3000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_IN_HOLD_TOTAL_CAP",
+      "revision": 1,
+      "engineering_sha256": "92d23c9caa32885462cb5fef459c5a8edde09fedaeb3020d395795f31a09a1b4",
+      "value": 5000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_IN_PAUSE_TOTAL_CAP",
+      "revision": 1,
+      "engineering_sha256": "610a152a7bc2c14bf067a71a9477c0b24daf1ee5e1b1db8e0586d57eb38785d9",
+      "value": 3000.0,
+      "unit": "W"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "R3P_BASE_A_APPROACH_TIME",
+      "revision": 1,
+      "engineering_sha256": "d49efe65d0373fabf7760047d5b4d44fcac69fb8e807cf4f7c8d1339adff3def",
+      "value": 8.767532939592336,
+      "unit": "s"
+    },
+    {
+      "id": "R3P_BASE_A_APPROACH_SPEED",
+      "revision": 1,
+      "engineering_sha256": "c81b3ac419dd00fbd6ecc411f44553d919fdf2e199dd150cb92aae3b613a6745",
+      "value": 0.013148257163335828,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3P_BASE_A_APPROACH_QIN_LIMIT",
+      "revision": 1,
+      "engineering_sha256": "fc08586bdb7964434aba095ea120cea55d8774780efb042e2368a7f15448d38c",
+      "value": 0.0006885,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_APPROACH_QIN",
+      "revision": 1,
+      "engineering_sha256": "10d1ff9f114f0b3820dc81952ae75c23a3fd16a83d39d9fc5edd8e5cd09941a1",
+      "value": 0.0006885,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_APPROACH_QOUT",
+      "revision": 1,
+      "engineering_sha256": "46f324a7fcc0b9a040eb92b3f0935ce69a1d0e0d59ca7f2a81c1e0078047cd04",
+      "value": 0.00044064,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_APPROACH_POWER_AXIS",
+      "revision": 1,
+      "engineering_sha256": "d2c619f885b5833f427f350b3c5210fa048554f49d57499d6c1ebf1831de9c08",
+      "value": 27000.000000000004,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_APPROACH_POWER_TOTAL_BOUND",
+      "revision": 1,
+      "engineering_sha256": "c6a2f18ff66a2d06b003c7b9d7c87b5a27f529f1bae71505ba27b39ec07071f8",
+      "value": 30000.000000000004,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_APPROACH_FIXED_TIMES_POWER_BOUND",
+      "revision": 1,
+      "engineering_sha256": "1acafa9d0ba21596219449c4acea71fb126d4a39c23faf377a55074cd74d1643",
+      "value": 239723.38936899308,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_TIME",
+      "revision": 1,
+      "engineering_sha256": "fa8fad8df323521564c5b189e08afe07f077b31f5075444bb2e90616fee73951",
+      "value": 26.70400394131257,
+      "unit": "s"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_SPEED",
+      "revision": 1,
+      "engineering_sha256": "957728504d3e7dcc9994e7299b5e9088a3cbc6ae98288771c59b13840af3b8a5",
+      "value": 0.013148257163335824,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_QIN_LIMIT",
+      "revision": 1,
+      "engineering_sha256": "cc7da3c0064d0f955011e5a6f6a7b320d77d6c07bcd684e0f359dfecd4e5c5bf",
+      "value": 0.0006885,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_QIN",
+      "revision": 1,
+      "engineering_sha256": "44cb39ebd18b36f9c9e79a3115a8401e82e63f045e330dd277f1f4abe1ac8d73",
+      "value": 0.0006885,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_QOUT",
+      "revision": 1,
+      "engineering_sha256": "9d5e81d839245ecd2de86f4dc3628843eeda96bdc074e986b9d677ed88383b91",
+      "value": 0.0004406399999999999,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_POWER_AXIS",
+      "revision": 1,
+      "engineering_sha256": "2efbd465617c19abd299790edacd8bf2daf6aaa0dff19da9e86b29ae92cd74c6",
+      "value": 27000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_POWER_TOTAL_BOUND",
+      "revision": 1,
+      "engineering_sha256": "1ed2040c2f2a8caf0c0f382696583c938b3a9baedc8649dc1b0c251c4a9a963b",
+      "value": 30000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_WORK_FIXED_TIMES_POWER_BOUND",
+      "revision": 1,
+      "engineering_sha256": "313b49411865540240a4043b533e24a615f36cdfff60680aeba24182ef2eaf75",
+      "value": 363504.0532077197,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_TIME",
+      "revision": 1,
+      "engineering_sha256": "018ee8fe4ee0bda143e892541e7706fecce5dda89a06dccc260f160630f60e5a",
+      "value": 4.3098234209080415,
+      "unit": "s"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_SPEED",
+      "revision": 1,
+      "engineering_sha256": "1f653c9e94740b4f8f089d3b6669436d36c140a67d31888afbbe74d94c0fd1ab",
+      "value": 0.039444771490007476,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_QIN_LIMIT",
+      "revision": 1,
+      "engineering_sha256": "c22a18aa066af55786da5ab6ec216bf064cdde35c7690b64198297e30d2338a9",
+      "value": 0.0020655,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_QIN",
+      "revision": 1,
+      "engineering_sha256": "a42ac71c62cd3971ddf24abfd967b085dd560d35fac9d7b00ceb7f85f29f622c",
+      "value": 0.0020655,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_QOUT",
+      "revision": 1,
+      "engineering_sha256": "eaab18a6d5f8955017ad3769ef7aee11896ebef855e090cb44a28b0bf7176f46",
+      "value": 0.0013219199999999999,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_POWER_AXIS",
+      "revision": 1,
+      "engineering_sha256": "c0add4da6d45010ba348315ecc61fc85410e16820545cc765805e3adb393e16c",
+      "value": 27000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_POWER_TOTAL_BOUND",
+      "revision": 1,
+      "engineering_sha256": "59d34d3a365d182d39dd7ff7a379c26df1ea0994aba1907d55855f95362099c3",
+      "value": 30000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_EJECT_FIXED_TIMES_POWER_BOUND",
+      "revision": 1,
+      "engineering_sha256": "4de29dc3c4ca28c716a07f7ef68decc87db281528c0ecf4982eccca0874de0e9",
+      "value": 119365.23236451711,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_TIME",
+      "revision": 1,
+      "engineering_sha256": "32be25dfee1d0f807df5ee37b02150f12c171665be5ca06c70b7fc742c899442",
+      "value": 12.39065782876903,
+      "unit": "s"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_SPEED",
+      "revision": 1,
+      "engineering_sha256": "1758645969aa4a904e76672b406d1890fb6924e816f260446ec3d40c3600274e",
+      "value": 0.051360379544280584,
+      "unit": "m/s"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_QIN_LIMIT",
+      "revision": 1,
+      "engineering_sha256": "e31317cdc9f6e39582b12273ca2ad33fcca425aa9c0aa7c92478572410e3b91d",
+      "value": 0.00172125,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_QIN",
+      "revision": 1,
+      "engineering_sha256": "5b21d02379b2da6222e1e4451780fa3748243310ada79dfd72344fd0da7df67c",
+      "value": 0.00172125,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_QOUT",
+      "revision": 1,
+      "engineering_sha256": "5fc81e710759bde9d1f7d961686f6eaa455b40be4ec76cf4fd849ee8062b6d78",
+      "value": 0.0026894531250000004,
+      "unit": "m^3/s"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_POWER_AXIS",
+      "revision": 1,
+      "engineering_sha256": "6f6530331f0934330540cf14e2e22d8947b1be554b4179947e47ddb7e8c2f5c9",
+      "value": 27000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_POWER_TOTAL_BOUND",
+      "revision": 1,
+      "engineering_sha256": "90795ca54d97938ec090c6e3034b451e50349398b77e8e585ccb67055112dbed",
+      "value": 30000.0,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_RETURN_FIXED_TIMES_POWER_BOUND",
+      "revision": 1,
+      "engineering_sha256": "d8b4d24ca16d577ad767868a7698ac24c021451a5ef2d82eafd238f8c2c1c327",
+      "value": 170273.8806883819,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_BUDGET_CYCLE",
+      "revision": 1,
+      "engineering_sha256": "32284da21f90846684c5077a51dedf89a93f50450eddb51fb1ab3c56046dcfbe",
+      "value": 54.172018130581975,
+      "unit": "s"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_BUDGET_MASS_RATE",
+      "revision": 1,
+      "engineering_sha256": "562d99c8f8f2f9c5e5ecc3ad5ada2602e9910f1eb7cbb98dd2ae031f6f361e02",
+      "value": 0.01532156320998195,
+      "unit": "kg/s"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_BUDGET_PEAK_BOUND",
+      "revision": 1,
+      "engineering_sha256": "b5bb4c9c9bc53454ff62f9065e6ca2dea313900c26fafcba8cc1dc3dd39243e4",
+      "value": 30000.000000000004,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_BUDGET_ENERGY_BOUND",
+      "revision": 1,
+      "engineering_sha256": "059951875d3e21e1265a76f8a554ada0e54c6625471cd2dcc2586ef7c13b6185",
+      "value": 1573160.5439174594,
+      "unit": "J"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_BUDGET_AVERAGE_BOUND",
+      "revision": 1,
+      "engineering_sha256": "85fe46d12739df3afb077c6cad01558a100b1ee119484d5bf68b4ab86994774f",
+      "value": 29040.09483503728,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_TIMES_CYCLE",
+      "revision": 1,
+      "engineering_sha256": "083ff4dd5e59919bacf674168f24b04f9a18b6338eab84bd3ceee4eb0ebac26c",
+      "value": 8.0,
+      "unit": "s"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_TIMES_MASS_RATE",
+      "revision": 1,
+      "engineering_sha256": "6f151caf5cef728d72a24f6c35d3a1a0f47d3e4430c43052ad8af28539b02f75",
+      "value": 0.10375,
+      "unit": "kg/s"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_TIMES_REQUIRED_PEAK_BOUND",
+      "revision": 1,
+      "engineering_sha256": "93149db843a28df3e181f3ed87bebe8b01ddde69f5a9c4a395c2fdb84d41ce1e",
+      "value": 363504.0532077197,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_TIMES_ENERGY_BOUND",
+      "revision": 1,
+      "engineering_sha256": "afd28ee7cf20f42dd43116d2582c1888f8cc8c400ee5afa4631605d332e5094b",
+      "value": 1434644.4895257135,
+      "unit": "J"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_TIMES_AVERAGE_BOUND",
+      "revision": 1,
+      "engineering_sha256": "f6105c18421d6e84fdafa77aa057fab434bbc03d4d712566e7c18c1b6c8aa639",
+      "value": 179330.5611907142,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_KNOWN_MOTION_ENERGY",
+      "revision": 1,
+      "engineering_sha256": "acf1cca4ce5188f846a847b77f3a2d9f163657be760dfa0ca0316f9646b7d801",
+      "value": 1408644.4895257135,
+      "unit": "J"
+    },
+    {
+      "id": "R3P_BASE_A_KNOWN_MOTION_LOAD_WORK",
+      "revision": 1,
+      "engineering_sha256": "bcf580e553dd255ed593b6ee3f48ab6e0f0ee7d0c9f2b4ac13f082248d05b018",
+      "value": 287949.39677777776,
+      "unit": "J"
+    },
+    {
+      "id": "R3P_BASE_A_KNOWN_MOTION_CONVERSION_LOSS",
+      "revision": 1,
+      "engineering_sha256": "0fed61651016f964e7a30c1d15ab1ffe802f6f961b7d0979cfa43b89c610e0f5",
+      "value": 1120695.0927479358,
+      "unit": "J"
+    },
+    {
+      "id": "R3P_BASE_A_ORIGINAL_POWER_MARGIN",
+      "revision": 1,
+      "engineering_sha256": "c4e322cfc0058fdccaca5141c723b4197297f745ef6d81560cb1900bd127f0ce",
+      "value": -330504.0532077197,
+      "unit": "W"
+    },
+    {
+      "id": "R3P_BASE_A_FIXED_TIMES_AVERAGE_LOWER_BOUND",
+      "revision": 1,
+      "engineering_sha256": "065626310855e8143a3fcc8fe69bca308202e5fcd44b3a96931803e596fe5d21",
+      "value": 176080.5611907142,
+      "unit": "W"
+    }
+  ],
+  "registry_snapshot": "evidence/snapshots/31f4bba602b0dc22938f8d84c9a6724a6d10e61c1ea8e10a06a13e54738d872e.yaml",
+  "registry_sha256": "31f4bba602b0dc22938f8d84c9a6724a6d10e61c1ea8e10a06a13e54738d872e",
+  "script_sha256": "9ba269eb6f7a773cab1ad6eeb0ed6f6d82a0559c33246dac9a24e644337297dd",
+  "code_files": [
+    {
+      "path": "scripts/rev_power_reconcile.py",
+      "sha256": "9ba269eb6f7a773cab1ad6eeb0ed6f6d82a0559c33246dac9a24e644337297dd"
+    },
+    {
+      "path": "scripts/rev_parametric.py",
+      "sha256": "df8aa4678035f7c90b56cbe1d8a4cf450f4ef552d95b21fd8cf423de96819e59"
+    },
+    {
+      "path": "scripts/repo_support.py",
+      "sha256": "ca9c504e798a287a9fb1870675dc342c5b69098944e38e4f527679a5d250173c"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "verification/r3_parametric_sizing/cases.json",
+      "sha256": "0e34159de8b1e7f98d7d1d9c6fc645d55b721545a9e69a3f7775d24c476a2a7d"
+    },
+    {
+      "path": "verification/r3_power_reconcile/allocation.json",
+      "sha256": "01656df8ad1b655bb63f42ab5e0b5cf4ed6fb60fb304560273b09380f94e237c"
+    },
+    {
+      "path": "verification/r3_power_reconcile/inputs/r5_review.txt",
+      "sha256": "ba1db9977fa7c94a2e6c51bb9502a087fc3ed18b5217b323ce5eab54fa7f2e41"
+    },
+    {
+      "path": "verification/r3_power_reconcile/inputs/identity.json",
+      "sha256": "866b0989d8c557c3ab95c4d95efece31f93beab49c8cfaef8c18d6bc65a7afb2"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "pyyaml": "6.0.3"
+  },
+  "conclusions": {
+    "original_scenario": "INCOMPATIBLE_WITH_ORIGINAL_BUDGET",
+    "fixed_budget_status": "CONDITIONAL_ON_UNVERIFIED_POWER_ENVELOPES",
+    "blockers": [],
+    "fixed_times_status": "REQUIRES_SEPARATE_SUPPLY_RESOURCE_NOT_APPROVED",
+    "actual_hold_power": null,
+    "actual_motion_extra_power": null,
+    "actual_pause_power": null,
+    "actual_fixed_budget_energy": null,
+    "actual_fixed_budget_average": null,
+    "actual_fixed_times_energy": null,
+    "actual_fixed_times_average": null,
+    "hold_adequacy": "INDETERMINATE",
+    "actual_whole_machine_feasibility": "INDETERMINATE",
+    "B_open_permission": "NOT_APPLICABLE",
+    "architecture_approved": false,
+    "G1": "OPEN"
+  }
+}

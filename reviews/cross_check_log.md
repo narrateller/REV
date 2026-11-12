@@ -2306,3 +2306,324 @@ supersedes: null
 - 34 frozen модуля и исходная геометрия unchanged, L physical feasibility INDETERMINATE, 6 legacy BLOCKED/14 static fixes сохранены. Полные результаты verification/r4_fp_fix/, точный C следующим H, запрос recheck_request.md. G1 OPEN, физические испытания NOT_RUN.
 
 Неизменяемый объект REV-R4-FP-SEMANTIC-FIX-OUTPUT-01: C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`, REMOTE. H только эстафета. Reviewer/result NOT_ASSIGNED/NOT_RUN, R5-FP-NEW-B01 OPEN до независимого RECHECK.
+
+## REV-R5-R3-PARAMETRIC-OUTPUT-01-001 — независимый OUTPUT-review
+
+Полный акт и воспроизводимые доказательства: [review.md](../verification/r5_r3_parametric_review/review.md).
+Прежние акты/ограничения и G1 OPEN сохранены; численные входы/выходы автора не изменены.
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-PARAMETRIC-OUTPUT-01-001
+kind: OUTPUT
+task_id: T-r3-parametric-sizing-01
+created_at_utc: '2026-11-12T09:22:23Z'
+reviewer:
+  role: R5
+  session_id: 6af41aff-4210-8191-94a3-5d9c4bd75076
+  model_label: Codex
+reviewed_roles: [R3]
+author_sessions: [r3-sizing-20261112]
+independence_basis: Reviewer не автор расчёта; отдельный Decimal-пересчёт и новые граничные случаи, организационная независимость не удостоверена.
+reviewed_commit: 8a1ad4199fea09d1157972d7aa28eaad1e8e0337
+parameter_refs: []
+artifacts:
+- path: evidence/snapshots/2487e579b9d0948af41da836350f390472cb2bf1c4ecfa7211e75da9586babe1.yaml
+  sha256: 2487e579b9d0948af41da836350f390472cb2bf1c4ecfa7211e75da9586babe1
+- path: evidence/snapshots/2a6ac4279a6228120c9c486c21ea59ddf3a9ed37f306305c1a1a39f3a8c3dd2c.yaml
+  sha256: 2a6ac4279a6228120c9c486c21ea59ddf3a9ed37f306305c1a1a39f3a8c3dd2c
+- path: evidence/snapshots/3d74e2f1f580a64c39ecfd8e1c675c113a47dc4f6b3a0b1b5b64daa45aff0e45.yaml
+  sha256: 3d74e2f1f580a64c39ecfd8e1c675c113a47dc4f6b3a0b1b5b64daa45aff0e45
+- path: evidence/snapshots/729b99da8dcd9e1646731efa0ea62d18c52ea32589403057f8a23660e3f46ac3.yaml
+  sha256: 729b99da8dcd9e1646731efa0ea62d18c52ea32589403057f8a23660e3f46ac3
+- path: evidence/snapshots/963e4aaeee8a936c0f7a029182e1c4ecfd27e75777e22ceb61c995e5c03e18bd.yaml
+  sha256: 963e4aaeee8a936c0f7a029182e1c4ecfd27e75777e22ceb61c995e5c03e18bd
+- path: evidence/snapshots/a1c61c20931540d94505352af7b9eafafdcc4db0ddf01d7ff0862bad7a54619d.yaml
+  sha256: a1c61c20931540d94505352af7b9eafafdcc4db0ddf01d7ff0862bad7a54619d
+- path: evidence/snapshots/b9981ba8923eae1d11150a7fa5e6760adc21c80822fb6a49e9b6f1058aeebbb0.yaml
+  sha256: b9981ba8923eae1d11150a7fa5e6760adc21c80822fb6a49e9b6f1058aeebbb0
+- path: evidence/snapshots/bbdcb13634ae6b114b24683006f28756c8a32e9b39b240d561e179b6e65c1a7c.yaml
+  sha256: bbdcb13634ae6b114b24683006f28756c8a32e9b39b240d561e179b6e65c1a7c
+- path: params/registry.yaml
+  sha256: 8f68bc7a49148c622c1063e0118b766f5d0907605d1489f2adaa6bef00e93ce8
+- path: scripts/repo_support.py
+  sha256: ca9c504e798a287a9fb1870675dc342c5b69098944e38e4f527679a5d250173c
+- path: scripts/rev_parametric.py
+  sha256: df8aa4678035f7c90b56cbe1d8a4cf450f4ef552d95b21fd8cf423de96819e59
+- path: tests/test_rev_parametric.py
+  sha256: beeeecf703206bf22b5ed5dda6c500e4b10a34f09ebb5649505cc88ee123792b
+- path: verification/r3_parametric_sizing/README.md
+  sha256: 0685ea2da4f6d9a7bf543de6c9d90d4f08ada55725accc15a78c89de0b898c6b
+- path: verification/r3_parametric_sizing/cases.json
+  sha256: 0e34159de8b1e7f98d7d1d9c6fc645d55b721545a9e69a3f7775d24c476a2a7d
+- path: verification/r3_parametric_sizing/claim.md
+  sha256: fae3223d79de397e0c6ebf472910dcb906eb6524253ee747dc0a96210ba77710
+- path: verification/r3_parametric_sizing/input_audit.md
+  sha256: 79996d1c04dc668a664ee75add3f77cb3ddfbaeefaa4521913a2303cd3a07cac
+- path: verification/r3_parametric_sizing/inputs/r2_design_basis.txt
+  sha256: fcf3627b5512c66860769222784a9198dfa5ad1590089405cf0a7563e4c2c87d
+- path: verification/r3_parametric_sizing/inputs/r2_input_audit.txt
+  sha256: 2c4f3079a998ed0526dda91c48a6b55e1b247253103c355d82dbb66902895928
+- path: verification/r3_parametric_sizing/inputs/r2_registry.yaml
+  sha256: b2920a4e315f748ea2d19172c6d64a4a89c0c46a3e51deccc39d4419c61cf3bb
+- path: verification/r3_parametric_sizing/inputs/r2_script.txt
+  sha256: 2e902658e17ffa25bc0963cc9ffa073f503d88df62b535b33f07b245fcdb22c3
+- path: verification/r3_parametric_sizing/inputs/r5_review.txt
+  sha256: 60f92521591b5e1d8cb4b489452a6bada82e16da87392ed363c2619d64fc5f98
+- path: verification/r3_parametric_sizing/model.md
+  sha256: 028d36898cd85cc49f692d489de7410d6725cea3ad0a65d3f268291fb4b984b5
+- path: verification/r3_parametric_sizing/phases.md
+  sha256: aa3ebea34a2be06bc29aca1a9acf3f078d3af137c10cb9e74ae1d83256f4b385
+- path: verification/r3_parametric_sizing/preflight.json
+  sha256: d569521316f2c54c68a5d903b6349a8375157523cfda3c144d28f12b56987d7f
+- path: verification/r3_parametric_sizing/r4_inputs.md
+  sha256: 98b709d9657ec58d3fb9dcaba01e54a651bf25ca35be4a2c8566342ddcb1394c
+- path: verification/r3_parametric_sizing/registry_check.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r3_parametric_sizing/repeatability.json
+  sha256: 21e9ff73de1791407228da28da2a9a0f345e5907f8e9d12501bb1734a9ddc5ea
+- path: verification/r3_parametric_sizing/report.md
+  sha256: 126b90f2a8e69f8194e35d9307ca864da2c10b13fc7002b1e5732301a6d443d5
+- path: verification/r3_parametric_sizing/results/BACK_HIGH_A.json
+  sha256: ceda3d0dd098792a58a0d9467b5a8788fd4786ee10fd2f1351d385f4a45fd01f
+- path: verification/r3_parametric_sizing/results/BASE_A.json
+  sha256: f2015d9ff6e068c3858198208c151c1b9aeb3342ea8f99b54ce7e598b188f69d
+- path: verification/r3_parametric_sizing/results/BASE_B.json
+  sha256: 81073745b7cf218f63b3a036224d1095955dd7045d0afc6ce684513278c2195a
+- path: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+  sha256: aa2a75bbef17cd1814beabf29121dc3b542b1e89f10ca3834f6062fa79e952e4
+- path: verification/r3_parametric_sizing/results/LOAD_DOUBLE_A.json
+  sha256: b997fbb579addac81fd6a00bd840736f4fe4b38d5a4c283b6d75a8a50c102e18
+- path: verification/r3_parametric_sizing/results/LOAD_HALF_A.json
+  sha256: 0a56cc32a8e84151abf0c4eda36bed4c0e793fcecd6a546afb70998abd7d7063
+- path: verification/r3_parametric_sizing/results/RHO_HALF_A.json
+  sha256: 02d77b03648fe924bc82b499001730a78a31b5a4f919c30fa7da47ba579d0a84
+- path: verification/r3_parametric_sizing/results/TIME_HALF_A.json
+  sha256: c14e1b3a4566681e1b981fea2f00bc1d984c14702d335451430f6b425a0953a6
+- path: verification/r3_parametric_sizing/scenarios.csv
+  sha256: 65c37e4b7fa8d7ac307a15e4fee30567f139a02e47782d2ec7e00ab8a44848d8
+- path: verification/r3_parametric_sizing/software_tests.log
+  sha256: 4527afc272fe578ad20364a85d5c2c02cfee4136b93f68e71d75e9cb95b8b157
+- path: verification/r3_parametric_sizing/validation.json
+  sha256: 70ca81058b4b06ba0df676ed2e94e0fe71c9ecc86acebe0d97f69a0aa8f7ba45
+scope: Арифметика восьми условных сценариев, формулы и границы; передача R4 только для отдельного условного исследования.
+checks:
+- id: CHK-SIZING-ARITHMETIC
+  method: Независимые Decimal-балансы, интеграл нагрузки, неравенства обеих полостей, чувствительность и новые пробы.
+  expected: Совпадение сохранённых чисел и явная несовместимость назначенных режимов с условным пределом мощности.
+  observed: 696 чисел и CSV совпали, 80 табличных и 24 фазовых округления верны; 12 граничных и 10 недопустимых наборов проверены.
+  reasoning: Ожидания не получены вызовом авторского solve; физические свойства не проверены.
+  result: PASS
+findings:
+- id: R5-SIZING-W01
+  status: OPEN
+  description: При утечке выше бюджета конечный lower bound времени не является допустимой циклограммой; до расширения API нужен отдельный машинный статус.
+- id: R5-SIZING-W02
+  status: OPEN
+  description: До реального подбора или циклограммы нужны согласованный электрический бюджет, потребители, физические входы и новый режим.
+verdict: WARNING
+validity: STALE
+blocker_ids: []
+allowed_downstream_scope: Передать R4 ID/revision/snapshot вместе с условными параметрами и ограничениями для исследовательской модели.
+excluded_claims:
+- Подтверждённые оборудование, мощности, цикл, силовой контур и работоспособность A/B
+- Разрешение открытия упора B без подтверждённой разгрузки
+- Архитектура, ТЗ, безопасность, нормативная применимость и прохождение G1
+warning_owner_and_due:
+  owner_role: R3
+  owner_session: r3-sizing-20261112
+  due: До соответствующего расширения использования, в пределах принятого lease или нового назначения
+  restriction: Восемь сценариев с нулевой утечкой приняты только как условная арифметика, не подбор.
+reproduction_artifacts:
+- verification/r5_r3_parametric_review/review.md
+- verification/r5_r3_parametric_review/reproduction.json
+- verification/r5_r3_parametric_review/independent_results.json
+- verification/r5_r3_parametric_review/power_analysis.json
+supersedes: null
+```
+
+
+
+Административная актуализация индекса при подготовке PR #39: STALE относится к привязке исторического акта к полному файлу registry исходного C (после добавления нового слоя его полный SHA иной), не к пересмотру принятой арифметики восьми исходных сценариев. Исходный verdict/checks/artifacts/reviewed_commit не изменены. Полная исходная запись с CURRENT сохранена в commit d92cebd5a539d6845fe114515154e79c639bcb7e и побайтной копии verification/pr39_integration/original_review_index.txt. Текущий RECHECK c115f75 остаётся CURRENT в своей ограниченной области; исторические OPEN не переоткрывают W01/W02.
+
+## REV-R5-R3-POWER-RECHECK-01-001 — ограниченный RECHECK W01/W02
+
+Полный акт: [review.md](../verification/r5_r3_power_recheck/review.md). Предыдущий акт d92cebd5a539d6845fe114515154e79c639bcb7e сохранён; настоящее решение не заменяет его остальные выводы.
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-POWER-RECHECK-01-001
+kind: RECHECK
+task_id: T-r3-parametric-sizing-01
+created_at_utc: '2026-11-12T11:51:38Z'
+reviewer:
+  role: R5
+  session_id: 6af41aff-4210-8191-94a3-5d9c4bd75076
+  model_label: Codex
+reviewed_roles:
+- R3
+author_sessions:
+- r3-sizing-20261112
+independence_basis: Reviewer не автор расчёта; независимые Decimal-балансы и новые граничные/составные случаи. Организационная
+  независимость не удостоверена.
+reviewed_commit: c115f75fd900525d9ddc89d85e097ac5a0f00bc1
+parameter_refs: []
+artifacts:
+- path: evidence/snapshots/2487e579b9d0948af41da836350f390472cb2bf1c4ecfa7211e75da9586babe1.yaml
+  sha256: 2487e579b9d0948af41da836350f390472cb2bf1c4ecfa7211e75da9586babe1
+- path: evidence/snapshots/2a6ac4279a6228120c9c486c21ea59ddf3a9ed37f306305c1a1a39f3a8c3dd2c.yaml
+  sha256: 2a6ac4279a6228120c9c486c21ea59ddf3a9ed37f306305c1a1a39f3a8c3dd2c
+- path: evidence/snapshots/31f4bba602b0dc22938f8d84c9a6724a6d10e61c1ea8e10a06a13e54738d872e.yaml
+  sha256: 31f4bba602b0dc22938f8d84c9a6724a6d10e61c1ea8e10a06a13e54738d872e
+- path: evidence/snapshots/3d74e2f1f580a64c39ecfd8e1c675c113a47dc4f6b3a0b1b5b64daa45aff0e45.yaml
+  sha256: 3d74e2f1f580a64c39ecfd8e1c675c113a47dc4f6b3a0b1b5b64daa45aff0e45
+- path: evidence/snapshots/46573a6c3055727f65fa5cb5caf383ed213eb130ff1690e70077ff166cbef99c.yaml
+  sha256: 46573a6c3055727f65fa5cb5caf383ed213eb130ff1690e70077ff166cbef99c
+- path: evidence/snapshots/523f416bd07d436d8100b4aa3cf89ade21d3cd7e80a74e6ee9996152a902dc18.yaml
+  sha256: 523f416bd07d436d8100b4aa3cf89ade21d3cd7e80a74e6ee9996152a902dc18
+- path: evidence/snapshots/729b99da8dcd9e1646731efa0ea62d18c52ea32589403057f8a23660e3f46ac3.yaml
+  sha256: 729b99da8dcd9e1646731efa0ea62d18c52ea32589403057f8a23660e3f46ac3
+- path: evidence/snapshots/7798ef1191827362184e796d388e959abe6fc6f6681437180cf10bfb2eb1a8e5.yaml
+  sha256: 7798ef1191827362184e796d388e959abe6fc6f6681437180cf10bfb2eb1a8e5
+- path: evidence/snapshots/963e4aaeee8a936c0f7a029182e1c4ecfd27e75777e22ceb61c995e5c03e18bd.yaml
+  sha256: 963e4aaeee8a936c0f7a029182e1c4ecfd27e75777e22ceb61c995e5c03e18bd
+- path: evidence/snapshots/a1c61c20931540d94505352af7b9eafafdcc4db0ddf01d7ff0862bad7a54619d.yaml
+  sha256: a1c61c20931540d94505352af7b9eafafdcc4db0ddf01d7ff0862bad7a54619d
+- path: evidence/snapshots/b9981ba8923eae1d11150a7fa5e6760adc21c80822fb6a49e9b6f1058aeebbb0.yaml
+  sha256: b9981ba8923eae1d11150a7fa5e6760adc21c80822fb6a49e9b6f1058aeebbb0
+- path: evidence/snapshots/bbdcb13634ae6b114b24683006f28756c8a32e9b39b240d561e179b6e65c1a7c.yaml
+  sha256: bbdcb13634ae6b114b24683006f28756c8a32e9b39b240d561e179b6e65c1a7c
+- path: evidence/snapshots/d9c234f48756a02485dd3d215eff967639b863dd4915f8903048ee0ccbf91fe6.yaml
+  sha256: d9c234f48756a02485dd3d215eff967639b863dd4915f8903048ee0ccbf91fe6
+- path: evidence/snapshots/e9de37953c914228eebe9a0542eb23dca6d797c57faac18ae4fc77b0b3b03797.yaml
+  sha256: e9de37953c914228eebe9a0542eb23dca6d797c57faac18ae4fc77b0b3b03797
+- path: evidence/snapshots/f7f8683fa6a5bd7d9da2ccec4de6972e0f6a16a565c5ddcb6eea72709c8ba5c6.yaml
+  sha256: f7f8683fa6a5bd7d9da2ccec4de6972e0f6a16a565c5ddcb6eea72709c8ba5c6
+- path: evidence/snapshots/fb8390db0e386e6e27965fd65acecf9b8d5abb791c85ffca845eb2c93efcb598.yaml
+  sha256: fb8390db0e386e6e27965fd65acecf9b8d5abb791c85ffca845eb2c93efcb598
+- path: params/registry.yaml
+  sha256: f52f6a52cf84831b714c037521bede8ada33e45d93d8b7251aa30b0b8a0d4d44
+- path: scripts/repo_support.py
+  sha256: ca9c504e798a287a9fb1870675dc342c5b69098944e38e4f527679a5d250173c
+- path: scripts/rev_parametric.py
+  sha256: df8aa4678035f7c90b56cbe1d8a4cf450f4ef552d95b21fd8cf423de96819e59
+- path: scripts/rev_power_reconcile.py
+  sha256: 9ba269eb6f7a773cab1ad6eeb0ed6f6d82a0559c33246dac9a24e644337297dd
+- path: tests/test_rev_parametric.py
+  sha256: beeeecf703206bf22b5ed5dda6c500e4b10a34f09ebb5649505cc88ee123792b
+- path: tests/test_rev_power_reconcile.py
+  sha256: eaca300ae27f82288f31b340a489bc49469d0f0be8d0d4bce8f35558af5fa976
+- path: verification/r3_parametric_sizing/cases.json
+  sha256: 0e34159de8b1e7f98d7d1d9c6fc645d55b721545a9e69a3f7775d24c476a2a7d
+- path: verification/r3_parametric_sizing/results/BACK_HIGH_A.json
+  sha256: ceda3d0dd098792a58a0d9467b5a8788fd4786ee10fd2f1351d385f4a45fd01f
+- path: verification/r3_parametric_sizing/results/BASE_A.json
+  sha256: f2015d9ff6e068c3858198208c151c1b9aeb3342ea8f99b54ce7e598b188f69d
+- path: verification/r3_parametric_sizing/results/BASE_B.json
+  sha256: 81073745b7cf218f63b3a036224d1095955dd7045d0afc6ce684513278c2195a
+- path: verification/r3_parametric_sizing/results/EJECT_DOUBLE_B.json
+  sha256: aa2a75bbef17cd1814beabf29121dc3b542b1e89f10ca3834f6062fa79e952e4
+- path: verification/r3_parametric_sizing/results/LOAD_DOUBLE_A.json
+  sha256: b997fbb579addac81fd6a00bd840736f4fe4b38d5a4c283b6d75a8a50c102e18
+- path: verification/r3_parametric_sizing/results/LOAD_HALF_A.json
+  sha256: 0a56cc32a8e84151abf0c4eda36bed4c0e793fcecd6a546afb70998abd7d7063
+- path: verification/r3_parametric_sizing/results/RHO_HALF_A.json
+  sha256: 02d77b03648fe924bc82b499001730a78a31b5a4f919c30fa7da47ba579d0a84
+- path: verification/r3_parametric_sizing/results/TIME_HALF_A.json
+  sha256: c14e1b3a4566681e1b981fea2f00bc1d984c14702d335451430f6b425a0953a6
+- path: verification/r3_parametric_sizing/scenarios.csv
+  sha256: 65c37e4b7fa8d7ac307a15e4fee30567f139a02e47782d2ec7e00ab8a44848d8
+- path: verification/r3_power_reconcile/README.md
+  sha256: 0216cb1f150ed401d0a995c7f2d62af2598b799d6c882d2967e06d2a85a5f232
+- path: verification/r3_power_reconcile/W01_counterexample.json
+  sha256: 2625c95c21565e7186ec1d7f928fc96ba1bcf02f8080b0821ebcaa2923c8c6de
+- path: verification/r3_power_reconcile/allocation.json
+  sha256: 01656df8ad1b655bb63f42ab5e0b5cf4ed6fb60fb304560273b09380f94e237c
+- path: verification/r3_power_reconcile/input_audit.md
+  sha256: 044ab59401805df0cbf5aba36f1debac57bd918afa2cca0374829ead11351580
+- path: verification/r3_power_reconcile/inputs/identity.json
+  sha256: 866b0989d8c557c3ab95c4d95efece31f93beab49c8cfaef8c18d6bc65a7afb2
+- path: verification/r3_power_reconcile/inputs/r5_review.txt
+  sha256: ba1db9977fa7c94a2e6c51bb9502a087fc3ed18b5217b323ce5eab54fa7f2e41
+- path: verification/r3_power_reconcile/model.md
+  sha256: 47970c7f7574e877492851d54dd0ea1b43475836790c8c05672ae8746d03da02
+- path: verification/r3_power_reconcile/r4_inputs.md
+  sha256: ca24980ada1cbd7e39e5880374b5e02c604ef252faa5d31587ab729ac8d5ee1b
+- path: verification/r3_power_reconcile/registry_check.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r3_power_reconcile/repeatability.json
+  sha256: 75e767ac066ee6a9cedb3751c51f02936b0ab91752a3fd4bb068a2ce86e5e53a
+- path: verification/r3_power_reconcile/report.md
+  sha256: b6a58b9981eccc665a2a395af46029c8f2c4f0a97bc0405f8383b71baa5ed9ce
+- path: verification/r3_power_reconcile/response_to_r5.md
+  sha256: bfaa8811f48a9556282ffef88a5bb4e27e00ea43e6c5905ce9dd428fe8ca2593
+- path: verification/r3_power_reconcile/results/BACK_HIGH_A.json
+  sha256: 0ed31fb9d42eabf2bcc9ed9bf8e468c6f9f29faa035949eecbd5b38d0ff63a7d
+- path: verification/r3_power_reconcile/results/BASE_A.json
+  sha256: 0ff30e2bc2a3f8fd00f0a58dc0c3c78d15d3af62b1f3dd8a25b05e4722e624f9
+- path: verification/r3_power_reconcile/results/BASE_B.json
+  sha256: f655b8630f32cf64e367fb24e2176e626e982515f748bc60df8ffe74f6df5f81
+- path: verification/r3_power_reconcile/results/EJECT_DOUBLE_B.json
+  sha256: 857bfa30ba4b7e8470fd8cbef419e49b8e6ca6f9d934ebfda4d6acf0be5df3a4
+- path: verification/r3_power_reconcile/results/LOAD_DOUBLE_A.json
+  sha256: bac6850a5e1b16cb5ab0e9e44f5efb2bb80401901bd04f9849fd8817a6d293e9
+- path: verification/r3_power_reconcile/results/LOAD_HALF_A.json
+  sha256: 933b1182fc4b7cb3a2d82e4342fb62dd3f460dcabf729d15ab5fd196fe2f9a9a
+- path: verification/r3_power_reconcile/results/RHO_HALF_A.json
+  sha256: 4c3de769f31f9d54f3d3869aa2afb94045bb4080260ff1ecc7ac385ff1454acb
+- path: verification/r3_power_reconcile/results/TIME_HALF_A.json
+  sha256: d1893f6d8701ada52907bc5fea45ef9bc13aea7caf6bdfea642ef79adc383caf
+- path: verification/r3_power_reconcile/scenarios.csv
+  sha256: 80784384c84102449b3d48867929018f0ac0c9e87344ba663cf7aa62b3439479
+- path: verification/r3_power_reconcile/software_tests.log
+  sha256: 269f4777676f0c4407d4d8b13701b266b392949f9cff004276fda63256398ac7
+- path: verification/r3_power_reconcile/validation.json
+  sha256: 096d6fbd02201c80097ca23b64d038cc3f217723c1f0c385abc1f586b7cfb6fd
+scope: 'Ограниченный RECHECK W01/W02: новый power/timing слой и условная передача R4; не полный цикл и не оборудование.'
+checks:
+- id: CHK-POWER-INDEPENDENT
+  method: Независимый Decimal-пересчёт расхода/скорости из неравенства мощности, времён, энергии и peak/average
+    по фазам.
+  expected: Согласование двух отдельных условных вариантов, без подмены старого бюджета/времён или UNKNOWN.
+  observed: 376 значений и CSV, 348 отображаемых чисел совпали; 26 reconcile + 11 hold + 12 invalid случаев проверены;
+    старые 753 определения сохранены.
+  reasoning: Ожидания не получены авторскими solve/reconcile; расчёт условен при непроверенных envelopes.
+  result: PASS
+- id: CHK-HOLD-DEFICIT
+  method: Точный прежний W01, дефицит подпитки, неизвестные компоненты, работающий насос при нулевой утечке, нарушения
+    allocation.
+  expected: Дефицит не исправляется длинными движениями; недопустимый цикл/rate null, UNKNOWN не ноль.
+  observed: Новый API даёт BLOCKED/null при известном дефиците или немоделированной ненулевой утечке; actual totals
+    null при неизвестных компонентах.
+  reasoning: Прежний Tlower сохранён только для истории и исключён из роли планировщика.
+  result: PASS
+findings:
+- id: R5-SIZING-W01
+  status: CLOSED_IN_LIMITED_NEW_API_SCOPE
+  description: Проверено исправление численного/статусного представления; фактическая схема выдержки не подтверждена.
+- id: R5-SIZING-W02
+  status: CLOSED_FOR_CONDITIONAL_CALCULATION_HANDOFF_ONLY
+  description: Два условных режима и границы передачи документально обработаны; требования к подтверждённому циклу/подбору
+    остаются открытыми.
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: 'R4 — отдельная условная размерная модель: fixed-budget с условными caps и новыми временами
+  либо fixed-times как ресурсная альтернатива; не смешивать режимы.'
+excluded_claims:
+- Реальная полная циклограмма, производительность, силовой контур, оборудование и безопасность
+- Разрешение открытия B без доказанной разгрузки
+- Архитектура, ТЗ и прохождение G1
+warning_owner_and_due:
+  owner_role: R3
+  owner_session: r3-sizing-20261112
+  due: До подтверждённого цикла/подбора и расширения области; в пределах принятого lease или нового назначения
+  restriction: Схема выдержки, фактические power envelopes/одновременность/пуск/тепло и физика процесса UNKNOWN.
+reproduction_artifacts:
+- verification/r5_r3_power_recheck/review.md
+- verification/r5_r3_power_recheck/reproduction.json
+- verification/r5_r3_power_recheck/independent_results.json
+supersedes: null
+rechecks:
+- REV-R5-R3-PARAMETRIC-OUTPUT-01-001
+```
