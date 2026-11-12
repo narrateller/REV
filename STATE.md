@@ -1,3 +1,63 @@
+# R4 — CYC-01 и ранние CYC-08/09 переданы на независимый review
+
+**Неизменяемый C результата `3cf32daef67a91f393b808adb0dc07ba4c73cac2` — REMOTE.** Проект REV,
+https://github.com/narrateller/REV, ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`.
+T-r4-cycle-contract-01 **IN_REVIEW**, owner_session **r4-linked-20261111** / Codex / R4.
+Claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff принят PR #43/main
+**d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9**; срок до **2026-11-13T18:16:39Z
+(13 ноября, 21:16:39 МСК)** без продления. Предварительные NONE/PENDING нормализованы
+по merge и прямому подтверждению пользователя, исходная история сохранена в Git.
+Этот следующий H меняет только учёт/эстафету, не контракт C; main автором не меняется.
+
+[Контракт и команды](verification/r4_cycle_contract/README.md),
+[материальный журнал/состояния A/B](verification/r4_cycle_contract/material_contract.md),
+[символические балансы](verification/r4_cycle_contract/ledger_examples.md),
+[ранние ресурсы CYC-08](verification/r4_cycle_contract/resources_draft.md),
+[ранний READY CYC-09](verification/r4_cycle_contract/ready_draft.md).
+В C зафиксированы 42 перехода, 35 guards, 59 примеров (32 ALLOWED_ASSUMED /
+19 BLOCKED / 8 INDETERMINATE), две связанные ASSUMED трассы, все 20 source rows,
+10 вопросов R2/R3 AWAITING_RESPONSE. Готовый продукт не появляется из пустоты/
+raw; повторный набор B не выдача; pending receipt остаётся в PRESS_ACCOUNT;
+REMOVE не удаляет массу/остаток и не используется для получения clear/READY.
+
+**Входы следующего участника:** карта C 43f03359fabe2b664935b17f9ac7851504093ece,
+акт REV-R5-R3-CYCLE-TRACE-01-001 e69a8afbe4df3d53c4cc8b5883319e00eb8130af,
+решение PR42 и task.md/input_acceptance.json/preflight.json внутри C результата.
+17 закреплённых blobs MATCH; 11 защищённых деревьев/отдельный CAD-кандидат
+3591a5f92f78b1edea07d3fc5354fd0a99090798 неизменны. Declared coordinates /
+author native witnesses / independent native NOT_RUN по-прежнему различаются.
+Никакие прежние penetration/output/retention/reset/service findings не закрыты.
+
+**Авторские проверки:** check_documents.py MATCH (DOCUMENT_CONSISTENCY_ONLY),
+два одинаковых read-only запуска, 508 наблюдаемых файлов без изменения hash/size/mtime;
+registry --check-git PASS; diff --check PASS. Полные результаты в
+verification/r4_cycle_contract/document_checks.json, integrity_checks.json,
+publication_checks.json. Нет новых численных входов/уставок, все реальные guards
+и stage t/p/Q/P/E UNKNOWN/null. Это проверка документа, не расчёт физики/модель
+контроллера/проверка CAD. Расчёты, CAD, их код/registry/evidence неизменны;
+numerical solvers/CAD/rebuild/physical tests **NOT_RUN**.
+
+**Следующая подходящая роль — независимый R5**, не автор r4-linked-20261111;
+назначение/claim оформляются отдельно по протоколу. Первый атомарный шаг —
+получить точный C, сверить task.md/входы и выполнить документальный OUTPUT review
+по [review_request.md](verification/r4_cycle_contract/review_request.md), включая
+собственные контрпримеры ledger/phase/receipt/READY/resources и проверку сохранности.
+Повтор checker — лишь воспроизводимость. Критерий — независимый акт на **этот C**
+с явно ограниченной областью и открытыми unknown; при недоступном входе остановить
+зависимый вывод, не заменять источник предположением. Не выполнять solver/CAD/
+общий rebuild по этой эстафете. После review — ответы R2/R3 и дальнейшие scope
+CYC-02…07/окончательная сверка 08/09, а не автоматическое утверждение цикла.
+
+**CYC-01…09, R5-CYCLE-W01/W02 и G1 OPEN.** Межролевое одобрение и новый независимый
+review NOT_RUN. Реальные параметры/физика UNKNOWN; открытие B, физическая
+выполнимость L-пути и полный физический цикл INDETERMINATE. Архитектура, ТЗ,
+COTS, конструкция/безопасность и весь пресс не принимаются. Капсула:
+handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md. Обновлено 2026-11-12T19:19:04.799073+00:00.
+
+---
+
+## История до публикации контракта
+
 # R4 — отдельная документальная задача CYC-01 + ранние CYC-08/09
 
 **C предложения `9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff`**, REMOTE, ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`. T-r4-cycle-contract-01 **READY / owner_session NONE / PROPOSED_PENDING_MAIN**. Предлагаемый исполнитель r4-linked-20261111 / Codex / R4, отдельный proposed lease до **2026-11-13T18:16:39Z (13 ноября 2026, 21:16:39 МСК)**. H только учёт/эстафета, claim не принимает.

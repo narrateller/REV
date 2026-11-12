@@ -3083,3 +3083,7 @@ supersedes: null
 ## R4 CYC-01 / ранние CYC-08/09 — авторский результат, не независимый review
 
 2026-11-12T19:14:28.746890+00:00; T-r4-cycle-contract-01 / r4-linked-20261111. Main d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9, claim принят PR #43, lease до 2026-11-13T18:16:39Z. Входы/акт input_audit.md и input_acceptance.json в verification/r4_cycle_contract/. ASSUMED_INTERFACE_PROPOSAL: материальный ledger/состояния/переходы, ранний resource/READY контракт, 59 примеров и 2 условные трассы. Документальная проверка не подтверждает числа/физику/контроллер/CAD. Запрос независимого OUTPUT review review_request.md; полный C в следующем H. CYC-01…09/R5-CYCLE-W01/W02 OPEN; G1 OPEN. Чужие акты/расчёты/CAD не изменены, numerical solver/CAD/rebuild/physical tests NOT_RUN.
+
+### Неизменяемый C и публикация документального результата
+
+2026-11-12T19:19:04.799073+00:00: C 3cf32daef67a91f393b808adb0dc07ba4c73cac2 REMOTE, work-r4/T-r4-cycle-contract-01/r4-linked-20261111. Проверки авторской согласованности/целостности сохранены в document_checks.json, integrity_checks.json, publication_checks.json; registry --check-git PASS / engineering acceptance NOT assessed. Следующий H только учёт/эстафета. Независимый review NOT_RUN, CYC/R5-CYCLE-W01/W02 OPEN, G1 OPEN. Никаких расчётных/CAD/rebuild/physical изменений.

@@ -52,6 +52,8 @@ ID после создания не меняется. Для параллель�
 
 - Результат CYC-01/ранние CYC-08/09: material_contract.md, contract.json, resources_draft.md, ready_draft.md, traceability.json в verification/r4_cycle_contract/. 59 примеров (32 ALLOWED_ASSUMED / 19 BLOCKED / 8 INDETERMINATE), 2 условные трассы, 20 исходных строк, 10 вопросов R2/R3 AWAITING_RESPONSE. Ни одного реального TRUE/нового численного входа; material/custody/READY разделены. Весь пакет IN_REVIEW, независимый review NOT_RUN; точный C фиксируется следующим H. heartbeat_utc 2026-11-12T19:14:28.746890+00:00, срок без продления. Расчёты/CAD/источники неизменны, solver/rebuild/physical tests NOT_RUN, G1 OPEN.
 
+- C результата **3cf32daef67a91f393b808adb0dc07ba4c73cac2**, REMOTE; следующий H только учёт/эстафета. Owner_session r4-linked-20261111, heartbeat_utc 2026-11-12T19:19:04.799073+00:00, lease без продления. 59 примеров/2 условные трассы, registry/diff PASS, 17 blobs/11 protected trees unchanged. Запрос независимого R5 OUTPUT review verification/r4_cycle_contract/review_request.md; IN_REVIEW, не DONE. G1 OPEN.
+
 ## T-r4-calculated-layout-01 — расчётно связанная исследовательская компоновка A/B
 
 - Тип TASK; P2; адресат @R4; статус READY; **owner_session: NONE**; claim_acceptance PROPOSED_PENDING_MAIN. Предлагаемый owner_session r4-linked-20261111 / Codex / R4; роль и новое поручение подтверждены пользователем, принятие claim ещё не выполнено.
