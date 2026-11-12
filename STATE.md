@@ -1,3 +1,13 @@
+# Ожидает принятия: отдельный claim условного расчёта R3
+
+T-r3-parametric-sizing-01 READY / PROPOSED_PENDING_MAIN; owner_session NONE, proposed owner r3-sizing-20261112 / R3 / Codex. Постановка и claim C `5fdc50bbc8e83241ad2f8754860a503f5de9f418`; main при сверке `680946b8abba9d921c5723b523be573554c15eca`. Входы R2 `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50`, R5 `81e5dba4bb47cf8a552b3eb55733454ac4f9742d` (ACCEPT_WITH_WARNING) доступны в Git, в main ещё не интегрированы.
+
+Следующий шаг — последовательное принятие claim оператором/координатором в main; затем fetch, проверка вхождения C/owner/lease/конкуренции/входов, входной аудит и расчёт по полной постановке в ISSUES_AND_TASKS.md. Модель/сценарии NOT_STARTED; это не результат для инженерной приёмки. Чужие назначения и сроки не изменены. Подробности: verification/r3_parametric_sizing/claim.md, хэши preflight.json; капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md.
+
+G1 OPEN; архитектура/ТЗ и конкретное оборудование не утверждены; физические испытания NOT_RUN. Предыдущие инженерные сводки и handoffs сохранены ниже, текущая запись не отменяет их ограничений.
+
+---
+
 # Предложение интеграции исследовательского CAD-пакета
 
 R1: решение `decisions/R1-RESEARCH-LAYOUT-ACCEPTANCE.md`, финальный C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`, независимый RECHECK `05f149332bc173eaa008250e1a5ab21e4d7611cf`. До merge IN_REVIEW. Приёмка предлагается только как исследовательского результата с WARNING, не геометрически/физически готового пресса. 6 legacy UP-пар BLOCKED, физическая выполнимость L-пути INDETERMINATE; G1 OPEN.
