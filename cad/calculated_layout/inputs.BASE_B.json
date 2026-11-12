@@ -13725,7 +13725,7 @@
       "source_lifecycle": "CALCULATED_FROM_ASSUMED"
     },
     "ASSUMED-LAYOUT-CL-B-EXIT-A": {
-      "value": "2183/3600",
+      "value": "1207/720",
       "unit": "m",
       "status": "ASSUMED",
       "revision": 1,
@@ -13737,7 +13737,7 @@
         "BASE_B fixed-budget research only"
       ],
       "author_session": "r4-linked-20261111",
-      "derivation": "R3 simplified nominal ejection plane; physical A channel output evaluated separately",
+      "derivation": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
       "source_refs": [
         "verification/r3_parametric_sizing/results/BASE_B.json",
         "verification/r3_power_reconcile/results/BASE_B.json"
@@ -13745,7 +13745,7 @@
       "source_lifecycle": "CALCULATED_FROM_ASSUMED"
     },
     "ASSUMED-LAYOUT-CL-B-EXIT-B": {
-      "value": "2183/3600",
+      "value": "523/720",
       "unit": "m",
       "status": "ASSUMED",
       "revision": 1,
@@ -13757,7 +13757,7 @@
         "BASE_B fixed-budget research only"
       ],
       "author_session": "r4-linked-20261111",
-      "derivation": "R3 simplified nominal ejection plane; physical A channel output evaluated separately",
+      "derivation": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
       "source_refs": [
         "verification/r3_parametric_sizing/results/BASE_B.json",
         "verification/r3_power_reconcile/results/BASE_B.json"
@@ -19975,22 +19975,22 @@
       "cad_parameter_id": "ASSUMED-LAYOUT-CL-B-EXIT-A",
       "old_id": "ASSUMED-LAYOUT-EXIT-A",
       "old_value": "11/5",
-      "new_value": "2183/3600",
+      "new_value": "1207/720",
       "unit": "m",
       "status": "CALCULATED_FROM_ASSUMED",
-      "reason": "R3 simplified nominal ejection plane; physical A channel output evaluated separately",
-      "native_spreadsheet_formula": "Sources.calc_chamber + Sources.src_R3_IN_CLEARANCE",
+      "reason": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
+      "native_spreadsheet_formula": "Sources.calc_chamber + (11 / 10 * 1 m)",
       "affected_nodes": []
     },
     {
       "cad_parameter_id": "ASSUMED-LAYOUT-CL-B-EXIT-B",
       "old_id": "ASSUMED-LAYOUT-EXIT-B",
       "old_value": "5/4",
-      "new_value": "2183/3600",
+      "new_value": "523/720",
       "unit": "m",
       "status": "CALCULATED_FROM_ASSUMED",
-      "reason": "R3 simplified nominal ejection plane; physical A channel output evaluated separately",
-      "native_spreadsheet_formula": "Sources.calc_chamber + Sources.src_R3_IN_CLEARANCE",
+      "reason": "Preserved CAD output plane translated with chamber end; simplified R3 plane is reported separately",
+      "native_spreadsheet_formula": "Sources.calc_chamber + (3 / 20 * 1 m)",
       "affected_nodes": []
     }
   ],
@@ -20325,5 +20325,6 @@
       "affected_nodes": "условная последовательность интервалов; не подтверждённый полный цикл",
       "cad_application": "NOT_APPLIED"
     }
-  ]
+  ],
+  "r3_nominal_exit": "2183/3600"
 }
