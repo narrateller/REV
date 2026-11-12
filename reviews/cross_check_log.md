@@ -2631,3 +2631,447 @@ rechecks:
 ## Предложение нового R4 claim — расчётно связанная компоновка после PR #39
 
 2026-11-12T13:17:33Z, R4 r4-linked-20261111. T-r4-calculated-layout-01 READY / owner NONE / PROPOSED_PENDING_MAIN. База c0053ff7f22fbc10e93efff2691ca6aa1ef90a06, точные входы/каталог и постановка verification/r4_calculated_layout/. Это предложение задачи и сверка источников, **не акт независимой проверки и не результат CAD**. Новый OUTPUT review NOT_RUN. Роль действует по пользователю, claim ждёт принятия main; прежняя ограниченная приёмка/история/геометрия не меняются. G1 OPEN, B opening/L physical INDETERMINATE, физические испытания NOT_RUN.
+
+
+## REV-R5-R3-CYCLE-TRACE-01-001 — сквозная карта и приоритеты R4
+
+Акт: [review.md](../verification/r5_r3_cycle_trace_review/review.md). Предыдущие акты сохранены; источник/CAD review NOT_AVAILABLE не заменён предположением о его содержании.
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-CYCLE-TRACE-01-001
+kind: OUTPUT
+task_id: T-r3-cycle-trace-01
+created_at_utc: '2026-11-12T17:18:16.982822Z'
+reviewer:
+  role: R5
+  session_id: 6af41aff-4210-8191-94a3-5d9c4bd75076
+  model_label: Codex
+reviewed_roles:
+- R3
+author_sessions:
+- r3-sizing-20261112
+independence_basis: Reviewer не автор карты/приоритетов/CAD; отдельно прочитаны 25 первичных страниц и выполнены
+  Fraction-проверки Git-координат. Организационная независимость не удостоверена.
+reviewed_commit: 43f03359fabe2b664935b17f9ac7851504093ece
+parameter_refs:
+- id: R3P_BASE_A_APPROACH_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: c6a2f18ff66a2d06b003c7b9d7c87b5a27f529f1bae71505ba27b39ec07071f8
+- id: R3P_BASE_A_APPROACH_QIN
+  revision: 1
+  engineering_sha256: 10d1ff9f114f0b3820dc81952ae75c23a3fd16a83d39d9fc5edd8e5cd09941a1
+- id: R3P_BASE_A_APPROACH_QOUT
+  revision: 1
+  engineering_sha256: 46f324a7fcc0b9a040eb92b3f0935ce69a1d0e0d59ca7f2a81c1e0078047cd04
+- id: R3P_BASE_A_APPROACH_SPEED
+  revision: 1
+  engineering_sha256: c81b3ac419dd00fbd6ecc411f44553d919fdf2e199dd150cb92aae3b613a6745
+- id: R3P_BASE_A_APPROACH_TIME
+  revision: 1
+  engineering_sha256: d49efe65d0373fabf7760047d5b4d44fcac69fb8e807cf4f7c8d1339adff3def
+- id: R3P_BASE_A_EJECT_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: 59d34d3a365d182d39dd7ff7a379c26df1ea0994aba1907d55855f95362099c3
+- id: R3P_BASE_A_EJECT_QIN
+  revision: 1
+  engineering_sha256: a42ac71c62cd3971ddf24abfd967b085dd560d35fac9d7b00ceb7f85f29f622c
+- id: R3P_BASE_A_EJECT_QOUT
+  revision: 1
+  engineering_sha256: eaab18a6d5f8955017ad3769ef7aee11896ebef855e090cb44a28b0bf7176f46
+- id: R3P_BASE_A_EJECT_SPEED
+  revision: 1
+  engineering_sha256: 1f653c9e94740b4f8f089d3b6669436d36c140a67d31888afbbe74d94c0fd1ab
+- id: R3P_BASE_A_EJECT_TIME
+  revision: 1
+  engineering_sha256: 018ee8fe4ee0bda143e892541e7706fecce5dda89a06dccc260f160630f60e5a
+- id: R3P_BASE_A_FIXED_BUDGET_AVERAGE_BOUND
+  revision: 1
+  engineering_sha256: 85fe46d12739df3afb077c6cad01558a100b1ee119484d5bf68b4ab86994774f
+- id: R3P_BASE_A_FIXED_BUDGET_CYCLE
+  revision: 1
+  engineering_sha256: 32284da21f90846684c5077a51dedf89a93f50450eddb51fb1ab3c56046dcfbe
+- id: R3P_BASE_A_FIXED_BUDGET_ENERGY_BOUND
+  revision: 1
+  engineering_sha256: 059951875d3e21e1265a76f8a554ada0e54c6625471cd2dcc2586ef7c13b6185
+- id: R3P_BASE_A_FIXED_BUDGET_MASS_RATE
+  revision: 1
+  engineering_sha256: 562d99c8f8f2f9c5e5ecc3ad5ada2602e9910f1eb7cbb98dd2ae031f6f361e02
+- id: R3P_BASE_A_FIXED_BUDGET_PEAK_BOUND
+  revision: 1
+  engineering_sha256: b5bb4c9c9bc53454ff62f9065e6ca2dea313900c26fafcba8cc1dc3dd39243e4
+- id: R3P_BASE_A_FIXED_TIMES_AVERAGE_BOUND
+  revision: 1
+  engineering_sha256: f6105c18421d6e84fdafa77aa057fab434bbc03d4d712566e7c18c1b6c8aa639
+- id: R3P_BASE_A_FIXED_TIMES_CYCLE
+  revision: 1
+  engineering_sha256: 083ff4dd5e59919bacf674168f24b04f9a18b6338eab84bd3ceee4eb0ebac26c
+- id: R3P_BASE_A_FIXED_TIMES_ENERGY_BOUND
+  revision: 1
+  engineering_sha256: afd28ee7cf20f42dd43116d2582c1888f8cc8c400ee5afa4631605d332e5094b
+- id: R3P_BASE_A_FIXED_TIMES_MASS_RATE
+  revision: 1
+  engineering_sha256: 6f151caf5cef728d72a24f6c35d3a1a0f47d3e4430c43052ad8af28539b02f75
+- id: R3P_BASE_A_FIXED_TIMES_REQUIRED_PEAK_BOUND
+  revision: 1
+  engineering_sha256: 93149db843a28df3e181f3ed87bebe8b01ddde69f5a9c4a395c2fdb84d41ce1e
+- id: R3P_BASE_A_RETURN_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: 90795ca54d97938ec090c6e3034b451e50349398b77e8e585ccb67055112dbed
+- id: R3P_BASE_A_RETURN_QIN
+  revision: 1
+  engineering_sha256: 5b21d02379b2da6222e1e4451780fa3748243310ada79dfd72344fd0da7df67c
+- id: R3P_BASE_A_RETURN_QOUT
+  revision: 1
+  engineering_sha256: 5fc81e710759bde9d1f7d961686f6eaa455b40be4ec76cf4fd849ee8062b6d78
+- id: R3P_BASE_A_RETURN_SPEED
+  revision: 1
+  engineering_sha256: 1758645969aa4a904e76672b406d1890fb6924e816f260446ec3d40c3600274e
+- id: R3P_BASE_A_RETURN_TIME
+  revision: 1
+  engineering_sha256: 32be25dfee1d0f807df5ee37b02150f12c171665be5ca06c70b7fc742c899442
+- id: R3P_BASE_A_WORK_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: 1ed2040c2f2a8caf0c0f382696583c938b3a9baedc8649dc1b0c251c4a9a963b
+- id: R3P_BASE_A_WORK_QIN
+  revision: 1
+  engineering_sha256: 44cb39ebd18b36f9c9e79a3115a8401e82e63f045e330dd277f1f4abe1ac8d73
+- id: R3P_BASE_A_WORK_QOUT
+  revision: 1
+  engineering_sha256: 9d5e81d839245ecd2de86f4dc3628843eeda96bdc074e986b9d677ed88383b91
+- id: R3P_BASE_A_WORK_SPEED
+  revision: 1
+  engineering_sha256: 957728504d3e7dcc9994e7299b5e9088a3cbc6ae98288771c59b13840af3b8a5
+- id: R3P_BASE_A_WORK_TIME
+  revision: 1
+  engineering_sha256: fa8fad8df323521564c5b189e08afe07f077b31f5075444bb2e90616fee73951
+- id: R3P_BASE_B_APPROACH_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: 5d9d964f328962c87e664dd23ff956f49c1fbbc03cbf904c57486606582f15ea
+- id: R3P_BASE_B_APPROACH_QIN
+  revision: 1
+  engineering_sha256: 62dd818e2d57cb3a8b3d7550b566b2375a4a87db8b56a2cb825babd68162f7d8
+- id: R3P_BASE_B_APPROACH_QOUT
+  revision: 1
+  engineering_sha256: 8cfb081f258f53a031fa1702ab2359f71b780312254bd73e8670cfb22e2e6b0c
+- id: R3P_BASE_B_APPROACH_SPEED
+  revision: 1
+  engineering_sha256: e83b60e6f2c6023d9d1a1eedf1698a5f57704c4bab6bc0348497904f7ce885f8
+- id: R3P_BASE_B_APPROACH_TIME
+  revision: 1
+  engineering_sha256: 7b83c36a5cde6c9f1339485dedaddd9da6330515377e45412da843b494a8728e
+- id: R3P_BASE_B_EJECT_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: fa77693baaf12f26858a9194f5fb25bfd00359a31553ba2dddae3e673183eaed
+- id: R3P_BASE_B_EJECT_QIN
+  revision: 1
+  engineering_sha256: eeb1739d1d0661ad1cd5c35adc2cecd03b43c630ecc2454c30f1dcedca1b409a
+- id: R3P_BASE_B_EJECT_QOUT
+  revision: 1
+  engineering_sha256: b2136ec245e3a197bcedb1a981fa5b12c60ec9631ebfc757a9a3c8b23da05f7e
+- id: R3P_BASE_B_EJECT_SPEED
+  revision: 1
+  engineering_sha256: f841f4a1a5b5b3449416a87f1e23e9569ebc9466c352b41842f6a47b7a18da97
+- id: R3P_BASE_B_EJECT_TIME
+  revision: 1
+  engineering_sha256: 156773d856d6edfa2cb22a0799a26b0d863c540d2cead81c93cc33950fe5d045
+- id: R3P_BASE_B_FIXED_BUDGET_AVERAGE_BOUND
+  revision: 1
+  engineering_sha256: 0c5ce99753454b1e1d2e525c9aa0bd0ec36d084d93ee7ddbb130d8f7740748cc
+- id: R3P_BASE_B_FIXED_BUDGET_CYCLE
+  revision: 1
+  engineering_sha256: 2508d013863a8bc6255b074ca5b3b639ad62f273198df077e6eb940e5d7833c1
+- id: R3P_BASE_B_FIXED_BUDGET_ENERGY_BOUND
+  revision: 1
+  engineering_sha256: 1bd0242c81e632ae45d536b6dddf8170c7acfa13f5b679bcb8074f2943714aa4
+- id: R3P_BASE_B_FIXED_BUDGET_MASS_RATE
+  revision: 1
+  engineering_sha256: b67370e036a582e44a3feee37d928a47002c9ddb535edc824ace0ea8ffbcd5c9
+- id: R3P_BASE_B_FIXED_BUDGET_PEAK_BOUND
+  revision: 1
+  engineering_sha256: ff02cdcaa778fd0a2499bfea662da9bd1f05208bac8ace6dfbdca83398672222
+- id: R3P_BASE_B_FIXED_TIMES_AVERAGE_BOUND
+  revision: 1
+  engineering_sha256: 3d340e15bcedc61387d475d7063326005fee1cbea70bd178efb2a003e09113dd
+- id: R3P_BASE_B_FIXED_TIMES_CYCLE
+  revision: 1
+  engineering_sha256: dfd14da08f91f33820909f3962cf8e657958000c1c9fff62419ad73f99567c33
+- id: R3P_BASE_B_FIXED_TIMES_ENERGY_BOUND
+  revision: 1
+  engineering_sha256: 78bbe3fb28b4030203afb7613f5d8331ae5c0f2050ded4fccc540a262d03405a
+- id: R3P_BASE_B_FIXED_TIMES_MASS_RATE
+  revision: 1
+  engineering_sha256: ebc058b1aaf1fb7f58b35db1cdb23cf2ee76547ec280eb165c8e3d2cccadf59e
+- id: R3P_BASE_B_FIXED_TIMES_REQUIRED_PEAK_BOUND
+  revision: 1
+  engineering_sha256: 512a55f015b883589b33eecda6bb707d1e5fde72f6343ad2ad12e613a81f8f7b
+- id: R3P_BASE_B_RETURN_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: bb64ef6bc6f01be112407345baf56466e6a8ebfb250342d2bc18c088f35eca79
+- id: R3P_BASE_B_RETURN_QIN
+  revision: 1
+  engineering_sha256: 5d796c71559f18f1d78696392f19726770480eb085f4e3b92588884feb167c06
+- id: R3P_BASE_B_RETURN_QOUT
+  revision: 1
+  engineering_sha256: 409793acb2622eed26ca77ab4d03956d4036ee51b2845b909a5522efcdb12418
+- id: R3P_BASE_B_RETURN_SPEED
+  revision: 1
+  engineering_sha256: 121e9bbef7dc38ba1b1fb583d49e80ac8c3066a961271a8ce4a3f343252c464b
+- id: R3P_BASE_B_RETURN_TIME
+  revision: 1
+  engineering_sha256: 362d13390bd29b93356c508ae6d4c8fd2ee7127850a7b3be535a4a8bb8875a1f
+- id: R3P_BASE_B_WORK_POWER_TOTAL_BOUND
+  revision: 1
+  engineering_sha256: f8783cce4d7f9b3928ef030e467e44a59c80a4024b23afd21dbd8b1056af70f1
+- id: R3P_BASE_B_WORK_QIN
+  revision: 1
+  engineering_sha256: 01075ee9a8585ada9bb22a6a64285ac8ac77d022a1cd8b7fa6b911aa811f2248
+- id: R3P_BASE_B_WORK_QOUT
+  revision: 1
+  engineering_sha256: 29a8b483a5839be773e0a7ef0be092f93690157dc0b719c27c561a683c68f3b6
+- id: R3P_BASE_B_WORK_SPEED
+  revision: 1
+  engineering_sha256: 0ccd27122b0d9514a51d7ea257a5901c904f3f8cea522333168e0e470388cb29
+- id: R3P_BASE_B_WORK_TIME
+  revision: 1
+  engineering_sha256: 6ab18b2b58bcd4c53ffa195920bf89f0703375ccffdf90c78f1137176a4acd00
+- id: R3P_IN_HOLD_TOTAL_CAP
+  revision: 1
+  engineering_sha256: 92d23c9caa32885462cb5fef459c5a8edde09fedaeb3020d395795f31a09a1b4
+- id: R3P_IN_MOTION_EXTRA_CAP
+  revision: 1
+  engineering_sha256: 1fff9a8de90b09e298da53ca1d44640d358bac92237a02b42f0a5ab1c4e0b966
+- id: R3P_IN_PAUSE_TOTAL_CAP
+  revision: 1
+  engineering_sha256: 610a152a7bc2c14bf067a71a9477c0b24daf1ee5e1b1db8e0586d57eb38785d9
+- id: R3P_REAL_HOLD_POWER
+  revision: 1
+  engineering_sha256: e111056fec081e5d158f7e8be735bca9c02f8626e929495ac2261b97024b171f
+- id: R3_BASE_A_APPROACH_STROKE
+  revision: 1
+  engineering_sha256: 98645adfda66bebe880adbcad38da8445316135aee160f0d249fb299feb0cbb9
+- id: R3_BASE_A_BORE
+  revision: 1
+  engineering_sha256: 05c64eda07ec93be6a28869a8cf129fa5b9d6a9998fb741dd7806675de6c9159
+- id: R3_BASE_A_CHAMBER_VOLUME
+  revision: 1
+  engineering_sha256: 4adf0f8da919afff37a402744a64c00a748e03ba9a6928d3e42a6e6a66b90e75
+- id: R3_BASE_A_EJECT_STROKE
+  revision: 1
+  engineering_sha256: dd5af41f3ff553043ed5cc115b13b7b46171fc92be4feeac5c7f5bac074df1de
+- id: R3_BASE_A_FORCE_WORK_PEAK
+  revision: 1
+  engineering_sha256: 14f8433c2fbfb8841177e205fc5f6a4d933419e488ccab8b7fb71bba7fdb6a02
+- id: R3_BASE_A_OCCUPIED_LENGTH
+  revision: 1
+  engineering_sha256: 6eddd8be3b045acb0a6bf36ac09a4f0f45e271cb93ddff2d6286755dec6f4c65
+- id: R3_BASE_A_RETURN_STROKE
+  revision: 1
+  engineering_sha256: f699ed8cbe193f4b9717ea08c17d133d734971d115e735d304a25554a1e813d5
+- id: R3_BASE_A_ROD
+  revision: 1
+  engineering_sha256: 8d8593ad3c342c40c90463b94d9674ea45052aeafa1bc06ff660de3cf4b67474
+- id: R3_BASE_A_WORK_STROKE
+  revision: 1
+  engineering_sha256: 4da9871b7b734d5e25c85b83740d4ec54277a98be55265ce4b284e38993d0a32
+- id: R3_BASE_B_APPROACH_STROKE
+  revision: 1
+  engineering_sha256: be79a8938a64066768edfa201035e4a3b7efce29c7560006721ddd71487352ed
+- id: R3_BASE_B_BORE
+  revision: 1
+  engineering_sha256: 995a9fd66907509880e3d3306f53feeb249b8915a4a79baac6eedf5716237c16
+- id: R3_BASE_B_CHAMBER_VOLUME
+  revision: 1
+  engineering_sha256: a3ae27188d2df4cb54813156c4108f7a16651c1da2b0edeba9402f2ac907ec6f
+- id: R3_BASE_B_EJECT_STROKE
+  revision: 1
+  engineering_sha256: 0a3586ecb9e6c8710b89c06daa825c729b64df7d2427abbe0768a4ee51e5f809
+- id: R3_BASE_B_FORCE_WORK_PEAK
+  revision: 1
+  engineering_sha256: 561b8a3724234fada0e6c6753832ccf319875f71dbf3cb9528fdd8ac486a2016
+- id: R3_BASE_B_OCCUPIED_LENGTH
+  revision: 1
+  engineering_sha256: 4deb2f14d824e5d9ae04c9b153d771415f1d3bc87f2ae9ba8f34bfe04e6f2da8
+- id: R3_BASE_B_RETURN_STROKE
+  revision: 1
+  engineering_sha256: aac701db499dd41fd2342d71f77e4f945d15d7f6a588d7fb75ab3e549514ea90
+- id: R3_BASE_B_ROD
+  revision: 1
+  engineering_sha256: 26738f42950bd1441dffe72011b6c64408ea198c0c980d4ad96c9cc914435549
+- id: R3_BASE_B_WORK_STROKE
+  revision: 1
+  engineering_sha256: a469e88240f61257c770eb9eaca4557409ae1c5cd00dbfc945c70a47983816b0
+- id: R3_IN_CHANNEL_HOLD
+  revision: 1
+  engineering_sha256: 8be165d6478377713e10c8c18afc0943af819939ff07b220f9cf7771e121d326
+- id: R3_IN_CHANNEL_SLIDE
+  revision: 1
+  engineering_sha256: 8f9ec5d66ecde7f8d6cf7abf93339e3d5257482d386411f833344727670881b0
+- id: R3_IN_CLEARANCE
+  revision: 1
+  engineering_sha256: 9f5eacf192d08b9cddde95c48aac7b3ba47cf72bfd4a87ad82191845d4101560
+- id: R3_IN_ELECTRIC_LIMIT
+  revision: 1
+  engineering_sha256: f0caad98ee0195b86491b90f5854031e0003469d369ec91522ff5e6ec5c5ed48
+- id: R3_IN_HEIGHT
+  revision: 1
+  engineering_sha256: 8c5c16ec5d1055417f306b176bffd22fff62ba9be27c36132ccf54da49581c8a
+- id: R3_IN_MASS
+  revision: 1
+  engineering_sha256: bcce4f5bc3c904d5dc9c299a5e5d5d70e4729ae22c092e4d63eb4b4eb60cfc7d
+- id: R3_IN_PHI
+  revision: 1
+  engineering_sha256: 9e7bdce5d57581a516de1c3799e5266adc403f3fca84977b2bfb9a86275d4a43
+- id: R3_IN_PRODUCT_LENGTH
+  revision: 1
+  engineering_sha256: 6de1c62bb4e3ce436ad93e909cfce9c5450f0f6f3684026969677b1f23aed6b3
+- id: R3_IN_REBOUND
+  revision: 1
+  engineering_sha256: d3bfd9e06e08695b6ead63098e4e6c38040f218c9a0dd7f1ea8ad89ef6697687
+- id: R3_IN_RHO
+  revision: 1
+  engineering_sha256: 08e0f1b501432130a0dd803fb2d16c2b369597777ad73fb23bc37b5354e17150
+- id: R3_IN_SIGMA_END
+  revision: 1
+  engineering_sha256: e7d4a43a42e621ac77a3a1404bd1e4f879530e44732244069019427294694f83
+- id: R3_IN_T_HOLD
+  revision: 1
+  engineering_sha256: f0759326148cfebf7dc4337ae2e5ef1b79b962c953b566b395a4316be136cf72
+- id: R3_IN_T_OPEN_B
+  revision: 1
+  engineering_sha256: 85fa59de19c77ee71a01adfd23d779ea0a627df960bf1df8af8235a6ecce4da8
+- id: R3_IN_T_UNLOAD_B
+  revision: 1
+  engineering_sha256: 7221e500e68e688fd7f36cb421ee6b9bd9fccf32b25f86e8d93a7a901dbb0f0c
+- id: R3_REAL_OTHER_ACTUATORS_ENERGY
+  revision: 1
+  engineering_sha256: 4acbad67449b40b4d09e200a8ef7726ff1b98e7373a269b149b1738731ef5d69
+- id: R3_REAL_RESIDUAL_CHANGE
+  revision: 1
+  engineering_sha256: e8a58b56dae1ac5a357961175076758fd7a948ff9d7668999819d916ea69ec87
+- id: R3_REAL_STOP_OPEN_LIMIT
+  revision: 1
+  engineering_sha256: 9f2439481bc97ed6bb90f177ef9dbdc4f03999a61d409b3e8dd6e9688c24f7df
+- id: R3_REAL_STOP_RESIDUAL
+  revision: 1
+  engineering_sha256: 2355d0d869d9d8622de906b801be4d99bc0bc334d0b90eb69042b4d4eccd4727
+artifacts:
+- path: params/registry.yaml
+  sha256: f52f6a52cf84831b714c037521bede8ada33e45d93d8b7251aa30b0b8a0d4d44
+- path: sources/raw/Target_object_BP500.pdf
+  sha256: bf7276191a73b3d9a22ef516316bc59aac5d12fd708a7adc454bd6d9da4bec0c
+- path: sources/raw/additional_Ars_Rst_500.pdf
+  sha256: 631b7186c7f2d38251625b77a70e790d2c257cdeb1dd3343befe3783cd983c40
+- path: sources/raw/additional_Prodeco_E55.pdf
+  sha256: 27d27b7e41247e1098531204581953e6cba388ec918418fa2ee64891bda4cc87
+- path: sources/raw/additional_Weima200.pdf
+  sha256: 477fcb54af5f7210afc9640137391fbb97a950be41daa52cc7d8b601e4f5e135
+- path: verification/r3_cycle_trace/README.md
+  sha256: aaac6e5aa5faa9d997b7a2dac2a74407c0f8a51a5a43c9767f0cd12aa100df35
+- path: verification/r3_cycle_trace/cad_evidence.json
+  sha256: 36ebd59127674a8295b5d0d3cac0a89387be955d551437b230e51f0fb79ca890
+- path: verification/r3_cycle_trace/checks.json
+  sha256: 4c65bee49dea39fae4c4cb86fb2866f4210526633907cb7ddcd53de564196b56
+- path: verification/r3_cycle_trace/claim.md
+  sha256: 4d1f71429694b5942c3f37b7ab7a88c5d6d36031d294db3cd27c7a1acc4d04ad
+- path: verification/r3_cycle_trace/cycle_index.csv
+  sha256: 3406904ef6100268f49318ecb571b835a58751cbae885a270cdf25886802301f
+- path: verification/r3_cycle_trace/cycle_table.json
+  sha256: 29fa0a8b49ba36e54f7bfe8a70d36eca6ba07129c2291b8a04b8bd647cb4033f
+- path: verification/r3_cycle_trace/cycle_table.md
+  sha256: be3f5191db8d502c5af95cb88daff56208c91d5347ca754c9d6e4efed6ea16f5
+- path: verification/r3_cycle_trace/input_acceptance.json
+  sha256: 6797d8d74afd69913c243a56fd2f59269d482712806b78fe9eb1a69d212e008c
+- path: verification/r3_cycle_trace/input_audit.md
+  sha256: 6a104838c0766ac7ed81ec8b5e4a71f4ffda7a3a3de92831143a2c87ad3d5287
+- path: verification/r3_cycle_trace/preflight.json
+  sha256: 6403cf5147a70a1a5e0fd0ddefd8f8673861c0b581479970eda62d9dc4ab2c5f
+- path: verification/r3_cycle_trace/r4_backlog.json
+  sha256: 5cb95fd2b15f8a4f0abd6e49a416eacccf17a12894c2e564ab5650ea5ea4897a
+- path: verification/r3_cycle_trace/r4_priorities.md
+  sha256: 9973f7862a523dbea9aa1fb284d956c10b9efcd77b0e19761a6358016883d13a
+- path: verification/r3_cycle_trace/registry_check.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r3_cycle_trace/render_documents.py
+  sha256: c642998715e7c5074155ebb39d5dd76a63f0bf408d1426210544b5e94f8774b5
+- path: verification/r3_cycle_trace/result_checks.json
+  sha256: e68de2ae9cee51981b366ade3d1ad12b0b861110b21f3eeee7695812dabd5b88
+- path: verification/r3_cycle_trace/result_original_replay.log
+  sha256: 1a6788ef0618508100983a5f760fbd5575761ff4bb75ee9e055d6b73f800ac74
+- path: verification/r3_cycle_trace/result_power_replay.log
+  sha256: 0f74e832c1b2bf06f7a217b86a3ea0f1c8f4121e13e1c996277e32ebcc5a46f8
+- path: verification/r3_cycle_trace/result_preservation.json
+  sha256: 8e4f24621c66437c183231f85bda546e93965e466342842848babd7b9b375c1a
+- path: verification/r3_cycle_trace/result_registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r3_cycle_trace/result_render.log
+  sha256: 0f6ce8196bb0f4744902f17c08a5d3cc911e5733ff2f7ea09a39f574ad28c288
+- path: verification/r3_cycle_trace/result_trace.log
+  sha256: 5075566c106edaabc37d581b5a73afeb0997c62be6e4e7cec92e2f6973c9bdc4
+- path: verification/r3_cycle_trace/review_request.md
+  sha256: 717e3203727dd55b8db1678cb7ac9da23ab8dffb414a89858082a4aac4a7fcb8
+- path: verification/r3_cycle_trace/source_ledger.md
+  sha256: 4fc0b65f7c081a08fc3ab1937f9705a6192dcc4daa25c84eccacb149e6675825
+- path: verification/r3_cycle_trace/sources.json
+  sha256: 8401a54e1516bc6ea3bb2467804977f8d5289cc82c29f3d64c6e1d8cb1e28aaf
+- path: verification/r3_cycle_trace/task.md
+  sha256: 9d8aa3349500ba2f88f50a1443747a0121051ad2bd42fa8823b73de72760a113
+- path: verification/r3_cycle_trace/verify_trace.py
+  sha256: 704a061526c9c720e77c1fcacfd32571f114d8012dfaa69c2eb4c54bc94485ed
+scope: Документальный OUTPUT-review 20 цепочек и девяти приоритетов; CAD review NOT_AVAILABLE, независимый native
+  replay NOT_RUN.
+checks:
+- id: CHK-CYCLE-SOURCES
+  method: Визуальное чтение конкретных страниц/схем BP500/WEIMA/PRODECO/ARS с проверкой PDF хэшей.
+  expected: Источник подтверждает только собственную функцию/условия, без переноса механизма/чисел/применимости
+    на REV.
+  observed: 17 claims и 25 страниц сверены; ошибочного цитирования в проверенной области не выявлено; применимость
+    REV не подтверждена.
+  reasoning: Страницы покрывают источники всех 20 цепочек; OEM редакции и остальные страницы не проверены.
+  result: PASS
+- id: CHK-CYCLE-CAD-LINKS
+  method: Независимые Fraction-вычисления исходных stages/poses и сверка 100 параметров с точным CALC.
+  expected: Сохранить различие nominal R3 exit, declared CAD exit, retained material и tool return; не доказывать
+    BRep по bounds.
+  observed: SHORT_STROKE и RESET противоречия объявленной модели воспроизведены; 2156 стыков координат проверены,
+    вне main-axis A5/B7 секунд.
+  reasoning: Это документально-координатная область; actual FCStd/STEP/native и truth author witnesses NOT_RUN.
+  result: PASS
+- id: CHK-CYCLE-NATIVE
+  method: Независимый нативный геометрический review.
+  expected: Точная геометрическая верификация перед закрытием CAD-дефектов.
+  observed: NOT_AVAILABLE акт CAD review; новый native replay NOT_RUN.
+  reasoning: Пользователь явно поручил разделить подтверждённые документальные противоречия и непроверенные геометрические
+    замечания.
+  result: NOT_RUN
+findings:
+- id: R5-CYCLE-W01
+  status: OPEN
+  description: Начать черновые ресурсный граф и READY predicates вместе с материальным контрактом; окончательная
+    сверка после геометрических предложений.
+- id: R5-CYCLE-W02
+  status: OPEN
+  description: Нативные замечания CYC03/04/07 передавать с evidence grade и отдельным критерием независимой проверки;
+    не объявлять доказанными actual CAD-дефектами.
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+allowed_downstream_scope: Все CYC01…09 как условные interface/investigation proposals по уточнённому порядку; общий
+  rebuild как девять доказанных исправлений NOT_READY.
+excluded_claims:
+- Согласованный физический полный цикл, производительность, удержание A, разгрузка/открытие B, безопасность
+- Доказанные reviewer нативные CAD-дефекты или их устранение
+- Утверждение оборудования, архитектуры, ТЗ и G1
+warning_owner_and_due:
+  owner_role: R3/R4
+  owner_session: r3-sizing-20261112 для ответа R3; R4 по отдельному принятому назначению
+  due: До следующего общего rebuild/закрытия геометрических замечаний
+  restriction: Сначала материальный и черновые событийный/ресурсный контракты; native evidence не подтверждено.
+reproduction_artifacts:
+- verification/r5_r3_cycle_trace_review/review.md
+- verification/r5_r3_cycle_trace_review/source_checks.json
+- verification/r5_r3_cycle_trace_review/independent_results.json
+- verification/r5_r3_cycle_trace_review/reproduction.json
+- verification/r5_r3_cycle_trace_review/object_identity.json
+supersedes: null
+```

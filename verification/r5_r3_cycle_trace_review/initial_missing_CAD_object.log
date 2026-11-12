@@ -1,0 +1,28 @@
+$ .venv/bin/python -B verification/r3_cycle_trace/verify_trace.py
+exit=1
+STDOUT
+
+STDERR
+fatal: path 'cad/build/calculated_layout/A/scenes.json.gz' does not exist in '3591a5f92f78b1edea07d3fc5354fd0a99090798'
+Traceback (most recent call last):
+  File "/workspace/REV/verification/r3_cycle_trace/verify_trace.py", line 120, in <module>
+    else:verify()
+         ^^^^^^^^
+  File "/workspace/REV/verification/r3_cycle_trace/verify_trace.py", line 59, in verify
+    data=collect();assert data==json.loads((HERE/'cad_evidence.json').read_text()),'saved CAD extract mismatch'
+         ^^^^^^^^^
+  File "/workspace/REV/verification/r3_cycle_trace/verify_trace.py", line 25, in collect
+    scenes=load(directory+'/scenes.json.gz',True);scene=next(s for s in scenes if s['case']=='sufficient')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/REV/verification/r3_cycle_trace/verify_trace.py", line 22, in load
+    raw=blob(name);files[name]=digest(raw);return json.loads(gzip.decompress(raw) if compressed else raw)
+        ^^^^^^^^^^
+  File "/workspace/REV/verification/r3_cycle_trace/verify_trace.py", line 16, in blob
+    def blob(path):return subprocess.check_output(['git','show',CAD+':'+path],cwd=ROOT)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '3591a5f92f78b1edea07d3fc5354fd0a99090798:cad/build/calculated_layout/A/scenes.json.gz']' returned non-zero exit status 128.
