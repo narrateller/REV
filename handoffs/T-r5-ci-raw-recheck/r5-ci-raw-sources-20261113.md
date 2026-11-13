@@ -1,0 +1,18 @@
+# R5 B03 raw-source RECHECK — exact review handoff
+
+- R5/Codex/session r5-ci-raw-sources-20261113;direct user assignment and continue;not candidate/helper/norm author.
+- Review C **4e52c3953c989c1077107d1d4f4da6d39d923d85**, https://github.com/narrateller/REV/commit/4e52c3953c989c1077107d1d4f4da6d39d923d85.
+- Act REV-R5-CI-RAW-SOURCES-RECHECK-01-001:verification/r5_ci_raw_sources_recheck/review.md.
+- Reviewed input b89854ad709bcb5c2991376bed41bf2f73acef82,inputH ce1ad73aae7a5700203103c14290375cc519662b,R1 3aa5ee100f57aa75315d429afef38f8a982b1afc.
+- B03 OPEN/REJECT_WITH_BLOCKER;stable documentary CYC-02/03 handoff/newCAD iteration NO-GO. Old rawFALSE journal-error witness and8variants fixed;231/231,identical8typed digests,scopedUNKNOWN/BLOCKED.
+- Independent732case records696matches36falseTRUErecords of1semantic-admission cause:unsupported/null/ill-typed OPEN guard silently skipped by journal scan,IN_DOMAIN/TRUE/ALLOWED_ASSUMED with allrawTRUE.36records=6tags×3positions×2observedguards;18serializedinputs/6canonicalmaps. Not36independent defects or real motions.
+- Comparator reproduce_guard_tag.py/minimal_guard_tag_witness.json:missingguard UNKNOWN/INDETERMINATE,nullguard TRUE/ALLOWED,knownFEED TRUE/ALLOWED. AllF-digests canonical/history_validTrue,rawrecords independently valid. Expected guard membership from pinned frozen definitions;legacy scan success is not valid-domain evidence for unsupported tag.
+- Raw patch itself passes450real readererrors,56invalidraw,75injected sourceexceptions,27two-own,state/causal controls;no literal stale/foreign FALSE trusted,rawTRUE under detected readererror not admitted. All8exits throughfinish. Caller/proof/contract/origin/expected/history/rejected/pending readonly;physical_permissionFalse;helper copy not applied.
+- Claimed3277doc/8export;raw9methods966;gate11methods220;snapshot11methods118;type6methods244/36;semantic6methods411;7B01/B02methods PASS. Unchanged prior654/654,765/765,7/7,295/295,231/231;old19+8digests retained;norm53/84/18exactly reproduced.
+- Protection:612files,7packages,11trees,17blobs,norm/helper,44bindings,4variants,calculations/CAD and6historic review packages unchanged. Interfacepackage166files byte-identical C/H.6oldREJECT/verdict/findings/SHA/evidence preserved,current seventh;interface counter7,material counter2.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1;next corrective iteration BLOCKED perAGENT_PROTOCOL§6.1 pending recorded R1 positive-journal-admission scope/plan. R1_followup.md gives choices/tests;reviewer made no product source fix,repair/drop or invented target/domain/revision.
+- Registry --check-git PASS (engineering acceptance NOT assessed);git diff --check/LFSfsck PASS;15actual completed command receipts.180review evidence files sealed,manifest SHA256 b02c29e4da71abd27a23817aa5b75811387cfbf1ba9c1aea3ec1e5dfd9d6b9dd;seal_evidence.py --check verifies bytes.
+- R3 only prior WARNINGforce-pathstudies/currentclaim/exactinputs;no force-path/strength/geometry acceptance. W02 OPEN/NO-GO,physicalREADY NO-GO,G1OPEN;architecture/TZ/equipment notapproved. Strength/stability/nativegeometry/CADrebuild/physicaltrials NOT_RUN,geometricpairs0.
+- Main3a9258c57e4bc15d6de98f1d17e8412ad6e8899a,acceptedPR45owner r4-linked-20261111,lease2026-11-14T00:13:12.404899+00:00 unchanged;no mainmerge,parenttakeover,leaseextension or environmentpublication.
+- Publish branch work-r5/T-r5-ci-raw-recheck/r5-ci-raw-sources-20261113;following H changes only this capsule and STATE/NEXT,C evidence unchanged. Remote H checked after push;full SHA returned to user without self-reference.
+- UTC 2026-11-13T16:15:11.518994+00:00.

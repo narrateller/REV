@@ -1,3 +1,5 @@
+B03 raw-source RECHECK act C **4e52c3953c989c1077107d1d4f4da6d39d923d85**;capsule handoffs/T-r5-ci-raw-recheck/r5-ci-raw-sources-20261113.md. Oldjournal/8variants fixed;unsupported OPEN guard still admits TRUE (36records/1cause). B03 OPEN,stable documentary handoff NO-GO;6historic rejections preserved,current seventh. W02/physicalREADY NO-GO,G1OPEN.
+
 # R5 RECHECK B03 raw sources — OPEN/REJECT_WITH_BLOCKER
 
 R5/Codex/session **r5-ci-raw-sources-20261113**,reviewed C **b89854ad709bcb5c2991376bed41bf2f73acef82**,
