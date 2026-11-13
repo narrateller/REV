@@ -1,3 +1,36 @@
+# R5 RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-snapshots-20261113**, reviewed C **e30b4b7caf3040905cc23c79ca696af2871c958a**,
+H **ff050572f88f108c2092827e98cd4d98bd874737**, R1 **39826eb2f5dbd1f83d81882022e6f59313ebe5d5**.
+Акт REV-R5-CI-SNAPSHOTS-RECHECK-01-001:
+[review.md](verification/r5_ci_snapshots_recheck/review.md),[inputs/evidence](verification/r5_ci_snapshots_recheck/minimal_witnesses.json),
+[commands](verification/r5_ci_snapshots_recheck/commands.json),[policy table](verification/r5_ci_snapshots_recheck/policy_comparison.md).
+
+Четыре прежних incomplete-snapshot false TRUE устранены; unchanged incomplete7/7,
+old probes654/654+765/765. Own295cases276matches19FAIL: malformed whole proof
+подавляет известный resource/state BLOCKED; missing/foreign proof action/guard
+с известным OPEN causal ancestor возвращает INDETERMINATE до causal assessment.
+Это19вариаций2раннихвозвратов, без новых ложных TRUE/physical permission.
+46/46IN_DOMAIN comparison PASS;249OUT_OF_DOMAIN с явными reasons, без обещания
+unconditional legacy equality. Valid integers/advances/minimal maps/unused
+FEED/RETENTION и B01/B02 сохранены. Author3277/8,11snapshot methods118cases,
+6type244/36,6semantic411,7retainedmethods PASS.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+R3 только прежние WARNING force-path studies с действующим claim и exact inputs.
+Норматив53/84/18,frozen helper,44bindings,4variants,расчёты/CAD и четыре старых
+акта сохранены. Текущий пятый REJECT;interface counter5,material counter2.
+Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1;следующая коррекция BLOCKED по §6.1
+до R1 решения/плана: [карточка](verification/r5_ci_snapshots_recheck/R1_followup.md).
+Main3a9258c/PR45owner r4-linked-20261111/lease2026-11-14T00:13:12.404899+00:00
+не изменены,merge/claim takeover нет. **W02 OPEN/NO-GO,physical READY NO-GO,G1 OPEN**.
+Архитектура/ТЗ не утверждены;strength/native geometry/CADrebuild/physical trials
+NOT_RUN,геометрических пар0. UTC 2026-11-13T11:06:19.210005+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # R4 — B03 snapshots по ARB-R1-CI-SEMANTICS-03, RECHECK PENDING
 
 **Exact C `e30b4b7caf3040905cc23c79ca696af2871c958a`, REMOTE_VERIFIED**,

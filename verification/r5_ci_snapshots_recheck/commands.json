@@ -1,0 +1,233 @@
+[
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r4_cycle_interfaces/proposal/check_package.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_document.json",
+    "stderr": "author_document.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.298334+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_exports.json",
+    "stderr": "author_exports.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.298452+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/snapshot_correction",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_snapshots.stdout",
+    "stderr": "author_snapshots.stderr",
+    "environment_overrides": {
+      "REV_SNAPSHOT_CAPTURE": "/workspace/REV/verification/r5_ci_snapshots_recheck/author_snapshot_cases.json"
+    },
+    "recorded_at_utc": "2026-11-13T11:14:22.300207+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/type_correction",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_type.stdout",
+    "stderr": "author_type.stderr",
+    "environment_overrides": {
+      "REV_TYPES_CAPTURE": "/workspace/REV/verification/r5_ci_snapshots_recheck/author_type_cases.json"
+    },
+    "recorded_at_utc": "2026-11-13T11:14:22.301170+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/semantic_iteration",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_semantic.stdout",
+    "stderr": "author_semantic.stderr",
+    "environment_overrides": {
+      "REV_CI_CAPTURE": "/workspace/REV/verification/r5_ci_snapshots_recheck/author_semantic_cases.json"
+    },
+    "recorded_at_utc": "2026-11-13T11:14:22.302542+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/correction",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "retained.stdout",
+    "stderr": "retained.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.302839+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_snapshots_recheck/repeat_prior.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "repeat_prior.stdout",
+    "stderr": "repeat_prior.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.302900+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_snapshots_recheck/independent_probe.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "independent.stdout",
+    "stderr": "independent.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.302947+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_snapshots_recheck/summarize.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "summary.stdout",
+    "stderr": "summary.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.302971+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_snapshots_recheck/verify_preservation.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "preservation.stdout",
+    "stderr": "preservation.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.302992+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_snapshots_recheck/reproduce_blocked.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "minimal_replay.stdout",
+    "stderr": "minimal_replay.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.303010+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "diff_check.stdout",
+    "stderr": "diff_check.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.332248+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "git",
+      "lfs",
+      "fsck"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "lfs_fsck.stdout",
+    "stderr": "lfs_fsck.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.759123+00:00",
+    "note": "Actual tool completion and captured outputs verified. Independent probe exit0 means completed evidence collection, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "scripts/check_registry.py",
+      "--check-git"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "registry.log",
+    "stderr": "registry.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T11:14:22.759558+00:00",
+    "note": "Final registry actually exited0; stdout and stderr merged in registry.log; empty sidecar layout only. Engineering acceptance NOT assessed."
+  }
+]

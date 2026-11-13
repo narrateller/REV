@@ -1,3 +1,16 @@
+## T-r5-ci-snapshots-recheck — независимый RECHECK завершён
+
+- R5/Codex/r5-ci-snapshots-20261113, direct user assignment; REVIEW_COMPLETE/REJECT_WITH_BLOCKER.
+- Exact C e30b4b7caf3040905cc23c79ca696af2871c958a,H ff050572f88f108c2092827e98cd4d98bd874737,R1 39826eb2f5dbd1f83d81882022e6f59313ebe5d5.
+- B03 OPEN:295cases276matches19gateFAIL,2early-returnbranches;no new false TRUE. Old incomplete7/7,prior654/654+765/765;conditional IN_DOMAIN46/46 and positive domain/history/unused maps PASS.
+- B01/B02 documentary closure retained;stable documentary CYC-02/03 handoff/new CAD iteration NO-GO,R3 studies only prior WARNING scope/current claim.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1;next correction BLOCKED under §6.1 pending recorded decision/plan;verification/r5_ci_snapshots_recheck/R1_followup.md.
+- Four old rejections/SHA/evidence preserved;current fifth,interface_consecutive_rejections=5,material_contract_consecutive_rejections=2. No author task takeover/main merge/lease extension.
+- Norm/helper/44bindings/4variants/calculations/CAD unchanged;W02/physical READY NO-GO,G1 OPEN;architecture/TZ not approved;strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN.
+- Capabilities:Git/Python documentary tests/hash checks;session assigned and heartbeat UTC 2026-11-13T11:06:19.210005+00:00.
+
+---
+
 ## T-r4-cycle-interfaces-01 — B03 snapshot admission, RECHECK PENDING
 
 R1 ARB-R1-CI-SEMANTICS-03 `39826eb2f5dbd1f83d81882022e6f59313ebe5d5`

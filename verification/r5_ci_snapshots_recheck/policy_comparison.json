@@ -1,0 +1,5764 @@
+{
+  "C": "e30b4b7caf3040905cc23c79ca696af2871c958a",
+  "session_id": "r5-ci-snapshots-20261113",
+  "cases": 295,
+  "matches": 276,
+  "failed_case_count": 19,
+  "failure_branches": {
+    "whole_nonobject_proof_before_own_entry_evaluation": 15,
+    "proof_action_guard_admission_before_known_causal_denial": 4
+  },
+  "in_domain": 46,
+  "in_domain_composite_matches": 46,
+  "out_of_domain": 249,
+  "candidate_false_TRUE_count": 0,
+  "counts": {
+    "IN_DOMAIN_COMPATIBLE": 46,
+    "INTENTIONAL_STRICTER_ADMISSION": 37,
+    "OUTSIDE_SCHEMA_REJECTED": 193,
+    "KNOWN_BLOCKED_GATE_MASKED": 19
+  },
+  "B03": "OPEN",
+  "stable_documentary_handoff": "NO_GO",
+  "comparisons": [
+    {
+      "id": "integer:0",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "integer:1",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "integer:9223372036854775808",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-744b705a5c9b838519282b232b3c202b74cd20833cfe43d85c10e27f5ba92939.origin.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.history",
+            "code": "UNCONFIRMED_OR_INVALID_HISTORY"
+          },
+          {
+            "path": "faults.F-aa8a508b978a44e6c713b46600c87b82154a2f5925708c042b85c19dfea6f67f.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:foreign-only",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-f8abfb3fa668eb63141322ffb9f29c45526a42a0fdb20d1a5cd42b15bb270b8f.origin.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          },
+          {
+            "path": "faults.F-f8abfb3fa668eb63141322ffb9f29c45526a42a0fdb20d1a5cd42b15bb270b8f.origin.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "MATERIAL"
+            ]
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:extra-known",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-36e33f638f9bbf38bfe539ba4951d1ecc8eefa44f0ae1998cc4e4f61b6eff5f3.origin.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "AXIS"
+            ]
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "AXIS"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:extra-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-1a888349202a1be4b7bc10030ed54cd0c3e1622b68bca1b57c0fd28647aea004.origin.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:wrong-positive",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-43e62a9a91ec72c6e2c3f693b39e3d776c6947c69682f7df31bcfe03f262d63d.expected_revisions",
+            "code": "EXPECTED_NOT_JUSTIFIED_BY_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:stale",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-f62e55932ef74edd52819c3611ed006c38ba15108b4f8142286be59dada81724.expected_revisions",
+            "code": "EXPECTED_NOT_JUSTIFIED_BY_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.history",
+            "code": "UNCONFIRMED_OR_INVALID_HISTORY"
+          },
+          {
+            "path": "faults.F-9b86e4b5a28c86c4bc9e0d9bff1235c324e467fb0589648eeef819ee0fb97b54.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:container",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.history",
+            "code": "UNCONFIRMED_OR_INVALID_HISTORY"
+          },
+          {
+            "path": "faults.F-86563ba8f68659e31dd2dc17dc10ed01aec79468eae8fdcb9b11781886119365.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-bb0e681d87b131444f76b7d537d225c2b229a85e022475e6b3af9450869bc039.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-77229967053199160a76eff2be79fb81e66e8fb557763a131f74222066221e22.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-c535ec024c5739b10f26f228f68c6cb3fc0d9b0a2440540606ebe4500904a2eb.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-316695a1f64de495f6790807b22ed7e32409d340c6b5f7cc97831c159db85502.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-5b049eadc70600e8717bef5a23d68fc230b21f51fb5b4ec77f851fda95427293.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-e247d5d850fccfbf4278f7ea93541d10eceaa4f027c9d6bc16b7464145608206.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-4c223d76ec00c954b625497b03d9553a392927fbfbe281c75eec2048bf8ef873.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-7bfb244ceb7bab76e0bcd796fba748386d149221909d92ec73ef933032870fa0.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "origin:B_CLOSURE:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-677a7e1f89e8b309c69efa6845e5ef05d4ade138012e593fcd4dbf042732f778.origin.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": null,
+      "legacy_error": "KeyError"
+    },
+    {
+      "id": "expected:foreign-only",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          },
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:extra-known",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "AXIS"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:extra-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:wrong-positive",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "EXPECTED_NOT_JUSTIFIED_BY_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:stale",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "EXPECTED_NOT_JUSTIFIED_BY_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": null,
+      "legacy_error": "AttributeError"
+    },
+    {
+      "id": "expected:container",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": null,
+      "legacy_error": "AttributeError"
+    },
+    {
+      "id": "expected:B_CLOSURE:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "expected:B_CLOSURE:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:foreign-only",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          },
+          {
+            "path": "proof.origin_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:extra-known",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "AXIS"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:extra-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:wrong-positive",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "UNCONFIRMED",
+        "reasons": [
+          {
+            "path": "proof.revision_bindings",
+            "code": "STALE_OR_WRONG_SCOPED_REVISION"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:stale",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "UNCONFIRMED",
+        "reasons": [
+          {
+            "path": "proof.revision_bindings",
+            "code": "STALE_OR_WRONG_SCOPED_REVISION"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:container",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-origin:B_CLOSURE:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:foreign-only",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:extra-known",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:extra-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:wrong-positive",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "UNCONFIRMED",
+        "reasons": [
+          {
+            "path": "proof.revision_bindings",
+            "code": "STALE_OR_WRONG_SCOPED_REVISION"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:stale",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "UNCONFIRMED",
+        "reasons": [
+          {
+            "path": "proof.revision_bindings",
+            "code": "STALE_OR_WRONG_SCOPED_REVISION"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:container",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "proof-current:B_CLOSURE:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "AXIS",
+              "B_CLOSURE",
+              "EVIDENCE",
+              "EXIT_RECEIVER",
+              "HYDRAULIC",
+              "MATERIAL",
+              "RESOURCES"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:foreign-only",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "AXIS",
+              "B_CLOSURE",
+              "EVIDENCE",
+              "EXIT_RECEIVER",
+              "HYDRAULIC",
+              "RESOURCES"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:extra-known",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "current:extra-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "current:wrong-positive",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "UNCONFIRMED",
+        "reasons": [
+          {
+            "path": "proof.revision_bindings",
+            "code": "STALE_OR_WRONG_SCOPED_REVISION"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:stale",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "UNCONFIRMED",
+        "reasons": [
+          {
+            "path": "proof.revision_bindings",
+            "code": "STALE_OR_WRONG_SCOPED_REVISION"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:container",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:AXIS:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:B_CLOSURE:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EVIDENCE:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:EXIT_RECEIVER:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:HYDRAULIC:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:MATERIAL:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:bool-true",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:bool-false",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:float-zero",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:float-one",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:object",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "current:RESOURCES:negative",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "unused:FEED:missing",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "unused:FEED:changed",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "unused:RETENTION:missing",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "unused:RETENTION:changed",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "partial-current:AXIS",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "AXIS"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "partial-current:B_CLOSURE",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "partial-current:EVIDENCE",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "EVIDENCE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "partial-current:EXIT_RECEIVER",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "EXIT_RECEIVER"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "partial-current:HYDRAULIC",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "HYDRAULIC"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "partial-current:MATERIAL",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "partial-current:RESOURCES",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "RESOURCES"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:BASIS_DEFINED:MATERIAL:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.BASIS_DEFINED.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:BASIS_DEFINED:MATERIAL:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:BASIS_DEFINED:MATERIAL:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.BASIS_DEFINED.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:BASIS_DEFINED:MATERIAL:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.BASIS_DEFINED.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:AXIS:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.CONTINUITY_CONFIRMED.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "AXIS"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:AXIS:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:AXIS:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.CONTINUITY_CONFIRMED.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:AXIS:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.CONTINUITY_CONFIRMED.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:MATERIAL:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.CONTINUITY_CONFIRMED.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:MATERIAL:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:MATERIAL:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.CONTINUITY_CONFIRMED.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:CONTINUITY_CONFIRMED:MATERIAL:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.CONTINUITY_CONFIRMED.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:EVENT_FRESH:EVIDENCE:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.EVENT_FRESH.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "EVIDENCE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:EVENT_FRESH:EVIDENCE:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:EVENT_FRESH:EVIDENCE:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.EVENT_FRESH.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:EVENT_FRESH:EVIDENCE:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.EVENT_FRESH.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:FEEDBACK_VALID:EVIDENCE:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.FEEDBACK_VALID.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "EVIDENCE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:FEEDBACK_VALID:EVIDENCE:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:FEEDBACK_VALID:EVIDENCE:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.FEEDBACK_VALID.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:FEEDBACK_VALID:EVIDENCE:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.FEEDBACK_VALID.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:LEDGER_VALID:MATERIAL:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.LEDGER_VALID.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:LEDGER_VALID:MATERIAL:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:LEDGER_VALID:MATERIAL:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.LEDGER_VALID.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:LEDGER_VALID:MATERIAL:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.LEDGER_VALID.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:METHOD_SUPPORTED:EVIDENCE:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.METHOD_SUPPORTED.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "EVIDENCE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:METHOD_SUPPORTED:EVIDENCE:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:METHOD_SUPPORTED:EVIDENCE:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.METHOD_SUPPORTED.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:METHOD_SUPPORTED:EVIDENCE:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.METHOD_SUPPORTED.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:EXIT_RECEIVER:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RECEIPT_VALID.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "EXIT_RECEIVER"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:EXIT_RECEIVER:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:EXIT_RECEIVER:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RECEIPT_VALID.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:EXIT_RECEIVER:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RECEIPT_VALID.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:MATERIAL:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RECEIPT_VALID.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:MATERIAL:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:MATERIAL:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RECEIPT_VALID.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RECEIPT_VALID:MATERIAL:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RECEIPT_VALID.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:AXIS:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "AXIS"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:AXIS:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:AXIS:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:AXIS:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:B_CLOSURE:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:B_CLOSURE:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:B_CLOSURE:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:B_CLOSURE:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:MATERIAL:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:MATERIAL:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:MATERIAL:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESET_SWEEP_CLEAR:MATERIAL:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:HYDRAULIC:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESOURCES_READY.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "HYDRAULIC"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:HYDRAULIC:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:HYDRAULIC:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESOURCES_READY.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:HYDRAULIC:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESOURCES_READY.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:RESOURCES:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESOURCES_READY.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "RESOURCES"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:RESOURCES:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:RESOURCES:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESOURCES_READY.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESOURCES_READY:RESOURCES:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESOURCES_READY.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESTORE_SEQUENCE_DEFINED:EVIDENCE:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESTORE_SEQUENCE_DEFINED.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "EVIDENCE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESTORE_SEQUENCE_DEFINED:EVIDENCE:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESTORE_SEQUENCE_DEFINED:EVIDENCE:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESTORE_SEQUENCE_DEFINED.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:RESTORE_SEQUENCE_DEFINED:EVIDENCE:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.RESTORE_SEQUENCE_DEFINED.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:TOOLS_HOME:AXIS:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.TOOLS_HOME.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "AXIS"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:TOOLS_HOME:AXIS:wrong-int",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:TOOLS_HOME:AXIS:bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.TOOLS_HOME.revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "entry:TOOLS_HOME:AXIS:foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "context.evidence.TOOLS_HOME.revisions",
+            "code": "UNPERMITTED_EXTRA_DOMAINS",
+            "extra": [
+              "ALIEN"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "minimal-all-consumed",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-confirmed:1",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-confirmed:2",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-confirmed:5",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history",
+            "code": "MISSING_REVISION_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "EXPECTED_NOT_JUSTIFIED_BY_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:gap",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history.0",
+            "code": "UNCONFIRMED_REVISION_ADVANCE"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:reversed",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history.0",
+            "code": "UNCONFIRMED_REVISION_ADVANCE"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:foreign-domain",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history.0",
+            "code": "INVALID_HISTORY_EVENT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:bool-from",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history.0",
+            "code": "INVALID_HISTORY_EVENT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:float-to",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history.0",
+            "code": "INVALID_HISTORY_EVENT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:extra-field",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history.0",
+            "code": "INVALID_HISTORY_EVENT"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history",
+            "code": "MISSING_REVISION_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "history-invalid:container",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "INTENTIONAL_STRICTER_ADMISSION",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.revision_history",
+            "code": "MISSING_REVISION_HISTORY"
+          }
+        ]
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:valid",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "FALSE",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:origin-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:origin-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:current-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:expected-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:action-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:guard-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:action-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:guard-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:whole-proof-null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:whole-proof-array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:whole-proof-text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:whole-proof-bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-record:whole-proof-number",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:valid",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "FALSE",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:origin-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:origin-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:current-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:expected-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:action-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:guard-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:action-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:guard-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:whole-proof-null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:whole-proof-array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:whole-proof-text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:whole-proof-bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:resource-fault:whole-proof-number",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:valid",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "FALSE",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:origin-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:origin-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:current-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:expected-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22.expected_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:action-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:guard-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:action-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:guard-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:whole-proof-null",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:whole-proof-array",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:whole-proof-text",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:whole-proof-bool",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:state:whole-proof-number",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "inputs",
+            "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:valid",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "FALSE",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:origin-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:origin-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "INVALID_INTEGER_SNAPSHOT"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:current-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:expected-empty",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "faults.F-ccc5cc198df42fc86aad2528049eba5b6d3d0fa1fafd3c7c7c1e347ff46c00e8.expected_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:action-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:guard-missing",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:action-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:causal:guard-foreign",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "KNOWN_BLOCKED_GATE_MASKED",
+      "admission": {
+        "status": "UNSUPPORTED",
+        "reasons": [
+          {
+            "path": "target",
+            "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "compound:two-malformed-plus-latched-resource",
+      "domain": "OUT_OF_DOMAIN",
+      "classification": "OUTSIDE_SCHEMA_REJECTED",
+      "admission": {
+        "status": "REJECTED",
+        "reasons": [
+          {
+            "path": "proof.origin_revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "B_CLOSURE"
+            ]
+          },
+          {
+            "path": "context.evidence.RESET_SWEEP_CLEAR.revisions",
+            "code": "MISSING_REQUIRED_DOMAINS",
+            "missing": [
+              "AXIS",
+              "B_CLOSURE",
+              "MATERIAL"
+            ]
+          }
+        ]
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "in-domain-proof:subject_id:foreign-subject",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "in-domain-proof:cycle_epoch:foreign-epoch",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "in-domain-proof:target_scope:{}",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "in-domain-proof:phase:ENTRY",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "in-domain-proof:value:FALSE",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "BLOCKED",
+      "scoped_value": "FALSE",
+      "legacy_policy": "BLOCKED",
+      "legacy_error": null
+    },
+    {
+      "id": "in-domain-proof:value:UNKNOWN",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "INDETERMINATE",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "legacy_policy": "INDETERMINATE",
+      "legacy_error": null
+    },
+    {
+      "id": "sequential:closure-preserves-foreign-feed",
+      "domain": "IN_DOMAIN",
+      "classification": "IN_DOMAIN_COMPATIBLE",
+      "admission": {
+        "status": "VALID",
+        "reasons": []
+      },
+      "expected_action_gate": "ALLOWED_ASSUMED",
+      "actual_action_gate": "ALLOWED_ASSUMED",
+      "scoped_value": "TRUE",
+      "legacy_policy": "ALLOWED_ASSUMED",
+      "legacy_error": null
+    }
+  ]
+}
