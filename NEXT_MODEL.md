@@ -1,3 +1,16 @@
+# R1 — независимый current FALSE при ошибке journal-reader
+
+R5 `18e5af1dae177cdfcb24951d3b36c2fd43395421` на C `3060dbf561f95e4384fbfd13a9cc5569690515e5`, шестой интерфейсный REJECT. R1 воспроизвёл минимальный свидетель и matrix231/223/8. Решение `decisions/ARB-R1-CI-SEMANTICS-05.md`, evidence `verification/r1_ci_journal_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, сверить claim/входы и обеспечить независимое validated raw current FALSE при exception journal reader без raw TRUE authorization или blanket BLOCKED на malformed журнал. Затем новый независимый R5 RECHECK. Helper/норматив/расчёты/CAD unchanged; stable handoff и physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
 B03 all-exit RECHECK act C **18e5af1dae177cdfcb24951d3b36c2fd43395421**;capsule handoffs/T-r5-ci-gate-recheck/r5-ci-gate-exits-20261113.md. Old2minimal/19variants fixed,8/8exits exercised;new current-FALSE loss on journal exception remains (8variants/1cause). B03 OPEN,stable documentary handoff NO-GO;fiveoldrejections preserved,current sixth. W02/physicalREADY NO-GO,G1OPEN.
 
 # R5 RECHECK B03 all exits — OPEN / REJECT_WITH_BLOCKER

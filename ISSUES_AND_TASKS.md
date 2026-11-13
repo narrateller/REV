@@ -200,6 +200,12 @@ ID после создания не меняется. Для параллель�
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
 | T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
 | T-r4-calculated-layout-01 | TASK | P2 | @R4 | READY | NONE | PR #39 / BASE_A, BASE_B fixed-budget; claim PROPOSED_PENDING_MAIN | G1 |
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-05 разрешает только journal-exception correction | G1 |
+
+---
+
+## Сохранённая история другой ветки
+
 | T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-04 разрешает только composition correction | G1 |
 
 ---
@@ -236,6 +242,11 @@ ID после создания не меняется. Для параллель�
 ## T-r4-cycle-interfaces-01 — CYC-02/03, интерфейсы и силовая компоновка
 
 - TASK P1, адресат @R4, статус BLOCKED до независимого RECHECK B03; owner_session r4-linked-20261111 / Codex / R4; claim_acceptance ACCEPTED_MAIN через PR #45 на 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a. Прежние NONE/PENDING сохранены в истории; срок 2026-11-14T00:13:12.404899Z не продлён.
+
+---
+
+## Сохранённая история другой ветки
+
 
 ---
 
@@ -1315,6 +1326,14 @@ CYC-01…09 и R5-CYCLE-W01/W02 остаются OPEN: план ранних к�
 ## ARB-R1-CC-01 — принятое в полномочиях R1 решение
 
 Claim R1 восстановлен PR #44 на `8a82b30d185a10c71dbedbb8b581cf6b5162b1b7`, owner codex-01, срок до 2026-11-13T22:14:32Z. Конкурирующий принятый owner T-INIT в трекере не обнаружен. R1 воспроизвёл 3/45 расхождения R5, JSON совпал с актом; 26/26 исходных исправлены. Решение `decisions/ARB-R1-CC-01.md`: адресные сохраняемые записи отказов и накопительная история отвергнутых ID; локальное снятие по guard/память только последнего ID отклонены. Разрешены только исправления R4 после фиксации точного SHA решения и проверки действующего claim. До независимого RECHECK R5-CC-B01 OPEN, contract BLOCKED, CYC-02/03 NO-GO как стабильная зависимость; consecutive_rejections=2 не обнуляется. W01 CLOSED только документально для проверенной редакции, W02 OPEN и не расширяется до полного материального движка в этой итерации. CAD/расчёты не менять, G1 OPEN.
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — current raw FALSE при journal exception
+
+R1 решение `decisions/ARB-R1-CI-SEMANTICS-05.md`, DONE только для follow-up; R5 `18e5af1dae177cdfcb24951d3b36c2fd43395421` на C `3060dbf561f95e4384fbfd13a9cc5569690515e5`. R1 воспроизвёл minimal raw FALSE и matrix231/223/8; одна причина в восьми сочетаниях без нового TRUE, readonly. interface counter=6, material counter=2, вся история сохраняется. Выбрано независимое сохранение validated raw current FALSE при exception journal-dependent reader; raw TRUE не расширяет разрешения, malformed журнал сам не является FALSE. R4 разрешена только узкая коррекция после чтения SHA решения и проверки main/owner/lease/входов. B03 OPEN, stable documentary/CAD handoff BLOCKED/NO-GO; W02/physical READY NO-GO, G1 OPEN. Helper/norm53/84/44bindings/4variants/расчёты/CAD не менять, scopes/lease не продлены.
+
+---
+
+## Сохранённая история другой ветки
 
 ## Q-R1-CI-SEMANTICS-ARBITRATION-01 — композиция gate, пятый возврат
 
