@@ -1,3 +1,23 @@
+# B03 — bounded OPEN admission по ARB-R1-CI-SEMANTICS-06
+
+Решение `a85e69f3a495176c614202a518be6784be8f3b31` записано в капсуле
+до кода; checkpoint `f7aa9d1`. [Классификация и проверки](verification/r4_cycle_interfaces/journal_correction/README.md). Все OPEN
+проходят bounded schema/scope/revision/causal admission по fixed definitions
+до положительного journal/recovery. Неклассифицируемая запись → UNKNOWN,
+не TRUE; независимый обязательный FALSE сохраняет BLOCKED. Known unrelated
+FEED остаётся допустимым положительным control, без blanket BLOCKED.
+R5 повтор: 732/732 вместо 696/732; все 36 same-input подмен исправлены,
+minimal 3/3; 417 новых controls и прежние регрессии проходят. Это авторский
+повтор, не независимое принятие. Семь актов REJECT сохранены; interface7/material2.
+B03 OPEN / RECHECK_PENDING; stable documentary/CAD handoff NO-GO. Main3a9258c,
+accepted PR45 owner и исходный lease не менялись. Helper, norm53/84/18,
+B01/B02 и дальнейшие исправления,44bindings/4variants/calculations/CAD сохранены.
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
 ## T-r5-ci-raw-recheck — independent raw-source RECHECK complete
 
 - R5/Codex/r5-ci-raw-sources-20261113,direct user assignment/continue;REVIEW_COMPLETE/REJECT_WITH_BLOCKER.

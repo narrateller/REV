@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 
 from metadata_types import metadata_equal, revision, revision_map
+from journal_admission import classify
 
 ROOT = Path(__file__).resolve().parents[3]
 CONTRACT = ROOT / 'verification/r4_cycle_contract/contract.json'
@@ -71,6 +72,11 @@ def assess(request, context, contract):
     fault = faults.get(fid) if type(faults) is dict and type(fid) is str else None
     try: history_valid = helper.history_valid(context)
     except (KeyError, TypeError, AttributeError, ValueError): history_valid = False
+    try: admission = classify(context, fixed, guards, action, fid, helper, history_valid)
+    except (KeyError, TypeError, AttributeError, ValueError, StopIteration) as exc:
+        admission = {'value': 'UNKNOWN', 'records': [], 'reasons': [{'code': 'CLASSIFICATION_UNAVAILABLE', 'exception': type(exc).__name__}]}
+    result['journal_admission'] = admission
+    if admission['value'] != 'TRUE': fail('context.journal', 'UNCLASSIFIABLE_OPEN_JOURNAL')
 
     def addressed(key, item):
         """Trust immutable identity/links, independently of mutable result maps."""
@@ -136,6 +142,13 @@ def assess(request, context, contract):
             fail('context.entry.' + g, reason, exception=type(exc).__name__)
             if raw == 'FALSE' and raw_evidence[g]['status'] == 'VALIDATED':
                 value, reason, source = raw, raw_reason, 'FROZEN_CURRENT_EVIDENCE'
+        if admission['value'] != 'TRUE':
+            if journal_evidence[g]['status'] == 'EVALUATED':
+                journal_evidence[g].update(observed_value=journal_evidence[g]['value'], observed_reason=journal_evidence[g]['reason'],
+                                           value='UNKNOWN', reason='UNCLASSIFIABLE_OPEN_JOURNAL', status='UNCONFIRMED')
+            if raw == 'FALSE' and raw_evidence[g]['status'] == 'VALIDATED':
+                value, reason, source = raw, raw_reason, 'FROZEN_CURRENT_EVIDENCE'
+            elif value != 'FALSE': value, reason, source = 'UNKNOWN', 'UNCLASSIFIABLE_OPEN_JOURNAL', 'UNCONFIRMED_JOURNAL'
         entry_values[g] = value;entry_reasons[g] = reason;entry_sources[g] = source
     state, mode, op = (context.get(k) for k in ['state', 'mode', 'operation_id'])
     identities_typed = all(type(v) is str and v for v in [state, mode, op])
@@ -147,7 +160,7 @@ def assess(request, context, contract):
             state_value = 'TRUE' if mode in fixed['state_modes'][state] else 'FALSE'
     denied, completed = context.get('rejected_operation_ids'), context.get('completed_operations')
     freshness = ('TRUE' if op not in denied and op not in completed else 'FALSE') if history_valid and type(op) is str and op and type(denied) is list and type(completed) is dict else 'UNKNOWN'
-    result['entry_gate'] = helper.conjunction(list(entry_values.values()) + ['TRUE' if history_valid else 'UNKNOWN', freshness, state_value])
+    result['entry_gate'] = helper.conjunction(list(entry_values.values()) + ['TRUE' if history_valid else 'UNKNOWN', freshness, state_value, admission['value']])
     result['entry_values'] = entry_values;result['entry_reasons'] = entry_reasons
     result['raw_evidence'] = raw_evidence;result['journal_evidence'] = journal_evidence
     result['entry_sources'] = entry_sources;result['state_value'] = state_value

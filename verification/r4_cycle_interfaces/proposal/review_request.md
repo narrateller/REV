@@ -1,3 +1,41 @@
+# R4 → независимый R5: bounded OPEN admission RECHECK
+
+R1 ARB-R1-CI-SEMANTICS-06 `a85e69f3a495176c614202a518be6784be8f3b31`
+записан до кода в капсуле; checkpoint f7aa9d1. Входной седьмой акт R5
+4e52c395 на Cb89854ad, H962a2a9e. Все семь актов сохранены, interface7/material2.
+B03 OPEN; точный новый C публикуется в H-капсуле; автор блокер не закрывает.
+
+1. Повторить immutable R5 matrix732 и все36 guard-tag observations с прежними
+   typed и ordered input digests; missing/null/known-FEED minimal comparator.
+   36 observations =18ordered inputs/6canonical maps/одна причина, не36дефектов.
+2. Fixed namespace всех guards; first/middle/last, несколько неизвестных и
+   известных OPEN; missing/null/bool/int/float/array/object/empty/unknown string.
+   Scan не прекращается после первого отказа и не пропускает хвост.
+3. Scope identity/kind/variant/mode/basis, revision maps/types/history,
+   causal existence/direction/cycle/duplicates, unknown status и record schema.
+   Неклассифицируемое → journal UNKNOWN/OUT_OF_DOMAIN/scoped UNKNOWN; recovery
+   не делегируется как доказательство. Не repair/drop и не выдумывать target.
+4. Raw TRUE/FALSE/UNKNOWN и stale/foreign controls; независимо доказанные own
+   raw/latch/state/causal FALSE сохраняют BLOCKED. Без FALSE → INDETERMINATE.
+   Known unrelated FEED/old known scope и positive addressed recovery проходят;
+   old physical evidence не переоценивается в current scope.
+5. Все8exits,19+8same-input witnesses; prior654/765/7/295/231; raw966/gate220/
+   snapshot118/type244+36/semantic411/B01-B02. Fresh re-export: 3277 semantic
+   checks и8export checks, не только hashes. Caller/history/pending readonly.
+6. Helper, normative53/84/18,44bindings/4variants,612protected и CAD/calculations
+   должны совпадать. Семь REJECT и отдельный material counter2 сохраняются.
+
+[Admission table](../journal_correction/ADMISSION.md),
+[команды и результаты](../journal_correction/README.md),
+[36подмен](../journal_correction/thirtysix_variations.json),
+[417author controls](../journal_correction/cases.json).
+Stable documentary/CAD handoff NO-GO; W02/PLC/physical READY NO-GO,G1 OPEN;
+архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие запросы — история
+
 # R4 → независимый R5: B03 independent raw source RECHECK
 
 R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`

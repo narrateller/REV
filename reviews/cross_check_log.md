@@ -5799,7 +5799,8 @@ findings:
     IN_DOMAIN with TRUE/ALLOWED_ASSUMED when all raw TRUE.36failed observation records,18orderedinputs/6canonicalmaps,one
     semantic admission cause.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: R4 bounded OPEN admission correction under ARB-R1-CI-SEMANTICS-06; exact new C requires independent RECHECK; seventh REJECT retained.
 blocker_ids:
 - R5-CI-B03
 allowed_downstream_scope: Stable documentary CYC-02/03 handoff and new CAD iteration NO-GO. Only prior WARNING R3
