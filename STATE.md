@@ -1,3 +1,5 @@
+OUTPUT review C **13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2**; капсула handoffs/T-r5-cyc0203-output/r5-cyc0203-20261113.md. REJECT_WITH_BLOCKER для интерфейса/CAD; каждый силовой вариант WARNING только в R3. W02/physical READY NO-GO, G1 OPEN.
+
 # OUTPUT CYC-02/03 — независимый R5, REJECT_WITH_BLOCKER
 
 Проверенный C **ed8272ce6ebc2047bb0d896db5951d02c42d5208**, H
