@@ -3626,3 +3626,7 @@ reproduction_artifacts:
 ## R4 — подготовка ограниченной документальной интеграции и CYC-02/03 claim
 
 Основание: прямое поручение пользователя; R5 e3c0d7d828aab7b6a7e14dd230c5c3a01fea9d40, WARNING/B01 CLOSED documentary на точном C0c4eb5d. Истории d99afb4/c56e494/R1 сохранены, consecutive_rejections=2. Подготовительный PR не меняет проверенные пакеты, не является новым R5 review/физической приёмкой/самопринятием claim. Новый T-r4-cycle-interfaces-01 READY/owner NONE/PROPOSED_PENDING_MAIN; task/claim в verification/r4_cycle_interfaces/. W02/G1 OPEN, executable material/physical READY NO-GO, implementation NOT_STARTED. Интеграция только предлагается, merge автором не выполняется.
+
+### C подготовки опубликован, PR ожидает API-доступа
+
+2026-11-13T00:23:22.559324+00:00; C e6735141aef69c87e8a67708330c56b982ca3ac4 REMOTE. Содержание проверенных C0c4eb5d/R1/R5e3c0d7d не изменено; 7 frozen packages/129 files, 17 inputs/11 trees preserved, 205/587 stdout MATCH_SAVED, registry/diff PASS. Новый task/claim лишь PROPOSED_PENDING_MAIN, implementation NOT_STARTED; W02/executable/physical READY NO_GO, G1 OPEN. API Forbidden, network draft saved/requires publish, активная revision5 не разрешает api.github.com; PR не выдаётся за созданный, merge не выполнен. Payload/описание/compare URL в verification/cc_documentary_integration/.

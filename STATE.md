@@ -1,3 +1,79 @@
+# R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
+
+**C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-linked-20261111`. Этот следующий H
+только учёт/эстафета. **PR ещё НЕ создан**, merge NOT_PERFORMED: API GitHub
+блокируется активной сетевой политикой (api.github.com отсутствует в allowlist,
+GET/GraphQL Forbidden). Git read/push работают. Сетевой draft с добавлением
+api.github.com и сохранением прежних доменов сохранён, но requires_publish=true,
+активная observed revision 5 не изменилась. Не подменять compare URL номером PR.
+
+[Готовый PR payload/описание](verification/cc_documentary_integration/pr_request.json),
+[ссылка сравнения для создания PR](verification/cc_documentary_integration/compare_url.txt),
+[предложение интеграции](decisions/CC-DOCUMENTARY-INTEGRATION-PROPOSAL.md),
+[полные проверки/сохранность](verification/cc_documentary_integration/README.md).
+При появлении API-доступа R4 сначала проверяет существующие open PR и создаёт
+**один** PR из готового payload (либо обновляет релевантный существующий), не merge.
+Через gh REST: `gh api --method POST repos/narrateller/REV/pulls --input verification/cc_documentary_integration/pr_request.json`.
+Не повторять запросы на заблокированный endpoint без изменения конфигурации.
+
+В одном пакете полными предками: проверенный контракт
+**0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed**, решение R1
+**616135755d1b6cbaa09ae9800bad5af8bbc28aed**, акт R5
+**e3c0d7d828aab7b6a7e14dd230c5c3a01fea9d40**. Оба REJECT
+(d99afb4c3231d641d4a4921f39987264ce5ffc23 / c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b)
+и subsequent исправления/RECHECK сохранены, consecutive_rejections=2 не сброшен.
+B01 CLOSED **документально на точном C** по R5, общий WARNING; W01 только
+документально. Родитель T-r4-cycle-contract-01 IN_REVIEW до решения/интеграции,
+не DONE и не принятый весь пресс. Роль R1 автором не присвоена.
+
+**Сверенная main** 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7. Старый owner
+r4-linked-20261111 / R4, принятый claim PR43, lease до 2026-11-13T18:16:39Z
+(13 ноября 21:16:39 МСК) без продления. Он не расширен на CYC-02/03.
+Новая задача **T-r4-cycle-interfaces-01 READY**, **owner_session NONE**,
+claim **PROPOSED_PENDING_MAIN**, proposed owner r4-linked-20261111, proposed
+lease_expires_at **2026-11-14T00:13:12.404899+00:00** (14 ноября 03:13:12 МСК).
+Если принятие позднее срока — новая явная запись, не автоматическое продление.
+[Task](verification/r4_cycle_interfaces/task.md), [claim](verification/r4_cycle_interfaces/claim.md),
+input_manifest.json: все 44 исходных bindings. **Реализация NOT_STARTED**,
+новых схем/поз/геометрических вариантов нет. Принятие claim только последовательно
+в main с actual owner/heartbeat/valid lease и проверкой конкурента/входов.
+
+Будущий scope после принятия: CYC-02 — дозатор/затвор/пуансон, предельные позы,
+полные движения/возвраты и разрешения; CYC-03 — варианты силовой компоновки со
+штоком вне недопустимой области камеры/подачи. Результат: редактируемые схемы/SVG,
+таблица поз/условий/source, варианты геометрии и критерии следующей независимой
+проверки. D/d, нагрузки/ходы не уменьшаются; при необходимости изменения отдельное
+расчётное предложение R3 до применения. BASE_A/B fixed-budget исходные входы,
+не утверждённая конструкция; новые условные inputs ASSUMED отдельно от реальных
+UNKNOWN. Ни архитектура, ни ТЗ не выбираются/не утверждаются.
+
+**W02 OPEN/NOT_IMPLEMENTED; executable material logic и физический READY NO-GO.**
+Контракт принят R5 только как условный документальный интерфейс. Нет entity-level
+массового/материального движка, реального сырья/удержания/разгрузки/приёма/
+безопасности. CAD3591 остаётся declared coordinates / author native context,
+independent native NOT_AVAILABLE; B opening/L-путь/полный физический цикл
+INDETERMINATE. Калькуляции/CAD/registry/tools и их результаты не менялись;
+solver/CAD/rebuild/physical tests NOT_RUN. CYC/W02/G1 OPEN.
+
+**Фактическая проверка подготовки:** 7 frozen packages / 129 files побайтно
+соответствуют C/R5; 17 source blobs/11 protected trees сохранены. check_documents
+MATCH; 205 и 587 readonly outputs совпали с сохранёнными JSON; registry --check-git
+PASS, diff --check PASS. Это сохранность/воспроизводимость, не новая физическая
+приёмка. checks.json/preservation.json хранят фактические команды/хэши/границы.
+
+Первый атомарный следующий шаг сейчас — применить сохранённое сетевое изменение
+через настройки среды, обновить status и проверить API; затем создать один PR
+без merge. Следующий участник после PR — оператор/R1 для ограниченной интеграции
+и последовательного принятия отдельного claim. Только после принятия R4 повторяет
+fetch/main/owner/lease/input hashes и входной акт, затем начинает task.md.
+Ни ожидание, ни готовый PR-пакет не означают принятие claim. Капсула:
+handoffs/T-r4-cycle-interfaces-01/r4-linked-20261111.md; UTC 2026-11-13T00:23:22.559324+00:00.
+
+---
+
+## История до подготовки интеграции
+
 # Независимый RECHECK B01 — R5
 
 Проверен C `0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed`, H

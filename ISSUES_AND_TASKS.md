@@ -58,6 +58,8 @@ ID после создания не меняется. Для параллель�
 - Документальный контракт WARNING, W02 OPEN; executable material logic и физический READY NO-GO. Реальные данные UNKNOWN, условные геометрические inputs отдельно ASSUMED. Общий CAD/rebuild/физические испытания не выполняются. G1 OPEN.
 - Первый шаг после принятия: fetch/main/owner/lease/input hashes, входной акт, затем task.md. Следующий независимый OUTPUT review не заменять авторским check. До принятия main не меняется автором, новый claim не самопринят.
 
+- C подготовки **e6735141aef69c87e8a67708330c56b982ca3ac4**, REMOTE; следующий H только учёт/эстафета. Предложение task/claim, implementation NOT_STARTED. 7 packages/129 files unchanged, 17 inputs/11 trees, 205/587 outputs MATCH, registry/diff PASS. PR ещё не создан: действующая network policy блокирует api.github.com, draft добавления сохранён, не применён; payload verification/cc_documentary_integration/pr_request.json. После API доступа создать один PR без merge; принятие claim в main отдельно.
+
 ## T-r4-cycle-contract-01 — материальный контракт и ранние CYC-08/09
 
 - TASK, P1, адресат @R4; статус IN_REVIEW для документальной интеграции с WARNING по e3c0d7d; executable/W02/physical READY NO-GO; **owner_session: r4-linked-20261111**, claim_acceptance ACCEPTED_MAIN через PR #43 на d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9, claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff. Корректирующая итерация разрешена ARB-R1-CC-01, consecutive_rejections=2.
