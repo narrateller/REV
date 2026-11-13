@@ -1,3 +1,40 @@
+# B03 RECHECK норматива v1 — OPEN, REJECT_WITH_BLOCKER
+
+R5 / Codex / session **r5-ci-minimum-20261113**, reviewed C
+**bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f**, H
+0e519720d55b5b7b19d66b5a90c699b5d6697338; R1
+5fe510bbc55a052c360ab39a2491a061584b8fb7.
+Акт REV-R5-CI-MINIMUM-RECHECK-01-001: verification/r5_ci_semantic_minimum_recheck/review.md.
+
+Норматив 53 действий/84 режимов/18 поз воспроизведён из фиксированных inputs,
+его правила проверены отдельно от mutable payload. Шесть прежних escapes
+отклоняются; старый независимый probe 654/654 на новых входах. B01/B02
+документальные регрессии пройдены. Но **B03 OPEN**: bool/float revision
+принимается Python equality за int в source refs/AST/phase bindings; новый
+recovery_value возвращает TRUE при origin False/0.0, frozen recover даёт
+INDETERMINATE и сохраняет fault. Реального снятия/движения не было.
+
+Author 3277 document, 8 export, 6 новых methods/411 cases и 7 retained methods PASS.
+Собственные 765 checks: 759 MATCH /6 FAIL (4 full checker +2 concrete predicate).
+122 свежих mutations: 117 корректных отказов, 1 equivalent MATCH, 4 false MATCH.
+
+Стабильная документальная передача CYC-02/03 **NO-GO** до B03 RECHECK; точный
+кандидат и четыре force variants допускают лишь условный анализ/R3 с WARNING.
+Прочность/геометрия/physical READY не принимаются, новых CAD/build не запускать.
+44 bindings, четыре варианта, frozen helper, расчёты/CAD/старые R5/R1 сохранены.
+W02 OPEN/NOT_IMPLEMENTED, physical READY NO-GO, **G1 OPEN**, архитектура/ТЗ не утверждены.
+
+История двух интерфейсных отказов сохранена; текущий отрицательный RECHECK —
+третий: interface_consecutive_rejections=3, прежние два не переписаны. Отдельный
+material_contract_consecutive_rejections=2 сохранён. Q-R1-CI-SEMANTICS-ARBITRATION-01
+REOPENED по типам ревизий, follow-up verification/r5_ci_semantic_minimum_recheck/R1_followup.md.
+По §6.1 следующая корректирующая итерация BLOCKED до записанного R1 решения/плана.
+Owner/lease R4 не изменены; main не меняется, parent не DONE.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
 # R4 — B03 по ARB-R1-CI-SEMANTICS-01: кандидат независимого RECHECK
 
 **Рабочий C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-semantics-20261113`.

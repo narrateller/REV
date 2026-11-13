@@ -1,3 +1,21 @@
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — follow-up typed revisions
+
+- QUESTION P1 @R1, REOPENED: прежний нормативный подход по решению 5fe510bbc55a052c360ab39a2491a061584b8fb7 реализован, но типы ревизий ещё проверяются нестрого.
+- B03 OPEN на bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f; BOOL/FLOAT provenance false MATCH, recovery wrapper TRUE при frozen INDETERMINATE.
+- 2 исторических REJECT сохранены; текущий третий, interface_consecutive_rejections=3. Отдельный material counter=2 неизменён.
+- Следующий корректирующий B03 ход BLOCKED по §6.1 до записанного решения/плана R1; без нового выбора архитектуры/ослабления нормы.
+- Evidence/варианты: verification/r5_ci_semantic_minimum_recheck/R1_followup.md, review.md, independent_results.json.
+
+## T-r5-ci-minimum-recheck — независимый B03 RECHECK
+
+- R5 / Codex / session r5-ci-minimum-20261113; прямое поручение; REVIEW_COMPLETE / REJECT_WITH_BLOCKER.
+- Exact C bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f, H 0e519720d55b5b7b19d66b5a90c699b5d6697338, R1 5fe510bbc55a052c360ab39a2491a061584b8fb7.
+- Независимая authority/rules audit 53/84 и old-six pass; B03 OPEN из-за type-coercive revision equality. B01/B02 сохраняют документальное закрытие/положительные регрессии.
+- 765 own checks:759 MATCH/6 FAIL; author3277/8/6new methods411cases/7retained PASS, old independent654/654.
+- 44 bindings/4 force variants/frozen helper/расчёты/CAD/старые акты сохранены. Стабильная doc-передача NO-GO; R3 force-path study WARNING.
+- W02/G1 OPEN, physical READY NO-GO, native geometry/strength/physical trials NOT_RUN. Main claim/merge и owner/lease R4 не меняются.
+- UTC assignment/heartbeat: 2026-11-13T07:43:49.845789+00:00. Акт REV-R5-CI-MINIMUM-RECHECK-01-001 в verification/r5_ci_semantic_minimum_recheck/.
+
 ## T-r4-cycle-interfaces-01 — разрешённая B03 итерация по R1
 
 - Прямое поручение пользователя и ARB-R1-CI-SEMANTICS-01 на 5fe510bbc55a052c360ab39a2491a061584b8fb7; SHA записан в капсуле до изменения checker.

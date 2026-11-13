@@ -4047,3 +4047,271 @@ reproduction_artifacts:
 - verification/r5_cycle_interfaces_recheck/arbitration_request.md
 supersedes: null
 ```
+
+## RECHECK B03 по ARB-R1-CI-SEMANTICS-01 — типизированные ревизии
+
+```yaml
+record_type: review
+review_id: REV-R5-CI-MINIMUM-RECHECK-01-001
+kind: RECHECK
+task_id: T-r4-cycle-interfaces-01
+created_at_utc: '2026-11-13T07:43:49.845789+00:00'
+reviewer:
+  role: R5
+  session_id: r5-ci-minimum-20261113
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-linked-20261111
+- r4-cyc-fix-20261113
+- r4-b03-semantics-20261113
+independence_basis: Independent stage-family obligations from R1 and fixed reviewed inputs; own polynomial source
+  oracle, coherent other-stage mutations and strict-type recovery comparison to frozen helper. Reviewer did not
+  author minimum/payload.
+reviewed_commit: bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f
+parameter_refs: []
+artifacts:
+- path: verification/r4_cycle_interfaces/README.md
+  sha256: 95e32fdcec2d460bcbcf4958007efca063376e4d731a8e6c3c02859d5c1bec3e
+- path: verification/r4_cycle_interfaces/claim.json
+  sha256: 4e81206597040fb547fba1122743d0c5e984ab7882a524790c901020c8916b65
+- path: verification/r4_cycle_interfaces/claim.md
+  sha256: 9c3f45ce19a9e112dc67b07887966bc00a164cd8ae817cec9cb60ad1b58ea756
+- path: verification/r4_cycle_interfaces/correction/README.md
+  sha256: 37c2a279069db5be147a389d8d1170f4e2b26314685a3546bd1351f45d42aa71
+- path: verification/r4_cycle_interfaces/correction/baseline_reproduction.json
+  sha256: 1e76fa4de41c039dcf418596f6d9d314d64a765ac7d39519df79c80d93dff54a
+- path: verification/r4_cycle_interfaces/correction/checks.json
+  sha256: 3c0ec288e6b85ca4d112e621e54b2a2e4b1419b9c3a6cc49bbdf3e52e248c8a7
+- path: verification/r4_cycle_interfaces/correction/document_checks.json
+  sha256: 696ce0dfc6dee46454a3cadbb517dbd85aaf1e4338be3a8ddcbaaf1aaa3538b1
+- path: verification/r4_cycle_interfaces/correction/export_checks.json
+  sha256: 95b027ed829f3af67f8803450884278391101146e0ea8ca9e42c1fa458784292
+- path: verification/r4_cycle_interfaces/correction/input_audit.json
+  sha256: 2183447736663eccfc22fe063bff69e642469dfdd6df4afdd4f5fde9a0d12190
+- path: verification/r4_cycle_interfaces/correction/preservation.json
+  sha256: bd6d5e149837e3696403b20dc35c0eb81d0cc8902a11f22d24689e080d27559a
+- path: verification/r4_cycle_interfaces/correction/registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r4_cycle_interfaces/correction/regressions.log
+  sha256: c9598f7b3aabde067579febf012820e41a800d430a5941f0d21734df887b89e3
+- path: verification/r4_cycle_interfaces/correction/test_documentary.py
+  sha256: 14382efd7cc4624beb6810e4e3b49ba67ba1a5025ae0fd45da699f65657c2e08
+- path: verification/r4_cycle_interfaces/input_manifest.json
+  sha256: 0e9ad55c908b249c4bc1fc3949134b62b74ab83e63c19b456d0899eceb62464b
+- path: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json
+  sha256: 1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56
+- path: verification/r4_cycle_interfaces/proposal/R2_R3_requests.md
+  sha256: e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587
+- path: verification/r4_cycle_interfaces/proposal/README.md
+  sha256: ba8fa12bb4d5df5360b65d1423b942d29f11672eb6bbc286935acaec698cd6f4
+- path: verification/r4_cycle_interfaces/proposal/baseline_bindings.json
+  sha256: bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0
+- path: verification/r4_cycle_interfaces/proposal/baseline_bindings.md
+  sha256: 905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5
+- path: verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py
+  sha256: 3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff
+- path: verification/r4_cycle_interfaces/proposal/check_package.py
+  sha256: bd25bd1190c6555ac6ef6c2faa0d3e2a4b95ad6e092dbb3b84076d12134d4564
+- path: verification/r4_cycle_interfaces/proposal/checks.json
+  sha256: 8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e
+- path: verification/r4_cycle_interfaces/proposal/cycle_protocol.json
+  sha256: b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d
+- path: verification/r4_cycle_interfaces/proposal/document_checks.json
+  sha256: 111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd
+- path: verification/r4_cycle_interfaces/proposal/document_semantics.py
+  sha256: 1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879
+- path: verification/r4_cycle_interfaces/proposal/export_checks.json
+  sha256: c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425
+- path: verification/r4_cycle_interfaces/proposal/exports/coordinate_formulas.json
+  sha256: 7c1179f2033707648d5884ad9167d14cfec61dca34c8aefe27e1cd367885706b
+- path: verification/r4_cycle_interfaces/proposal/exports/coordinate_formulas.md
+  sha256: a9d07f915a537112163f4043fa4a8256148addfda74c611d5b7f2561e14e6588
+- path: verification/r4_cycle_interfaces/proposal/exports/exports_manifest.json
+  sha256: 0340ebdb847dff1b31397f6911b0aefdf9527a7720b57c7066f73a1f22b36cac
+- path: verification/r4_cycle_interfaces/proposal/exports/force_A-V1.svg
+  sha256: 7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46
+- path: verification/r4_cycle_interfaces/proposal/exports/force_A-V2.svg
+  sha256: b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69
+- path: verification/r4_cycle_interfaces/proposal/exports/force_B-V1.svg
+  sha256: 7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c
+- path: verification/r4_cycle_interfaces/proposal/exports/force_B-V2.svg
+  sha256: 7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658
+- path: verification/r4_cycle_interfaces/proposal/exports/interface_A.svg
+  sha256: c3f7f9fc27bab4fb005ed38a1e411fd0a4661053baf0b6d4e210cdddb0fd1e74
+- path: verification/r4_cycle_interfaces/proposal/exports/interface_B.svg
+  sha256: e4cb87f1485088d981d7d84eb1d9c15d6a6a1e843b839996de1930ee1656ca5b
+- path: verification/r4_cycle_interfaces/proposal/exports/positions_permissions.csv
+  sha256: 3c7eec40a0850b7661fa913aa445df6e8a97479ed9872a6c062451699a0ac5a3
+- path: verification/r4_cycle_interfaces/proposal/exports/positions_permissions.md
+  sha256: e855844b2ba3795789e2c2ed9413a1d9a2db8aa07b59b51ca9d715c274868902
+- path: verification/r4_cycle_interfaces/proposal/force_variants.json
+  sha256: 9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa
+- path: verification/r4_cycle_interfaces/proposal/force_variants.md
+  sha256: 000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c
+- path: verification/r4_cycle_interfaces/proposal/input_audit.json
+  sha256: 32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40
+- path: verification/r4_cycle_interfaces/proposal/input_audit.md
+  sha256: 40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567
+- path: verification/r4_cycle_interfaces/proposal/interfaces.md
+  sha256: 80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d
+- path: verification/r4_cycle_interfaces/proposal/mechanical_guards.json
+  sha256: a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045
+- path: verification/r4_cycle_interfaces/proposal/permissions.json
+  sha256: 894b0622415f75b3e63ab1ce24a9c38519b352eb0f238f04f043e5acf1db56c7
+- path: verification/r4_cycle_interfaces/proposal/poses.json
+  sha256: 0fcc9c30cf27a788e985c47d83f29cdbfa933de25ae259706fe06f5118f87d62
+- path: verification/r4_cycle_interfaces/proposal/preservation.json
+  sha256: 16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d
+- path: verification/r4_cycle_interfaces/proposal/render_schemes.py
+  sha256: 871080d295b67fc8f15b13450147da2dac3897d7a891fc85cbcb7d5011aeb1df
+- path: verification/r4_cycle_interfaces/proposal/review_request.md
+  sha256: 993eec3cda36030a79fb8950d434c52f6529bf8c2d813ad9b67a208d31b6a1be
+- path: verification/r4_cycle_interfaces/proposal/semantic_minimum.py
+  sha256: 4ba49a5c9eeffd7c20291dea50d944d9a70d8e0a2b9ad26c0283f2012ac96832
+- path: verification/r4_cycle_interfaces/proposal/unknown_inputs.json
+  sha256: c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef
+- path: verification/r4_cycle_interfaces/proposal/verification_plan.json
+  sha256: f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea
+- path: verification/r4_cycle_interfaces/proposal/verification_plan.md
+  sha256: ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69
+- path: verification/r4_cycle_interfaces/semantic_iteration/README.md
+  sha256: fce39c5ff1ed753fc9b9f82b3a365de84c4fc46acad24c88f9bf83670c5d94ed
+- path: verification/r4_cycle_interfaces/semantic_iteration/baseline_reproduction.json
+  sha256: 053b6a6dd088929e7b47dfc757b49d1dbf09cd7b9d2c341b11563410325005b5
+- path: verification/r4_cycle_interfaces/semantic_iteration/checks.json
+  sha256: d7e746ec3c39cc2038028db8b6ad912c07c7d0a8621ccee9ec0316c7244402de
+- path: verification/r4_cycle_interfaces/semantic_iteration/document_checks.json
+  sha256: ac588fce4c879990d046cf50a740c35427ae19915087623f435d7c7bf1877b9a
+- path: verification/r4_cycle_interfaces/semantic_iteration/export_checks.json
+  sha256: 100608ecd76aa984bbca8d80ae1e2cd705a4c877c3c93fdce253bc1954649f35
+- path: verification/r4_cycle_interfaces/semantic_iteration/independent_replay.json
+  sha256: a957a9544376749b91d40132435a2937f2c9897753747a29e389dd856700d0bc
+- path: verification/r4_cycle_interfaces/semantic_iteration/independent_replay.stderr
+  sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- path: verification/r4_cycle_interfaces/semantic_iteration/input_audit.json
+  sha256: 7c2ef62bf1876da8ef80e710b1a11a777d34d1d759866dd03ad0a84bb05f9ca9
+- path: verification/r4_cycle_interfaces/semantic_iteration/preservation.json
+  sha256: fb2851364a870f95b0090effa591de9754e396a8b71c70837e82a4e0bebb0686
+- path: verification/r4_cycle_interfaces/semantic_iteration/registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r4_cycle_interfaces/semantic_iteration/regression_cases.json
+  sha256: fa765e37dcd6ddb9e2739991236231826c8fce43e1141aeb14b48cc552a7b326
+- path: verification/r4_cycle_interfaces/semantic_iteration/regressions.log
+  sha256: 1826eef8b9f6742f73206d82c0a878df0045201311a9e9b7d6087aa6d70a42fc
+- path: verification/r4_cycle_interfaces/semantic_iteration/retained_regressions.log
+  sha256: a11285d874cce18e3b9be0d8222413475909a4d1b5b5becad3aef876e9609c48
+- path: verification/r4_cycle_interfaces/semantic_iteration/test_semantic_minimum.py
+  sha256: c1a5cc9cf87b39b655a49e13377e882b19a002d41c127db762a7c438ccf23fb7
+- path: verification/r4_cycle_interfaces/semantics_v1/README.md
+  sha256: 181e3c3cd0a4e32f101606ab761a5ec4a1f4b83b1141bc8af3187b89b256b36e
+- path: verification/r4_cycle_interfaces/semantics_v1/build_minimum.py
+  sha256: ade93ff35e74665f47d2117ae535d204d6ca6ea1cf54ff714c7eb27edf51e1d3
+- path: verification/r4_cycle_interfaces/semantics_v1/coverage.csv
+  sha256: 5717ca96f8c15b2d964ca9773dff9a894f9e90a598fbe9191d20eb4c078482eb
+- path: verification/r4_cycle_interfaces/semantics_v1/coverage.json
+  sha256: 1c9bf5f3886309ee28e6b82aba79cbe0a8d64c378b99d962b129281a0d28eafe
+- path: verification/r4_cycle_interfaces/semantics_v1/minimum.json
+  sha256: b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df
+- path: verification/r4_cycle_interfaces/task.md
+  sha256: 26cefc68e79ca9a76079a6a7a41912ef984a0c56a89892f4b80e7cfad725149a
+scope: B03 documentary minimum for 53 actions/84 modes, formula/phase provenance, outputs and addressed recovery;
+  B01/B02 regressions, preservation and readonly checks. No strength, native CAD or physical READY.
+checks:
+- id: CHK-MIN-AUTHORITY
+  method: Reproduce builder in temp copy with fixed Git blobs, verify anchored SHA, independently audit rules against
+    R1/frozen/accepted B01-B02 input.
+  expected: No self-derived expectations from mutable payload/export.
+  observed: Exact minimum reproduced; 53 actions/84 rows/18 poses, independent rules/outputs/mode-parent matrix
+    agree; forged payload minimum rejected.
+  reasoning: Bounded documentary semantics and synthetic reference witnesses; no physical acceptance.
+  result: PASS
+- id: CHK-MIN-AUTHOR
+  method: Run current checker, export suite, new and retained unittest suites.
+  expected: Claimed tests executed distinctly.
+  observed: 3277 document MATCH; 8 export MATCH; 6 new methods/411 cases (410 negative/1 equivalent), 7 retained
+    methods PASS.
+  reasoning: Bounded documentary semantics and synthetic reference witnesses; no physical acceptance.
+  result: PASS
+- id: CHK-MIN-REGRESSION
+  method: Unchanged prior independent probe in temporary materialized tracked copy; original review package untouched.
+  expected: Six earlier escapes fixed and B01/B02 positive/fault sequences retained.
+  observed: Prior probe 654/654 incl original 17 and six old substitutions; LOAD/FILL/RETURN/COMMIT and B closure/history
+    paths match.
+  reasoning: Bounded documentary semantics and synthetic reference witnesses; no physical acceptance.
+  result: PASS
+- id: CHK-MIN-MUTATIONS
+  method: Own per-stage ENTRY/output and coherent cross-representation/formula/source mutations; all hashes refreshed.
+  expected: Invalid typed provenance rejected, supported equivalent formula accepted.
+  observed: '122 mutations: 117 correct rejects, 1 correct equivalent, 4 false MATCH for bool/float source revisions.'
+  reasoning: Bounded documentary semantics and synthetic reference witnesses; no physical acceptance.
+  result: FAIL
+- id: CHK-MIN-CONCRETE-RECOVERY
+  method: Compare new recovery_value with unchanged authoritative recover on identical concrete proofs.
+  expected: Malformed origin revision cannot yield TRUE when frozen helper requires exact integer.
+  observed: origin revision False or 0.0 yields TRUE in wrapper; frozen recover INDETERMINATE, fault stays OPEN.
+    No state cleared.
+  reasoning: Bounded documentary semantics and synthetic reference witnesses; no physical acceptance.
+  result: FAIL
+- id: CHK-MIN-PRESERVE
+  method: SHA256/tree/blob/old reviews and R1 identity.
+  expected: 44 bindings, force variants, frozen helper, calculations/CAD unchanged.
+  observed: 1328 baseline files during checks; 612 protected, 7 packages, 11 trees, 17 blobs and 8 source/force
+    publications preserved.
+  reasoning: Bounded documentary semantics and synthetic reference witnesses; no physical acceptance.
+  result: PASS
+- id: CHK-MIN-NATIVE
+  method: Inspect actual execution scope versus claims.
+  expected: Do not expand documentary gate into physical/native acceptance.
+  observed: 0 geometric pairs; strength/CAD/rebuild/physical trials NOT_RUN; W02/G1 OPEN.
+  reasoning: Bounded documentary semantics and synthetic reference witnesses; no physical acceptance.
+  result: NOT_RUN
+findings:
+- id: R5-CI-B01
+  status: CLOSED
+  priority: P1
+  description: Retained only within prior documentary closure, positive regressions pass.
+- id: R5-CI-B02
+  status: CLOSED
+  priority: P1
+  description: Frozen addressed recovery and separate history preserved; new wrapper type issue remains under B03.
+- id: R5-CI-B03
+  status: OPEN
+  priority: P2
+  description: Minimum authority/stage rules and old six escapes fixed, but Python numeric equality permits boolean/float
+    revision substitutions and new recovery predicate diverges from strict frozen policy.
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-CI-B03
+allowed_downstream_scope: Exact immutable candidate may support conditional documentary/R3 force-path analysis with
+  WARNING. Stable combined CYC-02/03 documentary acceptance and new CAD iteration remain NO-GO pending B03 correction
+  and independent RECHECK.
+excluded_claims:
+- Strength, stability, native geometric agreement/contact/clearance
+- Implemented W02, actual material lifecycle or physical READY
+- Architecture/requirements or CYC/G1 approval
+closure_criteria:
+- Explicit strict revision type validation and type-aware equality for typed sources/AST/phase bindings.
+- Concrete recovery predicate agrees with frozen helper on malformed bool/float origin revision, and remains read-only.
+- Retain 53/84 minimum, old six fixes, positive B01/B02 and other-stage mutations; recorded R1 follow-up/plan and
+  independent exact-C RECHECK.
+rechecks_review_id: REV-R5-CYC0203-RECHECK-01-001
+rechecks_review_commit: 5fb731182a2bdf6b11246558eca58962e48568d9
+R1_decision: 5fe510bbc55a052c360ab39a2491a061584b8fb7
+interface_consecutive_rejections: 3
+historical_interface_rejections_preserved: 2
+material_contract_consecutive_rejections: 2
+arbitration_question: Q-R1-CI-SEMANTICS-ARBITRATION-01
+reproduction_artifacts:
+- verification/r5_ci_semantic_minimum_recheck/review.md
+- verification/r5_ci_semantic_minimum_recheck/commands.json
+- verification/r5_ci_semantic_minimum_recheck/independent_probe.py
+- verification/r5_ci_semantic_minimum_recheck/independent_results.json
+- verification/r5_ci_semantic_minimum_recheck/authority.json
+- verification/r5_ci_semantic_minimum_recheck/captured_mutations.json
+- verification/r5_ci_semantic_minimum_recheck/preservation.json
+- verification/r5_ci_semantic_minimum_recheck/R1_followup.md
+supersedes: null
+```

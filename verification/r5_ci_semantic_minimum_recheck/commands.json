@@ -1,0 +1,145 @@
+[
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r4_cycle_interfaces/proposal/check_package.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_document.json",
+    "stderr": "author_document.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:13.446921+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_exports.json",
+    "stderr": "author_exports.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:13.447039+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/semantic_iteration",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_tests.stdout",
+    "stderr": "author_tests.stderr",
+    "environment_overrides": {
+      "REV_CI_CAPTURE": "/workspace/REV/verification/r5_ci_semantic_minimum_recheck/author_mutation_cases.json"
+    },
+    "recorded_at_utc": "2026-11-13T07:46:13.449111+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/correction",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "retained_tests.stdout",
+    "stderr": "retained_tests.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:13.449231+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_semantic_minimum_recheck/authority_and_regressions.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "authority.stdout",
+    "stderr": "authority.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:13.449293+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_semantic_minimum_recheck/independent_probe.py",
+      "--reuse-mutations"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "reaggregate.stdout",
+    "stderr": "reaggregate.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:13.782521+00:00",
+    "provenance": "Re-audit and replay of preserved actual CLI mutation receipts, not a second fresh mutation execution"
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "/workspace/REV/verification/r5_ci_semantic_minimum_recheck/verify_preservation.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "final_command_1.stdout",
+    "stderr": "final_command_1.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:14.850663+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "final_command_2.stdout",
+    "stderr": "final_command_2.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:14.876976+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  },
+  {
+    "argv": [
+      "git",
+      "lfs",
+      "fsck"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "final_command_3.stdout",
+    "stderr": "final_command_3.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T07:46:15.069693+00:00",
+    "provenance": "Executed in this review; tool exit 0 and raw output/runner/case assertions verified"
+  }
+]
