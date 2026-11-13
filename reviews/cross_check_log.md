@@ -4282,7 +4282,8 @@ findings:
   description: Minimum authority/stage rules and old six escapes fixed, but Python numeric equality permits boolean/float
     revision substitutions and new recovery predicate diverges from strict frozen policy.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: Narrow B03 type correction authorized by ARB-R1-CI-SEMANTICS-02 changes checker only; original third REJECT, findings, reviewed SHA and hashes preserved. Independent RECHECK required.
 blocker_ids:
 - R5-CI-B03
 allowed_downstream_scope: Exact immutable candidate may support conditional documentary/R3 force-path analysis with

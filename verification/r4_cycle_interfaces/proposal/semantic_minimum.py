@@ -9,6 +9,7 @@ import importlib.util
 import json
 from pathlib import Path
 import re
+from metadata_types import validate_metadata, metadata_equal, revision_map
 
 ROOT = Path(__file__).resolve().parents[3]
 MINIMUM = ROOT / 'verification/r4_cycle_interfaces/semantics_v1/minimum.json'
@@ -29,11 +30,14 @@ def minimum():
     content = MINIMUM.read_bytes()
     if hashlib.sha256(content).hexdigest() != MINIMUM_SHA256:
         raise Unsupported('unrecognized_minimum_revision')
-    return json.loads(content)
+    result = json.loads(content);validate_metadata(result, 'minimum')
+    return result
 
 
 def load(folder, name):
-    try: return json.loads((Path(folder) / name).read_text())
+    try:
+        result = json.loads((Path(folder) / name).read_text());validate_metadata(result, name)
+        return result
     except (OSError, ValueError) as exc: raise InputFailure(name + ':' + str(exc)) from exc
 
 
@@ -86,7 +90,8 @@ class Expressions:
         if op == 'phase_stroke':
             expected = self.refs.get((scenario, node['phase']))
             if expected is None: raise Unsupported('expression_phase:' + str(node['phase']))
-            if node['source_ref'] != expected: raise SemanticFailure('typed_phase_source:' + scenario + ':' + node['phase'])
+            validate_metadata(node['source_ref'], 'AST/source_ref')
+            if not metadata_equal(node['source_ref'], expected): raise SemanticFailure('typed_phase_source:' + scenario + ':' + node['phase'])
             return Counter({('stroke', scenario, node['phase']): 1})
         if op == 'sum':
             if not isinstance(node['terms'], list) or not node['terms']: raise InputFailure('empty_sum')
@@ -128,8 +133,8 @@ def inspect_minimum(folder):
     def need(label, condition):
         if not condition: raise SemanticFailure('minimum:' + label)
         checks.append({'id': 'minimum:' + label, 'matched': True})
-    need('authority', p.get('normative_minimum') == poses.get('normative_minimum') == metadata())
-    if p.get('schema') != n['payload_schemas']['permissions'] or poses.get('schema') != n['payload_schemas']['poses']:
+    need('authority', metadata_equal(p.get('normative_minimum'), poses.get('normative_minimum')) and metadata_equal(p.get('normative_minimum'), metadata()))
+    if not metadata_equal(p.get('schema'), n['payload_schemas']['permissions']) or not metadata_equal(poses.get('schema'), n['payload_schemas']['poses']):
         raise Unsupported('payload_schema')
     if set(p) - set(n['permission_fields']) or set(poses) - set(n['pose_fields']): raise Unsupported('payload_top_fields')
     if poses.get('coordinate_base') is None: raise InputFailure('coordinate_base')
@@ -150,16 +155,16 @@ def inspect_minimum(folder):
         need('parents:' + name, a.get('parent_action_choices', []) == rule['parents'] and a.get('mode_parent_bindings', {}) == rule['mode_parents'] and a.get('current_parent_guards', {}) == rule['parent_guards'])
         need('entry:' + name, set(rule['entry_minimum']) <= set(a['entry_guards'] + a['extra_entry_guards']))
         need('completion:' + name, set(rule['completion_exact']) == set(a['completion_guards'] + a['extra_completion_guards']))
-        need('outputs:' + name, a.get('outputs') == rule['outputs'])
+        need('outputs:' + name, metadata_equal(a.get('outputs'), rule['outputs']))
         need('result_boundary:' + name, a.get('result_boundary') == rule['result_boundary'])
         need('parent_lifecycle:' + name, a.get('parent_lifecycle') == rule['parent_lifecycle'])
-        need('pose_constraints:' + name, a.get('pose_constraints') == rule['pose_constraints'])
-        need('phase_pose_bindings:' + name, a.get('phase_pose_bindings') == rule['phase_pose_bindings'])
+        need('pose_constraints:' + name, metadata_equal(a.get('pose_constraints'), rule['pose_constraints']))
+        need('phase_pose_bindings:' + name, metadata_equal(a.get('phase_pose_bindings'), rule['phase_pose_bindings']))
         need('rule_ref:' + name, a.get('norm_rule') == 'rev-cyc-semantic-minimum/1:' + name)
         for mode in rule['modes']:
             need('coverage:' + name + ':' + mode, True)
         if name in ['B-MECH-STOP-CLOSE', 'B-MECH-RELOCK']:
-            need('recovery_binding:' + name, a.get('recovery_binding') == n['recovery_binding'])
+            need('recovery_binding:' + name, metadata_equal(a.get('recovery_binding'), n['recovery_binding']))
     known = {r['id']: r for r in poses['poses']}
     need('closed_pose_set', len(known) == len(poses['poses']) and set(known) == set(n['poses']))
     ex = Expressions(n, known)
@@ -197,12 +202,11 @@ def recovery_value(request, context, contract):
     spec = importlib.util.spec_from_file_location('ci_frozen_recovery', ROOT / 'verification/r4_cycle_contract/permission_examples.py')
     helper = importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
     if not helper.history_valid(context): return 'UNKNOWN'
-    if fault['origin']['guard'] != 'B_RESET_CONFIRMED' or request.get('action') != 'RESTORE_B_CLOSURE' or request.get('guard') != 'B_RESET_CONFIRMED': return 'FALSE'
-    if fault['status'] != 'OPEN' or any(context['faults'].get(f, {}).get('status') != 'RESOLVED' for f in fault['origin']['cause_fault_ids']): return 'FALSE'
-    entry = helper.evaluate(contract, 'RESTORE_B_CLOSURE', context, 'ENTRY')['permission_outcome']
-    if entry != 'ALLOWED_ASSUMED': return 'FALSE' if entry == 'BLOCKED' else 'UNKNOWN'
-    if (request.get('target_scope') != fault['origin']['scope']
-            or helper.scope(contract, 'B_RESET_CONFIRMED', context) != fault['origin']['scope']
-            or request.get('origin_revisions') != fault['origin']['revisions']
-            or request.get('revisions') != fault['expected_revisions']): return 'UNKNOWN'
-    return helper._raw_value(contract, 'RESTORE_B_CLOSURE', 'B_RESET_CONFIRMED', context, request, 'RECOVERY_RESULT')[0]
+    if fault['origin']['guard'] != 'B_RESET_CONFIRMED': return 'FALSE'
+    snapshots = [request.get('origin_revisions'), request.get('revisions'),
+                 context.get('revisions'), fault['origin'].get('revisions'), fault.get('expected_revisions')]
+    if not all(revision_map(snapshot) for snapshot in snapshots): return 'UNKNOWN'
+    # Frozen recover evaluates on its own deepcopy. Discard its proposed state:
+    # this predicate never applies a recovery or changes caller history/proof.
+    _, outcome = helper.recover(contract, 'RESTORE_B_CLOSURE', context, fid, request)
+    return {'ALLOWED_ASSUMED': 'TRUE', 'BLOCKED': 'FALSE', 'INDETERMINATE': 'UNKNOWN'}[outcome]

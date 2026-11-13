@@ -1,3 +1,16 @@
+# B03 — строгие типы по ARB-R1-CI-SEMANTICS-02
+
+Решение `e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3` прочитано и записано
+в капсуле до изменения кода. Узкая коррекция checker/recovery predicate;
+норматив и frozen helper не меняются. [Проверки типов](type_correction/README.md).
+Три интерфейсных REJECT сохранены, B03 OPEN до независимого RECHECK.
+Owner/lease/main не изменены; B01/B02 и 44 bindings/четыре force variants сохранены.
+W02/PLC/CAD вне scope; physical READY NO-GO, архитектура/ТЗ не утверждены, G1 OPEN.
+
+---
+
+## Предыдущие записи — история
+
 # B03 — корректирующая итерация по ARB-R1-CI-SEMANTICS-01
 
 Решение R1 `5fe510bbc55a052c360ab39a2491a061584b8fb7` прочитано и записано

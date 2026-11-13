@@ -1,3 +1,12 @@
+# Текущая коррекция B03 — строгие типы метаданных
+
+Основание R1 `e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3`. Норматив v1/SHA
+и payload неизменны; исправлен только контроль типов в checker/recovery predicate.
+[Контракт типов, аудит сравнений, регрессии](../type_correction/README.md).
+Третий REJECT сохраняется; B03 OPEN до независимого RECHECK нового C.
+
+---
+
 # Текущая B03 редакция — normative minimum v1
 
 Основание: ARB-R1-CI-SEMANTICS-01 `5fe510bbc55a052c360ab39a2491a061584b8fb7`.

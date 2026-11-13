@@ -1,3 +1,14 @@
+## T-r4-cycle-interfaces-01 — narrow B03 typing follow-up
+
+- R1 ARB-R1-CI-SEMANTICS-02 e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3 прочитан, SHA зафиксирован в капсуле до кода; прямое поручение пользователя, исполнитель R4/Codex/r4-b03-types-20261113.
+- ACCEPTED PR45 owner r4-linked-20261111 и lease 2026-11-14T00:13:12.404899+00:00 без изменения/продления; main 3a9258c. Предварительный audit/merge checkpoint 64154d8.
+- B03 OPEN / TYPE_CORRECTION_RECHECK_PENDING, приёмка интерфейса/CAD-передача NO-GO. interface_consecutive_rejections=3; material_contract_consecutive_rejections=2 сохранены.
+- Общая строгая проверка integer metadata до equality, все nested source/ref/AST/phase bindings, bool/int flags; без coercion. Recovery predicate согласован с frozen policy на тех же входах.
+- Норматив minimum.json и весь semantics_v1, frozen helper, B01/B02, 44 bindings, четыре силовых варианта, loads/calculations/CAD неизменны. Новые результаты: verification/r4_cycle_interfaces/type_correction/README.md.
+- Следующий участник independent R5 RECHECK точного нового C. Автор не закрывает B03, не меняет архитектуру/ТЗ/G1. W02/PLC/CAD/physical trials вне итерации, physical READY NO-GO, G1 OPEN.
+
+---
+
 ## Q-R1-CI-SEMANTICS-ARBITRATION-01 — follow-up typed revisions
 
 - QUESTION P1 @R1, REOPENED: прежний нормативный подход по решению 5fe510bbc55a052c360ab39a2491a061584b8fb7 реализован, но типы ревизий ещё проверяются нестрого.

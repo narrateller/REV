@@ -5,10 +5,12 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 from document_semantics import inspect_semantics
 from semantic_minimum import SemanticFailure, metadata, inspect_minimum
+from metadata_types import MetadataTypeError, validate_metadata, reference_equal, metadata_equal
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-def read(p):return json.loads(p.read_text())
+def read(p):
+ result=json.loads(p.read_text());validate_metadata(result,str(p));return result
 def inspect(folder=HERE):
  checks=[]
  def check(name,ok):
@@ -19,7 +21,7 @@ def inspect(folder=HERE):
  check('accepted_owner_and_unchanged_lease',claim['status']=='ACCEPTED_MAIN' and claim['owner_session']==audit['owner_session'] and claim['lease_expires_at']==claim['proposed_lease_expires_at']==audit['lease_expires_at'])
  check('acceptance_PR45_and_main',claim['acceptance_PR']==45 and claim['acceptance_main']==base)
  baseline=read(folder/'baseline_bindings.json')['rows'];original=read(ROOT/'verification/r4_calculated_layout/source_bindings.json')['rows']
- check('all44_exact_source_rows',len(baseline)==44 and baseline==original)
+ check('all44_exact_source_rows',len(baseline)==44 and len(original)==44 and all(reference_equal(a,b) for a,b in zip(baseline,original)))
  manifest=read(folder.parent/'input_manifest.json')['source_bindings']
  check('original_catalog_sha256',digest(ROOT/manifest['path'])==manifest['sha256'])
  for r in baseline:
@@ -53,7 +55,7 @@ def inspect(folder=HERE):
  unknowns=read(folder/'unknown_inputs.json')['unknowns'];check('unknown_not_zero',all(u['value'] is None and u['status']=='UNKNOWN' and u['unknown_reason'] and u['tolerance'] is None for u in unknowns))
  plan=read(folder/'verification_plan.json');check('no_geometric_pairs_claimed',plan['checked_pairs_this_iteration']==[] and all(s['geometry_result']=='NOT_RUN_INDETERMINATE' and s['pairs'] for s in plan['phases']))
  exp=read(folder/'exports/exports_manifest.json')
- check('manifest_normative_authority',exp.get('normative_minimum')==metadata())
+ check('manifest_normative_authority',metadata_equal(exp.get('normative_minimum'),metadata()))
  check('export_sources_unchanged',all(digest(folder/n)==h for n,h in exp['sources_sha256'].items()))
  check('exports_unchanged',all(digest(folder/'exports'/n)==h for n,h in exp['exports_sha256'].items()))
  svgs=list((folder/'exports').glob('*.svg'));check('six_well_formed_svg',len(svgs)==6 and all(ET.parse(f).getroot().tag=='{http://www.w3.org/2000/svg}svg' for f in svgs))
@@ -64,6 +66,6 @@ if __name__=='__main__':
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--package',type=Path,default=HERE);a=ap.parse_args()
  try:out=inspect(a.package)
  except Exception as ex:
-  kind=ex.kind if isinstance(ex,SemanticFailure) else 'INPUT_ERROR' if isinstance(ex,(OSError,KeyError,TypeError,json.JSONDecodeError)) else 'SEMANTIC_MISMATCH'
+  kind=ex.kind if isinstance(ex,(SemanticFailure,MetadataTypeError)) else 'INPUT_ERROR' if isinstance(ex,(OSError,KeyError,TypeError,json.JSONDecodeError)) else 'SEMANTIC_MISMATCH'
   print(json.dumps({'execution_status':'FAILED','document_checks':'MISMATCH','semantic_outcome':kind,'verification_gate':'FAILED','reason':str(ex),'geometry_outcome':'NOT_ASSESSED'},ensure_ascii=False));sys.exit(1)
  print(json.dumps(out,ensure_ascii=False,indent=2))

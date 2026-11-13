@@ -1,46 +1,40 @@
-# R4 → независимый R5: B03 RECHECK по ARB-R1-CI-SEMANTICS-01
+# R4 → независимый R5: narrow B03 type RECHECK
 
-Основание: решение R1 5fe510bbc55a052c360ab39a2491a061584b8fb7, прочитанное
-и записанное в капсуле до правок. Проверять точный новый C из последующего H.
-Предыдущий RECHECK 5fb731182a2bdf6b11246558eca58962e48568d9 на C144941c:
-B01/B02 CLOSED только документально; B03 OPEN. interface_consecutive_rejections=2
-и отдельная история material B01 сохранены. Автор R4 не закрывает B03.
+Основание ARB-R1-CI-SEMANTICS-02 на e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3.
+SHA прочитан/зафиксирован в капсуле до кода, audit/merge checkpoint 64154d8.
+Проверять exact новый C из следующего H; предыдущий R5 3d317b3 проверял Cbd7ce8a.
+Три REJECT, interface_consecutive_rejections=3 и material-contract history=2
+сохранены. B03 OPEN; автор не закрывает замечание и не заменяет независимый акт.
 
-1. Проверить нормативный минимум semantics_v1/minimum.json и происхождение
-   его правил из immutable C0c4eb5d/C144941c, независимых FAMILY/COMMON и решения
-   R1. Проверяемый payload/manifest не определяет собственную норму; новая
-   ревизия не должна ослабляться ради MATCH. Матрица coverage.csv/json содержит
-   все 53 действия и 84 mode rules с parent invariants, from/to, ENTRY, COMMIT,
-   outputs, выбранными позами, phase/pose links, источником и check ID.
-2. Для каждой подстадии проверить минимальные текущие условия и точные outputs,
-   prerequisite до START versus active parent, допустимые режимы и результаты.
-   Проверить другие стадии того же класса, не только шесть подмен R5.
-3. Проверить typed coordinate AST/unit/axis/frame/scenario sources, каждый
-   операнд P1/P2/P3/P_RETURN_END, привязки фаз действий к from/to и источникам,
-   частичные/aux UNKNOWN без подмены полными ходами. Подпись, JSON, CSV, SVG
-   и manifest согласованы с нормой. Поддержанная линейная эквивалентность
-   нормализуется; unsupported/null/чужая база не получает успешный gate.
-4. Повторить 17 старых замечаний и шесть новых R5 подмен на новом экспорте;
-   синхронно испортить JSON/CSV/SVG и hashes без изменения нормы. Проверить
-   missing own-path/producer-current/COMMIT/output/parent/mode/phase refs,
-   лишние outputs и неизвестные поля. Checker ничего не чинит и различает
-   SEMANTIC_MISMATCH / INPUT_ERROR / UNSUPPORTED при ненулевом CLI exit.
-5. Recovery declarations требуют типизированной ссылки на будущий конкретный
-   fault_id и original scope/revisions, permitted result/action/guard по frozen
-   helper. Schema не является выполненным recovery. Проверить конкретные
-   synthetic fault fixtures с null/wildcard/foreign target, чужой scope/type,
-   сохранением остальных faults/rejected IDs. Нельзя вернуть DEPENDENCY_VALID
-   в собственный старт closure recovery или удалить его у штатной WORK.
-6. Сохранить B01/B02: D0→D1→FILL-CONFIRM→D0→LOAD commit→изоляция, адресную
-   квитанцию/ревизии/successor, отдельные closure result/history/new NEXT,
-   residual inventory и запрет повторного denied ID. 44 bindings и четыре
-   невыбранных force variants, frozen helper, расчёты/CAD — побайтно прежние.
+Норматив v1 и весь semantics_v1, payload/44 bindings/четыре force variants,
+frozen helper, нагрузки/расчёты/CAD не изменены. Исправляется только реализация
+проверки типов в metadata/source/ref/AST/phase bindings и recovery predicate.
 
-Команды и авторские результаты — semantic_iteration/README.md. Неизменённый
-R5 probe воспроизведён в отдельной временной копии; это авторская проверка,
-не новый независимый акт. Исходные акты/probes/evidence не переписаны; в индексе
-старого RECHECK изменены только validity/stale_reason для новой редакции.
+1. Повторить шесть новых R5 контрпримеров и прежние семантические случаи после
+   fresh re-export. Проверить ревизии во всех nested A/B reference-классах и
+   разных стадиях: bool, integral float, string/null/missing/container, диапазон.
+   Нельзя достигнуть MATCH одновременным изменением JSON/CSV/SVG/hashes.
+2. Проверить общий metadata_types контракт: exact JSON integer, source revision
+   >=1, snapshot/origin counters >=0; recursive metadata type/shape/value.
+   Schema/authority, bool flags, recovery bindings и FILL successor не должны
+   принимать Python numeric aliases. basis_revision остаётся textual identity tag.
+3. Сравнить recovery_value и frozen recover на тех же proof/context/fault.
+   Невалидные origin false/0.0 должны дать UNKNOWN/INDETERMINATE, fault OPEN.
+   Не чинить snapshots и не преобразовывать типы для искусственного успеха.
+   Predicate не применяет возвращённый frozen state к исходному context.
+   Проверить правильные integer cases, stale/foreign target/revisions,
+   сохранение остальных faults/rejected IDs и обычные WORK-запреты.
+4. Убедиться, что строгость метаданных не меняет физическую numeric equality,
+   разрешённую нормализацию signed linear expressions и rational times.
+   Положительный исходный пакет и корректное recovery обязательны.
+5. Повторить readonly/idempotence, отдельный явный exporter, прежние 411 cases
+   норматива 53/84 и B01/B02 fixtures. Проверить побайтную сохранность норматива,
+   helper и protected inputs; сохранение всех вердиктов/артефактов трёх отказов.
 
-B03 закрывает только независимый R5 на точном новом C. Приёмка интерфейса и
-CYC-to-CAD BLOCKED до RECHECK. W02/PLC/CAD/rebuild/physical trials вне scope,
-physical READY NO-GO. Архитектура/ТЗ не утверждены, G1 OPEN, geometry pairs 0.
+Команды, типы, аудит сравнений и результаты — type_correction/README.md,
+checks.json, type_cases.json, independent_replay.json, preservation.json.
+765/765 author replay неизменённого probe R5 не является новым актом R5.
+
+Стабильная передача/CAD iteration NO-GO до независимого RECHECK B03. W02/PLC/
+CAD/rebuild/physical trials вне scope. Physical READY NO-GO, архитектура/ТЗ
+не утверждены, G1 OPEN. Геометрические пары не проверялись.

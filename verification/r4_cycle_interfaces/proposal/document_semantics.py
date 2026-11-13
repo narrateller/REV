@@ -3,6 +3,7 @@ import csv
 import json
 import re
 from pathlib import Path
+from metadata_types import validate_metadata, metadata_equal, quantity_equal
 
 LOADS = ['A-LOAD-START', 'A-LOAD-STEADY', 'A-REFILL', 'B-LOAD', 'B-REFILL']
 LOAD_MODES = {'A-LOAD-START': ['A_STARTUP'], 'A-LOAD-STEADY': ['A_STEADY'],
@@ -19,7 +20,7 @@ FEEDER_GUARDS = {'D_HOME_CURRENT', 'D_PATH_CLEAR', 'MATERIAL_HELD_CURRENT',
 
 
 def read(folder, name):
-    return json.loads((Path(folder) / name).read_text())
+    result=json.loads((Path(folder) / name).read_text());validate_metadata(result,name);return result
 
 
 def conjunction(values):
@@ -68,7 +69,7 @@ def fill_value(receipt, context, require_commit=False):
                 or commit.get('receipt_id') != receipt['evidence_id']
                 or commit.get('current_doser') != 'D0'
                 or any(commit.get(k) != context[k] for k in FILL_SCOPE)
-                or commit.get('revisions') != context.get('revisions')
+                or not metadata_equal(commit.get('revisions'), context.get('revisions'))
                 or commit.get('changed_domains') != ['material', 'feed']):
             return 'UNKNOWN'
         for key in FILL_REVISIONS:
@@ -149,7 +150,7 @@ def inspect_semantics(folder, frozen):
         need('action_ref_set:' + name, len(bound) == 22 and {r['proposed_cad_field'] for r in bound} == set(expected))
         for r in bound:
             b = expected[r['proposed_cad_field']]
-            need('action_ref:' + name + ':' + r['proposed_cad_field'], all(r[k] == b[k] for k in ['parameter_id', 'revision', 'source']))
+            need('action_ref:' + name + ':' + r['proposed_cad_field'], all(metadata_equal(r[k], b[k]) for k in ['parameter_id', 'revision', 'source']))
         phases = []
         if name.endswith('-COMPACT'): phases = ['approach', 'work']
         elif name.endswith('-EJECT'): phases = ['eject']
@@ -161,7 +162,7 @@ def inspect_semantics(folder, frozen):
         need('phase_ref_set:' + name, len(phase_refs) == len(expected_fields) and {r['proposed_cad_field'] for r in phase_refs} == expected_fields)
         for r in phase_refs:
             need('phase_ref:' + name + ':' + r['proposed_cad_field'], all(
-                r[k] == expected[r['proposed_cad_field']][k] for k in ['parameter_id', 'revision', 'source', 'value', 'unit']))
+                (quantity_equal if k == 'value' else metadata_equal)(r[k], expected[r['proposed_cad_field']][k]) for k in ['parameter_id', 'revision', 'source', 'value', 'unit']))
         if '-MECH-' not in name:
             continue
         parents = a['parent_action_choices']
@@ -208,15 +209,15 @@ def inspect_semantics(folder, frozen):
     } == {(s, 'stroke.' + phase) for s in ['BASE_A', 'BASE_B'] for phase in ['approach', 'work', 'eject', 'return']})
     for r in poses['source_refs']:
         b = refs[(r['scenario'], r['proposed_cad_field'])]
-        need('pose_source:' + r['scenario'] + ':' + r['proposed_cad_field'], all(r[k] == b[k] for k in ['parameter_id', 'revision', 'source']))
+        need('pose_source:' + r['scenario'] + ':' + r['proposed_cad_field'], all(metadata_equal(r[k], b[k]) for k in ['parameter_id', 'revision', 'source']))
     protocol = read(folder, 'cycle_protocol.json')
     need('fill_scope', protocol['fill']['scope_fields'] == FILL_SCOPE and protocol['fill']['revision_fields'] == FILL_REVISIONS
          and protocol['fill']['confirmation_kind'] == 'OBSERVED_TRANSFER_COMPLETE'
          and protocol['fill']['parent_commit_boundary'] == 'AFTER_DOSER_RETURN')
-    need('commit_successor', protocol['fill']['commit_successor'] == {
+    need('commit_successor', metadata_equal(protocol['fill']['commit_successor'], {
         'origin_revisions': 'Exact receipt revisions before parent commit',
         'changed_domains': ['material', 'feed'], 'increment': 1,
-        'other_revisions': 'UNCHANGED', 'scope': 'Same explicit receipt and LOAD operation only'})
+        'other_revisions': 'UNCHANGED', 'scope': 'Same explicit receipt and LOAD operation only'}))
     need('all_load_sequences', len(protocol['load_sequences']) == 5 and {s['parent'] for s in protocol['load_sequences']} == set(LOADS))
     for seq in protocol['load_sequences']:
         parent = acts[seq['parent']];v = parent['variant']
