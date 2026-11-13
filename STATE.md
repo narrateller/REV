@@ -1,3 +1,5 @@
+Review C **e3c0d7d828aab7b6a7e14dd230c5c3a01fea9d40**; капсула handoffs/T-r5-cc-b01-recheck/r5-cc-b01-20261112.md. B01 CLOSED документально, WARNING; W02/G1 OPEN.
+
 # Независимый RECHECK B01 — R5
 
 Проверен C `0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed`, H
