@@ -1,3 +1,16 @@
+# Follow-up R1 по строгим типам интерфейсного checker
+
+Входной R5 акт `3d317b32596884cc60d9d42675924b88fcb29bf0` на C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`: B03 OPEN, 765=759+6. R1 воспроизвёл новые подмены, решение `decisions/ARB-R1-CI-SEMANTICS-02.md`, evidence `verification/r1_ci_types_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения и после проверки claim/входов исправить типы revisions/provenance и recovery predicate по frozen policy; не менять норму, нагрузки, CAD или helper. Затем независимый R5 RECHECK нового C по плану решения. История rejections=3 сохранена, приёмка BLOCKED и стабильная CAD-передача NO-GO; R3 force studies WARNING допускаются отдельно. W02/physical READY NO-GO, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
 B03 RECHECK C **3d317b32596884cc60d9d42675924b88fcb29bf0**; капсула handoffs/T-r5-ci-minimum-recheck/r5-ci-minimum-20261113.md. B03 OPEN: typed revision false MATCH/TRUE; normative53/84 и old-six подтверждены. Stable documentary handoff NO-GO; R1 follow-up. W02/G1 OPEN, physical READY NO-GO.
 
 # B03 RECHECK норматива v1 — OPEN, REJECT_WITH_BLOCKER
