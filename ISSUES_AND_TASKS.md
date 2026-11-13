@@ -1,3 +1,16 @@
+## T-r5-ci-gate-recheck — independent all-exit RECHECK complete
+
+- R5/Codex/r5-ci-gate-exits-20261113,direct user assignment;REVIEW_COMPLETE/REJECT_WITH_BLOCKER.
+- Exact C 3060dbf561f95e4384fbfd13a9cc5569690515e5,H 98861219f0adda96af0aca0a3a35078aec022eb9,R1 60eeddce71c9440a2fa08f7acbe6f1121c974b29.
+- B03 OPEN:2oldminimal/19oldvariants fixed,295/295;8/8 exits commonfinish. New journal exception erases independently valid rawcurrentFALSE;231cases223matches8fail,1cause,no new TRUE.
+- Stable documentary CYC-02/03 handoff/newCAD iteration NO-GO;B01/B02 prior documentary closure/regressions retained;R3 studies only priorWARNING/currentclaim scope.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1;next corrective iteration BLOCKED per§6.1 pending recorded decision/plan;verification/r5_ci_gate_exits_recheck/R1_followup.md.
+- FiveoldREJECT/SHA/evidence intact,current sixth,interface_consecutive_rejections=6,material_contract_consecutive_rejections=2. No parenttakeover/mainmerge/leaseextension.
+- Norm/helper/44bindings/4variants/calculations/CAD preserved;W02/physicalREADY NO-GO,G1OPEN;architecture/TZ notapproved;strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN.
+- Capabilities:Git/Python documentary tests/fixedblob/hash/tracing checks;assignment/heartbeat UTC 2026-11-13T13:27:54.690354+00:00.
+
+---
+
 ## T-r4-cycle-interfaces-01 — B03 gate composition correction
 
 R1 ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`

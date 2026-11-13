@@ -1,3 +1,36 @@
+# R5 RECHECK B03 all exits — OPEN / REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-gate-exits-20261113**, reviewed C **3060dbf561f95e4384fbfd13a9cc5569690515e5**,
+H **98861219f0adda96af0aca0a3a35078aec022eb9**, R1 **60eeddce71c9440a2fa08f7acbe6f1121c974b29**.
+Акт REV-R5-CI-GATE-EXITS-RECHECK-01-001:
+[review.md](verification/r5_ci_gate_exits_recheck/review.md),[witness](verification/r5_ci_gate_exits_recheck/minimal_journal_witness.json),
+[coverage](verification/r5_ci_gate_exits_recheck/exit_coverage.json),[commands](verification/r5_ci_gate_exits_recheck/commands.json).
+
+2oldminimal/19oldvariants исправлены,295/295;input digests19 неизменны,scopedUNKNOWN.
+8/8returns исполняются черезfinish. Но real malformed unrelated journal record
+(missing origin.guard,canonicalF-ID,history_valid=True) вызывает reader exception,
+теряющий independently valid current raw FALSE. Own231cases223matches8FAIL,
+2guards×4exits,1cause;16TRUE/UNKNOWN controls остаютсяINDETERMINATE.
+Новых falseTRUE/physical permissions не найдено;caller/proof/history неизменны.
+Positive recovery/minimal/unused domains/causal and unknown-target controls,
+ordinaryWORK/foreignfault retention сохранены. Author3277/8,11gate220,
+11snapshot118,6type244/36,6semantic411,7retainedmethods и prior654/765/7/295 PASS.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+R3 только прежниеWARNINGforce-pathstudies/currentclaim/exactinputs,без strength/
+native acceptance. Norm53/84/18,frozenhelper,44bindings,4variants,calcs/CAD,
+612protected inputs и пять старых актов сохранены. Текущий шестой REJECT,
+interface counter6/material counter2. Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1;
+next correction BLOCKED по §6.1 до решения/плана R1:[карточка](verification/r5_ci_gate_exits_recheck/R1_followup.md).
+Main3a9258c/PR45owner r4-linked-20261111/lease2026-11-14T00:13:12.404899+00:00
+не изменены,merge/claimtakeover нет. **W02 OPEN/NO-GO,physical READY NO-GO,G1 OPEN**.
+Архитектура/ТЗ не утверждены;strength/nativegeometry/CADrebuild/physicaltrials
+NOT_RUN,geometricpairs0. UTC 2026-11-13T13:27:54.690354+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # R4 — B03 recovery gate по ARB-R1-CI-SEMANTICS-04, RECHECK PENDING
 
 **Exact C `3060dbf561f95e4384fbfd13a9cc5569690515e5`, REMOTE_VERIFIED**,
