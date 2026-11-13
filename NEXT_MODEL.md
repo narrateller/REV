@@ -1,3 +1,11 @@
+# Follow-up R1 по строгим типам интерфейсного checker
+
+Входной R5 акт `3d317b32596884cc60d9d42675924b88fcb29bf0` на C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`: B03 OPEN, 765=759+6. R1 воспроизвёл новые подмены, решение `decisions/ARB-R1-CI-SEMANTICS-02.md`, evidence `verification/r1_ci_types_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения и после проверки claim/входов исправить типы revisions/provenance и recovery predicate по frozen policy; не менять норму, нагрузки, CAD или helper. Затем независимый R5 RECHECK нового C по плану решения. История rejections=3 сохранена, приёмка BLOCKED и стабильная CAD-передача NO-GO; R3 force studies WARNING допускаются отдельно. W02/physical READY NO-GO, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
 # R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
 
 **C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
