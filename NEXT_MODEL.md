@@ -1,3 +1,51 @@
+# R4 — B03 по ARB-R1-CI-SEMANTICS-01: кандидат независимого RECHECK
+
+**Рабочий C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-semantics-20261113`.
+https://github.com/narrateller/REV/commit/bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f
+Следующий H изменяет только STATE/NEXT/капсулу; package/code в C сохраняется.
+R1 **5fe510bbc55a052c360ab39a2491a061584b8fb7** прочитан и записан в капсуле до изменения checker;
+предварительный merge/audit e8cb278, исходный R5 RECHECK 5fb7311 на C144941c.
+
+Нормативный минимум v1 независим от проверяемого payload/renderer/свежих hashes:
+53 действия, 84 режима, typed formula/source/base связи для 18 поз, все ENTRY/
+COMMIT/outputs, parent lifecycle, выбранные удерживаемые позы и конкретные
+recovery bindings по frozen helper. Неподдерживаемые конструкции не дают gate.
+[Область/проверки](verification/r4_cycle_interfaces/semantic_iteration/README.md),
+[результаты](verification/r4_cycle_interfaces/semantic_iteration/checks.json),
+[матрица](verification/r4_cycle_interfaces/semantics_v1/coverage.csv),
+[RECHECK request](verification/r4_cycle_interfaces/proposal/review_request.md).
+
+Фактически: 3277 document MATCH, 8 export MATCH, 6 новых и 7 прежних unittest
+methods PASS; 411 переэкспортированных cases (410 negatives rejected, 1 equivalent
+MATCH). Неизменённый probe R5 воспроизведён автором в отдельной копии: 654/654,
+включая 17 прежних замечаний и шесть новых подмен. Это не независимый новый акт.
+Registry --check-git PASS. Все 612 protected files, 44 bindings, четыре силовых
+варианта, frozen helper, расчёты/CAD сохранены. Геометрических пар проверено 0.
+
+**B03 OPEN / RECHECK_PENDING; interface acceptance BLOCKED, CYC-to-CAD NO-GO.**
+B01/B02 CLOSED только документально на C144941c по прежнему R5; их регрессии
+прошли, новая независимая область не присвоена. interface_consecutive_rejections=2
+и отдельные material_contract_consecutive_rejections=2 не сброшены. Старый R5
+вердикт/findings/SHA/hashes сохранены; индекс validity STALE для новой редакции.
+
+Main **3a9258c57e4bc15d6de98f1d17e8412ad6e8899a**, accepted PR45 owner
+r4-linked-20261111, lease **2026-11-14T00:13:12.404899+00:00** (14 ноября
+03:13 МСК) неизменны. Исполнитель R4/Codex/r4-b03-semantics-20261113 продолжает
+назначенную корректирующую B03 итерацию; не выполнял переназначение, продление
+или merge в main. Ветка прежнего исправления не перезаписана.
+
+Следующий участник — независимый R5: exact C + решение R1 + review_request;
+собственные мутации других стадий/режимов, outputs, формул/источников и recovery
+после re-export, проверка сохранности и отдельный неизменяемый RECHECK B03.
+W02/PLC/CAD/rebuild/physical trials вне итерации; actual условия UNKNOWN,
+physical READY NO-GO. Архитектура/ТЗ не утверждены; **G1 OPEN**.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-semantics-20261113.md;
+UTC 2026-11-13T07:18:16.737663+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # Арбитраж интерфейсного checker — ARB-R1-CI-SEMANTICS-01
 
 R1 воспроизвёл шесть semantic-пропусков из R5 `5fb731182a2bdf6b11246558eca58962e48568d9` на C `144941cbfc67002cbe81765e38c80e237473deff`: 654 проверки, 648 совпадений, 6 FAIL с теми же ID. Решение `decisions/ARB-R1-CI-SEMANTICS-01.md`; evidence `verification/r1_ci_arbitration/`.
