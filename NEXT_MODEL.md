@@ -1,3 +1,57 @@
+# R4 — bounded OPEN journal admission, независимый R5 PENDING
+
+**Exact C `8b72716021b0c3a64972033d09fe5e80945eb98e`, REMOTE_VERIFIED**,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-journal-20261113`.
+https://github.com/narrateller/REV/commit/8b72716021b0c3a64972033d09fe5e80945eb98e
+H меняет только STATE/NEXT/капсулу; package H byte-identical C.
+[Капсула](handoffs/T-r4-cycle-interfaces-01/r4-b03-journal-20261113.md).
+
+R1 ARB-R1-CI-SEMANTICS-06 `a85e69f3a495176c614202a518be6784be8f3b31`
+записан до кода; checkpoint `f7aa9d10ccb32117361c90959ca6af085fd4fe34`.
+Main `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, accepted PR45 owner `r4-linked-20261111` и исходный lease
+`2026-11-14T00:13:12.404899+00:00` сверены при публикации. Owner/lease/main
+не менялись, срок не продлевался. Седьмой акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85`
+и шесть прежних актов сохранены; interface counter7/material2 не сброшены.
+
+Все OPEN проходят bounded schema/scope/revision/history/causal classification по
+всем fixed guards до положительного journal/recovery. Unknown/malformed guard
+не объявляется посторонним. UNCLASSIFIABLE → UNKNOWN/OUT_OF_DOMAIN без TRUE;
+raw TRUE не заменяет журнал. Доказанные обязательные raw/own/state/causal FALSE
+сохраняют BLOCKED, unknown сам не создаёт FALSE. Known unrelated FEED positive и
+адресный recovery сохранены. Scan полный; target и revisions не подставляются,
+историческое физическое evidence не переоценивается в current scope. Compatibility
+boundaries, old-operation scope и RESOLVED history policy — в admission table.
+
+Авторский повтор: R5 732/732 вместо696/732,36same-input подмен исправлены;
+18ordered inputs/6canonical maps/одна причина, minimal3/3 включая known-FEED.
+Новые8methods/417controls PASS; прежние raw966/gate220/snapshot118/type244+36/
+semantic411/B01-B02 7methods и independent654/765/7/295/231 PASS;19+8input hashes
+совпадают, все8exits проходят общий finish. Fresh export:3277semantic+8export
+checks PASS; registry --check-git и diff PASS. Readonly сохранён.
+[Схема/команды](verification/r4_cycle_interfaces/journal_correction/README.md),
+[admission table](verification/r4_cycle_interfaces/journal_correction/ADMISSION.md),
+[coverage](verification/r4_cycle_interfaces/journal_correction/coverage.json),
+[checks](verification/r4_cycle_interfaces/journal_correction/checks.json).
+
+612protected inputs,15полных прежних деревьев/1329files, norm53/84/18/helper,
+44bindings/4force variants/loads/calculations/CAD и payload/data exports byte-identical.
+Latest review index меняет только validity/stale_reason, REJECT/findings/hashes
+сохранены. B03 OPEN / acceptance BLOCKED, stable documentary/CAD handoff NO-GO
+до нового независимого R5 на exact C. W02/PLC/physical READY NO-GO,G1 OPEN;
+архитектура/ТЗ не утверждены; strength/geometry/CADrebuild/physical trials NOT_RUN.
+
+Следующее действие: независимый R5 проверяет exact C, main/owner/lease/входы и
+план решения06/[review request](verification/r4_cycle_interfaces/proposal/review_request.md).
+Критерий: все36 прежних false TRUE и новые admission controls без false allow,
+known-FEED/positive recovery и доказанный FALSE сохранены; прежние регрессии и
+защищённые входы совпадают. Авторский repeat не является независимым актом.
+Не применять старые исправления повторно; B03 без нового акта не закрывать.
+Проверено UTC `2026-11-13T18:46:11.442569+00:00`.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
 # R1 — positive admission всех OPEN journal records
 
 Акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85` на C `b89854ad709bcb5c2991376bed41bf2f73acef82`, седьмой REJECT. R1 воспроизвёл 732/696/36 и minimal missing/null/known-FEED; решение `decisions/ARB-R1-CI-SEMANTICS-06.md`, evidence `verification/r1_ci_open_journal_arbitration/`.
