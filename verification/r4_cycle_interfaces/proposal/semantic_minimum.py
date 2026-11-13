@@ -5,11 +5,9 @@ Only a document gate and synthetic reference predicates. No PLC/W02 execution.
 import ast
 from collections import Counter
 import hashlib
-import importlib.util
 import json
 from pathlib import Path
-import re
-from metadata_types import validate_metadata, metadata_equal, revision_map
+from metadata_types import validate_metadata, metadata_equal
 
 ROOT = Path(__file__).resolve().parents[3]
 MINIMUM = ROOT / 'verification/r4_cycle_interfaces/semantics_v1/minimum.json'
@@ -194,19 +192,10 @@ def recovery_value(request, context, contract):
     Contract binding declarations are not concrete fault targets and cannot be
     used as successful recovery requests. This function clears no state/fault.
     """
-    if not isinstance(request, dict) or not isinstance(context, dict): return 'UNKNOWN'
-    fid = request.get('fault_id')
-    if not isinstance(fid, str) or not re.fullmatch(r'F-[0-9a-f]{64}', fid): return 'UNKNOWN'
-    fault = context.get('faults', {}).get(fid)
-    if not isinstance(fault, dict): return 'UNKNOWN'
-    spec = importlib.util.spec_from_file_location('ci_frozen_recovery', ROOT / 'verification/r4_cycle_contract/permission_examples.py')
-    helper = importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
-    if not helper.history_valid(context): return 'UNKNOWN'
-    if fault['origin']['guard'] != 'B_RESET_CONFIRMED': return 'FALSE'
-    snapshots = [request.get('origin_revisions'), request.get('revisions'),
-                 context.get('revisions'), fault['origin'].get('revisions'), fault.get('expected_revisions')]
-    if not all(revision_map(snapshot) for snapshot in snapshots): return 'UNKNOWN'
-    # Frozen recover evaluates on its own deepcopy. Discard its proposed state:
-    # this predicate never applies a recovery or changes caller history/proof.
-    _, outcome = helper.recover(contract, 'RESTORE_B_CLOSURE', context, fid, request)
-    return {'ALLOWED_ASSUMED': 'TRUE', 'BLOCKED': 'FALSE', 'INDETERMINATE': 'UNKNOWN'}[outcome]
+    return recovery_assessment(request, context, contract)['recovery_value']
+
+
+def recovery_assessment(request, context, contract):
+    """Admission, scoped policy and composite action gate, all read-only."""
+    from recovery_snapshots import assess
+    return assess(request, context, contract)

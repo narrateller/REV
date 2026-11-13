@@ -28,6 +28,15 @@ EXIT_RECEIVER, HYDRAULIC, EVIDENCE, RESOURCES. FEED/RETENTION не обязат�
 | context.evidence[g].revisions для ENTRY | содержит fixed evidence_domains собственного guard g | известные U разрешены; значение в используемом scope сверяет frozen policy |
 | origin/expected используемых ENTRY/causal faults | собственный exact E_g из fixed определения | extras запрещены; не используется глобальный E для всех faults |
 
+ENTRY faults выбираются так же, как frozen evidence_value: OPEN нужного guard;
+для EVENT_FRESH только текущего operation_id. Старый EVENT_FRESH другого запроса
+не добавляет snapshot obligations нового recovery. Общий history_valid остаётся
+отдельным неизменённым условием; причинно используемые faults проверяются адресно.
+Дополнение при регрессиях: malformed structures, на которых frozen ENTRY не
+может оценить guard, не допускаются к recover; required completed_operations и
+target resolution_attempts, а также optional recovered_evidence имеют типы
+dict/list/dict соответственно. Они не создаются и не исправляются в caller.
+
 Неизвестный ключ не заменяет обязательный домен. Empty допустим только если
 фиксированный guard явно объявляет evidence_domains=[]. B_RESET таким guard
 не является. Отсутствующие snapshots/поля/состав не восстанавливаются из current,

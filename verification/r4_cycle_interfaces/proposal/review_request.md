@@ -1,40 +1,37 @@
-# R4 → независимый R5: narrow B03 type RECHECK
+# R4 → независимый R5: B03 snapshot admission RECHECK
 
-Основание ARB-R1-CI-SEMANTICS-02 на e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3.
-SHA прочитан/зафиксирован в капсуле до кода, audit/merge checkpoint 64154d8.
-Проверять exact новый C из следующего H; предыдущий R5 3d317b3 проверял Cbd7ce8a.
-Три REJECT, interface_consecutive_rejections=3 и material-contract history=2
-сохранены. B03 OPEN; автор не закрывает замечание и не заменяет независимый акт.
+Основание ARB-R1-CI-SEMANTICS-03 на
+`39826eb2f5dbd1f83d81882022e6f59313ebe5d5`. SHA зафиксирован в капсуле
+до кода; checkpoint `b08f365` включает аудит и схему допуска.
+Входной четвёртый акт R5 `0ff3c8f4502ea29c712bf1f41e223f172c5a21c7`
+на C `fa0626372c03d11655624bb454458f82c30117f7` сохранён вместе с тремя
+предыдущими отказами. B03 OPEN, interface counter=4, material counter=2.
+Проверять exact новый C из следующего H; автор не закрывает B03.
 
-Норматив v1 и весь semantics_v1, payload/44 bindings/четыре force variants,
-frozen helper, нагрузки/расчёты/CAD не изменены. Исправляется только реализация
-проверки типов в metadata/source/ref/AST/phase bindings и recovery predicate.
+1. Взять независимый domain oracle из frozen contract/helper C0c4eb5d.
+   Для B_RESET_CONFIRMED E={B_CLOSURE}, для каждого ENTRY/causal guard свой E.
+   Проверить каждый используемый snapshot по DOMAIN_SCHEMA.md, включая types,
+   completeness, extras и адресную revision_history. Payload keys и F-digest
+   сами по себе не источник обязательных доменов.
+2. Повторить unchanged 7 incomplete cases и четыре coherent false-acceptance
+   witnesses. Не дополнять origin/expected нулём, current или сменой F-ID.
+   Проверить independent empty/missing/foreign/partial/extra origin и expected,
+   proof/current/ENTRY maps, invalid types и неизвестные revisions.
+3. Сохранить положительные 0/1/large integer, minimal context, адресный recovery
+   после подтверждённого advance с отличным от current immutable origin.
+   Missing/changed unused FEED/RETENTION не запрещает closure само по себе.
+4. При неполном proof известный resource/state/causal FALSE сохраняет общий
+   BLOCKED. Другие нерешённые faults сохраняются, штатные действия продолжают
+   проверять свои условия.
+5. Сравнивать одинаковые уровни frozen policy только IN_DOMAIN.
+   Каждый OUT_OF_DOMAIN с legacy TRUE/exception объяснить нарушенной схемой.
+   Отдельно проверить validation/reasons, scoped value и action gate.
+   Readonly caller/proof/origin/expected/history/rejected IDs обязателен.
+6. Повторить прежние type244/36, semantic411 (включая шесть подмен R5 и другие
+   стадии), B01/B02, checker и воспроизведение свежего экспорта. Норматив,
+   frozen helper, 44 bindings/четыре варианта, расчёты/CAD неизменны.
 
-1. Повторить шесть новых R5 контрпримеров и прежние семантические случаи после
-   fresh re-export. Проверить ревизии во всех nested A/B reference-классах и
-   разных стадиях: bool, integral float, string/null/missing/container, диапазон.
-   Нельзя достигнуть MATCH одновременным изменением JSON/CSV/SVG/hashes.
-2. Проверить общий metadata_types контракт: exact JSON integer, source revision
-   >=1, snapshot/origin counters >=0; recursive metadata type/shape/value.
-   Schema/authority, bool flags, recovery bindings и FILL successor не должны
-   принимать Python numeric aliases. basis_revision остаётся textual identity tag.
-3. Сравнить recovery_value и frozen recover на тех же proof/context/fault.
-   Невалидные origin false/0.0 должны дать UNKNOWN/INDETERMINATE, fault OPEN.
-   Не чинить snapshots и не преобразовывать типы для искусственного успеха.
-   Predicate не применяет возвращённый frozen state к исходному context.
-   Проверить правильные integer cases, stale/foreign target/revisions,
-   сохранение остальных faults/rejected IDs и обычные WORK-запреты.
-4. Убедиться, что строгость метаданных не меняет физическую numeric equality,
-   разрешённую нормализацию signed linear expressions и rational times.
-   Положительный исходный пакет и корректное recovery обязательны.
-5. Повторить readonly/idempotence, отдельный явный exporter, прежние 411 cases
-   норматива 53/84 и B01/B02 fixtures. Проверить побайтную сохранность норматива,
-   helper и protected inputs; сохранение всех вердиктов/артефактов трёх отказов.
-
-Команды, типы, аудит сравнений и результаты — type_correction/README.md,
-checks.json, type_cases.json, independent_replay.json, preservation.json.
-765/765 author replay неизменённого probe R5 не является новым актом R5.
-
-Стабильная передача/CAD iteration NO-GO до независимого RECHECK B03. W02/PLC/
-CAD/rebuild/physical trials вне scope. Physical READY NO-GO, архитектура/ТЗ
-не утверждены, G1 OPEN. Геометрические пары не проверялись.
+[Схема/команды/результаты](../snapshot_correction/README.md),
+[policy comparison](../snapshot_correction/policy_comparison.md).
+W02/PLC/CAD вне scope, physical READY NO-GO, G1 OPEN. Архитектура/ТЗ
+не утверждены; стабильная documentary/CAD передача NO-GO до независимого акта.

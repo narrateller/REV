@@ -99,7 +99,7 @@ def generate(out):
  out=Path(out);out.mkdir(parents=True,exist_ok=True)
  result=documents()
  for n,t in result.items():(out/n).write_text(t)
- manifest={'scope':'Document exports only, no CAD evidence','normative_minimum':read('permissions.json')['normative_minimum'],'sources_sha256':{n:hashlib.sha256((HERE/n).read_bytes()).hexdigest() for n in ['render_schemes.py','force_variants.json','permissions.json','poses.json','mechanical_guards.json','baseline_bindings.json','verification_plan.json','unknown_inputs.json','cycle_protocol.json','semantic_minimum.py','document_semantics.py','check_package.py','metadata_types.py']},'exports_sha256':{n:hashlib.sha256((out/n).read_bytes()).hexdigest() for n in sorted(result)}}
+ manifest={'scope':'Document exports only, no CAD evidence','normative_minimum':read('permissions.json')['normative_minimum'],'sources_sha256':{n:hashlib.sha256((HERE/n).read_bytes()).hexdigest() for n in ['render_schemes.py','force_variants.json','permissions.json','poses.json','mechanical_guards.json','baseline_bindings.json','verification_plan.json','unknown_inputs.json','cycle_protocol.json','semantic_minimum.py','document_semantics.py','check_package.py','metadata_types.py','recovery_snapshots.py']},'exports_sha256':{n:hashlib.sha256((out/n).read_bytes()).hexdigest() for n in sorted(result)}}
  (out/'exports_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  return sorted(result)+['exports_manifest.json']
 if __name__=='__main__':

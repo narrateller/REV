@@ -4582,7 +4582,8 @@ findings:
     yield false TRUE through permissive frozen branch. Four independent minimal witnesses. Complete policy agreement
     also unconfirmed.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: Authorized B03 snapshot admission correction under ARB-R1-CI-SEMANTICS-03 changes checker; fourth REJECT, findings, reviewed C and hashes retained. Independent RECHECK required.
 blocker_ids:
 - R5-CI-B03
 allowed_downstream_scope: Stable documentary CYC-02/03 handoff and new CAD iteration NO-GO. Only previously authorized

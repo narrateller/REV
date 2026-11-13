@@ -1,3 +1,19 @@
+## T-r4-cycle-interfaces-01 — B03 snapshot admission, RECHECK PENDING
+
+R1 ARB-R1-CI-SEMANTICS-03 `39826eb2f5dbd1f83d81882022e6f59313ebe5d5`
+прочитан/SHA записан до кода; owner PR45 r4-linked-20261111 и lease
+2026-11-14T00:13:12.404899+00:00 без изменения/продления, main3a9258c.
+Узкая domain/completeness prevalidation по fixed definitions; scoped proof и
+composite gate разделены. Схема/регрессии: verification/r4_cycle_interfaces/snapshot_correction/.
+Четыре REJECT/все предыдущие акты сохранены; interface counter4/material2.
+B03 OPEN, независимый R5 RECHECK exact нового C PENDING; parent IN_REVIEW.
+B01/B02/норматив/frozen helper/44bindings/4variants/calculations/CAD неизменны.
+W02/PLC/CAD вне scope, физический READY NO-GO, G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
 ## T-r5-ci-types-recheck — независимый RECHECK завершён
 
 - R5/Codex/session r5-ci-strict-types-20261113, прямое поручение пользователя; REVIEW_COMPLETE / REJECT_WITH_BLOCKER.

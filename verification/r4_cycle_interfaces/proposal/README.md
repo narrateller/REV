@@ -1,3 +1,21 @@
+# B03 — prevalidation по ARB-R1-CI-SEMANTICS-03
+
+Решение `39826eb2f5dbd1f83d81882022e6f59313ebe5d5` прочитано, SHA
+зафиксирован в капсуле до кода; checkpoint `b08f365` содержит аудит и схему.
+[Схема и результаты](../snapshot_correction/README.md). Проверяются все используемые
+snapshots по fixed guard/action, E B_RESET={B_CLOSURE}; пропуски не дополняются.
+Compatibility только в объявленном домене; scoped UNKNOWN не скрывает общий
+BLOCKED известного запрета. Положительный адресный recovery сохраняется.
+Четыре REJECT сохранены, interface counter=4 / material counter=2. B03 OPEN,
+независимый RECHECK нового exact C PENDING; стабильная CAD-передача NO-GO.
+Main3a9258c/PR45 owner/lease не менялись. Норматив, frozen helper, B01/B02,
+44 bindings/четыре варианта/loads/calculations/CAD сохранены. W02/PLC/CAD вне
+итерации; physical READY NO-GO, архитектура/ТЗ не утверждены, G1 OPEN.
+
+---
+
+## Предыдущие записи — история
+
 # Текущая коррекция B03 — строгие типы метаданных
 
 Основание R1 `e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3`. Норматив v1/SHA
