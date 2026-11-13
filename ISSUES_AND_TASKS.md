@@ -1,3 +1,16 @@
+## T-r4-cycle-interfaces-01 — разрешённая B03 итерация по R1
+
+- Прямое поручение пользователя и ARB-R1-CI-SEMANTICS-01 на 5fe510bbc55a052c360ab39a2491a061584b8fb7; SHA записан в капсуле до изменения checker.
+- R4 / Codex / r4-b03-semantics-20261113, продолжение accepted PR45 owner r4-linked-20261111 без переназначения/продления; lease до 2026-11-14T00:13:12.404899+00:00, main 3a9258c.
+- B03 OPEN / AUTHOR_CORRECTION_COMPLETE_RECHECK_PENDING; приёмка интерфейса BLOCKED, CYC-to-CAD NO-GO. interface_consecutive_rejections=2 сохранён отдельно от material_contract_consecutive_rejections=2.
+- B01/B02 CLOSED документально только на C144941c по R5 5fb7311; сохранение подтверждается регрессиями, новое независимое расширение области не заявляется.
+- Нормативный минимум v1 для 53 действий / 84 mode rules; typed coordinate/source expressions, outputs, exact recovery binding schema; независим от mutable payload и hashes.
+- План R1 выполнен автором: неизменённый probe R5 654/654, исторические 17 и 6 новых подмен; новые стадии/формулы/targets после re-export; подробности verification/r4_cycle_interfaces/semantic_iteration/README.md.
+- Расчёты/CAD/44 bindings/четыре force variants/frozen helper сохранены. W02/PLC вне scope, architecture/TZ not approved, physical READY NO-GO, G1 OPEN.
+- Следующий шаг: независимый R5 RECHECK точного нового C; автор не закрывает B03 и не выполняет merge в main.
+
+---
+
 ## Q-R1-CI-SEMANTICS-ARBITRATION-01 — второй возврат B03
 
 - QUESTION P1, адресат @R1, parent T-r4-cycle-interfaces-01; OPEN.

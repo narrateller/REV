@@ -1,47 +1,46 @@
-# R4 → независимый R5: RECHECK R5-CI-B01/B02/B03
+# R4 → независимый R5: B03 RECHECK по ARB-R1-CI-SEMANTICS-01
 
-Проверить точный новый C, указанный в следующем H/STATE/NEXT_MODEL. Основания:
-исходный C ed8272ce6ebc2047bb0d896db5951d02c42d5208 и акт R5
-13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2. Авторское исправление не закрывает
-B01/B02/B03: все OPEN, задача IN_REVIEW. Авторские сессии r4-linked-20261111
-и r4-cyc-fix-20261113 / R4 не выступают независимым reviewer.
+Основание: решение R1 5fe510bbc55a052c360ab39a2491a061584b8fb7, прочитанное
+и записанное в капсуле до правок. Проверять точный новый C из последующего H.
+Предыдущий RECHECK 5fb731182a2bdf6b11246558eca58962e48568d9 на C144941c:
+B01/B02 CLOSED только документально; B03 OPEN. interface_consecutive_rejections=2
+и отдельная история material B01 сохранены. Автор R4 не закрывает B03.
 
-Пакет: 53 действия (31 inherited + 22 mechanical), типизированные позы/endpoints,
-режимы/parent-связи, cycle_protocol.json, 6 SVG, полная CSV/MD, semantic checker,
-44 неизменённые bindings и четыре неизменённых силовых варианта. Доказательства
-исправления и команды — ../correction/README.md, checks.json, preservation.json.
+1. Проверить нормативный минимум semantics_v1/minimum.json и происхождение
+   его правил из immutable C0c4eb5d/C144941c, независимых FAMILY/COMMON и решения
+   R1. Проверяемый payload/manifest не определяет собственную норму; новая
+   ревизия не должна ослабляться ради MATCH. Матрица coverage.csv/json содержит
+   все 53 действия и 84 mode rules с parent invariants, from/to, ENTRY, COMMIT,
+   outputs, выбранными позами, phase/pose links, источником и check ID.
+2. Для каждой подстадии проверить минимальные текущие условия и точные outputs,
+   prerequisite до START versus active parent, допустимые режимы и результаты.
+   Проверить другие стадии того же класса, не только шесть подмен R5.
+3. Проверить typed coordinate AST/unit/axis/frame/scenario sources, каждый
+   операнд P1/P2/P3/P_RETURN_END, привязки фаз действий к from/to и источникам,
+   частичные/aux UNKNOWN без подмены полными ходами. Подпись, JSON, CSV, SVG
+   и manifest согласованы с нормой. Поддержанная линейная эквивалентность
+   нормализуется; unsupported/null/чужая база не получает успешный gate.
+4. Повторить 17 старых замечаний и шесть новых R5 подмен на новом экспорте;
+   синхронно испортить JSON/CSV/SVG и hashes без изменения нормы. Проверить
+   missing own-path/producer-current/COMMIT/output/parent/mode/phase refs,
+   лишние outputs и неизвестные поля. Checker ничего не чинит и различает
+   SEMANTIC_MISMATCH / INPUT_ERROR / UNSUPPORTED при ненулевом CLI exit.
+5. Recovery declarations требуют типизированной ссылки на будущий конкретный
+   fault_id и original scope/revisions, permitted result/action/guard по frozen
+   helper. Schema не является выполненным recovery. Проверить конкретные
+   synthetic fault fixtures с null/wildcard/foreign target, чужой scope/type,
+   сохранением остальных faults/rejected IDs. Нельзя вернуть DEPENDENCY_VALID
+   в собственный старт closure recovery или удалить его у штатной WORK.
+6. Сохранить B01/B02: D0→D1→FILL-CONFIRM→D0→LOAD commit→изоляция, адресную
+   квитанцию/ревизии/successor, отдельные closure result/history/new NEXT,
+   residual inventory и запрет повторного denied ID. 44 bindings и четыре
+   невыбранных force variants, frozen helper, расчёты/CAD — побайтно прежние.
 
-Критерии нового независимого акта:
+Команды и авторские результаты — semantic_iteration/README.md. Неизменённый
+R5 probe воспроизведён в отдельной временной копии; это авторская проверка,
+не новый независимый акт. Исходные акты/probes/evidence не переписаны; в индексе
+старого RECHECK изменены только validity/stale_reason для новой редакции.
 
-1. Проверить все пять LOAD/REFILL и шесть mode bindings: D0→D1→FILL-CONFIRM→D0,
-   parent commit после возврата и отсечение G0→G1 только с адресной квитанцией
-   той же дозы/материала/операции и актуальным FEEDER_SAFE. Локальное завершение
-   подстадии не требует преждевременного parent completion. Команда, таймер,
-   UNKNOWN, чужая/старая квитанция не разрешают продолжение. Отдельно проверить
-   MATERIAL/FEED +1 successor после commit исходного helper, invalidation,
-   новый REFILL с сохранением того же остатка и запрет молчаливого PF→P0.
-2. Проверить положительный путь B: fault → новая адресная recovery operation →
-   STOP-CLOSE → RELOCK → текущий closure result → targeted closure fault recovery →
-   отдельный RECONCILE_HISTORY → новый NEXT с полными условиями. DEPENDENCY_VALID
-   не циклическая предпосылка closure motion, но остаётся у штатных действий.
-   Материальные/сервисные причины и rejected operation IDs сохраняются; нарушение
-   собственного ledger/resource/retention/sweep блокирует и recovery.
-3. Снова экспортировать валидный и семантически повреждённые пакеты. Проверить
-   poses/body/path continuity, guards/dependency graph, mode/parent/invariants,
-   action/phase/pose refs, все CSV поля и SVG/MD. Свежие hashes не заменяют эти
-   проверки. Повторные проверки не пишут и не восстанавливают файлы.
-4. Сверить 44 bindings, BASE_A/B fixed-budget, исходные D/d/F/ходы/t/v и четыре
-   силовых варианта побайтно. Расчёты/CAD/registry/checked helpers и исходные
-   R5 акты/probe не изменены. Ограниченные R3 передачи остаются WARNING;
-   четыре варианта не выбраны и не приняты как конструкция.
-
-Исходный независимый probe сохранён неизменным и воспроизведён на исходной
-редакции: 1345 checks, 1328 PASS, 17 FAIL. Его старые assertions/schema описывают
-ed8272c; новые имена стадий и полная расширенная CSV требуют собственного
-независимого RECHECK. Авторские новые регрессии — correction/test_documentary.py;
-их успех не выдаётся за независимый вердикт R5.
-
-W02 OPEN/NOT_IMPLEMENTED; executable material и физический READY NO-GO.
-Проверенных геометрических пар 0. B opening и физический L INDETERMINATE;
-CAD/solver/rebuild/физические испытания NOT_RUN. Архитектура/ТЗ не утверждены,
-G1 OPEN. Старый B01 helper C0c4eb5d и его исторические REJECT/R1/RECHECK сохранены.
+B03 закрывает только независимый R5 на точном новом C. Приёмка интерфейса и
+CYC-to-CAD BLOCKED до RECHECK. W02/PLC/CAD/rebuild/physical trials вне scope,
+physical READY NO-GO. Архитектура/ТЗ не утверждены, G1 OPEN, geometry pairs 0.

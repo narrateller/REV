@@ -1,0 +1,994 @@
+{
+  "coordinate_base": "O rear chamber plane, x along press axis; D/G along own y bases, offsets UNKNOWN",
+  "full_return": "P3 -> P0 uses stroke.return from same scenario; no shortened return; partial returns PG_A/PG_B -> PF separately UNKNOWN",
+  "normative_minimum": {
+    "decision_commit": "5fe510bbc55a052c360ab39a2491a061584b8fb7",
+    "revision": 1,
+    "schema": "rev-cyc-semantic-minimum/1",
+    "sha256": "b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df"
+  },
+  "poses": [
+    {
+      "body": "doser_slide",
+      "coordinate": "y_D0",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "y",
+          "expression": {
+            "id": "y_D0",
+            "op": "symbol"
+          },
+          "frame": "DOSER_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "y",
+          "expression": {
+            "id": "y_D0",
+            "op": "symbol"
+          },
+          "frame": "DOSER_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "y_D0",
+      "id": "D0",
+      "meaning": "Бункерная/наборная исходная поза; изоляция камеры определяется G, не самим D0",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "doser_slide",
+      "coordinate": "y_D0 + S_D",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "y",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "y_D0",
+                "op": "symbol"
+              },
+              {
+                "id": "S_D",
+                "op": "symbol"
+              }
+            ]
+          },
+          "frame": "DOSER_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "y",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "y_D0",
+                "op": "symbol"
+              },
+              {
+                "id": "S_D",
+                "op": "symbol"
+              }
+            ]
+          },
+          "frame": "DOSER_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "y_D0 + S_D",
+      "id": "D1",
+      "meaning": "Конец передачи дозы; не автоматическое DOSE_DELIVERED",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "doser_slide",
+      "coordinate": "[D0,D1]",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "y",
+          "expression": {
+            "ends": [
+              {
+                "id": "D0",
+                "op": "pose"
+              },
+              {
+                "id": "D1",
+                "op": "pose"
+              }
+            ],
+            "op": "interval"
+          },
+          "frame": "DOSER_DATUM",
+          "kind": "INTERVAL",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "y",
+          "expression": {
+            "ends": [
+              {
+                "id": "D0",
+                "op": "pose"
+              },
+              {
+                "id": "D1",
+                "op": "pose"
+              }
+            ],
+            "op": "interval"
+          },
+          "frame": "DOSER_DATUM",
+          "kind": "INTERVAL",
+          "unit": "m"
+        }
+      },
+      "display_formula": "[D0,D1]",
+      "id": "D*",
+      "meaning": "Весь прямой/обратный интервал, промежуточные позы не исключать",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "inlet_gate",
+      "coordinate": "y_G_open",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "y",
+          "expression": {
+            "id": "y_G_open",
+            "op": "symbol"
+          },
+          "frame": "GATE_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "y",
+          "expression": {
+            "id": "y_G_open",
+            "op": "symbol"
+          },
+          "frame": "GATE_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "y_G_open",
+      "id": "G0",
+      "meaning": "Открытый стык; не критерий допуска подачи",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "inlet_gate",
+      "coordinate": "y_G_isolated",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "y",
+          "expression": {
+            "id": "y_G_isolated",
+            "op": "symbol"
+          },
+          "frame": "GATE_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "y",
+          "expression": {
+            "id": "y_G_isolated",
+            "op": "symbol"
+          },
+          "frame": "GATE_DATUM",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "y_G_isolated",
+      "id": "G1",
+      "meaning": "Закрытый стык; не прочность/герметичность/ISOLATION_CONFIRMED",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "inlet_gate",
+      "coordinate": "[G0,G1]",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "y",
+          "expression": {
+            "ends": [
+              {
+                "id": "G0",
+                "op": "pose"
+              },
+              {
+                "id": "G1",
+                "op": "pose"
+              }
+            ],
+            "op": "interval"
+          },
+          "frame": "GATE_DATUM",
+          "kind": "INTERVAL",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "y",
+          "expression": {
+            "ends": [
+              {
+                "id": "G0",
+                "op": "pose"
+              },
+              {
+                "id": "G1",
+                "op": "pose"
+              }
+            ],
+            "op": "interval"
+          },
+          "frame": "GATE_DATUM",
+          "kind": "INTERVAL",
+          "unit": "m"
+        }
+      },
+      "display_formula": "[G0,G1]",
+      "id": "G*",
+      "meaning": "Весь ход и возврат, концы и путь различать",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_P0",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "x",
+          "expression": {
+            "id": "x_P0",
+            "op": "symbol"
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "x",
+          "expression": {
+            "id": "x_P0",
+            "op": "symbol"
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "x_P0",
+      "id": "P0",
+      "meaning": "Начальная поза, только осевой HOME; не READY",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_P0 + S_approach",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "P0 + S_approach",
+      "id": "P1",
+      "meaning": "Конец подхода; source stroke.approach",
+      "status": "SOURCE_REFERENCED",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_P0 + S_approach + S_work",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "work",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_WORK_STROKE",
+                  "proposed_cad_field": "stroke.work",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "work",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_WORK_STROKE",
+                  "proposed_cad_field": "stroke.work",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "P1 + S_work",
+      "id": "P2",
+      "meaning": "Конец полного рабочего хода; не автоматическое изделие",
+      "status": "SOURCE_REFERENCED",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_P0 + S_approach + S_work + S_eject",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "work",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_WORK_STROKE",
+                  "proposed_cad_field": "stroke.work",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "eject",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_EJECT_STROKE",
+                  "proposed_cad_field": "stroke.eject",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "work",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_WORK_STROKE",
+                  "proposed_cad_field": "stroke.work",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "eject",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_EJECT_STROKE",
+                  "proposed_cad_field": "stroke.eject",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "P2 + S_eject",
+      "id": "P3",
+      "meaning": "Конец source выдачи; не обязательно весь продукт за CAD выходом",
+      "status": "SOURCE_REFERENCED",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_column_gather",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "x",
+          "expression": {
+            "id": "x_column_gather",
+            "op": "symbol"
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "x_column_gather",
+      "id": "PG_A",
+      "meaning": "Частичный ход создания столба; не подменять полным S_work",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_B_gather",
+      "coordinate_forms": {
+        "BASE_B": {
+          "axis": "x",
+          "expression": {
+            "id": "x_B_gather",
+            "op": "symbol"
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "x_B_gather",
+      "id": "PG_B",
+      "meaning": "Частичное поджатие B_REPEAT; конец UNKNOWN",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_refill_punch",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "x",
+          "expression": {
+            "id": "x_refill_punch",
+            "op": "symbol"
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "x",
+          "expression": {
+            "id": "x_refill_punch",
+            "op": "symbol"
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "x_refill_punch",
+      "id": "PF",
+      "meaning": "Отведённая поза повторного набора, предполагается P0 только при подтверждении сохранения материала",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved",
+      "value": null
+    },
+    {
+      "body": "end_stop",
+      "coordinate": "UNKNOWN",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "STOP_OPEN",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "STOP_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "STOP_OPEN",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "STOP_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "UNKNOWN",
+      "id": "STOP_OPEN",
+      "meaning": "Symbolic current closure pose, requires own feedback and complete path; not READY",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Closure mechanism dimensions and actual positions not determined",
+      "value": null
+    },
+    {
+      "body": "end_stop",
+      "coordinate": "UNKNOWN",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "STOP_CLOSED",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "STOP_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "STOP_CLOSED",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "STOP_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "UNKNOWN",
+      "id": "STOP_CLOSED",
+      "meaning": "Symbolic current closure pose, requires own feedback and complete path; not READY",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Closure mechanism dimensions and actual positions not determined",
+      "value": null
+    },
+    {
+      "body": "lock",
+      "coordinate": "UNKNOWN",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "LOCK_OPEN",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "LOCK_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "LOCK_OPEN",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "LOCK_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "UNKNOWN",
+      "id": "LOCK_OPEN",
+      "meaning": "Symbolic current closure pose, requires own feedback and complete path; not READY",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Closure mechanism dimensions and actual positions not determined",
+      "value": null
+    },
+    {
+      "body": "lock",
+      "coordinate": "UNKNOWN",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "LOCK_CLOSED",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "LOCK_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "UNSPECIFIED",
+          "expression": {
+            "id": "LOCK_CLOSED",
+            "op": "unknown",
+            "reason": "MECHANISM_UNDEFINED"
+          },
+          "frame": "LOCK_DATUM_UNDEFINED",
+          "kind": "UNRESOLVED_POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "UNKNOWN",
+      "id": "LOCK_CLOSED",
+      "meaning": "Symbolic current closure pose, requires own feedback and complete path; not READY",
+      "status": "UNKNOWN",
+      "tolerance": null,
+      "unknown_reason": "Closure mechanism dimensions and actual positions not determined",
+      "value": null
+    },
+    {
+      "body": "punch",
+      "coordinate": "x_P0 + S_approach + S_work + S_eject - S_return",
+      "coordinate_forms": {
+        "BASE_A": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "work",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_WORK_STROKE",
+                  "proposed_cad_field": "stroke.work",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "eject",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_A_EJECT_STROKE",
+                  "proposed_cad_field": "stroke.eject",
+                  "revision": 1,
+                  "scenario": "BASE_A",
+                  "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "neg",
+                "operand": {
+                  "op": "phase_stroke",
+                  "phase": "return",
+                  "source_ref": {
+                    "parameter_id": "R3_BASE_A_RETURN_STROKE",
+                    "proposed_cad_field": "stroke.return",
+                    "revision": 1,
+                    "scenario": "BASE_A",
+                    "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+                    "unit": "m"
+                  }
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        },
+        "BASE_B": {
+          "axis": "x",
+          "expression": {
+            "op": "sum",
+            "terms": [
+              {
+                "id": "x_P0",
+                "op": "symbol"
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "approach",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+                  "proposed_cad_field": "stroke.approach",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "work",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_WORK_STROKE",
+                  "proposed_cad_field": "stroke.work",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "phase_stroke",
+                "phase": "eject",
+                "source_ref": {
+                  "parameter_id": "R3_BASE_B_EJECT_STROKE",
+                  "proposed_cad_field": "stroke.eject",
+                  "revision": 1,
+                  "scenario": "BASE_B",
+                  "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                  "unit": "m"
+                }
+              },
+              {
+                "op": "neg",
+                "operand": {
+                  "op": "phase_stroke",
+                  "phase": "return",
+                  "source_ref": {
+                    "parameter_id": "R3_BASE_B_RETURN_STROKE",
+                    "proposed_cad_field": "stroke.return",
+                    "revision": 1,
+                    "scenario": "BASE_B",
+                    "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+                    "unit": "m"
+                  }
+                }
+              }
+            ]
+          },
+          "frame": "CHAMBER_O",
+          "kind": "POINT",
+          "unit": "m"
+        }
+      },
+      "display_formula": "P3 - S_return",
+      "id": "P_RETURN_END",
+      "meaning": "Source full-return expression ends at P0 only with unchanged same-scenario source stroke identity; no new stroke or coordinate assigned",
+      "status": "SOURCE_REFERENCED",
+      "tolerance": null,
+      "unknown_reason": "Absolute base coordinates UNKNOWN; source strokes retained",
+      "value": null
+    }
+  ],
+  "schema": 2,
+  "scope": "Symbolic poses ASSUMED; actual_REV UNKNOWN",
+  "source_refs": [
+    {
+      "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+      "proposed_cad_field": "stroke.approach",
+      "revision": 1,
+      "scenario": "BASE_A",
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "parameter_id": "R3_BASE_A_WORK_STROKE",
+      "proposed_cad_field": "stroke.work",
+      "revision": 1,
+      "scenario": "BASE_A",
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "parameter_id": "R3_BASE_A_EJECT_STROKE",
+      "proposed_cad_field": "stroke.eject",
+      "revision": 1,
+      "scenario": "BASE_A",
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "parameter_id": "R3_BASE_A_RETURN_STROKE",
+      "proposed_cad_field": "stroke.return",
+      "revision": 1,
+      "scenario": "BASE_A",
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+      "proposed_cad_field": "stroke.approach",
+      "revision": 1,
+      "scenario": "BASE_B",
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    },
+    {
+      "parameter_id": "R3_BASE_B_WORK_STROKE",
+      "proposed_cad_field": "stroke.work",
+      "revision": 1,
+      "scenario": "BASE_B",
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    },
+    {
+      "parameter_id": "R3_BASE_B_EJECT_STROKE",
+      "proposed_cad_field": "stroke.eject",
+      "revision": 1,
+      "scenario": "BASE_B",
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    },
+    {
+      "parameter_id": "R3_BASE_B_RETURN_STROKE",
+      "proposed_cad_field": "stroke.return",
+      "revision": 1,
+      "scenario": "BASE_B",
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    }
+  ]
+}

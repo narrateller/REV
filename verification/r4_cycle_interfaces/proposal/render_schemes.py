@@ -17,14 +17,14 @@ def line(s,x1,y1,x2,y2,dash=False):s.append(f'<path d="M{x1},{y1} L{x2},{y2}" cl
 def footer(s):
  txt(s,50,1010,['ASSUMED: символическая топология. UNKNOWN: реальные размеры, силы, свойства, допуски, ресурсы.', 'Пиксели — оформление, не инженерные координаты. Native geometry NOT_RUN; физический READY NO-GO.', 'W02 OPEN / NOT_IMPLEMENTED. Архитектура и ТЗ не утверждены. G1 OPEN. Физические испытания NOT_RUN.'],'s',28)
  return '\n'.join(s+['</svg>'])+'\n'
-def interface(v):
+def interface(v,poses):
  s=svg_start(f'{v} / CYC-02 — интерфейсы подачи, затвора и пуансона','BASE_'+v+' fixed-budget • NTS без масштаба • условия действия в permissions.json, не программа управления')
  # Functional material interfaces
  boxes=[(50,150,245,110,['Существующая линия','Дробление / просев','Включения: на линии']), (340,150,235,110,['Приём → бункер','Транспорт / буфер','UNKNOWN']), (620,150,245,110,['Дозатор D0 ↔ D1','ASSUMED ползун +y','S_D UNKNOWN']), (910,150,225,110,['Стык / затвор','G0 ↔ G1; по y','S_G UNKNOWN']), (1180,150,370,110,['Камера / пуансон +x', 'A: канал + зажим + столб' if v=='A' else 'B: закрытая камера + упор/замок','Выход → приём UNKNOWN'])]
  for x,y,w,h,l in boxes:box(s,x,y,w,h,l,'#fff0da')
  for x1,x2 in [(295,340),(575,620),(865,910),(1135,1180)]:line(s,x1,205,x2,205)
  # Coordinates + sequence lanes
- box(s,50,310,420,260,['Базы и положения','O: задняя плоскость камеры','+x → выход; +y поперёк; +z вверх','D/G: свои базы, offsets UNKNOWN','P0 = x_P0 UNKNOWN','P1 = P0 + S_approach','P2 = P1 + S_work','P3 = P2 + S_eject'],'#e5eff7')
+ box(s,50,310,420,260,['Базы и положения','O: задняя плоскость камеры','+x → выход; +y поперёк; +z вверх','D/G: свои базы, offsets UNKNOWN']+[name+' = '+poses[name]['display_formula'] for name in ['P0','P1','P2','P3']]+['Возврат: '+poses['P_RETURN_END']['display_formula']],'#e5eff7')
  txt(s,515,340,['Порядок подачи (каждая стрелка — полный путь и guards)'],'h')
  for x,l in [(515,['P0/PF','FEED_CLEAR']), (770,['G0; D0 → D1','FILL_COMPLETE → D0']), (1025,['LOAD commit в D0','FEEDER_SAFE → G1']), (1280,['Изоляция актуальна','P: подход/работа'])]:box(s,x,375,235,90,l,'#e2f2ec')
  for a,b in [(750,770),(1005,1025),(1260,1280)]:line(s,a,420,b,420)
@@ -71,7 +71,8 @@ def documents(folder=HERE):
  folder=Path(folder)
  def read(n):return json.loads((folder/n).read_text())
  result={}
- for v in ['A','B']:result[f'interface_{v}.svg']=interface(v)
+ poses=read('poses.json');pose_lookup={p['id']:p for p in poses['poses']}
+ for v in ['A','B']:result[f'interface_{v}.svg']=interface(v,pose_lookup)
  for rec in read('force_variants.json')['variants']:result[f'force_{rec["id"]}.svg']=force(rec['variant'],rec['option'],rec)
  acts=read('permissions.json')['actions']
  columns=sorted(set().union(*(a.keys() for a in acts)))
@@ -82,15 +83,23 @@ def documents(folder=HERE):
  for a in acts:
   ps=a['poses'];md.append('| '+a['id']+' / '+', '.join(a['mode'])+' | '+', '.join(a['material_from'])+' → '+a['material_to']+' | '+ps['doser']+' / '+ps['gate']+' / '+ps['punch']+' | '+a['predecessors']+' | '+', '.join(a['extra_entry_guards'])+' / '+', '.join(a['extra_completion_guards'])+' |')
  result['positions_permissions.md']='\n'.join(md)+'\n'
+ result['coordinate_formulas.json']=json.dumps(poses,ensure_ascii=False,sort_keys=True,indent=2)+'\n'
+ formulas=['# Типизированные координаты — документальные условия, actual UNKNOWN','',
+  'Норма: '+json.dumps(poses['normative_minimum'],ensure_ascii=False,sort_keys=True),'',
+  '| Поза | Формула / подпись | Сценарий | Тип / ось / единица / база | Фазовые операнды |','|---|---|---|---|---|']
+ for p in poses['poses']:
+  for scenario,form in p['coordinate_forms'].items():
+   formulas.append('| '+p['id']+' | '+str(p['coordinate'])+' / '+str(p['display_formula'])+' | '+scenario+' | '+' / '.join(str(form[k]) for k in ['kind','axis','unit','frame'])+' | '+json.dumps(form['expression'],ensure_ascii=False,sort_keys=True)+' |')
+ result['coordinate_formulas.md']='\n'.join(formulas)+'\n'
  for v in 'AB':
-  metadata={'actions':[a for a in acts if a['variant']==v],'protocol':read('cycle_protocol.json')}
+  metadata={'actions':[a for a in acts if a['variant']==v],'protocol':read('cycle_protocol.json'),'poses':poses}
   n=f'interface_{v}.svg';result[n]=result[n].replace('</svg>', '<metadata id="cycle-data">'+e(json.dumps(metadata,ensure_ascii=False,sort_keys=True))+'</metadata>\n</svg>')
  return result
 def generate(out):
  out=Path(out);out.mkdir(parents=True,exist_ok=True)
  result=documents()
  for n,t in result.items():(out/n).write_text(t)
- manifest={'scope':'Document exports only, no CAD evidence','sources_sha256':{n:hashlib.sha256((HERE/n).read_bytes()).hexdigest() for n in ['render_schemes.py','force_variants.json','permissions.json','poses.json','mechanical_guards.json','baseline_bindings.json','verification_plan.json','unknown_inputs.json','cycle_protocol.json']},'exports_sha256':{n:hashlib.sha256((out/n).read_bytes()).hexdigest() for n in sorted(result)}}
+ manifest={'scope':'Document exports only, no CAD evidence','normative_minimum':read('permissions.json')['normative_minimum'],'sources_sha256':{n:hashlib.sha256((HERE/n).read_bytes()).hexdigest() for n in ['render_schemes.py','force_variants.json','permissions.json','poses.json','mechanical_guards.json','baseline_bindings.json','verification_plan.json','unknown_inputs.json','cycle_protocol.json','semantic_minimum.py','document_semantics.py','check_package.py']},'exports_sha256':{n:hashlib.sha256((out/n).read_bytes()).hexdigest() for n in sorted(result)}}
  (out/'exports_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  return sorted(result)+['exports_manifest.json']
 if __name__=='__main__':

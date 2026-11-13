@@ -1,5 +1,5 @@
 {
-  "schema": 2,
+  "schema": 3,
   "type": "Documentary refinement; NOT motion controller or material engine",
   "contract_commit": "0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed",
   "all_real_conditions": "UNKNOWN; physical READY NO_GO; do not execute machinery",
@@ -224,7 +224,102 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:EMPTY_CONFIRMED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "EMPTY_CONFIRMED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:INVENTORY_KNOWN",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "INVENTORY_KNOWN",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-AUDIT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-LOAD-START",
@@ -498,7 +593,127 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:DOSE_DELIVERED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "DOSE_DELIVERED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_HOME_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_HOME_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:FILL_COMPLETE",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "FILL_COMPLETE",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-LOAD-START",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "D0"
+          ],
+          "to_pose": [
+            "D0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-GATHER",
@@ -731,7 +946,112 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:PARTIAL_CRITERION",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "PARTIAL_CRITERION",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "PG_A"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-GATHER",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "PG_A"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "P0",
+            "PF"
+          ],
+          "to_pose": [
+            "PG_A"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-REFILL",
@@ -1004,7 +1324,127 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:DOSE_DELIVERED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "DOSE_DELIVERED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_HOME_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_HOME_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:FILL_COMPLETE",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "FILL_COMPLETE",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-REFILL",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "D0"
+          ],
+          "to_pose": [
+            "D0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-COLUMN",
@@ -1227,7 +1667,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:COLUMN_CRITERION",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "COLUMN_CRITERION",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-COLUMN",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-LOAD-STEADY",
@@ -1503,7 +2031,127 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:DOSE_DELIVERED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "DOSE_DELIVERED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_HOME_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_HOME_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:FILL_COMPLETE",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "FILL_COMPLETE",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-LOAD-STEADY",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "D0"
+          ],
+          "to_pose": [
+            "D0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-COMPACT",
@@ -1770,7 +2418,132 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:COMPACTION_CRITERION",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "COMPACTION_CRITERION",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-COMPACT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "phase": "approach",
+          "from_pose": "P0",
+          "to_pose": "P1",
+          "end_expression_pose": "P1",
+          "stroke_source": {
+            "scenario": "BASE_A",
+            "proposed_cad_field": "stroke.approach",
+            "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        },
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "phase": "work",
+          "from_pose": "P1",
+          "to_pose": "P2",
+          "end_expression_pose": "P2",
+          "stroke_source": {
+            "scenario": "BASE_A",
+            "proposed_cad_field": "stroke.work",
+            "parameter_id": "R3_BASE_A_WORK_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "A-SEGMENT",
@@ -1991,7 +2764,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:PARTITION_DEFINED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "PARTITION_DEFINED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-SEGMENT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-EJECT",
@@ -2236,7 +3097,107 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P3"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-EJECT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P3"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "phase": "eject",
+          "from_pose": "P2",
+          "to_pose": "P3",
+          "end_expression_pose": "P3",
+          "stroke_source": {
+            "scenario": "BASE_A",
+            "proposed_cad_field": "stroke.eject",
+            "parameter_id": "R3_BASE_A_EJECT_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "A-CROSS",
@@ -2457,7 +3418,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:WHOLE_BEYOND_EXIT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "WHOLE_BEYOND_EXIT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-CROSS",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-RECEIVE",
@@ -2680,7 +3729,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:RECEIPT_VALID",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "RECEIPT_VALID",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-RECEIVE",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-REMOVE",
@@ -2903,7 +4040,88 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-REMOVE",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-RETURN",
@@ -3150,7 +4368,121 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:P_FEED_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "P_FEED_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:TOOLS_HOME",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "TOOLS_HOME",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-RETURN",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P3"
+          ],
+          "end": [
+            "P0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "phase": "return",
+          "from_pose": "P3",
+          "to_pose": "P0",
+          "end_expression_pose": "P_RETURN_END",
+          "stroke_source": {
+            "scenario": "BASE_A",
+            "proposed_cad_field": "stroke.return",
+            "parameter_id": "R3_BASE_A_RETURN_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+            "unit": "m"
+          },
+          "direction": "NEGATIVE"
+        }
+      ]
     },
     {
       "id": "A-NEXT",
@@ -3374,7 +4706,88 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-NEXT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-AUDIT",
@@ -3595,7 +5008,102 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:INVENTORY_KNOWN",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "INVENTORY_KNOWN",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:RESIDUE_ALLOWED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "RESIDUE_ALLOWED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-AUDIT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-LOAD",
@@ -3871,7 +5379,127 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:DOSE_DELIVERED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "DOSE_DELIVERED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_HOME_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_HOME_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:FILL_COMPLETE",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "FILL_COMPLETE",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-LOAD",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "D0"
+          ],
+          "to_pose": [
+            "D0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-GATHER",
@@ -4104,7 +5732,112 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:PARTIAL_CRITERION",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "PARTIAL_CRITERION",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "PG_B"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-GATHER",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "PG_B"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "P0",
+            "PF"
+          ],
+          "to_pose": [
+            "PG_B"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-REFILL",
@@ -4375,7 +6108,127 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:DOSE_DELIVERED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "DOSE_DELIVERED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_HOME_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_HOME_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:FILL_COMPLETE",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "FILL_COMPLETE",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-REFILL",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "D0"
+          ],
+          "to_pose": [
+            "D0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-SELECT",
@@ -4599,7 +6452,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:BATCH_CRITERION",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "BATCH_CRITERION",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-SELECT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-COMPACT",
@@ -4868,7 +6809,132 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:COMPACTION_CRITERION",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "COMPACTION_CRITERION",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-COMPACT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "phase": "approach",
+          "from_pose": "P0",
+          "to_pose": "P1",
+          "end_expression_pose": "P1",
+          "stroke_source": {
+            "scenario": "BASE_B",
+            "proposed_cad_field": "stroke.approach",
+            "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        },
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "phase": "work",
+          "from_pose": "P1",
+          "to_pose": "P2",
+          "end_expression_pose": "P2",
+          "stroke_source": {
+            "scenario": "BASE_B",
+            "proposed_cad_field": "stroke.work",
+            "parameter_id": "R3_BASE_B_WORK_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "B-OPEN-CONFIRM",
@@ -5100,7 +7166,123 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:B_OPEN_SEQUENCE_VALID",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "B_OPEN_SEQUENCE_VALID",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:B_UNLOADED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "B_UNLOADED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:LOCK_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "LOCK_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:PARTITION_DEFINED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "PARTITION_DEFINED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:STOP_OPEN",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "STOP_OPEN",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-OPEN-CONFIRM",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-EJECT",
@@ -5349,7 +7531,107 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P3"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-EJECT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P3"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "phase": "eject",
+          "from_pose": "P2",
+          "to_pose": "P3",
+          "end_expression_pose": "P3",
+          "stroke_source": {
+            "scenario": "BASE_B",
+            "proposed_cad_field": "stroke.eject",
+            "parameter_id": "R3_BASE_B_EJECT_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "B-CROSS",
@@ -5571,7 +7853,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:WHOLE_BEYOND_EXIT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "WHOLE_BEYOND_EXIT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-CROSS",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-RECEIVE",
@@ -5795,7 +8165,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:RECEIPT_VALID",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "RECEIPT_VALID",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-RECEIVE",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-REMOVE",
@@ -6018,7 +8476,88 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-REMOVE",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-RETURN",
@@ -6264,7 +8803,121 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:P_FEED_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "P_FEED_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:TOOLS_HOME",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "TOOLS_HOME",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-RETURN",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P3"
+          ],
+          "end": [
+            "P0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "phase": "return",
+          "from_pose": "P3",
+          "to_pose": "P0",
+          "end_expression_pose": "P_RETURN_END",
+          "stroke_source": {
+            "scenario": "BASE_B",
+            "proposed_cad_field": "stroke.return",
+            "parameter_id": "R3_BASE_B_RETURN_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+            "unit": "m"
+          },
+          "direction": "NEGATIVE"
+        }
+      ]
     },
     {
       "id": "B-RESET",
@@ -6496,7 +9149,102 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:B_RESET_CONFIRMED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "B_RESET_CONFIRMED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:RESET_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "RESET_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-RESET",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-NEXT",
@@ -6723,7 +9471,88 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "PRESERVED_POSE",
+          "body": "doser",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "PRESERVED_POSE",
+          "body": "gate",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "PRESERVED_POSE",
+          "body": "punch",
+          "poses": [
+            "HOLD_CURRENT"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-NEXT",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
@@ -6953,7 +9782,110 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:P_FEED_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "P_FEED_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-STARTUP-RETURN-A_COLUMN_BUILDING",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "PG_A"
+          ],
+          "end": [
+            "PF"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "PG_A"
+          ],
+          "to_pose": [
+            "PF"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
@@ -7183,7 +10115,110 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:P_FEED_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "P_FEED_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "PG_A"
+          ],
+          "end": [
+            "PF"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "PG_A"
+          ],
+          "to_pose": [
+            "PF"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-GATHER-RETURN",
@@ -7412,7 +10447,110 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:P_FEED_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "P_FEED_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-GATHER-RETURN",
+      "result_boundary": "FULL_PARENT_COMMIT",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "PG_B"
+          ],
+          "end": [
+            "PF"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "NOT_SUBSTEP",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "PG_B"
+          ],
+          "to_pose": [
+            "PF"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-MECH-FEED-OPEN",
@@ -7742,7 +10880,113 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:G_OPEN_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "G_OPEN_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-FEED-OPEN",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "PREREQUISITE_BEFORE_START",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "gate",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "G1"
+          ],
+          "to_pose": [
+            "G0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-MECH-DOSE-DELIVER",
@@ -7783,6 +11027,7 @@
         "AUX_RESOURCE_CURRENT",
         "CAPACITY_CURRENT",
         "CONTINUOUS_MECHANISM",
+        "D_HOME_CURRENT",
         "D_PATH_CLEAR",
         "G_OPEN_CURRENT",
         "MATERIAL_HELD_CURRENT",
@@ -8074,7 +11319,113 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_DELIVERY_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_DELIVERY_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-DOSE-DELIVER",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D1"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "D0"
+          ],
+          "to_pose": [
+            "D1"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-MECH-FILL-CONFIRM",
@@ -8408,7 +11759,105 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_DELIVERY_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_DELIVERY_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:FILL_COMPLETE",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "FILL_COMPLETE",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-FILL-CONFIRM",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-MECH-DOSER-RETURN",
@@ -8742,7 +12191,120 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_HOME_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_HOME_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:P_FEED_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "P_FEED_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-DOSER-RETURN",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "D1"
+          ],
+          "to_pose": [
+            "D0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-MECH-FEED-ISOLATE",
@@ -9057,7 +12619,113 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:G_ISOLATED_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "G_ISOLATED_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-FEED-ISOLATE",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "PREREQUISITE_BEFORE_START",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "gate",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "G0"
+          ],
+          "to_pose": [
+            "G1"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "A-MECH-APPROACH",
@@ -9333,7 +13001,107 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-APPROACH",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P1"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "phase": "approach",
+          "from_pose": "P0",
+          "to_pose": "P1",
+          "end_expression_pose": "P1",
+          "stroke_source": {
+            "scenario": "BASE_A",
+            "proposed_cad_field": "stroke.approach",
+            "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "A-MECH-WORK",
@@ -9608,7 +13376,107 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-WORK",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P1"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_A",
+          "phase": "work",
+          "from_pose": "P1",
+          "to_pose": "P2",
+          "end_expression_pose": "P2",
+          "stroke_source": {
+            "scenario": "BASE_A",
+            "proposed_cad_field": "stroke.work",
+            "parameter_id": "R3_BASE_A_WORK_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_A.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "A-MECH-HOLD-UNLOAD",
@@ -9865,7 +13733,88 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-HOLD-UNLOAD",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": []
     },
     {
       "id": "A-MECH-FEED-RESET",
@@ -10180,7 +14129,113 @@
           "A-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:G_OPEN_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "G_OPEN_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:A-MECH-FEED-RESET",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "PREREQUISITE_BEFORE_START",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "gate",
+          "scenario": "BASE_A",
+          "from_pose": [
+            "G1"
+          ],
+          "to_pose": [
+            "G0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-FEED-OPEN",
@@ -10492,7 +14547,113 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:G_OPEN_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "G_OPEN_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-FEED-OPEN",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "PREREQUISITE_BEFORE_START",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "gate",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "G1"
+          ],
+          "to_pose": [
+            "G0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-DOSE-DELIVER",
@@ -10533,6 +14694,7 @@
         "AUX_RESOURCE_CURRENT",
         "CAPACITY_CURRENT",
         "CONTINUOUS_MECHANISM",
+        "D_HOME_CURRENT",
         "D_PATH_CLEAR",
         "G_OPEN_CURRENT",
         "MATERIAL_HELD_CURRENT",
@@ -10806,7 +14968,113 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_DELIVERY_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_DELIVERY_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-DOSE-DELIVER",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D1"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "D0"
+          ],
+          "to_pose": [
+            "D1"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-FILL-CONFIRM",
@@ -11122,7 +15390,105 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_DELIVERY_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_DELIVERY_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:FILL_COMPLETE",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "FILL_COMPLETE",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-FILL-CONFIRM",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-MECH-DOSER-RETURN",
@@ -11438,7 +15804,120 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:D_HOME_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "D_HOME_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:P_FEED_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "P_FEED_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-DOSER-RETURN",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "doser",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "D1"
+          ],
+          "to_pose": [
+            "D0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-FEED-ISOLATE",
@@ -11753,7 +16232,113 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:G_ISOLATED_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "G_ISOLATED_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-FEED-ISOLATE",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "PREREQUISITE_BEFORE_START",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "gate",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "G0"
+          ],
+          "to_pose": [
+            "G1"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-APPROACH",
@@ -12032,7 +16617,107 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-APPROACH",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P1"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "phase": "approach",
+          "from_pose": "P0",
+          "to_pose": "P1",
+          "end_expression_pose": "P1",
+          "stroke_source": {
+            "scenario": "BASE_B",
+            "proposed_cad_field": "stroke.approach",
+            "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "B-MECH-WORK",
@@ -12310,7 +16995,107 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-WORK",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P1"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "SOURCE_AXIAL_PHASE",
+          "body": "punch",
+          "scenario": "BASE_B",
+          "phase": "work",
+          "from_pose": "P1",
+          "to_pose": "P2",
+          "end_expression_pose": "P2",
+          "stroke_source": {
+            "scenario": "BASE_B",
+            "proposed_cad_field": "stroke.work",
+            "parameter_id": "R3_BASE_B_WORK_STROKE",
+            "revision": 1,
+            "source": "verification/r3_parametric_sizing/results/BASE_B.json",
+            "unit": "m"
+          },
+          "direction": "POSITIVE"
+        }
+      ]
     },
     {
       "id": "B-MECH-HOLD-UNLOAD",
@@ -12567,7 +17352,95 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:B_UNLOADED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "B_UNLOADED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-HOLD-UNLOAD",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": []
     },
     {
       "id": "B-MECH-FEED-RESET",
@@ -12879,7 +17752,113 @@
           "B-REFILL"
         ],
         "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
-      }
+      },
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:G_OPEN_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "G_OPEN_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0",
+            "PF"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-FEED-RESET",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "PREREQUISITE_BEFORE_START",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "gate",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "G1"
+          ],
+          "to_pose": [
+            "G0"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-UNLOCK",
@@ -13157,7 +18136,154 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:LOCK_CLEAR",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "LOCK_CLEAR",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:end_stop",
+          "kind": "CURRENT_POSE",
+          "body": "end_stop",
+          "poses": [
+            "STOP_CLOSED"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:lock",
+          "kind": "CURRENT_POSE",
+          "body": "lock",
+          "poses": [
+            "LOCK_OPEN"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-UNLOCK",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "end_stop",
+          "start": [
+            "STOP_CLOSED"
+          ],
+          "end": [
+            "STOP_CLOSED"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "lock",
+          "start": [
+            "LOCK_CLOSED"
+          ],
+          "end": [
+            "LOCK_OPEN"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "lock",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "LOCK_CLOSED"
+          ],
+          "to_pose": [
+            "LOCK_OPEN"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-STOP-OPEN",
@@ -13434,7 +18560,154 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:STOP_OPEN",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "STOP_OPEN",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:end_stop",
+          "kind": "CURRENT_POSE",
+          "body": "end_stop",
+          "poses": [
+            "STOP_OPEN"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:lock",
+          "kind": "CURRENT_POSE",
+          "body": "lock",
+          "poses": [
+            "LOCK_OPEN"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P2"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-STOP-OPEN",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "end_stop",
+          "start": [
+            "STOP_CLOSED"
+          ],
+          "end": [
+            "STOP_OPEN"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "lock",
+          "start": [
+            "LOCK_OPEN"
+          ],
+          "end": [
+            "LOCK_OPEN"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "end_stop",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "STOP_CLOSED"
+          ],
+          "to_pose": [
+            "STOP_OPEN"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-STOP-CLOSE",
@@ -13671,10 +18944,43 @@
         "parent": "B-RESET",
         "request_action": "RESTORE_B_CLOSURE",
         "target_guard": "B_RESET_CONFIRMED",
-        "target_fault_id": "REQUIRED_EXACT_FAULT_ID",
-        "scope": "Same closure subject/epoch/mode and original fault revisions; new unique operation. B closure motion only; no history or material/service fault clearing.",
+        "target_fault_id": {
+          "binding": "closure_fault.fault_id",
+          "type": "FAULT_ID",
+          "required": true,
+          "wildcards_allowed": false
+        },
+        "target_scope": {
+          "binding": "closure_fault.origin.scope",
+          "match": "EXACT_ORIGIN",
+          "identity_fields": [
+            "scenario_id",
+            "variant",
+            "mode",
+            "subject_id",
+            "batch_id",
+            "cycle_epoch",
+            "basis_id",
+            "basis_revision",
+            "subject_kind"
+          ]
+        },
+        "origin_revisions": {
+          "binding": "closure_fault.origin.revisions",
+          "match": "EXACT_ORIGIN"
+        },
+        "revisions": {
+          "binding": "closure_fault.expected_revisions",
+          "match": "EXACT_CURRENT_CONTEXT"
+        },
+        "result_type": "RECOVERY_RESULT",
         "history_reconcile": "RECONCILE_HISTORY only after causal faults addressed separately",
-        "clears_faults_automatically": false
+        "clears_faults_automatically": false,
+        "helper": {
+          "commit": "0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed",
+          "path": "verification/r4_cycle_contract/permission_examples.py",
+          "contract": "verification/r4_cycle_contract/contract.json"
+        }
       },
       "mode_parent_bindings": {
         "B_SINGLE": [
@@ -13726,7 +19032,154 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:STOP_CLOSED_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "STOP_CLOSED_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:end_stop",
+          "kind": "CURRENT_POSE",
+          "body": "end_stop",
+          "poses": [
+            "STOP_CLOSED"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:lock",
+          "kind": "CURRENT_POSE",
+          "body": "lock",
+          "poses": [
+            "LOCK_OPEN"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-STOP-CLOSE",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "end_stop",
+          "start": [
+            "STOP_OPEN"
+          ],
+          "end": [
+            "STOP_CLOSED"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "lock",
+          "start": [
+            "LOCK_OPEN"
+          ],
+          "end": [
+            "LOCK_OPEN"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "end_stop",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "STOP_OPEN"
+          ],
+          "to_pose": [
+            "STOP_CLOSED"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     },
     {
       "id": "B-MECH-RELOCK",
@@ -13965,10 +19418,43 @@
         "parent": "B-RESET",
         "request_action": "RESTORE_B_CLOSURE",
         "target_guard": "B_RESET_CONFIRMED",
-        "target_fault_id": "REQUIRED_EXACT_FAULT_ID",
-        "scope": "Same closure subject/epoch/mode and original fault revisions; new unique operation. B closure motion only; no history or material/service fault clearing.",
+        "target_fault_id": {
+          "binding": "closure_fault.fault_id",
+          "type": "FAULT_ID",
+          "required": true,
+          "wildcards_allowed": false
+        },
+        "target_scope": {
+          "binding": "closure_fault.origin.scope",
+          "match": "EXACT_ORIGIN",
+          "identity_fields": [
+            "scenario_id",
+            "variant",
+            "mode",
+            "subject_id",
+            "batch_id",
+            "cycle_epoch",
+            "basis_id",
+            "basis_revision",
+            "subject_kind"
+          ]
+        },
+        "origin_revisions": {
+          "binding": "closure_fault.origin.revisions",
+          "match": "EXACT_ORIGIN"
+        },
+        "revisions": {
+          "binding": "closure_fault.expected_revisions",
+          "match": "EXACT_CURRENT_CONTEXT"
+        },
+        "result_type": "RECOVERY_RESULT",
         "history_reconcile": "RECONCILE_HISTORY only after causal faults addressed separately",
-        "clears_faults_automatically": false
+        "clears_faults_automatically": false,
+        "helper": {
+          "commit": "0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed",
+          "path": "verification/r4_cycle_contract/permission_examples.py",
+          "contract": "verification/r4_cycle_contract/contract.json"
+        }
       },
       "mode_parent_bindings": {
         "B_SINGLE": [
@@ -14020,8 +19506,175 @@
           ]
         }
       },
-      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "outputs": [
+        {
+          "id": "guard:B_STOP_LOCK_CLOSED",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "B_STOP_LOCK_CLOSED",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:CONTINUOUS_MECHANISM",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "CONTINUOUS_MECHANISM",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:LOCK_CLOSED_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "LOCK_CLOSED_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "guard:STOP_CLOSED_CURRENT",
+          "kind": "GUARD_CONFIRMATION",
+          "guard": "STOP_CLOSED_CURRENT",
+          "scope": "EXACT_ACTION_OPERATION_SUBJECT_MODE_REVISIONS",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:doser",
+          "kind": "CURRENT_POSE",
+          "body": "doser",
+          "poses": [
+            "D0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:end_stop",
+          "kind": "CURRENT_POSE",
+          "body": "end_stop",
+          "poses": [
+            "STOP_CLOSED"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:gate",
+          "kind": "CURRENT_POSE",
+          "body": "gate",
+          "poses": [
+            "G1"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:lock",
+          "kind": "CURRENT_POSE",
+          "body": "lock",
+          "poses": [
+            "LOCK_CLOSED"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        },
+        {
+          "id": "pose:punch",
+          "kind": "CURRENT_POSE",
+          "body": "punch",
+          "poses": [
+            "P0"
+          ],
+          "scope": "SAME_BODY_CURRENT_COMPLETION",
+          "actual": "UNKNOWN"
+        }
+      ],
+      "norm_rule": "rev-cyc-semantic-minimum/1:B-MECH-RELOCK",
+      "result_boundary": "LOCAL_ONLY_PARENT_NOT_COMMITTED",
+      "pose_constraints": [
+        {
+          "body": "doser",
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "end_stop",
+          "start": [
+            "STOP_CLOSED"
+          ],
+          "end": [
+            "STOP_CLOSED"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "gate",
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "lock",
+          "start": [
+            "LOCK_OPEN"
+          ],
+          "end": [
+            "LOCK_CLOSED"
+          ],
+          "same_selected_pose": false,
+          "full_path_obligation": true,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        },
+        {
+          "body": "punch",
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P0"
+          ],
+          "same_selected_pose": true,
+          "full_path_obligation": false,
+          "evidence_scope": "EXACT_BODY_OPERATION_MODE_REVISIONS"
+        }
+      ],
+      "parent_lifecycle": "AUTHORIZED_PARENT_ACTIVE",
+      "phase_pose_bindings": [
+        {
+          "kind": "AUX_OR_PARTIAL_UNKNOWN",
+          "body": "lock",
+          "scenario": "BASE_B",
+          "from_pose": [
+            "LOCK_OPEN"
+          ],
+          "to_pose": [
+            "LOCK_CLOSED"
+          ],
+          "phase": "UNRESOLVED",
+          "stroke_source": null,
+          "permission": "NO_PHYSICAL_PERMISSION"
+        }
+      ]
     }
   ],
-  "substep_parent_rule": "Bind exactly one current parent action/operation and legal mode. All parent START guards recorded at actual START; current_parent_guards and own guards remain mandatory. No parent may START before its full entry guards. FEED-OPEN/RESET and FEED-ISOLATE are own-guard prerequisites, not prematurely started LOAD/PRESS. Local completion never implies parent completion. See cycle_protocol.json for addressed transfer/return/commit and recovery boundaries."
+  "substep_parent_rule": "Bind exactly one current parent action/operation and legal mode. All parent START guards recorded at actual START; current_parent_guards and own guards remain mandatory. No parent may START before its full entry guards. FEED-OPEN/RESET and FEED-ISOLATE are own-guard prerequisites, not prematurely started LOAD/PRESS. Local completion never implies parent completion. See cycle_protocol.json for addressed transfer/return/commit and recovery boundaries.",
+  "normative_minimum": {
+    "schema": "rev-cyc-semantic-minimum/1",
+    "revision": 1,
+    "sha256": "b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df",
+    "decision_commit": "5fe510bbc55a052c360ab39a2491a061584b8fb7"
+  }
 }

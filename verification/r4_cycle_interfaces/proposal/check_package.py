@@ -4,6 +4,7 @@ import argparse, csv, hashlib, json, subprocess, sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from document_semantics import inspect_semantics
+from semantic_minimum import SemanticFailure, metadata, inspect_minimum
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -33,6 +34,7 @@ def inspect(folder=HERE):
  check('17_immutable_source_blobs',len(audit['input_blobs'])==17)
  frozen=read(ROOT/'verification/r4_cycle_contract/contract.json');t={x['id']:x for x in frozen['transitions'] if x['variant'] in ['A','B'] and '-READY' not in x['id']}
  package=read(folder/'permissions.json');actions=package['actions'];ids=[a['id'] for a in actions];lookup={a['id']:a for a in actions}
+ checks.extend(inspect_minimum(folder))
  check('unique_action_ids',len(ids)==len(set(ids)))
  check('complete_inherited_actions',set(t)<=set(ids))
  for i,o in t.items():
@@ -51,14 +53,17 @@ def inspect(folder=HERE):
  unknowns=read(folder/'unknown_inputs.json')['unknowns'];check('unknown_not_zero',all(u['value'] is None and u['status']=='UNKNOWN' and u['unknown_reason'] and u['tolerance'] is None for u in unknowns))
  plan=read(folder/'verification_plan.json');check('no_geometric_pairs_claimed',plan['checked_pairs_this_iteration']==[] and all(s['geometry_result']=='NOT_RUN_INDETERMINATE' and s['pairs'] for s in plan['phases']))
  exp=read(folder/'exports/exports_manifest.json')
+ check('manifest_normative_authority',exp.get('normative_minimum')==metadata())
  check('export_sources_unchanged',all(digest(folder/n)==h for n,h in exp['sources_sha256'].items()))
  check('exports_unchanged',all(digest(folder/'exports'/n)==h for n,h in exp['exports_sha256'].items()))
  svgs=list((folder/'exports').glob('*.svg'));check('six_well_formed_svg',len(svgs)==6 and all(ET.parse(f).getroot().tag=='{http://www.w3.org/2000/svg}svg' for f in svgs))
  with (folder/'exports/positions_permissions.csv').open() as f:csvrows=list(csv.DictReader(f))
  check('csv_matches_actions',len(csvrows)==len(actions) and all(c['id']==a['id'] and json.loads(c['entry_guards'])==a['entry_guards'] and json.loads(c['poses'])==a['poses'] for c,a in zip(csvrows,actions)))
- return {'execution_status':'COMPLETED','document_checks':'MATCH','checks':checks,'counts':{'actions':len(actions),'inherited':len(t),'source_bindings':len(baseline),'svg':len(svgs),'future_phase_matrices':len(plan['phases']),'future_pairs':sum(len(p['pairs']) for p in plan['phases']),'actually_checked_geometric_pairs':0,'frozen_files':612},'geometry_outcome':'NOT_RUN','physical_READY':'NO_GO','W02':'OPEN_NOT_IMPLEMENTED','G1':'OPEN'}
+ return {'execution_status':'COMPLETED','document_checks':'MATCH','semantic_outcome':'MATCH','verification_gate':'PASSED_DOCUMENTARY_ONLY','normative_minimum':metadata(),'coverage_mode_rules':sum(c['id'].startswith('minimum:coverage:') for c in checks),'checks':checks,'counts':{'actions':len(actions),'inherited':len(t),'source_bindings':len(baseline),'svg':len(svgs),'future_phase_matrices':len(plan['phases']),'future_pairs':sum(len(p['pairs']) for p in plan['phases']),'actually_checked_geometric_pairs':0,'frozen_files':612},'geometry_outcome':'NOT_RUN','physical_READY':'NO_GO','W02':'OPEN_NOT_IMPLEMENTED','G1':'OPEN'}
 if __name__=='__main__':
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--package',type=Path,default=HERE);a=ap.parse_args()
  try:out=inspect(a.package)
- except Exception as ex:print(json.dumps({'execution_status':'FAILED','document_checks':'MISMATCH','reason':str(ex),'geometry_outcome':'NOT_ASSESSED'},ensure_ascii=False));sys.exit(1)
+ except Exception as ex:
+  kind=ex.kind if isinstance(ex,SemanticFailure) else 'INPUT_ERROR' if isinstance(ex,(OSError,KeyError,TypeError,json.JSONDecodeError)) else 'SEMANTIC_MISMATCH'
+  print(json.dumps({'execution_status':'FAILED','document_checks':'MISMATCH','semantic_outcome':kind,'verification_gate':'FAILED','reason':str(ex),'geometry_outcome':'NOT_ASSESSED'},ensure_ascii=False));sys.exit(1)
  print(json.dumps(out,ensure_ascii=False,indent=2))

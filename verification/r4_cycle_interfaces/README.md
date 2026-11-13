@@ -1,3 +1,16 @@
+# B03 — корректирующая итерация по ARB-R1-CI-SEMANTICS-01
+
+Решение R1 `5fe510bbc55a052c360ab39a2491a061584b8fb7` прочитано и записано
+в капсуле до изменения checker. Owner/lease PR45 сохранены; main не меняется.
+B01/B02 CLOSED только документально на C144941c согласно R5 5fb7311; их
+регрессии сохраняются. B03 OPEN / RECHECK_PENDING; interface_consecutive_rejections=2,
+стабильная CYC-to-CAD передача NO-GO. [Новая редакция и проверки](semantic_iteration/README.md).
+W02/PLC/CAD вне итерации, physical READY NO-GO, архитектура/ТЗ не утверждены, G1 OPEN.
+
+---
+
+## Предыдущие записи — история
+
 # R4 — исправление по OUTPUT R5, RECHECK PENDING
 
 Прямое поручение пользователя, исполнитель R4 / Codex / r4-cyc-fix-20261113.

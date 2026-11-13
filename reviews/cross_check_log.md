@@ -4017,7 +4017,8 @@ findings:
   description: Original five mutations fixed; six new coherent semantic mutations incorrectly accepted. Stable package
     remains blocked pending R1 arbitration and independent RECHECK.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: Authorized B03 correction under ARB-R1-CI-SEMANTICS-01 changes reviewed package; original REJECT and documentary B01/B02 closures on C144941c preserved. Independent B03 RECHECK required.
 blocker_ids:
 - R5-CI-B03
 allowed_downstream_scope: Each A-V1/A-V2/B-V1/B-V2 remains WARNING for conditional R3 force-path study. B01/B02

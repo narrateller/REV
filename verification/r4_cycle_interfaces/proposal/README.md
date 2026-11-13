@@ -1,3 +1,28 @@
+# Текущая B03 редакция — normative minimum v1
+
+Основание: ARB-R1-CI-SEMANTICS-01 `5fe510bbc55a052c360ab39a2491a061584b8fb7`.
+[Описание и результаты](../semantic_iteration/README.md),
+[нормативный минимум](../semantics_v1/minimum.json),
+[матрица действия/режима → нормы/источники/проверки](../semantics_v1/coverage.csv).
+Типизированные формулы: [JSON](exports/coordinate_formulas.json), [таблица](exports/coordinate_formulas.md).
+Норма загружается из отдельного доверенного каталога, а не из проверяемого --package;
+её ревизия закреплена в checker. Экспорт/hashes не легализуют ослабленное условие.
+B01/B02 документально закрыты на предыдущем C144941c, их регрессии сохранены.
+B03 OPEN до независимого RECHECK нового C; текущая передача в CAD BLOCKED.
+W02/PLC/CAD вне итерации. Physical READY NO-GO; G1 OPEN; архитектура/ТЗ не утверждены.
+
+```sh
+.venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_package.py
+.venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py
+.venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/correction -p 'test_*.py' -v
+.venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/semantic_iteration -p 'test_*.py' -v
+```
+
+Ниже сохранена документация предыдущей итерации; её counts/results относятся
+к указанным старым C, не являются текущим RECHECK.
+
+---
+
 # CYC-02/03 — первая документальная постановка интерфейсов A/B
 
 **Исправление по R5 `13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2`; независимый RECHECK нового C PENDING.**
