@@ -1,3 +1,5 @@
+B03 RECHECK act C **88a34f8b7d2d6dbf236101f207e206efb0e3c747**;capsule handoffs/T-r5-ci-snapshots-recheck/r5-ci-snapshots-20261113.md. B03 OPEN:known BLOCKED masked by2early proof returns (19variants),no new FALSE-acceptance;stable documentary handoff NO-GO. Four old rejections preserved,current fifth;W02/physical READY NO-GO,G1 OPEN.
+
 # R5 RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
 
 R5/Codex/session **r5-ci-snapshots-20261113**, reviewed C **e30b4b7caf3040905cc23c79ca696af2871c958a**,
