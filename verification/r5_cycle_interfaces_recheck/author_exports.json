@@ -1,0 +1,92 @@
+{
+  "execution_status": "COMPLETED",
+  "document_regressions": "MATCH",
+  "checks": [
+    {
+      "id": "readonly_repeat_identical",
+      "matched": true,
+      "original_package_unchanged": true
+    },
+    {
+      "id": "explicit_exports_twice_match_saved",
+      "matched": true,
+      "export_files": 9
+    },
+    {
+      "id": "missing_svg",
+      "expected": "MISMATCH_NONZERO_NO_REPAIR",
+      "observed": {
+        "execution_status": "FAILED",
+        "document_checks": "MISMATCH",
+        "reason": "[Errno 2] No such file or directory: '/tmp/rev-ci-doc-b8e12_0x/missing_svg/proposal/exports/force_A-V1.svg'",
+        "geometry_outcome": "NOT_ASSESSED"
+      },
+      "matched": true,
+      "mutated_package_unchanged_by_checker": true
+    },
+    {
+      "id": "corrupt_svg",
+      "expected": "MISMATCH_NONZERO_NO_REPAIR",
+      "observed": {
+        "execution_status": "FAILED",
+        "document_checks": "MISMATCH",
+        "reason": "semantic:export_content:interface_B.svg",
+        "geometry_outcome": "NOT_ASSESSED"
+      },
+      "matched": true,
+      "mutated_package_unchanged_by_checker": true
+    },
+    {
+      "id": "changed_source_without_export",
+      "expected": "MISMATCH_NONZERO_NO_REPAIR",
+      "observed": {
+        "execution_status": "FAILED",
+        "document_checks": "MISMATCH",
+        "reason": "export_sources_unchanged",
+        "geometry_outcome": "NOT_ASSESSED"
+      },
+      "matched": true,
+      "mutated_package_unchanged_by_checker": true
+    },
+    {
+      "id": "dropped_inherited_guard",
+      "expected": "MISMATCH_NONZERO_NO_REPAIR",
+      "observed": {
+        "execution_status": "FAILED",
+        "document_checks": "MISMATCH",
+        "reason": "inherited:B-LOAD",
+        "geometry_outcome": "NOT_ASSESSED"
+      },
+      "matched": true,
+      "mutated_package_unchanged_by_checker": true
+    },
+    {
+      "id": "missing_inherited_action",
+      "expected": "MISMATCH_NONZERO_NO_REPAIR",
+      "observed": {
+        "execution_status": "FAILED",
+        "document_checks": "MISMATCH",
+        "reason": "complete_inherited_actions",
+        "geometry_outcome": "NOT_ASSESSED"
+      },
+      "matched": true,
+      "mutated_package_unchanged_by_checker": true
+    },
+    {
+      "id": "changed_source_value",
+      "expected": "MISMATCH_NONZERO_NO_REPAIR",
+      "observed": {
+        "execution_status": "FAILED",
+        "document_checks": "MISMATCH",
+        "reason": "all44_exact_source_rows",
+        "geometry_outcome": "NOT_ASSESSED"
+      },
+      "matched": true,
+      "mutated_package_unchanged_by_checker": true
+    }
+  ],
+  "original_files_unchanged": true,
+  "geometry_outcome": "NOT_RUN",
+  "physical_READY": "NO_GO",
+  "scope": "Document exports/guard coverage/source integrity only; no collision/material/control test or CAD build"
+}

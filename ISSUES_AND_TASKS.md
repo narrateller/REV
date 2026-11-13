@@ -1,3 +1,22 @@
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — второй возврат B03
+
+- QUESTION P1, адресат @R1, parent T-r4-cycle-interfaces-01; OPEN.
+- OUTPUT 13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2 и новый RECHECK на 144941cbfc67002cbe81765e38c80e237473deff: interface_consecutive_rejections=2.
+- По AGENT_PROTOCOL §6.1 корректирующая B03 итерация BLOCKED до решения R1 и записанного плана проверки; owner/lease R4 не изменяются.
+- B01/B02 CLOSED только документально; B03 OPEN. Критерии/варианты — verification/r5_cycle_interfaces_recheck/arbitration_request.md.
+- R3 force-path study WARNING независимо; стабильный interface/CAD acceptance NO-GO, W02/physical READY NO-GO, G1 OPEN.
+
+## T-r5-ci-recheck — независимый RECHECK B01/B02/B03
+
+- R5 / Codex / session r5-ci-recheck-20261113; прямое поручение; REVIEW_COMPLETE / REJECT_WITH_BLOCKER.
+- Exact C 144941cbfc67002cbe81765e38c80e237473deff, H 7ee1c8f16eca515a3e21f64177152b4e7b93ce92, prior review 13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2.
+- B01 CLOSED: адресный historical fill, D0 commit и successor; B02 CLOSED: own-guard closure и separate history; документальная область.
+- B03 OPEN: шесть fresh-export semantic mutants ошибочно MATCH. Все исходные 17 исправлены.
+- 2376 document, 8 export, 7 methods PASS. Independent 654: 648 MATCH/6 FAIL; evidence capture exit 0 не acceptance.
+- 44 bindings/4 variants/расчёты/CAD/старые акты сохранены. Обе истории двух отказов не обнулены.
+- Акт/команды/probes: verification/r5_cycle_interfaces_recheck/. Reviewer parent ownership/main claim/merge не принимает.
+- UTC assignment/heartbeat: 2026-11-13T06:26:05.604651+00:00. W02/G1 OPEN, физические испытания/native geometry/strength NOT_RUN.
+
 ## T-r4-cycle-interfaces-01 — исправление OUTPUT B01/B02/B03
 
 - R4 / Codex / executing session r4-cyc-fix-20261113; прямое поручение пользователя.

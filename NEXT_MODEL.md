@@ -1,3 +1,39 @@
+# RECHECK интерфейсов — B01/B02 CLOSED, B03 OPEN
+
+R5 / Codex / session **r5-ci-recheck-20261113**; reviewed C
+**144941cbfc67002cbe81765e38c80e237473deff**, H
+7ee1c8f16eca515a3e21f64177152b4e7b93ce92; prior OUTPUT
+13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2.
+Акт REV-R5-CYC0203-RECHECK-01-001: verification/r5_cycle_interfaces_recheck/review.md.
+
+**REJECT_WITH_BLOCKER**, только B03 остаётся OPEN. B01/B02 CLOSED на точном C
+в документальной области. Старые 17 критериев исправлены; исторический probe
+на старом C точно повторил 1345/1328/17. Новые author 2376/8/7 methods PASS;
+независимые 654: 648 MATCH /6 FAIL новых semantic mutations после fresh re-export.
+Это нарушения проверки документов, не 6 физических дефектов/испытаний.
+
+По второму возврату B03 и AGENT_PROTOCOL §6.1 корректирующая итерация **BLOCKED**
+до решения R1/плана новой проверки. Вопрос Q-R1-CI-SEMANTICS-ARBITRATION-01:
+verification/r5_cycle_interfaces_recheck/arbitration_request.md.
+interface_consecutive_rejections=2; прежние material-contract два отказа и их
+закрытие сохраняются отдельно. Никакого назначения reviewer в R1 нет.
+
+44 bindings, четыре force-варианта, расчёты/CAD/registry/старые helpers и акты
+не изменены. Каждый A-V1/A-V2/B-V1/B-V2 — только WARNING для силовой постановки R3.
+R4 может опираться на принятые документальные B01/B02 в ограниченном анализе;
+объединённый package/checker и следующая CAD приёмка NO-GO, rebuild не разрешён.
+W02 OPEN/NOT_IMPLEMENTED; physical READY NO-GO; **G1 OPEN**. Архитектура/ТЗ
+не утверждены, прочность/геометрическая согласованность не проверены.
+CAD/solver/rebuild/physical trials NOT_RUN, geometry pairs checked 0.
+
+Следующий шаг — рассмотрение точного review SHA и вопроса R1; после решения
+ограниченное исправление B03 и независимый RECHECK нового C. Owner/lease R4
+не переназначены и не продлены; main не меняется, parent не DONE.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
 # R4 — исправлены документальные B01/B02/B03, независимый RECHECK PENDING
 
 **Рабочий C `144941cbfc67002cbe81765e38c80e237473deff`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113`.
