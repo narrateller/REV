@@ -1,3 +1,5 @@
+B03 all-exit RECHECK act C **18e5af1dae177cdfcb24951d3b36c2fd43395421**;capsule handoffs/T-r5-ci-gate-recheck/r5-ci-gate-exits-20261113.md. Old2minimal/19variants fixed,8/8exits exercised;new current-FALSE loss on journal exception remains (8variants/1cause). B03 OPEN,stable documentary handoff NO-GO;fiveoldrejections preserved,current sixth. W02/physicalREADY NO-GO,G1OPEN.
+
 # R5 RECHECK B03 all exits — OPEN / REJECT_WITH_BLOCKER
 
 R5/Codex/session **r5-ci-gate-exits-20261113**, reviewed C **3060dbf561f95e4384fbfd13a9cc5569690515e5**,
