@@ -1,3 +1,5 @@
+B03 RECHECK C **3d317b32596884cc60d9d42675924b88fcb29bf0**; капсула handoffs/T-r5-ci-minimum-recheck/r5-ci-minimum-20261113.md. B03 OPEN: typed revision false MATCH/TRUE; normative53/84 и old-six подтверждены. Stable documentary handoff NO-GO; R1 follow-up. W02/G1 OPEN, physical READY NO-GO.
+
 # B03 RECHECK норматива v1 — OPEN, REJECT_WITH_BLOCKER
 
 R5 / Codex / session **r5-ci-minimum-20261113**, reviewed C
