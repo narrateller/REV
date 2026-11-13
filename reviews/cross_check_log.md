@@ -5834,3 +5834,145 @@ reproduction_artifacts:
 - verification/r5_ci_raw_sources_recheck/preservation.json
 - verification/r5_ci_raw_sources_recheck/R1_followup.md
 ```
+
+
+## RECHECK B03 — bounded admission всех OPEN records
+
+```yaml
+record_type: review
+review_id: REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001
+kind: RECHECK
+task_id: T-r4-cycle-interfaces-01
+created_at_utc: '2026-11-13T19:09:09.593707+00:00'
+reviewer:
+  role: R5
+  session_id: r5-ci-open-journal-20261113
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-linked-20261111
+- r4-cyc-fix-20261113
+- r4-b03-semantics-20261113
+- r4-b03-types-20261113
+- r4-b03-snapshots-20261113
+- r4-b03-gates-20261113
+- r4-b03-raw-20261113
+- r4-b03-journal-20261113
+independence_basis: Direct user mandate; reviewer did not author candidate/helper/norm. Own frozen Git guard/domain
+  oracle and mutations of all fixed guards; old probes executed unchanged in exact-C disposable materialization.
+  Organizational independence not certified.
+scope: BOUNDED_DOCUMENTARY_OPEN_JOURNAL_ADMISSION_AND_STABLE_CYC0203_HANDOFF_EXACT_C
+reviewed_commit: 8b72716021b0c3a64972033d09fe5e80945eb98e
+parameter_refs: []
+artifacts:
+- path: verification/r4_cycle_contract/contract.json
+  sha256: 5ea62e56fd2d95a7e87df81187e8e0a93a93891513b12c8e10b1a5911f84377c
+- path: verification/r4_cycle_contract/permission_examples.py
+  sha256: e4bce420b1cec04e65600d5caf979287797d255d5a718b769f7490d50b4e8ac3
+- path: verification/r4_cycle_interfaces/semantics_v1/minimum.json
+  sha256: b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df
+- path: verification/r4_cycle_interfaces/proposal/journal_admission.py
+  sha256: 4fd5adf0ce17b608fd90ad0582152a64db2bad741e4f288cfd839f39e2c684d9
+- path: verification/r4_cycle_interfaces/proposal/recovery_snapshots.py
+  sha256: c53dba2464c44493a421fca008c0e4a1d46a4c16f5b48e4e7b71a3d48d4fdfa9
+- path: verification/r4_cycle_interfaces/proposal/semantic_minimum.py
+  sha256: 1baa50bdda2c78c4b03b306ac4cad29fa56ce237fd7420b428ca0a42494f8b93
+- path: verification/r4_cycle_interfaces/proposal/metadata_types.py
+  sha256: ca3e6c88f4984084ccb19152751993cf98d7c14fa45560c3326114102b24075b
+- path: verification/r4_cycle_interfaces/proposal/baseline_bindings.json
+  sha256: bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0
+- path: verification/r4_cycle_interfaces/proposal/force_variants.json
+  sha256: 9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa
+- path: verification/r4_cycle_interfaces/proposal/exports/exports_manifest.json
+  sha256: aa0f9078c3b42c3b17641c437e4199f053193458dc41beff395ecef039ca69c6
+checks:
+- id: CHK-OPEN-ADMISSION
+  method: Fixed Git guard/domain oracle; all-guard mutations and permutations
+  expected: No false TRUE with unclassifiable OPEN; full scan and explicit reasons
+  observed: 5368/5368 independent controls; 40 guards; 120 orders; no false allow
+  reasoning: Scope is bounded documentary admission, not physical permission or engineering acceptance.
+  result: PASS
+- id: CHK-OPEN-36
+  method: Unchanged prior R5 matrix and typed/ordered same-input comparison
+  expected: 36 old false TRUE repaired without changing inputs
+  observed: 732/732;36/36 UNKNOWN/INDETERMINATE;minimal3/3;all8exits
+  reasoning: Scope is bounded documentary admission, not physical permission or engineering acceptance.
+  result: PASS
+- id: CHK-OPEN-DENY-POSITIVE
+  method: Independent raw/state/own/addressed causal controls and positive paths
+  expected: FALSE dominates UNKNOWN; known unrelated FEED does not cause blanket BLOCKED
+  observed: Raw/journal exceptions/stale/foreign controls pass; FEED and positive addressed recovery ALLOWED_ASSUMED
+  reasoning: Scope is bounded documentary admission, not physical permission or engineering acceptance.
+  result: PASS
+- id: CHK-OPEN-REGRESSION
+  method: Original unittest assertions, previous independent probes, fresh exports
+  expected: Retain type/domain/snapshot/gate/raw/semantic/B01/B02 semantics
+  observed: 417/966/220/118/244+36/411 controls and B01/B02 seven methods; prior654/765/7/295/231; package3277/export8
+  reasoning: Scope is bounded documentary admission, not physical permission or engineering acceptance.
+  result: PASS
+- id: CHK-OPEN-PRESERVE
+  method: Git blobs/tree identities, LFS OIDs and current working content; deep ordered inputs
+  expected: Frozen norm/helper/inputs and seven rejections unchanged; readonly
+  observed: 612 protected;1329 prior tree files;23 payload exports;205 C/H package files;7 original review packages;readonly
+  reasoning: Scope is bounded documentary admission, not physical permission or engineering acceptance.
+  result: PASS
+findings:
+- id: R5-CI-B03
+  status: CLOSED
+  priority: P1
+  description: Closed only in bounded documentary admission scope on exact reviewed C; unknown OPEN cannot grant
+    positive journal/recovery. Seven historical rejections retained.
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+B03_verdict: PASS_DOCUMENTARY_EXACT_C
+stable_documentary_CYC0203_handoff: GO_EXACT_C_WITH_LIMITATIONS
+allowed_downstream_scope: Stable conditional documentary CYC-02/03 interface at exact C only. Downstream work needs
+  own claim/exact inputs. No W02/PLC/material engine/physical READY/native CAD or architecture/requirements approval.
+rechecks_review_id: REV-R5-CI-RAW-SOURCES-RECHECK-01-001
+rechecks_review_commit: 4e52c3953c989c1077107d1d4f4da6d39d923d85
+R1_decision: a85e69f3a495176c614202a518be6784be8f3b31
+interface_consecutive_rejections: 7
+historical_interface_rejections_preserved: 7
+material_contract_consecutive_rejections: 2
+W02: NO_GO
+PLC: NO_GO
+physical_READY: NO_GO
+G1: OPEN
+excluded_claims:
+- Strength/stability/native geometry/contact/clearance/CAD rebuild/physical trials
+- Implemented W02/PLC or actual material lifecycle
+- Architecture/requirements/equipment release or G1 approval
+reproduction_artifacts:
+- verification/r5_ci_open_journal_recheck/preserve.py
+- verification/r5_ci_open_journal_recheck/exports.stderr
+- verification/r5_ci_open_journal_recheck/snapshot_correction.stdout
+- verification/r5_ci_open_journal_recheck/independent_results.json
+- verification/r5_ci_open_journal_recheck/replay.stderr
+- verification/r5_ci_open_journal_recheck/type_correction.stdout
+- verification/r5_ci_open_journal_recheck/journal_correction.stderr
+- verification/r5_ci_open_journal_recheck/type_correction.stderr
+- verification/r5_ci_open_journal_recheck/independent_probe.py
+- verification/r5_ci_open_journal_recheck/raw_correction.stderr
+- verification/r5_ci_open_journal_recheck/thirtysix.json
+- verification/r5_ci_open_journal_recheck/type_correction_retry.stderr
+- verification/r5_ci_open_journal_recheck/correction.stderr
+- verification/r5_ci_open_journal_recheck/gate_correction.stderr
+- verification/r5_ci_open_journal_recheck/gate_correction.stdout
+- verification/r5_ci_open_journal_recheck/raw_correction.stdout
+- verification/r5_ci_open_journal_recheck/package.stdout
+- verification/r5_ci_open_journal_recheck/review.md
+- verification/r5_ci_open_journal_recheck/reproduce.py
+- verification/r5_ci_open_journal_recheck/journal_correction.stdout
+- verification/r5_ci_open_journal_recheck/preservation.json
+- verification/r5_ci_open_journal_recheck/semantic_iteration.stdout
+- verification/r5_ci_open_journal_recheck/correction.stdout
+- verification/r5_ci_open_journal_recheck/snapshot_correction.stderr
+- verification/r5_ci_open_journal_recheck/replay.stdout
+- verification/r5_ci_open_journal_recheck/exports.stdout
+- verification/r5_ci_open_journal_recheck/package.stderr
+- verification/r5_ci_open_journal_recheck/type_correction_retry.stdout
+- verification/r5_ci_open_journal_recheck/commands.json
+- verification/r5_ci_open_journal_recheck/semantic_iteration.stderr
+```

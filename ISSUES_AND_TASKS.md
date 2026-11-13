@@ -1479,3 +1479,16 @@ QUESTION P1 для R1, parent T-r4-cycle-interfaces-01; DONE только для
 - Предложение/основание/точные прежние ID@revision: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json#CI-R2-INVENTORY. Новые значения не назначены и не применены.
 - Гипотеза: сохранить source BASE_A/B fixed-budget и согласовать отдельный интерфейс/расчёт нового звена. Если подтверждается — отдельная ревизия/проверка до CAD; если нет или данных недостаточно — вариант INDETERMINATE, при необходимости изменение исходного требования через R1/R3. Не уменьшать D/d/F/section/strokes ради clearance.
 - Зависит T-r4-cycle-interfaces-01; блокирует соответствующий будущий CAD/физический допуск, а не независимую документальную постановку. Срок/claim другой роли не изменён; G1 OPEN.
+
+
+## T-r5-ci-open-journal-recheck — независимый R5 RECHECK B03
+
+DONE / R5 / Codex / session r5-ci-open-journal-20261113; прямое поручение пользователя, UTC 2026-11-13T19:09:09.593707+00:00.
+Reviewed C `8b72716021b0c3a64972033d09fe5e80945eb98e`, H `fa4c59702e338e6b6d1e322b0698137a233ad011`, R1 `a85e69f3a495176c614202a518be6784be8f3b31`.
+Owner только review-задачи; parent R4 owner/lease не присвоены и не продлены; merge NOT_PERFORMED.
+Акт REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001: verification/r5_ci_open_journal_recheck/review.md.
+B03 CLOSED документально на exact C; stable documentary CYC-02/03 handoff GO, общий WARNING.
+5368/5368 independent;732/732 retained;36same-input repaired;minimal3/3.
+History interface counter7/material2 сохранена, старые акты не переписаны.
+Parent CYC IN_REVIEW до R1/integration; W02/PLC/physical READY NO-GO,G1OPEN.
+Следующий шаг R1: принять/интегрировать ограниченный акт и выбрать downstream работу с действующим claim/exact inputs.
