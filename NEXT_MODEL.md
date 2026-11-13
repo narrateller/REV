@@ -1,3 +1,52 @@
+# R4 — CYC-02/03 передано на независимый OUTPUT review
+
+**Рабочий C `ed8272ce6ebc2047bb0d896db5951d02c42d5208`, REMOTE** в
+`work-r4/T-r4-cycle-interfaces-01/r4-linked-20261111`,
+https://github.com/narrateller/REV/commit/ed8272ce6ebc2047bb0d896db5951d02c42d5208.
+Следующий H меняет только STATE/NEXT/капсулу; review относится к точному C.
+Main сверена после fetch: `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, merge PR45.
+Claim ACCEPTED_MAIN; **owner_session: r4-linked-20261111**, task IN_REVIEW,
+lease **2026-11-14T00:13:12.404899+00:00** (14 ноября 03:13:12 МСК), без продления.
+Предварительные поля уточнены по merge и прямому подтверждению пользователя;
+история сохранена. Другого принятого owner не найдено. Heartbeat/аудит в C;
+время передачи UTC 2026-11-13T00:55:58.978138+00:00. Прежняя инструкция о создании PR45 через API устарела:
+PR45 уже слит; повторный PR интеграции прежнего контракта не создавать.
+
+[Результат и команды](verification/r4_cycle_interfaces/proposal/README.md),
+[запрос независимого review](verification/r4_cycle_interfaces/proposal/review_request.md),
+[полные проверки](verification/r4_cycle_interfaces/proposal/checks.json).
+6 SVG с редактируемым exporter/JSON, 51 строка поз/условий (31 inherited +20
+механических), A/B×V1/V2 без выбора архитектуры, 44 точных source bindings,
+6 вопросов R2/R3 без применения новых чисел. START, инварианты, preliminary
+motions и completion различены; восстановление без общего READY.
+
+147 checks документов MATCH; 8 повторных/export/mutation checks MATCH;
+registry --check-git PASS и staged diff --check PASS. 612 защищённых рабочих
+файлов/7 frozen packages/11 trees/17 source blobs сохранены. Обе истории отказов,
+R1 и subsequent R5/independent probe не менялись; consecutive_rejections=2 сохранён.
+Это сохранность и воспроизводимость документов, **не физическая или CAD приёмка**.
+16 фаз/2933 записи пар — только future check plan; фактически проверенных
+геометрических пар этой итерации 0, geometry NOT_RUN. Checked helper/tools unchanged.
+
+**W02 OPEN/NOT_IMPLEMENTED; executable material и physical READY NO-GO.**
+Новые силовые звенья/направляющие/крепления не рассчитаны; B opening и physical
+L INDETERMINATE. Старые short-stroke A/B, lost A clamp contacts, B reset/product
+collision, rod/chamber/feed witnesses и шесть legacy UP BLOCKED остаются видимыми.
+Native CAD/STEP, расчёты, общий rebuild, физические испытания NOT_RUN.
+Реальные параметры REV UNKNOWN; топология ASSUMED, SVG NTS не конструкция.
+Архитектура/ТЗ не утверждены; G1 OPEN. Новая задача не DONE.
+
+**Следующий шаг:** независимый R5 проверяет точный C по review_request.md и
+воспроизводит документальные команды; затем отдельное решение R1 о продолжении.
+Не начинать CAD/rebuild/W02/physical cycle и не закрывать CYC/G1 на основании этих
+схем. При возврате R4 сначала повторяет fetch/owner/lease/inputs; истечение
+срока не продлевать автоматически. Капсула:
+handoffs/T-r4-cycle-interfaces-01/r4-linked-20261111.md.
+
+---
+
+## История до результата CYC-02/03 — не текущие инструкции
+
 # R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
 
 **C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
