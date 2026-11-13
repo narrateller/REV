@@ -1,3 +1,5 @@
+RECHECK review C **5fb731182a2bdf6b11246558eca58962e48568d9**; капсула handoffs/T-r5-ci-recheck/r5-ci-recheck-20261113.md. B01/B02 CLOSED документально, B03 OPEN; Q-R1-CI-SEMANTICS-ARBITRATION-01, второй возврат, B03 итерация BLOCKED до R1. W02/G1 OPEN, physical READY NO-GO.
+
 # RECHECK интерфейсов — B01/B02 CLOSED, B03 OPEN
 
 R5 / Codex / session **r5-ci-recheck-20261113**; reviewed C
