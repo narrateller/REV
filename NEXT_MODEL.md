@@ -1,3 +1,15 @@
+# Арбитраж интерфейсного checker — ARB-R1-CI-SEMANTICS-01
+
+R1 воспроизвёл шесть semantic-пропусков из R5 `5fb731182a2bdf6b11246558eca58962e48568d9` на C `144941cbfc67002cbe81765e38c80e237473deff`: 654 проверки, 648 совпадений, 6 FAIL с теми же ID. Решение `decisions/ARB-R1-CI-SEMANTICS-01.md`; evidence `verification/r1_ci_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения, записать в капсуле, сверить main/owner/lease и входы; реализовать только версионированный semantic minimum и typed pose/source/recovery checks с планом независимого RECHECK. B03 OPEN, приёмка интерфейса BLOCKED; стабильная CAD-передача NO-GO. B01/B02 — документальное закрытие на предыдущем C, регрессию проверить в новом. R3 допускается условная силовая работа отдельно от CAD. W02/physical READY NO-GO; архитектура/ТЗ не утверждены, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+---
+
+## Сохранённая история другой ветки
+
 RECHECK review C **5fb731182a2bdf6b11246558eca58962e48568d9**; капсула handoffs/T-r5-ci-recheck/r5-ci-recheck-20261113.md. B01/B02 CLOSED документально, B03 OPEN; Q-R1-CI-SEMANTICS-ARBITRATION-01, второй возврат, B03 итерация BLOCKED до R1. W02/G1 OPEN, physical READY NO-GO.
 
 # RECHECK интерфейсов — B01/B02 CLOSED, B03 OPEN
