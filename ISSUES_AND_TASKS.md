@@ -1,3 +1,16 @@
+## T-r5-ci-types-recheck — независимый RECHECK завершён
+
+- R5/Codex/session r5-ci-strict-types-20261113, прямое поручение пользователя; REVIEW_COMPLETE / REJECT_WITH_BLOCKER.
+- Exact C fa0626372c03d11655624bb454458f82c30117f7, H ab0fb1900a2bbdfa81e284112b318320f3c5b480, R1 e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3.
+- B03 OPEN: 4 минимальных false TRUE при неполных/чужих origin/expected domains; six old escapes fixed,215/215 fresh exports,prior654/654+765/765. B01/B02 document regressions PASS.
+- Stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO; R3 study только прежняя WARNING область, без strength/native acceptance.
+- Три прежних REJECT/SHA/evidence сохранены; текущий четвёртый, interface_consecutive_rejections=4, material_contract_consecutive_rejections=2.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1: completeness vs frozen permissive path и precise agreement scope. Следующая коррекция BLOCKED до решения/плана по §6.1. Карточка verification/r5_ci_strict_types_recheck/R1_followup.md.
+- Норматив/frozen helper/44bindings/4variants/calculations/CAD сохранены. W02/physical READY NO-GO,G1 OPEN,architecture/TZ not approved. Геометрических пар0; strength/CAD/rebuild/physical trials NOT_RUN.
+- Не takeover R4 task; accepted owner/lease/main неизменны. Возможности: Git/Python documentary checks и SHA comparison; assignment/heartbeat UTC 2026-11-13T09:00:34.211433+00:00.
+
+---
+
 ## T-r4-cycle-interfaces-01 — narrow B03 typing follow-up
 
 - R1 ARB-R1-CI-SEMANTICS-02 e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3 прочитан, SHA зафиксирован в капсуле до кода; прямое поручение пользователя, исполнитель R4/Codex/r4-b03-types-20261113.

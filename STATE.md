@@ -1,3 +1,39 @@
+# Независимый RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
+
+R5 / Codex / session **r5-ci-strict-types-20261113**, reviewed C
+**fa0626372c03d11655624bb454458f82c30117f7**, H **ab0fb1900a2bbdfa81e284112b318320f3c5b480**, R1 **e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3**.
+Акт REV-R5-CI-STRICT-TYPES-RECHECK-01-001:
+[review.md](verification/r5_ci_strict_types_recheck/review.md),
+[доказательства](verification/r5_ci_strict_types_recheck/incomplete_results.json),
+[команды](verification/r5_ci_strict_types_recheck/commands.json).
+
+Шесть прежних type escapes исправлены, norm53/84/18 и source типы подтверждены.
+Author3277/8;6type methods244cases/36comparisons;6semantic methods411cases;7retained
+methods PASS. Неизменённые независимые probes654/654 и765/765, собственные
+215 согласованных re-export cases198reject/17MATCH. Но четыре runtime witnesses
+дают ложный TRUE при пустом expected, согласованно пустом/FEED-only origin/proof
+или пустых origin+expected. Required B_CLOSURE domain теряется; типы значений и
+валидный F-digest не доказывают полноту. Caller OPEN, frozen returned copy RESOLVED;
+state нигде не применялся. Полная policy equivalence не подтверждена.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+B01/B02 прежнее документальное закрытие сохранено, регрессии PASS. R3 force-path
+study только в прежней WARNING области с действующим claim, без приёмки силового
+пути. Norm/helper/44bindings/4variants/calculations/CAD и три старых акта неизменны.
+Текущий четвёртый REJECT, interface_consecutive_rejections=4, отдельный material
+counter=2; история не обнулена. Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED,
+следующая коррекция BLOCKED по §6.1 до R1 решения/плана:
+[R1_followup.md](verification/r5_ci_strict_types_recheck/R1_followup.md).
+Main3a9258c/accepted PR45 owner r4-linked-20261111/lease
+2026-11-14T00:13:12.404899+00:00 не изменены; merge не выполнялся.
+**W02 OPEN/NO-GO, physical READY NO-GO, G1 OPEN**. Архитектура/ТЗ не утверждены;
+strength/native geometry/rebuild/physical trials NOT_RUN, геометрических пар0.
+UTC 2026-11-13T09:00:34.211433+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # R4 — B03 strict types по ARB-R1-CI-SEMANTICS-02, независимый RECHECK PENDING
 
 **Рабочий C `fa0626372c03d11655624bb454458f82c30117f7`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-types-20261113`.
