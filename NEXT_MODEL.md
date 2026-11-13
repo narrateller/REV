@@ -1,3 +1,16 @@
+# R1 — positive admission всех OPEN journal records
+
+Акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85` на C `b89854ad709bcb5c2991376bed41bf2f73acef82`, седьмой REJECT. R1 воспроизвёл 732/696/36 и minimal missing/null/known-FEED; решение `decisions/ARB-R1-CI-SEMANTICS-06.md`, evidence `verification/r1_ci_open_journal_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, сверить claim/входы и исправить bounded semantic admission/classification всех OPEN записей перед положительным journal/recovery выводом. Неизвестный tag не foreign; raw TRUE не обходит unknown journal, known FALSE сохраняет BLOCKED. Затем независимый R5 RECHECK. Helper/норматив/расчёты/CAD unchanged; counter7 и material2 сохраняются, stable handoff/physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
 B03 raw-source RECHECK act C **4e52c3953c989c1077107d1d4f4da6d39d923d85**;capsule handoffs/T-r5-ci-raw-recheck/r5-ci-raw-sources-20261113.md. Oldjournal/8variants fixed;unsupported OPEN guard still admits TRUE (36records/1cause). B03 OPEN,stable documentary handoff NO-GO;6historic rejections preserved,current seventh. W02/physicalREADY NO-GO,G1OPEN.
 
 # R5 RECHECK B03 raw sources — OPEN/REJECT_WITH_BLOCKER
