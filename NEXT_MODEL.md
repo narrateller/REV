@@ -1,3 +1,5 @@
+B03 RECHECK act C **0ff3c8f4502ea29c712bf1f41e223f172c5a21c7**; capsule handoffs/T-r5-ci-types-recheck/r5-ci-strict-types-20261113.md. B03 OPEN/REJECT_WITH_BLOCKER:4 incomplete-snapshot false TRUE witnesses. Stable documentary handoff NO-GO;R1 follow-up. Counter4 preserves all3 prior REJECT;W02/physical READY NO-GO,G1 OPEN.
+
 # Независимый RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
 
 R5 / Codex / session **r5-ci-strict-types-20261113**, reviewed C
