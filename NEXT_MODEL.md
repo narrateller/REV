@@ -1,3 +1,11 @@
+# R1 — полнота recovery snapshots и граница frozen compatibility
+
+Входной акт `0ff3c8f4502ea29c712bf1f41e223f172c5a21c7` на C `fa0626372c03d11655624bb454458f82c30117f7`: B03 OPEN, четвёртый REJECT. R1 воспроизвёл четыре ложных TRUE; решение `decisions/ARB-R1-CI-SEMANTICS-03.md`, evidence `verification/r1_ci_snapshot_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, проверить claim/входы и выполнить узкую domain/completeness prevalidation перед frozen delegation; сравнение policy только на объявленных допустимых входах. Не менять frozen helper, норматив, loads, расчёты или CAD. Затем независимый R5 RECHECK по плану решения. W02/physical READY NO-GO, stable handoff/CAD NO-GO, G1 OPEN; численные/физические испытания не выполнялись.
+
+## Предыдущая эстафета (история)
+
 # R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
 
 **C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
