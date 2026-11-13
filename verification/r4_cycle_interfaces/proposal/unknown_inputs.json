@@ -1,0 +1,181 @@
+{
+  "coordinate_convention": "x press/outlet; y transverse; z upward; O rear chamber reference plane/axis intersection, no actual placement assigned",
+  "case_assumptions": [
+    "ASSUMED translational doser along +y, return -y; inherited functional slider hypothesis, no numeric old stroke transplanted",
+    "ASSUMED independent gate along y; OPEN and ISOLATED symbolic ends, travel sign/positions to R3",
+    "ASSUMED rigid guided carrier with same axial displacement as punch and cylinder, no transmission ratio change",
+    "ASSUMED proposals V1/V2 only; no new engineering dimensions; SVG pixels not engineering values"
+  ],
+  "unknowns": [
+    {
+      "id": "CI-X_P0",
+      "field": "x_P0",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Исходная плоскость пуансона относительно задней базы камеры не назначена",
+      "owner_function": "R4/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-DOSER_STROKE_Y",
+      "field": "doser_stroke_y",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Старый slider — ASSUMED исследовательский привод; новый ход с подачей не согласован",
+      "owner_function": "R3/R4",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-GATE_STROKE_Y",
+      "field": "gate_stroke_y",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Не определены новый проём, перекрытие, толщина и привод затвора",
+      "owner_function": "R3/R4",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-X_REFILL_PUNCH",
+      "field": "x_refill_punch",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Поза при повторном наборе зависит от сохранения частичного материала",
+      "owner_function": "R2/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-X_COLUMN_GATHER",
+      "field": "x_column_gather",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Промежуточный ход создания столба не выведен из full-work stroke",
+      "owner_function": "R2/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-X_B_GATHER",
+      "field": "x_B_gather",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Частичное поджатие и число наборов не рассчитаны",
+      "owner_function": "R2/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-CARRIER_SECTION",
+      "field": "carrier_section",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Новый носитель пуансона: прочность/устойчивость/сопряжение с сохранённым сечением камеры не рассчитаны",
+      "owner_function": "R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-CARRIER_LENGTH",
+      "field": "carrier_length",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Род должен оставаться вне запрещённых областей во всём ходе; геометрия не построена",
+      "owner_function": "R4/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-GUIDE_SPAN",
+      "field": "guide_span",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Реакции, жёсткость, моменты и посадки направляющих неизвестны",
+      "owner_function": "R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-REAR_CLEARANCE",
+      "field": "rear_clearance",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Нет допуска, деформаций, креплений COTS и полной огибающей",
+      "owner_function": "R4/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-LATERAL_OFFSET_E",
+      "field": "lateral_offset_e",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Вариант V2 требует бокового выноса всего штока и эксцентриситета",
+      "owner_function": "R4/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-CYLINDER_EXTERNAL_MOUNTS",
+      "field": "cylinder_external_mounts",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "По bore/power нельзя выбрать наружный габарит, closed/open length, проушины, порты",
+      "owner_function": "R3/R4",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-EXIT_PLANE_AND_RECEIVER",
+      "field": "exit_plane_and_receiver",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Сохранённый CAD выход не достигался source eject stroke; новый приём не установлен",
+      "owner_function": "R1/R2/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-A_REACTION",
+      "field": "A_reaction",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Зажим/начальное удержание/остаточный столб физически не подтверждены",
+      "owner_function": "R2/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-B_OPEN_RESET",
+      "field": "B_open_reset",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Разгрузка, остаточное усилие, открытие, движение упора/замка с остатками не подтверждены",
+      "owner_function": "R2/R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-AUX_RESOURCES",
+      "field": "aux_resources",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Дозатор, затвор, зажим/замок, выдержка, гидростанция, управление и охлаждение: t/P/Q UNKNOWN",
+      "owner_function": "R3",
+      "tolerance": null,
+      "real_REV_value": null
+    },
+    {
+      "id": "CI-SERVICE_LIFT_MASS_ACCESS",
+      "field": "service_lift_mass_access",
+      "value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Массы, lifting fixtures, disconnection, площадка, операторы/ограждения не установлены",
+      "owner_function": "R3/R4/R6",
+      "tolerance": null,
+      "real_REV_value": null
+    }
+  ]
+}

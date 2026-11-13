@@ -1,0 +1,57 @@
+{
+  "observed_at_utc": "2026-11-13T00:54:05.040681+00:00",
+  "execution_status": "COMPLETED",
+  "documentary_expectations": "MATCH",
+  "geometry_outcome": "NOT_RUN",
+  "native_pair_checks": 0,
+  "physical_READY": "NO_GO",
+  "W02": "OPEN_NOT_IMPLEMENTED",
+  "G1": "OPEN",
+  "claim": {
+    "owner_session": "r4-linked-20261111",
+    "lease_expires_at": "2026-11-14T00:13:12.404899+00:00",
+    "lease_extended": false,
+    "last_main": "3a9258c57e4bc15d6de98f1d17e8412ad6e8899a",
+    "valid_at_observation": true
+  },
+  "commands": [
+    {
+      "command": "python3 -B verification/r4_cycle_interfaces/proposal/render_schemes.py --output-dir verification/r4_cycle_interfaces/proposal/exports",
+      "exit_code": 0,
+      "scope": "explicit document export only, not CAD"
+    },
+    {
+      "command": "python3 -B verification/r4_cycle_interfaces/proposal/check_package.py",
+      "exit_code": 0,
+      "scope": "147 document integrity checks, no physical permission"
+    },
+    {
+      "command": "python3 -B verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py",
+      "exit_code": 0,
+      "scope": "8 repeat/export/mutation checks, original files untouched"
+    },
+    {
+      "command": "python3 -B scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "stdout": "PASS: repository consistency checks; engineering acceptance NOT assessed",
+      "scope": "repository consistency; protected inputs/registry unchanged throughout this iteration"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "scope": "whitespace, repeated staged before commit"
+    }
+  ],
+  "counts": {
+    "actions": 51,
+    "inherited": 31,
+    "source_bindings": 44,
+    "svg": 6,
+    "future_phase_matrices": 16,
+    "future_pairs": 2933,
+    "actually_checked_geometric_pairs": 0,
+    "frozen_files": 612
+  },
+  "independent_R5_OUTPUT": "PENDING",
+  "not_acceptance": "Neither command success nor documentary MATCH demonstrates geometry or material/physical operability"
+}

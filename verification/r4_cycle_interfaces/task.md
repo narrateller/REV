@@ -1,3 +1,21 @@
+# Результат первой интерфейсной итерации
+
+[Редактируемые схемы/SVG/позы/условия/варианты/матрицы](proposal/README.md).
+Независимый OUTPUT review PENDING; задача не DONE. Принятый scope задания ниже
+не расширен: native CAD и общий rebuild NOT_RUN, W02/physical READY NO-GO.
+
+---
+
+# Актуализация после PR №45
+
+**ACCEPTED_MAIN; IN_REVIEW; owner_session: r4-linked-20261111.**
+Основание: merge `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a` и прямое подтверждение пользователя.
+Lease неизменен: `2026-11-14T00:13:12.404899+00:00` (14 ноября 03:13:12 МСК); продления нет.
+Входной акт: proposal/input_audit.md/json. Историческое предварительное состояние ниже
+сохранено как история, его запрет до принятия выполнен PR45.
+
+---
+
 # T-r4-cycle-interfaces-01 — CYC-02/03, первая интерфейсная постановка A/B
 
 **READY / claim PROPOSED_PENDING_MAIN / owner_session NONE. Реализация NOT_STARTED.**

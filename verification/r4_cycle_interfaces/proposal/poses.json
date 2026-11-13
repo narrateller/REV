@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "scope": "Symbolic poses ASSUMED; actual_REV UNKNOWN",
+  "coordinate_base": "O rear chamber plane, x along press axis; D/G along own y bases, offsets UNKNOWN",
+  "poses": [
+    {
+      "id": "D0",
+      "body": "doser_slide",
+      "coordinate": "y_D0",
+      "meaning": "Бункерная/наборная исходная поза; изоляция камеры определяется G, не самим D0",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "D1",
+      "body": "doser_slide",
+      "coordinate": "y_D0 + S_D",
+      "meaning": "Конец передачи дозы; не автоматическое DOSE_DELIVERED",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "D*",
+      "body": "doser_slide",
+      "coordinate": "[D0,D1]",
+      "meaning": "Весь прямой/обратный интервал, промежуточные позы не исключать",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "G0",
+      "body": "inlet_gate",
+      "coordinate": "y_G_open",
+      "meaning": "Открытый стык; не критерий допуска подачи",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "G1",
+      "body": "inlet_gate",
+      "coordinate": "y_G_isolated",
+      "meaning": "Закрытый стык; не прочность/герметичность/ISOLATION_CONFIRMED",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "G*",
+      "body": "inlet_gate",
+      "coordinate": "[G0,G1]",
+      "meaning": "Весь ход и возврат, концы и путь различать",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "P0",
+      "body": "punch",
+      "coordinate": "x_P0",
+      "meaning": "Начальная поза, только осевой HOME; не READY",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "P1",
+      "body": "punch",
+      "coordinate": "x_P0 + S_approach",
+      "meaning": "Конец подхода; source stroke.approach",
+      "status": "SOURCE_REFERENCED",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "P2",
+      "body": "punch",
+      "coordinate": "x_P0 + S_approach + S_work",
+      "meaning": "Конец полного рабочего хода; не автоматическое изделие",
+      "status": "SOURCE_REFERENCED",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "P3",
+      "body": "punch",
+      "coordinate": "x_P0 + S_approach + S_work + S_eject",
+      "meaning": "Конец source выдачи; не обязательно весь продукт за CAD выходом",
+      "status": "SOURCE_REFERENCED",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "PG_A",
+      "body": "punch",
+      "coordinate": "x_column_gather",
+      "meaning": "Частичный ход создания столба; не подменять полным S_work",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "PG_B",
+      "body": "punch",
+      "coordinate": "x_B_gather",
+      "meaning": "Частичное поджатие B_REPEAT; конец UNKNOWN",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    },
+    {
+      "id": "PF",
+      "body": "punch",
+      "coordinate": "x_refill_punch",
+      "meaning": "Отведённая поза повторного набора, предполагается P0 только при подтверждении сохранения материала",
+      "status": "UNKNOWN",
+      "value": null,
+      "tolerance": null,
+      "unknown_reason": "Absolute coordinates/aux strokes not assigned; source stroke lengths preserved"
+    }
+  ],
+  "full_return": "P3 -> P0 uses stroke.return from same scenario; no shortened return; partial returns PG_A/PG_B -> PF separately UNKNOWN",
+  "source_refs": [
+    {
+      "scenario": "BASE_A",
+      "proposed_cad_field": "stroke.approach",
+      "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "scenario": "BASE_A",
+      "proposed_cad_field": "stroke.work",
+      "parameter_id": "R3_BASE_A_WORK_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "scenario": "BASE_A",
+      "proposed_cad_field": "stroke.eject",
+      "parameter_id": "R3_BASE_A_EJECT_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "scenario": "BASE_A",
+      "proposed_cad_field": "stroke.return",
+      "parameter_id": "R3_BASE_A_RETURN_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+    },
+    {
+      "scenario": "BASE_B",
+      "proposed_cad_field": "stroke.approach",
+      "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    },
+    {
+      "scenario": "BASE_B",
+      "proposed_cad_field": "stroke.work",
+      "parameter_id": "R3_BASE_B_WORK_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    },
+    {
+      "scenario": "BASE_B",
+      "proposed_cad_field": "stroke.eject",
+      "parameter_id": "R3_BASE_B_EJECT_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    },
+    {
+      "scenario": "BASE_B",
+      "proposed_cad_field": "stroke.return",
+      "parameter_id": "R3_BASE_B_RETURN_STROKE",
+      "revision": 1,
+      "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+    }
+  ]
+}
