@@ -1,3 +1,9 @@
+# R1 — предложение документальной интеграции CYC-02/03
+
+R5 акт `6ec51742fea1be36a989dfa691ddfccf1cb20675` закрыл B03 на exact C `8b72716021b0c3a64972033d09fe5e80945eb98e`. GO/WARNING относится только к bounded документальному интерфейсу. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`, до merge IN_REVIEW. Семь отказов и все ограничения сохранены; W02/PLC/physical READY NO-GO, G1 OPEN. Следующая инженерная работа — силовые варианты R3 по отдельной задаче, не общий CAD-rebuild.
+
+## Предыдущая сводка (история)
+
 # R5 — независимый RECHECK B03 завершён документально
 
 Акт **REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001**, R5/Codex/session `r5-ci-open-journal-20261113`.

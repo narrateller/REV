@@ -1,3 +1,11 @@
+# R1 — интеграция проверенного документального CYC-02/03
+
+C `8b72716021b0c3a64972033d09fe5e80945eb98e`, R5 `6ec51742fea1be36a989dfa691ddfccf1cb20675` (B03 CLOSED bounded documentary; GO/WARNING), H `fdb03dc48f509ee88badcfaa7a7e9fc160ddbaff`. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`; до merge IN_REVIEW. Семь отказов/арбитражи/проверки сохранены, code/payload/frozen helper не меняются.
+
+Следующее действие: последовательно интегрировать ветку после повторной сверки main/claim/lease/inputs; затем отдельная задача R3 по силовым путям A-V1/A-V2/B-V1/B-V2 с прежними нагрузками/ходами, эксцентриситетами, направляющими и устойчивостью. Общий CAD-rebuild не разрешён этим актом. W02/PLC/physical READY NO-GO, G1 OPEN; физические испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
 # R5 — независимый RECHECK B03 завершён документально
 
 Акт **REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001**, R5/Codex/session `r5-ci-open-journal-20261113`.
