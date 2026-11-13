@@ -1,3 +1,16 @@
+## T-r5-ci-raw-recheck — independent raw-source RECHECK complete
+
+- R5/Codex/r5-ci-raw-sources-20261113,direct user assignment/continue;REVIEW_COMPLETE/REJECT_WITH_BLOCKER.
+- Exact C b89854ad709bcb5c2991376bed41bf2f73acef82,H ce1ad73aae7a5700203103c14290375cc519662b,R1 3aa5ee100f57aa75315d429afef38f8a982b1afc.
+- B03 OPEN:oldjournal/8variants fixed231/231;newunsupported OPEN guard admitsTRUE.732records696matches36FAIL,onecause,18orderedinputs/6canonicalmaps. No real movement/helperstate applied.
+- Stable documentary CYC-02/03 handoff/newCAD NO-GO;B01/B02 prior documentary closure/regressions retained;R3 priorWARNING/currentclaimscope only.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1;positive journaladmission scope needs recorded decision/plan;next correctionBLOCKED per§6.1;verification/r5_ci_raw_sources_recheck/R1_followup.md.
+- All6historicREJECT/SHA/evidence preserved,current seventh;interface_consecutive_rejections=7,material_contract_consecutive_rejections=2. No parenttakeover/mainmerge/leaseextension.
+- Norm/helper/44bindings/4variants/calculations/CAD/612inputs unchanged;W02/physicalREADY NO-GO,G1OPEN;architecture/TZ notapproved;physical/native checks NOT_RUN.
+- Capabilities:Git/Python fixedblob/raworacle/injection/tracing/hash checks;assignment/heartbeat UTC 2026-11-13T16:05:32.565988+00:00.
+
+---
+
 ## T-r4-cycle-interfaces-01 — B03 independent raw FALSE follow-up
 
 R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`

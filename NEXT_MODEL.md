@@ -1,3 +1,37 @@
+# R5 RECHECK B03 raw sources — OPEN/REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-raw-sources-20261113**,reviewed C **b89854ad709bcb5c2991376bed41bf2f73acef82**,
+H **ce1ad73aae7a5700203103c14290375cc519662b**,R1 **3aa5ee100f57aa75315d429afef38f8a982b1afc**.
+Акт REV-R5-CI-RAW-SOURCES-RECHECK-01-001:
+[review.md](verification/r5_ci_raw_sources_recheck/review.md),[minimal comparator](verification/r5_ci_raw_sources_recheck/minimal_guard_tag_witness.json),
+[results](verification/r5_ci_raw_sources_recheck/independent_results.json),[commands](verification/r5_ci_raw_sources_recheck/commands.json).
+
+Journal-witness/8oldvariants исправлены,231/231,typedinputdigests8совпадают.
+Independent732case records696matches36falseTRUErecords:unsupported/null/wrongtype
+OPEN journal guard silently skipped,IN_DOMAIN/TRUE/ALLOWED_ASSUMED при allrawTRUE.
+One semantic-admission cause,18orderedinputs/6canonicalmaps;missingguard control
+UNKNOWN,knownFEED control ALLOWED. Это не regression исправленногоrawFALSEfallback.
+450reader errors,56invalidraw,75sourceexceptions,27two-own и state/causal controls
+pass;rawFALSE сохраняетBLOCKED,invalidFALSE не blanketdenial,detectedunknownjournal
+не допускаетrawTRUE. Positive/minimal/unuseddomains/foreignfault/WORK и readonly
+сохранены. Author3277/8,9raw966,11gate220,11snapshot118,6type244/36,6semantic411,
+7B01/B02methods и prior654/765/7/295/231 PASS;19+8oldinputdigests неизменны.
+
+**B03 OPEN;stable documentary CYC-02/03 handoff/newCAD iteration NO-GO.**
+R3 только прежниеWARNINGforce-pathstudies/currentclaim/exactinputs. Norm53/84/18,
+helper,44bindings,4variants,612protected,calculations/CAD и6oldreviewpackages
+сохранены. Текущий7REJECT,interfacecounter7/material2. Q-R1-CI-SEMANTICS-ARBITRATION-01
+REOPENED/P1,next correctionBLOCKED по§6.1 до записанногоR1решения/плана:
+[R1followup](verification/r5_ci_raw_sources_recheck/R1_followup.md). Main3a9258c/PR45owner r4-linked-20261111/
+lease2026-11-14T00:13:12.404899+00:00 не менялись,merge/claimtakeover нет.
+**W02 OPEN/NO-GO,physicalREADY NO-GO,G1OPEN**;architecture/TZ notapproved;
+strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN,geometricpairs0.
+UTC 2026-11-13T16:05:32.565988+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # Следующее действие — независимый R5 RECHECK B03 exact C
 
 C **b89854ad709bcb5c2991376bed41bf2f73acef82**, REMOTE_VERIFIED:
