@@ -3622,3 +3622,7 @@ reproduction_artifacts:
 - verification/r5_cc_b01_recheck/independent_probe.py
 - verification/r5_cc_b01_recheck/independent_results.json
 ```
+
+## R4 — подготовка ограниченной документальной интеграции и CYC-02/03 claim
+
+Основание: прямое поручение пользователя; R5 e3c0d7d828aab7b6a7e14dd230c5c3a01fea9d40, WARNING/B01 CLOSED documentary на точном C0c4eb5d. Истории d99afb4/c56e494/R1 сохранены, consecutive_rejections=2. Подготовительный PR не меняет проверенные пакеты, не является новым R5 review/физической приёмкой/самопринятием claim. Новый T-r4-cycle-interfaces-01 READY/owner NONE/PROPOSED_PENDING_MAIN; task/claim в verification/r4_cycle_interfaces/. W02/G1 OPEN, executable material/physical READY NO-GO, implementation NOT_STARTED. Интеграция только предлагается, merge автором не выполняется.

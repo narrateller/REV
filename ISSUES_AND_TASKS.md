@@ -39,7 +39,8 @@ ID после создания не меняется. Для параллель�
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
 | T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
 | T-r4-calculated-layout-01 | TASK | P2 | @R4 | READY | NONE | PR #39 / BASE_A, BASE_B fixed-budget; claim PROPOSED_PENDING_MAIN | G1 |
-| T-r4-cycle-contract-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | R5-CC-B01; ARB-R1-CC-01 разрешает только исправления и RECHECK | G1 |
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | READY | NONE | CYC-02/03; documentary WARNING; claim PROPOSED_PENDING_MAIN | G1 |
+| T-r4-cycle-contract-01 | TASK | P1 | @R4 | IN_REVIEW | r4-linked-20261111 | R5 e3c0d7d: B01 CLOSED documentary; integration proposed, W02 OPEN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
 
@@ -47,9 +48,19 @@ ID после создания не меняется. Для параллель�
 | T-r3-norms-01 | TASK | P1 | @R3 | DONE | r3-safety-01 | документальная карта с WARNING; применимость не установлена | G1 |
 | T-r3-compaction-measure-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; R5-COMP-W03/W04 OPEN | G1 |
 
+## T-r4-cycle-interfaces-01 — CYC-02/03, интерфейсы и силовая компоновка
+
+- TASK P1, адресат @R4, статус READY, **owner_session: NONE**, claim_acceptance PROPOSED_PENDING_MAIN. Proposed owner r4-linked-20261111 / Codex / R4; назначение роли сохранено, принятие нового claim не выполнено.
+- base_main: 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7; branch: work-r4/T-r4-cycle-interfaces-01/r4-linked-20261111; proposed_at_utc: 2026-11-13T00:13:12.404899+00:00; proposed_lease_expires_at: **2026-11-14T00:13:12.404899+00:00**. Не продлевает старый claim. В main нет task/принятого owner на момент аудита; принятие последовательно после повторной сверки времени/входов/конкурента.
+- Immutable inputs: C0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed, ARB-R1-CC-01 на 616135755d1b6cbaa09ae9800bad5af8bbc28aed, R5 e3c0d7d828aab7b6a7e14dd230c5c3a01fea9d40; обе R3 r4_inputs.md и 44 bindings, input_manifest.json в verification/r4_cycle_interfaces/. CAD3591 — отдельно declared/author context, independent native NOT_AVAILABLE.
+- Task/claim: verification/r4_cycle_interfaces/task.md, claim.md/json. CYC-02 — предельные положения/движения/разрешения дозатора/затвора/пуансона A/B; CYC-03 — варианты силовой компоновки со штоком вне недопустимой области камеры/подачи без уменьшения D/d, сил и ходов. Любая необходимость изменения — отдельное расчётное предложение R3 до применения.
+- Future outputs: редактируемые интерфейсные/силовые схемы и SVG, таблицы поз/guard/source, варианты геометрии и критерии следующей проверки полного хода/возврата/затронутых сервисов. Архитектуру/ТЗ не выбирать/не утверждать. До принятия claim **реализация NOT_STARTED**; в этом PR только постановка/предложение.
+- Документальный контракт WARNING, W02 OPEN; executable material logic и физический READY NO-GO. Реальные данные UNKNOWN, условные геометрические inputs отдельно ASSUMED. Общий CAD/rebuild/физические испытания не выполняются. G1 OPEN.
+- Первый шаг после принятия: fetch/main/owner/lease/input hashes, входной акт, затем task.md. Следующий независимый OUTPUT review не заменять авторским check. До принятия main не меняется автором, новый claim не самопринят.
+
 ## T-r4-cycle-contract-01 — материальный контракт и ранние CYC-08/09
 
-- TASK, P1, адресат @R4; статус BLOCKED до независимого RECHECK B01; **owner_session: r4-linked-20261111**, claim_acceptance ACCEPTED_MAIN через PR #43 на d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9, claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff. Корректирующая итерация разрешена ARB-R1-CC-01, consecutive_rejections=2.
+- TASK, P1, адресат @R4; статус IN_REVIEW для документальной интеграции с WARNING по e3c0d7d; executable/W02/physical READY NO-GO; **owner_session: r4-linked-20261111**, claim_acceptance ACCEPTED_MAIN через PR #43 на d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9, claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff. Корректирующая итерация разрешена ARB-R1-CC-01, consecutive_rejections=2.
 - base_commit: 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7 (main PR #44); proposal_base: b1a4e398741b84d482c96f00a605e98b720ff929; branch: work-r4/T-r4-cycle-contract-01/r4-linked-20261111; lease_expires_at: **2026-11-13T18:16:39Z**, срок без продления. Исторические NONE/PENDING/IN_REVIEW сохранены в Git и записях ниже.
 - Основание отдельного scope: старый T-r4-calculated-layout-01 — CAD BASE_A/B по численным R3 входам; его принятый claim PR #40 действует до 2026-11-13T13:17:33Z, owner тот же. Последующая карта цикла и R5 требуют отдельного назначения до материального/resource/READY контракта, не общего rebuild. Старый CAD C 3591a5f92f78b1edea07d3fc5354fd0a99090798 остаётся отдельным кандидатом, не интегрируется этой задачей.
 - Immutable inputs: цикл/приоритеты C 43f03359fabe2b664935b17f9ac7851504093ece, акт e69a8afbe4df3d53c4cc8b5883319e00eb8130af REV-R5-R3-CYCLE-TRACE-01-001, decisions/PR42-CYCLE-TRACE-INTEGRATION.md и обе передачи R3 на c115f75fd900525d9ddc89d85e097ac5a0f00bc1. Точные blobs/SHA-256 и protected trees в verification/r4_cycle_contract/preflight.json. CAD-контекст — declared coordinates / author witnesses, independent native NOT_RUN, не доказанная этой задачей геометрия.
@@ -77,6 +88,8 @@ R5-CC-B01: BLOCKER P1 OPEN, адресат R4 в T-r4-cycle-contract-01. Исп�
 - B01 итерация по ARB-R1-CC-01: decision_commit **616135755d1b6cbaa09ae9800bad5af8bbc28aed** прочитан и записан в капсулу до правки. Main 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7 / owner r4-linked-20261111 / lease до 2026-11-13T18:16:39Z сверены, срок не продлён; heartbeat_utc 2026-11-12T23:10:35.928830+00:00. Подготовлен кандидат fault_id/original scope/addressed recovery/cumulative rejected IDs. 26 исходных + 45 RECHECK + 134 проверки R1 = 205 ожидаемых исходов; 3 старых расхождения исправлены, исходные required guards сохранены. Пакет verification/r4_cc_identity/, corrective_iteration_status IN_REVIEW, parent BLOCKED до независимого RECHECK; consecutive_rejections=2 не обнулён, B01 OPEN. W01 CLOSED только документально на 4f31ed6, W02/G1 OPEN; расчёты/CAD/rebuild/physical tests NOT_RUN. Точный C следующим H.
 
 - Новый C B01 **0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed**, REMOTE, следующий H только учёт/эстафета. Decision 616135755d1b6cbaa09ae9800bad5af8bbc28aed / consecutive_rejections=2 сохранены; parent BLOCKED, corrective_iteration IN_REVIEW, B01 OPEN до независимого R5. 205 checks MATCH / old26+recheck45 все корректны, 572 readonly files, registry/diff PASS. Heartbeat_utc 2026-11-12T23:14:56.453901+00:00; owner/lease без изменений. Запрос verification/r4_cc_identity/recheck_request.md; W02/G1 OPEN, без CAD/расчётов/rebuild/испытаний.
+
+- Текущий статус подготовки интеграции: R5 e3c0d7d828aab7b6a7e14dd230c5c3a01fea9d40 закрывает B01 только документально на C0c4eb5d и даёт WARNING для условных CYC-02/03. Старые BLOCKED/OPEN выше — история прежних SHA, не новый отказ. Родитель IN_REVIEW до решения оператора/merge; автор не объявляет DONE. Проверенные пакеты не меняются, W02/G1 OPEN. Прежний owner/lease без продления; новая задача/claim отдельные.
 
 ## T-r4-calculated-layout-01 — расчётно связанная исследовательская компоновка A/B
 
