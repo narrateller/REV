@@ -1,3 +1,21 @@
+## T-r4-cycle-interfaces-01 — B03 independent raw FALSE follow-up
+
+R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`
+записан в капсуле до кода; checkpointa76e298. Accepted PR45 owner r4-linked-20261111,
+lease 2026-11-14T00:13:12.404899+00:00 без переназначения/продления; main3a9258c.
+Два источника own assessment: fixed raw validation независимо от journal reader;
+validated raw FALSE сохраняет BLOCKED при exception, raw TRUE/UNKNOWN не создают
+разрешение. Контроли scope/action/phase/revisions/provenance/interval сохранены.
+Schema/results: verification/r4_cycle_interfaces/raw_correction/. B03 OPEN,
+приёмка BLOCKED, independent exact-C RECHECK PENDING. Все шесть REJECT/evidence
+сохранены, interface counter6/material2. Норматив/helper/44bindings/4variants/
+расчёты/CAD/прежние B01/B02/type/domain/gate исправления неизменны.
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
 ## T-r5-ci-gate-recheck — independent all-exit RECHECK complete
 
 - R5/Codex/r5-ci-gate-exits-20261113,direct user assignment;REVIEW_COMPLETE/REJECT_WITH_BLOCKER.

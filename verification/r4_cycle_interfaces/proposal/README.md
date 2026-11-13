@@ -1,3 +1,21 @@
+# B03 — независимый raw FALSE по ARB-R1-CI-SEMANTICS-05
+
+Решение `3aa5ee100f57aa75315d429afef38f8a982b1afc` записано в капсуле
+до кода; preflight/evaluation checkpoint a76e298. [Два источника и проверки](../raw_correction/README.md).
+Независимо валидированный fixed raw FALSE сохраняется при exception journal
+reader; stale/foreign/invalid value=FALSE не является доказательством. Raw TRUE
+и UNKNOWN не заменяют достоверный журнал и не разрешают recovery.
+Диагностика raw/journal/own/scoped/causal/gate раздельна; единый finish сохранён.
+Шестой REJECT и пять прежних актов сохранены, interface counter6/material2.
+B03 OPEN до независимого exact-C RECHECK; приёмка/stable CAD handoff NO-GO.
+Main3a9258c, accepted PR45 owner/lease не менялись. Helper/norm53/84/18,
+B01/B02/type/domain/gate fixes,44bindings/4variants/calculations/CAD сохранены.
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
 # B03 — композиция gate по ARB-R1-CI-SEMANTICS-04
 
 Решение `60eeddce71c9440a2fa08f7acbe6f1121c974b29` прочитано, SHA записан

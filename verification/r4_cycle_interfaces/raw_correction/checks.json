@@ -1,0 +1,159 @@
+{
+  "execution_status": "COMPLETED",
+  "validation_role": "AUTHOR; independent exact-C RECHECK pending",
+  "R1_decision_commit": "3aa5ee100f57aa75315d429afef38f8a982b1afc",
+  "precode_checkpoint": "a76e298",
+  "base_H": "f209ed23748652b20afc4a9a91931f73b10ab794",
+  "created_at_utc": "2026-11-13T14:59:44.046377+00:00",
+  "candidate_identity": "Exact C in following handoff; source hashes identify this working package",
+  "source_sha256": {
+    "verification/r4_cycle_interfaces/proposal/recovery_snapshots.py": "bc186bd07ecffd799c28c0771379b9fc86b52f23a73963b087e96895561fcc18",
+    "verification/r4_cycle_interfaces/proposal/semantic_minimum.py": "1baa50bdda2c78c4b03b306ac4cad29fa56ce237fd7420b428ca0a42494f8b93",
+    "verification/r4_cycle_interfaces/proposal/metadata_types.py": "ca3e6c88f4984084ccb19152751993cf98d7c14fa45560c3326114102b24075b",
+    "verification/r4_cycle_interfaces/proposal/render_schemes.py": "05e8ae0d6a641bfd2ba650030bbc3095bbd273deaa76fa06ca7d7d08d57cff61",
+    "verification/r4_cycle_interfaces/proposal/exports/exports_manifest.json": "49542f4a03f931ba1b52d9f8bd2968c02e0ff4a2fb61e88e55c43624c5cde13e",
+    "verification/r4_cycle_interfaces/semantics_v1/minimum.json": "b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df",
+    "verification/r4_cycle_interfaces/raw_correction/test_raw_sources.py": "0fd73f86ae25dec426ab75342a8b1c813338b4b212fa8f94b30061913034ad0b",
+    "verification/r4_cycle_interfaces/raw_correction/replay_r5.py": "30b09c1a83b9dd5e832a49bc70d094f21c4cd28180ef1f1c0bf0c125297f6515"
+  },
+  "new_methods": 9,
+  "new_cases": 966,
+  "raw_and_journal_assessments": "SEPARATE; raw FALSE used only after fixed validation",
+  "original_R5_matrix": {
+    "cases": 231,
+    "matches": 223,
+    "failures": 8
+  },
+  "corrected_R5_matrix": {
+    "cases": 231,
+    "matches": 231,
+    "failures": 0
+  },
+  "eight_variations_same_typed_inputs": true,
+  "minimal_before": "INDETERMINATE",
+  "minimal_after": "BLOCKED; scoped UNKNOWN; same input digest",
+  "all_eight_exits_exercised": true,
+  "retained_gate_cases": 220,
+  "retained_snapshot_cases": 118,
+  "retained_type_cases": 244,
+  "retained_type_differential": 36,
+  "retained_semantic_cases": 411,
+  "retained_B01_B02_methods": 7,
+  "prior_independent_probes": [
+    654,
+    765,
+    7,
+    295
+  ],
+  "prior_nineteen_same_input_fixes": true,
+  "document_checks_MATCH": 3277,
+  "export_checks_MATCH": 8,
+  "protected_files": 612,
+  "normative_actions": 53,
+  "normative_mode_rules": 84,
+  "normative_poses": 18,
+  "bindings": 44,
+  "force_variants": 4,
+  "interface_consecutive_rejections": 6,
+  "material_contract_consecutive_rejections": 2,
+  "six_R5_acts": "PRESERVED",
+  "B03": "OPEN_RECHECK_PENDING",
+  "W02": "NO_GO",
+  "PLC": "NOT_IMPLEMENTED",
+  "CAD": "NOT_RUN",
+  "physical_READY": "NO_GO",
+  "G1": "OPEN",
+  "commands": [
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/proposal/render_schemes.py --output-dir verification/r4_cycle_interfaces/proposal/exports",
+      "exit_code": 0,
+      "output": "exporter.log"
+    },
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_package.py",
+      "exit_code": 0,
+      "output": "document_checks.json"
+    },
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py",
+      "exit_code": 0,
+      "output": "export_checks.json"
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/raw_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "output": "regressions.log"
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/gate_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "output": "gate.log"
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/snapshot_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "output": "snapshot.log"
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/type_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "output": "types.log"
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/semantic_iteration -p 'test_*.py' -v",
+      "exit_code": 0,
+      "output": "semantic.log"
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "output": "B01_B02.log"
+    },
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/raw_correction/replay_r5.py --prior --output-dir scratch/b03-raw",
+      "exit_code": 0,
+      "output": "corrected_capture.json"
+    },
+    {
+      "command": ".venv/bin/python -B scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "output": "registry.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": null
+    }
+  ],
+  "evidence_sha256": {
+    "README.md": "9eb968873b91b2a93cdda0a32f110cc47af77f14af925fb1f8d855e36fef1a1d",
+    "export_checks.json": "6c00afeb63be4cd8ddc50ce03963d4d7a23b920565100fac28306a84df7ba57a",
+    "replayed_minimal_pair_replay.json": "ec553843df1ef47ec1117c5094f188b825120e4d27e89ff685230c53a1899206",
+    "types.log": "8fda130426de74be1c250ab6649bf94ad59b007709b45ab02856b668745dc044",
+    "cases.json": "dbe4473578f9ee9d10a624350bbcc427bc41dada0787828fcc97535d4e1492bc",
+    "corrected_capture.json": "e0e41e8e290149d2cec8c31c1288217e9099b60b7adbf8eda9f376b59717e849",
+    "baseline_minimal.json": "e61b1b58c5c30010ad53d7b8d5f37c0db1e02558a34c1fbeb1dfeb284987e60e",
+    "replay_r5.py": "30b09c1a83b9dd5e832a49bc70d094f21c4cd28180ef1f1c0bf0c125297f6515",
+    "exporter.log": "0fd66547516acbf8e02f3888133d8fd7d5a2419376e9311606f0efad0918e1c3",
+    "baseline_capture.json": "4dbb34cdd24cd753b28d816741484f92bf1b04fae2e59170baf1ec20be1b3341",
+    "input_audit.json": "7fccf021739f79b4500c945c9e8e922a3477900e9e6c7639a158ddce6b0ddf37",
+    "prior.log": "201fd199174f6c6673f1d366591a5de718719877e8c6246fa4ad772e3e265f30",
+    "preservation.json": "7ff55e8f0196dde08f03971db6391925c4bf5950996f7a0ce5430ec2b5d4a369",
+    "document_checks.json": "ac588fce4c879990d046cf50a740c35427ae19915087623f435d7c7bf1877b9a",
+    "gate.log": "9bd283622c1c830811931983711bbe1fd569b2be98b8ff0c98fd47a65a1d9ed7",
+    "replayed_nineteen.json": "db34abfac78d831b4c6e735459eb51dac40a61827aade43cd4bbc60a6c5da227",
+    "eight_variations.json": "13102d27c4ee652b08a5844895bf4a73e47c9be7c60234682965f1e727464636",
+    "corrected_minimal.json": "7d749dfac7a4f6cf816ded88a80cb8ded3f996bc095a535c0d61afe53684a3bc",
+    "semantic.log": "bb1c62922c3be2c875ca86b70fe547a72db130e5617b911801cbb202a8ef7a6c",
+    "baseline.log": "4cc82c30935088365679429751f6b6810e916a65f2f0b0d5e09cf3c7365dfa3b",
+    "snapshot.log": "b2e1a7ffe24ec36e2ab8398c1f16dcd267723c8d08c37f11970a397fb1367e6f",
+    "EVALUATION.md": "2e2ba1e004386d842bac380653c29f3fd62fbe12196e8a306532997a66b2d4f0",
+    "test_raw_sources.py": "0fd73f86ae25dec426ab75342a8b1c813338b4b212fa8f94b30061913034ad0b",
+    "regressions.log": "0be59eefb7ecbafcc478be75bde0a505cbf7166c75d562835dcefc07c40a9e4f",
+    "B01_B02.log": "cc134d4e0c3cf2a31d61331dbf401af7881ae03f42a3822e8b97618ac0c728ad",
+    "replayed_295.json": "50858422e7a0ea35c225ecf5fc33103ba808e14db0e633a007e1b01cbca7ab1a",
+    "registry.log": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda",
+    "replayed_authority_and_prior.json": "95e5962678128fc3c1b6e8141ca9c7d7166519b7c3357bc224f817255bfc46fc",
+    "corrected_matrix.json": "4dcd1ad681f05df5f6d76feccc325aed4d577b1fbf4cd023fcafd27d1e4e5a20"
+  }
+}

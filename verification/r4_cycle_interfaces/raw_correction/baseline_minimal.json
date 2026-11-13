@@ -1,0 +1,675 @@
+{
+  "C": "3060dbf561f95e4384fbfd13a9cc5569690515e5",
+  "session_id": "r5-ci-gate-exits-20261113",
+  "expected_action_gate": "BLOCKED",
+  "actual_action_gate": "INDETERMINATE",
+  "scoped": "UNKNOWN",
+  "matched": false,
+  "independent_frozen_raw_value": "FALSE",
+  "independent_frozen_raw_reason": "CURRENT_ASSUMED_RECORD",
+  "history_valid": true,
+  "malformed_fault_id": "F-514980e1952381fb2fa5c62ab10f5052be5a67e66903d5c5e6fc06c42ffcc518",
+  "malformed_fault_digest_valid": true,
+  "caller_proof_unchanged": true,
+  "input_sha256": "85d3c71e950f351e0955bd62a326a9393e4beaff9a15a0dc780a3400a187105f",
+  "context": {
+    "scenario_id": "R5-TYPE-MATRIX",
+    "variant": "B",
+    "mode": "B_REPEAT",
+    "state": "B_RECEIVED_RESIDUAL",
+    "subject_id": "closure",
+    "batch_id": "batch",
+    "cycle_epoch": "epoch",
+    "basis_id": "basis",
+    "basis_revision": "r1",
+    "operation_id": "unique-recovery",
+    "revisions": {
+      "MATERIAL": 0,
+      "FEED": 0,
+      "AXIS": 0,
+      "RETENTION": 0,
+      "B_CLOSURE": 0,
+      "EXIT_RECEIVER": 0,
+      "HYDRAULIC": 0,
+      "EVIDENCE": 0,
+      "RESOURCES": 0
+    },
+    "inventory_refs": [
+      "retained"
+    ],
+    "pending_observations": [],
+    "history_schema": "rev-permission-history/1",
+    "history_id": "R5-type-history",
+    "history_confirmed": true,
+    "initial_history_audit": {
+      "value": "TRUE",
+      "evidence_id": "initial",
+      "source": "hypothetical audit"
+    },
+    "faults": {
+      "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22": {
+        "fault_id": "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22",
+        "origin": {
+          "guard": "B_RESET_CONFIRMED",
+          "reason": "CONFIRMED_CONDITION_FALSE",
+          "kind": "CONDITION",
+          "truth": "FALSE",
+          "scope": {
+            "scenario_id": "R5-TYPE-MATRIX",
+            "variant": "B",
+            "mode": "B_REPEAT",
+            "subject_id": "closure",
+            "batch_id": "batch",
+            "cycle_epoch": "epoch",
+            "basis_id": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+            "basis_revision": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+            "subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+          },
+          "operation_id": "denied-A",
+          "evidence_id": "R5-B-NEXTB_RESET_CONFIRMED",
+          "evidence": {
+            "scenario_id": "R5-TYPE-MATRIX",
+            "variant": "B",
+            "mode": "B_REPEAT",
+            "cycle_epoch": "epoch",
+            "subject_id": "closure",
+            "operation_id": "denied-A",
+            "action": "B-NEXT",
+            "guard": "B_RESET_CONFIRMED",
+            "phase": "ENTRY",
+            "value": "FALSE",
+            "revisions": {
+              "MATERIAL": 0,
+              "FEED": 0,
+              "AXIS": 0,
+              "RETENTION": 0,
+              "B_CLOSURE": 0,
+              "EXIT_RECEIVER": 0,
+              "HYDRAULIC": 0,
+              "EVIDENCE": 0,
+              "RESOURCES": 0
+            },
+            "evidence_id": "R5-B-NEXTB_RESET_CONFIRMED",
+            "method": "ASSUMED_FIXTURE",
+            "source": "independent synthetic evidence only",
+            "valid_for_operation_interval": true
+          },
+          "revisions": {
+            "B_CLOSURE": 0
+          },
+          "cause_fault_ids": []
+        },
+        "status": "OPEN",
+        "expected_revisions": {
+          "B_CLOSURE": 0
+        },
+        "revision_history": [],
+        "resolution_attempts": [],
+        "resolution": null
+      },
+      "F-8352b1f6819063811fd4ffaada3b280e579d63e9a852da538565d717cf4f8cda": {
+        "fault_id": "F-8352b1f6819063811fd4ffaada3b280e579d63e9a852da538565d717cf4f8cda",
+        "origin": {
+          "guard": "DEPENDENCY_VALID",
+          "reason": "UNRESOLVED_MANDATORY_STEP",
+          "kind": "DEPENDENCY",
+          "truth": "FALSE",
+          "scope": {
+            "scenario_id": "R5-TYPE-MATRIX",
+            "variant": "B",
+            "mode": "B_REPEAT",
+            "subject_id": "closure",
+            "batch_id": "batch",
+            "cycle_epoch": "epoch",
+            "basis_id": "basis",
+            "basis_revision": "r1",
+            "subject_kind": "MATERIAL"
+          },
+          "operation_id": "denied-A",
+          "evidence_id": "decision-4f99b803c33fbe0c687ce5b0db8361ad6b43e5241adfbe7850c8067cfcbdb8ea",
+          "evidence": {
+            "evidence_id": "decision-4f99b803c33fbe0c687ce5b0db8361ad6b43e5241adfbe7850c8067cfcbdb8ea",
+            "action": "B-NEXT",
+            "phase": "COMMIT",
+            "outcome": "BLOCKED",
+            "input_context_hash": "d58e1b13a817a1e03132de764be62b53ebb1039d8a97e9ba6576536b1a865af2"
+          },
+          "revisions": {
+            "EVIDENCE": 0
+          },
+          "cause_fault_ids": [
+            "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22"
+          ]
+        },
+        "status": "OPEN",
+        "expected_revisions": {
+          "EVIDENCE": 0
+        },
+        "revision_history": [],
+        "resolution_attempts": [],
+        "resolution": null
+      },
+      "F-514980e1952381fb2fa5c62ab10f5052be5a67e66903d5c5e6fc06c42ffcc518": {
+        "fault_id": "F-514980e1952381fb2fa5c62ab10f5052be5a67e66903d5c5e6fc06c42ffcc518",
+        "origin": {
+          "reason": "R5-malformed-unrelated-journal",
+          "kind": "CONDITION",
+          "truth": "UNKNOWN",
+          "scope": {
+            "scenario_id": "R5-TYPE-MATRIX",
+            "variant": "B",
+            "mode": "B_REPEAT",
+            "subject_id": "closure",
+            "batch_id": "batch",
+            "cycle_epoch": "epoch",
+            "basis_id": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+            "basis_revision": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+            "subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+          },
+          "operation_id": "unique-recovery",
+          "evidence_id": null,
+          "evidence": null,
+          "revisions": {
+            "MATERIAL": 0,
+            "FEED": 0,
+            "AXIS": 0
+          },
+          "cause_fault_ids": []
+        },
+        "status": "OPEN",
+        "expected_revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0
+        },
+        "revision_history": [],
+        "resolution_attempts": [],
+        "resolution": null
+      }
+    },
+    "rejected_operation_ids": [
+      "denied-A"
+    ],
+    "rejected_operations": {
+      "denied-A": {
+        "R-6040d32a6f3a9beb75e68d0e2cad7b8e0825fe104e4b5058c04e00ce38dbe803": {
+          "operation_id": "denied-A",
+          "action": "B-NEXT",
+          "stage": "COMMIT",
+          "outcome": "BLOCKED",
+          "reason": "REQUEST_NOT_GRANTED",
+          "scope": {
+            "scenario_id": "R5-TYPE-MATRIX",
+            "variant": "B",
+            "mode": "B_REPEAT",
+            "subject_id": "closure",
+            "batch_id": "batch",
+            "cycle_epoch": "epoch",
+            "basis_id": "basis",
+            "basis_revision": "r1"
+          }
+        }
+      }
+    },
+    "completed_operations": {},
+    "authorized_entries": {},
+    "unresolved_dependencies": [
+      "F-8352b1f6819063811fd4ffaada3b280e579d63e9a852da538565d717cf4f8cda"
+    ],
+    "evidence": {
+      "BASIS_DEFINED": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "BASIS_DEFINED",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSUREBASIS_DEFINED",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "B_RESET_CONFIRMED": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "B_RESET_CONFIRMED",
+        "phase": "COMPLETION",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSUREB_RESET_CONFIRMED",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "CONTINUITY_CONFIRMED": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "CONTINUITY_CONFIRMED",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSURECONTINUITY_CONFIRMED",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "EVENT_FRESH": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "EVENT_FRESH",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSUREEVENT_FRESH",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "FEEDBACK_VALID": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "FEEDBACK_VALID",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSUREFEEDBACK_VALID",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "LEDGER_VALID": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "LEDGER_VALID",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSURELEDGER_VALID",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "METHOD_SUPPORTED": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "METHOD_SUPPORTED",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSUREMETHOD_SUPPORTED",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "RECEIPT_VALID": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "RECEIPT_VALID",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSURERECEIPT_VALID",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "RESET_SWEEP_CLEAR": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "RESET_SWEEP_CLEAR",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSURERESET_SWEEP_CLEAR",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "RESOURCES_READY": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "RESOURCES_READY",
+        "phase": "ENTRY",
+        "value": "FALSE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSURERESOURCES_READY",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "RESTORE_SEQUENCE_DEFINED": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "RESTORE_SEQUENCE_DEFINED",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSURERESTORE_SEQUENCE_DEFINED",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      },
+      "TOOLS_HOME": {
+        "scenario_id": "R5-TYPE-MATRIX",
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "cycle_epoch": "epoch",
+        "subject_id": "closure",
+        "operation_id": "unique-recovery",
+        "action": "RESTORE_B_CLOSURE",
+        "guard": "TOOLS_HOME",
+        "phase": "ENTRY",
+        "value": "TRUE",
+        "revisions": {
+          "MATERIAL": 0,
+          "FEED": 0,
+          "AXIS": 0,
+          "RETENTION": 0,
+          "B_CLOSURE": 0,
+          "EXIT_RECEIVER": 0,
+          "HYDRAULIC": 0,
+          "EVIDENCE": 0,
+          "RESOURCES": 0
+        },
+        "evidence_id": "R5-RESTORE_B_CLOSURETOOLS_HOME",
+        "method": "ASSUMED_FIXTURE",
+        "source": "independent synthetic evidence only",
+        "valid_for_operation_interval": true
+      }
+    },
+    "material_assessment": "UNCONFIRMED"
+  },
+  "proof": null,
+  "assessment": {
+    "validation": {
+      "status": "REJECTED",
+      "reasons": [
+        {
+          "path": "context.entry.BASIS_DEFINED",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.CONTINUITY_CONFIRMED",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.EVENT_FRESH",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.FEEDBACK_VALID",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.LEDGER_VALID",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.METHOD_SUPPORTED",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.RECEIPT_VALID",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.RESET_SWEEP_CLEAR",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.RESOURCES_READY",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.RESTORE_SEQUENCE_DEFINED",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "context.entry.TOOLS_HOME",
+          "code": "MALFORMED_ENTRY_INPUT"
+        },
+        {
+          "path": "proof",
+          "code": "PROOF_MUST_BE_OBJECT"
+        }
+      ]
+    },
+    "compatibility_domain": "OUT_OF_DOMAIN",
+    "policy_result": "NOT_EVALUATED",
+    "recovery_value": "UNKNOWN",
+    "entry_gate": "INDETERMINATE",
+    "causal_value": "UNKNOWN",
+    "action_gate": "INDETERMINATE",
+    "physical_permission": false,
+    "required_result_domains": [
+      "B_CLOSURE"
+    ],
+    "required_context_domains": [
+      "AXIS",
+      "B_CLOSURE",
+      "EVIDENCE",
+      "EXIT_RECEIVER",
+      "HYDRAULIC",
+      "MATERIAL",
+      "RESOURCES"
+    ],
+    "permitted_extra_domains": [
+      "AXIS",
+      "B_CLOSURE",
+      "EVIDENCE",
+      "EXIT_RECEIVER",
+      "FEED",
+      "HYDRAULIC",
+      "MATERIAL",
+      "RESOURCES",
+      "RETENTION"
+    ],
+    "entry_values": {
+      "BASIS_DEFINED": "UNKNOWN",
+      "CONTINUITY_CONFIRMED": "UNKNOWN",
+      "EVENT_FRESH": "UNKNOWN",
+      "FEEDBACK_VALID": "UNKNOWN",
+      "LEDGER_VALID": "UNKNOWN",
+      "METHOD_SUPPORTED": "UNKNOWN",
+      "RECEIPT_VALID": "UNKNOWN",
+      "RESET_SWEEP_CLEAR": "UNKNOWN",
+      "RESOURCES_READY": "UNKNOWN",
+      "RESTORE_SEQUENCE_DEFINED": "UNKNOWN",
+      "TOOLS_HOME": "UNKNOWN"
+    },
+    "entry_reasons": {
+      "BASIS_DEFINED": "MALFORMED_ENTRY_INPUT",
+      "CONTINUITY_CONFIRMED": "MALFORMED_ENTRY_INPUT",
+      "EVENT_FRESH": "MALFORMED_ENTRY_INPUT",
+      "FEEDBACK_VALID": "MALFORMED_ENTRY_INPUT",
+      "LEDGER_VALID": "MALFORMED_ENTRY_INPUT",
+      "METHOD_SUPPORTED": "MALFORMED_ENTRY_INPUT",
+      "RECEIPT_VALID": "MALFORMED_ENTRY_INPUT",
+      "RESET_SWEEP_CLEAR": "MALFORMED_ENTRY_INPUT",
+      "RESOURCES_READY": "MALFORMED_ENTRY_INPUT",
+      "RESTORE_SEQUENCE_DEFINED": "MALFORMED_ENTRY_INPUT",
+      "TOOLS_HOME": "MALFORMED_ENTRY_INPUT"
+    },
+    "entry_sources": {
+      "BASIS_DEFINED": "UNCONFIRMED_INPUT",
+      "CONTINUITY_CONFIRMED": "UNCONFIRMED_INPUT",
+      "EVENT_FRESH": "UNCONFIRMED_INPUT",
+      "FEEDBACK_VALID": "UNCONFIRMED_INPUT",
+      "LEDGER_VALID": "UNCONFIRMED_INPUT",
+      "METHOD_SUPPORTED": "UNCONFIRMED_INPUT",
+      "RECEIPT_VALID": "UNCONFIRMED_INPUT",
+      "RESET_SWEEP_CLEAR": "UNCONFIRMED_INPUT",
+      "RESOURCES_READY": "UNCONFIRMED_INPUT",
+      "RESTORE_SEQUENCE_DEFINED": "UNCONFIRMED_INPUT",
+      "TOOLS_HOME": "UNCONFIRMED_INPUT"
+    },
+    "state_value": "TRUE",
+    "history_confirmed": true,
+    "causal_sources": {}
+  }
+}

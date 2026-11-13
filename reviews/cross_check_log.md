@@ -5327,7 +5327,8 @@ findings:
     scan KeyError; independently valid current FALSE is replaced by UNKNOWN before composition.8variants of1cause,
     no new false TRUE.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: Authorized B03 raw-source correction under ARB-R1-CI-SEMANTICS-05 changes reviewed checker; sixth REJECT, findings, reviewed C and hashes preserved. Independent exact-C RECHECK required.
 blocker_ids:
 - R5-CI-B03
 allowed_downstream_scope: Stable documentary CYC-02/03 handoff and new CAD iteration NO-GO. Only previously authorized

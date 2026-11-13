@@ -1,3 +1,37 @@
+# R4 → независимый R5: B03 independent raw source RECHECK
+
+R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`
+записан до кода; checkpoint a76e298. Входной шестой акт R5 18e5af1 на C3060dbf,
+H f209ed2. Шесть актов/вердиктов/findings/hashes сохранены; interface6/material2.
+B03 OPEN; exact новый C — в следующей H-капсуле, автор блокер не закрывает.
+
+1. Тот же minimal journal witness и восемь same-input вариаций: валидный current
+   RESOURCES_READY/METHOD_SUPPORTED FALSE × четыре выхода сохраняет BLOCKED.
+   Reader exception и raw validity видны отдельно, scoped UNKNOWN сохранён.
+2. Повреждённый foreign journal в разных позициях/формах; raw TRUE/FALSE/UNKNOWN,
+   stale/foreign scope/action/guard/phase/revisions/provenance/method/interval.
+   Literal FALSE без fixed validation не принимается; без другого FALSE gate
+   INDETERMINATE. Raw TRUE не доказывает отсутствие latched fault и READY.
+3. Raw-reader exceptions, оба недоступных источника и второй достоверный own
+   FALSE; state/адресные causal запреты; прежний finish на восьми exits. Не
+   выдумывать target, не repair/drop fault и не применять proposed helper copy.
+4. Positive addressed recovery/minimal/unused domains/чужой fault/WORK запрет;
+   readonly caller/proof/origin/expected/history/rejected IDs/pending observations.
+5. Prior gate295/incomplete7/independent654/765, gate220/snapshot118/type244/36/
+   semantic411/B01/B02; fresh export/content/source checks. Frozen compatibility
+   только в допустимой IN_DOMAIN области, не equality с exception legacy reader.
+6. Сверить helper/norm53/84/18/44bindings/4variants/calculations/CAD и шесть актов.
+
+[Схема и команды](../raw_correction/README.md),
+[два источника](../raw_correction/EVALUATION.md),
+[контроли](../raw_correction/cases.json).
+Stable documentary/CAD handoff NO-GO до независимого exact-C RECHECK;
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущий запрос — история
+
 # R4 → независимый R5: B03 gate composition RECHECK
 
 Решение ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`

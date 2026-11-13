@@ -95,11 +95,24 @@ def assess(request, context, contract):
     entry_values = {}
     entry_reasons = {}
     entry_sources = {}
+    raw_evidence = {}
+    journal_evidence = {}
     for g in action['entry_guards']:
         record = evidence.get(g) if type(evidence) is dict else None
+        # Validate current evidence independently, before a journal-wide reader
+        # can fail on a different record. Never infer truth from record.value.
+        try:
+            raw, raw_reason = helper._raw_value(fixed, ACTION, g, context, record, 'ENTRY')
+            raw_evidence[g] = {'value': raw, 'reason': raw_reason,
+                               'status': 'VALIDATED' if raw_reason == 'CURRENT_ASSUMED_RECORD' else 'UNCONFIRMED'}
+        except (KeyError, TypeError, AttributeError, ValueError, StopIteration) as exc:
+            raw, raw_reason = 'UNKNOWN', 'MALFORMED_RAW_INPUT'
+            raw_evidence[g] = {'value': raw, 'reason': raw_reason, 'status': 'EXCEPTION', 'exception': type(exc).__name__}
+            fail('context.raw.' + g, raw_reason, exception=type(exc).__name__)
         source = 'FROZEN_CURRENT_EVIDENCE'
         try:
             value, reason = helper.evidence_value(fixed, ACTION, g, context, record, 'ENTRY')
+            journal_evidence[g] = {'value': value, 'reason': reason, 'status': 'EVALUATED'}
             if reason == 'PERMANENTLY_REJECTED_OPERATION_ID' and not history_valid:
                 value, reason, source = 'UNKNOWN', 'UNCONFIRMED_REJECTION_HISTORY', 'UNCONFIRMED_HISTORY'
             elif reason == 'UNRESOLVED_ADDRESSED_FAULT':
@@ -114,13 +127,15 @@ def assess(request, context, contract):
                     value, source = 'UNKNOWN', 'UNCONFIRMED_OR_UNKNOWN_OWN_FAULT'
                     # A damaged journal cannot erase an independent current
                     # FALSE record. This tightening is outside domain admission.
-                    raw, raw_reason = helper._raw_value(fixed, ACTION, g, context, record, 'ENTRY')
-                    if raw == 'FALSE' and len(confirmed) != len(own):
+                    if raw == 'FALSE' and raw_evidence[g]['status'] == 'VALIDATED' and len(confirmed) != len(own):
                         value, reason, source = raw, raw_reason, 'FROZEN_CURRENT_EVIDENCE'
-        except (KeyError, TypeError, AttributeError, ValueError):
+        except (KeyError, TypeError, AttributeError, ValueError, StopIteration) as exc:
             value, reason = 'UNKNOWN', 'MALFORMED_ENTRY_INPUT'
             source = 'UNCONFIRMED_INPUT'
-            fail('context.entry.' + g, reason)
+            journal_evidence[g] = {'value': value, 'reason': reason, 'status': 'EXCEPTION', 'exception': type(exc).__name__}
+            fail('context.entry.' + g, reason, exception=type(exc).__name__)
+            if raw == 'FALSE' and raw_evidence[g]['status'] == 'VALIDATED':
+                value, reason, source = raw, raw_reason, 'FROZEN_CURRENT_EVIDENCE'
         entry_values[g] = value;entry_reasons[g] = reason;entry_sources[g] = source
     state, mode, op = (context.get(k) for k in ['state', 'mode', 'operation_id'])
     identities_typed = all(type(v) is str and v for v in [state, mode, op])
@@ -134,6 +149,7 @@ def assess(request, context, contract):
     freshness = ('TRUE' if op not in denied and op not in completed else 'FALSE') if history_valid and type(op) is str and op and type(denied) is list and type(completed) is dict else 'UNKNOWN'
     result['entry_gate'] = helper.conjunction(list(entry_values.values()) + ['TRUE' if history_valid else 'UNKNOWN', freshness, state_value])
     result['entry_values'] = entry_values;result['entry_reasons'] = entry_reasons
+    result['raw_evidence'] = raw_evidence;result['journal_evidence'] = journal_evidence
     result['entry_sources'] = entry_sources;result['state_value'] = state_value
     result['history_confirmed'] = history_valid;result['causal_sources'] = {}
 
