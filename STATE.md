@@ -1,3 +1,50 @@
+# R4 — исправлены документальные B01/B02/B03, независимый RECHECK PENDING
+
+**Рабочий C `144941cbfc67002cbe81765e38c80e237473deff`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113`.
+https://github.com/narrateller/REV/commit/144941cbfc67002cbe81765e38c80e237473deff
+Следующий H — только STATE/NEXT/капсула; проверять код/пакет на точном C.
+Исходный C `ed8272ce6ebc2047bb0d896db5951d02c42d5208`, акт R5
+`13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2` сохранены предками.
+Исполнитель R4 / Codex / r4-cyc-fix-20261113, прямое корректирующее поручение.
+
+- B01: D0→D1→FILL-CONFIRM→D0→parent commit→отсечение. Адресная доза/материал/
+  операция/ревизии, явный MATERIAL/FEED successor, mode/parent и endpoints;
+  команда/таймер/чужая квитанция не заменяют подтверждение.
+- B02: собственные guards closure recovery без generic DEPENDENCY_VALID;
+  closure result, targeted fault recovery, history reconciliation и новый NEXT
+  раздельны; материальные/сервисные отказы и rejected IDs сохраняются.
+- B03: readonly семантика поз/guards/parent/mode/источников и полного CSV/MD/SVG
+  после re-export; 28 мутаций отклонены.
+
+Фактически: исходный R5 воспроизведён 1345/1328 PASS/17 FAIL; новая редакция
+2376 document MATCH, 8 export MATCH, 7 unittest methods PASS, registry --check-git
+PASS; 612 protected files, 44 bindings, все четыре силовых варианта побайтно сохранены.
+Расчёты/CAD/registry/checked helpers/исходный R5 probe не менялись.
+[Исправление/команды](verification/r4_cycle_interfaces/correction/README.md),
+[результаты](verification/r4_cycle_interfaces/correction/checks.json),
+[запрос RECHECK](verification/r4_cycle_interfaces/proposal/review_request.md).
+
+**R5-CI-B01/B02/B03 OPEN до независимого RECHECK**, parent IN_REVIEW, не DONE.
+Старый REJECT остаётся на исходном C; только validity индекса STALE для новой
+редакции. Старый B01 C0c4eb5d и consecutive_rejections=2 не изменены.
+Main `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, accepted PR45 owner
+r4-linked-20261111 и lease до 2026-11-14T00:13:12.404899+00:00 (14 ноября
+03:13 МСК) сохранены, без переназначения/продления/merge. C опубликован в новой
+ветке; исходная ветка R4/main не перезаписана.
+
+Следующий участник — независимый R5: получить точный C, проверить parent/input
+SHA и команды review_request, выполнить собственные позитивные/негативные
+семантические пробы и дать отдельный неизменяемый RECHECK. Успех авторских
+проверок не закрывает замечания. Допуск силовых постановок R3 только WARNING.
+W02 OPEN/NOT_IMPLEMENTED; executable material/physical READY NO-GO. G1 OPEN,
+архитектура/ТЗ не утверждены. Native CAD/solver/rebuild/physical trials NOT_RUN,
+реальные R2/R3 условия UNKNOWN, проверенных геометрических пар 0.
+Капсула: handoffs/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113.md; UTC 2026-11-13T06:08:53.745806+00:00.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
 OUTPUT review C **13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2**; капсула handoffs/T-r5-cyc0203-output/r5-cyc0203-20261113.md. REJECT_WITH_BLOCKER для интерфейса/CAD; каждый силовой вариант WARNING только в R3. W02/physical READY NO-GO, G1 OPEN.
 
 # OUTPUT CYC-02/03 — независимый R5, REJECT_WITH_BLOCKER
