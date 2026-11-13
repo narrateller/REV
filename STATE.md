@@ -1,3 +1,42 @@
+# R4 — B03 raw source по ARB-R1-CI-SEMANTICS-05, RECHECK PENDING
+
+**Exact C `b89854ad709bcb5c2991376bed41bf2f73acef82`, REMOTE_VERIFIED**,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-raw-20261113`.
+https://github.com/narrateller/REV/commit/b89854ad709bcb5c2991376bed41bf2f73acef82
+H меняет только STATE/NEXT/капсулу; package H byte-identical C.
+[Капсула](handoffs/T-r4-cycle-interfaces-01/r4-b03-raw-20261113.md).
+
+R1 `3aa5ee100f57aa75315d429afef38f8a982b1afc` записан в капсуле до кода,
+audit/evaluation checkpointa76e298. Main3a9258c,accepted PR45 owner
+r4-linked-20261111 и lease2026-11-14T00:13:12.404899+00:00 сверены при
+публикации; owner/срок не менялись/не продлевались. Шестой акт R5 18e5af1,
+H f209ed2 и пять прежних актов сохранены; interface6/material2 не обнулены.
+
+Fixed raw current record проверяется независимо до journal-dependent reader.
+Валидированный raw FALSE сохраняет BLOCKED при reader exception; scope/action/
+phase/revision/provenance/method/interval проверки helper не обходятся. Literal
+FALSE без валидации не доказательство. Raw TRUE/UNKNOWN при неизвестном journal
+не разрешает recovery/READY. Raw/journal truth/reason/status/exception видны
+раздельно; own/state/causal/scoped и единый finish сохраняются. Caller/proof/
+origin/expected/history/rejected IDs/pending observations readonly; fault не
+repair/drop, target/domain/revision не подставлены, helper copy не применяется.
+[Схема и результаты](verification/r4_cycle_interfaces/raw_correction/README.md),
+[восемь сравнений](verification/r4_cycle_interfaces/raw_correction/eight_variations.json).
+
+966 new cases/9 methods PASS, R5 unchanged matrix231/231, minimal same-input
+BLOCKED при scoped UNKNOWN;8 variations same typed digests. Retained gate220,
+snapshot118,type244/36,semantic411,B01/B02 seven methods и independent654/765/7/
+295 PASS; prior19 retained. 3277 document checks,8 export checks,registry --check-git
+PASS. Это авторские проверки, независимый exact-C RECHECK PENDING.
+Helper/norm53/84/18/44bindings/4variants/612protected/calculations/CAD,payload/
+data exports и шесть review packages сохранены. B03 OPEN; приёмка/stable
+handoff/CAD NO-GO. W02/physical READY NO-GO,PLC/CAD/rebuild/physical trials
+вне scope,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 B03 all-exit RECHECK act C **18e5af1dae177cdfcb24951d3b36c2fd43395421**;capsule handoffs/T-r5-ci-gate-recheck/r5-ci-gate-exits-20261113.md. Old2minimal/19variants fixed,8/8exits exercised;new current-FALSE loss on journal exception remains (8variants/1cause). B03 OPEN,stable documentary handoff NO-GO;fiveoldrejections preserved,current sixth. W02/physicalREADY NO-GO,G1OPEN.
 
 # R5 RECHECK B03 all exits — OPEN / REJECT_WITH_BLOCKER

@@ -1,3 +1,34 @@
+# Следующее действие — независимый R5 RECHECK B03 exact C
+
+C **b89854ad709bcb5c2991376bed41bf2f73acef82**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/b89854ad709bcb5c2991376bed41bf2f73acef82
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-raw-20261113;
+капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-raw-20261113.md.
+R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`.
+
+R5: сверить main/owner/lease/входы,checkout exact C; исполнить план решения и
+proposal/review_request.md. Проверить same-input minimal journal witness и8
+вариаций,raw TRUE/FALSE/UNKNOWN и stale/foreign/action/phase/revision/interval/
+provenance/method controls. Подтверждённый raw FALSE сохраняет BLOCKED при
+journal exception; invalid literal FALSE не принимается. Raw TRUE не заменяет
+журнал и не доказывает READY; без достоверного FALSE gate INDETERMINATE.
+Проверить raw exceptions,другие own/state/адресные causal запреты,все8 finish
+exits,positive addressed recovery/foreign fault/WORK запрет/readonly.
+Повторить prior gate295,incomplete7,source/type/norm/B01/B02 и author regressions.
+Raw historical C/session literals не являются identity нового review;
+source hashes в checks.json и эта capsule задают actual C. Author replay не акт.
+
+B03 OPEN,шесть REJECT/interface6 и material2 сохранены; stable handoff/CAD NO-GO
+до независимого exact-C акта. Accepted owner PR45 r4-linked-20261111 и lease
+2026-11-14T00:13:12.404899+00:00 без продления; main3a9258c не менялась.
+Helper/norm53/84/18/44bindings/4variants/calculations/CAD не менять; W02/physical
+READY NO-GO,PLC/CAD/rebuild вне scope,G1 OPEN; архитектура/ТЗ не утверждены.
+Не повторять завершённую R4 итерацию и не repair/удалять foreign journal faults.
+
+---
+
+## Предыдущая эстафета — история
+
 # R1 — независимый current FALSE при ошибке journal-reader
 
 R5 `18e5af1dae177cdfcb24951d3b36c2fd43395421` на C `3060dbf561f95e4384fbfd13a9cc5569690515e5`, шестой интерфейсный REJECT. R1 воспроизвёл минимальный свидетель и matrix231/223/8. Решение `decisions/ARB-R1-CI-SEMANTICS-05.md`, evidence `verification/r1_ci_journal_arbitration/`.
