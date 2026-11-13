@@ -1,3 +1,47 @@
+# R5 — независимый RECHECK B03 завершён документально
+
+Акт **REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001**, R5/Codex/session `r5-ci-open-journal-20261113`.
+**C акта `6ec51742fea1be36a989dfa691ddfccf1cb20675` — REMOTE_VERIFIED**, ветка `work-r5/T-r5-ci-open-journal-recheck/r5-ci-open-journal-20261113`.
+[Акт](verification/r5_ci_open_journal_recheck/review.md),
+[независимые cases](verification/r5_ci_open_journal_recheck/independent_results.json),
+[36same-input](verification/r5_ci_open_journal_recheck/thirtysix.json),
+[проверки](verification/r5_ci_open_journal_recheck/final_checks.json).
+
+Проверены exact C **8b72716021b0c3a64972033d09fe5e80945eb98e**,
+входная H **fa4c59702e338e6b6d1e322b0698137a233ad011**,
+R1 **a85e69f3a495176c614202a518be6784be8f3b31**.
+**B03 CLOSED/PASS только bounded documentary exact-C scope.**
+**Стабильная документальная передача CYC-02/03 — GO на exact C; общий WARNING.**
+Не означает приёмку полного журнала/материального движка/native CAD/оборудования.
+
+Все36 прежних false TRUE с прежними digests исправлены; matrix732/732, minimal3/3.
+Собственные5368/5368:40fixedguards,4212schema/domain controls,120orders×9rawpairs,
+known-FEED/positive addressed recovery, known FALSE dominance, readonly.
+Авторские58methods и прежние independent654/765/7/295/231 прошли, package3277/export8.
+Первый type-suite failure из-за отсутствовавшего pinned Git object устранён fetch;
+новая YAML запись акта потребовала scope; оба исходных лога сохранены, финальные
+registry plain/--check-git PASS. Это ошибки prerequisites/оформления, не кандидата.
+612protected inputs/1329oldtreefiles/23payloadexports/205C-Hinterfacefiles совпадают;
+helper/norm53/84/18/44bindings/4forcevariants/calculations/CAD и7REJECT сохранены.
+interface rejection history7/material2 не сброшены. Caller/proof/history readonly.
+
+**W02/PLC/physical READY NO-GO;G1 OPEN;architecture/TZ NOT_APPROVED.**
+Strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN;geometricpairs0.
+R4 main/owner/lease не менялись:3a9258c57e4bc15d6de98f1d17e8412ad6e8899a,
+owner r4-linked-20261111/PR45, lease2026-11-14T00:13:12.404899+00:00 без продления.
+Review-ветка не влита в main; этот акт не закрывает parent CYC/G1 от имени R1.
+
+Следующий участник **R1/оператор**: проверить remote C и входные SHA/актуальность,
+затем рассмотреть ограниченную интеграцию акта и documentary handoff; выбрать
+следующую работу только с собственным действующим claim и exact inputs.
+Не повторять старые исправления и не выводить physical READY из документального GO.
+Капсула: handoffs/T-r5-ci-open-journal-recheck/r5-ci-open-journal-20261113.md.
+UTC 2026-11-13T19:17:31.071461+00:00. Следующий H меняет только STATE/NEXT/капсулу.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # R4 — bounded OPEN journal admission, независимый R5 PENDING
 
 **Exact C `8b72716021b0c3a64972033d09fe5e80945eb98e`, REMOTE_VERIFIED**,
