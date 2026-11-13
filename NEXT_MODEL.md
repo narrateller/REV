@@ -1,3 +1,11 @@
+# R1 — композиция gate после пятого интерфейсного REJECT
+
+Акт `88a34f8b7d2d6dbf236101f207e206efb0e3c747` на C `e30b4b7caf3040905cc23c79ca696af2871c958a`: B03 OPEN, прежние false TRUE исправлены, 19 нарушений BLOCKED dominance. R1 воспроизвёл 295/276/19 и два минимальных witnesses, решение `decisions/ARB-R1-CI-SEMANTICS-04.md`, evidence `verification/r1_ci_gate_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, проверить claim/входы и исправить независимую own/causal оценку и единую композицию на всех ветвях proof/schema rejection; затем независимый R5 RECHECK. Не менять helper, нормы или расчёты/CAD. interface counter5/material counter2 сохраняются; стабильный handoff и physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
 # R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
 
 **C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
