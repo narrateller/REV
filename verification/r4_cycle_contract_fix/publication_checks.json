@@ -1,0 +1,77 @@
+{
+  "observed_at_utc": "2026-11-12T21:48:06.656492+00:00",
+  "main": "d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9",
+  "claim": "9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff",
+  "owner_session": "r4-linked-20261111",
+  "lease_expires_at": "2026-11-13T18:16:39+00:00",
+  "lease_valid": true,
+  "lease_extended": false,
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "verification/r4_cycle_contract_fix/check_fix.py",
+        "--baseline"
+      ],
+      "exit_code": 0,
+      "result": "EXACT_R5_BASELINE_26_CASES_10_OLD_MISMATCHES_NOT_ACCEPTANCE"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "verification/r4_cycle_contract_fix/check_fix.py"
+      ],
+      "exit_code": 0,
+      "result": "154_MATCH_26_R5_REMAINING_MISMATCHES_0"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "verification/r4_cycle_contract/check_documents.py"
+      ],
+      "exit_code": 0,
+      "result": "59_EXAMPLES_2_TRACES_MATCH_DOCUMENT_SCOPE"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/check_registry.py",
+        "--check-git"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: repository consistency checks; engineering acceptance NOT assessed\n"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "initial_registry_attempt": {
+    "exit_code": 1,
+    "stdout": "FAIL: REV-R5-R4-CYCLE-CONTRACT-01-001: Artifact hash mismatch: verification/r4_cycle_contract/README.md\n",
+    "remedy": "Mark old reviewed artifact index STALE under AGENT_PROTOCOL section 4; verdict/findings/commit/digests unchanged. New independent RECHECK mandatory."
+  },
+  "code_files": {
+    "verification/r4_cycle_contract/check_documents.py": "5b58fdfd1b60a5c2271dae0440a37a93bf55974599ee95f6bf067761a0fb5386",
+    "verification/r4_cycle_contract/permission_examples.py": "3fee23ad5e6ebdec03292242081a68e97feedd7a4fb1ea6f955b623ff6c7140a",
+    "verification/r4_cycle_contract_fix/check_fix.py": "74111b4f72418ee8473ec1ceafd33df1b1c5ba1196e5a474ce557d9aefa06536"
+  },
+  "original_required_guards_preserved": true,
+  "protected_main_trees": 11,
+  "source_blobs": 17,
+  "original_R5_tree": "UNCHANGED",
+  "ledger_examples_and_resources_json": "UNCHANGED",
+  "independent_RECHECK": "NOT_RUN",
+  "R5_CC_B01_W01_W02": "OPEN",
+  "engineering_acceptance": "NOT_ASSESSED",
+  "numerical_solver_CAD_rebuild_physical_tests": "NOT_RUN",
+  "G1": "OPEN"
+}

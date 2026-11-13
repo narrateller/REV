@@ -1,0 +1,1782 @@
+[
+  {
+    "source_row": "A0",
+    "variant": "A",
+    "source_stage": "startup",
+    "kind": "EVENT_STAGE",
+    "start_end": "inventory audit → startup route chosen",
+    "predecessors": "None",
+    "material_interface": "A_UNKNOWN → A_EMPTY; A startup separate from steady",
+    "consumers": "control/sensors; startup consumers UNKNOWN",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A1",
+    "variant": "A",
+    "source_stage": "load",
+    "kind": "EVENT_STAGE",
+    "start_end": "DELIVER_DOSE begin → confirmed dose in press",
+    "predecessors": "A0/A7; startup refill after A3 only if refill pose restored",
+    "material_interface": "A_STARTUP_RAW / A_COLUMN_BUILDING / A_STEADY_LOADED",
+    "consumers": "feeder/doser/agitator if present, control",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A2",
+    "variant": "A",
+    "source_stage": "isolate",
+    "kind": "EVENT_STAGE",
+    "start_end": "close/isolate begin → ISOLATION_CONFIRMED",
+    "predecessors": "A1",
+    "material_interface": "Material unchanged; inlet clear/retained known",
+    "consumers": "gate drive/valves/sensors",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A3",
+    "variant": "A",
+    "source_stage": "press",
+    "kind": "EVENT_STAGE",
+    "start_end": "approach → gather/COMPACT criterion",
+    "predecessors": "A2 + reaction; repeat startup A1 as hypothesis",
+    "material_interface": "A_COLUMN_BUILDING or A_COMPACTED_CANDIDATE",
+    "consumers": "main axis pump/motor, clamp/holding branch",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A4",
+    "variant": "A",
+    "source_stage": "hold_unload",
+    "kind": "EVENT_STAGE",
+    "start_end": "hold begin → unload/holding state confirmed",
+    "predecessors": "A3",
+    "material_interface": "Retained/segment history; unloading must preserve retention",
+    "consumers": "main hold/clamp/valves/leaks/standby/cooling",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A5",
+    "variant": "A",
+    "source_stage": "eject",
+    "kind": "EVENT_STAGE",
+    "start_end": "IDENTIFY_SEGMENT → eject → whole crossing → ACK",
+    "predecessors": "A3/A4 chosen reaction/retention sequence UNKNOWN",
+    "material_interface": "A_SEGMENT_READY → A_RECEIVED_RETAINED; no automatic REMOVE",
+    "consumers": "main/ejection drive, receiver if present UNKNOWN",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A6",
+    "variant": "A",
+    "source_stage": "return",
+    "kind": "EVENT_STAGE",
+    "start_end": "RETURN_TOOLS begin → TOOLS_HOME with retained stable",
+    "predecessors": "A5 or conditional safe overlap with pending receipt",
+    "material_interface": "Product/custody not removed by return",
+    "consumers": "return pump/motor, retention/clamp, control",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A7",
+    "variant": "A",
+    "source_stage": "ready",
+    "kind": "EVENT_STAGE",
+    "start_end": "reconcile inventory → target READY evaluated",
+    "predecessors": "A6 + receipt ledger + retained audit",
+    "material_interface": "Next steady inventory; startup load has separate READY",
+    "consumers": "resources availability; control/standby",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "A8",
+    "variant": "A",
+    "source_stage": "resources",
+    "kind": "RESOURCE_OVERLAY",
+    "start_end": "overlay: all start/end events",
+    "predecessors": "all A rows; no sequential extra duration",
+    "material_interface": "No material transform",
+    "consumers": "all consumers + cooling/lube/control/standby",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B0",
+    "variant": "B",
+    "source_stage": "startup",
+    "kind": "EVENT_STAGE",
+    "start_end": "inventory audit → acceptable initial case",
+    "predecessors": "None",
+    "material_interface": "B_UNKNOWN → B_ACCEPTABLE_INITIAL",
+    "consumers": "control/sensors; startup consumers UNKNOWN",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B1",
+    "variant": "B",
+    "source_stage": "load",
+    "kind": "EVENT_STAGE",
+    "start_end": "DELIVER_DOSE → selected batch or partial refill",
+    "predecessors": "B0/B7; repeat after B3 gather+safe refill pose",
+    "material_interface": "B_RAW_LOADED / B_GATHERED_PARTIAL / B_BATCH_SELECTED",
+    "consumers": "feeder/doser/agitator if present, control",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B2",
+    "variant": "B",
+    "source_stage": "isolate",
+    "kind": "EVENT_STAGE",
+    "start_end": "isolation begin → ISOLATION_CONFIRMED",
+    "predecessors": "B1",
+    "material_interface": "No new material; batch remains traced",
+    "consumers": "gate drive/valves/sensors",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B3",
+    "variant": "B",
+    "source_stage": "press",
+    "kind": "EVENT_STAGE",
+    "start_end": "approach → GATHER_PARTIAL or COMPACT",
+    "predecessors": "B2 + closed force path; gather loop may return B1",
+    "material_interface": "B_GATHERED_PARTIAL / B_COMPACTED",
+    "consumers": "main axis pump/motor, closed stop/lock reaction",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B4",
+    "variant": "B",
+    "source_stage": "hold_unload",
+    "kind": "EVENT_STAGE",
+    "start_end": "hold begin → B_UNLOADED",
+    "predecessors": "B3",
+    "material_interface": "Product/history/residue remain; residual reaction UNKNOWN",
+    "consumers": "hold/decompression/valves/leaks/motor/cooling",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B4U",
+    "variant": "B",
+    "source_stage": "unlock",
+    "kind": "EVENT_STAGE",
+    "start_end": "unlock begin → LOCK_CLEAR",
+    "predecessors": "B4 (confirmed unload, not timer)",
+    "material_interface": "No material transfer",
+    "consumers": "lock actuator/pump/valves/control",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B4O",
+    "variant": "B",
+    "source_stage": "open",
+    "kind": "EVENT_STAGE",
+    "start_end": "open begin → STOP_OPEN",
+    "predecessors": "B4U",
+    "material_interface": "No material transfer; actual opening INDETERMINATE",
+    "consumers": "stop actuator/pump/valves/control",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B5",
+    "variant": "B",
+    "source_stage": "eject",
+    "kind": "EVENT_STAGE",
+    "start_end": "eject → whole crossing → ACK",
+    "predecessors": "B4O + all ejection guards",
+    "material_interface": "B_EJECTABLE → B_RECEIVED_RESIDUAL",
+    "consumers": "main/ejector + receiver if present UNKNOWN",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B6",
+    "variant": "B",
+    "source_stage": "return",
+    "kind": "EVENT_STAGE",
+    "start_end": "return begin → tools home; reset sweep → restored stop/lock",
+    "predecessors": "B5; reset after receipt/product+residue clear",
+    "material_interface": "Residue preserved, reset not REMOVE",
+    "consumers": "return, stop/lock restoration, valves/control",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B7",
+    "variant": "B",
+    "source_stage": "ready",
+    "kind": "EVENT_STAGE",
+    "start_end": "inventory reconciliation → READY target evaluated",
+    "predecessors": "B6 + receipt ledger + residue audit",
+    "material_interface": "B_ACCEPTABLE_INITIAL only if residue policy true",
+    "consumers": "resource availability; control/standby",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  },
+  {
+    "source_row": "B8",
+    "variant": "B",
+    "source_stage": "resources",
+    "kind": "RESOURCE_OVERLAY",
+    "start_end": "overlay: all start/end events",
+    "predecessors": "all B rows; no sequential extra duration",
+    "material_interface": "No material transform",
+    "consumers": "all consumers + cooling/lube/control/standby",
+    "possible_overlap": "UNKNOWN: только кандидат при независимых ресурсах, непересекающихся путях, допустимом удержании и актуальном feedback; не разрешение",
+    "questions": [
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "quantities": {
+      "duration": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "start_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "end_time": {
+        "value": null,
+        "unit": "s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-04"
+      },
+      "p_supply": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_in": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "p_port_out": {
+        "value": null,
+        "unit": "Pa",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_in": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "Q_out": {
+        "value": null,
+        "unit": "m^3/s",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "P_electric": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "E_electric": {
+        "value": null,
+        "unit": "J",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "losses": {
+        "value": null,
+        "unit": "W",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      },
+      "efficiency": {
+        "value": null,
+        "unit": "1",
+        "status": "UNKNOWN",
+        "unknown_reason": "Нет полного REV stage/branch/feedback/measurement definition; Q-R3-05"
+      }
+    }
+  }
+]

@@ -1,0 +1,3787 @@
+{
+  "schema": "rev-cycle-document-contract/3",
+  "status": "ASSUMED_INTERFACE_PROPOSAL",
+  "scope": "DOCUMENT_CONSISTENCY_ONLY",
+  "states": {
+    "A": [
+      "A_UNKNOWN",
+      "A_EMPTY",
+      "A_STARTUP_RAW",
+      "A_COLUMN_BUILDING",
+      "A_COLUMN_ESTABLISHED",
+      "A_STEADY_LOADED",
+      "A_COMPACTED_CANDIDATE",
+      "A_SEGMENT_READY",
+      "A_EXITING",
+      "A_OUTSIDE_PENDING",
+      "A_RECEIVED_RETAINED"
+    ],
+    "B": [
+      "B_UNKNOWN",
+      "B_ACCEPTABLE_INITIAL",
+      "B_RAW_LOADED",
+      "B_GATHERED_PARTIAL",
+      "B_BATCH_SELECTED",
+      "B_COMPACTED",
+      "B_EJECTABLE",
+      "B_EXITING",
+      "B_OUTSIDE_PENDING",
+      "B_RECEIVED_RESIDUAL"
+    ],
+    "AUDIT": [
+      "RESOURCE_DRAFT"
+    ]
+  },
+  "events": [
+    "AUDIT_INVENTORY",
+    "DELIVER_DOSE",
+    "GATHER_PARTIAL",
+    "ESTABLISH_COLUMN",
+    "SELECT_BATCH",
+    "COMPACT",
+    "IDENTIFY_SEGMENT",
+    "START_EJECTION",
+    "CROSS_EXIT_COMPLETELY",
+    "ACK_RECEIPT",
+    "REMOVE_GEOMETRY",
+    "RETURN_TOOLS",
+    "RESET_B",
+    "RECONCILE_NEXT_INVENTORY",
+    "REQUEST_READY",
+    "CHECK_FULL_CYCLE_BASIS"
+  ],
+  "guards": [
+    {
+      "id": "BASIS_DEFINED",
+      "definition": "Одна определённая массовая/влажностная база L1",
+      "question": "Q-R2-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-01",
+      "evidence_domains": [
+        "MATERIAL"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "EVENT_FRESH",
+      "definition": "Уникальное/актуальное событие, согласованные ID/epoch/время и тип",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "REQUEST"
+    },
+    {
+      "id": "INVENTORY_KNOWN",
+      "definition": "Начальное/текущее множество вещества, история и остаток установлены",
+      "question": "Q-R2-05",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-05",
+      "evidence_domains": [
+        "MATERIAL"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "LEDGER_VALID",
+      "definition": "Нет известного нарушения L1–L4; неизвестная невязка не сочтена нулём",
+      "question": "Q-R2-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-01",
+      "evidence_domains": [
+        "MATERIAL"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "EMPTY_CONFIRMED",
+      "definition": "Именно empty case подтверждён, не выведен из HOME",
+      "question": "Q-R2-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-03",
+      "evidence_domains": [
+        "MATERIAL"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "DOSE_DELIVERED",
+      "definition": "Материал действительно пересёк вход, dose_id и lineage зарегистрированы",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
+      "evidence_domains": [
+        "MATERIAL",
+        "FEED"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "FEED_CLEAR",
+      "definition": "Подача/набор допускаются позами и вместимостью, незавершённый продукт не мешает",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "MATERIAL",
+        "FEED",
+        "AXIS"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "ISOLATION_CONFIRMED",
+      "definition": "Подача отсечена для требуемой операции",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "FEED"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "A_REACTION_DEFINED",
+      "definition": "Реакция/удержание при выбранной гипотезе A обеспечены",
+      "question": "Q-R2-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "RETENTION"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "COLUMN_CRITERION",
+      "definition": "Критерии образования столба/геометрии/history выполнены",
+      "question": "Q-R2-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "RETENTION"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "RETAINED_STABLE",
+      "definition": "Идентичность/положение/удержание retained column подтверждены",
+      "question": "Q-R2-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "RETENTION",
+        "AXIS"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "PARTIAL_CRITERION",
+      "definition": "Допустим промежуточный gather, не завершённый продукт",
+      "question": "Q-R2-04",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-04",
+      "evidence_domains": [
+        "MATERIAL",
+        "AXIS"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "BATCH_CRITERION",
+      "definition": "Набор завершён по определённому критерию B",
+      "question": "Q-R2-04",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-04",
+      "evidence_domains": [
+        "MATERIAL"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "COMPACTION_CRITERION",
+      "definition": "Трансформация сжатия/history выполнена, не один таймер/координата",
+      "question": "Q-R2-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-02",
+      "evidence_domains": [
+        "MATERIAL",
+        "AXIS"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "PARTITION_DEFINED",
+      "definition": "Outgoing/retained — полный непересекающийся partition с явным остатком",
+      "question": "Q-R2-05",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-05",
+      "evidence_domains": [
+        "MATERIAL"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "EJECTION_PATH_CLEAR",
+      "definition": "Поддерживаемая проверка всего пути выдачи и обязательных пар",
+      "question": "Q-R3-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "AXIS",
+        "EXIT_RECEIVER"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "CONTINUITY_CONFIRMED",
+      "definition": "Идентичность/база/масса/положение/history непрерывны",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
+      "evidence_domains": [
+        "MATERIAL",
+        "AXIS"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "WHOLE_BEYOND_EXIT",
+      "definition": "Весь согласованный объект за определённой границей",
+      "question": "Q-R3-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "EXIT_RECEIVER"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RECEIVER_DEFINED",
+      "definition": "Приёмник/вместимость/условия приёма определены и выполнены",
+      "question": "Q-R3-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-03",
+      "evidence_domains": [
+        "EXIT_RECEIVER"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RECEIPT_VALID",
+      "definition": "Актуальный уникальный ACK именно объекта/массы/базы за границей",
+      "question": "Q-R3-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "EXIT_RECEIVER"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "NO_MODEL_INTERACTION",
+      "definition": "Принятое тело не участвует далее в MODEL_DOMAIN/sweeps",
+      "question": "Q-R3-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "AXIS",
+        "EXIT_RECEIVER"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "B_UNLOADED",
+      "definition": "Разгрузка/остаточная реакция и энергия по определённому критерию B",
+      "question": "Q-R2-04",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-04",
+      "evidence_domains": [
+        "B_CLOSURE",
+        "HYDRAULIC"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "B_OPEN_SEQUENCE_VALID",
+      "definition": "Актуальная история подтверждает UNLOAD раньше UNLOCK раньше OPEN без разрыва состояния",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "B_CLOSURE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "LOCK_CLEAR",
+      "definition": "Замок выведен из силового взаимодействия с подтверждением",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "B_CLOSURE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "STOP_OPEN",
+      "definition": "Упор открыт после разгрузки/отпирания; физика B не предполагается",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "B_CLOSURE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RESET_SWEEP_CLEAR",
+      "definition": "Полный путь reset свободен от продукта И остатков без удаления ради clear",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "MATERIAL",
+        "B_CLOSURE",
+        "AXIS"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "TOOLS_HOME",
+      "definition": "Пуансон и связанные инструменты в подтверждённых исходных позах",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "AXIS"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "B_RESET_CONFIRMED",
+      "definition": "Упор/замок восстановлены в определённом порядке с feedback",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-02",
+      "evidence_domains": [
+        "B_CLOSURE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RESIDUE_ALLOWED",
+      "definition": "Идентифицированный остаток B допустим для выбранного следующего набора",
+      "question": "Q-R2-04",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R2-04",
+      "evidence_domains": [
+        "MATERIAL"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "TRANSFER_LEDGER_CLOSED",
+      "definition": "Нет неразрешённой передачи предыдущего epoch; это не фиктивный ACK на пуске",
+      "question": "Q-R3-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "EXIT_RECEIVER"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RESOURCES_READY",
+      "definition": "Доступны требуемые на следующий разрешаемый этап ресурсы/ёмкость; полная мощность не доказана",
+      "question": "Q-R3-05",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-05",
+      "evidence_domains": [
+        "RESOURCES",
+        "HYDRAULIC"
+      ],
+      "fault_subject_kind": "RESOURCE"
+    },
+    {
+      "id": "FEEDBACK_VALID",
+      "definition": "Все используемые подтверждения имеют актуальные источник/epoch/условия",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "METHOD_SUPPORTED",
+      "definition": "Метод проверки обязательного условия применим ко всему интервалу",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-01",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "TIMING_BASIS_COMPLETE",
+      "definition": "Все обязательные стадии/паузы/перекрытия определены, время оси не подставлено за цикл",
+      "question": "Q-R3-04",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-04",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RESOURCE_BASIS_COMPLETE",
+      "definition": "Неизвестные мощности/расходы/потери не заменены нулями; охвачены обязательные потребители",
+      "question": "Q-R3-05",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Ответ/подтверждение REV не получены; см. Q-R3-05",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "DEPENDENCY_VALID",
+      "definition": "История разрешённых предшествующих действий и фактов согласована; нет неразрешённого отказа/UNKNOWN в обязательной зависимости",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Нет реального подтверждения REV; Q-R3-01",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    },
+    {
+      "id": "AUDIT_CHANNEL_READY",
+      "definition": "Доступен канал чтения/фиксации доказательств конкретного аудита; не общий насос/READY",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Нет реального подтверждения REV; Q-R3-01",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RECOVERY_METHOD_DEFINED",
+      "definition": "Определён применимый метод выбранной проверки/восстановления и её границы; не предполагается неизвестное состояние-цель",
+      "question": "Q-R3-01",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Нет реального подтверждения REV; Q-R3-01",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "RESTORE_SEQUENCE_DEFINED",
+      "definition": "Для выбранной фазы B определён порядок восстановления stop/lock и его подтверждения; это не уже восстановленное состояние",
+      "question": "Q-R3-02",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Нет реального подтверждения REV; Q-R3-02",
+      "evidence_domains": [
+        "EVIDENCE"
+      ],
+      "fault_subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+    },
+    {
+      "id": "STARTUP_INVENTORY_PRESERVED",
+      "definition": "Частичный стартовый запас/его история не теряются при возврате/refill A; established column ещё не предполагается",
+      "question": "Q-R2-03",
+      "actual_value": null,
+      "status": "UNKNOWN",
+      "unknown_reason": "Нет реального подтверждения REV; Q-R2-03",
+      "evidence_domains": [
+        "MATERIAL",
+        "RETENTION"
+      ],
+      "fault_subject_kind": "MATERIAL"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "A-AUDIT",
+      "variant": "A",
+      "from_states": [
+        "A_UNKNOWN"
+      ],
+      "event": "AUDIT_INVENTORY",
+      "to_state": "A_EMPTY",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EMPTY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID"
+      ],
+      "inventory_effect": "Фиксация проверенного empty case, без продукта",
+      "source_rows": [
+        "A0"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "EMPTY_CONFIRMED",
+        "INVENTORY_KNOWN"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-LOAD-START",
+      "variant": "A",
+      "from_states": [
+        "A_EMPTY"
+      ],
+      "event": "DELIVER_DOSE",
+      "to_state": "A_STARTUP_RAW",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "DOSE_DELIVERED",
+        "EMPTY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "UPSTREAM → PRESS_ACCOUNT: новая сырая доза, L2",
+      "source_rows": [
+        "A1"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "A_EMPTY",
+          "target": "A-READY-START-LOAD"
+        }
+      ],
+      "completion_guards": [
+        "DOSE_DELIVERED"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EMPTY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "FEED"
+      ],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-GATHER",
+      "variant": "A",
+      "from_states": [
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING"
+      ],
+      "event": "GATHER_PARTIAL",
+      "to_state": "A_COLUMN_BUILDING",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "PARTIAL_CRITERION",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "То же вещество; накопление/частичное сжатие, L3; не product",
+      "source_rows": [
+        "A2",
+        "A3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "A_STARTUP_RAW",
+          "target": "A-READY-START-PRESS"
+        },
+        {
+          "from_state": "A_COLUMN_BUILDING",
+          "target": "A-READY-START-PRESS"
+        }
+      ],
+      "completion_guards": [
+        "PARTIAL_CRITERION"
+      ],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-REFILL",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_BUILDING"
+      ],
+      "event": "DELIVER_DOSE",
+      "to_state": "A_COLUMN_BUILDING",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "DOSE_DELIVERED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "inventory_effect": "Новая доза к стартовому запасу; Δretained не обнуляется",
+      "source_rows": [
+        "A1"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "A_COLUMN_BUILDING",
+          "target": "A-READY-START-REFILL"
+        }
+      ],
+      "completion_guards": [
+        "DOSE_DELIVERED"
+      ],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "FEED"
+      ],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-COLUMN",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_BUILDING"
+      ],
+      "event": "ESTABLISH_COLUMN",
+      "to_state": "A_COLUMN_ESTABLISHED",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "COLUMN_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "RETAINED_STABLE"
+      ],
+      "inventory_effect": "Тот же стартовый запас, критерий H-A, L3",
+      "source_rows": [
+        "A0",
+        "A3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "COLUMN_CRITERION"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "RETENTION"
+      ],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-LOAD-STEADY",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_ESTABLISHED"
+      ],
+      "event": "DELIVER_DOSE",
+      "to_state": "A_STEADY_LOADED",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "COLUMN_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "DOSE_DELIVERED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "Доза + существующий столб без двойного счёта",
+      "source_rows": [
+        "A1"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "A_COLUMN_ESTABLISHED",
+          "target": "A-READY-STEADY-LOAD"
+        }
+      ],
+      "completion_guards": [
+        "DOSE_DELIVERED"
+      ],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "COLUMN_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "FEED"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-COMPACT",
+      "variant": "A",
+      "from_states": [
+        "A_STEADY_LOADED"
+      ],
+      "event": "COMPACT",
+      "to_state": "A_COMPACTED_CANDIDATE",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "COMPACTION_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "inventory_effect": "Преобразование того же вещества L3, без нового прихода",
+      "source_rows": [
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "A_STEADY_LOADED",
+          "target": "A-READY-PRESS"
+        }
+      ],
+      "completion_guards": [
+        "COMPACTION_CRITERION"
+      ],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-SEGMENT",
+      "variant": "A",
+      "from_states": [
+        "A_COMPACTED_CANDIDATE"
+      ],
+      "event": "IDENTIFY_SEGMENT",
+      "to_state": "A_SEGMENT_READY",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "PARTITION_DEFINED",
+        "RETAINED_STABLE"
+      ],
+      "inventory_effect": "Исчерпывающий outgoing + retained partition; не доказанный физический рез",
+      "source_rows": [
+        "A5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "PARTITION_DEFINED"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-EJECT",
+      "variant": "A",
+      "from_states": [
+        "A_SEGMENT_READY"
+      ],
+      "event": "START_EJECTION",
+      "to_state": "A_EXITING",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "inventory_effect": "Только location, масса пока PRESS_ACCOUNT",
+      "source_rows": [
+        "A5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "A_SEGMENT_READY",
+          "target": "A-READY-EJECT"
+        }
+      ],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "AXIS",
+        "EXIT_RECEIVER"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-CROSS",
+      "variant": "A",
+      "from_states": [
+        "A_EXITING"
+      ],
+      "event": "CROSS_EXIT_COMPLETELY",
+      "to_state": "A_OUTSIDE_PENDING",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "inventory_effect": "Location вне выхода, custody не меняется",
+      "source_rows": [
+        "A5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "EXIT_RECEIVER"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-RECEIVE",
+      "variant": "A",
+      "from_states": [
+        "A_OUTSIDE_PENDING"
+      ],
+      "event": "ACK_RECEIPT",
+      "to_state": "A_RECEIVED_RETAINED",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "PARTITION_DEFINED",
+        "RECEIPT_VALID",
+        "RECEIVER_DEFINED",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "inventory_effect": "Только segment PRESS → RECEIVER_ACCOUNT, retained остаётся, L4",
+      "source_rows": [
+        "A5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "RECEIPT_VALID"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "EXIT_RECEIVER"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-REMOVE",
+      "variant": "A",
+      "from_states": [
+        "A_RECEIVED_RETAINED"
+      ],
+      "event": "REMOVE_GEOMETRY",
+      "to_state": "A_RECEIVED_RETAINED",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "NO_MODEL_INTERACTION",
+        "RECEIPT_VALID",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "inventory_effect": "Только принятое представление отключено; масса/retained сохранены, L5",
+      "source_rows": [
+        "A5",
+        "A7"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "NO_MODEL_INTERACTION",
+        "RECEIPT_VALID",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-RETURN",
+      "variant": "A",
+      "from_states": [
+        "A_RECEIVED_RETAINED"
+      ],
+      "event": "RETURN_TOOLS",
+      "to_state": "A_RECEIVED_RETAINED",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE",
+        "TOOLS_HOME"
+      ],
+      "inventory_effect": "Только позы, не READY/REMOVE",
+      "source_rows": [
+        "A6"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "TOOLS_HOME"
+      ],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-NEXT",
+      "variant": "A",
+      "from_states": [
+        "A_RECEIVED_RETAINED"
+      ],
+      "event": "RECONCILE_NEXT_INVENTORY",
+      "to_state": "A_COLUMN_ESTABLISHED",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RETAINED_STABLE",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "Фиксация следующего retained inventory, не новая масса",
+      "source_rows": [
+        "A7"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RETAINED_STABLE",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL"
+      ],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "B-AUDIT",
+      "variant": "B",
+      "from_states": [
+        "B_UNKNOWN"
+      ],
+      "event": "AUDIT_INVENTORY",
+      "to_state": "B_ACCEPTABLE_INITIAL",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RESIDUE_ALLOWED"
+      ],
+      "inventory_effect": "Empty или определённый допустимый остаток, без готового product",
+      "source_rows": [
+        "B0"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "INVENTORY_KNOWN",
+        "RESIDUE_ALLOWED"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-LOAD",
+      "variant": "B",
+      "from_states": [
+        "B_ACCEPTABLE_INITIAL"
+      ],
+      "event": "DELIVER_DOSE",
+      "to_state": "B_RAW_LOADED",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "DOSE_DELIVERED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESIDUE_ALLOWED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "Доставленная доза + начальный остаток L2",
+      "source_rows": [
+        "B1"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "B_ACCEPTABLE_INITIAL",
+          "target": "B-READY-LOAD"
+        }
+      ],
+      "completion_guards": [
+        "DOSE_DELIVERED"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESIDUE_ALLOWED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "FEED"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-GATHER",
+      "variant": "B",
+      "from_states": [
+        "B_RAW_LOADED"
+      ],
+      "event": "GATHER_PARTIAL",
+      "to_state": "B_GATHERED_PARTIAL",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "PARTIAL_CRITERION",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Только partial transform той же массы, не готовый product",
+      "source_rows": [
+        "B2",
+        "B3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "B_RAW_LOADED",
+          "target": "B-READY-GATHER"
+        }
+      ],
+      "completion_guards": [
+        "PARTIAL_CRITERION"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "B_REPEAT"
+      ]
+    },
+    {
+      "id": "B-REFILL",
+      "variant": "B",
+      "from_states": [
+        "B_GATHERED_PARTIAL"
+      ],
+      "event": "DELIVER_DOSE",
+      "to_state": "B_RAW_LOADED",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "DOSE_DELIVERED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "PARTIAL_CRITERION",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Новая доза к тому же batch/history; не новая выдача",
+      "source_rows": [
+        "B1"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "B_GATHERED_PARTIAL",
+          "target": "B-READY-REFILL"
+        }
+      ],
+      "completion_guards": [
+        "DOSE_DELIVERED"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "PARTIAL_CRITERION",
+        "RESOURCES_READY"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "FEED"
+      ],
+      "allowed_modes": [
+        "B_REPEAT"
+      ]
+    },
+    {
+      "id": "B-SELECT",
+      "variant": "B",
+      "from_states": [
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL"
+      ],
+      "event": "SELECT_BATCH",
+      "to_state": "B_BATCH_SELECTED",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "BATCH_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID"
+      ],
+      "inventory_effect": "Фиксация множества доз/остатка, не создание массы",
+      "source_rows": [
+        "B1",
+        "B3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "BATCH_CRITERION"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-COMPACT",
+      "variant": "B",
+      "from_states": [
+        "B_BATCH_SELECTED"
+      ],
+      "event": "COMPACT",
+      "to_state": "B_COMPACTED",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "BATCH_CRITERION",
+        "B_RESET_CONFIRMED",
+        "COMPACTION_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Product candidate из batch; partition с явным остатком ещё требуется",
+      "source_rows": [
+        "B2",
+        "B3",
+        "B4"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "B_BATCH_SELECTED",
+          "target": "B-READY-PRESS"
+        }
+      ],
+      "completion_guards": [
+        "COMPACTION_CRITERION"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "BATCH_CRITERION",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-OPEN-CONFIRM",
+      "variant": "B",
+      "from_states": [
+        "B_COMPACTED"
+      ],
+      "event": "AUDIT_INVENTORY",
+      "to_state": "B_EJECTABLE",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "B_OPEN_SEQUENCE_VALID",
+        "B_UNLOADED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "LOCK_CLEAR",
+        "PARTITION_DEFINED",
+        "STOP_OPEN"
+      ],
+      "inventory_effect": "Подтверждение уже выполненных UNLOAD → UNLOCK → OPEN, не команда двигать всё одновременно",
+      "source_rows": [
+        "B4",
+        "B4U",
+        "B4O"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "B_OPEN_SEQUENCE_VALID",
+        "B_UNLOADED",
+        "LOCK_CLEAR",
+        "PARTITION_DEFINED",
+        "STOP_OPEN"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-EJECT",
+      "variant": "B",
+      "from_states": [
+        "B_EJECTABLE"
+      ],
+      "event": "START_EJECTION",
+      "to_state": "B_EXITING",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_OPEN_SEQUENCE_VALID",
+        "B_UNLOADED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "LOCK_CLEAR",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STOP_OPEN"
+      ],
+      "inventory_effect": "Только движение выбранного продукта, residue сохраняется",
+      "source_rows": [
+        "B5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [
+        {
+          "from_state": "B_EJECTABLE",
+          "target": "B-READY-EJECT"
+        }
+      ],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "B_OPEN_SEQUENCE_VALID",
+        "B_UNLOADED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "LOCK_CLEAR",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STOP_OPEN"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "AXIS",
+        "EXIT_RECEIVER"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-CROSS",
+      "variant": "B",
+      "from_states": [
+        "B_EXITING"
+      ],
+      "event": "CROSS_EXIT_COMPLETELY",
+      "to_state": "B_OUTSIDE_PENDING",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "inventory_effect": "Location за выходом, пока PRESS_ACCOUNT",
+      "source_rows": [
+        "B5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "EXIT_RECEIVER"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-RECEIVE",
+      "variant": "B",
+      "from_states": [
+        "B_OUTSIDE_PENDING"
+      ],
+      "event": "ACK_RECEIPT",
+      "to_state": "B_RECEIVED_RESIDUAL",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "PARTITION_DEFINED",
+        "RECEIPT_VALID",
+        "RECEIVER_DEFINED",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "inventory_effect": "Product PRESS → RECEIVER_ACCOUNT, residue сохраняется",
+      "source_rows": [
+        "B5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "RECEIPT_VALID"
+      ],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL",
+        "EXIT_RECEIVER"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-REMOVE",
+      "variant": "B",
+      "from_states": [
+        "B_RECEIVED_RESIDUAL"
+      ],
+      "event": "REMOVE_GEOMETRY",
+      "to_state": "B_RECEIVED_RESIDUAL",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "NO_MODEL_INTERACTION",
+        "RECEIPT_VALID",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "inventory_effect": "Только representation принятого product, L5; остаток не удаляется",
+      "source_rows": [
+        "B5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "NO_MODEL_INTERACTION",
+        "RECEIPT_VALID",
+        "WHOLE_BEYOND_EXIT"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-RETURN",
+      "variant": "B",
+      "from_states": [
+        "B_RECEIVED_RESIDUAL"
+      ],
+      "event": "RETURN_TOOLS",
+      "to_state": "B_RECEIVED_RESIDUAL",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "TOOLS_HOME"
+      ],
+      "inventory_effect": "Только позы; reset отдельно",
+      "source_rows": [
+        "B6"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "TOOLS_HOME"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-RESET",
+      "variant": "B",
+      "from_states": [
+        "B_RECEIVED_RESIDUAL"
+      ],
+      "event": "RESET_B",
+      "to_state": "B_RECEIVED_RESIDUAL",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RECEIPT_VALID",
+        "RESET_SWEEP_CLEAR",
+        "RESOURCES_READY",
+        "RESTORE_SEQUENCE_DEFINED",
+        "TOOLS_HOME"
+      ],
+      "inventory_effect": "Подтверждённые восстановленные stop/lock; продукт/остатки не исчезают",
+      "source_rows": [
+        "B6",
+        "B7"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [
+        "B_RESET_CONFIRMED"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RECEIPT_VALID",
+        "RESET_SWEEP_CLEAR",
+        "RESOURCES_READY",
+        "RESTORE_SEQUENCE_DEFINED",
+        "TOOLS_HOME"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "B_CLOSURE"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-NEXT",
+      "variant": "B",
+      "from_states": [
+        "B_RECEIVED_RESIDUAL"
+      ],
+      "event": "RECONCILE_NEXT_INVENTORY",
+      "to_state": "B_ACCEPTABLE_INITIAL",
+      "required_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RESIDUE_ALLOWED",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "Следующий остаток известен и допустим, не фиктивная empty камера",
+      "source_rows": [
+        "B7"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "AUDIT_CHANNEL_READY",
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RESIDUE_ALLOWED",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "MATERIAL"
+      ],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_BUILDING"
+      ],
+      "event": "RETURN_TOOLS",
+      "to_state": "A_COLUMN_BUILDING",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "inventory_effect": "Возврат/освобождение refill пути с сохранением startup inventory; если столб уже установлен, state не понижается",
+      "source_rows": [
+        "A6"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_ESTABLISHED"
+      ],
+      "event": "RETURN_TOOLS",
+      "to_state": "A_COLUMN_ESTABLISHED",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "inventory_effect": "Возврат/освобождение refill пути с сохранением startup inventory; если столб уже установлен, state не понижается",
+      "source_rows": [
+        "A6"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "B-GATHER-RETURN",
+      "variant": "B",
+      "from_states": [
+        "B_GATHERED_PARTIAL"
+      ],
+      "event": "RETURN_TOOLS",
+      "to_state": "B_GATHERED_PARTIAL",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Возврат к refill без удаления partial batch",
+      "source_rows": [
+        "B6",
+        "B1"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [
+        "AXIS"
+      ],
+      "allowed_modes": [
+        "B_REPEAT"
+      ]
+    },
+    {
+      "id": "A-READY-START-LOAD",
+      "variant": "A",
+      "from_states": [
+        "A_EMPTY"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "A_EMPTY",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EMPTY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "A0",
+        "A7"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EMPTY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-READY-START-PRESS-A_STARTUP_RAW",
+      "variant": "A",
+      "from_states": [
+        "A_STARTUP_RAW"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "A_STARTUP_RAW",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "A2",
+        "A3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-READY-START-PRESS-A_COLUMN_BUILDING",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_BUILDING"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "A_COLUMN_BUILDING",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "A2",
+        "A3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "A-READY-STEADY-LOAD",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_ESTABLISHED"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "A_COLUMN_ESTABLISHED",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "COLUMN_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "A7"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "COLUMN_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-READY-PRESS",
+      "variant": "A",
+      "from_states": [
+        "A_STEADY_LOADED"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "A_STEADY_LOADED",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "A2",
+        "A3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "A-READY-EJECT",
+      "variant": "A",
+      "from_states": [
+        "A_SEGMENT_READY"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "A_SEGMENT_READY",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "A5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STEADY"
+      ]
+    },
+    {
+      "id": "B-READY-LOAD",
+      "variant": "B",
+      "from_states": [
+        "B_ACCEPTABLE_INITIAL"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "B_ACCEPTABLE_INITIAL",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESIDUE_ALLOWED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "B0",
+        "B7"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESIDUE_ALLOWED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-READY-REFILL",
+      "variant": "B",
+      "from_states": [
+        "B_GATHERED_PARTIAL"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "B_GATHERED_PARTIAL",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "PARTIAL_CRITERION",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "B1"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "PARTIAL_CRITERION",
+        "RESOURCES_READY"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT"
+      ]
+    },
+    {
+      "id": "B-READY-PRESS",
+      "variant": "B",
+      "from_states": [
+        "B_BATCH_SELECTED"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "B_BATCH_SELECTED",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "BATCH_CRITERION",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "B2",
+        "B3"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "BATCH_CRITERION",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "B-READY-EJECT",
+      "variant": "B",
+      "from_states": [
+        "B_EJECTABLE"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "B_EJECTABLE",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_OPEN_SEQUENCE_VALID",
+        "B_UNLOADED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "LOCK_CLEAR",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STOP_OPEN"
+      ],
+      "inventory_effect": "Нет изменения вещества; подтверждение только указанного target/epoch, не физический допуск",
+      "source_rows": [
+        "B4O",
+        "B5"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "B_OPEN_SEQUENCE_VALID",
+        "B_UNLOADED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "LOCK_CLEAR",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STOP_OPEN"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    },
+    {
+      "id": "RESOURCE-BASIS",
+      "variant": "AUDIT",
+      "from_states": [
+        "RESOURCE_DRAFT"
+      ],
+      "event": "CHECK_FULL_CYCLE_BASIS",
+      "to_state": "RESOURCE_DRAFT",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "RESOURCE_BASIS_COMPLETE",
+        "TIMING_BASIS_COMPLETE"
+      ],
+      "inventory_effect": "Только полнота документального основания; чисел/полного цикла не вычисляет",
+      "source_rows": [
+        "A8",
+        "B8"
+      ],
+      "evidence": "Актуальные entity/event/epoch, журнал L1–L5 и подтверждения всех guards; реальные основания UNKNOWN; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "RESOURCE_BASIS_COMPLETE",
+        "TIMING_BASIS_COMPLETE"
+      ],
+      "semantics": "AUTHORIZED_STEP_COMMIT_NOT_RAW_FACT_INGESTION",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "AUDIT"
+      ]
+    },
+    {
+      "id": "A-READY-START-REFILL",
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_BUILDING"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "A_COLUMN_BUILDING",
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "inventory_effect": "Наблюдение условий target, не кэш разрешения/изменение вещества",
+      "source_rows": [
+        "A1",
+        "A6"
+      ],
+      "evidence": "Актуальные условия действия в одном scope/epoch, не ранее полученный READY; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "A_STARTUP"
+      ]
+    },
+    {
+      "id": "B-READY-GATHER",
+      "variant": "B",
+      "from_states": [
+        "B_RAW_LOADED"
+      ],
+      "event": "REQUEST_READY",
+      "to_state": "B_RAW_LOADED",
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "inventory_effect": "Наблюдение условий target, не кэш разрешения/изменение вещества",
+      "source_rows": [
+        "B2",
+        "B3"
+      ],
+      "evidence": "Актуальные условия действия в одном scope/epoch, не ранее полученный READY; разрешение старта отдельно от подтверждения завершения, см. permissions.md",
+      "ready_bindings": [],
+      "completion_guards": [],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "semantics": "OBSERVE_READY_NO_TOKEN",
+      "ready_required_for_recovery": false,
+      "invalidates_on_commit": [],
+      "allowed_modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ]
+    }
+  ],
+  "actual_REV_values": "UNKNOWN",
+  "independent_review": "NOT_RUN",
+  "G1": "OPEN",
+  "outcome_rule": {
+    "known_false_or_wrong_from_state": "BLOCKED",
+    "unknown_required_without_false": "INDETERMINATE",
+    "all_true_in_explicit_assumed_example": "ALLOWED_ASSUMED",
+    "missing_guard_or_unsupported_event": "INVALID_DOCUMENT_OR_INDETERMINATE_RUNTIME_NEVER_ALLOWED"
+  },
+  "ready_targets": {
+    "A-READY-START-LOAD": {
+      "variant": "A",
+      "from_states": [
+        "A_EMPTY"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EMPTY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "source_rows": [
+        "A0",
+        "A7"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "A-READY-START-PRESS": {
+      "variant": "A",
+      "from_states": [
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING"
+      ],
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "source_rows": [
+        "A2",
+        "A3"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "A-READY-STEADY-LOAD": {
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_ESTABLISHED"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "COLUMN_CRITERION",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "source_rows": [
+        "A7"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "A-READY-PRESS": {
+      "variant": "A",
+      "from_states": [
+        "A_STEADY_LOADED"
+      ],
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "source_rows": [
+        "A2",
+        "A3"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "A-READY-EJECT": {
+      "variant": "A",
+      "from_states": [
+        "A_SEGMENT_READY"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "RETAINED_STABLE"
+      ],
+      "source_rows": [
+        "A5"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "B-READY-LOAD": {
+      "variant": "B",
+      "from_states": [
+        "B_ACCEPTABLE_INITIAL"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESIDUE_ALLOWED",
+        "RESOURCES_READY",
+        "TOOLS_HOME",
+        "TRANSFER_LEDGER_CLOSED"
+      ],
+      "source_rows": [
+        "B0",
+        "B7"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "B-READY-REFILL": {
+      "variant": "B",
+      "from_states": [
+        "B_GATHERED_PARTIAL"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "PARTIAL_CRITERION",
+        "RESOURCES_READY"
+      ],
+      "source_rows": [
+        "B1"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "B-READY-PRESS": {
+      "variant": "B",
+      "from_states": [
+        "B_BATCH_SELECTED"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "BATCH_CRITERION",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "source_rows": [
+        "B2",
+        "B3"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "B-READY-EJECT": {
+      "variant": "B",
+      "from_states": [
+        "B_EJECTABLE"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_OPEN_SEQUENCE_VALID",
+        "B_UNLOADED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EJECTION_PATH_CLEAR",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "LOCK_CLEAR",
+        "METHOD_SUPPORTED",
+        "PARTITION_DEFINED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STOP_OPEN"
+      ],
+      "source_rows": [
+        "B4O",
+        "B5"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "A-READY-START-REFILL": {
+      "variant": "A",
+      "from_states": [
+        "A_COLUMN_BUILDING"
+      ],
+      "required_guards": [
+        "A_REACTION_DEFINED",
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "FEED_CLEAR",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "source_rows": [
+        "A1",
+        "A6"
+      ],
+      "actual": "INDETERMINATE"
+    },
+    "B-READY-GATHER": {
+      "variant": "B",
+      "from_states": [
+        "B_RAW_LOADED"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "ISOLATION_CONFIRMED",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RESOURCES_READY"
+      ],
+      "source_rows": [
+        "B2",
+        "B3"
+      ],
+      "actual": "INDETERMINATE"
+    }
+  },
+  "evidence_policy": {
+    "scope_fields": [
+      "scenario_id",
+      "variant",
+      "mode",
+      "cycle_epoch",
+      "subject_id"
+    ],
+    "domains": [
+      "MATERIAL",
+      "FEED",
+      "AXIS",
+      "RETENTION",
+      "B_CLOSURE",
+      "EXIT_RECEIVER",
+      "HYDRAULIC",
+      "EVIDENCE",
+      "RESOURCES"
+    ],
+    "missing_or_stale": "UNKNOWN",
+    "known_failure": "LATCHED_FALSE_UNTIL_SCOPED_RECOVERY",
+    "version_change": "invalidate TRUE evidence depending on changed subject; never clear a known failure",
+    "READY": "observation only; every action reevaluates its own full conditions atomically",
+    "actual_thresholds_and_time_limits": null,
+    "unknown_reason": "Численные окна валидности/датчики REV не определены",
+    "resource_scope": "RESOURCES revision changes on any required consumer availability change, not only hydraulic supply; each proof is specific to the action",
+    "failure_scope": "Immutable per-fault origin plus explicit target fault ID; current view never replaces original subject. All rejected IDs persist."
+  },
+  "recovery_actions": [
+    {
+      "id": "REASSESS_MATERIAL",
+      "event": "REQUEST_RECOVERY_AUDIT",
+      "from_states": [
+        "A_UNKNOWN",
+        "A_EMPTY",
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING",
+        "A_COLUMN_ESTABLISHED",
+        "A_STEADY_LOADED",
+        "A_COMPACTED_CANDIDATE",
+        "A_SEGMENT_READY",
+        "A_EXITING",
+        "A_OUTSIDE_PENDING",
+        "A_RECEIVED_RETAINED",
+        "B_UNKNOWN",
+        "B_ACCEPTABLE_INITIAL",
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL",
+        "B_BATCH_SELECTED",
+        "B_COMPACTED",
+        "B_EJECTABLE",
+        "B_EXITING",
+        "B_OUTSIDE_PENDING",
+        "B_RECEIVED_RESIDUAL",
+        "RESOURCE_DRAFT"
+      ],
+      "entry_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "completion_guards": [],
+      "required_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "BASIS_DEFINED",
+        "EMPTY_CONFIRMED",
+        "DOSE_DELIVERED",
+        "PARTIAL_CRITERION",
+        "BATCH_CRITERION",
+        "COMPACTION_CRITERION",
+        "PARTITION_DEFINED",
+        "RESIDUE_ALLOWED",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "changed_domains": [
+        "MATERIAL"
+      ],
+      "effect": "Разрешается только запрос проверки; сам запрос НЕ подтверждает цель и НЕ очищает отказ. Новое evidence нужного scope/версии/метода проверяется отдельно; UNKNOWN сохраняется.",
+      "physical_permission": false
+    },
+    {
+      "id": "RECHECK_RECEIVER",
+      "event": "REQUEST_RECOVERY_AUDIT",
+      "from_states": [
+        "A_UNKNOWN",
+        "A_EMPTY",
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING",
+        "A_COLUMN_ESTABLISHED",
+        "A_STEADY_LOADED",
+        "A_COMPACTED_CANDIDATE",
+        "A_SEGMENT_READY",
+        "A_EXITING",
+        "A_OUTSIDE_PENDING",
+        "A_RECEIVED_RETAINED",
+        "B_UNKNOWN",
+        "B_ACCEPTABLE_INITIAL",
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL",
+        "B_BATCH_SELECTED",
+        "B_COMPACTED",
+        "B_EJECTABLE",
+        "B_EXITING",
+        "B_OUTSIDE_PENDING",
+        "B_RECEIVED_RESIDUAL",
+        "RESOURCE_DRAFT"
+      ],
+      "entry_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "completion_guards": [],
+      "required_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "RECEIVER_DEFINED",
+        "WHOLE_BEYOND_EXIT",
+        "RECEIPT_VALID",
+        "NO_MODEL_INTERACTION",
+        "TRANSFER_LEDGER_CLOSED",
+        "EJECTION_PATH_CLEAR"
+      ],
+      "changed_domains": [
+        "EXIT_RECEIVER"
+      ],
+      "effect": "Разрешается только запрос проверки; сам запрос НЕ подтверждает цель и НЕ очищает отказ. Новое evidence нужного scope/версии/метода проверяется отдельно; UNKNOWN сохраняется.",
+      "physical_permission": false
+    },
+    {
+      "id": "RECHECK_RESOURCE",
+      "event": "REQUEST_RECOVERY_AUDIT",
+      "from_states": [
+        "A_UNKNOWN",
+        "A_EMPTY",
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING",
+        "A_COLUMN_ESTABLISHED",
+        "A_STEADY_LOADED",
+        "A_COMPACTED_CANDIDATE",
+        "A_SEGMENT_READY",
+        "A_EXITING",
+        "A_OUTSIDE_PENDING",
+        "A_RECEIVED_RETAINED",
+        "B_UNKNOWN",
+        "B_ACCEPTABLE_INITIAL",
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL",
+        "B_BATCH_SELECTED",
+        "B_COMPACTED",
+        "B_EJECTABLE",
+        "B_EXITING",
+        "B_OUTSIDE_PENDING",
+        "B_RECEIVED_RESIDUAL",
+        "RESOURCE_DRAFT"
+      ],
+      "entry_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "completion_guards": [],
+      "required_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "RESOURCES_READY",
+        "TIMING_BASIS_COMPLETE",
+        "RESOURCE_BASIS_COMPLETE"
+      ],
+      "changed_domains": [
+        "RESOURCES",
+        "HYDRAULIC"
+      ],
+      "effect": "Разрешается только запрос проверки; сам запрос НЕ подтверждает цель и НЕ очищает отказ. Новое evidence нужного scope/версии/метода проверяется отдельно; UNKNOWN сохраняется.",
+      "physical_permission": false
+    },
+    {
+      "id": "REASSESS_A_RETENTION",
+      "event": "REQUEST_RECOVERY_AUDIT",
+      "from_states": [
+        "A_UNKNOWN",
+        "A_EMPTY",
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING",
+        "A_COLUMN_ESTABLISHED",
+        "A_STEADY_LOADED",
+        "A_COMPACTED_CANDIDATE",
+        "A_SEGMENT_READY",
+        "A_EXITING",
+        "A_OUTSIDE_PENDING",
+        "A_RECEIVED_RETAINED",
+        "B_UNKNOWN",
+        "B_ACCEPTABLE_INITIAL",
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL",
+        "B_BATCH_SELECTED",
+        "B_COMPACTED",
+        "B_EJECTABLE",
+        "B_EXITING",
+        "B_OUTSIDE_PENDING",
+        "B_RECEIVED_RESIDUAL",
+        "RESOURCE_DRAFT"
+      ],
+      "entry_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "completion_guards": [],
+      "required_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "RETAINED_STABLE",
+        "A_REACTION_DEFINED",
+        "COLUMN_CRITERION",
+        "STARTUP_INVENTORY_PRESERVED"
+      ],
+      "changed_domains": [
+        "RETENTION",
+        "MATERIAL"
+      ],
+      "effect": "Разрешается только запрос проверки; сам запрос НЕ подтверждает цель и НЕ очищает отказ. Новое evidence нужного scope/версии/метода проверяется отдельно; UNKNOWN сохраняется.",
+      "physical_permission": false
+    },
+    {
+      "id": "REASSESS_B_CLOSURE",
+      "event": "REQUEST_RECOVERY_AUDIT",
+      "from_states": [
+        "A_UNKNOWN",
+        "A_EMPTY",
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING",
+        "A_COLUMN_ESTABLISHED",
+        "A_STEADY_LOADED",
+        "A_COMPACTED_CANDIDATE",
+        "A_SEGMENT_READY",
+        "A_EXITING",
+        "A_OUTSIDE_PENDING",
+        "A_RECEIVED_RETAINED",
+        "B_UNKNOWN",
+        "B_ACCEPTABLE_INITIAL",
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL",
+        "B_BATCH_SELECTED",
+        "B_COMPACTED",
+        "B_EJECTABLE",
+        "B_EXITING",
+        "B_OUTSIDE_PENDING",
+        "B_RECEIVED_RESIDUAL",
+        "RESOURCE_DRAFT"
+      ],
+      "entry_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "completion_guards": [],
+      "required_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "B_RESET_CONFIRMED",
+        "B_UNLOADED",
+        "LOCK_CLEAR",
+        "STOP_OPEN",
+        "B_OPEN_SEQUENCE_VALID",
+        "RESET_SWEEP_CLEAR",
+        "RESTORE_SEQUENCE_DEFINED"
+      ],
+      "changed_domains": [
+        "B_CLOSURE"
+      ],
+      "effect": "Разрешается только запрос проверки; сам запрос НЕ подтверждает цель и НЕ очищает отказ. Новое evidence нужного scope/версии/метода проверяется отдельно; UNKNOWN сохраняется.",
+      "physical_permission": false
+    },
+    {
+      "id": "REACQUIRE_FEEDBACK",
+      "event": "REQUEST_RECOVERY_AUDIT",
+      "from_states": [
+        "A_UNKNOWN",
+        "A_EMPTY",
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING",
+        "A_COLUMN_ESTABLISHED",
+        "A_STEADY_LOADED",
+        "A_COMPACTED_CANDIDATE",
+        "A_SEGMENT_READY",
+        "A_EXITING",
+        "A_OUTSIDE_PENDING",
+        "A_RECEIVED_RETAINED",
+        "B_UNKNOWN",
+        "B_ACCEPTABLE_INITIAL",
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL",
+        "B_BATCH_SELECTED",
+        "B_COMPACTED",
+        "B_EJECTABLE",
+        "B_EXITING",
+        "B_OUTSIDE_PENDING",
+        "B_RECEIVED_RESIDUAL",
+        "RESOURCE_DRAFT"
+      ],
+      "entry_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "completion_guards": [],
+      "required_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "FEEDBACK_VALID",
+        "CONTINUITY_CONFIRMED",
+        "METHOD_SUPPORTED",
+        "TOOLS_HOME",
+        "FEED_CLEAR",
+        "ISOLATION_CONFIRMED"
+      ],
+      "changed_domains": [
+        "EVIDENCE"
+      ],
+      "effect": "Разрешается только запрос проверки; сам запрос НЕ подтверждает цель и НЕ очищает отказ. Новое evidence нужного scope/версии/метода проверяется отдельно; UNKNOWN сохраняется.",
+      "physical_permission": false
+    },
+    {
+      "id": "RESTORE_B_CLOSURE",
+      "event": "REQUEST_RESET_B",
+      "from_states": [
+        "B_RECEIVED_RESIDUAL"
+      ],
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RECEIPT_VALID",
+        "RESET_SWEEP_CLEAR",
+        "RESOURCES_READY",
+        "RESTORE_SEQUENCE_DEFINED",
+        "TOOLS_HOME"
+      ],
+      "completion_guards": [
+        "B_RESET_CONFIRMED"
+      ],
+      "required_guards": [
+        "BASIS_DEFINED",
+        "B_RESET_CONFIRMED",
+        "CONTINUITY_CONFIRMED",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RECEIPT_VALID",
+        "RESET_SWEEP_CLEAR",
+        "RESOURCES_READY",
+        "RESTORE_SEQUENCE_DEFINED",
+        "TOOLS_HOME"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "B_RESET_CONFIRMED"
+      ],
+      "changed_domains": [
+        "B_CLOSURE"
+      ],
+      "effect": "Разрешение только по собственным entry guards; полный commit B-RESET требует нового completion evidence, но его UNKNOWN до старта не является циклической предпосылкой старта.",
+      "physical_permission": false
+    },
+    {
+      "id": "RECONCILE_HISTORY",
+      "event": "REQUEST_RECOVERY_AUDIT",
+      "from_states": [
+        "A_UNKNOWN",
+        "A_EMPTY",
+        "A_STARTUP_RAW",
+        "A_COLUMN_BUILDING",
+        "A_COLUMN_ESTABLISHED",
+        "A_STEADY_LOADED",
+        "A_COMPACTED_CANDIDATE",
+        "A_SEGMENT_READY",
+        "A_EXITING",
+        "A_OUTSIDE_PENDING",
+        "A_RECEIVED_RETAINED",
+        "B_UNKNOWN",
+        "B_ACCEPTABLE_INITIAL",
+        "B_RAW_LOADED",
+        "B_GATHERED_PARTIAL",
+        "B_BATCH_SELECTED",
+        "B_COMPACTED",
+        "B_EJECTABLE",
+        "B_EXITING",
+        "B_OUTSIDE_PENDING",
+        "B_RECEIVED_RESIDUAL",
+        "RESOURCE_DRAFT"
+      ],
+      "entry_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "completion_guards": [],
+      "required_guards": [
+        "EVENT_FRESH",
+        "AUDIT_CHANNEL_READY",
+        "RECOVERY_METHOD_DEFINED"
+      ],
+      "ready_bindings": [],
+      "may_reestablish": [
+        "DEPENDENCY_VALID"
+      ],
+      "changed_domains": [
+        "EVIDENCE"
+      ],
+      "effect": "Адресная сверка причин конкретного dependency fault; отдельно допускается подтверждение обработки отклонённого запроса, но rejected operation ID никогда не разрешается повторно.",
+      "physical_permission": false,
+      "requires_resolved_cause_fault_ids": true,
+      "may_acknowledge": [
+        "EVENT_FRESH"
+      ]
+    }
+  ],
+  "fact_ingestion": {
+    "action": "RECORD_OBSERVATION",
+    "permission_for_process": false,
+    "unready_arrival": "Append actual entity/dose/mass_record to pending_observations, preserve existing inventory, mark assessment UNCONFIRMED and inhibit dependent actions until reconciliation",
+    "duplicate": "Retain reference; no second dose/transfer; conflicting same ID is fault",
+    "unsupported": "Preserve raw fact; UNKNOWN/fault, never successful normal transition",
+    "actual_mass_values": null,
+    "unknown_reason": "Исполняемый материальный журнал/физика вне области этой документальной итерации"
+  },
+  "state_modes": {
+    "A_UNKNOWN": [
+      "A_STARTUP"
+    ],
+    "A_EMPTY": [
+      "A_STARTUP"
+    ],
+    "A_STARTUP_RAW": [
+      "A_STARTUP"
+    ],
+    "A_COLUMN_BUILDING": [
+      "A_STARTUP"
+    ],
+    "A_COLUMN_ESTABLISHED": [
+      "A_STARTUP",
+      "A_STEADY"
+    ],
+    "A_STEADY_LOADED": [
+      "A_STEADY"
+    ],
+    "A_COMPACTED_CANDIDATE": [
+      "A_STEADY"
+    ],
+    "A_SEGMENT_READY": [
+      "A_STEADY"
+    ],
+    "A_EXITING": [
+      "A_STEADY"
+    ],
+    "A_OUTSIDE_PENDING": [
+      "A_STEADY"
+    ],
+    "A_RECEIVED_RETAINED": [
+      "A_STEADY"
+    ],
+    "B_UNKNOWN": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_ACCEPTABLE_INITIAL": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_RAW_LOADED": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_GATHERED_PARTIAL": [
+      "B_REPEAT"
+    ],
+    "B_BATCH_SELECTED": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_COMPACTED": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_EJECTABLE": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_EXITING": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_OUTSIDE_PENDING": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "B_RECEIVED_RESIDUAL": [
+      "B_SINGLE",
+      "B_REPEAT"
+    ],
+    "RESOURCE_DRAFT": [
+      "AUDIT"
+    ]
+  },
+  "arbitration_decision": "616135755d1b6cbaa09ae9800bad5af8bbc28aed",
+  "consecutive_rejections": 2,
+  "fault_policy": {
+    "schema": "rev-permission-history/1",
+    "identity_fields": [
+      "scenario_id",
+      "variant",
+      "mode",
+      "subject_id",
+      "batch_id",
+      "cycle_epoch",
+      "basis_id",
+      "basis_revision"
+    ],
+    "representation": "faults is a map keyed by immutable fault_id, never by guard",
+    "id": "F- + SHA256 of canonical immutable origin",
+    "origin_fields": [
+      "guard",
+      "reason",
+      "kind",
+      "truth",
+      "scope",
+      "operation_id",
+      "evidence_id",
+      "revisions",
+      "cause_fault_ids",
+      "evidence"
+    ],
+    "mutable_fields": [
+      "status",
+      "expected_revisions",
+      "revision_history",
+      "resolution_attempts",
+      "resolution"
+    ],
+    "unknown_address": "INDETERMINATE; never match null to null",
+    "recovery": "explicit fault_id, exact original scope/base/origin revisions, confirmed current target revisions; retain all other faults",
+    "causality": "DEPENDENCY fault can resolve only after all its cause_fault_ids have status RESOLVED",
+    "rejected_operations": "cumulative rejected_operation_ids plus append-only rejected_operations records; no clearing across scope/epoch/recovery",
+    "persistence": "export_context/restore_context retain all faults and IDs; missing trusted hash anchor makes history unconfirmed",
+    "W02": "NOT_IMPLEMENTED",
+    "recovery_evidence_fields": [
+      "fault_id",
+      "guard",
+      "target_scope",
+      "origin_revisions",
+      "revisions",
+      "action",
+      "phase",
+      "operation_id",
+      "evidence_id",
+      "method",
+      "source",
+      "value",
+      "valid_for_operation_interval"
+    ],
+    "canonical_pipeline": "decide atomically evaluates and persists all denials; propagate rejects a result from another input_context_hash",
+    "basis_applicability": "Required original basis_id/basis_revision for MATERIAL; explicit NOT_APPLICABLE_BY_GUARD_SCOPE for other subject kinds, never infer a numerical basis.",
+    "rejected_request_resolution": "Explicit DENIED_REQUEST_ACKNOWLEDGED addresses old fault/operation/rejection record IDs; old operation stays rejected forever, no EVENT_FRESH truth restoration."
+  }
+}

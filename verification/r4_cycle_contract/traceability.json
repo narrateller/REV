@@ -1,0 +1,594 @@
+[
+  {
+    "source_row": "A0",
+    "source_stage": "startup",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-AUDIT",
+      "A-COLUMN",
+      "A-READY-START-LOAD"
+    ],
+    "states": [
+      "A_COLUMN_BUILDING",
+      "A_COLUMN_ESTABLISHED",
+      "A_EMPTY",
+      "A_UNKNOWN"
+    ],
+    "ready_targets": [
+      "A-READY-START-LOAD"
+    ],
+    "resource_row": "A0",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-03",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A1",
+    "source_stage": "load",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-LOAD-START",
+      "A-REFILL",
+      "A-LOAD-STEADY",
+      "A-READY-START-REFILL"
+    ],
+    "states": [
+      "A_COLUMN_BUILDING",
+      "A_COLUMN_ESTABLISHED",
+      "A_EMPTY",
+      "A_STARTUP_RAW",
+      "A_STEADY_LOADED"
+    ],
+    "ready_targets": [
+      "A-READY-START-REFILL"
+    ],
+    "resource_row": "A1",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-03",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A2",
+    "source_stage": "isolate",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-GATHER",
+      "A-COMPACT",
+      "A-READY-START-PRESS-A_STARTUP_RAW",
+      "A-READY-START-PRESS-A_COLUMN_BUILDING",
+      "A-READY-PRESS"
+    ],
+    "states": [
+      "A_COLUMN_BUILDING",
+      "A_COMPACTED_CANDIDATE",
+      "A_STARTUP_RAW",
+      "A_STEADY_LOADED"
+    ],
+    "ready_targets": [
+      "A-READY-START-PRESS",
+      "A-READY-PRESS"
+    ],
+    "resource_row": "A2",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-02",
+      "Q-R2-03",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A3",
+    "source_stage": "press",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-GATHER",
+      "A-COLUMN",
+      "A-COMPACT",
+      "A-READY-START-PRESS-A_STARTUP_RAW",
+      "A-READY-START-PRESS-A_COLUMN_BUILDING",
+      "A-READY-PRESS"
+    ],
+    "states": [
+      "A_COLUMN_BUILDING",
+      "A_COLUMN_ESTABLISHED",
+      "A_COMPACTED_CANDIDATE",
+      "A_STARTUP_RAW",
+      "A_STEADY_LOADED"
+    ],
+    "ready_targets": [
+      "A-READY-START-PRESS",
+      "A-READY-PRESS"
+    ],
+    "resource_row": "A3",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-02",
+      "Q-R2-03",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A4",
+    "source_stage": "hold_unload",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-COMPACT"
+    ],
+    "states": [
+      "A_COMPACTED_CANDIDATE",
+      "A_STEADY_LOADED"
+    ],
+    "ready_targets": [],
+    "resource_row": "A4",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-02",
+      "Q-R2-03",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A5",
+    "source_stage": "eject",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-SEGMENT",
+      "A-EJECT",
+      "A-CROSS",
+      "A-RECEIVE",
+      "A-REMOVE",
+      "A-READY-EJECT"
+    ],
+    "states": [
+      "A_COMPACTED_CANDIDATE",
+      "A_EXITING",
+      "A_OUTSIDE_PENDING",
+      "A_RECEIVED_RETAINED",
+      "A_SEGMENT_READY"
+    ],
+    "ready_targets": [
+      "A-READY-EJECT"
+    ],
+    "resource_row": "A5",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-03",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A6",
+    "source_stage": "return",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-RETURN",
+      "A-STARTUP-RETURN-A_COLUMN_BUILDING",
+      "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
+      "A-READY-START-REFILL"
+    ],
+    "states": [
+      "A_COLUMN_BUILDING",
+      "A_COLUMN_ESTABLISHED",
+      "A_RECEIVED_RETAINED"
+    ],
+    "ready_targets": [
+      "A-READY-START-REFILL"
+    ],
+    "resource_row": "A6",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-03",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A7",
+    "source_stage": "ready",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "A-REMOVE",
+      "A-NEXT",
+      "A-READY-START-LOAD",
+      "A-READY-STEADY-LOAD"
+    ],
+    "states": [
+      "A_COLUMN_ESTABLISHED",
+      "A_EMPTY",
+      "A_RECEIVED_RETAINED"
+    ],
+    "ready_targets": [
+      "A-READY-START-LOAD",
+      "A-READY-STEADY-LOAD"
+    ],
+    "resource_row": "A7",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-03",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "A8",
+    "source_stage": "resources",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "RESOURCE-BASIS"
+    ],
+    "states": [
+      "RESOURCE_DRAFT"
+    ],
+    "ready_targets": [],
+    "resource_row": "A8",
+    "questions": [
+      "Q-R2-01",
+      "Q-R3-01",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B0",
+    "source_stage": "startup",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-AUDIT",
+      "B-READY-LOAD"
+    ],
+    "states": [
+      "B_ACCEPTABLE_INITIAL",
+      "B_UNKNOWN"
+    ],
+    "ready_targets": [
+      "B-READY-LOAD"
+    ],
+    "resource_row": "B0",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B1",
+    "source_stage": "load",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-LOAD",
+      "B-REFILL",
+      "B-SELECT",
+      "B-GATHER-RETURN",
+      "B-READY-REFILL"
+    ],
+    "states": [
+      "B_ACCEPTABLE_INITIAL",
+      "B_BATCH_SELECTED",
+      "B_GATHERED_PARTIAL",
+      "B_RAW_LOADED"
+    ],
+    "ready_targets": [
+      "B-READY-REFILL"
+    ],
+    "resource_row": "B1",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B2",
+    "source_stage": "isolate",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-GATHER",
+      "B-COMPACT",
+      "B-READY-PRESS",
+      "B-READY-GATHER"
+    ],
+    "states": [
+      "B_BATCH_SELECTED",
+      "B_COMPACTED",
+      "B_GATHERED_PARTIAL",
+      "B_RAW_LOADED"
+    ],
+    "ready_targets": [
+      "B-READY-PRESS",
+      "B-READY-GATHER"
+    ],
+    "resource_row": "B2",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-02",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B3",
+    "source_stage": "press",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-GATHER",
+      "B-SELECT",
+      "B-COMPACT",
+      "B-READY-PRESS",
+      "B-READY-GATHER"
+    ],
+    "states": [
+      "B_BATCH_SELECTED",
+      "B_COMPACTED",
+      "B_GATHERED_PARTIAL",
+      "B_RAW_LOADED"
+    ],
+    "ready_targets": [
+      "B-READY-PRESS",
+      "B-READY-GATHER"
+    ],
+    "resource_row": "B3",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-02",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B4",
+    "source_stage": "hold_unload",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-COMPACT",
+      "B-OPEN-CONFIRM"
+    ],
+    "states": [
+      "B_BATCH_SELECTED",
+      "B_COMPACTED",
+      "B_EJECTABLE"
+    ],
+    "ready_targets": [],
+    "resource_row": "B4",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-02",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B4U",
+    "source_stage": "unlock",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-OPEN-CONFIRM"
+    ],
+    "states": [
+      "B_COMPACTED",
+      "B_EJECTABLE"
+    ],
+    "ready_targets": [],
+    "resource_row": "B4U",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B4O",
+    "source_stage": "open",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-OPEN-CONFIRM",
+      "B-READY-EJECT"
+    ],
+    "states": [
+      "B_COMPACTED",
+      "B_EJECTABLE"
+    ],
+    "ready_targets": [
+      "B-READY-EJECT"
+    ],
+    "resource_row": "B4O",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B5",
+    "source_stage": "eject",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-EJECT",
+      "B-CROSS",
+      "B-RECEIVE",
+      "B-REMOVE",
+      "B-READY-EJECT"
+    ],
+    "states": [
+      "B_EJECTABLE",
+      "B_EXITING",
+      "B_OUTSIDE_PENDING",
+      "B_RECEIVED_RESIDUAL"
+    ],
+    "ready_targets": [
+      "B-READY-EJECT"
+    ],
+    "resource_row": "B5",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B6",
+    "source_stage": "return",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-RETURN",
+      "B-RESET",
+      "B-GATHER-RETURN"
+    ],
+    "states": [
+      "B_GATHERED_PARTIAL",
+      "B_RECEIVED_RESIDUAL"
+    ],
+    "ready_targets": [],
+    "resource_row": "B6",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B7",
+    "source_stage": "ready",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "B-RESET",
+      "B-NEXT",
+      "B-READY-LOAD"
+    ],
+    "states": [
+      "B_ACCEPTABLE_INITIAL",
+      "B_RECEIVED_RESIDUAL"
+    ],
+    "ready_targets": [
+      "B-READY-LOAD"
+    ],
+    "resource_row": "B7",
+    "questions": [
+      "Q-R2-01",
+      "Q-R2-04",
+      "Q-R2-05",
+      "Q-R3-01",
+      "Q-R3-02",
+      "Q-R3-03",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "source_row": "B8",
+    "source_stage": "resources",
+    "source_commit": "43f03359fabe2b664935b17f9ac7851504093ece",
+    "transitions": [
+      "RESOURCE-BASIS"
+    ],
+    "states": [
+      "RESOURCE_DRAFT"
+    ],
+    "ready_targets": [],
+    "resource_row": "B8",
+    "questions": [
+      "Q-R2-01",
+      "Q-R3-01",
+      "Q-R3-04",
+      "Q-R3-05"
+    ],
+    "status": "OPEN"
+  }
+]
