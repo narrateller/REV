@@ -1,3 +1,41 @@
+# R4 — B03 recovery gate по ARB-R1-CI-SEMANTICS-04, RECHECK PENDING
+
+**Exact C `3060dbf561f95e4384fbfd13a9cc5569690515e5`, REMOTE_VERIFIED**,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-gates-20261113`.
+https://github.com/narrateller/REV/commit/3060dbf561f95e4384fbfd13a9cc5569690515e5
+H меняет только STATE/NEXT/капсулу; package H byte-identical C.
+[Капсула](handoffs/T-r4-cycle-interfaces-01/r4-b03-gates-20261113.md).
+
+Решение `60eeddce71c9440a2fa08f7acbe6f1121c974b29` записано в капсуле до
+кода; audit/evaluation checkpoint827bb37. Main3a9258c, accepted PR45 owner
+r4-linked-20261111 и lease до 2026-11-14T00:13:12.404899+00:00 проверены при
+публикации, без переназначения/продления. Входной пятый акт R5 88a34f8 и
+H f0c9fa4 сохранены предками; interface counter5/material counter2 не обнулены.
+
+Достоверные own ENTRY/state и адресные causal prohibitions оцениваются до
+schema/dispatch отказов proof; все восемь exits проходят через единый finish.
+Scoped UNKNOWN сохраняет общий BLOCKED при known mandatory FALSE; без такого
+доказательства malformed proof остаётся INDETERMINATE. Target не выдумывается.
+Snapshot admission успеха не стирает записанный запрет при неполных maps;
+FIELD order и metadata proof не подменяют fixed guard/action. Caller/proof/
+origin/expected/history/rejected IDs неизменны, helper copy не применяется.
+[Схема/результаты](verification/r4_cycle_interfaces/gate_correction/README.md),
+[ветви выхода](verification/r4_cycle_interfaces/gate_correction/exit_coverage.md).
+
+Новые 220 cases/11 methods и все8returns PASS. R5 unchanged matrix295/295,
+minimal2/2; все19 исправленных variants имеют прежние typed input digests,
+scoped UNKNOWN сохранён. Retained snapshot118,type244/36,semantic411,B01/B02
+seven methods; prior independent654/765/7,3277 document checks,8export checks,
+registry --check-git PASS. Это авторские проверки, новый независимый RECHECK PENDING.
+Frozen helper/norm53/84/18/44bindings/4variants/612protected/calculations/CAD,
+payload/data exports и все пять актов/evidence сохранены. B03 OPEN,
+приёмка/stable documentary/CAD handoff NO-GO. W02/physical READY NO-GO,
+PLC/CAD/rebuild/physical trials вне scope, G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 B03 RECHECK act C **88a34f8b7d2d6dbf236101f207e206efb0e3c747**;capsule handoffs/T-r5-ci-snapshots-recheck/r5-ci-snapshots-20261113.md. B03 OPEN:known BLOCKED masked by2early proof returns (19variants),no new FALSE-acceptance;stable documentary handoff NO-GO. Four old rejections preserved,current fifth;W02/physical READY NO-GO,G1 OPEN.
 
 # R5 RECHECK B03 — OPEN / REJECT_WITH_BLOCKER

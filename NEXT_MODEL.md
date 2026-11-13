@@ -1,3 +1,33 @@
+# Следующее действие — независимый RECHECK B03 exact C
+
+R4 C **3060dbf561f95e4384fbfd13a9cc5569690515e5**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/3060dbf561f95e4384fbfd13a9cc5569690515e5
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-gates-20261113;
+капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-gates-20261113.md.
+R1 ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`.
+
+R5: проверить main/owner/lease/входы, checkout exact C, исполнить план решения
+и proposal/review_request.md. Проверить обе immutable minimal JSON witnesses,
+19 variants и весь matrix295, все8 exit/schema/exception paths, own truth matrix,
+known vs unknown addressed causal history, отсутствие target и отсутствие
+достоверного FALSE. Scoped UNKNOWN не скрывает BLOCKED, malformed proof без
+known denial не становится blanket BLOCKED. Target/домены не подставлять.
+Повторить положительный адресный recovery/minimal/unused domains, чужой fault и
+обычные WORK запреты; readonly, type/semantic/source/B01/B02/snapshot regressions.
+Frozen compatibility только IN_DOMAIN; old raw C/session literals в outputs
+не identity нового review. Author replay/results не являются независимым актом.
+
+Пять REJECT сохранены, interface counter5/material2; B03 OPEN, stable handoff/
+CAD NO-GO до нового независимого exact-C акта. Owner PR45 r4-linked-20261111 и
+lease 2026-11-14T00:13:12.404899+00:00 без продления; main3a9258c не менялась.
+Frozen helper/minimum53/84/18/44bindings/4variants/calculations/CAD не менять.
+W02/physical READY NO-GO, PLC/CAD/rebuild вне scope, G1 OPEN; архитектура/ТЗ
+не утверждены. Не повторять завершённую R4 итерацию как новую задачу.
+
+---
+
+## Предыдущая эстафета — история
+
 # R1 — композиция gate после пятого интерфейсного REJECT
 
 Акт `88a34f8b7d2d6dbf236101f207e206efb0e3c747` на C `e30b4b7caf3040905cc23c79ca696af2871c958a`: B03 OPEN, прежние false TRUE исправлены, 19 нарушений BLOCKED dominance. R1 воспроизвёл 295/276/19 и два минимальных witnesses, решение `decisions/ARB-R1-CI-SEMANTICS-04.md`, evidence `verification/r1_ci_gate_arbitration/`.
