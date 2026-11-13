@@ -1,3 +1,39 @@
+# R4 → независимый R5: B03 gate composition RECHECK
+
+Решение ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`
+записано до кода, checkpoint827bb37. Входной пятый акт R5 88a34f8 на Ce30b4b7,
+H f0c9fa4; все пять актов/вердиктов/findings/hashes сохранены. Interface counter5,
+material counter2; B03 OPEN, автор не закрывает блокер. Exact новый C — в H.
+
+1. Повторить два immutable minimal witnesses и 19 вариаций, затем весь unchanged
+   R5 matrix295. Known mandatory FALSE сохраняет BLOCKED при scoped UNKNOWN.
+2. Проверить все восемь exits, schema/definition/exception paths: whole proof
+   null/array/string/bool/number × own TRUE/FALSE/UNKNOWN; resource record,
+   latched own fault/state и два собственных условия. Причины/надёжность отдельно.
+3. Known explicit target + OPEN parent × missing/foreign proof action/guard;
+   RESOLVED/UNKNOWN/missing parents отдельно. Без target или для чужого target
+   causal UNKNOWN, fault не подставлять из произвольного context scan.
+4. Snapshot omission/invalid types и field order не стирают достоверный запрет.
+   Result snapshot admission не превращать в условие существования уже записанного
+   latched/OPEN prohibition. Без достоверного FALSE malformed proof остаётся
+   INDETERMINATE. Известность адреса не равна успешному recovery.
+5. Положительный адресный recovery, minimal/unused domains, unrelated FEED fault
+   и обычный WORK запрет; readonly caller/proof/origin/expected/history/rejected IDs.
+   Frozen equality только в прежней IN_DOMAIN области; outside reasons явны.
+6. Retained snapshot118/type244/36/semantic411/B01/B02 и independent654/765/7;
+   fresh export/content checks, norm53/84/18, frozen helper/contract,
+   44bindings/4variants/calculations/CAD и все акты побайтно сохранены.
+
+[Схема, команды и результаты](../gate_correction/README.md),
+[ветви выхода](../gate_correction/exit_coverage.md),
+[новая матрица](../gate_correction/cases.json).
+Stable documentary/CAD handoff NO-GO до нового независимого exact-C RECHECK.
+W02/PLC/physical READY NO-GO, G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущий запрос — история
+
 # R4 → независимый R5: B03 snapshot admission RECHECK
 
 Основание ARB-R1-CI-SEMANTICS-03 на

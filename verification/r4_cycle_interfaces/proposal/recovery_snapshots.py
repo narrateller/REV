@@ -44,64 +44,126 @@ def assess(request, context, contract):
               'causal_value': 'UNKNOWN', 'action_gate': 'INDETERMINATE', 'physical_permission': False}
     reasons = result['validation']['reasons']
     def fail(path, code, **detail): reasons.append({'path': path, 'code': code, **detail})
+
+    def finish():
+        # Available before schema/definition dispatch; every assessment exit
+        # composes the independent facts collected so far, including UNKNOWN.
+        values = [result['recovery_value'], result['causal_value'],
+                  {'BLOCKED': 'FALSE', 'INDETERMINATE': 'UNKNOWN', 'ALLOWED_ASSUMED': 'TRUE'}[result['entry_gate']]]
+        result['action_gate'] = ('BLOCKED' if 'FALSE' in values else
+                                 'INDETERMINATE' if 'UNKNOWN' in values else 'ALLOWED_ASSUMED')
+        return result
+
     try: fixed, guards, action, helper = definitions(contract)
     except (ValueError, OSError, KeyError, StopIteration) as exc:
-        result['validation']['status'] = 'UNSUPPORTED';fail('contract', str(exc));return result
+        result['validation']['status'] = 'UNSUPPORTED';fail('contract', str(exc));return finish()
     known = set(fixed['evidence_policy']['domains'])
     required = set(guards[TARGET]['evidence_domains'])
     entry_domains = set().union(*(set(guards[g]['evidence_domains']) for g in action['entry_guards']))
     result['required_result_domains'] = sorted(required)
     result['required_context_domains'] = sorted(required | entry_domains)
     result['permitted_extra_domains'] = sorted(known)
-    if type(context) is not dict or type(request) is not dict:
-        fail('inputs', 'CONTEXT_AND_PROOF_MUST_BE_OBJECTS');return result
+    if type(context) is not dict:
+        fail('context', 'CONTEXT_MUST_BE_OBJECT');return finish()
     faults = context.get('faults')
     evidence = context.get('evidence')
-    fid = request.get('fault_id')
+    fid = request.get('fault_id') if type(request) is dict else None
     fault = faults.get(fid) if type(faults) is dict and type(fid) is str else None
+    try: history_valid = helper.history_valid(context)
+    except (KeyError, TypeError, AttributeError, ValueError): history_valid = False
+
+    def addressed(key, item):
+        """Trust immutable identity/links, independently of mutable result maps."""
+        if type(key) is not str or not re.fullmatch(r'F-[0-9a-f]{64}', key) or type(item) is not dict: return False
+        orig = item.get('origin')
+        if type(orig) is not dict or type(orig.get('guard')) is not str: return False
+        definition = guards.get(orig['guard'])
+        if definition is None: return False
+        scope = orig.get('scope');fields = set(fixed['fault_policy']['identity_fields']) | {'subject_kind'}
+        parents = orig.get('cause_fault_ids')
+        # This checks the address of a recorded prohibition. Snapshot admission
+        # below can reject recovery success; gaps in those result prerequisites
+        # cannot erase an already confirmed OPEN fault or its causal links.
+        return (item.get('fault_id') == key == 'F-' + helper.digest(orig)
+                and type(scope) is dict and set(scope) == fields
+                and all(type(v) is str and v for v in scope.values())
+                and scope['subject_kind'] == definition['fault_subject_kind']
+                and type(parents) is list and all(type(p) is str and re.fullmatch(r'F-[0-9a-f]{64}', p) for p in parents))
 
     # ENTRY/state facts are evaluated independently of target-proof admission.
     # Per-guard failures remain visible even if another guard's input is malformed.
     entry_values = {}
     entry_reasons = {}
+    entry_sources = {}
     for g in action['entry_guards']:
         record = evidence.get(g) if type(evidence) is dict else None
-        try: value, reason = helper.evidence_value(fixed, ACTION, g, context, record, 'ENTRY')
+        source = 'FROZEN_CURRENT_EVIDENCE'
+        try:
+            value, reason = helper.evidence_value(fixed, ACTION, g, context, record, 'ENTRY')
+            if reason == 'PERMANENTLY_REJECTED_OPERATION_ID' and not history_valid:
+                value, reason, source = 'UNKNOWN', 'UNCONFIRMED_REJECTION_HISTORY', 'UNCONFIRMED_HISTORY'
+            elif reason == 'UNRESOLVED_ADDRESSED_FAULT':
+                own = helper.open_faults(context, g)
+                if g == 'EVENT_FRESH':
+                    current_op = context.get('operation_id')
+                    own = [f for f in own if type(current_op) is str and current_op and f['origin'].get('operation_id') == current_op]
+                confirmed = [f for f in own if history_valid and addressed(f.get('fault_id'), f)]
+                if value == 'FALSE' and any(f['origin'].get('truth') == 'FALSE' for f in confirmed):
+                    source = 'CONFIRMED_ADDRESSED_OWN_FAULT'
+                else:
+                    value, source = 'UNKNOWN', 'UNCONFIRMED_OR_UNKNOWN_OWN_FAULT'
+                    # A damaged journal cannot erase an independent current
+                    # FALSE record. This tightening is outside domain admission.
+                    raw, raw_reason = helper._raw_value(fixed, ACTION, g, context, record, 'ENTRY')
+                    if raw == 'FALSE' and len(confirmed) != len(own):
+                        value, reason, source = raw, raw_reason, 'FROZEN_CURRENT_EVIDENCE'
         except (KeyError, TypeError, AttributeError, ValueError):
             value, reason = 'UNKNOWN', 'MALFORMED_ENTRY_INPUT'
+            source = 'UNCONFIRMED_INPUT'
             fail('context.entry.' + g, reason)
-        entry_values[g] = value;entry_reasons[g] = reason
-    try: history_valid = helper.history_valid(context)
-    except (KeyError, TypeError, AttributeError, ValueError): history_valid = False
+        entry_values[g] = value;entry_reasons[g] = reason;entry_sources[g] = source
     state, mode, op = (context.get(k) for k in ['state', 'mode', 'operation_id'])
     identities_typed = all(type(v) is str and v for v in [state, mode, op])
-    state_allowed = (type(state) is str and state in action['from_states'] and type(mode) is str
-                     and mode in fixed['state_modes'].get(state, []))
+    state_value = 'UNKNOWN'
+    known_modes = {m for modes in fixed['state_modes'].values() for m in modes}
+    if history_valid and type(state) is str and state in fixed['state_modes']:
+        if state not in action['from_states']: state_value = 'FALSE'
+        elif type(mode) is str and mode in known_modes:
+            state_value = 'TRUE' if mode in fixed['state_modes'][state] else 'FALSE'
     denied, completed = context.get('rejected_operation_ids'), context.get('completed_operations')
-    freshness = ('TRUE' if op not in denied and op not in completed else 'FALSE') if identities_typed and type(denied) is list and type(completed) is dict else 'UNKNOWN'
-    result['entry_gate'] = helper.conjunction(list(entry_values.values()) + ['TRUE' if history_valid else 'UNKNOWN', freshness], state_allowed)
+    freshness = ('TRUE' if op not in denied and op not in completed else 'FALSE') if history_valid and type(op) is str and op and type(denied) is list and type(completed) is dict else 'UNKNOWN'
+    result['entry_gate'] = helper.conjunction(list(entry_values.values()) + ['TRUE' if history_valid else 'UNKNOWN', freshness, state_value])
     result['entry_values'] = entry_values;result['entry_reasons'] = entry_reasons
+    result['entry_sources'] = entry_sources;result['state_value'] = state_value
+    result['history_confirmed'] = history_valid;result['causal_sources'] = {}
 
-    def finish():
-        values = [result['recovery_value'], result['causal_value'],
-                  {'BLOCKED': 'FALSE', 'INDETERMINATE': 'UNKNOWN', 'ALLOWED_ASSUMED': 'TRUE'}[result['entry_gate']]]
-        result['action_gate'] = helper.conjunction(values)
-        return result
+    # The explicit target and its immutable causal links do not depend on
+    # proof.action/guard dispatch or on mutable proof/expected result snapshots.
+    if history_valid and addressed(fid, fault) and fault['origin']['guard'] == TARGET:
+        result['target_fault_id'] = fid
+        values = []
+        for parent in fault['origin']['cause_fault_ids']:
+            item = faults.get(parent)
+            status = item.get('status') if addressed(parent, item) else None
+            value = {'OPEN': 'FALSE', 'RESOLVED': 'TRUE'}.get(status, 'UNKNOWN')
+            result['causal_sources'][parent] = {'value': value, 'status': status,
+                                                'source': 'CONFIRMED_ADDRESSED_HISTORY' if status else 'UNCONFIRMED_ADDRESS'}
+            values.append(value)
+        result['causal_value'] = {'BLOCKED': 'FALSE', 'INDETERMINATE': 'UNKNOWN', 'ALLOWED_ASSUMED': 'TRUE'}[helper.conjunction(values)]
 
     if not history_valid: fail('context.history', 'UNCONFIRMED_OR_INVALID_HISTORY')
     if not identities_typed: fail('context.identity', 'INVALID_STATE_MODE_OR_OPERATION_TYPE')
+    if state_value == 'UNKNOWN': fail('context.state_mode', 'UNCONFIRMED_STATE_OR_MODE')
     if type(completed) is not dict: fail('context.completed_operations', 'INVALID_OPERATION_HISTORY')
     if 'recovered_evidence' in context and type(context['recovered_evidence']) is not dict:
         fail('context.recovered_evidence', 'INVALID_RECOVERY_HISTORY')
+    if type(request) is not dict:
+        fail('proof', 'PROOF_MUST_BE_OBJECT');return finish()
     if type(fid) is not str or not re.fullmatch(r'F-[0-9a-f]{64}', fid) or type(fault) is not dict:
         fail('proof.fault_id', 'UNKNOWN_OR_INVALID_TARGET');return finish()
     origin = fault.get('origin')
     if type(origin) is not dict or origin.get('guard') != TARGET or request.get('action') != ACTION or request.get('guard') != TARGET:
         result['validation']['status'] = 'UNSUPPORTED';fail('target', 'UNSUPPORTED_GUARD_ACTION_PAIR');return finish()
-    causes = origin.get('cause_fault_ids')
-    if type(causes) is list and all(type(c) is str for c in causes):
-        statuses = [faults[c].get('status') if type(faults.get(c)) is dict else None for c in causes]
-        result['causal_value'] = 'FALSE' if 'OPEN' in statuses else 'TRUE' if all(s == 'RESOLVED' for s in statuses) else 'UNKNOWN'
     if type(fault.get('resolution_attempts')) is not list:
         fail('faults.' + fid + '.resolution_attempts', 'INVALID_RESOLUTION_HISTORY')
 
@@ -149,6 +211,8 @@ def assess(request, context, contract):
     seen = set()
     while used:
         key = used.pop()
+        if type(key) is not str:
+            fail('faults', 'INVALID_FAULT_KEY');continue
         if key in seen: continue
         seen.add(key);item = faults.get(key);check_fault(key, item)
         if type(item) is dict and type(item.get('origin')) is dict:
@@ -170,7 +234,10 @@ def assess(request, context, contract):
     result['validation']['status'] = 'VALID' if agreed else 'UNCONFIRMED'
     if not agreed: fail('proof.revision_bindings', 'STALE_OR_WRONG_SCOPED_REVISION')
     # Only admitted domain/type/history inputs reach this frozen policy call.
-    _, policy = helper.recover(fixed, ACTION, context, fid, request)
+    try: _, policy = helper.recover(fixed, ACTION, context, fid, request)
+    except (KeyError, TypeError, AttributeError, ValueError, StopIteration) as exc:
+        result['validation']['status'] = 'REJECTED';result['compatibility_domain'] = 'OUT_OF_DOMAIN'
+        fail('policy', 'MALFORMED_POLICY_INPUT', exception=type(exc).__name__);return finish()
     result['policy_result'] = policy
     result['recovery_value'] = {'ALLOWED_ASSUMED': 'TRUE', 'BLOCKED': 'FALSE', 'INDETERMINATE': 'UNKNOWN'}[policy] if agreed else 'UNKNOWN'
     return finish()

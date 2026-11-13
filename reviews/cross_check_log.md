@@ -4922,7 +4922,8 @@ findings:
     proof or missing/foreign proof action/guard before causal assessment.19 variations of2 early-return branches;
     no new false TRUE.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: Authorized B03 gate composition correction under ARB-R1-CI-SEMANTICS-04 changes reviewed checker; fifth REJECT, findings, reviewed C and hashes preserved. Independent exact-C RECHECK required.
 blocker_ids:
 - R5-CI-B03
 allowed_downstream_scope: Stable documentary CYC-02/03 handoff and new CAD iteration NO-GO. Previously authorized

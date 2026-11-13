@@ -1,3 +1,20 @@
+## T-r4-cycle-interfaces-01 — B03 gate composition correction
+
+R1 ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`
+записан в капсуле до кода; accepted owner PR45 r4-linked-20261111 и lease
+2026-11-14T00:13:12.404899+00:00 не переназначены/не продлены; main3a9258c.
+Независимые достоверные own ENTRY/state/адресные causal constraints и единый
+finish сохраняют known FALSE на всех exits proof/schema; неизвестный target
+не выдумывается. Схема/регрессии verification/r4_cycle_interfaces/gate_correction/.
+B03 OPEN, приёмка BLOCKED, независимый R5 RECHECK exact нового C PENDING.
+Пять REJECT/полные акты/SHA/evidence сохранены; interface counter5/material2.
+Norm/helper/type/domain/B01/B02/44bindings/4variants/calculations/CAD неизменны.
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
 ## T-r5-ci-snapshots-recheck — независимый RECHECK завершён
 
 - R5/Codex/r5-ci-snapshots-20261113, direct user assignment; REVIEW_COMPLETE/REJECT_WITH_BLOCKER.

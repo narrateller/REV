@@ -1,3 +1,22 @@
+# B03 — композиция gate по ARB-R1-CI-SEMANTICS-04
+
+Решение `60eeddce71c9440a2fa08f7acbe6f1121c974b29` прочитано, SHA записан
+в капсуле до кода; checkpoint `827bb37` содержит audit/evaluation plan.
+[Схема и результаты](../gate_correction/README.md). Собственные ENTRY/state и
+достоверные адресные causal prohibitions оцениваются до schema/dispatch отказов
+proof; все выходы идут через единый finish. Scoped UNKNOWN совместим с общим
+BLOCKED при подтверждённом обязательном FALSE. Без достоверного запрета
+malformed proof не создаёт BLOCKED; отсутствующий target не подставляется.
+Пятый REJECT и четыре предыдущих акта сохранены, interface counter5/material2.
+B03 OPEN до независимого exact-C RECHECK; приёмка/stable CAD handoff NO-GO.
+Main3a9258c, PR45 owner/lease неизменны. Frozen helper, minimum53/84/18,
+B01/B02/type/domain fixes,44bindings/4variants/calculations/CAD сохранены.
+W02/PLC вне итерации, physical READY NO-GO, архитектура/ТЗ не утверждены, G1 OPEN.
+
+---
+
+## Предыдущие записи — история
+
 # B03 — prevalidation по ARB-R1-CI-SEMANTICS-03
 
 Решение `39826eb2f5dbd1f83d81882022e6f59313ebe5d5` прочитано, SHA

@@ -48,3 +48,10 @@ unused domains, чужие faults/обычная WORK блокировка; пр
 244 type/36 differential, 411 semantic и B01/B02, readonly/export/source checks.
 Все пять REJECT и material counter2 сохраняются. Норматив/44bindings/4variants/
 расчёты/CAD неизменны. W02/physical READY NO-GO, G1 OPEN.
+
+Уточнение реализации после retained regressions: completeness/type/history
+snapshot admission — условие успешного recovery, но не дополнительное условие
+существования уже записанного отрицательного факта. Known OPEN/latched запреты
+адресуются по подтверждённой истории, F-ID/origin digest, guard/identity/causal
+links. Невалидный result/origin revision snapshot оставляет scoped UNKNOWN,
+при этом не стирает этот ранее записанный запрет. Старые fixtures сохранены.

@@ -1,0 +1,191 @@
+{
+  "cases": [
+    {
+      "id": "compound:resource-fault:whole-proof-null",
+      "assessment": {
+        "validation": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "path": "proof",
+              "code": "PROOF_MUST_BE_OBJECT"
+            }
+          ]
+        },
+        "compatibility_domain": "OUT_OF_DOMAIN",
+        "policy_result": "NOT_EVALUATED",
+        "recovery_value": "UNKNOWN",
+        "entry_gate": "BLOCKED",
+        "causal_value": "UNKNOWN",
+        "action_gate": "BLOCKED",
+        "physical_permission": false,
+        "required_result_domains": [
+          "B_CLOSURE"
+        ],
+        "required_context_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES"
+        ],
+        "permitted_extra_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "FEED",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES",
+          "RETENTION"
+        ],
+        "entry_values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "FALSE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "entry_reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "UNRESOLVED_ADDRESSED_FAULT",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "entry_sources": {
+          "BASIS_DEFINED": "FROZEN_CURRENT_EVIDENCE",
+          "CONTINUITY_CONFIRMED": "FROZEN_CURRENT_EVIDENCE",
+          "EVENT_FRESH": "FROZEN_CURRENT_EVIDENCE",
+          "FEEDBACK_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "LEDGER_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "METHOD_SUPPORTED": "FROZEN_CURRENT_EVIDENCE",
+          "RECEIPT_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "RESET_SWEEP_CLEAR": "FROZEN_CURRENT_EVIDENCE",
+          "RESOURCES_READY": "CONFIRMED_ADDRESSED_OWN_FAULT",
+          "RESTORE_SEQUENCE_DEFINED": "FROZEN_CURRENT_EVIDENCE",
+          "TOOLS_HOME": "FROZEN_CURRENT_EVIDENCE"
+        },
+        "state_value": "TRUE",
+        "history_confirmed": true,
+        "causal_sources": {}
+      },
+      "frozen_gate": "BLOCKED",
+      "original_unchanged": true,
+      "matched": true
+    },
+    {
+      "id": "compound:causal:action-missing",
+      "assessment": {
+        "validation": {
+          "status": "UNSUPPORTED",
+          "reasons": [
+            {
+              "path": "target",
+              "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+            }
+          ]
+        },
+        "compatibility_domain": "OUT_OF_DOMAIN",
+        "policy_result": "NOT_EVALUATED",
+        "recovery_value": "UNKNOWN",
+        "entry_gate": "ALLOWED_ASSUMED",
+        "causal_value": "FALSE",
+        "action_gate": "BLOCKED",
+        "physical_permission": false,
+        "required_result_domains": [
+          "B_CLOSURE"
+        ],
+        "required_context_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES"
+        ],
+        "permitted_extra_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "FEED",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES",
+          "RETENTION"
+        ],
+        "entry_values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "entry_reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "entry_sources": {
+          "BASIS_DEFINED": "FROZEN_CURRENT_EVIDENCE",
+          "CONTINUITY_CONFIRMED": "FROZEN_CURRENT_EVIDENCE",
+          "EVENT_FRESH": "FROZEN_CURRENT_EVIDENCE",
+          "FEEDBACK_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "LEDGER_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "METHOD_SUPPORTED": "FROZEN_CURRENT_EVIDENCE",
+          "RECEIPT_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "RESET_SWEEP_CLEAR": "FROZEN_CURRENT_EVIDENCE",
+          "RESOURCES_READY": "FROZEN_CURRENT_EVIDENCE",
+          "RESTORE_SEQUENCE_DEFINED": "FROZEN_CURRENT_EVIDENCE",
+          "TOOLS_HOME": "FROZEN_CURRENT_EVIDENCE"
+        },
+        "state_value": "TRUE",
+        "history_confirmed": true,
+        "causal_sources": {
+          "F-687926e0a26cc7d2bd3e286a2dae736d05489d407d8089be575a85f4f051a04b": {
+            "value": "FALSE",
+            "status": "OPEN",
+            "source": "CONFIRMED_ADDRESSED_HISTORY"
+          }
+        },
+        "target_fault_id": "F-ccc5cc198df42fc86aad2528049eba5b6d3d0fa1fafd3c7c7c1e347ff46c00e8"
+      },
+      "frozen_gate": "BLOCKED",
+      "original_unchanged": true,
+      "matched": true
+    }
+  ],
+  "matched": 2,
+  "role": "AUTHOR_REPLAY_CURRENT_SOURCE"
+}

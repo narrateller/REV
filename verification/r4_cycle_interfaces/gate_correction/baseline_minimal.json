@@ -1,0 +1,135 @@
+{
+  "C": "e30b4b7caf3040905cc23c79ca696af2871c958a",
+  "session_id": "r5-ci-snapshots-20261113",
+  "cases": [
+    {
+      "id": "compound:resource-fault:whole-proof-null",
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "frozen_gate": "BLOCKED",
+      "matched": false,
+      "input_unchanged": true,
+      "caller_and_proof_sha256": "450eb7372e9c54f201ea8dc29dc45069e1df22f942a36af399c7f8e3a7a99f22",
+      "assessment": {
+        "validation": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "path": "inputs",
+              "code": "CONTEXT_AND_PROOF_MUST_BE_OBJECTS"
+            }
+          ]
+        },
+        "compatibility_domain": "OUT_OF_DOMAIN",
+        "policy_result": "NOT_EVALUATED",
+        "recovery_value": "UNKNOWN",
+        "entry_gate": "INDETERMINATE",
+        "causal_value": "UNKNOWN",
+        "action_gate": "INDETERMINATE",
+        "physical_permission": false,
+        "required_result_domains": [
+          "B_CLOSURE"
+        ],
+        "required_context_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES"
+        ],
+        "permitted_extra_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "FEED",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES",
+          "RETENTION"
+        ]
+      }
+    },
+    {
+      "id": "compound:causal:action-missing",
+      "expected_action_gate": "BLOCKED",
+      "actual_action_gate": "INDETERMINATE",
+      "scoped_value": "UNKNOWN",
+      "frozen_gate": "BLOCKED",
+      "matched": false,
+      "input_unchanged": true,
+      "caller_and_proof_sha256": "0a581841d7a4b02a21769225139b1500ef0f19eac558c1dd20b4f88a625da8a6",
+      "assessment": {
+        "validation": {
+          "status": "UNSUPPORTED",
+          "reasons": [
+            {
+              "path": "target",
+              "code": "UNSUPPORTED_GUARD_ACTION_PAIR"
+            }
+          ]
+        },
+        "compatibility_domain": "OUT_OF_DOMAIN",
+        "policy_result": "NOT_EVALUATED",
+        "recovery_value": "UNKNOWN",
+        "entry_gate": "ALLOWED_ASSUMED",
+        "causal_value": "UNKNOWN",
+        "action_gate": "INDETERMINATE",
+        "physical_permission": false,
+        "required_result_domains": [
+          "B_CLOSURE"
+        ],
+        "required_context_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES"
+        ],
+        "permitted_extra_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "FEED",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES",
+          "RETENTION"
+        ],
+        "entry_values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "entry_reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        }
+      }
+    }
+  ],
+  "matched": 0
+}
