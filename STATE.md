@@ -1,3 +1,39 @@
+# R4 — B03 snapshots по ARB-R1-CI-SEMANTICS-03, RECHECK PENDING
+
+**Exact C `e30b4b7caf3040905cc23c79ca696af2871c958a`, REMOTE_VERIFIED**,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113`.
+https://github.com/narrateller/REV/commit/e30b4b7caf3040905cc23c79ca696af2871c958a
+H меняет только STATE/NEXT/капсулу, пакет в exact C остаётся тем же.
+[Капсула](handoffs/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113.md).
+
+Решение R1 `39826eb2f5dbd1f83d81882022e6f59313ebe5d5` прочитано и записано
+в капсуле до кода, audit/schema checkpoint b08f365. Main `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`,
+accepted PR45 owner r4-linked-20261111 и lease до 2026-11-14T00:13:12.404899+00:00
+повторно проверены при публикации; owner/срок не менялись и не продлевались.
+Входной четвёртый акт R5 0ff3c8f и H e4e32de сохранены полными предками.
+
+Prevalidation использует fixed guard/action domains, B_RESET E={B_CLOSURE},
+проверяет все consumed snapshots и адресную revision_history. Нет zero/current
+repair, bool/float coercion или требования посторонних FEED/RETENTION.
+Разделены admission/reasons, scoped value, frozen result и общий action gate;
+неполный proof не скрывает известный FALSE. Frozen delegation только в
+явно объявленной области. Caller/proof/fault/history/rejected IDs неизменны.
+[Схема/результаты](verification/r4_cycle_interfaces/snapshot_correction/README.md),
+[policy table](verification/r4_cycle_interfaces/snapshot_correction/policy_comparison.md).
+
+118 новых cases / 11 methods, original unchanged R5 3/7 → author replay7/7,
+3277 document checks, 8 export checks, retained type244/36, semantic411,
+B01/B02 seven methods и registry --check-git PASS. Независимый RECHECK PENDING.
+Норматив 53/84/18, frozen helper, 44 bindings, четыре силовых варианта,
+612 protected inputs, loads/calculations/CAD и payload/data exports сохранены.
+Все четыре REJECT/акта/findings/hashes сохранены; interface counter4/material2.
+B03 OPEN, стабильная documentary/CAD передача NO-GO. W02/PLC/CAD вне scope,
+physical READY NO-GO, G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 B03 RECHECK act C **0ff3c8f4502ea29c712bf1f41e223f172c5a21c7**; capsule handoffs/T-r5-ci-types-recheck/r5-ci-strict-types-20261113.md. B03 OPEN/REJECT_WITH_BLOCKER:4 incomplete-snapshot false TRUE witnesses. Stable documentary handoff NO-GO;R1 follow-up. Counter4 preserves all3 prior REJECT;W02/physical READY NO-GO,G1 OPEN.
 
 # Независимый RECHECK B03 — OPEN / REJECT_WITH_BLOCKER

@@ -1,3 +1,31 @@
+# Следующее действие — независимый R5 RECHECK B03 exact C
+
+R4 correction C **e30b4b7caf3040905cc23c79ca696af2871c958a**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/e30b4b7caf3040905cc23c79ca696af2871c958a
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113.md;
+R1 ARB-R1-CI-SEMANTICS-03 `39826eb2f5dbd1f83d81882022e6f59313ebe5d5`.
+
+Проверить main/owner/lease/входы, checkout exact C; использовать независимый
+fixed guard/action domain oracle, DOMAIN_SCHEMA.md и review_request.md.
+Воспроизвести 7 incomplete cases и новые map/type/history/extra/domain/gate
+варианты, положительный адресный recovery, used/unused domains, readonly и
+retained normative/type/B01/B02 checks. Сравнивать frozen policy в объявленной
+допустимой области; OUT_OF_DOMAIN с legacy TRUE/exception объяснить схемой.
+Не повторять выполненную R4 коррекцию как новую задачу и не применять helper
+returned copy к caller. Author tests/replay не являются независимым актом.
+
+B03 OPEN; четыре REJECT сохранены (interface4/material2), stable handoff/CAD
+NO-GO до нового независимого акта exact C. Owner PR45 r4-linked-20261111 и
+lease 2026-11-14T00:13:12.404899+00:00 без переназначения/продления; main3a9258c
+не менялась. Frozen helper/норматив/44bindings/4variants/calculations/CAD
+не менять. W02/PLC/CAD вне итерации, physical READY NO-GO, G1 OPEN.
+Архитектура/ТЗ не утверждены. Пакет H идентичен C.
+
+---
+
+## Предыдущая эстафета — история
+
 # R1 — полнота recovery snapshots и граница frozen compatibility
 
 Входной акт `0ff3c8f4502ea29c712bf1f41e223f172c5a21c7` на C `fa0626372c03d11655624bb454458f82c30117f7`: B03 OPEN, четвёртый REJECT. R1 воспроизвёл четыре ложных TRUE; решение `decisions/ARB-R1-CI-SEMANTICS-03.md`, evidence `verification/r1_ci_snapshot_arbitration/`.
