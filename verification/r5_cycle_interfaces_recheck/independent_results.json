@@ -1,0 +1,5853 @@
+{
+  "session_id": "r5-ci-recheck-20261113",
+  "reviewed_C": "144941cbfc67002cbe81765e38c80e237473deff",
+  "historical_17": [
+    {
+      "original_id": "mode-parent:A-MECH-APPROACH:A_STARTUP",
+      "corrected": true
+    },
+    {
+      "original_id": "mode-parent:A-MECH-WORK:A_STARTUP",
+      "corrected": true
+    },
+    {
+      "original_id": "mode-parent:A-MECH-HOLD-UNLOAD:A_STARTUP",
+      "corrected": true
+    },
+    {
+      "original_id": "load-return-current-completion:A-LOAD-START",
+      "corrected": true
+    },
+    {
+      "original_id": "load-return-current-completion:A-LOAD-STEADY",
+      "corrected": true
+    },
+    {
+      "original_id": "load-return-current-completion:A-REFILL",
+      "corrected": true
+    },
+    {
+      "original_id": "load-return-current-completion:B-LOAD",
+      "corrected": true
+    },
+    {
+      "original_id": "load-return-current-completion:B-REFILL",
+      "corrected": true
+    },
+    {
+      "original_id": "restore-parent-vs-child:B-MECH-STOP-CLOSE",
+      "corrected": true
+    },
+    {
+      "original_id": "restore-parent-vs-child:B-MECH-RELOCK",
+      "corrected": true
+    },
+    {
+      "original_id": "addressed-fill-complete-before-isolation:A",
+      "corrected": true
+    },
+    {
+      "original_id": "addressed-fill-complete-before-isolation:B",
+      "corrected": true
+    },
+    {
+      "original_id": "semantic-mutation:unknown_pose",
+      "corrected": true
+    },
+    {
+      "original_id": "semantic-mutation:work_starts_at_P0",
+      "corrected": true
+    },
+    {
+      "original_id": "semantic-mutation:drop_isolation_guard",
+      "corrected": true
+    },
+    {
+      "original_id": "semantic-mutation:cross_scenario_work_binding",
+      "corrected": true
+    },
+    {
+      "original_id": "semantic-mutation:wrong_parent_mode",
+      "corrected": true
+    }
+  ],
+  "historical_17_corrected": 17,
+  "checks": [
+    {
+      "id": "replay17:mode-parent:A-MECH-APPROACH:A_STARTUP",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:mode-parent:A-MECH-WORK:A_STARTUP",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:mode-parent:A-MECH-HOLD-UNLOAD:A_STARTUP",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:load-return-current-completion:A-LOAD-START",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:load-return-current-completion:A-LOAD-STEADY",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:load-return-current-completion:A-REFILL",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:load-return-current-completion:B-LOAD",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:load-return-current-completion:B-REFILL",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:restore-parent-vs-child:B-MECH-STOP-CLOSE",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:restore-parent-vs-child:B-MECH-RELOCK",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:addressed-fill-complete-before-isolation:A",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "replay17:addressed-fill-complete-before-isolation:B",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "fill-current:A-LOAD-START:A_STARTUP",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "cannot-commit-in-D1:A-LOAD-START:A_STARTUP",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-before-confirmation:A-LOAD-START:A_STARTUP",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "confirmed-return:A-LOAD-START:A_STARTUP",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "commit-after-return:A-LOAD-START:A_STARTUP",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "isolation-before-commit:A-LOAD-START:A_STARTUP",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "committed-successor:A-LOAD-START:A_STARTUP",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "receipt-not-rewritten:A-LOAD-START:A_STARTUP",
+      "expected": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-START",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "actual": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-START",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "matches": true
+    },
+    {
+      "id": "inventory-preserved:A-LOAD-START:A_STARTUP",
+      "expected": [
+        "retained-entity"
+      ],
+      "actual": [
+        "retained-entity"
+      ],
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:variant:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:variant:foreign-variant",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:mode:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:mode:foreign-mode",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:subject_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:subject_id:foreign-subject_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:dose_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:dose_id:foreign-dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:material_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:material_id:foreign-material_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:batch_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:batch_id:foreign-batch_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:cycle_epoch:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:cycle_epoch:foreign-cycle_epoch",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:basis_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:basis_id:foreign-basis_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:basis_revision:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:basis_revision:foreign-basis_revision",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:load_action:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:load_action:foreign-load_action",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:load_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:load_operation_id:foreign-load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:transfer_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-START:A_STARTUP:transfer_operation_id:foreign-transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-START:A_STARTUP:material",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-START:A_STARTUP:feed",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-START:A_STARTUP:inventory",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-START:A_STARTUP:geometry",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-START:A_STARTUP:resource",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-START:A_STARTUP:receiver",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-START:A_STARTUP:history",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-START:A_STARTUP:method",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-START:A_STARTUP:source",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-START:A_STARTUP:evidence_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-START:A_STARTUP:revisions",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-START:A_STARTUP:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-START:A_STARTUP:confirmation_kind:COMMAND_FINISHED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-START:A_STARTUP:confirmation_kind:TIMER_EXPIRED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-START:A_STARTUP:dose_delivered:UNKNOWN",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-START:A_STARTUP:transfer_pose:D0",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-START:A_STARTUP:valid_for_consumer_interval:False",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-LOAD-START:A_STARTUP:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-LOAD-START:A_STARTUP:load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-LOAD-START:A_STARTUP:transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-START:A_STARTUP:boundary",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-START:A_STARTUP:current_doser",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-START:A_STARTUP:receipt_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-START:A_STARTUP:value",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TTT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:TUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FTT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FTU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FUT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:FUU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UTT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-START:A_STARTUP:UUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "revoked-after-D0:A-LOAD-START:A_STARTUP",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "matches": true
+    },
+    {
+      "id": "fill-current:A-LOAD-STEADY:A_STEADY",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "cannot-commit-in-D1:A-LOAD-STEADY:A_STEADY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-before-confirmation:A-LOAD-STEADY:A_STEADY",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "confirmed-return:A-LOAD-STEADY:A_STEADY",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "commit-after-return:A-LOAD-STEADY:A_STEADY",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "isolation-before-commit:A-LOAD-STEADY:A_STEADY",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "committed-successor:A-LOAD-STEADY:A_STEADY",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "receipt-not-rewritten:A-LOAD-STEADY:A_STEADY",
+      "expected": {
+        "variant": "A",
+        "mode": "A_STEADY",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-STEADY",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "actual": {
+        "variant": "A",
+        "mode": "A_STEADY",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-STEADY",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "matches": true
+    },
+    {
+      "id": "inventory-preserved:A-LOAD-STEADY:A_STEADY",
+      "expected": [
+        "retained-entity"
+      ],
+      "actual": [
+        "retained-entity"
+      ],
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:variant:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:variant:foreign-variant",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:mode:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:mode:foreign-mode",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:subject_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:subject_id:foreign-subject_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:dose_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:dose_id:foreign-dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:material_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:material_id:foreign-material_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:batch_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:batch_id:foreign-batch_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:cycle_epoch:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:cycle_epoch:foreign-cycle_epoch",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:basis_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:basis_id:foreign-basis_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:basis_revision:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:basis_revision:foreign-basis_revision",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:load_action:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:load_action:foreign-load_action",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:load_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:load_operation_id:foreign-load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:transfer_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-LOAD-STEADY:A_STEADY:transfer_operation_id:foreign-transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-STEADY:A_STEADY:material",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-STEADY:A_STEADY:feed",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-STEADY:A_STEADY:inventory",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-STEADY:A_STEADY:geometry",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-STEADY:A_STEADY:resource",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-STEADY:A_STEADY:receiver",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-LOAD-STEADY:A_STEADY:history",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-STEADY:A_STEADY:method",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-STEADY:A_STEADY:source",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-STEADY:A_STEADY:evidence_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-STEADY:A_STEADY:revisions",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-LOAD-STEADY:A_STEADY:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-STEADY:A_STEADY:confirmation_kind:COMMAND_FINISHED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-STEADY:A_STEADY:confirmation_kind:TIMER_EXPIRED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-STEADY:A_STEADY:dose_delivered:UNKNOWN",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-STEADY:A_STEADY:transfer_pose:D0",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-LOAD-STEADY:A_STEADY:valid_for_consumer_interval:False",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-LOAD-STEADY:A_STEADY:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-LOAD-STEADY:A_STEADY:load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-LOAD-STEADY:A_STEADY:transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-STEADY:A_STEADY:boundary",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-STEADY:A_STEADY:current_doser",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-STEADY:A_STEADY:receipt_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-LOAD-STEADY:A_STEADY:value",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TTT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:TUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FTT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FTU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FUT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:FUU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UTT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-LOAD-STEADY:A_STEADY:UUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "revoked-after-D0:A-LOAD-STEADY:A_STEADY",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "matches": true
+    },
+    {
+      "id": "fill-current:A-REFILL:A_STARTUP",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "cannot-commit-in-D1:A-REFILL:A_STARTUP",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-before-confirmation:A-REFILL:A_STARTUP",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "confirmed-return:A-REFILL:A_STARTUP",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "commit-after-return:A-REFILL:A_STARTUP",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "isolation-before-commit:A-REFILL:A_STARTUP",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "committed-successor:A-REFILL:A_STARTUP",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "receipt-not-rewritten:A-REFILL:A_STARTUP",
+      "expected": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "actual": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "matches": true
+    },
+    {
+      "id": "inventory-preserved:A-REFILL:A_STARTUP",
+      "expected": [
+        "retained-entity"
+      ],
+      "actual": [
+        "retained-entity"
+      ],
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:variant:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:variant:foreign-variant",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:mode:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:mode:foreign-mode",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:subject_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:subject_id:foreign-subject_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:dose_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:dose_id:foreign-dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:material_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:material_id:foreign-material_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:batch_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:batch_id:foreign-batch_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:cycle_epoch:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:cycle_epoch:foreign-cycle_epoch",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:basis_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:basis_id:foreign-basis_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:basis_revision:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:basis_revision:foreign-basis_revision",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:load_action:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:load_action:foreign-load_action",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:load_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:load_operation_id:foreign-load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:transfer_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:A-REFILL:A_STARTUP:transfer_operation_id:foreign-transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-REFILL:A_STARTUP:material",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-REFILL:A_STARTUP:feed",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-REFILL:A_STARTUP:inventory",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-REFILL:A_STARTUP:geometry",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-REFILL:A_STARTUP:resource",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-REFILL:A_STARTUP:receiver",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:A-REFILL:A_STARTUP:history",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-REFILL:A_STARTUP:method",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-REFILL:A_STARTUP:source",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-REFILL:A_STARTUP:evidence_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-REFILL:A_STARTUP:revisions",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:A-REFILL:A_STARTUP:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-REFILL:A_STARTUP:confirmation_kind:COMMAND_FINISHED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-REFILL:A_STARTUP:confirmation_kind:TIMER_EXPIRED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-REFILL:A_STARTUP:dose_delivered:UNKNOWN",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-REFILL:A_STARTUP:transfer_pose:D0",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:A-REFILL:A_STARTUP:valid_for_consumer_interval:False",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-REFILL:A_STARTUP:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-REFILL:A_STARTUP:load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:A-REFILL:A_STARTUP:transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-REFILL:A_STARTUP:boundary",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-REFILL:A_STARTUP:current_doser",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-REFILL:A_STARTUP:receipt_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:A-REFILL:A_STARTUP:value",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TTT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:TUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FTT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FTU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FUT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:FUU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UTT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:A-REFILL:A_STARTUP:UUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "revoked-after-D0:A-REFILL:A_STARTUP",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "matches": true
+    },
+    {
+      "id": "fill-current:B-LOAD:B_REPEAT",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "cannot-commit-in-D1:B-LOAD:B_REPEAT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-before-confirmation:B-LOAD:B_REPEAT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "confirmed-return:B-LOAD:B_REPEAT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "commit-after-return:B-LOAD:B_REPEAT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "isolation-before-commit:B-LOAD:B_REPEAT",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "committed-successor:B-LOAD:B_REPEAT",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "receipt-not-rewritten:B-LOAD:B_REPEAT",
+      "expected": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "actual": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "matches": true
+    },
+    {
+      "id": "inventory-preserved:B-LOAD:B_REPEAT",
+      "expected": [
+        "retained-entity"
+      ],
+      "actual": [
+        "retained-entity"
+      ],
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:variant:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:variant:foreign-variant",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:mode:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:mode:foreign-mode",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:subject_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:subject_id:foreign-subject_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:dose_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:dose_id:foreign-dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:material_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:material_id:foreign-material_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:batch_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:batch_id:foreign-batch_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:cycle_epoch:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:cycle_epoch:foreign-cycle_epoch",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:basis_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:basis_id:foreign-basis_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:basis_revision:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:basis_revision:foreign-basis_revision",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:load_action:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:load_action:foreign-load_action",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:load_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:load_operation_id:foreign-load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:transfer_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_REPEAT:transfer_operation_id:foreign-transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_REPEAT:material",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_REPEAT:feed",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_REPEAT:inventory",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_REPEAT:geometry",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_REPEAT:resource",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_REPEAT:receiver",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_REPEAT:history",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_REPEAT:method",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_REPEAT:source",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_REPEAT:evidence_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_REPEAT:revisions",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_REPEAT:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_REPEAT:confirmation_kind:COMMAND_FINISHED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_REPEAT:confirmation_kind:TIMER_EXPIRED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_REPEAT:dose_delivered:UNKNOWN",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_REPEAT:transfer_pose:D0",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_REPEAT:valid_for_consumer_interval:False",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-LOAD:B_REPEAT:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-LOAD:B_REPEAT:load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-LOAD:B_REPEAT:transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_REPEAT:boundary",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_REPEAT:current_doser",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_REPEAT:receipt_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_REPEAT:value",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TTT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:TUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FTT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FTU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FUT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:FUU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UTT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_REPEAT:UUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "revoked-after-D0:B-LOAD:B_REPEAT",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "matches": true
+    },
+    {
+      "id": "fill-current:B-LOAD:B_SINGLE",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "cannot-commit-in-D1:B-LOAD:B_SINGLE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-before-confirmation:B-LOAD:B_SINGLE",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "confirmed-return:B-LOAD:B_SINGLE",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "commit-after-return:B-LOAD:B_SINGLE",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "isolation-before-commit:B-LOAD:B_SINGLE",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "committed-successor:B-LOAD:B_SINGLE",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "receipt-not-rewritten:B-LOAD:B_SINGLE",
+      "expected": {
+        "variant": "B",
+        "mode": "B_SINGLE",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "actual": {
+        "variant": "B",
+        "mode": "B_SINGLE",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "matches": true
+    },
+    {
+      "id": "inventory-preserved:B-LOAD:B_SINGLE",
+      "expected": [
+        "retained-entity"
+      ],
+      "actual": [
+        "retained-entity"
+      ],
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:variant:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:variant:foreign-variant",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:mode:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:mode:foreign-mode",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:subject_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:subject_id:foreign-subject_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:dose_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:dose_id:foreign-dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:material_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:material_id:foreign-material_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:batch_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:batch_id:foreign-batch_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:cycle_epoch:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:cycle_epoch:foreign-cycle_epoch",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:basis_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:basis_id:foreign-basis_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:basis_revision:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:basis_revision:foreign-basis_revision",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:load_action:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:load_action:foreign-load_action",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:load_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:load_operation_id:foreign-load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:transfer_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-LOAD:B_SINGLE:transfer_operation_id:foreign-transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_SINGLE:material",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_SINGLE:feed",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_SINGLE:inventory",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_SINGLE:geometry",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_SINGLE:resource",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_SINGLE:receiver",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-LOAD:B_SINGLE:history",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_SINGLE:method",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_SINGLE:source",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_SINGLE:evidence_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_SINGLE:revisions",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-LOAD:B_SINGLE:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_SINGLE:confirmation_kind:COMMAND_FINISHED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_SINGLE:confirmation_kind:TIMER_EXPIRED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_SINGLE:dose_delivered:UNKNOWN",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_SINGLE:transfer_pose:D0",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-LOAD:B_SINGLE:valid_for_consumer_interval:False",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-LOAD:B_SINGLE:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-LOAD:B_SINGLE:load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-LOAD:B_SINGLE:transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_SINGLE:boundary",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_SINGLE:current_doser",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_SINGLE:receipt_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-LOAD:B_SINGLE:value",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TTT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:TUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FTT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FTU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FUT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:FUU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UTT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-LOAD:B_SINGLE:UUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "revoked-after-D0:B-LOAD:B_SINGLE",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "matches": true
+    },
+    {
+      "id": "fill-current:B-REFILL:B_REPEAT",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "cannot-commit-in-D1:B-REFILL:B_REPEAT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-before-confirmation:B-REFILL:B_REPEAT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "confirmed-return:B-REFILL:B_REPEAT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "commit-after-return:B-REFILL:B_REPEAT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "isolation-before-commit:B-REFILL:B_REPEAT",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "committed-successor:B-REFILL:B_REPEAT",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "matches": true
+    },
+    {
+      "id": "receipt-not-rewritten:B-REFILL:B_REPEAT",
+      "expected": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "actual": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "matches": true
+    },
+    {
+      "id": "inventory-preserved:B-REFILL:B_REPEAT",
+      "expected": [
+        "retained-entity"
+      ],
+      "actual": [
+        "retained-entity"
+      ],
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:variant:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:variant:foreign-variant",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:mode:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:mode:foreign-mode",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:subject_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:subject_id:foreign-subject_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:dose_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:dose_id:foreign-dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:material_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:material_id:foreign-material_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:batch_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:batch_id:foreign-batch_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:cycle_epoch:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:cycle_epoch:foreign-cycle_epoch",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:basis_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:basis_id:foreign-basis_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:basis_revision:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:basis_revision:foreign-basis_revision",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:load_action:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:load_action:foreign-load_action",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:load_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:load_operation_id:foreign-load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:transfer_operation_id:None",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "wrong-address:B-REFILL:B_REPEAT:transfer_operation_id:foreign-transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-REFILL:B_REPEAT:material",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-REFILL:B_REPEAT:feed",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-REFILL:B_REPEAT:inventory",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-REFILL:B_REPEAT:geometry",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-REFILL:B_REPEAT:resource",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-REFILL:B_REPEAT:receiver",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "postcommit-stale:B-REFILL:B_REPEAT:history",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-REFILL:B_REPEAT:method",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-REFILL:B_REPEAT:source",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-REFILL:B_REPEAT:evidence_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-REFILL:B_REPEAT:revisions",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "incomplete-receipt:B-REFILL:B_REPEAT:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-REFILL:B_REPEAT:confirmation_kind:COMMAND_FINISHED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-REFILL:B_REPEAT:confirmation_kind:TIMER_EXPIRED",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-REFILL:B_REPEAT:dose_delivered:UNKNOWN",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-REFILL:B_REPEAT:transfer_pose:D0",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "not-observation:B-REFILL:B_REPEAT:valid_for_consumer_interval:False",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-REFILL:B_REPEAT:dose_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-REFILL:B_REPEAT:load_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "old-receipt-new-refill:B-REFILL:B_REPEAT:transfer_operation_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-REFILL:B_REPEAT:boundary",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-REFILL:B_REPEAT:current_doser",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-REFILL:B_REPEAT:receipt_id",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "bad-commit:B-REFILL:B_REPEAT:value",
+      "expected": "UNKNOWN",
+      "actual": "UNKNOWN",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TTT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:TUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FTT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FTU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FUT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:FUU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UTT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UTF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UTU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UFT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UFF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UFU",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UUT",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UUF",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "return-composite:B-REFILL:B_REPEAT:UUU",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "revoked-after-D0:B-REFILL:B_REPEAT",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "matches": true
+    },
+    {
+      "id": "recovery-own-entry:B-MECH-STOP-CLOSE",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:AUX_RESOURCE_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:AUX_RESOURCE_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:BASIS_DEFINED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:BASIS_DEFINED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:CONTINUITY_CONFIRMED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:CONTINUITY_CONFIRMED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:CONTINUOUS_MECHANISM:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:CONTINUOUS_MECHANISM:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:D_HOME_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:D_HOME_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:EVENT_FRESH:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:EVENT_FRESH:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:EXIT_NO_INTERACTION:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:EXIT_NO_INTERACTION:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:FEEDBACK_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:FEEDBACK_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:G_ISOLATED_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:G_ISOLATED_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:INVENTORY_KNOWN:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:INVENTORY_KNOWN:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:LEDGER_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:LEDGER_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:MATERIAL_HELD_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:MATERIAL_HELD_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:METHOD_SUPPORTED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:METHOD_SUPPORTED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:P_FEED_CLEAR:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:P_FEED_CLEAR:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:P_PATH_CLEAR:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:P_PATH_CLEAR:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RECEIPT_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RECEIPT_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RECEIVER_DEFINED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RECEIVER_DEFINED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RECOVERY_SCOPE_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RECOVERY_SCOPE_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RESET_SWEEP_CLEAR:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RESET_SWEEP_CLEAR:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RESOURCES_READY:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RESOURCES_READY:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RESTORE_SEQUENCE_DEFINED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-STOP-CLOSE:RESTORE_SEQUENCE_DEFINED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-own-entry:B-MECH-RELOCK",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:AUX_RESOURCE_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:AUX_RESOURCE_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:BASIS_DEFINED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:BASIS_DEFINED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:CONTINUITY_CONFIRMED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:CONTINUITY_CONFIRMED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:CONTINUOUS_MECHANISM:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:CONTINUOUS_MECHANISM:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:D_HOME_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:D_HOME_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:EVENT_FRESH:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:EVENT_FRESH:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:FEEDBACK_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:FEEDBACK_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:G_ISOLATED_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:G_ISOLATED_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:INVENTORY_KNOWN:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:INVENTORY_KNOWN:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:LEDGER_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:LEDGER_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:MATERIAL_HELD_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:MATERIAL_HELD_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:METHOD_SUPPORTED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:METHOD_SUPPORTED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:P_FEED_CLEAR:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:P_FEED_CLEAR:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:P_PATH_CLEAR:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:P_PATH_CLEAR:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RECEIPT_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RECEIPT_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RECEIVER_DEFINED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RECEIVER_DEFINED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RECOVERY_SCOPE_VALID:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RECOVERY_SCOPE_VALID:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RESET_SWEEP_CLEAR:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RESET_SWEEP_CLEAR:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RESOURCES_READY:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RESOURCES_READY:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RESTORE_SEQUENCE_DEFINED:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:RESTORE_SEQUENCE_DEFINED:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:STOP_CLOSED_CURRENT:FALSE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "recovery-guard:B-MECH-RELOCK:STOP_CLOSED_CURRENT:UNKNOWN",
+      "expected": "INDETERMINATE",
+      "actual": "INDETERMINATE",
+      "matches": true
+    },
+    {
+      "id": "targeted-closure",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "history-not-cleared",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "NEXT-before-reconcile",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "frozen-reset-commit",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "separate-history:0",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "new-NEXT",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "old-ID-still-denied",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "rejected-memory",
+      "expected": [
+        "denied"
+      ],
+      "actual": [
+        "denied"
+      ],
+      "matches": true
+    },
+    {
+      "id": "retained-memory",
+      "expected": [
+        "retained"
+      ],
+      "actual": [
+        "retained"
+      ],
+      "matches": true
+    },
+    {
+      "id": "independent-closure-audit:LEDGER_VALID",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "foreign-fault-preserved:LEDGER_VALID",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "movement-blocked-by-live-fault:B-MECH-STOP-CLOSELEDGER_VALID",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "movement-blocked-by-live-fault:B-MECH-RELOCKLEDGER_VALID",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "no-ordinary-bypass:B-LOADLEDGER_VALID",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "no-ordinary-bypass:B-COMPACTLEDGER_VALID",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "independent-closure-audit:RESOURCES_READY",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "foreign-fault-preserved:RESOURCES_READY",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "movement-blocked-by-live-fault:B-MECH-STOP-CLOSERESOURCES_READY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "movement-blocked-by-live-fault:B-MECH-RELOCKRESOURCES_READY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "no-ordinary-bypass:B-LOADRESOURCES_READY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "no-ordinary-bypass:B-COMPACTRESOURCES_READY",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "independent-closure-audit:RECEIVER_DEFINED",
+      "expected": "ALLOWED_ASSUMED",
+      "actual": "ALLOWED_ASSUMED",
+      "matches": true
+    },
+    {
+      "id": "foreign-fault-preserved:RECEIVER_DEFINED",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "movement-blocked-by-live-fault:B-MECH-STOP-CLOSERECEIVER_DEFINED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "movement-blocked-by-live-fault:B-MECH-RELOCKRECEIVER_DEFINED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "no-ordinary-bypass:B-LOADRECEIVER_DEFINED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "no-ordinary-bypass:B-COMPACTRECEIVER_DEFINED",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "matches": true
+    },
+    {
+      "id": "mutation:unknown_pose",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:poses:A-MECH-WORK:punch",
+      "evidence": "mutations/unknown_pose.json"
+    },
+    {
+      "id": "replay17:semantic-mutation:unknown_pose",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "mutation:work_starts_at_P0",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:axial_continuity:A-MECH-WORK",
+      "evidence": "mutations/work_starts_at_P0.json"
+    },
+    {
+      "id": "replay17:semantic-mutation:work_starts_at_P0",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "mutation:drop_isolation_guard",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:isolated_motion:A-MECH-WORK",
+      "evidence": "mutations/drop_isolation_guard.json"
+    },
+    {
+      "id": "replay17:semantic-mutation:drop_isolation_guard",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "mutation:cross_scenario_work_binding",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:action_ref:A-COMPACT:stroke.work",
+      "evidence": "mutations/cross_scenario_work_binding.json"
+    },
+    {
+      "id": "replay17:semantic-mutation:cross_scenario_work_binding",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "mutation:wrong_parent_mode",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:parents:B-MECH-WORK",
+      "evidence": "mutations/wrong_parent_mode.json"
+    },
+    {
+      "id": "replay17:semantic-mutation:wrong_parent_mode",
+      "expected": true,
+      "actual": true,
+      "matches": true
+    },
+    {
+      "id": "mutation:unsupported_mode",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:mode_parent:A-MECH-WORK",
+      "evidence": "mutations/unsupported_mode.json"
+    },
+    {
+      "id": "mutation:wrong_phase_ref",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:phase_ref:A-MECH-WORK:phase.work.time",
+      "evidence": "mutations/wrong_phase_ref.json"
+    },
+    {
+      "id": "mutation:ordinary_no_dependency",
+      "expected": true,
+      "actual": true,
+      "matches": true,
+      "reason": "semantic:dependency_scope:A-MECH-WORK",
+      "evidence": "mutations/ordinary_no_dependency.json"
+    },
+    {
+      "id": "mutation:P1-coordinate",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/P1-coordinate.json"
+    },
+    {
+      "id": "mutation:feed-open-without-path",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/feed-open-without-path.json"
+    },
+    {
+      "id": "mutation:return-without-doser-path",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/return-without-doser-path.json"
+    },
+    {
+      "id": "mutation:confirm-without-current-D1",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/confirm-without-current-D1.json"
+    },
+    {
+      "id": "mutation:recovery-any-fault",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/recovery-any-fault.json"
+    },
+    {
+      "id": "mutation:relock-without-lock-result",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/relock-without-lock-result.json"
+    }
+  ],
+  "total_checks": 654,
+  "passed": 648,
+  "failed": [
+    {
+      "id": "mutation:P1-coordinate",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/P1-coordinate.json"
+    },
+    {
+      "id": "mutation:feed-open-without-path",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/feed-open-without-path.json"
+    },
+    {
+      "id": "mutation:return-without-doser-path",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/return-without-doser-path.json"
+    },
+    {
+      "id": "mutation:confirm-without-current-D1",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/confirm-without-current-D1.json"
+    },
+    {
+      "id": "mutation:recovery-any-fault",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/recovery-any-fault.json"
+    },
+    {
+      "id": "mutation:relock-without-lock-result",
+      "expected": true,
+      "actual": false,
+      "matches": false,
+      "reason": null,
+      "evidence": "mutations/relock-without-lock-result.json"
+    }
+  ],
+  "sequential_traces": [
+    {
+      "load": "A-LOAD-START",
+      "mode": "A_STARTUP",
+      "stage_order": [
+        "A-MECH-FEED-OPEN",
+        "A-MECH-DOSE-DELIVER",
+        "A-MECH-FILL-CONFIRM",
+        "A-MECH-DOSER-RETURN"
+      ],
+      "receipt": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-START",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "committed_context": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-START",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 1,
+          "feed": 1,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "inventory_refs": [
+          "retained-entity"
+        ],
+        "pending_observations": [
+          {
+            "event_id": "unknown-mass",
+            "mass_record": null
+          }
+        ],
+        "load_commit": {
+          "variant": "A",
+          "mode": "A_STARTUP",
+          "subject_id": "R5-subject_id",
+          "dose_id": "R5-dose_id",
+          "material_id": "R5-material_id",
+          "batch_id": "R5-batch_id",
+          "cycle_epoch": "R5-cycle_epoch",
+          "basis_id": "R5-basis_id",
+          "basis_revision": "R5-basis_revision",
+          "load_action": "A-LOAD-START",
+          "load_operation_id": "R5-load_operation_id",
+          "transfer_operation_id": "R5-transfer_operation_id",
+          "origin_revisions": {
+            "material": 0,
+            "feed": 0,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "revisions": {
+            "material": 1,
+            "feed": 1,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "value": "TRUE",
+          "boundary": "AFTER_DOSER_RETURN",
+          "receipt_id": "R5-addressed-fill",
+          "current_doser": "D0",
+          "changed_domains": [
+            "material",
+            "feed"
+          ]
+        }
+      }
+    },
+    {
+      "load": "A-LOAD-STEADY",
+      "mode": "A_STEADY",
+      "stage_order": [
+        "A-MECH-FEED-OPEN",
+        "A-MECH-DOSE-DELIVER",
+        "A-MECH-FILL-CONFIRM",
+        "A-MECH-DOSER-RETURN"
+      ],
+      "receipt": {
+        "variant": "A",
+        "mode": "A_STEADY",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-STEADY",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "committed_context": {
+        "variant": "A",
+        "mode": "A_STEADY",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-LOAD-STEADY",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 1,
+          "feed": 1,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "inventory_refs": [
+          "retained-entity"
+        ],
+        "pending_observations": [
+          {
+            "event_id": "unknown-mass",
+            "mass_record": null
+          }
+        ],
+        "load_commit": {
+          "variant": "A",
+          "mode": "A_STEADY",
+          "subject_id": "R5-subject_id",
+          "dose_id": "R5-dose_id",
+          "material_id": "R5-material_id",
+          "batch_id": "R5-batch_id",
+          "cycle_epoch": "R5-cycle_epoch",
+          "basis_id": "R5-basis_id",
+          "basis_revision": "R5-basis_revision",
+          "load_action": "A-LOAD-STEADY",
+          "load_operation_id": "R5-load_operation_id",
+          "transfer_operation_id": "R5-transfer_operation_id",
+          "origin_revisions": {
+            "material": 0,
+            "feed": 0,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "revisions": {
+            "material": 1,
+            "feed": 1,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "value": "TRUE",
+          "boundary": "AFTER_DOSER_RETURN",
+          "receipt_id": "R5-addressed-fill",
+          "current_doser": "D0",
+          "changed_domains": [
+            "material",
+            "feed"
+          ]
+        }
+      }
+    },
+    {
+      "load": "A-REFILL",
+      "mode": "A_STARTUP",
+      "stage_order": [
+        "A-MECH-FEED-OPEN",
+        "A-MECH-DOSE-DELIVER",
+        "A-MECH-FILL-CONFIRM",
+        "A-MECH-DOSER-RETURN"
+      ],
+      "receipt": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "committed_context": {
+        "variant": "A",
+        "mode": "A_STARTUP",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "A-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 1,
+          "feed": 1,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "inventory_refs": [
+          "retained-entity"
+        ],
+        "pending_observations": [
+          {
+            "event_id": "unknown-mass",
+            "mass_record": null
+          }
+        ],
+        "load_commit": {
+          "variant": "A",
+          "mode": "A_STARTUP",
+          "subject_id": "R5-subject_id",
+          "dose_id": "R5-dose_id",
+          "material_id": "R5-material_id",
+          "batch_id": "R5-batch_id",
+          "cycle_epoch": "R5-cycle_epoch",
+          "basis_id": "R5-basis_id",
+          "basis_revision": "R5-basis_revision",
+          "load_action": "A-REFILL",
+          "load_operation_id": "R5-load_operation_id",
+          "transfer_operation_id": "R5-transfer_operation_id",
+          "origin_revisions": {
+            "material": 0,
+            "feed": 0,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "revisions": {
+            "material": 1,
+            "feed": 1,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "value": "TRUE",
+          "boundary": "AFTER_DOSER_RETURN",
+          "receipt_id": "R5-addressed-fill",
+          "current_doser": "D0",
+          "changed_domains": [
+            "material",
+            "feed"
+          ]
+        }
+      }
+    },
+    {
+      "load": "B-LOAD",
+      "mode": "B_REPEAT",
+      "stage_order": [
+        "B-MECH-FEED-OPEN",
+        "B-MECH-DOSE-DELIVER",
+        "B-MECH-FILL-CONFIRM",
+        "B-MECH-DOSER-RETURN"
+      ],
+      "receipt": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "committed_context": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 1,
+          "feed": 1,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "inventory_refs": [
+          "retained-entity"
+        ],
+        "pending_observations": [
+          {
+            "event_id": "unknown-mass",
+            "mass_record": null
+          }
+        ],
+        "load_commit": {
+          "variant": "B",
+          "mode": "B_REPEAT",
+          "subject_id": "R5-subject_id",
+          "dose_id": "R5-dose_id",
+          "material_id": "R5-material_id",
+          "batch_id": "R5-batch_id",
+          "cycle_epoch": "R5-cycle_epoch",
+          "basis_id": "R5-basis_id",
+          "basis_revision": "R5-basis_revision",
+          "load_action": "B-LOAD",
+          "load_operation_id": "R5-load_operation_id",
+          "transfer_operation_id": "R5-transfer_operation_id",
+          "origin_revisions": {
+            "material": 0,
+            "feed": 0,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "revisions": {
+            "material": 1,
+            "feed": 1,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "value": "TRUE",
+          "boundary": "AFTER_DOSER_RETURN",
+          "receipt_id": "R5-addressed-fill",
+          "current_doser": "D0",
+          "changed_domains": [
+            "material",
+            "feed"
+          ]
+        }
+      }
+    },
+    {
+      "load": "B-LOAD",
+      "mode": "B_SINGLE",
+      "stage_order": [
+        "B-MECH-FEED-OPEN",
+        "B-MECH-DOSE-DELIVER",
+        "B-MECH-FILL-CONFIRM",
+        "B-MECH-DOSER-RETURN"
+      ],
+      "receipt": {
+        "variant": "B",
+        "mode": "B_SINGLE",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "committed_context": {
+        "variant": "B",
+        "mode": "B_SINGLE",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-LOAD",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 1,
+          "feed": 1,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "inventory_refs": [
+          "retained-entity"
+        ],
+        "pending_observations": [
+          {
+            "event_id": "unknown-mass",
+            "mass_record": null
+          }
+        ],
+        "load_commit": {
+          "variant": "B",
+          "mode": "B_SINGLE",
+          "subject_id": "R5-subject_id",
+          "dose_id": "R5-dose_id",
+          "material_id": "R5-material_id",
+          "batch_id": "R5-batch_id",
+          "cycle_epoch": "R5-cycle_epoch",
+          "basis_id": "R5-basis_id",
+          "basis_revision": "R5-basis_revision",
+          "load_action": "B-LOAD",
+          "load_operation_id": "R5-load_operation_id",
+          "transfer_operation_id": "R5-transfer_operation_id",
+          "origin_revisions": {
+            "material": 0,
+            "feed": 0,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "revisions": {
+            "material": 1,
+            "feed": 1,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "value": "TRUE",
+          "boundary": "AFTER_DOSER_RETURN",
+          "receipt_id": "R5-addressed-fill",
+          "current_doser": "D0",
+          "changed_domains": [
+            "material",
+            "feed"
+          ]
+        }
+      }
+    },
+    {
+      "load": "B-REFILL",
+      "mode": "B_REPEAT",
+      "stage_order": [
+        "B-MECH-FEED-OPEN",
+        "B-MECH-DOSE-DELIVER",
+        "B-MECH-FILL-CONFIRM",
+        "B-MECH-DOSER-RETURN"
+      ],
+      "receipt": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 0,
+          "feed": 0,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "value": "TRUE",
+        "invalidated": false,
+        "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+        "transfer_pose": "D1",
+        "dose_delivered": "TRUE",
+        "evidence_id": "R5-addressed-fill",
+        "source": "independent hypothetical transfer",
+        "method": "ASSUMED_FIXTURE",
+        "valid_for_consumer_interval": true
+      },
+      "committed_context": {
+        "variant": "B",
+        "mode": "B_REPEAT",
+        "subject_id": "R5-subject_id",
+        "dose_id": "R5-dose_id",
+        "material_id": "R5-material_id",
+        "batch_id": "R5-batch_id",
+        "cycle_epoch": "R5-cycle_epoch",
+        "basis_id": "R5-basis_id",
+        "basis_revision": "R5-basis_revision",
+        "load_action": "B-REFILL",
+        "load_operation_id": "R5-load_operation_id",
+        "transfer_operation_id": "R5-transfer_operation_id",
+        "revisions": {
+          "material": 1,
+          "feed": 1,
+          "inventory": 0,
+          "geometry": 0,
+          "resource": 0,
+          "receiver": 0,
+          "history": 0
+        },
+        "inventory_refs": [
+          "retained-entity"
+        ],
+        "pending_observations": [
+          {
+            "event_id": "unknown-mass",
+            "mass_record": null
+          }
+        ],
+        "load_commit": {
+          "variant": "B",
+          "mode": "B_REPEAT",
+          "subject_id": "R5-subject_id",
+          "dose_id": "R5-dose_id",
+          "material_id": "R5-material_id",
+          "batch_id": "R5-batch_id",
+          "cycle_epoch": "R5-cycle_epoch",
+          "basis_id": "R5-basis_id",
+          "basis_revision": "R5-basis_revision",
+          "load_action": "B-REFILL",
+          "load_operation_id": "R5-load_operation_id",
+          "transfer_operation_id": "R5-transfer_operation_id",
+          "origin_revisions": {
+            "material": 0,
+            "feed": 0,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "revisions": {
+            "material": 1,
+            "feed": 1,
+            "inventory": 0,
+            "geometry": 0,
+            "resource": 0,
+            "receiver": 0,
+            "history": 0
+          },
+          "value": "TRUE",
+          "boundary": "AFTER_DOSER_RETURN",
+          "receipt_id": "R5-addressed-fill",
+          "current_doser": "D0",
+          "changed_domains": [
+            "material",
+            "feed"
+          ]
+        }
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "id": "unknown_pose",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:poses:A-MECH-WORK:punch",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "cd416813cb563d539a4c7bb80d9dd1346b5247181bedb648bf3ef95a0cdb275c",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "337d29537d914d56f8baa5f8a55c932800aee1f4a6ca25b18c980ef878fcd9b5",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "26c8671f2f64f18396272a4da132003e82cdf42b1cad6de74df5928b7ab3d3d7",
+        "exports/positions_permissions.csv": "7f03da9752ae772748d383613e1bad9ea2d7c895436381afe004c923ad66b53a",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "f8204057d0ed47b23d7e8ca944d9ad312b411b5b2ad214eb617fc303282000a8",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "work_starts_at_P0",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:axial_continuity:A-MECH-WORK",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "689864ee322e1e21b6e34a5fc3bbc1454d1c768f733d4a0bad172c3aca537b4b",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "d0b1179a41264b78581c516dc1123e22891395cf8854cb8f9c1da2f2f76f22fe",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "5b3c1804e47107f865eb074fe790026d6ee3d8637dc7f54285651b80f8d2e5dd",
+        "exports/positions_permissions.csv": "3d706ebeaa1a72dbcde3eb12b7d5c17e3ec4bb47eeb680b323bb949b19624c93",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "582346a062aadff49b60ee8d4f3c74573bd239aa5657f2d0853fa28a4abdea5a",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "drop_isolation_guard",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:isolated_motion:A-MECH-WORK",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "3857ad2ace626858120482b6b0302aa3a764d26bf9d427200d9d35d8bfcc6796",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "56dea288ec261cf08d535ed2b9308af222331dd8307ce21dfa221ec4e8150cb8",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "c8c6cc43ece7eb789e3e95ea38cff08854351266fca74ee5f730d522869cce32",
+        "exports/positions_permissions.csv": "e65c72b1a5bf5803c4b50b3c24cc52b7603689637ad0630d06277b4d53b69920",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "011a83ce54b8c2f8dfc3dd590901dbc5fddfb332d9f59ae8f27c7a305616d3bc",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "cross_scenario_work_binding",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:action_ref:A-COMPACT:stroke.work",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "0c6f51dd4653db86e8c8ccfc9facea1e91cfe56496f256e893e67b0d58398254",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "a99f01eb60be5a3f39e4684f9e772d49540d3f82928245f1abf673fdeedd799d",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "77b74e2964ab04dab832913fdef5b4994c9d9bd09ba315a8ddd75f86cad54885",
+        "exports/positions_permissions.csv": "4a9e9b2abbc7db2015455436235837c61814c4e9190f1ecaf3a57ed4a375835c",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "4701c7e9cfe52b73853261cb4be734d7b63c1f97adb0e534b7df92213b785897",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "wrong_parent_mode",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:parents:B-MECH-WORK",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "56706de3323ad60c70abd5422a92129ffd4133288ed074dcb7d41a171fa111cf",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "1bc1625f9142b96906ec5638242ce456148548e2b0029d02b249fb0751bb9ed6",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "77b74e2964ab04dab832913fdef5b4994c9d9bd09ba315a8ddd75f86cad54885",
+        "exports/positions_permissions.csv": "104774f5f1d133ba1de7ff265c26110de7e25dc273830deb1a35bb706dfac47d",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "b7a2af3f6afde5c58c753833733e65f1d2164c836843812914649765cf230291",
+        "exports/interface_B.svg": "f30b154b36686953a7f54d7bc460960df0ec3b3da53ca99e2f824ac5a9b9f581",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "unsupported_mode",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:mode_parent:A-MECH-WORK",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "dfc5cba25900fa12ad84ca4f3c0883d4bcc09d1c9d6c8811f7a6333d0a343e77",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "fdf651c90b443ebf146ed2777737c5f8ef90568d0ae923e681b01223cca45954",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "58a5d8b3518c22e3d2efcf0709e2fe9e136601225e0c1c0b267419358bb0c4c2",
+        "exports/positions_permissions.csv": "ec62b7ffa91a8517e3f3ef80d03ad08e8cbf6d75de7cab1ff7e6a14dd187d206",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "6771aa52d1363353d77550e9747edc8fdb718a9401dc36a8b86bb1b00ef88d77",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "wrong_phase_ref",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:phase_ref:A-MECH-WORK:phase.work.time",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "7a89e3390b15a9d3c2d550f2cd322e6f4477f43442d5baa55f29b64a27d120ff",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "b7a34b3457149568e96f4c3d5d39a3a88946633a50f6d4e96cb947796746b454",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "77b74e2964ab04dab832913fdef5b4994c9d9bd09ba315a8ddd75f86cad54885",
+        "exports/positions_permissions.csv": "32160a7be5f54b8263e2bc26c85c190030019660700fca860c64b93e39f62901",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "3f9d01b0fdf7606f10c99e70e226170377f32d6173398d89e07df0ba6730e5da",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "ordinary_no_dependency",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 1,
+      "document_checks": "MISMATCH",
+      "reason": "semantic:dependency_scope:A-MECH-WORK",
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "5b3c6f759a38db932ff13ff3bad0cb1b7747f302cc6f825d7c4aaec14c2cce40",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "da8a23fc9d18f39a6f225020b66f7713b1ffc2141e77f5237d6f01973d19e298",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "77b74e2964ab04dab832913fdef5b4994c9d9bd09ba315a8ddd75f86cad54885",
+        "exports/positions_permissions.csv": "f3e6dc63c3a06c8a6cd6620b741efa0d9d01cd0c094895215aa8d81e6c5ecac2",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "b8a5413849aa557b4d7e933348a6923ee2c1fc02cf54bb4e104921855152af0d",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "P1-coordinate",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 0,
+      "document_checks": "MATCH",
+      "reason": null,
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "c14824c2d67a0f38810bb5f8c27856361065e384fd3803f963c073956df712bd",
+        "poses.json": "49730a6a13394b08ed07ff64133b297d56ad798590c7e707dcc7b05f4743b8b8",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "5b215ab3fcc78cd8dd662976806cb4041db8015883ef2c7cdea55c13b061a87e",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "77b74e2964ab04dab832913fdef5b4994c9d9bd09ba315a8ddd75f86cad54885",
+        "exports/positions_permissions.csv": "b07787cbb844c2fd265e9505089692c91e6b6fd12681729cfe0c1f2abba178e2",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "b7a2af3f6afde5c58c753833733e65f1d2164c836843812914649765cf230291",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {
+        "coordinate_before": "x_P0 + S_approach",
+        "coordinate_after": "x_P0 + S_eject"
+      }
+    },
+    {
+      "id": "feed-open-without-path",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 0,
+      "document_checks": "MATCH",
+      "reason": null,
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "058fec47ee98ce79b38bdd131aace54a12b9ee21fb86f47ab2b881b02ffdc16f",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "43da4f47c576b5dd7466e1eef39e70fdfaee420d1d52b7d66a31e74219e86da4",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "8fc7a00b22150324aa22d7f215505a5df4249f7f2e4e254a75d13877ce9e2d05",
+        "exports/positions_permissions.csv": "ddad3fe96fd1cc7f5c19bf49ca0d75c1aded7cb9a7e3277ec3aa2aea20e9e14b",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "e1a4df9708e25ed392c7ad096182070efcdfb1f2daed25c307f74fb7939c9fee",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "return-without-doser-path",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 0,
+      "document_checks": "MATCH",
+      "reason": null,
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "8727d90a997cb584f9acc67d233e4b057d62f230479f3f3161370a19128fe935",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "3cb0676b0a3060527ef49d8115df6a5d7278c9b77b6f386d6fd1967676e83d33",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "645bd80ffa1934667a371a9621ae4cdadb70fce4122bff0faf92321f51ea2d22",
+        "exports/positions_permissions.csv": "85a0729cd2391de6cac5ed781b7c20d6f64490343edbdd6f7064366276f692eb",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "5b6bd1f365cc743505c19f7e48bac0c4802a13dd3bd0f6d4845a23c8df74feef",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "confirm-without-current-D1",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 0,
+      "document_checks": "MATCH",
+      "reason": null,
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "813ea6add44afee690912bb8d82247655a422116af1df870873f312e0b7c5091",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "4421dbaadc30ccfc63db6360c7541521f8b9dadc29a460bc836121873b04813d",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "7b51b327f815e4437c5eb32c4b6a89297abc1b1c8c240bf9fbba83b34d4673b6",
+        "exports/positions_permissions.csv": "1b327eedc4fe4570bccd097f9ba4ea61024dd8054d8fba49d427dea933419952",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "f8c5910c788d84a2b8629c14eadee0e3c0bbe8f97ca07700e46789c085964876",
+        "exports/interface_B.svg": "2469accf9a18cca9e7aa82e3df9827aedb19e86c8eb2d72d8aa18f38c0e505de",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "recovery-any-fault",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 0,
+      "document_checks": "MATCH",
+      "reason": null,
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "654b94c77b6c046bf6c993195c76adb1aff882fc746c1eb2bc5d73002fcf2017",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "04c8246709eacb59e85d2c309d74e9656431f187027a692c74371447baaf2079",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "77b74e2964ab04dab832913fdef5b4994c9d9bd09ba315a8ddd75f86cad54885",
+        "exports/positions_permissions.csv": "4c54b901148b71a71892f005037e8a9c712740bb9219cc2b305f3a36ff8fd508",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "b7a2af3f6afde5c58c753833733e65f1d2164c836843812914649765cf230291",
+        "exports/interface_B.svg": "ed13fea2fae708de5da52efa5f63b77cd1abe7927a3210b47d0fd9a0e17e60b6",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    },
+    {
+      "id": "relock-without-lock-result",
+      "expected_exit": "NONZERO_SEMANTIC_REJECTION",
+      "exit_code": 0,
+      "document_checks": "MATCH",
+      "reason": null,
+      "coherent_export": true,
+      "source_and_exports_sha256": {
+        "document_semantics.py": "1c1f68e478d74ec121d3804a5edd7734e09f02edd9239603916a5909cd0c7879",
+        "force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa",
+        "unknown_inputs.json": "c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef",
+        "baseline_bindings.md": "905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5",
+        "verification_plan.md": "ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69",
+        "check_package.py": "e9d6323e3963058de086c2eff745a4f58c1af68fac3c2553c8be73f564ace162",
+        "cycle_protocol.json": "b2b7f159d58f85dce9d63fa8400eb84c0cd4c23885eb5b97d6bae1728317613d",
+        "input_audit.md": "40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567",
+        "force_variants.md": "000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c",
+        "README.md": "7251a81f120a813d783e743d5d35cb4c9cfc2d80d9dc749587eaebcaf7ba25b4",
+        "check_exports_reproduction.py": "3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff",
+        "checks.json": "8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e",
+        "review_request.md": "64fc6a53e2059edefb1b5156e36fee25c6add67eec7a8c68cc867e431183ea69",
+        "export_checks.json": "c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425",
+        "input_audit.json": "32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40",
+        "mechanical_guards.json": "a6a18448ee7c15472d092917f2ee660c4ed549c2c3c90aa43c235cf169eae045",
+        "baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+        "document_checks.json": "111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd",
+        "verification_plan.json": "f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea",
+        "preservation.json": "16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d",
+        "interfaces.md": "80a2526f64fb2c1aec589ec9d732863eba30d440da8840bb0086792fad46362d",
+        "R2_R3_requests.md": "e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587",
+        "render_schemes.py": "0c1e7b0426f87c79cf233915b981de78110ba73cb483f6332d51a272e1e6cf21",
+        "permissions.json": "818f1bebb4553593a373b758251c373b644ff61fdea09e7c3d145a73ca321bc0",
+        "poses.json": "77b98164de08df72d6a8a133b88be490f87fe4b0eca91dd8268c0cf1ad7ed813",
+        "R2_R3_requests.json": "1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56",
+        "exports/force_B-V1.svg": "7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c",
+        "exports/exports_manifest.json": "97e760ccfeee674e3162c3b1a826d946ff5d2cd8874e0326c43f1065853e09cc",
+        "exports/force_A-V2.svg": "b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69",
+        "exports/positions_permissions.md": "da5e0303a0aed2ca43f68f3ebf5f8dd0895d1b05f2de9b5bdc04435b6c0fad6f",
+        "exports/positions_permissions.csv": "d082c44a67c522d29e2b9cf4523e82c67efdae6950832a9a9ace363680cd5f74",
+        "exports/force_B-V2.svg": "7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658",
+        "exports/interface_A.svg": "b7a2af3f6afde5c58c753833733e65f1d2164c836843812914649765cf230291",
+        "exports/interface_B.svg": "ea5c9ccfd30b44fc18293e54f72c939b48580f595b30c7c38cc1eeef7f3d070c",
+        "exports/force_A-V1.svg": "7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46"
+      },
+      "checker_writes": false,
+      "hash_manifest_consistent": true,
+      "changes": {}
+    }
+  ],
+  "geometry": "NOT_RUN",
+  "physical_READY": "NO_GO",
+  "W02": "OPEN_NOT_IMPLEMENTED",
+  "G1": "OPEN",
+  "execution": "EVIDENCE_CAPTURED_NOT_ACCEPTANCE"
+}

@@ -1,0 +1,50 @@
+# Точные неизменённые входы — 44 привязки
+
+CALCULATED наследует ASSUMED; реальные параметры REV UNKNOWN. Значения ниже — требования исходного исследовательского сценария, не выбранные компоненты. D — bore_min, не наружный габарит; main-axis budget — не полный цикл. Историческое cad_application NOT_APPLIED оставлено в JSON без переписывания истории.
+
+| CAD/интерфейс | Сценарий | Значение SI | ID@revision | Статус | Затронутые узлы / источник |
+|---|---|---|---|---|---|
+| chamber.width | BASE_A fixed-budget | 0.15 m | R3_IN_WIDTH@1 | ASSUMED / CURRENT | камера, пуансон, дозатор/стык, продукт; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| chamber.height | BASE_A fixed-budget | 0.06 m | R3_IN_HEIGHT@1 | ASSUMED / CURRENT | камера, пуансон, стык, продукт; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| product.length | BASE_A fixed-budget | 0.11 m | R3_IN_PRODUCT_LENGTH@1 | ASSUMED / CURRENT | продукт, выход/приём; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| chamber.length | BASE_A fixed-budget | 0.5763888888888888 m | R3_BASE_A_CHAMBER_LENGTH@1 | CALCULATED / CURRENT | камера, подача/отсечение, рама/опоры; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| material.occupied_length | BASE_A fixed-budget | 0.4611111111111111 m | R3_BASE_A_OCCUPIED_LENGTH@1 | CALCULATED / CURRENT | условная доза, камера; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| stroke.approach | BASE_A fixed-budget | 0.11527777777777776 m | R3_BASE_A_APPROACH_STROKE@1 | CALCULATED / CURRENT | пуансон, шток, цилиндр, направляющие; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| stroke.work | BASE_A fixed-budget | 0.3511111111111111 m | R3_BASE_A_WORK_STROKE@1 | CALCULATED / CURRENT | пуансон, камера, канал/упор; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| stroke.eject | BASE_A fixed-budget | 0.17 m | R3_BASE_A_EJECT_STROKE@1 | CALCULATED / CURRENT | пуансон, продукт, канал/упор, выход; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| stroke.return | BASE_A fixed-budget | 0.6363888888888889 m | R3_BASE_A_RETURN_STROKE@1 | CALCULATED / CURRENT | пуансон, шток, цилиндр, направляющие; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| cylinder.bore_min | BASE_A fixed-budget | 0.25820992809235593 m | R3_BASE_A_BORE@1 | CALCULATED / CURRENT | внутренняя геометрия цилиндра; не наружный габарит/COTS; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| cylinder.rod_diameter | BASE_A fixed-budget | 0.15492595685541355 m | R3_BASE_A_ROD@1 | CALCULATED / CURRENT | шток/пуансон; крепления остаются неподтверждёнными; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| load.work_peak | BASE_A fixed-budget | 1532417.45 N | R3_BASE_A_FORCE_WORK_PEAK@1 | CALCULATED / CURRENT | цилиндр, камера, силовой контур/сопряжения; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| load.return_required | BASE_A fixed-budget | 12000.0 N | R3_BASE_A_FORCE_RETURN_REQUIRED@1 | CALCULATED / CURRENT | шток, направляющие, крепления; `verification/r3_parametric_sizing/results/BASE_A.json` |
+| phase.approach.time | BASE_A fixed-budget | 8.767532939592336 s | R3P_BASE_A_APPROACH_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| phase.approach.speed | BASE_A fixed-budget | 0.013148257163335828 m/s | R3P_BASE_A_APPROACH_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| phase.work.time | BASE_A fixed-budget | 26.70400394131257 s | R3P_BASE_A_WORK_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| phase.work.speed | BASE_A fixed-budget | 0.013148257163335824 m/s | R3P_BASE_A_WORK_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| phase.eject.time | BASE_A fixed-budget | 4.3098234209080415 s | R3P_BASE_A_EJECT_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| phase.eject.speed | BASE_A fixed-budget | 0.039444771490007476 m/s | R3P_BASE_A_EJECT_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| phase.return.time | BASE_A fixed-budget | 12.39065782876903 s | R3P_BASE_A_RETURN_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| phase.return.speed | BASE_A fixed-budget | 0.051360379544280584 m/s | R3P_BASE_A_RETURN_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_A.json` |
+| time.cycle_budget | BASE_A fixed-budget | 54.172018130581975 s | R3P_BASE_A_FIXED_BUDGET_CYCLE@1 | CALCULATED / CURRENT | условная последовательность интервалов; не подтверждённый полный цикл; `verification/r3_power_reconcile/results/BASE_A.json` |
+| chamber.width | BASE_B fixed-budget | 0.15 m | R3_IN_WIDTH@1 | ASSUMED / CURRENT | камера, пуансон, дозатор/стык, продукт; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| chamber.height | BASE_B fixed-budget | 0.06 m | R3_IN_HEIGHT@1 | ASSUMED / CURRENT | камера, пуансон, стык, продукт; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| product.length | BASE_B fixed-budget | 0.11 m | R3_IN_PRODUCT_LENGTH@1 | ASSUMED / CURRENT | продукт, выход/приём; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| chamber.length | BASE_B fixed-budget | 0.5763888888888888 m | R3_BASE_B_CHAMBER_LENGTH@1 | CALCULATED / CURRENT | камера, подача/отсечение, рама/опоры; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| material.occupied_length | BASE_B fixed-budget | 0.4611111111111111 m | R3_BASE_B_OCCUPIED_LENGTH@1 | CALCULATED / CURRENT | условная доза, камера; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| stroke.approach | BASE_B fixed-budget | 0.11527777777777776 m | R3_BASE_B_APPROACH_STROKE@1 | CALCULATED / CURRENT | пуансон, шток, цилиндр, направляющие; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| stroke.work | BASE_B fixed-budget | 0.3511111111111111 m | R3_BASE_B_WORK_STROKE@1 | CALCULATED / CURRENT | пуансон, камера, канал/упор; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| stroke.eject | BASE_B fixed-budget | 0.17 m | R3_BASE_B_EJECT_STROKE@1 | CALCULATED / CURRENT | пуансон, продукт, канал/упор, выход; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| stroke.return | BASE_B fixed-budget | 0.6363888888888889 m | R3_BASE_B_RETURN_STROKE@1 | CALCULATED / CURRENT | пуансон, шток, цилиндр, направляющие; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| cylinder.bore_min | BASE_B fixed-budget | 0.2556782604764038 m | R3_BASE_B_BORE@1 | CALCULATED / CURRENT | внутренняя геометрия цилиндра; не наружный габарит/COTS; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| cylinder.rod_diameter | BASE_B fixed-budget | 0.15340695628584228 m | R3_BASE_B_ROD@1 | CALCULATED / CURRENT | шток/пуансон; крепления остаются неподтверждёнными; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| load.work_peak | BASE_B fixed-budget | 1502417.45 N | R3_BASE_B_FORCE_WORK_PEAK@1 | CALCULATED / CURRENT | цилиндр, камера, силовой контур/сопряжения; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| load.return_required | BASE_B fixed-budget | 12000.0 N | R3_BASE_B_FORCE_RETURN_REQUIRED@1 | CALCULATED / CURRENT | шток, направляющие, крепления; `verification/r3_parametric_sizing/results/BASE_B.json` |
+| phase.approach.time | BASE_B fixed-budget | 8.596449940509837 s | R3P_BASE_B_APPROACH_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| phase.approach.speed | BASE_B fixed-budget | 0.01340992835130043 m/s | R3P_BASE_B_APPROACH_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| phase.work.time | BASE_B fixed-budget | 26.18292222844442 s | R3P_BASE_B_WORK_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| phase.work.speed | BASE_B fixed-budget | 0.013409928351300431 m/s | R3P_BASE_B_WORK_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| phase.eject.time | BASE_B fixed-budget | 4.225724790033752 s | R3P_BASE_B_EJECT_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| phase.eject.speed | BASE_B fixed-budget | 0.0402297850539013 m/s | R3P_BASE_B_EJECT_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| phase.return.time | BASE_B fixed-budget | 12.14887591399821 s | R3P_BASE_B_RETURN_TIME@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| phase.return.speed | BASE_B fixed-budget | 0.05238253262226731 m/s | R3P_BASE_B_RETURN_SPEED@1 | CALCULATED / CURRENT | новая циклограмма пуансона/штока; материал/разрешения UNKNOWN; `verification/r3_power_reconcile/results/BASE_B.json` |
+| time.cycle_budget | BASE_B fixed-budget | 54.153972872986216 s | R3P_BASE_B_FIXED_BUDGET_CYCLE@1 | CALCULATED / CURRENT | условная последовательность интервалов; не подтверждённый полный цикл; `verification/r3_power_reconcile/results/BASE_B.json` |

@@ -1,0 +1,968 @@
+{
+  "reviewed_C": "ed8272ce6ebc2047bb0d896db5951d02c42d5208",
+  "total_checks": 1345,
+  "passed": 1328,
+  "failed": [
+    {
+      "id": "mode-parent:A-MECH-APPROACH:A_STARTUP",
+      "passed": false,
+      "detail": {
+        "declared_mode": "A_STARTUP",
+        "parents": [
+          "A-COMPACT"
+        ],
+        "eligible_parents": []
+      }
+    },
+    {
+      "id": "mode-parent:A-MECH-WORK:A_STARTUP",
+      "passed": false,
+      "detail": {
+        "declared_mode": "A_STARTUP",
+        "parents": [
+          "A-COMPACT"
+        ],
+        "eligible_parents": []
+      }
+    },
+    {
+      "id": "mode-parent:A-MECH-HOLD-UNLOAD:A_STARTUP",
+      "passed": false,
+      "detail": {
+        "declared_mode": "A_STARTUP",
+        "parents": [
+          "A-EJECT"
+        ],
+        "eligible_parents": []
+      }
+    },
+    {
+      "id": "load-return-current-completion:A-LOAD-START",
+      "passed": false,
+      "detail": {
+        "required": [
+          "CONTINUOUS_MECHANISM",
+          "D_DELIVERY_CURRENT",
+          "D_HOME_CURRENT",
+          "P_FEED_CLEAR"
+        ],
+        "satisfying_doser_poses": [],
+        "interpretation": "Parent completion applied at end of included DOSER-RETURN; early parent commit + new poststep needs explicit alternative contract"
+      }
+    },
+    {
+      "id": "load-return-current-completion:A-LOAD-STEADY",
+      "passed": false,
+      "detail": {
+        "required": [
+          "CONTINUOUS_MECHANISM",
+          "D_DELIVERY_CURRENT",
+          "D_HOME_CURRENT",
+          "P_FEED_CLEAR"
+        ],
+        "satisfying_doser_poses": [],
+        "interpretation": "Parent completion applied at end of included DOSER-RETURN; early parent commit + new poststep needs explicit alternative contract"
+      }
+    },
+    {
+      "id": "load-return-current-completion:A-REFILL",
+      "passed": false,
+      "detail": {
+        "required": [
+          "CONTINUOUS_MECHANISM",
+          "D_DELIVERY_CURRENT",
+          "D_HOME_CURRENT",
+          "P_FEED_CLEAR"
+        ],
+        "satisfying_doser_poses": [],
+        "interpretation": "Parent completion applied at end of included DOSER-RETURN; early parent commit + new poststep needs explicit alternative contract"
+      }
+    },
+    {
+      "id": "load-return-current-completion:B-LOAD",
+      "passed": false,
+      "detail": {
+        "required": [
+          "CONTINUOUS_MECHANISM",
+          "D_DELIVERY_CURRENT",
+          "D_HOME_CURRENT",
+          "P_FEED_CLEAR"
+        ],
+        "satisfying_doser_poses": [],
+        "interpretation": "Parent completion applied at end of included DOSER-RETURN; early parent commit + new poststep needs explicit alternative contract"
+      }
+    },
+    {
+      "id": "load-return-current-completion:B-REFILL",
+      "passed": false,
+      "detail": {
+        "required": [
+          "CONTINUOUS_MECHANISM",
+          "D_DELIVERY_CURRENT",
+          "D_HOME_CURRENT",
+          "P_FEED_CLEAR"
+        ],
+        "satisfying_doser_poses": [],
+        "interpretation": "Parent completion applied at end of included DOSER-RETURN; early parent commit + new poststep needs explicit alternative contract"
+      }
+    },
+    {
+      "id": "restore-parent-vs-child:B-MECH-STOP-CLOSE",
+      "passed": false,
+      "detail": {
+        "parent_start_allowed_assumed": true,
+        "child_start_allowed_assumed": false,
+        "dependency_value": "FALSE",
+        "scope": "Candidate mechanical predicates remain symbolic; frozen helper reproduces latched dependency and permitted parent ENTRY",
+        "frozen_helper_chain": {
+          "failed_next": {
+            "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+            "permission_outcome": "BLOCKED",
+            "stage": "COMMIT",
+            "action": "B-NEXT",
+            "values": {
+              "AUDIT_CHANNEL_READY": "TRUE",
+              "BASIS_DEFINED": "TRUE",
+              "B_RESET_CONFIRMED": "FALSE",
+              "CONTINUITY_CONFIRMED": "TRUE",
+              "DEPENDENCY_VALID": "TRUE",
+              "EVENT_FRESH": "TRUE",
+              "FEEDBACK_VALID": "TRUE",
+              "INVENTORY_KNOWN": "TRUE",
+              "LEDGER_VALID": "TRUE",
+              "RESIDUE_ALLOWED": "TRUE",
+              "TRANSFER_LEDGER_CLOSED": "TRUE"
+            },
+            "reasons": {
+              "AUDIT_CHANNEL_READY": "CURRENT_ASSUMED_RECORD",
+              "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+              "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+              "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+              "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+              "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+              "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+              "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+              "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+              "RESIDUE_ALLOWED": "CURRENT_ASSUMED_RECORD",
+              "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+            },
+            "input_context_hash": "43cb7e71a5ef734d3e0a25cbefc510e7ba11331514c3246a990cf61e8b39e021",
+            "blocking_fault_ids": [],
+            "new_failure_evidence": {
+              "B_RESET_CONFIRMED": {
+                "scenario_id": "R5-CI-RECOVERY",
+                "variant": "B",
+                "mode": "B_REPEAT",
+                "cycle_epoch": "epoch",
+                "subject_id": "batch-object",
+                "operation_id": "failed-next",
+                "value": "FALSE",
+                "action": "B-NEXT",
+                "guard": "B_RESET_CONFIRMED",
+                "phase": "ENTRY",
+                "evidence_id": "R5-B-NEXT-B_RESET_CONFIRMED",
+                "method": "ASSUMED_FIXTURE",
+                "source": "independent documentary evidence",
+                "valid_for_operation_interval": true,
+                "revisions": {
+                  "MATERIAL": 0,
+                  "FEED": 0,
+                  "AXIS": 0,
+                  "RETENTION": 0,
+                  "B_CLOSURE": 0,
+                  "EXIT_RECEIVER": 0,
+                  "HYDRAULIC": 0,
+                  "EVIDENCE": 0,
+                  "RESOURCES": 0
+                }
+              }
+            },
+            "history_confirmed": true,
+            "next_state": "B_RECEIVED_RESIDUAL",
+            "material_assessment": "UNCONFIRMED",
+            "physical_permission": false
+          },
+          "parent_entry": {
+            "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+            "permission_outcome": "ALLOWED_ASSUMED",
+            "stage": "ENTRY",
+            "action": "B-RESET",
+            "values": {
+              "BASIS_DEFINED": "TRUE",
+              "CONTINUITY_CONFIRMED": "TRUE",
+              "EVENT_FRESH": "TRUE",
+              "FEEDBACK_VALID": "TRUE",
+              "LEDGER_VALID": "TRUE",
+              "METHOD_SUPPORTED": "TRUE",
+              "RECEIPT_VALID": "TRUE",
+              "RESET_SWEEP_CLEAR": "TRUE",
+              "RESOURCES_READY": "TRUE",
+              "RESTORE_SEQUENCE_DEFINED": "TRUE",
+              "TOOLS_HOME": "TRUE"
+            },
+            "reasons": {
+              "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+              "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+              "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+              "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+              "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+              "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+              "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+              "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+              "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+              "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+              "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+            },
+            "input_context_hash": "e169f7ab74b0594d19aeb109d396559f8914f8304a8231efa3a772a5fb3c2a63",
+            "blocking_fault_ids": [],
+            "new_failure_evidence": {},
+            "history_confirmed": true,
+            "next_state": "B_RECEIVED_RESIDUAL",
+            "material_assessment": "UNCONFIRMED",
+            "physical_permission": false
+          },
+          "dependency_truth": "FALSE",
+          "dependency_reason": "UNRESOLVED_ADDRESSED_FAULT",
+          "latched_faults": {
+            "F-89610eab5a2768669df3ebfeaa1a43bf7976d0edea11435637dc13b938580e38": {
+              "fault_id": "F-89610eab5a2768669df3ebfeaa1a43bf7976d0edea11435637dc13b938580e38",
+              "origin": {
+                "guard": "B_RESET_CONFIRMED",
+                "reason": "CONFIRMED_CONDITION_FALSE",
+                "kind": "CONDITION",
+                "truth": "FALSE",
+                "scope": {
+                  "scenario_id": "R5-CI-RECOVERY",
+                  "variant": "B",
+                  "mode": "B_REPEAT",
+                  "subject_id": "batch-object",
+                  "batch_id": "batch",
+                  "cycle_epoch": "epoch",
+                  "basis_id": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+                  "basis_revision": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+                  "subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+                },
+                "operation_id": "failed-next",
+                "evidence_id": "R5-B-NEXT-B_RESET_CONFIRMED",
+                "evidence": {
+                  "scenario_id": "R5-CI-RECOVERY",
+                  "variant": "B",
+                  "mode": "B_REPEAT",
+                  "cycle_epoch": "epoch",
+                  "subject_id": "batch-object",
+                  "operation_id": "failed-next",
+                  "value": "FALSE",
+                  "action": "B-NEXT",
+                  "guard": "B_RESET_CONFIRMED",
+                  "phase": "ENTRY",
+                  "evidence_id": "R5-B-NEXT-B_RESET_CONFIRMED",
+                  "method": "ASSUMED_FIXTURE",
+                  "source": "independent documentary evidence",
+                  "valid_for_operation_interval": true,
+                  "revisions": {
+                    "MATERIAL": 0,
+                    "FEED": 0,
+                    "AXIS": 0,
+                    "RETENTION": 0,
+                    "B_CLOSURE": 0,
+                    "EXIT_RECEIVER": 0,
+                    "HYDRAULIC": 0,
+                    "EVIDENCE": 0,
+                    "RESOURCES": 0
+                  }
+                },
+                "revisions": {
+                  "B_CLOSURE": 0
+                },
+                "cause_fault_ids": []
+              },
+              "status": "OPEN",
+              "expected_revisions": {
+                "B_CLOSURE": 0
+              },
+              "revision_history": [],
+              "resolution_attempts": [],
+              "resolution": null
+            },
+            "F-f4d73f2db8cb0f5c5eef83a135340a769bca1db04ef159da9851e3eba2483279": {
+              "fault_id": "F-f4d73f2db8cb0f5c5eef83a135340a769bca1db04ef159da9851e3eba2483279",
+              "origin": {
+                "guard": "DEPENDENCY_VALID",
+                "reason": "UNRESOLVED_MANDATORY_STEP",
+                "kind": "DEPENDENCY",
+                "truth": "FALSE",
+                "scope": {
+                  "scenario_id": "R5-CI-RECOVERY",
+                  "variant": "B",
+                  "mode": "B_REPEAT",
+                  "subject_id": "batch-object",
+                  "batch_id": "batch",
+                  "cycle_epoch": "epoch",
+                  "basis_id": "basis",
+                  "basis_revision": "r1",
+                  "subject_kind": "MATERIAL"
+                },
+                "operation_id": "failed-next",
+                "evidence_id": "decision-11becdd87dec211ae559916411f3927b9285e5bef8c5d2cadb4162436d0d55d8",
+                "evidence": {
+                  "evidence_id": "decision-11becdd87dec211ae559916411f3927b9285e5bef8c5d2cadb4162436d0d55d8",
+                  "action": "B-NEXT",
+                  "phase": "COMMIT",
+                  "outcome": "BLOCKED",
+                  "input_context_hash": "43cb7e71a5ef734d3e0a25cbefc510e7ba11331514c3246a990cf61e8b39e021"
+                },
+                "revisions": {
+                  "EVIDENCE": 0
+                },
+                "cause_fault_ids": [
+                  "F-89610eab5a2768669df3ebfeaa1a43bf7976d0edea11435637dc13b938580e38"
+                ]
+              },
+              "status": "OPEN",
+              "expected_revisions": {
+                "EVIDENCE": 0
+              },
+              "revision_history": [],
+              "resolution_attempts": [],
+              "resolution": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "restore-parent-vs-child:B-MECH-RELOCK",
+      "passed": false,
+      "detail": {
+        "parent_start_allowed_assumed": true,
+        "child_start_allowed_assumed": false,
+        "dependency_value": "FALSE",
+        "scope": "Candidate mechanical predicates remain symbolic; frozen helper reproduces latched dependency and permitted parent ENTRY",
+        "frozen_helper_chain": {
+          "failed_next": {
+            "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+            "permission_outcome": "BLOCKED",
+            "stage": "COMMIT",
+            "action": "B-NEXT",
+            "values": {
+              "AUDIT_CHANNEL_READY": "TRUE",
+              "BASIS_DEFINED": "TRUE",
+              "B_RESET_CONFIRMED": "FALSE",
+              "CONTINUITY_CONFIRMED": "TRUE",
+              "DEPENDENCY_VALID": "TRUE",
+              "EVENT_FRESH": "TRUE",
+              "FEEDBACK_VALID": "TRUE",
+              "INVENTORY_KNOWN": "TRUE",
+              "LEDGER_VALID": "TRUE",
+              "RESIDUE_ALLOWED": "TRUE",
+              "TRANSFER_LEDGER_CLOSED": "TRUE"
+            },
+            "reasons": {
+              "AUDIT_CHANNEL_READY": "CURRENT_ASSUMED_RECORD",
+              "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+              "B_RESET_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+              "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+              "DEPENDENCY_VALID": "CURRENT_ASSUMED_RECORD",
+              "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+              "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+              "INVENTORY_KNOWN": "CURRENT_ASSUMED_RECORD",
+              "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+              "RESIDUE_ALLOWED": "CURRENT_ASSUMED_RECORD",
+              "TRANSFER_LEDGER_CLOSED": "CURRENT_ASSUMED_RECORD"
+            },
+            "input_context_hash": "43cb7e71a5ef734d3e0a25cbefc510e7ba11331514c3246a990cf61e8b39e021",
+            "blocking_fault_ids": [],
+            "new_failure_evidence": {
+              "B_RESET_CONFIRMED": {
+                "scenario_id": "R5-CI-RECOVERY",
+                "variant": "B",
+                "mode": "B_REPEAT",
+                "cycle_epoch": "epoch",
+                "subject_id": "batch-object",
+                "operation_id": "failed-next",
+                "value": "FALSE",
+                "action": "B-NEXT",
+                "guard": "B_RESET_CONFIRMED",
+                "phase": "ENTRY",
+                "evidence_id": "R5-B-NEXT-B_RESET_CONFIRMED",
+                "method": "ASSUMED_FIXTURE",
+                "source": "independent documentary evidence",
+                "valid_for_operation_interval": true,
+                "revisions": {
+                  "MATERIAL": 0,
+                  "FEED": 0,
+                  "AXIS": 0,
+                  "RETENTION": 0,
+                  "B_CLOSURE": 0,
+                  "EXIT_RECEIVER": 0,
+                  "HYDRAULIC": 0,
+                  "EVIDENCE": 0,
+                  "RESOURCES": 0
+                }
+              }
+            },
+            "history_confirmed": true,
+            "next_state": "B_RECEIVED_RESIDUAL",
+            "material_assessment": "UNCONFIRMED",
+            "physical_permission": false
+          },
+          "parent_entry": {
+            "command_execution": "COMPLETED_DOCUMENT_EVALUATION",
+            "permission_outcome": "ALLOWED_ASSUMED",
+            "stage": "ENTRY",
+            "action": "B-RESET",
+            "values": {
+              "BASIS_DEFINED": "TRUE",
+              "CONTINUITY_CONFIRMED": "TRUE",
+              "EVENT_FRESH": "TRUE",
+              "FEEDBACK_VALID": "TRUE",
+              "LEDGER_VALID": "TRUE",
+              "METHOD_SUPPORTED": "TRUE",
+              "RECEIPT_VALID": "TRUE",
+              "RESET_SWEEP_CLEAR": "TRUE",
+              "RESOURCES_READY": "TRUE",
+              "RESTORE_SEQUENCE_DEFINED": "TRUE",
+              "TOOLS_HOME": "TRUE"
+            },
+            "reasons": {
+              "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+              "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+              "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+              "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+              "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+              "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+              "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+              "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+              "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+              "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+              "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+            },
+            "input_context_hash": "e169f7ab74b0594d19aeb109d396559f8914f8304a8231efa3a772a5fb3c2a63",
+            "blocking_fault_ids": [],
+            "new_failure_evidence": {},
+            "history_confirmed": true,
+            "next_state": "B_RECEIVED_RESIDUAL",
+            "material_assessment": "UNCONFIRMED",
+            "physical_permission": false
+          },
+          "dependency_truth": "FALSE",
+          "dependency_reason": "UNRESOLVED_ADDRESSED_FAULT",
+          "latched_faults": {
+            "F-89610eab5a2768669df3ebfeaa1a43bf7976d0edea11435637dc13b938580e38": {
+              "fault_id": "F-89610eab5a2768669df3ebfeaa1a43bf7976d0edea11435637dc13b938580e38",
+              "origin": {
+                "guard": "B_RESET_CONFIRMED",
+                "reason": "CONFIRMED_CONDITION_FALSE",
+                "kind": "CONDITION",
+                "truth": "FALSE",
+                "scope": {
+                  "scenario_id": "R5-CI-RECOVERY",
+                  "variant": "B",
+                  "mode": "B_REPEAT",
+                  "subject_id": "batch-object",
+                  "batch_id": "batch",
+                  "cycle_epoch": "epoch",
+                  "basis_id": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+                  "basis_revision": "NOT_APPLICABLE_BY_GUARD_SCOPE",
+                  "subject_kind": "INTERFACE_OR_ASSEMBLY_STATE"
+                },
+                "operation_id": "failed-next",
+                "evidence_id": "R5-B-NEXT-B_RESET_CONFIRMED",
+                "evidence": {
+                  "scenario_id": "R5-CI-RECOVERY",
+                  "variant": "B",
+                  "mode": "B_REPEAT",
+                  "cycle_epoch": "epoch",
+                  "subject_id": "batch-object",
+                  "operation_id": "failed-next",
+                  "value": "FALSE",
+                  "action": "B-NEXT",
+                  "guard": "B_RESET_CONFIRMED",
+                  "phase": "ENTRY",
+                  "evidence_id": "R5-B-NEXT-B_RESET_CONFIRMED",
+                  "method": "ASSUMED_FIXTURE",
+                  "source": "independent documentary evidence",
+                  "valid_for_operation_interval": true,
+                  "revisions": {
+                    "MATERIAL": 0,
+                    "FEED": 0,
+                    "AXIS": 0,
+                    "RETENTION": 0,
+                    "B_CLOSURE": 0,
+                    "EXIT_RECEIVER": 0,
+                    "HYDRAULIC": 0,
+                    "EVIDENCE": 0,
+                    "RESOURCES": 0
+                  }
+                },
+                "revisions": {
+                  "B_CLOSURE": 0
+                },
+                "cause_fault_ids": []
+              },
+              "status": "OPEN",
+              "expected_revisions": {
+                "B_CLOSURE": 0
+              },
+              "revision_history": [],
+              "resolution_attempts": [],
+              "resolution": null
+            },
+            "F-f4d73f2db8cb0f5c5eef83a135340a769bca1db04ef159da9851e3eba2483279": {
+              "fault_id": "F-f4d73f2db8cb0f5c5eef83a135340a769bca1db04ef159da9851e3eba2483279",
+              "origin": {
+                "guard": "DEPENDENCY_VALID",
+                "reason": "UNRESOLVED_MANDATORY_STEP",
+                "kind": "DEPENDENCY",
+                "truth": "FALSE",
+                "scope": {
+                  "scenario_id": "R5-CI-RECOVERY",
+                  "variant": "B",
+                  "mode": "B_REPEAT",
+                  "subject_id": "batch-object",
+                  "batch_id": "batch",
+                  "cycle_epoch": "epoch",
+                  "basis_id": "basis",
+                  "basis_revision": "r1",
+                  "subject_kind": "MATERIAL"
+                },
+                "operation_id": "failed-next",
+                "evidence_id": "decision-11becdd87dec211ae559916411f3927b9285e5bef8c5d2cadb4162436d0d55d8",
+                "evidence": {
+                  "evidence_id": "decision-11becdd87dec211ae559916411f3927b9285e5bef8c5d2cadb4162436d0d55d8",
+                  "action": "B-NEXT",
+                  "phase": "COMMIT",
+                  "outcome": "BLOCKED",
+                  "input_context_hash": "43cb7e71a5ef734d3e0a25cbefc510e7ba11331514c3246a990cf61e8b39e021"
+                },
+                "revisions": {
+                  "EVIDENCE": 0
+                },
+                "cause_fault_ids": [
+                  "F-89610eab5a2768669df3ebfeaa1a43bf7976d0edea11435637dc13b938580e38"
+                ]
+              },
+              "status": "OPEN",
+              "expected_revisions": {
+                "EVIDENCE": 0
+              },
+              "revision_history": [],
+              "resolution_attempts": [],
+              "resolution": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "addressed-fill-complete-before-isolation:A",
+      "passed": false,
+      "detail": {
+        "explicit_fill_guard_present": false,
+        "predecessor_prose": "Только после D0 и завершения переноса, до APPROACH/GATHER; parent binding/guard timing explicitly in parent_binding, stage prerequisites and START/invariants distinguished",
+        "warning": "Prose requires completed transfer; no explicit same-batch delivery receipt in structured entry, G_PATH_CLEAR alone is not completion of dose"
+      }
+    },
+    {
+      "id": "addressed-fill-complete-before-isolation:B",
+      "passed": false,
+      "detail": {
+        "explicit_fill_guard_present": false,
+        "predecessor_prose": "Только после D0 и завершения переноса, до APPROACH/GATHER; parent binding/guard timing explicitly in parent_binding, stage prerequisites and START/invariants distinguished",
+        "warning": "Prose requires completed transfer; no explicit same-batch delivery receipt in structured entry, G_PATH_CLEAR alone is not completion of dose"
+      }
+    },
+    {
+      "id": "semantic-mutation:unknown_pose",
+      "passed": false,
+      "detail": {
+        "author_accepts_inconsistent_document": true
+      }
+    },
+    {
+      "id": "semantic-mutation:work_starts_at_P0",
+      "passed": false,
+      "detail": {
+        "author_accepts_inconsistent_document": true
+      }
+    },
+    {
+      "id": "semantic-mutation:drop_isolation_guard",
+      "passed": false,
+      "detail": {
+        "author_accepts_inconsistent_document": true
+      }
+    },
+    {
+      "id": "semantic-mutation:cross_scenario_work_binding",
+      "passed": false,
+      "detail": {
+        "author_accepts_inconsistent_document": true
+      }
+    },
+    {
+      "id": "semantic-mutation:wrong_parent_mode",
+      "passed": false,
+      "detail": {
+        "author_accepts_inconsistent_document": true
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "action": "A-MECH-APPROACH",
+        "mode": "A_STARTUP",
+        "problem": "Declared mode has no legal bound parent"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "action": "A-MECH-WORK",
+        "mode": "A_STARTUP",
+        "problem": "Declared mode has no legal bound parent"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "action": "A-MECH-HOLD-UNLOAD",
+        "mode": "A_STARTUP",
+        "problem": "Declared mode has no legal bound parent"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "parent": "A-LOAD-START",
+        "problem": "No final pose satisfies current D1 parent completion and current D0 return completion; commit boundary/history witness unspecified"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "parent": "A-LOAD-STEADY",
+        "problem": "No final pose satisfies current D1 parent completion and current D0 return completion; commit boundary/history witness unspecified"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "parent": "A-REFILL",
+        "problem": "No final pose satisfies current D1 parent completion and current D0 return completion; commit boundary/history witness unspecified"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "parent": "B-LOAD",
+        "problem": "No final pose satisfies current D1 parent completion and current D0 return completion; commit boundary/history witness unspecified"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "parent": "B-REFILL",
+        "problem": "No final pose satisfies current D1 parent completion and current D0 return completion; commit boundary/history witness unspecified"
+      }
+    },
+    {
+      "id": "R5-CI-B02",
+      "detail": {
+        "child": "B-MECH-STOP-CLOSE",
+        "problem": "Generic DEPENDENCY_VALID makes reset substep stricter than reset recovery parent; no targeted recovery binding provided"
+      }
+    },
+    {
+      "id": "R5-CI-B02",
+      "detail": {
+        "child": "B-MECH-RELOCK",
+        "problem": "Generic DEPENDENCY_VALID makes reset substep stricter than reset recovery parent; no targeted recovery binding provided"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "action": "A-MECH-FEED-ISOLATE",
+        "problem": "Add explicit addressed FILL_COMPLETE/history link, or formal derivation from completed parent with same batch/epoch"
+      }
+    },
+    {
+      "id": "R5-CI-B01",
+      "detail": {
+        "action": "B-MECH-FEED-ISOLATE",
+        "problem": "Add explicit addressed FILL_COMPLETE/history link, or formal derivation from completed parent with same batch/epoch"
+      }
+    },
+    {
+      "id": "R5-CI-B03",
+      "detail": {
+        "mutation": "unknown_pose",
+        "problem": "Coherent regenerated exports accepted by checker despite semantic inconsistency"
+      }
+    },
+    {
+      "id": "R5-CI-B03",
+      "detail": {
+        "mutation": "work_starts_at_P0",
+        "problem": "Coherent regenerated exports accepted by checker despite semantic inconsistency"
+      }
+    },
+    {
+      "id": "R5-CI-B03",
+      "detail": {
+        "mutation": "drop_isolation_guard",
+        "problem": "Coherent regenerated exports accepted by checker despite semantic inconsistency"
+      }
+    },
+    {
+      "id": "R5-CI-B03",
+      "detail": {
+        "mutation": "cross_scenario_work_binding",
+        "problem": "Coherent regenerated exports accepted by checker despite semantic inconsistency"
+      }
+    },
+    {
+      "id": "R5-CI-B03",
+      "detail": {
+        "mutation": "wrong_parent_mode",
+        "problem": "Coherent regenerated exports accepted by checker despite semantic inconsistency"
+      }
+    }
+  ],
+  "independent_truth_table": [
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "TRUE",
+      "expected": "ALLOWED_ASSUMED"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "UNKNOWN",
+      "expected": "INDETERMINATE"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "TRUE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "UNKNOWN",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "TRUE",
+      "expected": "INDETERMINATE"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "TRUE",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "UNKNOWN",
+      "expected": "INDETERMINATE"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "TRUE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "UNKNOWN",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "TRUE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "UNKNOWN",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "TRUE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "FALSE",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "UNKNOWN",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "TRUE",
+      "expected": "INDETERMINATE"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "TRUE",
+      "ISOLATED": "UNKNOWN",
+      "expected": "INDETERMINATE"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "TRUE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "FALSE",
+      "ISOLATED": "UNKNOWN",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "TRUE",
+      "expected": "INDETERMINATE"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "FALSE",
+      "expected": "BLOCKED"
+    },
+    {
+      "FILL_COMPLETE": "UNKNOWN",
+      "FEEDER_SAFE": "UNKNOWN",
+      "ISOLATED": "UNKNOWN",
+      "expected": "INDETERMINATE"
+    }
+  ],
+  "semantic_mutants": [
+    {
+      "id": "unknown_pose",
+      "author_exit": 0,
+      "independent_errors": [
+        "unknown-pose:A-MECH-WORK:UNDEFINED_POSE",
+        "work-origin:A-MECH-WORK"
+      ],
+      "files_unchanged": true
+    },
+    {
+      "id": "work_starts_at_P0",
+      "author_exit": 0,
+      "independent_errors": [
+        "work-origin:A-MECH-WORK"
+      ],
+      "files_unchanged": true
+    },
+    {
+      "id": "drop_isolation_guard",
+      "author_exit": 0,
+      "independent_errors": [
+        "missing-isolation:A-MECH-WORK"
+      ],
+      "files_unchanged": true
+    },
+    {
+      "id": "cross_scenario_work_binding",
+      "author_exit": 0,
+      "independent_errors": [
+        "wrong-action-binding:A-COMPACT:stroke.work"
+      ],
+      "files_unchanged": true
+    },
+    {
+      "id": "wrong_parent_mode",
+      "author_exit": 0,
+      "independent_errors": [
+        "wrong-parent:B-MECH-WORK:A-COMPACT"
+      ],
+      "files_unchanged": true
+    },
+    {
+      "id": "reduced_rod",
+      "author_exit": 1,
+      "independent_errors": [
+        "authoritative-source-row-changed"
+      ],
+      "files_unchanged": true
+    },
+    {
+      "id": "reduced_work_force",
+      "author_exit": 1,
+      "independent_errors": [
+        "authoritative-source-row-changed"
+      ],
+      "files_unchanged": true
+    },
+    {
+      "id": "shortened_work_stroke",
+      "author_exit": 1,
+      "independent_errors": [
+        "authoritative-source-row-changed"
+      ],
+      "files_unchanged": true
+    }
+  ],
+  "probe_unchanged": true,
+  "note": "Original probe assertions describe defects of original C; exit 0 captures failures, not acceptance. Missing historical CAD Git object fetched before valid reproduction; CAD not rebuilt."
+}

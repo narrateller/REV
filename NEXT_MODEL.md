@@ -1,3 +1,720 @@
+# R1 — интеграция проверенного документального CYC-02/03
+
+C `8b72716021b0c3a64972033d09fe5e80945eb98e`, R5 `6ec51742fea1be36a989dfa691ddfccf1cb20675` (B03 CLOSED bounded documentary; GO/WARNING), H `fdb03dc48f509ee88badcfaa7a7e9fc160ddbaff`. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`; до merge IN_REVIEW. Семь отказов/арбитражи/проверки сохранены, code/payload/frozen helper не меняются.
+
+Следующее действие: последовательно интегрировать ветку после повторной сверки main/claim/lease/inputs; затем отдельная задача R3 по силовым путям A-V1/A-V2/B-V1/B-V2 с прежними нагрузками/ходами, эксцентриситетами, направляющими и устойчивостью. Общий CAD-rebuild не разрешён этим актом. W02/PLC/physical READY NO-GO, G1 OPEN; физические испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# R5 — независимый RECHECK B03 завершён документально
+
+Акт **REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001**, R5/Codex/session `r5-ci-open-journal-20261113`.
+**C акта `6ec51742fea1be36a989dfa691ddfccf1cb20675` — REMOTE_VERIFIED**, ветка `work-r5/T-r5-ci-open-journal-recheck/r5-ci-open-journal-20261113`.
+[Акт](verification/r5_ci_open_journal_recheck/review.md),
+[независимые cases](verification/r5_ci_open_journal_recheck/independent_results.json),
+[36same-input](verification/r5_ci_open_journal_recheck/thirtysix.json),
+[проверки](verification/r5_ci_open_journal_recheck/final_checks.json).
+
+Проверены exact C **8b72716021b0c3a64972033d09fe5e80945eb98e**,
+входная H **fa4c59702e338e6b6d1e322b0698137a233ad011**,
+R1 **a85e69f3a495176c614202a518be6784be8f3b31**.
+**B03 CLOSED/PASS только bounded documentary exact-C scope.**
+**Стабильная документальная передача CYC-02/03 — GO на exact C; общий WARNING.**
+Не означает приёмку полного журнала/материального движка/native CAD/оборудования.
+
+Все36 прежних false TRUE с прежними digests исправлены; matrix732/732, minimal3/3.
+Собственные5368/5368:40fixedguards,4212schema/domain controls,120orders×9rawpairs,
+known-FEED/positive addressed recovery, known FALSE dominance, readonly.
+Авторские58methods и прежние independent654/765/7/295/231 прошли, package3277/export8.
+Первый type-suite failure из-за отсутствовавшего pinned Git object устранён fetch;
+новая YAML запись акта потребовала scope; оба исходных лога сохранены, финальные
+registry plain/--check-git PASS. Это ошибки prerequisites/оформления, не кандидата.
+612protected inputs/1329oldtreefiles/23payloadexports/205C-Hinterfacefiles совпадают;
+helper/norm53/84/18/44bindings/4forcevariants/calculations/CAD и7REJECT сохранены.
+interface rejection history7/material2 не сброшены. Caller/proof/history readonly.
+
+**W02/PLC/physical READY NO-GO;G1 OPEN;architecture/TZ NOT_APPROVED.**
+Strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN;geometricpairs0.
+R4 main/owner/lease не менялись:3a9258c57e4bc15d6de98f1d17e8412ad6e8899a,
+owner r4-linked-20261111/PR45, lease2026-11-14T00:13:12.404899+00:00 без продления.
+Review-ветка не влита в main; этот акт не закрывает parent CYC/G1 от имени R1.
+
+Следующий участник **R1/оператор**: проверить remote C и входные SHA/актуальность,
+затем рассмотреть ограниченную интеграцию акта и documentary handoff; выбрать
+следующую работу только с собственным действующим claim и exact inputs.
+Не повторять старые исправления и не выводить physical READY из документального GO.
+Капсула: handoffs/T-r5-ci-open-journal-recheck/r5-ci-open-journal-20261113.md.
+UTC 2026-11-13T19:17:31.071461+00:00. Следующий H меняет только STATE/NEXT/капсулу.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# R4 — bounded OPEN journal admission, независимый R5 PENDING
+
+**Exact C `8b72716021b0c3a64972033d09fe5e80945eb98e`, REMOTE_VERIFIED**,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-journal-20261113`.
+https://github.com/narrateller/REV/commit/8b72716021b0c3a64972033d09fe5e80945eb98e
+H меняет только STATE/NEXT/капсулу; package H byte-identical C.
+[Капсула](handoffs/T-r4-cycle-interfaces-01/r4-b03-journal-20261113.md).
+
+R1 ARB-R1-CI-SEMANTICS-06 `a85e69f3a495176c614202a518be6784be8f3b31`
+записан до кода; checkpoint `f7aa9d10ccb32117361c90959ca6af085fd4fe34`.
+Main `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, accepted PR45 owner `r4-linked-20261111` и исходный lease
+`2026-11-14T00:13:12.404899+00:00` сверены при публикации. Owner/lease/main
+не менялись, срок не продлевался. Седьмой акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85`
+и шесть прежних актов сохранены; interface counter7/material2 не сброшены.
+
+Все OPEN проходят bounded schema/scope/revision/history/causal classification по
+всем fixed guards до положительного journal/recovery. Unknown/malformed guard
+не объявляется посторонним. UNCLASSIFIABLE → UNKNOWN/OUT_OF_DOMAIN без TRUE;
+raw TRUE не заменяет журнал. Доказанные обязательные raw/own/state/causal FALSE
+сохраняют BLOCKED, unknown сам не создаёт FALSE. Known unrelated FEED positive и
+адресный recovery сохранены. Scan полный; target и revisions не подставляются,
+историческое физическое evidence не переоценивается в current scope. Compatibility
+boundaries, old-operation scope и RESOLVED history policy — в admission table.
+
+Авторский повтор: R5 732/732 вместо696/732,36same-input подмен исправлены;
+18ordered inputs/6canonical maps/одна причина, minimal3/3 включая known-FEED.
+Новые8methods/417controls PASS; прежние raw966/gate220/snapshot118/type244+36/
+semantic411/B01-B02 7methods и independent654/765/7/295/231 PASS;19+8input hashes
+совпадают, все8exits проходят общий finish. Fresh export:3277semantic+8export
+checks PASS; registry --check-git и diff PASS. Readonly сохранён.
+[Схема/команды](verification/r4_cycle_interfaces/journal_correction/README.md),
+[admission table](verification/r4_cycle_interfaces/journal_correction/ADMISSION.md),
+[coverage](verification/r4_cycle_interfaces/journal_correction/coverage.json),
+[checks](verification/r4_cycle_interfaces/journal_correction/checks.json).
+
+612protected inputs,15полных прежних деревьев/1329files, norm53/84/18/helper,
+44bindings/4force variants/loads/calculations/CAD и payload/data exports byte-identical.
+Latest review index меняет только validity/stale_reason, REJECT/findings/hashes
+сохранены. B03 OPEN / acceptance BLOCKED, stable documentary/CAD handoff NO-GO
+до нового независимого R5 на exact C. W02/PLC/physical READY NO-GO,G1 OPEN;
+архитектура/ТЗ не утверждены; strength/geometry/CADrebuild/physical trials NOT_RUN.
+
+Следующее действие: независимый R5 проверяет exact C, main/owner/lease/входы и
+план решения06/[review request](verification/r4_cycle_interfaces/proposal/review_request.md).
+Критерий: все36 прежних false TRUE и новые admission controls без false allow,
+known-FEED/positive recovery и доказанный FALSE сохранены; прежние регрессии и
+защищённые входы совпадают. Авторский repeat не является независимым актом.
+Не применять старые исправления повторно; B03 без нового акта не закрывать.
+Проверено UTC `2026-11-13T18:46:11.442569+00:00`.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
+# R1 — positive admission всех OPEN journal records
+
+Акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85` на C `b89854ad709bcb5c2991376bed41bf2f73acef82`, седьмой REJECT. R1 воспроизвёл 732/696/36 и minimal missing/null/known-FEED; решение `decisions/ARB-R1-CI-SEMANTICS-06.md`, evidence `verification/r1_ci_open_journal_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, сверить claim/входы и исправить bounded semantic admission/classification всех OPEN записей перед положительным journal/recovery выводом. Неизвестный tag не foreign; raw TRUE не обходит unknown journal, known FALSE сохраняет BLOCKED. Затем независимый R5 RECHECK. Helper/норматив/расчёты/CAD unchanged; counter7 и material2 сохраняются, stable handoff/physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 raw-source RECHECK act C **4e52c3953c989c1077107d1d4f4da6d39d923d85**;capsule handoffs/T-r5-ci-raw-recheck/r5-ci-raw-sources-20261113.md. Oldjournal/8variants fixed;unsupported OPEN guard still admits TRUE (36records/1cause). B03 OPEN,stable documentary handoff NO-GO;6historic rejections preserved,current seventh. W02/physicalREADY NO-GO,G1OPEN.
+
+# R5 RECHECK B03 raw sources — OPEN/REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-raw-sources-20261113**,reviewed C **b89854ad709bcb5c2991376bed41bf2f73acef82**,
+H **ce1ad73aae7a5700203103c14290375cc519662b**,R1 **3aa5ee100f57aa75315d429afef38f8a982b1afc**.
+Акт REV-R5-CI-RAW-SOURCES-RECHECK-01-001:
+[review.md](verification/r5_ci_raw_sources_recheck/review.md),[minimal comparator](verification/r5_ci_raw_sources_recheck/minimal_guard_tag_witness.json),
+[results](verification/r5_ci_raw_sources_recheck/independent_results.json),[commands](verification/r5_ci_raw_sources_recheck/commands.json).
+
+Journal-witness/8oldvariants исправлены,231/231,typedinputdigests8совпадают.
+Independent732case records696matches36falseTRUErecords:unsupported/null/wrongtype
+OPEN journal guard silently skipped,IN_DOMAIN/TRUE/ALLOWED_ASSUMED при allrawTRUE.
+One semantic-admission cause,18orderedinputs/6canonicalmaps;missingguard control
+UNKNOWN,knownFEED control ALLOWED. Это не regression исправленногоrawFALSEfallback.
+450reader errors,56invalidraw,75sourceexceptions,27two-own и state/causal controls
+pass;rawFALSE сохраняетBLOCKED,invalidFALSE не blanketdenial,detectedunknownjournal
+не допускаетrawTRUE. Positive/minimal/unuseddomains/foreignfault/WORK и readonly
+сохранены. Author3277/8,9raw966,11gate220,11snapshot118,6type244/36,6semantic411,
+7B01/B02methods и prior654/765/7/295/231 PASS;19+8oldinputdigests неизменны.
+
+**B03 OPEN;stable documentary CYC-02/03 handoff/newCAD iteration NO-GO.**
+R3 только прежниеWARNINGforce-pathstudies/currentclaim/exactinputs. Norm53/84/18,
+helper,44bindings,4variants,612protected,calculations/CAD и6oldreviewpackages
+сохранены. Текущий7REJECT,interfacecounter7/material2. Q-R1-CI-SEMANTICS-ARBITRATION-01
+REOPENED/P1,next correctionBLOCKED по§6.1 до записанногоR1решения/плана:
+[R1followup](verification/r5_ci_raw_sources_recheck/R1_followup.md). Main3a9258c/PR45owner r4-linked-20261111/
+lease2026-11-14T00:13:12.404899+00:00 не менялись,merge/claimtakeover нет.
+**W02 OPEN/NO-GO,physicalREADY NO-GO,G1OPEN**;architecture/TZ notapproved;
+strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN,geometricpairs0.
+UTC 2026-11-13T16:05:32.565988+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Следующее действие — независимый R5 RECHECK B03 exact C
+
+C **b89854ad709bcb5c2991376bed41bf2f73acef82**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/b89854ad709bcb5c2991376bed41bf2f73acef82
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-raw-20261113;
+капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-raw-20261113.md.
+R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`.
+
+R5: сверить main/owner/lease/входы,checkout exact C; исполнить план решения и
+proposal/review_request.md. Проверить same-input minimal journal witness и8
+вариаций,raw TRUE/FALSE/UNKNOWN и stale/foreign/action/phase/revision/interval/
+provenance/method controls. Подтверждённый raw FALSE сохраняет BLOCKED при
+journal exception; invalid literal FALSE не принимается. Raw TRUE не заменяет
+журнал и не доказывает READY; без достоверного FALSE gate INDETERMINATE.
+Проверить raw exceptions,другие own/state/адресные causal запреты,все8 finish
+exits,positive addressed recovery/foreign fault/WORK запрет/readonly.
+Повторить prior gate295,incomplete7,source/type/norm/B01/B02 и author regressions.
+Raw historical C/session literals не являются identity нового review;
+source hashes в checks.json и эта capsule задают actual C. Author replay не акт.
+
+B03 OPEN,шесть REJECT/interface6 и material2 сохранены; stable handoff/CAD NO-GO
+до независимого exact-C акта. Accepted owner PR45 r4-linked-20261111 и lease
+2026-11-14T00:13:12.404899+00:00 без продления; main3a9258c не менялась.
+Helper/norm53/84/18/44bindings/4variants/calculations/CAD не менять; W02/physical
+READY NO-GO,PLC/CAD/rebuild вне scope,G1 OPEN; архитектура/ТЗ не утверждены.
+Не повторять завершённую R4 итерацию и не repair/удалять foreign journal faults.
+
+---
+
+## Предыдущая эстафета — история
+
+# R1 — независимый current FALSE при ошибке journal-reader
+
+R5 `18e5af1dae177cdfcb24951d3b36c2fd43395421` на C `3060dbf561f95e4384fbfd13a9cc5569690515e5`, шестой интерфейсный REJECT. R1 воспроизвёл минимальный свидетель и matrix231/223/8. Решение `decisions/ARB-R1-CI-SEMANTICS-05.md`, evidence `verification/r1_ci_journal_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, сверить claim/входы и обеспечить независимое validated raw current FALSE при exception journal reader без raw TRUE authorization или blanket BLOCKED на malformed журнал. Затем новый независимый R5 RECHECK. Helper/норматив/расчёты/CAD unchanged; stable handoff и physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 all-exit RECHECK act C **18e5af1dae177cdfcb24951d3b36c2fd43395421**;capsule handoffs/T-r5-ci-gate-recheck/r5-ci-gate-exits-20261113.md. Old2minimal/19variants fixed,8/8exits exercised;new current-FALSE loss on journal exception remains (8variants/1cause). B03 OPEN,stable documentary handoff NO-GO;fiveoldrejections preserved,current sixth. W02/physicalREADY NO-GO,G1OPEN.
+
+# R5 RECHECK B03 all exits — OPEN / REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-gate-exits-20261113**, reviewed C **3060dbf561f95e4384fbfd13a9cc5569690515e5**,
+H **98861219f0adda96af0aca0a3a35078aec022eb9**, R1 **60eeddce71c9440a2fa08f7acbe6f1121c974b29**.
+Акт REV-R5-CI-GATE-EXITS-RECHECK-01-001:
+[review.md](verification/r5_ci_gate_exits_recheck/review.md),[witness](verification/r5_ci_gate_exits_recheck/minimal_journal_witness.json),
+[coverage](verification/r5_ci_gate_exits_recheck/exit_coverage.json),[commands](verification/r5_ci_gate_exits_recheck/commands.json).
+
+2oldminimal/19oldvariants исправлены,295/295;input digests19 неизменны,scopedUNKNOWN.
+8/8returns исполняются черезfinish. Но real malformed unrelated journal record
+(missing origin.guard,canonicalF-ID,history_valid=True) вызывает reader exception,
+теряющий independently valid current raw FALSE. Own231cases223matches8FAIL,
+2guards×4exits,1cause;16TRUE/UNKNOWN controls остаютсяINDETERMINATE.
+Новых falseTRUE/physical permissions не найдено;caller/proof/history неизменны.
+Positive recovery/minimal/unused domains/causal and unknown-target controls,
+ordinaryWORK/foreignfault retention сохранены. Author3277/8,11gate220,
+11snapshot118,6type244/36,6semantic411,7retainedmethods и prior654/765/7/295 PASS.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+R3 только прежниеWARNINGforce-pathstudies/currentclaim/exactinputs,без strength/
+native acceptance. Norm53/84/18,frozenhelper,44bindings,4variants,calcs/CAD,
+612protected inputs и пять старых актов сохранены. Текущий шестой REJECT,
+interface counter6/material counter2. Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1;
+next correction BLOCKED по §6.1 до решения/плана R1:[карточка](verification/r5_ci_gate_exits_recheck/R1_followup.md).
+Main3a9258c/PR45owner r4-linked-20261111/lease2026-11-14T00:13:12.404899+00:00
+не изменены,merge/claimtakeover нет. **W02 OPEN/NO-GO,physical READY NO-GO,G1 OPEN**.
+Архитектура/ТЗ не утверждены;strength/nativegeometry/CADrebuild/physicaltrials
+NOT_RUN,geometricpairs0. UTC 2026-11-13T13:27:54.690354+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Следующее действие — независимый RECHECK B03 exact C
+
+R4 C **3060dbf561f95e4384fbfd13a9cc5569690515e5**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/3060dbf561f95e4384fbfd13a9cc5569690515e5
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-gates-20261113;
+капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-gates-20261113.md.
+R1 ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`.
+
+R5: проверить main/owner/lease/входы, checkout exact C, исполнить план решения
+и proposal/review_request.md. Проверить обе immutable minimal JSON witnesses,
+19 variants и весь matrix295, все8 exit/schema/exception paths, own truth matrix,
+known vs unknown addressed causal history, отсутствие target и отсутствие
+достоверного FALSE. Scoped UNKNOWN не скрывает BLOCKED, malformed proof без
+known denial не становится blanket BLOCKED. Target/домены не подставлять.
+Повторить положительный адресный recovery/minimal/unused domains, чужой fault и
+обычные WORK запреты; readonly, type/semantic/source/B01/B02/snapshot regressions.
+Frozen compatibility только IN_DOMAIN; old raw C/session literals в outputs
+не identity нового review. Author replay/results не являются независимым актом.
+
+Пять REJECT сохранены, interface counter5/material2; B03 OPEN, stable handoff/
+CAD NO-GO до нового независимого exact-C акта. Owner PR45 r4-linked-20261111 и
+lease 2026-11-14T00:13:12.404899+00:00 без продления; main3a9258c не менялась.
+Frozen helper/minimum53/84/18/44bindings/4variants/calculations/CAD не менять.
+W02/physical READY NO-GO, PLC/CAD/rebuild вне scope, G1 OPEN; архитектура/ТЗ
+не утверждены. Не повторять завершённую R4 итерацию как новую задачу.
+
+---
+
+## Предыдущая эстафета — история
+
+# R1 — композиция gate после пятого интерфейсного REJECT
+
+Акт `88a34f8b7d2d6dbf236101f207e206efb0e3c747` на C `e30b4b7caf3040905cc23c79ca696af2871c958a`: B03 OPEN, прежние false TRUE исправлены, 19 нарушений BLOCKED dominance. R1 воспроизвёл 295/276/19 и два минимальных witnesses, решение `decisions/ARB-R1-CI-SEMANTICS-04.md`, evidence `verification/r1_ci_gate_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, проверить claim/входы и исправить независимую own/causal оценку и единую композицию на всех ветвях proof/schema rejection; затем независимый R5 RECHECK. Не менять helper, нормы или расчёты/CAD. interface counter5/material counter2 сохраняются; стабильный handoff и physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 RECHECK act C **88a34f8b7d2d6dbf236101f207e206efb0e3c747**;capsule handoffs/T-r5-ci-snapshots-recheck/r5-ci-snapshots-20261113.md. B03 OPEN:known BLOCKED masked by2early proof returns (19variants),no new FALSE-acceptance;stable documentary handoff NO-GO. Four old rejections preserved,current fifth;W02/physical READY NO-GO,G1 OPEN.
+
+# R5 RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-snapshots-20261113**, reviewed C **e30b4b7caf3040905cc23c79ca696af2871c958a**,
+H **ff050572f88f108c2092827e98cd4d98bd874737**, R1 **39826eb2f5dbd1f83d81882022e6f59313ebe5d5**.
+Акт REV-R5-CI-SNAPSHOTS-RECHECK-01-001:
+[review.md](verification/r5_ci_snapshots_recheck/review.md),[inputs/evidence](verification/r5_ci_snapshots_recheck/minimal_witnesses.json),
+[commands](verification/r5_ci_snapshots_recheck/commands.json),[policy table](verification/r5_ci_snapshots_recheck/policy_comparison.md).
+
+Четыре прежних incomplete-snapshot false TRUE устранены; unchanged incomplete7/7,
+old probes654/654+765/765. Own295cases276matches19FAIL: malformed whole proof
+подавляет известный resource/state BLOCKED; missing/foreign proof action/guard
+с известным OPEN causal ancestor возвращает INDETERMINATE до causal assessment.
+Это19вариаций2раннихвозвратов, без новых ложных TRUE/physical permission.
+46/46IN_DOMAIN comparison PASS;249OUT_OF_DOMAIN с явными reasons, без обещания
+unconditional legacy equality. Valid integers/advances/minimal maps/unused
+FEED/RETENTION и B01/B02 сохранены. Author3277/8,11snapshot methods118cases,
+6type244/36,6semantic411,7retainedmethods PASS.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+R3 только прежние WARNING force-path studies с действующим claim и exact inputs.
+Норматив53/84/18,frozen helper,44bindings,4variants,расчёты/CAD и четыре старых
+акта сохранены. Текущий пятый REJECT;interface counter5,material counter2.
+Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1;следующая коррекция BLOCKED по §6.1
+до R1 решения/плана: [карточка](verification/r5_ci_snapshots_recheck/R1_followup.md).
+Main3a9258c/PR45owner r4-linked-20261111/lease2026-11-14T00:13:12.404899+00:00
+не изменены,merge/claim takeover нет. **W02 OPEN/NO-GO,physical READY NO-GO,G1 OPEN**.
+Архитектура/ТЗ не утверждены;strength/native geometry/CADrebuild/physical trials
+NOT_RUN,геометрических пар0. UTC 2026-11-13T11:06:19.210005+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Следующее действие — независимый R5 RECHECK B03 exact C
+
+R4 correction C **e30b4b7caf3040905cc23c79ca696af2871c958a**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/e30b4b7caf3040905cc23c79ca696af2871c958a
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113.md;
+R1 ARB-R1-CI-SEMANTICS-03 `39826eb2f5dbd1f83d81882022e6f59313ebe5d5`.
+
+Проверить main/owner/lease/входы, checkout exact C; использовать независимый
+fixed guard/action domain oracle, DOMAIN_SCHEMA.md и review_request.md.
+Воспроизвести 7 incomplete cases и новые map/type/history/extra/domain/gate
+варианты, положительный адресный recovery, used/unused domains, readonly и
+retained normative/type/B01/B02 checks. Сравнивать frozen policy в объявленной
+допустимой области; OUT_OF_DOMAIN с legacy TRUE/exception объяснить схемой.
+Не повторять выполненную R4 коррекцию как новую задачу и не применять helper
+returned copy к caller. Author tests/replay не являются независимым актом.
+
+B03 OPEN; четыре REJECT сохранены (interface4/material2), stable handoff/CAD
+NO-GO до нового независимого акта exact C. Owner PR45 r4-linked-20261111 и
+lease 2026-11-14T00:13:12.404899+00:00 без переназначения/продления; main3a9258c
+не менялась. Frozen helper/норматив/44bindings/4variants/calculations/CAD
+не менять. W02/PLC/CAD вне итерации, physical READY NO-GO, G1 OPEN.
+Архитектура/ТЗ не утверждены. Пакет H идентичен C.
+
+---
+
+## Предыдущая эстафета — история
+
+# R1 — полнота recovery snapshots и граница frozen compatibility
+
+Входной акт `0ff3c8f4502ea29c712bf1f41e223f172c5a21c7` на C `fa0626372c03d11655624bb454458f82c30117f7`: B03 OPEN, четвёртый REJECT. R1 воспроизвёл четыре ложных TRUE; решение `decisions/ARB-R1-CI-SEMANTICS-03.md`, evidence `verification/r1_ci_snapshot_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, проверить claim/входы и выполнить узкую domain/completeness prevalidation перед frozen delegation; сравнение policy только на объявленных допустимых входах. Не менять frozen helper, норматив, loads, расчёты или CAD. Затем независимый R5 RECHECK по плану решения. W02/physical READY NO-GO, stable handoff/CAD NO-GO, G1 OPEN; численные/физические испытания не выполнялись.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 RECHECK act C **0ff3c8f4502ea29c712bf1f41e223f172c5a21c7**; capsule handoffs/T-r5-ci-types-recheck/r5-ci-strict-types-20261113.md. B03 OPEN/REJECT_WITH_BLOCKER:4 incomplete-snapshot false TRUE witnesses. Stable documentary handoff NO-GO;R1 follow-up. Counter4 preserves all3 prior REJECT;W02/physical READY NO-GO,G1 OPEN.
+
+# Независимый RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
+
+R5 / Codex / session **r5-ci-strict-types-20261113**, reviewed C
+**fa0626372c03d11655624bb454458f82c30117f7**, H **ab0fb1900a2bbdfa81e284112b318320f3c5b480**, R1 **e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3**.
+Акт REV-R5-CI-STRICT-TYPES-RECHECK-01-001:
+[review.md](verification/r5_ci_strict_types_recheck/review.md),
+[доказательства](verification/r5_ci_strict_types_recheck/incomplete_results.json),
+[команды](verification/r5_ci_strict_types_recheck/commands.json).
+
+Шесть прежних type escapes исправлены, norm53/84/18 и source типы подтверждены.
+Author3277/8;6type methods244cases/36comparisons;6semantic methods411cases;7retained
+methods PASS. Неизменённые независимые probes654/654 и765/765, собственные
+215 согласованных re-export cases198reject/17MATCH. Но четыре runtime witnesses
+дают ложный TRUE при пустом expected, согласованно пустом/FEED-only origin/proof
+или пустых origin+expected. Required B_CLOSURE domain теряется; типы значений и
+валидный F-digest не доказывают полноту. Caller OPEN, frozen returned copy RESOLVED;
+state нигде не применялся. Полная policy equivalence не подтверждена.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+B01/B02 прежнее документальное закрытие сохранено, регрессии PASS. R3 force-path
+study только в прежней WARNING области с действующим claim, без приёмки силового
+пути. Norm/helper/44bindings/4variants/calculations/CAD и три старых акта неизменны.
+Текущий четвёртый REJECT, interface_consecutive_rejections=4, отдельный material
+counter=2; история не обнулена. Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED,
+следующая коррекция BLOCKED по §6.1 до R1 решения/плана:
+[R1_followup.md](verification/r5_ci_strict_types_recheck/R1_followup.md).
+Main3a9258c/accepted PR45 owner r4-linked-20261111/lease
+2026-11-14T00:13:12.404899+00:00 не изменены; merge не выполнялся.
+**W02 OPEN/NO-GO, physical READY NO-GO, G1 OPEN**. Архитектура/ТЗ не утверждены;
+strength/native geometry/rebuild/physical trials NOT_RUN, геометрических пар0.
+UTC 2026-11-13T09:00:34.211433+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# R4 — B03 strict types по ARB-R1-CI-SEMANTICS-02, независимый RECHECK PENDING
+
+**Рабочий C `fa0626372c03d11655624bb454458f82c30117f7`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-types-20261113`.
+https://github.com/narrateller/REV/commit/fa0626372c03d11655624bb454458f82c30117f7
+Следующий H — только STATE/NEXT/капсула; payload/checker в exact C не меняется.
+R1 **e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3** прочитан и записан в капсуле до кода,
+merge/audit checkpoint 64154d8. Исходный третий R5 REJECT 3d317b3 на Cbd7ce8a,
+H 480cc59ac76638802dcb96e231e5598c26594d37 сохранены полными предками.
+
+Исправлен общий type validation перед equality во всех nested source/ref/AST/
+phase/provenance; bool/float не integer. Metadata flags сравниваются по точным
+типам. Recovery predicate валидирует snapshots и использует frozen policy на
+том же proof/context/fault без применения возвращённого state. Невалидные
+origin false/0.0 дают UNKNOWN/INDETERMINATE, fault остаётся OPEN.
+[Контракт/аудит/команды](verification/r4_cycle_interfaces/type_correction/README.md),
+[результаты](verification/r4_cycle_interfaces/type_correction/checks.json),
+[типы и differential cases](verification/r4_cycle_interfaces/type_correction/type_cases.json).
+
+Фактически: 3277 document MATCH, 8 export MATCH; 244 fresh re-export type cases,
+36 same-input recovery comparisons PASS. Неизменённый R5 probe в изолированной
+копии: 765/765, против исходных 759/765 с 6 FAIL. 6 новых, 6 прежних semantic
+и 7 B01/B02 unittest methods PASS; registry --check-git PASS. Это авторская
+проверка, не новый независимый акт R5. Положительные integer/zero counters,
+корректное recovery и допустимая нормализация/арифметика сохранены.
+
+Норматив и весь semantics_v1, frozen helper, payload, 44 bindings, четыре
+силовых варианта, нагрузки/расчёты/CAD побайтно сохранены; 612 protected files
+MATCH. minimum.json SHA b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df.
+Обновлены только source hashes manifest; остальные exports побайтно прежние.
+Все три REJECT/исходные findings/SHA/hashes/evidence сохранены; только validity
+индекса последнего акта STALE для новой версии. interface_consecutive_rejections=3,
+отдельная material-contract history=2 не обнулены. **B03 OPEN / RECHECK_PENDING**,
+стабильная передача интерфейса и новая CAD-итерация NO-GO.
+
+Main 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a, accepted PR45 owner
+r4-linked-20261111 и lease 2026-11-14T00:13:12.404899+00:00 (14 ноября
+03:13 МСК) неизменны, без переназначения/продления/merge. Исполнитель R4/Codex/
+r4-b03-types-20261113 выполнял только разрешённый type follow-up. Старая ветка
+норматива не перезаписана. Следующий участник — независимый R5, exact C + R1
+решение + proposal/review_request.md, собственные positive/negative fixtures.
+W02/PLC/CAD/rebuild/physical trials вне scope; physical READY NO-GO,
+архитектура/ТЗ не утверждены, **G1 OPEN**, геометрических пар проверено 0.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-types-20261113.md;
+UTC 2026-11-13T08:35:26.150894+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Follow-up R1 по строгим типам интерфейсного checker
+
+Входной R5 акт `3d317b32596884cc60d9d42675924b88fcb29bf0` на C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`: B03 OPEN, 765=759+6. R1 воспроизвёл новые подмены, решение `decisions/ARB-R1-CI-SEMANTICS-02.md`, evidence `verification/r1_ci_types_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения и после проверки claim/входов исправить типы revisions/provenance и recovery predicate по frozen policy; не менять норму, нагрузки, CAD или helper. Затем независимый R5 RECHECK нового C по плану решения. История rejections=3 сохранена, приёмка BLOCKED и стабильная CAD-передача NO-GO; R3 force studies WARNING допускаются отдельно. W02/physical READY NO-GO, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 RECHECK C **3d317b32596884cc60d9d42675924b88fcb29bf0**; капсула handoffs/T-r5-ci-minimum-recheck/r5-ci-minimum-20261113.md. B03 OPEN: typed revision false MATCH/TRUE; normative53/84 и old-six подтверждены. Stable documentary handoff NO-GO; R1 follow-up. W02/G1 OPEN, physical READY NO-GO.
+
+# B03 RECHECK норматива v1 — OPEN, REJECT_WITH_BLOCKER
+
+R5 / Codex / session **r5-ci-minimum-20261113**, reviewed C
+**bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f**, H
+0e519720d55b5b7b19d66b5a90c699b5d6697338; R1
+5fe510bbc55a052c360ab39a2491a061584b8fb7.
+Акт REV-R5-CI-MINIMUM-RECHECK-01-001: verification/r5_ci_semantic_minimum_recheck/review.md.
+
+Норматив 53 действий/84 режимов/18 поз воспроизведён из фиксированных inputs,
+его правила проверены отдельно от mutable payload. Шесть прежних escapes
+отклоняются; старый независимый probe 654/654 на новых входах. B01/B02
+документальные регрессии пройдены. Но **B03 OPEN**: bool/float revision
+принимается Python equality за int в source refs/AST/phase bindings; новый
+recovery_value возвращает TRUE при origin False/0.0, frozen recover даёт
+INDETERMINATE и сохраняет fault. Реального снятия/движения не было.
+
+Author 3277 document, 8 export, 6 новых methods/411 cases и 7 retained methods PASS.
+Собственные 765 checks: 759 MATCH /6 FAIL (4 full checker +2 concrete predicate).
+122 свежих mutations: 117 корректных отказов, 1 equivalent MATCH, 4 false MATCH.
+
+Стабильная документальная передача CYC-02/03 **NO-GO** до B03 RECHECK; точный
+кандидат и четыре force variants допускают лишь условный анализ/R3 с WARNING.
+Прочность/геометрия/physical READY не принимаются, новых CAD/build не запускать.
+44 bindings, четыре варианта, frozen helper, расчёты/CAD/старые R5/R1 сохранены.
+W02 OPEN/NOT_IMPLEMENTED, physical READY NO-GO, **G1 OPEN**, архитектура/ТЗ не утверждены.
+
+История двух интерфейсных отказов сохранена; текущий отрицательный RECHECK —
+третий: interface_consecutive_rejections=3, прежние два не переписаны. Отдельный
+material_contract_consecutive_rejections=2 сохранён. Q-R1-CI-SEMANTICS-ARBITRATION-01
+REOPENED по типам ревизий, follow-up verification/r5_ci_semantic_minimum_recheck/R1_followup.md.
+По §6.1 следующая корректирующая итерация BLOCKED до записанного R1 решения/плана.
+Owner/lease R4 не изменены; main не меняется, parent не DONE.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+# R4 — B03 по ARB-R1-CI-SEMANTICS-01: кандидат независимого RECHECK
+
+**Рабочий C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-semantics-20261113`.
+https://github.com/narrateller/REV/commit/bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f
+Следующий H изменяет только STATE/NEXT/капсулу; package/code в C сохраняется.
+R1 **5fe510bbc55a052c360ab39a2491a061584b8fb7** прочитан и записан в капсуле до изменения checker;
+предварительный merge/audit e8cb278, исходный R5 RECHECK 5fb7311 на C144941c.
+
+Нормативный минимум v1 независим от проверяемого payload/renderer/свежих hashes:
+53 действия, 84 режима, typed formula/source/base связи для 18 поз, все ENTRY/
+COMMIT/outputs, parent lifecycle, выбранные удерживаемые позы и конкретные
+recovery bindings по frozen helper. Неподдерживаемые конструкции не дают gate.
+[Область/проверки](verification/r4_cycle_interfaces/semantic_iteration/README.md),
+[результаты](verification/r4_cycle_interfaces/semantic_iteration/checks.json),
+[матрица](verification/r4_cycle_interfaces/semantics_v1/coverage.csv),
+[RECHECK request](verification/r4_cycle_interfaces/proposal/review_request.md).
+
+Фактически: 3277 document MATCH, 8 export MATCH, 6 новых и 7 прежних unittest
+methods PASS; 411 переэкспортированных cases (410 negatives rejected, 1 equivalent
+MATCH). Неизменённый probe R5 воспроизведён автором в отдельной копии: 654/654,
+включая 17 прежних замечаний и шесть новых подмен. Это не независимый новый акт.
+Registry --check-git PASS. Все 612 protected files, 44 bindings, четыре силовых
+варианта, frozen helper, расчёты/CAD сохранены. Геометрических пар проверено 0.
+
+**B03 OPEN / RECHECK_PENDING; interface acceptance BLOCKED, CYC-to-CAD NO-GO.**
+B01/B02 CLOSED только документально на C144941c по прежнему R5; их регрессии
+прошли, новая независимая область не присвоена. interface_consecutive_rejections=2
+и отдельные material_contract_consecutive_rejections=2 не сброшены. Старый R5
+вердикт/findings/SHA/hashes сохранены; индекс validity STALE для новой редакции.
+
+Main **3a9258c57e4bc15d6de98f1d17e8412ad6e8899a**, accepted PR45 owner
+r4-linked-20261111, lease **2026-11-14T00:13:12.404899+00:00** (14 ноября
+03:13 МСК) неизменны. Исполнитель R4/Codex/r4-b03-semantics-20261113 продолжает
+назначенную корректирующую B03 итерацию; не выполнял переназначение, продление
+или merge в main. Ветка прежнего исправления не перезаписана.
+
+Следующий участник — независимый R5: exact C + решение R1 + review_request;
+собственные мутации других стадий/режимов, outputs, формул/источников и recovery
+после re-export, проверка сохранности и отдельный неизменяемый RECHECK B03.
+W02/PLC/CAD/rebuild/physical trials вне итерации; actual условия UNKNOWN,
+physical READY NO-GO. Архитектура/ТЗ не утверждены; **G1 OPEN**.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-semantics-20261113.md;
+UTC 2026-11-13T07:18:16.737663+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Арбитраж интерфейсного checker — ARB-R1-CI-SEMANTICS-01
+
+R1 воспроизвёл шесть semantic-пропусков из R5 `5fb731182a2bdf6b11246558eca58962e48568d9` на C `144941cbfc67002cbe81765e38c80e237473deff`: 654 проверки, 648 совпадений, 6 FAIL с теми же ID. Решение `decisions/ARB-R1-CI-SEMANTICS-01.md`; evidence `verification/r1_ci_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения, записать в капсуле, сверить main/owner/lease и входы; реализовать только версионированный semantic minimum и typed pose/source/recovery checks с планом независимого RECHECK. B03 OPEN, приёмка интерфейса BLOCKED; стабильная CAD-передача NO-GO. B01/B02 — документальное закрытие на предыдущем C, регрессию проверить в новом. R3 допускается условная силовая работа отдельно от CAD. W02/physical READY NO-GO; архитектура/ТЗ не утверждены, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+---
+
+## Сохранённая история другой ветки
+
+RECHECK review C **5fb731182a2bdf6b11246558eca58962e48568d9**; капсула handoffs/T-r5-ci-recheck/r5-ci-recheck-20261113.md. B01/B02 CLOSED документально, B03 OPEN; Q-R1-CI-SEMANTICS-ARBITRATION-01, второй возврат, B03 итерация BLOCKED до R1. W02/G1 OPEN, physical READY NO-GO.
+
+# RECHECK интерфейсов — B01/B02 CLOSED, B03 OPEN
+
+R5 / Codex / session **r5-ci-recheck-20261113**; reviewed C
+**144941cbfc67002cbe81765e38c80e237473deff**, H
+7ee1c8f16eca515a3e21f64177152b4e7b93ce92; prior OUTPUT
+13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2.
+Акт REV-R5-CYC0203-RECHECK-01-001: verification/r5_cycle_interfaces_recheck/review.md.
+
+**REJECT_WITH_BLOCKER**, только B03 остаётся OPEN. B01/B02 CLOSED на точном C
+в документальной области. Старые 17 критериев исправлены; исторический probe
+на старом C точно повторил 1345/1328/17. Новые author 2376/8/7 methods PASS;
+независимые 654: 648 MATCH /6 FAIL новых semantic mutations после fresh re-export.
+Это нарушения проверки документов, не 6 физических дефектов/испытаний.
+
+По второму возврату B03 и AGENT_PROTOCOL §6.1 корректирующая итерация **BLOCKED**
+до решения R1/плана новой проверки. Вопрос Q-R1-CI-SEMANTICS-ARBITRATION-01:
+verification/r5_cycle_interfaces_recheck/arbitration_request.md.
+interface_consecutive_rejections=2; прежние material-contract два отказа и их
+закрытие сохраняются отдельно. Никакого назначения reviewer в R1 нет.
+
+44 bindings, четыре force-варианта, расчёты/CAD/registry/старые helpers и акты
+не изменены. Каждый A-V1/A-V2/B-V1/B-V2 — только WARNING для силовой постановки R3.
+R4 может опираться на принятые документальные B01/B02 в ограниченном анализе;
+объединённый package/checker и следующая CAD приёмка NO-GO, rebuild не разрешён.
+W02 OPEN/NOT_IMPLEMENTED; physical READY NO-GO; **G1 OPEN**. Архитектура/ТЗ
+не утверждены, прочность/геометрическая согласованность не проверены.
+CAD/solver/rebuild/physical trials NOT_RUN, geometry pairs checked 0.
+
+Следующий шаг — рассмотрение точного review SHA и вопроса R1; после решения
+ограниченное исправление B03 и независимый RECHECK нового C. Owner/lease R4
+не переназначены и не продлены; main не меняется, parent не DONE.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+# R4 — исправлены документальные B01/B02/B03, независимый RECHECK PENDING
+
+**Рабочий C `144941cbfc67002cbe81765e38c80e237473deff`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113`.
+https://github.com/narrateller/REV/commit/144941cbfc67002cbe81765e38c80e237473deff
+Следующий H — только STATE/NEXT/капсула; проверять код/пакет на точном C.
+Исходный C `ed8272ce6ebc2047bb0d896db5951d02c42d5208`, акт R5
+`13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2` сохранены предками.
+Исполнитель R4 / Codex / r4-cyc-fix-20261113, прямое корректирующее поручение.
+
+- B01: D0→D1→FILL-CONFIRM→D0→parent commit→отсечение. Адресная доза/материал/
+  операция/ревизии, явный MATERIAL/FEED successor, mode/parent и endpoints;
+  команда/таймер/чужая квитанция не заменяют подтверждение.
+- B02: собственные guards closure recovery без generic DEPENDENCY_VALID;
+  closure result, targeted fault recovery, history reconciliation и новый NEXT
+  раздельны; материальные/сервисные отказы и rejected IDs сохраняются.
+- B03: readonly семантика поз/guards/parent/mode/источников и полного CSV/MD/SVG
+  после re-export; 28 мутаций отклонены.
+
+Фактически: исходный R5 воспроизведён 1345/1328 PASS/17 FAIL; новая редакция
+2376 document MATCH, 8 export MATCH, 7 unittest methods PASS, registry --check-git
+PASS; 612 protected files, 44 bindings, все четыре силовых варианта побайтно сохранены.
+Расчёты/CAD/registry/checked helpers/исходный R5 probe не менялись.
+[Исправление/команды](verification/r4_cycle_interfaces/correction/README.md),
+[результаты](verification/r4_cycle_interfaces/correction/checks.json),
+[запрос RECHECK](verification/r4_cycle_interfaces/proposal/review_request.md).
+
+**R5-CI-B01/B02/B03 OPEN до независимого RECHECK**, parent IN_REVIEW, не DONE.
+Старый REJECT остаётся на исходном C; только validity индекса STALE для новой
+редакции. Старый B01 C0c4eb5d и consecutive_rejections=2 не изменены.
+Main `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, accepted PR45 owner
+r4-linked-20261111 и lease до 2026-11-14T00:13:12.404899+00:00 (14 ноября
+03:13 МСК) сохранены, без переназначения/продления/merge. C опубликован в новой
+ветке; исходная ветка R4/main не перезаписана.
+
+Следующий участник — независимый R5: получить точный C, проверить parent/input
+SHA и команды review_request, выполнить собственные позитивные/негативные
+семантические пробы и дать отдельный неизменяемый RECHECK. Успех авторских
+проверок не закрывает замечания. Допуск силовых постановок R3 только WARNING.
+W02 OPEN/NOT_IMPLEMENTED; executable material/physical READY NO-GO. G1 OPEN,
+архитектура/ТЗ не утверждены. Native CAD/solver/rebuild/physical trials NOT_RUN,
+реальные R2/R3 условия UNKNOWN, проверенных геометрических пар 0.
+Капсула: handoffs/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113.md; UTC 2026-11-13T06:08:53.745806+00:00.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+OUTPUT review C **13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2**; капсула handoffs/T-r5-cyc0203-output/r5-cyc0203-20261113.md. REJECT_WITH_BLOCKER для интерфейса/CAD; каждый силовой вариант WARNING только в R3. W02/physical READY NO-GO, G1 OPEN.
+
+# OUTPUT CYC-02/03 — независимый R5, REJECT_WITH_BLOCKER
+
+Проверенный C **ed8272ce6ebc2047bb0d896db5951d02c42d5208**, H
+c18cb1e28a6358a2a7836809f461a3d594853796. Session r5-cyc0203-20261113 / Codex / R5.
+Акт **REV-R5-CYC0203-OUTPUT-01-001**, verification/r5_cycle_interfaces_output/review.md.
+
+R5-CI-B01/B02/B03 OPEN: parent completion/возврат D и адресный FILL_COMPLETE,
+mode/parent, B recovery dependency и semantic checker. 147 document +8 export
+MATCH; независимые 1345 checks: 1328 PASS / 17 FAIL (12 исходных проверок полноты
+и согласованности, 5 пропущенных checker мутаций). Exit 0 сборщика не приёмка.
+**Все 44 привязки сохранены, d/D/F/ходы не уменьшены.** Расчёты/CAD не изменены.
+
+Для каждого A-V1/A-V2/B-V1/B-V2 допустима только силовая постановка R3 с WARNING.
+Перед следующей CAD-итерацией нужны документальные исправления/RECHECK и R3/R2
+входы по носителю/опорам/эксцентриситету/монтажу/материалу. Нет выбора архитектуры.
+Схемы NTS не доказывают отсутствие native penetrations. Проверенных geometry пар 0.
+W02 OPEN/NOT_IMPLEMENTED, physical READY NO-GO, **G1 OPEN**; ТЗ/архитектура не
+утверждены, native CAD/rebuild/физические испытания NOT_RUN.
+
+История двух отказов контракта и consecutive_rejections=2 сохранены. Старый B01
+C0c4eb5d закрыт в своей документальной области и не переоткрывается новыми IDs.
+R4 owner/lease не менялись; main не меняется, parent не DONE. Следующий шаг —
+отдельное рассмотрение точного review SHA; R4 исправляет новый OUTPUT по акту,
+затем независимый RECHECK. Ограниченное R3 исследование силового пути независимо.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+# R4 — CYC-02/03 передано на независимый OUTPUT review
+
+**Рабочий C `ed8272ce6ebc2047bb0d896db5951d02c42d5208`, REMOTE** в
+`work-r4/T-r4-cycle-interfaces-01/r4-linked-20261111`,
+https://github.com/narrateller/REV/commit/ed8272ce6ebc2047bb0d896db5951d02c42d5208.
+Следующий H меняет только STATE/NEXT/капсулу; review относится к точному C.
+Main сверена после fetch: `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, merge PR45.
+Claim ACCEPTED_MAIN; **owner_session: r4-linked-20261111**, task IN_REVIEW,
+lease **2026-11-14T00:13:12.404899+00:00** (14 ноября 03:13:12 МСК), без продления.
+Предварительные поля уточнены по merge и прямому подтверждению пользователя;
+история сохранена. Другого принятого owner не найдено. Heartbeat/аудит в C;
+время передачи UTC 2026-11-13T00:55:58.978138+00:00. Прежняя инструкция о создании PR45 через API устарела:
+PR45 уже слит; повторный PR интеграции прежнего контракта не создавать.
+
+[Результат и команды](verification/r4_cycle_interfaces/proposal/README.md),
+[запрос независимого review](verification/r4_cycle_interfaces/proposal/review_request.md),
+[полные проверки](verification/r4_cycle_interfaces/proposal/checks.json).
+6 SVG с редактируемым exporter/JSON, 51 строка поз/условий (31 inherited +20
+механических), A/B×V1/V2 без выбора архитектуры, 44 точных source bindings,
+6 вопросов R2/R3 без применения новых чисел. START, инварианты, preliminary
+motions и completion различены; восстановление без общего READY.
+
+147 checks документов MATCH; 8 повторных/export/mutation checks MATCH;
+registry --check-git PASS и staged diff --check PASS. 612 защищённых рабочих
+файлов/7 frozen packages/11 trees/17 source blobs сохранены. Обе истории отказов,
+R1 и subsequent R5/independent probe не менялись; consecutive_rejections=2 сохранён.
+Это сохранность и воспроизводимость документов, **не физическая или CAD приёмка**.
+16 фаз/2933 записи пар — только future check plan; фактически проверенных
+геометрических пар этой итерации 0, geometry NOT_RUN. Checked helper/tools unchanged.
+
+**W02 OPEN/NOT_IMPLEMENTED; executable material и physical READY NO-GO.**
+Новые силовые звенья/направляющие/крепления не рассчитаны; B opening и physical
+L INDETERMINATE. Старые short-stroke A/B, lost A clamp contacts, B reset/product
+collision, rod/chamber/feed witnesses и шесть legacy UP BLOCKED остаются видимыми.
+Native CAD/STEP, расчёты, общий rebuild, физические испытания NOT_RUN.
+Реальные параметры REV UNKNOWN; топология ASSUMED, SVG NTS не конструкция.
+Архитектура/ТЗ не утверждены; G1 OPEN. Новая задача не DONE.
+
+**Следующий шаг:** независимый R5 проверяет точный C по review_request.md и
+воспроизводит документальные команды; затем отдельное решение R1 о продолжении.
+Не начинать CAD/rebuild/W02/physical cycle и не закрывать CYC/G1 на основании этих
+схем. При возврате R4 сначала повторяет fetch/owner/lease/inputs; истечение
+срока не продлевать автоматически. Капсула:
+handoffs/T-r4-cycle-interfaces-01/r4-linked-20261111.md.
+
+---
+
+## История до результата CYC-02/03 — не текущие инструкции
+
 # R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
 
 **C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,

@@ -1,0 +1,135 @@
+{
+  "execution_status": "COMPLETED",
+  "validation_role": "AUTHOR, independent RECHECK pending",
+  "R1_decision_commit": "e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3",
+  "created_at_utc": "2026-11-13T08:33:18.839529+00:00",
+  "document_checks_MATCH": 3277,
+  "export_checks_MATCH": 8,
+  "coverage_actions": 53,
+  "coverage_modes": 84,
+  "new_unittest_methods": 6,
+  "retained_semantic_methods": 6,
+  "retained_B01_B02_methods": 7,
+  "fresh_reexport_type_cases": 244,
+  "recovery_differential_cases": 36,
+  "all_cases_matched": true,
+  "original_R5_reproduced": {
+    "checks": 765,
+    "matches": 759,
+    "failed": 6
+  },
+  "corrected_R5_unchanged_probe_replayed": {
+    "checks": 765,
+    "matches": 765,
+    "failed": 0
+  },
+  "normative_minimum": {
+    "schema": "rev-cyc-semantic-minimum/1",
+    "revision": 1,
+    "sha256": "b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df",
+    "decision_commit": "5fe510bbc55a052c360ab39a2491a061584b8fb7"
+  },
+  "normative_and_helper": "BYTE_UNCHANGED",
+  "baseline_bindings": 44,
+  "force_variants": 4,
+  "registry": "PASS",
+  "protected_files": 612,
+  "interface_consecutive_rejections": 3,
+  "material_contract_consecutive_rejections": 2,
+  "B03": "OPEN_RECHECK_PENDING",
+  "W02": "NOT_IMPLEMENTED",
+  "PLC": "NOT_IMPLEMENTED",
+  "CAD": "NOT_RUN",
+  "physical_READY": "NO_GO",
+  "G1": "OPEN",
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "verification/r4_cycle_interfaces/proposal/check_package.py"
+      ],
+      "exit_code": 0,
+      "stdout": "document_checks.json"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py"
+      ],
+      "exit_code": 0,
+      "stdout": "export_checks.json"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/r4_cycle_interfaces/type_correction",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout_stderr": "type-tests.log"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/r4_cycle_interfaces/semantic_iteration",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout_stderr": "semantic-tests.log"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/r4_cycle_interfaces/correction",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout_stderr": "retained-tests.log"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "scripts/check_registry.py",
+        "--check-git"
+      ],
+      "exit_code": 0,
+      "stdout": "registry.log"
+    }
+  ],
+  "evidence_sha256": {
+    "type_cases.json": "c84cb9b1d5a3d5ac68da118ca11d44e79e4e4fdf531c3ca0a0b66020a6c3ea98",
+    "document_checks.json": "ac588fce4c879990d046cf50a740c35427ae19915087623f435d7c7bf1877b9a",
+    "export_checks.json": "ff1cd62863218fab9c3175fd4159f15b9a7b6e2b2944fba6717cdcc2c7f97be5",
+    "baseline_reproduction.json": "0a96c35cd70af6acac3efee2d2f855514f2878149f83281d35dd2e7fcbc91f69",
+    "independent_replay.json": "a9ea1d7c3d33faa95b9e74ab33aebb2221b8a0842393a4a66a6a3bb0d81a2364",
+    "preservation.json": "a875ed2e7ac6819779c1e974782ac3565e02fd5a125dccc4366dbb2bb21645df",
+    "type-tests.log": "c28c68db4a07a06fb7f141b8b2cdaad598e4c6a987ff836416f731384a177286",
+    "semantic-tests.log": "58fccb9c3e6b55b303fc2ae58e7fda82ae5c4b692c5307cba34ff9a9e574cdf3",
+    "retained-tests.log": "edd40d2114bb880ef293dc95a747578432fdaceece922fe04f779c0aad1e1a76",
+    "registry.log": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda"
+  }
+}

@@ -1,0 +1,124 @@
+# Policy comparison — author regression
+
+Fixed domain oracle: frozen C0c4eb5d / ARB-R1-CI-SEMANTICS-03. In-domain compares composite action gate with the same-input frozen result. Out-of-domain never uses legacy TRUE as proof; all rows retain caller fault/history/proof and rejected IDs. Exceptions are legacy outcomes on rejected inputs, not exceptions in the new predicate. Counts describe fixture variations, not independent defects.
+
+| Case | Admission domain | Scoped value | Composite gate | Legacy result | Admission/revision reason |
+|---|---|---|---|---|---|
+| used-entry:valid | IN_DOMAIN | FALSE | BLOCKED | BLOCKED | VALID |
+| used-entry:origin-empty | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-10067dd159d91447c423145dc8a376359df7550086e3f9452c2fe3832984374d.origin.revisions:MISSING_REQUIRED_DOMAINS |
+| used-entry:expected-empty | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-963d56fcd6f33074bf24853d9016cf3ec34598e62502b66811231cadfbee6503.expected_revisions:MISSING_REQUIRED_DOMAINS |
+| used-entry:origin-bool | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-0fab8ed236f89337b17e942bae40357a0d51f452215cbba4ad8aeacd6d291d58.origin.revisions:INVALID_INTEGER_SNAPSHOT |
+| used-entry:expected-float | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-963d56fcd6f33074bf24853d9016cf3ec34598e62502b66811231cadfbee6503.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| used-causal:valid | IN_DOMAIN | FALSE | BLOCKED | BLOCKED | VALID |
+| used-causal:origin-empty | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-4639dbf1ef9babef83a1fda04e926750c65b7f43a4a1a08a0461ccebc33e901a.origin.revisions:MISSING_REQUIRED_DOMAINS |
+| used-causal:expected-empty | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-ac650ef0078b040e317d141c4b72efe4955e75a2d503ac195e177e453eefaa1b.expected_revisions:MISSING_REQUIRED_DOMAINS |
+| used-causal:origin-bool | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-d6d66cc85984e2d93878d0af2b428daa8fab53492e8d3fb3982e0b8793dab835.origin.revisions:INVALID_INTEGER_SNAPSHOT |
+| used-causal:expected-float | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | faults.F-ac650ef0078b040e317d141c4b72efe4955e75a2d503ac195e177e453eefaa1b.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| malformed-entry-with-known-resource-denial | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | context.evidence.RESET_SWEEP_CLEAR.revisions:MISSING_REQUIRED_DOMAINS |
+| valid-proof-with-known-denial:resource | IN_DOMAIN | FALSE | BLOCKED | BLOCKED | VALID |
+| invalid-proof-with-known-denial:resource | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | proof.origin_revisions:MISSING_REQUIRED_DOMAINS |
+| valid-proof-with-known-denial:state | IN_DOMAIN | FALSE | BLOCKED | BLOCKED | VALID |
+| invalid-proof-with-known-denial:state | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | proof.origin_revisions:MISSING_REQUIRED_DOMAINS |
+| valid-proof-with-known-denial:causal | IN_DOMAIN | FALSE | BLOCKED | BLOCKED | VALID |
+| invalid-proof-with-known-denial:causal | OUT_OF_DOMAIN | UNKNOWN | BLOCKED | BLOCKED | proof.origin_revisions:MISSING_REQUIRED_DOMAINS |
+| malformed-structure:completed-history | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:TypeError | context.completed_operations:INVALID_OPERATION_HISTORY |
+| malformed-structure:recovered-history | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:TypeError | context.recovered_evidence:INVALID_RECOVERY_HISTORY |
+| malformed-structure:attempt-history | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:KeyError | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.resolution_attempts:INVALID_RESOLUTION_HISTORY |
+| malformed-structure:entry-fault-guard | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:KeyError | context.entry.BASIS_DEFINED:MALFORMED_ENTRY_INPUT; context.entry.CONTINUITY_CONFIRMED:MALFORMED_ENTRY_INPUT; context.entry.EVENT_FRESH:MALFORMED_ENTRY_INPUT; context.entry.FEEDBACK_VALID:MALFORMED_ENTRY_INPUT; context.entry.LEDGER_VALID:MALFORMED_ENTRY_INPUT; context.entry.METHOD_SUPPORTED:MALFORMED_ENTRY_INPUT; context.entry.RECEIPT_VALID:MALFORMED_ENTRY_INPUT; context.entry.RESET_SWEEP_CLEAR:MALFORMED_ENTRY_INPUT; context.entry.RESOURCES_READY:MALFORMED_ENTRY_INPUT; context.entry.RESTORE_SEQUENCE_DEFINED:MALFORMED_ENTRY_INPUT; context.entry.TOOLS_HOME:MALFORMED_ENTRY_INPUT |
+| malformed-structure:causal-record | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.history:UNCONFIRMED_OR_INVALID_HISTORY; faults.F-b7f1f8780f68110592e64a096e87d55f57382ece78db0e45545fbf54956452e3:MISSING_CAUSAL_OR_ENTRY_FAULT |
+| origin:empty | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-d3371d25ba13678020f93a609371d32be8ae388026ee25019aa741ca3a31069c.origin.revisions:MISSING_REQUIRED_DOMAINS; proof.origin_revisions:MISSING_REQUIRED_DOMAINS |
+| origin:foreign-only | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-fb2a0c57819c10297ee5e7f106e677b3f1832b5fb133f99b049d02967a91939e.origin.revisions:MISSING_REQUIRED_DOMAINS; faults.F-fb2a0c57819c10297ee5e7f106e677b3f1832b5fb133f99b049d02967a91939e.origin.revisions:UNPERMITTED_EXTRA_DOMAINS; proof.origin_revisions:MISSING_REQUIRED_DOMAINS; proof.origin_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| origin:extra-known | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-3854509731aa13e1f3b72c157603db0c4b36fadfd0bbcec5aa7746e937155a79.origin.revisions:UNPERMITTED_EXTRA_DOMAINS; proof.origin_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| origin:extra-foreign | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-2ac1e57aad3ac68b2e99ec96d6426f7256fd6f8f0c18a862dcf4b84d2c8db4b1.origin.revisions:UNPERMITTED_EXTRA_DOMAINS; proof.origin_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| origin:bool | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-76d507dbdaed4f97b66fbb9faf5688ab58cb6bd47d9a9d34ff49337f51b7e6ef.origin.revisions:INVALID_INTEGER_SNAPSHOT; proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| origin:float | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-14eaf35c73b8923f3bdf03ec532aa65befc63310f51d383093a13d20a3d00e81.origin.revisions:INVALID_INTEGER_SNAPSHOT; proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| origin:negative | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-6851ee02520d0329b5923a04a4c0b5ab1d2580e8871df84a5c0503f9228824b9.origin.revisions:INVALID_INTEGER_SNAPSHOT; proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| expected:empty | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:MISSING_REQUIRED_DOMAINS |
+| expected:foreign-only | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:MISSING_REQUIRED_DOMAINS; faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| expected:extra-known | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| expected:extra-foreign | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| expected:bool | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| expected:float | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| expected:negative | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| expected:null | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:AttributeError | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| expected:array | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:AttributeError | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| expected:string | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:AttributeError | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-origin:empty | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:MISSING_REQUIRED_DOMAINS |
+| proof-origin:foreign-only | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:MISSING_REQUIRED_DOMAINS; proof.origin_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| proof-origin:extra-known | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| proof-origin:extra-foreign | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| proof-origin:bool | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-origin:float | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-origin:negative | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-origin:null | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-origin:array | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-origin:string | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-current:empty | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:MISSING_REQUIRED_DOMAINS |
+| proof-current:foreign-only | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:MISSING_REQUIRED_DOMAINS |
+| proof-current:extra-known | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| proof-current:extra-foreign | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | proof.revisions:UNPERMITTED_EXTRA_DOMAINS |
+| proof-current:bool | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-current:float | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-current:negative | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-current:null | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-current:array | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:INVALID_INTEGER_SNAPSHOT |
+| proof-current:string | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:INVALID_INTEGER_SNAPSHOT |
+| context:empty | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| context:foreign-only | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| context:extra-known | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| context:extra-foreign | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS; context.revisions:UNPERMITTED_EXTRA_DOMAINS |
+| context:bool | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:INVALID_INTEGER_SNAPSHOT |
+| context:float | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:INVALID_INTEGER_SNAPSHOT |
+| context:negative | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:INVALID_INTEGER_SNAPSHOT |
+| context:null | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:INVALID_INTEGER_SNAPSHOT |
+| context:array | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:INVALID_INTEGER_SNAPSHOT |
+| context:string | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:INVALID_INTEGER_SNAPSHOT |
+| entry:empty | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:MISSING_REQUIRED_DOMAINS |
+| entry:foreign-only | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:MISSING_REQUIRED_DOMAINS |
+| entry:extra-known | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:MISSING_REQUIRED_DOMAINS |
+| entry:extra-foreign | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:MISSING_REQUIRED_DOMAINS; context.evidence.RESET_SWEEP_CLEAR.revisions:UNPERMITTED_EXTRA_DOMAINS |
+| entry:bool | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:INVALID_INTEGER_SNAPSHOT |
+| entry:float | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:INVALID_INTEGER_SNAPSHOT |
+| entry:negative | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:INVALID_INTEGER_SNAPSHOT |
+| entry:null | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:INVALID_INTEGER_SNAPSHOT |
+| entry:array | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:INVALID_INTEGER_SNAPSHOT |
+| entry:string | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:INVALID_INTEGER_SNAPSHOT |
+| missing:expected | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | EXCEPTION:KeyError | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:INVALID_INTEGER_SNAPSHOT |
+| missing:proof-origin | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| missing:proof-current | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revisions:INVALID_INTEGER_SNAPSHOT |
+| missing:context | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:INVALID_INTEGER_SNAPSHOT |
+| unconsumed-event-fault:origin-empty | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| unconsumed-event-fault:expected-empty | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| required-current-missing:B_CLOSURE | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| required-current-missing:MATERIAL | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| required-current-missing:AXIS | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| required-current-missing:EXIT_RECEIVER | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| required-current-missing:HYDRAULIC | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| required-current-missing:EVIDENCE | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| required-current-missing:RESOURCES | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.revisions:MISSING_REQUIRED_DOMAINS |
+| entry-partial-snapshot | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | context.evidence.RESET_SWEEP_CLEAR.revisions:MISSING_REQUIRED_DOMAINS |
+| stale-origin-binding | IN_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revision_bindings:STALE_OR_WRONG_SCOPED_REVISION |
+| stale-current-binding | IN_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.revision_bindings:STALE_OR_WRONG_SCOPED_REVISION |
+| positive-integer:0 | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| positive-integer:1 | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| positive-integer:9223372036854775808 | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| unused-missing:FEED | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| unused-changed:FEED | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| unused-missing:RETENTION | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| unused-changed:RETENTION | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| minimum-scoped-context-and-entry | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| confirmed-history:1 | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| confirmed-history:2 | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| unconfirmed-history:no-history | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:EXPECTED_NOT_JUSTIFIED_BY_HISTORY |
+| unconfirmed-history:gap | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.revision_history.0:UNCONFIRMED_REVISION_ADVANCE |
+| unconfirmed-history:wrong-domain | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.revision_history.0:INVALID_HISTORY_EVENT |
+| unconfirmed-history:wrong-type | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.revision_history.0:INVALID_HISTORY_EVENT |
+| unconfirmed-history:missing-history | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.revision_history:MISSING_REVISION_HISTORY |
+| R5:valid | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |
+| R5:empty-expected | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-31075f70d529a6dfe5820a397f98efc8ad7785633bd460aac9f54409b8d0af10.expected_revisions:MISSING_REQUIRED_DOMAINS |
+| R5:empty-origin-matched-proof | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-d3371d25ba13678020f93a609371d32be8ae388026ee25019aa741ca3a31069c.origin.revisions:MISSING_REQUIRED_DOMAINS; proof.origin_revisions:MISSING_REQUIRED_DOMAINS |
+| R5:foreign-domain-origin-matched-proof | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-fb2a0c57819c10297ee5e7f106e677b3f1832b5fb133f99b049d02967a91939e.origin.revisions:MISSING_REQUIRED_DOMAINS; faults.F-fb2a0c57819c10297ee5e7f106e677b3f1832b5fb133f99b049d02967a91939e.origin.revisions:UNPERMITTED_EXTRA_DOMAINS; proof.origin_revisions:MISSING_REQUIRED_DOMAINS; proof.origin_revisions:UNPERMITTED_EXTRA_DOMAINS |
+| R5:empty-origin-and-expected | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | ALLOWED_ASSUMED | faults.F-d3371d25ba13678020f93a609371d32be8ae388026ee25019aa741ca3a31069c.origin.revisions:MISSING_REQUIRED_DOMAINS; faults.F-d3371d25ba13678020f93a609371d32be8ae388026ee25019aa741ca3a31069c.expected_revisions:MISSING_REQUIRED_DOMAINS; proof.origin_revisions:MISSING_REQUIRED_DOMAINS |
+| R5:empty-origin-unmatched-proof | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | faults.F-d3371d25ba13678020f93a609371d32be8ae388026ee25019aa741ca3a31069c.origin.revisions:MISSING_REQUIRED_DOMAINS |
+| R5:omitted-proof-origin-field | OUT_OF_DOMAIN | UNKNOWN | INDETERMINATE | INDETERMINATE | proof.origin_revisions:INVALID_INTEGER_SNAPSHOT |
+| closure-only-unrelated-feed-fault-retained | IN_DOMAIN | TRUE | ALLOWED_ASSUMED | ALLOWED_ASSUMED | VALID |

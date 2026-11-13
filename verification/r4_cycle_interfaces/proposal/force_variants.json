@@ -1,0 +1,246 @@
+{
+  "scope": "Four symbolic proposals, no architecture selected",
+  "baseline": "baseline_bindings.json all 44 immutable source requirements",
+  "variants": [
+    {
+      "id": "A-V1",
+      "variant": "A",
+      "option": "V1",
+      "status": "ASSUMED_PROPOSAL_NOT_SELECTED",
+      "native_geometry": "NOT_BUILT_NOT_CHECKED",
+      "physical_feasibility": "INDETERMINATE",
+      "title": "Задний соосный цилиндр / направляемый носитель",
+      "hydraulic_cylinder_count": "same single source cylinder; no split load",
+      "kinematics": "ASSUMED rigid captured bidirectional coupling: Δx_rod = Δx_crosshead = Δx_carrier = Δx_punch; unchanged source strokes; no ratio change",
+      "unchanged_scenario": "BASE_A fixed-budget",
+      "hydraulic_rod": "Same source d and required loads; never enters chamber/feed forbidden swept volumes by proposed placement constraints, pending CAD",
+      "new_members": [
+        "captured_rod_joint",
+        "external_crosshead",
+        "guided_punch_carrier",
+        "carrier_punch_joint",
+        "carrier_guides",
+        "guide_supports",
+        "cylinder_base_support",
+        "frame_load_links"
+      ],
+      "force_loop": [
+        "cylinder_barrel_base",
+        "frame_load_links",
+        "A_clamp/channel/restrained_column",
+        "material",
+        "punch",
+        "carrier_punch_joint",
+        "guided_punch_carrier",
+        "external_crosshead",
+        "captured_rod_joint",
+        "hydraulic_rod",
+        "cylinder_piston_barrel"
+      ],
+      "reaction_status": "UNKNOWN: A initial column/retention or B unloading/closure; schematic line not force proof",
+      "envelope_requirement": "For every working/return/partial/service pose: max_x(rod_sweep ∪ crosshead_sweep) + c_rear < x_rear_chamber; also disjoint from full feed sweep. Carrier alone approaches chamber through existing section.",
+      "unknown_fields": [
+        "x_P0",
+        "carrier_length",
+        "carrier_section",
+        "guide_span",
+        "cylinder_external_mounts",
+        "rear_clearance"
+      ],
+      "expected_effect": "Remove hydraulic rod from forbidden camera/feed envelopes by relocated drive/coupling, not smaller rod or modified source strokes",
+      "service": "Provide axial rod/carrier removal corridor, removable captured joints, supported crosshead, guide withdrawal, cylinder port access and DoserRemoval route; no free-space claim until all paths checked",
+      "risks": [
+        "Long carrier compression buckling and tension return",
+        "Rear footprint and long guided stroke",
+        "Unknown joints/guides/frame stiffness"
+      ],
+      "R3_requests": [
+        "CI-R3-CARRIER",
+        "CI-R3-MOUNTS",
+        "CI-R3-SEQUENCING",
+        "CI-R3-EJECTION"
+      ]
+    },
+    {
+      "id": "A-V2",
+      "variant": "A",
+      "option": "V2",
+      "status": "ASSUMED_PROPOSAL_NOT_SELECTED",
+      "native_geometry": "NOT_BUILT_NOT_CHECKED",
+      "physical_feasibility": "INDETERMINATE",
+      "title": "Один боковой цилиндр / портальная траверса",
+      "hydraulic_cylinder_count": "same single source cylinder; no split load",
+      "kinematics": "ASSUMED rigid captured bidirectional coupling: Δx_rod = Δx_crosshead = Δx_carrier = Δx_punch; unchanged source strokes; no ratio change",
+      "unchanged_scenario": "BASE_A fixed-budget",
+      "hydraulic_rod": "Same source d and required loads; never enters chamber/feed forbidden swept volumes by proposed placement constraints, pending CAD",
+      "new_members": [
+        "captured_rod_joint",
+        "external_crosshead",
+        "guided_punch_carrier",
+        "carrier_punch_joint",
+        "carrier_guides",
+        "guide_supports",
+        "cylinder_base_support",
+        "frame_load_links"
+      ],
+      "force_loop": [
+        "cylinder_barrel_base",
+        "frame_load_links",
+        "A_clamp/channel/restrained_column",
+        "material",
+        "punch",
+        "carrier_punch_joint",
+        "guided_punch_carrier",
+        "external_crosshead",
+        "captured_rod_joint",
+        "hydraulic_rod",
+        "cylinder_piston_barrel"
+      ],
+      "reaction_status": "UNKNOWN: A initial column/retention or B unloading/closure; schematic line not force proof",
+      "envelope_requirement": "For every working/return/partial/service pose: min_y(rod_sweep) > max_y(chamber_forbidden ∪ feed_forbidden) + c_side; full rod radius included. Portal crosshead remains behind chamber/feed for all x. Carrier enters only intended chamber aperture.",
+      "unknown_fields": [
+        "x_P0",
+        "carrier_length",
+        "carrier_section",
+        "guide_span",
+        "cylinder_external_mounts",
+        "rear_clearance",
+        "lateral_offset_e"
+      ],
+      "expected_effect": "Remove hydraulic rod from forbidden camera/feed envelopes by relocated drive/coupling, not smaller rod or modified source strokes",
+      "service": "Provide axial rod/carrier removal corridor, removable captured joints, supported crosshead, guide withdrawal, cylinder port access and DoserRemoval route; no free-space claim until all paths checked",
+      "risks": [
+        "Eccentric moment F_work_peak·e and return moment; e UNKNOWN",
+        "Guide lateral reactions/portal torsion and connection stiffness",
+        "Additional width/access conflicts, rear footprint not eliminated"
+      ],
+      "R3_requests": [
+        "CI-R3-CARRIER",
+        "CI-R3-MOUNTS",
+        "CI-R3-SEQUENCING",
+        "CI-R3-EJECTION",
+        "CI-R3-OFFSET"
+      ]
+    },
+    {
+      "id": "B-V1",
+      "variant": "B",
+      "option": "V1",
+      "status": "ASSUMED_PROPOSAL_NOT_SELECTED",
+      "native_geometry": "NOT_BUILT_NOT_CHECKED",
+      "physical_feasibility": "INDETERMINATE",
+      "title": "Задний соосный цилиндр / направляемый носитель",
+      "hydraulic_cylinder_count": "same single source cylinder; no split load",
+      "kinematics": "ASSUMED rigid captured bidirectional coupling: Δx_rod = Δx_crosshead = Δx_carrier = Δx_punch; unchanged source strokes; no ratio change",
+      "unchanged_scenario": "BASE_B fixed-budget",
+      "hydraulic_rod": "Same source d and required loads; never enters chamber/feed forbidden swept volumes by proposed placement constraints, pending CAD",
+      "new_members": [
+        "captured_rod_joint",
+        "external_crosshead",
+        "guided_punch_carrier",
+        "carrier_punch_joint",
+        "carrier_guides",
+        "guide_supports",
+        "cylinder_base_support",
+        "frame_load_links"
+      ],
+      "force_loop": [
+        "cylinder_barrel_base",
+        "frame_load_links",
+        "B_end_stop/lock",
+        "material",
+        "punch",
+        "carrier_punch_joint",
+        "guided_punch_carrier",
+        "external_crosshead",
+        "captured_rod_joint",
+        "hydraulic_rod",
+        "cylinder_piston_barrel"
+      ],
+      "reaction_status": "UNKNOWN: A initial column/retention or B unloading/closure; schematic line not force proof",
+      "envelope_requirement": "For every working/return/partial/service pose: max_x(rod_sweep ∪ crosshead_sweep) + c_rear < x_rear_chamber; also disjoint from full feed sweep. Carrier alone approaches chamber through existing section.",
+      "unknown_fields": [
+        "x_P0",
+        "carrier_length",
+        "carrier_section",
+        "guide_span",
+        "cylinder_external_mounts",
+        "rear_clearance"
+      ],
+      "expected_effect": "Remove hydraulic rod from forbidden camera/feed envelopes by relocated drive/coupling, not smaller rod or modified source strokes",
+      "service": "Provide axial rod/carrier removal corridor, removable captured joints, supported crosshead, guide withdrawal, cylinder port access and DoserRemoval route; no free-space claim until all paths checked",
+      "risks": [
+        "Long carrier compression buckling and tension return",
+        "Rear footprint and long guided stroke",
+        "Unknown joints/guides/frame stiffness"
+      ],
+      "R3_requests": [
+        "CI-R3-CARRIER",
+        "CI-R3-MOUNTS",
+        "CI-R3-SEQUENCING",
+        "CI-R3-EJECTION"
+      ]
+    },
+    {
+      "id": "B-V2",
+      "variant": "B",
+      "option": "V2",
+      "status": "ASSUMED_PROPOSAL_NOT_SELECTED",
+      "native_geometry": "NOT_BUILT_NOT_CHECKED",
+      "physical_feasibility": "INDETERMINATE",
+      "title": "Один боковой цилиндр / портальная траверса",
+      "hydraulic_cylinder_count": "same single source cylinder; no split load",
+      "kinematics": "ASSUMED rigid captured bidirectional coupling: Δx_rod = Δx_crosshead = Δx_carrier = Δx_punch; unchanged source strokes; no ratio change",
+      "unchanged_scenario": "BASE_B fixed-budget",
+      "hydraulic_rod": "Same source d and required loads; never enters chamber/feed forbidden swept volumes by proposed placement constraints, pending CAD",
+      "new_members": [
+        "captured_rod_joint",
+        "external_crosshead",
+        "guided_punch_carrier",
+        "carrier_punch_joint",
+        "carrier_guides",
+        "guide_supports",
+        "cylinder_base_support",
+        "frame_load_links"
+      ],
+      "force_loop": [
+        "cylinder_barrel_base",
+        "frame_load_links",
+        "B_end_stop/lock",
+        "material",
+        "punch",
+        "carrier_punch_joint",
+        "guided_punch_carrier",
+        "external_crosshead",
+        "captured_rod_joint",
+        "hydraulic_rod",
+        "cylinder_piston_barrel"
+      ],
+      "reaction_status": "UNKNOWN: A initial column/retention or B unloading/closure; schematic line not force proof",
+      "envelope_requirement": "For every working/return/partial/service pose: min_y(rod_sweep) > max_y(chamber_forbidden ∪ feed_forbidden) + c_side; full rod radius included. Portal crosshead remains behind chamber/feed for all x. Carrier enters only intended chamber aperture.",
+      "unknown_fields": [
+        "x_P0",
+        "carrier_length",
+        "carrier_section",
+        "guide_span",
+        "cylinder_external_mounts",
+        "rear_clearance",
+        "lateral_offset_e"
+      ],
+      "expected_effect": "Remove hydraulic rod from forbidden camera/feed envelopes by relocated drive/coupling, not smaller rod or modified source strokes",
+      "service": "Provide axial rod/carrier removal corridor, removable captured joints, supported crosshead, guide withdrawal, cylinder port access and DoserRemoval route; no free-space claim until all paths checked",
+      "risks": [
+        "Eccentric moment F_work_peak·e and return moment; e UNKNOWN",
+        "Guide lateral reactions/portal torsion and connection stiffness",
+        "Additional width/access conflicts, rear footprint not eliminated"
+      ],
+      "R3_requests": [
+        "CI-R3-CARRIER",
+        "CI-R3-MOUNTS",
+        "CI-R3-SEQUENCING",
+        "CI-R3-EJECTION",
+        "CI-R3-OFFSET"
+      ]
+    }
+  ]
+}

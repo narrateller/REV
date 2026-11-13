@@ -1,0 +1,21 @@
+test_fill_successor_metadata_does_not_alias_revisions (test_metadata_types.RevisionContract.test_fill_successor_metadata_does_not_alias_revisions) ... ok
+test_nested_source_ref_and_metadata_revisions_after_reexport (test_metadata_types.RevisionContract.test_nested_source_ref_and_metadata_revisions_after_reexport) ... ok
+test_positive_integer_refs_and_supported_formula_normalization (test_metadata_types.RevisionContract.test_positive_integer_refs_and_supported_formula_normalization) ... FAIL
+test_recovery_origin_types_against_frozen_same_inputs (test_metadata_types.RevisionContract.test_recovery_origin_types_against_frozen_same_inputs) ... ok
+test_shared_schema_exact_integer_and_quantity_boundary (test_metadata_types.RevisionContract.test_shared_schema_exact_integer_and_quantity_boundary) ... ok
+test_similar_boolean_schema_and_manifest_metadata (test_metadata_types.RevisionContract.test_similar_boolean_schema_and_manifest_metadata) ... ok
+
+======================================================================
+FAIL: test_positive_integer_refs_and_supported_formula_normalization (test_metadata_types.RevisionContract.test_positive_integer_refs_and_supported_formula_normalization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/r5-open-journal-ah7bjdrq/repo/verification/r4_cycle_interfaces/type_correction/test_metadata_types.py", line 121, in test_positive_integer_refs_and_supported_formula_normalization
+    self.exported('positive-original-integer-refs',lambda p:None,positive=True)
+  File "/tmp/r5-open-journal-ah7bjdrq/repo/verification/r4_cycle_interfaces/type_correction/test_metadata_types.py", line 59, in exported
+    self.assertTrue(matched,CASES[-1])
+AssertionError: False is not true : {'id': 'positive-original-integer-refs', 'expected': 'MATCH', 'observed': 'MISMATCH', 'semantic_outcome': 'SEMANTIC_MISMATCH', 'exit_code': 1, 'matched': False, 'fresh_source_export_hashes': True, 'checker_writes': False, 'reason': "Command '['git', 'show', '3591a5f92f78b1edea07d3fc5354fd0a99090798:cad/build/calculated_layout/report.md']' returned non-zero exit status 128."}
+
+----------------------------------------------------------------------
+Ran 6 tests in 55.309s
+
+FAILED (failures=1)

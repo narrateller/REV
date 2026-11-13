@@ -1,0 +1,194 @@
+{
+  "scope": "Proposed extra documentary conditions; no live signals or material implementation",
+  "guards": {
+    "D_PATH_CLEAR": {
+      "meaning": "Полный D0↔D1 с дозой относительно корпуса/бункера/затвора/пуансона/материала свободен; не только концы",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "D_HOME_CURRENT": {
+      "meaning": "Текущий doser subject в D0 с удержанием, актуальная обратная связь; не свидетельство ресурса",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "D_DELIVERY_CURRENT": {
+      "meaning": "Текущий doser subject в D1; дозирование/масса подтверждаются отдельно R2",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "G_OPEN_CURRENT": {
+      "meaning": "Текущий gate subject в G0, изоляция источника от камеры для refill обоснована отдельно",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "G_ISOLATED_CURRENT": {
+      "meaning": "Текущий gate subject в G1 с подтверждённым отсечением/устойчивым запиранием, не одно имя позы",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "G_PATH_CLEAR": {
+      "meaning": "Весь ход G0↔G1 не режет незавершённую дозу/пуансон/столб; усилие отсечения и привод согласованы",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "P_FEED_CLEAR": {
+      "meaning": "Текущая поза P0/PF и весь ближайший sweep освобождают окно подачи при удержании материала",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "P_PATH_CLEAR": {
+      "meaning": "Весь рассматриваемый интервал P и carrier/rod/crosshead/guide/материал проверен поддерживаемым методом",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "MATERIAL_HELD_CURRENT": {
+      "meaning": "Именно текущая доза/столб/partial inventory удержаны; возврат/refill не меняет неучтённо массу/состояние",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "REAR_FORCE_INTERFACE": {
+      "meaning": "Род/crosshead/carrier соединены для прямого и обратного усилия, крепления/направляющие/рама согласованы",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "REACTION_CURRENT": {
+      "meaning": "A реакция удержания/столба или B end_stop+lock в текущей фазе подтверждена",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "B_STOP_LOCK_CLOSED": {
+      "meaning": "Текущие положения и опорные контакты упора/замка B подтверждены, не кэш после открытия",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "EXIT_NO_INTERACTION": {
+      "meaning": "Изделие целиком принято за выходом и больше не взаимодействует; до этого остаётся в ledger/scene",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "RESET_CURRENT": {
+      "meaning": "B_RESET_CONFIRMED и вся последовательность stop/lock reset проверены с фактическими остатками",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "CONTINUOUS_MECHANISM": {
+      "meaning": "Начало каждого участка равно концу предыдущего, полный интервал/обратный ход поддержаны методом",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "AUX_RESOURCE_CURRENT": {
+      "meaning": "Энергия/привод/гидравлический/временной ресурс конкретного действия доступны сейчас, неизвестное не ноль",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "SERVICE_OWN_GUARDS": {
+      "meaning": "Изоляция/фиксация/подъём/отсоединение/масса/оснастка/площадка для конкретного сервиса подтверждены; не общий READY",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2/R3 mechanism/material input and later geometry/strength evidence"
+    },
+    "P_HOME_CURRENT": {
+      "meaning": "Текущий punch в P0 с удержанием; любой PF→P0 — отдельный непрерывный проверенный возврат до APPROACH, не телепорт и не общий READY",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires current axis feedback and return-path evidence"
+    },
+    "CAPACITY_CURRENT": {
+      "meaning": "Вместимость кармана/камеры на текущий batch и сохранённый остаток подтверждена перед открытием/подачей; не только поза P",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Requires R2 inventory and R3 feed envelope/partial gather definition"
+    },
+    "FILL_COMPLETE": {
+      "meaning": "Historical addressed completed transfer at D1 for exact dose, material, subject, batch, epoch, LOAD and transfer operation and revisions; valid through proven retained return only. TRUE only by completed transfer observation/ledger receipt, never command or elapsed time.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "LOAD_COMMITTED_CURRENT": {
+      "meaning": "Exact referenced LOAD/REFILL has committed AFTER_DOSER_RETURN with same valid FILL_COMPLETE receipt and current D0. New refill dose cannot reuse prior receipt.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "FEEDER_SAFE": {
+      "meaning": "Conjunction of current D_HOME_CURRENT, D_PATH_CLEAR, MATERIAL_HELD_CURRENT, P_FEED_CLEAR and G_PATH_CLEAR for the same dose and complete isolation sweep; D0 alone insufficient.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "RECOVERY_SCOPE_VALID": {
+      "meaning": "Exact current closure recovery request, target fault ID/scope/origin and current revisions, fresh non-rejected operation, known receipt/inventory; unrelated fault domains remain open and own current conditions still block if FALSE.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "STOP_CLOSED_CURRENT": {
+      "meaning": "Current independently confirmed stop closure and support, full sweep/retained product checked; not B_RESET_CONFIRMED or READY.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "LOCK_CLOSED_CURRENT": {
+      "meaning": "Current independently confirmed lock engagement after stop closure; not history reconciliation or READY.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    }
+  },
+  "common": [
+    "EVENT_FRESH",
+    "FEEDBACK_VALID",
+    "CONTINUITY_CONFIRMED",
+    "METHOD_SUPPORTED",
+    "RESOURCES_READY",
+    "DEPENDENCY_VALID"
+  ],
+  "evidence_key": [
+    "subject_id",
+    "domain",
+    "operation_id",
+    "state_epoch",
+    "inventory_revision",
+    "geometry_revision",
+    "resource_revision",
+    "evidence_id",
+    "valid_until"
+  ],
+  "invalidates": "Any changed subject/pose/path/load/geometry/material/resource/receiver invalidates its dependent evidence; evaluate at entry and completion, never cache READY",
+  "failure_rule": "Proven blocking FALSE -> BLOCKED even with UNKNOWN elsewhere; otherwise mandatory UNKNOWN/stale/unsupported -> INDETERMINATE; only all current assumptions can be ALLOWED_ASSUMED documentary, never physical permission",
+  "faults": "Stable independent fault IDs/domain/subject; only targeted confirmation of same entity clears own fault. Rejected operation IDs retained forever including A→B→C→A; recovery new unique ID, own conditions, no universal READY, no clearing other faults.",
+  "guard_dependencies": {
+    "FEEDER_SAFE": [
+      "D_HOME_CURRENT",
+      "D_PATH_CLEAR",
+      "MATERIAL_HELD_CURRENT",
+      "P_FEED_CLEAR",
+      "G_PATH_CLEAR"
+    ],
+    "G_ISOLATED_CURRENT": [
+      "G_PATH_CLEAR",
+      "MATERIAL_HELD_CURRENT"
+    ],
+    "B_STOP_LOCK_CLOSED": [
+      "STOP_CLOSED_CURRENT",
+      "LOCK_CLOSED_CURRENT"
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+[
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r4_cycle_interfaces/proposal/check_package.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_document.json",
+    "stderr": "author_document.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.482445+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance.",
+    "stderr_provenance": "Tool output had no stderr; empty sidecar recorded afterwards, not a separate stderr redirect."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_exports.json",
+    "stderr": "author_exports.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.482604+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance.",
+    "stderr_provenance": "Tool output had no stderr; empty sidecar recorded afterwards, not a separate stderr redirect."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/type_correction",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_type.stdout",
+    "stderr": "author_type.stderr",
+    "environment_overrides": {
+      "REV_TYPES_CAPTURE": "/workspace/REV/verification/r5_ci_strict_types_recheck/author_type_cases.json"
+    },
+    "recorded_at_utc": "2026-11-13T09:08:45.483603+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/semantic_iteration",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "author_semantic.stdout",
+    "stderr": "author_semantic.stderr",
+    "environment_overrides": {
+      "REV_CI_CAPTURE": "/workspace/REV/verification/r5_ci_strict_types_recheck/author_semantic_cases.json"
+    },
+    "recorded_at_utc": "2026-11-13T09:08:45.484463+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "verification/r4_cycle_interfaces/correction",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "retained.stdout",
+    "stderr": "retained.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.484573+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_strict_types_recheck/repeat_prior.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "repeat_prior.stdout",
+    "stderr": "repeat_prior.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.484604+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_strict_types_recheck/independent_probe.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "independent.stdout",
+    "stderr": "independent.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.484649+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_strict_types_recheck/incomplete_snapshots.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "incomplete.stdout",
+    "stderr": "incomplete.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.484674+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_strict_types_recheck/assess_results.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "assessment.stdout",
+    "stderr": "assessment.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.484694+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_strict_types_recheck/verify_preservation.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "preservation.stdout",
+    "stderr": "preservation.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.484714+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "verification/r5_ci_strict_types_recheck/quantity_equivalence.py"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "quantity.stdout",
+    "stderr": "quantity.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.484860+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "diff_check.stdout",
+    "stderr": "diff_check.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:45.517077+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "git",
+      "lfs",
+      "fsck"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "lfs_fsck.stdout",
+    "stderr": "lfs_fsck.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:46.046378+00:00",
+    "note": "Executed in current review; tool exit and captured output verified. Probe exit 0 is capture completion, not acceptance."
+  },
+  {
+    "argv": [
+      "/workspace/REV/.venv/bin/python",
+      "-B",
+      "scripts/check_registry.py",
+      "--check-git"
+    ],
+    "cwd": "/workspace/REV",
+    "exit_code": 0,
+    "stdout": "registry.log",
+    "stderr": "registry.stderr",
+    "environment_overrides": {},
+    "recorded_at_utc": "2026-11-13T09:08:46.046667+00:00",
+    "note": "Executed final registry, exit 0; stdout/stderr merged in registry.log; empty stderr sidecar is layout only. Engineering acceptance not assessed."
+  }
+]

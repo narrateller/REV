@@ -1,0 +1,843 @@
+{
+  "role": "AUTHOR_REPLAY_CURRENT_SOURCE",
+  "cases": [
+    {
+      "id": "missing",
+      "expected_gate": "INDETERMINATE",
+      "actual_gate": "INDETERMINATE",
+      "expected_scoped": "UNKNOWN",
+      "actual_scoped": "UNKNOWN",
+      "matched": true,
+      "input_sha256": "e5cf92911b2236fce0f913f45eaff60292078d510fa995d2f36f193bb405a7f7",
+      "caller_proof_unchanged": true,
+      "assessment": {
+        "validation": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "path": "context.journal",
+              "code": "UNCLASSIFIABLE_OPEN_JOURNAL"
+            },
+            {
+              "path": "context.entry.BASIS_DEFINED",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.CONTINUITY_CONFIRMED",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.EVENT_FRESH",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.FEEDBACK_VALID",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.LEDGER_VALID",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.METHOD_SUPPORTED",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.RECEIPT_VALID",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.RESET_SWEEP_CLEAR",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.RESOURCES_READY",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.RESTORE_SEQUENCE_DEFINED",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            },
+            {
+              "path": "context.entry.TOOLS_HOME",
+              "code": "MALFORMED_ENTRY_INPUT",
+              "exception": "KeyError"
+            }
+          ]
+        },
+        "compatibility_domain": "OUT_OF_DOMAIN",
+        "policy_result": "NOT_EVALUATED",
+        "recovery_value": "UNKNOWN",
+        "entry_gate": "INDETERMINATE",
+        "causal_value": "TRUE",
+        "action_gate": "INDETERMINATE",
+        "physical_permission": false,
+        "required_result_domains": [
+          "B_CLOSURE"
+        ],
+        "required_context_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES"
+        ],
+        "permitted_extra_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "FEED",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES",
+          "RETENTION"
+        ],
+        "journal_admission": {
+          "value": "UNKNOWN",
+          "records": [
+            {
+              "fault_id": "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22",
+              "classification": "APPLICABLE",
+              "roles": [
+                "RECOVERY_RESULT"
+              ],
+              "reasons": [],
+              "status": "OPEN",
+              "guard": "B_RESET_CONFIRMED",
+              "applicability_basis": "FIXED_ACTION_AND_ADDRESSED_GRAPH",
+              "snapshot_scope": "COMPLETE_GUARD_DOMAINS"
+            },
+            {
+              "fault_id": "F-8352b1f6819063811fd4ffaada3b280e579d63e9a852da538565d717cf4f8cda",
+              "classification": "NOT_APPLICABLE",
+              "roles": [],
+              "reasons": [],
+              "status": "OPEN",
+              "guard": "DEPENDENCY_VALID",
+              "applicability_basis": "FIXED_ACTION_AND_ADDRESSED_GRAPH",
+              "snapshot_scope": "COMPLETE_GUARD_DOMAINS"
+            },
+            {
+              "fault_id": "F-4dd0b7db9b0408dcd97a74c8758dd76c33cebf864fada943a365ac608e34ec1e",
+              "classification": "UNCLASSIFIABLE",
+              "roles": [],
+              "reasons": [
+                {
+                  "path": "origin.guard",
+                  "code": "INVALID_GUARD_TYPE_OR_EMPTY"
+                }
+              ],
+              "status": "OPEN"
+            }
+          ],
+          "reasons": [],
+          "records_seen": 3,
+          "open_seen": 3,
+          "resolved_seen": 0,
+          "unclassifiable": 1
+        },
+        "entry_values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "RECEIPT_VALID": "UNKNOWN",
+          "RESET_SWEEP_CLEAR": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RESTORE_SEQUENCE_DEFINED": "UNKNOWN",
+          "TOOLS_HOME": "UNKNOWN"
+        },
+        "entry_reasons": {
+          "BASIS_DEFINED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "CONTINUITY_CONFIRMED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "EVENT_FRESH": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "FEEDBACK_VALID": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "LEDGER_VALID": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "METHOD_SUPPORTED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RECEIPT_VALID": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RESET_SWEEP_CLEAR": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RESOURCES_READY": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RESTORE_SEQUENCE_DEFINED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "TOOLS_HOME": "UNCLASSIFIABLE_OPEN_JOURNAL"
+        },
+        "raw_evidence": {
+          "BASIS_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "CONTINUITY_CONFIRMED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "EVENT_FRESH": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "FEEDBACK_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "LEDGER_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "METHOD_SUPPORTED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RECEIPT_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESET_SWEEP_CLEAR": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESOURCES_READY": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESTORE_SEQUENCE_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "TOOLS_HOME": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          }
+        },
+        "journal_evidence": {
+          "BASIS_DEFINED": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "CONTINUITY_CONFIRMED": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "EVENT_FRESH": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "FEEDBACK_VALID": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "LEDGER_VALID": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "METHOD_SUPPORTED": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "RECEIPT_VALID": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "RESET_SWEEP_CLEAR": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "RESOURCES_READY": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "RESTORE_SEQUENCE_DEFINED": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          },
+          "TOOLS_HOME": {
+            "value": "UNKNOWN",
+            "reason": "MALFORMED_ENTRY_INPUT",
+            "status": "EXCEPTION",
+            "exception": "KeyError"
+          }
+        },
+        "entry_sources": {
+          "BASIS_DEFINED": "UNCONFIRMED_JOURNAL",
+          "CONTINUITY_CONFIRMED": "UNCONFIRMED_JOURNAL",
+          "EVENT_FRESH": "UNCONFIRMED_JOURNAL",
+          "FEEDBACK_VALID": "UNCONFIRMED_JOURNAL",
+          "LEDGER_VALID": "UNCONFIRMED_JOURNAL",
+          "METHOD_SUPPORTED": "UNCONFIRMED_JOURNAL",
+          "RECEIPT_VALID": "UNCONFIRMED_JOURNAL",
+          "RESET_SWEEP_CLEAR": "UNCONFIRMED_JOURNAL",
+          "RESOURCES_READY": "UNCONFIRMED_JOURNAL",
+          "RESTORE_SEQUENCE_DEFINED": "UNCONFIRMED_JOURNAL",
+          "TOOLS_HOME": "UNCONFIRMED_JOURNAL"
+        },
+        "state_value": "TRUE",
+        "history_confirmed": true,
+        "causal_sources": {},
+        "target_fault_id": "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22"
+      }
+    },
+    {
+      "id": "null",
+      "expected_gate": "INDETERMINATE",
+      "actual_gate": "INDETERMINATE",
+      "expected_scoped": "UNKNOWN",
+      "actual_scoped": "UNKNOWN",
+      "matched": true,
+      "input_sha256": "d45874fad8c963e9a354e6e8690c77b38322932bf6268bf71d9f52d863f07652",
+      "caller_proof_unchanged": true,
+      "assessment": {
+        "validation": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "path": "context.journal",
+              "code": "UNCLASSIFIABLE_OPEN_JOURNAL"
+            }
+          ]
+        },
+        "compatibility_domain": "OUT_OF_DOMAIN",
+        "policy_result": "NOT_EVALUATED",
+        "recovery_value": "UNKNOWN",
+        "entry_gate": "INDETERMINATE",
+        "causal_value": "TRUE",
+        "action_gate": "INDETERMINATE",
+        "physical_permission": false,
+        "required_result_domains": [
+          "B_CLOSURE"
+        ],
+        "required_context_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES"
+        ],
+        "permitted_extra_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "FEED",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES",
+          "RETENTION"
+        ],
+        "journal_admission": {
+          "value": "UNKNOWN",
+          "records": [
+            {
+              "fault_id": "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22",
+              "classification": "APPLICABLE",
+              "roles": [
+                "RECOVERY_RESULT"
+              ],
+              "reasons": [],
+              "status": "OPEN",
+              "guard": "B_RESET_CONFIRMED",
+              "applicability_basis": "FIXED_ACTION_AND_ADDRESSED_GRAPH",
+              "snapshot_scope": "COMPLETE_GUARD_DOMAINS"
+            },
+            {
+              "fault_id": "F-8352b1f6819063811fd4ffaada3b280e579d63e9a852da538565d717cf4f8cda",
+              "classification": "NOT_APPLICABLE",
+              "roles": [],
+              "reasons": [],
+              "status": "OPEN",
+              "guard": "DEPENDENCY_VALID",
+              "applicability_basis": "FIXED_ACTION_AND_ADDRESSED_GRAPH",
+              "snapshot_scope": "COMPLETE_GUARD_DOMAINS"
+            },
+            {
+              "fault_id": "F-cb2b9750b546b8c4f10674d1ce5d54f8aab0e2faee37ec29767b29abac63b150",
+              "classification": "UNCLASSIFIABLE",
+              "roles": [],
+              "reasons": [
+                {
+                  "path": "origin.guard",
+                  "code": "INVALID_GUARD_TYPE_OR_EMPTY"
+                }
+              ],
+              "status": "OPEN"
+            }
+          ],
+          "reasons": [],
+          "records_seen": 3,
+          "open_seen": 3,
+          "resolved_seen": 0,
+          "unclassifiable": 1
+        },
+        "entry_values": {
+          "BASIS_DEFINED": "UNKNOWN",
+          "CONTINUITY_CONFIRMED": "UNKNOWN",
+          "EVENT_FRESH": "UNKNOWN",
+          "FEEDBACK_VALID": "UNKNOWN",
+          "LEDGER_VALID": "UNKNOWN",
+          "METHOD_SUPPORTED": "UNKNOWN",
+          "RECEIPT_VALID": "UNKNOWN",
+          "RESET_SWEEP_CLEAR": "UNKNOWN",
+          "RESOURCES_READY": "UNKNOWN",
+          "RESTORE_SEQUENCE_DEFINED": "UNKNOWN",
+          "TOOLS_HOME": "UNKNOWN"
+        },
+        "entry_reasons": {
+          "BASIS_DEFINED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "CONTINUITY_CONFIRMED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "EVENT_FRESH": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "FEEDBACK_VALID": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "LEDGER_VALID": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "METHOD_SUPPORTED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RECEIPT_VALID": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RESET_SWEEP_CLEAR": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RESOURCES_READY": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "RESTORE_SEQUENCE_DEFINED": "UNCLASSIFIABLE_OPEN_JOURNAL",
+          "TOOLS_HOME": "UNCLASSIFIABLE_OPEN_JOURNAL"
+        },
+        "raw_evidence": {
+          "BASIS_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "CONTINUITY_CONFIRMED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "EVENT_FRESH": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "FEEDBACK_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "LEDGER_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "METHOD_SUPPORTED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RECEIPT_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESET_SWEEP_CLEAR": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESOURCES_READY": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESTORE_SEQUENCE_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "TOOLS_HOME": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          }
+        },
+        "journal_evidence": {
+          "BASIS_DEFINED": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "CONTINUITY_CONFIRMED": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "EVENT_FRESH": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "FEEDBACK_VALID": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "LEDGER_VALID": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "METHOD_SUPPORTED": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "RECEIPT_VALID": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "RESET_SWEEP_CLEAR": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "RESOURCES_READY": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "RESTORE_SEQUENCE_DEFINED": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          },
+          "TOOLS_HOME": {
+            "value": "UNKNOWN",
+            "reason": "UNCLASSIFIABLE_OPEN_JOURNAL",
+            "status": "UNCONFIRMED",
+            "observed_value": "TRUE",
+            "observed_reason": "CURRENT_ASSUMED_RECORD"
+          }
+        },
+        "entry_sources": {
+          "BASIS_DEFINED": "UNCONFIRMED_JOURNAL",
+          "CONTINUITY_CONFIRMED": "UNCONFIRMED_JOURNAL",
+          "EVENT_FRESH": "UNCONFIRMED_JOURNAL",
+          "FEEDBACK_VALID": "UNCONFIRMED_JOURNAL",
+          "LEDGER_VALID": "UNCONFIRMED_JOURNAL",
+          "METHOD_SUPPORTED": "UNCONFIRMED_JOURNAL",
+          "RECEIPT_VALID": "UNCONFIRMED_JOURNAL",
+          "RESET_SWEEP_CLEAR": "UNCONFIRMED_JOURNAL",
+          "RESOURCES_READY": "UNCONFIRMED_JOURNAL",
+          "RESTORE_SEQUENCE_DEFINED": "UNCONFIRMED_JOURNAL",
+          "TOOLS_HOME": "UNCONFIRMED_JOURNAL"
+        },
+        "state_value": "TRUE",
+        "history_confirmed": true,
+        "causal_sources": {},
+        "target_fault_id": "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22"
+      }
+    },
+    {
+      "id": "known-FEED",
+      "expected_gate": "ALLOWED_ASSUMED",
+      "actual_gate": "ALLOWED_ASSUMED",
+      "expected_scoped": "TRUE",
+      "actual_scoped": "TRUE",
+      "matched": true,
+      "input_sha256": "7fe0d4ea4409dca6756aac5425e90ebf37773cf682d9abb1b4de0be6fc595a3e",
+      "caller_proof_unchanged": true,
+      "assessment": {
+        "validation": {
+          "status": "VALID",
+          "reasons": []
+        },
+        "compatibility_domain": "IN_DOMAIN",
+        "policy_result": "ALLOWED_ASSUMED",
+        "recovery_value": "TRUE",
+        "entry_gate": "ALLOWED_ASSUMED",
+        "causal_value": "TRUE",
+        "action_gate": "ALLOWED_ASSUMED",
+        "physical_permission": false,
+        "required_result_domains": [
+          "B_CLOSURE"
+        ],
+        "required_context_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES"
+        ],
+        "permitted_extra_domains": [
+          "AXIS",
+          "B_CLOSURE",
+          "EVIDENCE",
+          "EXIT_RECEIVER",
+          "FEED",
+          "HYDRAULIC",
+          "MATERIAL",
+          "RESOURCES",
+          "RETENTION"
+        ],
+        "journal_admission": {
+          "value": "TRUE",
+          "records": [
+            {
+              "fault_id": "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22",
+              "classification": "APPLICABLE",
+              "roles": [
+                "RECOVERY_RESULT"
+              ],
+              "reasons": [],
+              "status": "OPEN",
+              "guard": "B_RESET_CONFIRMED",
+              "applicability_basis": "FIXED_ACTION_AND_ADDRESSED_GRAPH",
+              "snapshot_scope": "COMPLETE_GUARD_DOMAINS"
+            },
+            {
+              "fault_id": "F-8352b1f6819063811fd4ffaada3b280e579d63e9a852da538565d717cf4f8cda",
+              "classification": "NOT_APPLICABLE",
+              "roles": [],
+              "reasons": [],
+              "status": "OPEN",
+              "guard": "DEPENDENCY_VALID",
+              "applicability_basis": "FIXED_ACTION_AND_ADDRESSED_GRAPH",
+              "snapshot_scope": "COMPLETE_GUARD_DOMAINS"
+            },
+            {
+              "fault_id": "F-df12a743c8ed70f42739cac8494c60a8485bc1af8464962cb19fcb61cbb1d1d8",
+              "classification": "NOT_APPLICABLE",
+              "roles": [],
+              "reasons": [],
+              "status": "OPEN",
+              "guard": "FEED_CLEAR",
+              "applicability_basis": "FIXED_ACTION_AND_ADDRESSED_GRAPH",
+              "snapshot_scope": "COMPLETE_GUARD_DOMAINS"
+            }
+          ],
+          "reasons": [],
+          "records_seen": 3,
+          "open_seen": 3,
+          "resolved_seen": 0,
+          "unclassifiable": 0
+        },
+        "entry_values": {
+          "BASIS_DEFINED": "TRUE",
+          "CONTINUITY_CONFIRMED": "TRUE",
+          "EVENT_FRESH": "TRUE",
+          "FEEDBACK_VALID": "TRUE",
+          "LEDGER_VALID": "TRUE",
+          "METHOD_SUPPORTED": "TRUE",
+          "RECEIPT_VALID": "TRUE",
+          "RESET_SWEEP_CLEAR": "TRUE",
+          "RESOURCES_READY": "TRUE",
+          "RESTORE_SEQUENCE_DEFINED": "TRUE",
+          "TOOLS_HOME": "TRUE"
+        },
+        "entry_reasons": {
+          "BASIS_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "CONTINUITY_CONFIRMED": "CURRENT_ASSUMED_RECORD",
+          "EVENT_FRESH": "CURRENT_ASSUMED_RECORD",
+          "FEEDBACK_VALID": "CURRENT_ASSUMED_RECORD",
+          "LEDGER_VALID": "CURRENT_ASSUMED_RECORD",
+          "METHOD_SUPPORTED": "CURRENT_ASSUMED_RECORD",
+          "RECEIPT_VALID": "CURRENT_ASSUMED_RECORD",
+          "RESET_SWEEP_CLEAR": "CURRENT_ASSUMED_RECORD",
+          "RESOURCES_READY": "CURRENT_ASSUMED_RECORD",
+          "RESTORE_SEQUENCE_DEFINED": "CURRENT_ASSUMED_RECORD",
+          "TOOLS_HOME": "CURRENT_ASSUMED_RECORD"
+        },
+        "raw_evidence": {
+          "BASIS_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "CONTINUITY_CONFIRMED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "EVENT_FRESH": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "FEEDBACK_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "LEDGER_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "METHOD_SUPPORTED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RECEIPT_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESET_SWEEP_CLEAR": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESOURCES_READY": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "RESTORE_SEQUENCE_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          },
+          "TOOLS_HOME": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "VALIDATED"
+          }
+        },
+        "journal_evidence": {
+          "BASIS_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "CONTINUITY_CONFIRMED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "EVENT_FRESH": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "FEEDBACK_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "LEDGER_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "METHOD_SUPPORTED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "RECEIPT_VALID": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "RESET_SWEEP_CLEAR": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "RESOURCES_READY": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "RESTORE_SEQUENCE_DEFINED": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          },
+          "TOOLS_HOME": {
+            "value": "TRUE",
+            "reason": "CURRENT_ASSUMED_RECORD",
+            "status": "EVALUATED"
+          }
+        },
+        "entry_sources": {
+          "BASIS_DEFINED": "FROZEN_CURRENT_EVIDENCE",
+          "CONTINUITY_CONFIRMED": "FROZEN_CURRENT_EVIDENCE",
+          "EVENT_FRESH": "FROZEN_CURRENT_EVIDENCE",
+          "FEEDBACK_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "LEDGER_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "METHOD_SUPPORTED": "FROZEN_CURRENT_EVIDENCE",
+          "RECEIPT_VALID": "FROZEN_CURRENT_EVIDENCE",
+          "RESET_SWEEP_CLEAR": "FROZEN_CURRENT_EVIDENCE",
+          "RESOURCES_READY": "FROZEN_CURRENT_EVIDENCE",
+          "RESTORE_SEQUENCE_DEFINED": "FROZEN_CURRENT_EVIDENCE",
+          "TOOLS_HOME": "FROZEN_CURRENT_EVIDENCE"
+        },
+        "state_value": "TRUE",
+        "history_confirmed": true,
+        "causal_sources": {},
+        "target_fault_id": "F-67e09223d4e835a42b73843b3c6b177bb8f0d0a36167dc8adb063797cdfdee22"
+      }
+    }
+  ],
+  "matches": 3
+}

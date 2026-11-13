@@ -1,0 +1,116 @@
+{
+  "execution_status": "COMPLETED",
+  "validation_role": "AUTHOR, not independent R5 acceptance",
+  "R1_decision_commit": "5fe510bbc55a052c360ab39a2491a061584b8fb7",
+  "created_at_utc": "2026-11-13T07:15:38.172032+00:00",
+  "minimum": {
+    "schema": "rev-cyc-semantic-minimum/1",
+    "revision": 1,
+    "sha256": "b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df",
+    "decision_commit": "5fe510bbc55a052c360ab39a2491a061584b8fb7"
+  },
+  "coverage": {
+    "actions": 53,
+    "action_mode_rules": 84,
+    "pose_rules": 18,
+    "coordinate_scenario_forms": 34
+  },
+  "document_checks_MATCH": 3277,
+  "export_checks_MATCH": 8,
+  "new_unittest_methods": 6,
+  "retained_unittest_methods": 7,
+  "coherent_reexport_cases": 411,
+  "negative_cases_rejected": 410,
+  "supported_equivalent_case_MATCH": 1,
+  "R5_probe_unchanged_replayed": {
+    "total": 654,
+    "matched": 654,
+    "failed": 0,
+    "historical_findings_corrected": 17,
+    "six_new_substitutions_rejected": 6
+  },
+  "registry": "PASS",
+  "preservation": "612 protected files, 44 bindings, four force variants, frozen helper/calculations/CAD unchanged",
+  "B01_B02": "CLOSED documentary on C144941c; author preservation regressions pass",
+  "B03": "OPEN_RECHECK_PENDING",
+  "interface_consecutive_rejections": 2,
+  "material_contract_consecutive_rejections": 2,
+  "W02": "NOT_IMPLEMENTED",
+  "PLC": "NOT_IMPLEMENTED",
+  "CAD": "NOT_RUN",
+  "physical_READY": "NO_GO",
+  "G1": "OPEN",
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "verification/r4_cycle_interfaces/proposal/check_package.py"
+      ],
+      "exit_code": 0,
+      "stdout": "document_checks.json"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py"
+      ],
+      "exit_code": 0,
+      "stdout": "export_checks.json"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/r4_cycle_interfaces/semantic_iteration",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout_stderr": "regressions.log"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/r4_cycle_interfaces/correction",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout_stderr": "retained_regressions.log"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "scripts/check_registry.py",
+        "--check-git"
+      ],
+      "exit_code": 0,
+      "stdout": "registry.log"
+    }
+  ],
+  "evidence_sha256": {
+    "regression_cases.json": "fa765e37dcd6ddb9e2739991236231826c8fce43e1141aeb14b48cc552a7b326",
+    "document_checks.json": "ac588fce4c879990d046cf50a740c35427ae19915087623f435d7c7bf1877b9a",
+    "export_checks.json": "100608ecd76aa984bbca8d80ae1e2cd705a4c877c3c93fdce253bc1954649f35",
+    "independent_replay.json": "a957a9544376749b91d40132435a2937f2c9897753747a29e389dd856700d0bc",
+    "baseline_reproduction.json": "053b6a6dd088929e7b47dfc757b49d1dbf09cd7b9d2c341b11563410325005b5",
+    "preservation.json": "fb2851364a870f95b0090effa591de9754e396a8b71c70837e82a4e0bebb0686",
+    "regressions.log": "1826eef8b9f6742f73206d82c0a878df0045201311a9e9b7d6087aa6d70a42fc",
+    "retained_regressions.log": "a11285d874cce18e3b9be0d8222413475909a4d1b5b5becad3aef876e9609c48",
+    "registry.log": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda"
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "scope": "Documentary transfer/recovery reference semantics only; no physical permission or W02 implementation",
+  "fill": {
+    "scope_fields": [
+      "variant",
+      "mode",
+      "subject_id",
+      "dose_id",
+      "material_id",
+      "batch_id",
+      "cycle_epoch",
+      "basis_id",
+      "basis_revision",
+      "load_action",
+      "load_operation_id",
+      "transfer_operation_id"
+    ],
+    "revision_fields": [
+      "material",
+      "feed",
+      "inventory",
+      "geometry",
+      "resource",
+      "receiver",
+      "history"
+    ],
+    "confirmation_kind": "OBSERVED_TRANSFER_COMPLETE",
+    "transfer_pose": "D1",
+    "parent_commit_boundary": "AFTER_DOSER_RETURN",
+    "false_rule": "Any proved FALSE dominates UNKNOWN; missing/stale/wrong-scope evidence cannot authorize motion",
+    "invalidation": [
+      "new dose/material/subject/batch/epoch/basis/mode",
+      "new load or transfer operation, failed/aborted/rejected operation",
+      "unconfirmed or changed material/inventory/geometry/resource/receiver/history revision",
+      "lost retention, unaccounted dose or ledger change, re-opened transfer"
+    ],
+    "retained_history": "D_DELIVERY_CURRENT was required at FILL-CONFIRM. A confirmed D1→D0 return does not retroactively require current D1 or change the dose receipt. Any unaccounted change invalidates the receipt. Expected material transaction is committed once by LOAD only after return; any resulting revision change requires explicit successor linkage, never automatic carry-forward. The committed successor explicitly binds receipt ID, all original identity fields, origin_revisions and current revisions. Only MATERIAL/FEED +1 from the frozen LOAD commit is allowed; any additional change needs new evidence. The original receipt is never edited or relabelled as a current D1 observation.",
+    "isolation": "FILL_COMPLETE plus exact completed LOAD ref, current D0 and FEEDER_SAFE before G0→G1. G1 pose alone never ISOLATION_CONFIRMED; independent current isolation/retention/load feedback with same material scope required at PRESS START.",
+    "commit_successor": {
+      "origin_revisions": "Exact receipt revisions before parent commit",
+      "changed_domains": [
+        "material",
+        "feed"
+      ],
+      "increment": 1,
+      "other_revisions": "UNCHANGED",
+      "scope": "Same explicit receipt and LOAD operation only"
+    }
+  },
+  "load_sequences": [
+    {
+      "parent": "A-LOAD-START",
+      "modes": [
+        "A_STARTUP"
+      ],
+      "stages": [
+        "A-MECH-FEED-OPEN",
+        "A-MECH-DOSE-DELIVER",
+        "A-MECH-FILL-CONFIRM",
+        "A-MECH-DOSER-RETURN"
+      ],
+      "commit_after": "A-MECH-DOSER-RETURN",
+      "next_isolation": "A-MECH-FEED-ISOLATE",
+      "receipt_consumers": [
+        "FILL-CONFIRM",
+        "DOSER-RETURN",
+        "PARENT_COMMIT",
+        "FEED-ISOLATE"
+      ],
+      "same_retained_inventory": true
+    },
+    {
+      "parent": "A-LOAD-STEADY",
+      "modes": [
+        "A_STEADY"
+      ],
+      "stages": [
+        "A-MECH-FEED-OPEN",
+        "A-MECH-DOSE-DELIVER",
+        "A-MECH-FILL-CONFIRM",
+        "A-MECH-DOSER-RETURN"
+      ],
+      "commit_after": "A-MECH-DOSER-RETURN",
+      "next_isolation": "A-MECH-FEED-ISOLATE",
+      "receipt_consumers": [
+        "FILL-CONFIRM",
+        "DOSER-RETURN",
+        "PARENT_COMMIT",
+        "FEED-ISOLATE"
+      ],
+      "same_retained_inventory": true
+    },
+    {
+      "parent": "A-REFILL",
+      "modes": [
+        "A_STARTUP"
+      ],
+      "stages": [
+        "A-MECH-FEED-OPEN",
+        "A-MECH-DOSE-DELIVER",
+        "A-MECH-FILL-CONFIRM",
+        "A-MECH-DOSER-RETURN"
+      ],
+      "commit_after": "A-MECH-DOSER-RETURN",
+      "next_isolation": "A-MECH-FEED-ISOLATE",
+      "receipt_consumers": [
+        "FILL-CONFIRM",
+        "DOSER-RETURN",
+        "PARENT_COMMIT",
+        "FEED-ISOLATE"
+      ],
+      "same_retained_inventory": true
+    },
+    {
+      "parent": "B-LOAD",
+      "modes": [
+        "B_REPEAT",
+        "B_SINGLE"
+      ],
+      "stages": [
+        "B-MECH-FEED-OPEN",
+        "B-MECH-DOSE-DELIVER",
+        "B-MECH-FILL-CONFIRM",
+        "B-MECH-DOSER-RETURN"
+      ],
+      "commit_after": "B-MECH-DOSER-RETURN",
+      "next_isolation": "B-MECH-FEED-ISOLATE",
+      "receipt_consumers": [
+        "FILL-CONFIRM",
+        "DOSER-RETURN",
+        "PARENT_COMMIT",
+        "FEED-ISOLATE"
+      ],
+      "same_retained_inventory": true
+    },
+    {
+      "parent": "B-REFILL",
+      "modes": [
+        "B_REPEAT"
+      ],
+      "stages": [
+        "B-MECH-FEED-OPEN",
+        "B-MECH-DOSE-DELIVER",
+        "B-MECH-FILL-CONFIRM",
+        "B-MECH-DOSER-RETURN"
+      ],
+      "commit_after": "B-MECH-DOSER-RETURN",
+      "next_isolation": "B-MECH-FEED-ISOLATE",
+      "receipt_consumers": [
+        "FILL-CONFIRM",
+        "DOSER-RETURN",
+        "PARENT_COMMIT",
+        "FEED-ISOLATE"
+      ],
+      "same_retained_inventory": true
+    }
+  ],
+  "recovery": {
+    "actions": [
+      "B-MECH-STOP-CLOSE",
+      "B-MECH-RELOCK"
+    ],
+    "parent": "B-RESET",
+    "request_action": "RESTORE_B_CLOSURE",
+    "target_guard": "B_RESET_CONFIRMED",
+    "generic_dependency_required": false,
+    "requires": [
+      "RECOVERY_SCOPE_VALID",
+      "RESET_SWEEP_CLEAR",
+      "RESTORE_SEQUENCE_DEFINED",
+      "RECEIPT_VALID",
+      "RESOURCES_READY",
+      "FEEDBACK_VALID",
+      "CONTINUITY_CONFIRMED",
+      "LEDGER_VALID",
+      "MATERIAL_HELD_CURRENT"
+    ],
+    "closure_completion": [
+      "STOP_CLOSED_CURRENT",
+      "LOCK_CLOSED_CURRENT",
+      "B_STOP_LOCK_CLOSED"
+    ],
+    "history_action": "RECONCILE_HISTORY",
+    "auto_clear_other_faults": false,
+    "sequence": [
+      "new addressed recovery request with own guards",
+      "STOP-CLOSE with own full sweep/receipt/retention/current resource conditions",
+      "RELOCK after current stop closure",
+      "current B_RESET_CONFIRMED feedback for exact closure subject",
+      "RESTORE_B_CLOSURE resolves only addressed closure fault",
+      "separate RECONCILE_HISTORY per dependency fault after all causal faults resolved",
+      "new unique NEXT rechecks every own guard; original rejected operation IDs remain permanently rejected"
+    ],
+    "unrelated_fault_rule": "Material/service/receiver faults remain latched. If they invalidate any own motion guard (ledger, resource, retention, sweep etc), recovery is BLOCKED/INDETERMINATE. A closure-only request is never a blanket bypass for unknown causes."
+  }
+}

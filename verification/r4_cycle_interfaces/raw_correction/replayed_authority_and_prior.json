@@ -1,0 +1,38 @@
+{
+  "actual_C": "3060dbf561f95e4384fbfd13a9cc5569690515e5",
+  "minimum_reproduced": true,
+  "minimum_sha256": "b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df",
+  "prior_probes": [
+    {
+      "script": "verification/r5_cycle_interfaces_recheck/independent_probe.py",
+      "source_sha256": "3ee0cef9549dfb213f504ff7554579e1250df9f6e60dced314ace795bf84d294",
+      "checks": 654,
+      "matches": 654,
+      "exit_code": 0
+    },
+    {
+      "script": "verification/r5_ci_semantic_minimum_recheck/independent_probe.py",
+      "source_sha256": "0cc89c7fbb4d28f49b0afb2ce0a79ff78799f58ef496f44aebe51cdd8206a5a2",
+      "checks": 765,
+      "matches": 765,
+      "exit_code": 0
+    },
+    {
+      "script": "verification/r5_ci_strict_types_recheck/incomplete_snapshots.py",
+      "source_sha256": "180b05a591631d5bf77fa62db441aea99fdaaa9ea238f2358d5c4d803e5d7ed0",
+      "checks": 7,
+      "matches": 7,
+      "exit_code": 0
+    },
+    {
+      "script": "verification/r5_ci_snapshots_recheck/independent_probe.py",
+      "source_sha256": "9276391c4bf990ea0af5d969cfd4b54807971b0216fddaddbbc010175c045a7b",
+      "checks": 295,
+      "matches": 295,
+      "exit_code": 0,
+      "nineteen_identical_input_digests": true
+    }
+  ],
+  "original_reviews_unchanged": true,
+  "note": "Raw probes retain their historical hardcoded reviewed_C labels; actual new inputs are this C, materialized in temp, with no reuse."
+}

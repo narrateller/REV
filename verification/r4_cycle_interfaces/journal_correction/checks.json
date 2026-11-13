@@ -1,0 +1,221 @@
+{
+  "role": "AUTHOR_VALIDATION_NOT_INDEPENDENT_R5_ACCEPTANCE",
+  "checked_at_utc": "2026-11-13T18:44:56.797800+00:00",
+  "R1_decision_commit": "a85e69f3a495176c614202a518be6784be8f3b31",
+  "precode_audit_evaluation_commit": "f7aa9d10ccb32117361c90959ca6af085fd4fe34",
+  "status": "PASS_DOCUMENTARY_CORRECTION_RECHECK_PENDING",
+  "commands": [
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/proposal/render_schemes.py --output-dir verification/r4_cycle_interfaces/proposal/exports",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/exporter.log",
+      "generated": 11
+    },
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_package.py",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/package.log",
+      "checks": 3277,
+      "matches": 3277
+    },
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/exports.log",
+      "checks": 8,
+      "matches": 8
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/journal_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/new_tests.log",
+      "methods": 8,
+      "cases": 417
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/raw_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/raw.log",
+      "methods": 9,
+      "cases": 966
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/gate_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/gate.log",
+      "methods": 11,
+      "cases": 220
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/snapshot_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/snapshot.log",
+      "methods": 11,
+      "cases": 118
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/type_correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/types.log",
+      "methods": 6,
+      "cases": 244
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/semantic_iteration -p 'test_*.py' -v",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/semantic.log",
+      "methods": 6,
+      "cases": 411
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/correction -p 'test_*.py' -v",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/B01_B02.log",
+      "methods": 7,
+      "cases": null
+    },
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/journal_correction/replay_r5.py --baseline --output-dir scratch/b03-journal",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/baseline_0.log",
+      "cases": 732,
+      "matches": 696,
+      "expected_baseline_failures": 36
+    },
+    {
+      "command": ".venv/bin/python -B verification/r4_cycle_interfaces/journal_correction/replay_r5.py --prior --output-dir scratch/b03-journal",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/replay.log",
+      "cases": 732,
+      "matches": 732,
+      "minimal": 3,
+      "prior": [
+        654,
+        765,
+        7,
+        295,
+        231
+      ],
+      "same_input_witnesses": [
+        19,
+        8
+      ]
+    },
+    {
+      "command": "R5 unchanged repeat_prior.py in isolated clone, via author replay runner",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/prior.log",
+      "prior_pass": true
+    },
+    {
+      "command": ".venv/bin/python -B scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "log": "verification/r4_cycle_interfaces/journal_correction/registry.log"
+    },
+    {
+      "command": "git diff --check and git diff --cached --check",
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "verification/r4_cycle_interfaces/proposal/journal_admission.py": "4fd5adf0ce17b608fd90ad0582152a64db2bad741e4f288cfd839f39e2c684d9",
+    "verification/r4_cycle_interfaces/proposal/recovery_snapshots.py": "c53dba2464c44493a421fca008c0e4a1d46a4c16f5b48e4e7b71a3d48d4fdfa9",
+    "verification/r4_cycle_interfaces/proposal/semantic_minimum.py": "1baa50bdda2c78c4b03b306ac4cad29fa56ce237fd7420b428ca0a42494f8b93",
+    "verification/r4_cycle_interfaces/proposal/metadata_types.py": "ca3e6c88f4984084ccb19152751993cf98d7c14fa45560c3326114102b24075b",
+    "verification/r4_cycle_interfaces/proposal/render_schemes.py": "eca66505f81a510e2f9f9766b477c22cdc6395d8a5c80a464151b980e1445141",
+    "verification/r4_cycle_interfaces/proposal/exports/exports_manifest.json": "aa0f9078c3b42c3b17641c437e4199f053193458dc41beff395ecef039ca69c6",
+    "verification/r4_cycle_interfaces/semantics_v1/minimum.json": "b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df",
+    "verification/r4_cycle_interfaces/journal_correction/test_journal.py": "0cbe68825ec79fb398465f062170b596b164c0f0f8cba112924fc83175fedfc3",
+    "verification/r4_cycle_interfaces/journal_correction/replay_r5.py": "6af311f2c469e749fd9b3e0025335c1a578bbb848e56912e59fd249a85b96df8"
+  },
+  "evidence_sha256": {
+    "verification/r4_cycle_interfaces/journal_correction/ADMISSION.md": "5e74c97ab54ae876df7df677a79c9735e6799b4795dc04d6539fefe05936b59a",
+    "verification/r4_cycle_interfaces/journal_correction/B01_B02.log": "362c6c2c00c06978f4fcf879d793f9fb0b7594d5c0cafeaa54d2bf489627a7f3",
+    "verification/r4_cycle_interfaces/journal_correction/README.md": "5e1f4cd65152fdbd182196fd67595eadb04f6b95d69bb0f3ad8261447070b7cd",
+    "verification/r4_cycle_interfaces/journal_correction/baseline_0.log": "c7c2454f8f4d6888a566ca094160b10ba6649fd4b2dcfa4ff66e2b671dad6bbb",
+    "verification/r4_cycle_interfaces/journal_correction/baseline_1.log": "4ea4d2bdff5d3f81a868ed492ef23ecc2226ee2f9d9ebde90685f0a09b78ff36",
+    "verification/r4_cycle_interfaces/journal_correction/baseline_capture.json": "842a2d2dc39364c1091d68f394d962a3eb9cf5e479b34ba83675fc1c3c432b44",
+    "verification/r4_cycle_interfaces/journal_correction/baseline_minimal.json": "7fdda8e587c237b563318307f620a616c16736d112963a63b6f78dce91149af5",
+    "verification/r4_cycle_interfaces/journal_correction/cases.json": "c2eda485de55a2633646ff617aa57648a4eca6635db91030697b209704b2dc39",
+    "verification/r4_cycle_interfaces/journal_correction/corrected_0.log": "2b0420b11e2054e52a35f855dc4ae74547f15179b592672aee8f83e3a36e09b5",
+    "verification/r4_cycle_interfaces/journal_correction/corrected_1.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/r4_cycle_interfaces/journal_correction/corrected_capture.json": "8ca94489d36315d080718be158ced3848489f5d5b2aca1b6478e18d4cbaeffd8",
+    "verification/r4_cycle_interfaces/journal_correction/corrected_matrix.json": "12aa11674c7567a40bb7ca64268c884d0da39876962422fe44af7abd90e9c60e",
+    "verification/r4_cycle_interfaces/journal_correction/corrected_minimal.json": "67438822bc36d7a0bd4a88df1cad0570837abace94aff0d340a694d091bd81e9",
+    "verification/r4_cycle_interfaces/journal_correction/coverage.json": "4fa4fa5cdfd02c29370bf7026646e1b433dbc057c21e62c3118230f07d45eb3c",
+    "verification/r4_cycle_interfaces/journal_correction/exporter.log": "0fd66547516acbf8e02f3888133d8fd7d5a2419376e9311606f0efad0918e1c3",
+    "verification/r4_cycle_interfaces/journal_correction/exports.log": "a979a9ac9419d9f12aa7ad5003871e156acb220129dbb7b1ab0db152c1fe43ec",
+    "verification/r4_cycle_interfaces/journal_correction/gate.log": "608e4a1227c41c398eb3d2eab3010a932f12c65d6a531b5a04a52167cef2c3ae",
+    "verification/r4_cycle_interfaces/journal_correction/input_audit.json": "4f1bfb8fd5280a2e5458483907f59b67ddc655d8f8b1f4277565615660035a6a",
+    "verification/r4_cycle_interfaces/journal_correction/new_tests.log": "a794e89f91c106ee3be619291b697c22fc71b285fc45bab110187f2bd1946f0f",
+    "verification/r4_cycle_interfaces/journal_correction/package.log": "ac588fce4c879990d046cf50a740c35427ae19915087623f435d7c7bf1877b9a",
+    "verification/r4_cycle_interfaces/journal_correction/preservation.json": "86bfb77d163cd920a0d1266f8f076e10d268f142f12888d137ed25b2352f9018",
+    "verification/r4_cycle_interfaces/journal_correction/prior.log": "107d2ca6a4fee81d39ea983cf43e53e66fcb482a5fbf2b0ca77af20c8a38b505",
+    "verification/r4_cycle_interfaces/journal_correction/publication_preflight.json": "be6182fb0426a37f9b660c47df688a7faee003506cbe4ec6c9651f0f8180df25",
+    "verification/r4_cycle_interfaces/journal_correction/raw.log": "2aa186ad08dd11dc973c29040e4b74311f0be09bad4efb757bfc2a71fece655f",
+    "verification/r4_cycle_interfaces/journal_correction/registry.log": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda",
+    "verification/r4_cycle_interfaces/journal_correction/replay.log": "8ca94489d36315d080718be158ced3848489f5d5b2aca1b6478e18d4cbaeffd8",
+    "verification/r4_cycle_interfaces/journal_correction/replay_r5.py": "6af311f2c469e749fd9b3e0025335c1a578bbb848e56912e59fd249a85b96df8",
+    "verification/r4_cycle_interfaces/journal_correction/replayed_authority_and_prior.json": "72bfb1a7d4b990289b313c59eb5300bcb942ad57bc45d8f254862e6ef4a48549",
+    "verification/r4_cycle_interfaces/journal_correction/replayed_eight_variations.json": "ce348ca27fbd6818df5b914552a30c8aafe8653f1a8a22044e665c66fb7fb37f",
+    "verification/r4_cycle_interfaces/journal_correction/replayed_nineteen.json": "db34abfac78d831b4c6e735459eb51dac40a61827aade43cd4bbc60a6c5da227",
+    "verification/r4_cycle_interfaces/journal_correction/replayed_prior_231_new_inputs.json": "0568e8a2b0524cc41e034ff36e96b73411f479ee43c070f1f9ad0b2849450c08",
+    "verification/r4_cycle_interfaces/journal_correction/replayed_prior_295_new_inputs.json": "698d56f1e6f918d92ddade0e0b9f7fc49938f0a866ef9acc316d60f4f953d887",
+    "verification/r4_cycle_interfaces/journal_correction/semantic.log": "1a922163fc3cc7d4344c83e4b975abd69b6759628a8f89efbb3ea7904cc3c3e3",
+    "verification/r4_cycle_interfaces/journal_correction/snapshot.log": "651e240b04917040620bf1c4fac9285501b8ebd7c3f7433fef22b1e01e684989",
+    "verification/r4_cycle_interfaces/journal_correction/test_journal.py": "0cbe68825ec79fb398465f062170b596b164c0f0f8cba112924fc83175fedfc3",
+    "verification/r4_cycle_interfaces/journal_correction/thirtysix_variations.json": "bc22e3061e9ac6a22859ede08c933b9f542b8d3efdf9ae38aefd2e85b9eb9f81",
+    "verification/r4_cycle_interfaces/journal_correction/types.log": "13cbc030a19baf86cdf9668db04447d4bd636f5846a66eb0fe7d8bc4c18caff0"
+  },
+  "regressions": {
+    "R5_before": "696/732",
+    "R5_after": "732/732",
+    "same_input_tag_observations": 36,
+    "minimal": "3/3",
+    "new_methods": 8,
+    "new_cases": 417,
+    "raw_cases": 966,
+    "gate_cases": 220,
+    "snapshot_cases": 118,
+    "type_cases": 244,
+    "type_differential": 36,
+    "semantic_cases": 411,
+    "B01_B02_methods": 7,
+    "prior_independent": [
+      654,
+      765,
+      7,
+      295,
+      231
+    ],
+    "prior_same_input": [
+      19,
+      8
+    ],
+    "all_eight_exits": true,
+    "package_checks": 3277,
+    "export_checks": 8
+  },
+  "preservation": {
+    "protected": 612,
+    "trees": 15,
+    "tree_files": 1329,
+    "actions": 53,
+    "mode_rules": 84,
+    "poses": 18,
+    "bindings": 44,
+    "force_variants": 4,
+    "helper": "UNCHANGED",
+    "normative": "UNCHANGED",
+    "calculations_CAD": "UNCHANGED",
+    "REJECT_history": 7,
+    "material_history": 2
+  },
+  "B03": "OPEN",
+  "stable_documentary_CAD_handoff": "NO_GO",
+  "W02": "NO_GO",
+  "PLC": "NOT_IMPLEMENTED",
+  "physical_READY": "NO_GO",
+  "G1": "OPEN",
+  "architecture_TZ": "NOT_APPROVED"
+}

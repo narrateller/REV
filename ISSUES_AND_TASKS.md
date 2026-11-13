@@ -1,3 +1,225 @@
+# Актуальная сводка R1 — предложение документальной интеграции
+
+| ID | Статус до merge | Owner | Область и основание |
+|---|---|---|---|
+| T-r4-cycle-interfaces-01 | IN_REVIEW | r4-linked-20261111 | R5 B03 CLOSED на C8b72716; bounded documentary GO/WARNING, не CAD/PLC |
+
+Решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`: предлагается принять после интеграции только документальный интерфейс на `8b72716021b0c3a64972033d09fe5e80945eb98e` по R5 `6ec51742fea1be36a989dfa691ddfccf1cb20675`. До merge задача IN_REVIEW. Семь REJECT и все последующие проверки/решения сохранены; исторические таблицы и OPEN/NO-GO ниже относятся к указанным в них SHA и не переписываются. W02/PLC/исполняемая материальная логика и physical READY NO-GO, G1 OPEN. Расчёты/CAD не меняются. Следующий инженерный шаг — отдельная задача R3 по силовым путям четырёх вариантов, а не общий rebuild.
+
+## Предыдущие записи — история без изменений
+
+# B03 — bounded OPEN admission по ARB-R1-CI-SEMANTICS-06
+
+Решение `a85e69f3a495176c614202a518be6784be8f3b31` записано в капсуле
+до кода; checkpoint `f7aa9d1`. [Классификация и проверки](verification/r4_cycle_interfaces/journal_correction/README.md). Все OPEN
+проходят bounded schema/scope/revision/causal admission по fixed definitions
+до положительного journal/recovery. Неклассифицируемая запись → UNKNOWN,
+не TRUE; независимый обязательный FALSE сохраняет BLOCKED. Known unrelated
+FEED остаётся допустимым положительным control, без blanket BLOCKED.
+R5 повтор: 732/732 вместо 696/732; все 36 same-input подмен исправлены,
+minimal 3/3; 417 новых controls и прежние регрессии проходят. Это авторский
+повтор, не независимое принятие. Семь актов REJECT сохранены; interface7/material2.
+B03 OPEN / RECHECK_PENDING; stable documentary/CAD handoff NO-GO. Main3a9258c,
+accepted PR45 owner и исходный lease не менялись. Helper, norm53/84/18,
+B01/B02 и дальнейшие исправления,44bindings/4variants/calculations/CAD сохранены.
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
+## T-r5-ci-raw-recheck — independent raw-source RECHECK complete
+
+- R5/Codex/r5-ci-raw-sources-20261113,direct user assignment/continue;REVIEW_COMPLETE/REJECT_WITH_BLOCKER.
+- Exact C b89854ad709bcb5c2991376bed41bf2f73acef82,H ce1ad73aae7a5700203103c14290375cc519662b,R1 3aa5ee100f57aa75315d429afef38f8a982b1afc.
+- B03 OPEN:oldjournal/8variants fixed231/231;newunsupported OPEN guard admitsTRUE.732records696matches36FAIL,onecause,18orderedinputs/6canonicalmaps. No real movement/helperstate applied.
+- Stable documentary CYC-02/03 handoff/newCAD NO-GO;B01/B02 prior documentary closure/regressions retained;R3 priorWARNING/currentclaimscope only.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1;positive journaladmission scope needs recorded decision/plan;next correctionBLOCKED per§6.1;verification/r5_ci_raw_sources_recheck/R1_followup.md.
+- All6historicREJECT/SHA/evidence preserved,current seventh;interface_consecutive_rejections=7,material_contract_consecutive_rejections=2. No parenttakeover/mainmerge/leaseextension.
+- Norm/helper/44bindings/4variants/calculations/CAD/612inputs unchanged;W02/physicalREADY NO-GO,G1OPEN;architecture/TZ notapproved;physical/native checks NOT_RUN.
+- Capabilities:Git/Python fixedblob/raworacle/injection/tracing/hash checks;assignment/heartbeat UTC 2026-11-13T16:05:32.565988+00:00.
+
+---
+
+## T-r4-cycle-interfaces-01 — B03 independent raw FALSE follow-up
+
+R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`
+записан в капсуле до кода; checkpointa76e298. Accepted PR45 owner r4-linked-20261111,
+lease 2026-11-14T00:13:12.404899+00:00 без переназначения/продления; main3a9258c.
+Два источника own assessment: fixed raw validation независимо от journal reader;
+validated raw FALSE сохраняет BLOCKED при exception, raw TRUE/UNKNOWN не создают
+разрешение. Контроли scope/action/phase/revisions/provenance/interval сохранены.
+Schema/results: verification/r4_cycle_interfaces/raw_correction/. B03 OPEN,
+приёмка BLOCKED, independent exact-C RECHECK PENDING. Все шесть REJECT/evidence
+сохранены, interface counter6/material2. Норматив/helper/44bindings/4variants/
+расчёты/CAD/прежние B01/B02/type/domain/gate исправления неизменны.
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
+## T-r5-ci-gate-recheck — independent all-exit RECHECK complete
+
+- R5/Codex/r5-ci-gate-exits-20261113,direct user assignment;REVIEW_COMPLETE/REJECT_WITH_BLOCKER.
+- Exact C 3060dbf561f95e4384fbfd13a9cc5569690515e5,H 98861219f0adda96af0aca0a3a35078aec022eb9,R1 60eeddce71c9440a2fa08f7acbe6f1121c974b29.
+- B03 OPEN:2oldminimal/19oldvariants fixed,295/295;8/8 exits commonfinish. New journal exception erases independently valid rawcurrentFALSE;231cases223matches8fail,1cause,no new TRUE.
+- Stable documentary CYC-02/03 handoff/newCAD iteration NO-GO;B01/B02 prior documentary closure/regressions retained;R3 studies only priorWARNING/currentclaim scope.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1;next corrective iteration BLOCKED per§6.1 pending recorded decision/plan;verification/r5_ci_gate_exits_recheck/R1_followup.md.
+- FiveoldREJECT/SHA/evidence intact,current sixth,interface_consecutive_rejections=6,material_contract_consecutive_rejections=2. No parenttakeover/mainmerge/leaseextension.
+- Norm/helper/44bindings/4variants/calculations/CAD preserved;W02/physicalREADY NO-GO,G1OPEN;architecture/TZ notapproved;strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN.
+- Capabilities:Git/Python documentary tests/fixedblob/hash/tracing checks;assignment/heartbeat UTC 2026-11-13T13:27:54.690354+00:00.
+
+---
+
+## T-r4-cycle-interfaces-01 — B03 gate composition correction
+
+R1 ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`
+записан в капсуле до кода; accepted owner PR45 r4-linked-20261111 и lease
+2026-11-14T00:13:12.404899+00:00 не переназначены/не продлены; main3a9258c.
+Независимые достоверные own ENTRY/state/адресные causal constraints и единый
+finish сохраняют known FALSE на всех exits proof/schema; неизвестный target
+не выдумывается. Схема/регрессии verification/r4_cycle_interfaces/gate_correction/.
+B03 OPEN, приёмка BLOCKED, независимый R5 RECHECK exact нового C PENDING.
+Пять REJECT/полные акты/SHA/evidence сохранены; interface counter5/material2.
+Norm/helper/type/domain/B01/B02/44bindings/4variants/calculations/CAD неизменны.
+W02/PLC/physical READY NO-GO,G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
+## T-r5-ci-snapshots-recheck — независимый RECHECK завершён
+
+- R5/Codex/r5-ci-snapshots-20261113, direct user assignment; REVIEW_COMPLETE/REJECT_WITH_BLOCKER.
+- Exact C e30b4b7caf3040905cc23c79ca696af2871c958a,H ff050572f88f108c2092827e98cd4d98bd874737,R1 39826eb2f5dbd1f83d81882022e6f59313ebe5d5.
+- B03 OPEN:295cases276matches19gateFAIL,2early-returnbranches;no new false TRUE. Old incomplete7/7,prior654/654+765/765;conditional IN_DOMAIN46/46 and positive domain/history/unused maps PASS.
+- B01/B02 documentary closure retained;stable documentary CYC-02/03 handoff/new CAD iteration NO-GO,R3 studies only prior WARNING scope/current claim.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1;next correction BLOCKED under §6.1 pending recorded decision/plan;verification/r5_ci_snapshots_recheck/R1_followup.md.
+- Four old rejections/SHA/evidence preserved;current fifth,interface_consecutive_rejections=5,material_contract_consecutive_rejections=2. No author task takeover/main merge/lease extension.
+- Norm/helper/44bindings/4variants/calculations/CAD unchanged;W02/physical READY NO-GO,G1 OPEN;architecture/TZ not approved;strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN.
+- Capabilities:Git/Python documentary tests/hash checks;session assigned and heartbeat UTC 2026-11-13T11:06:19.210005+00:00.
+
+---
+
+## T-r4-cycle-interfaces-01 — B03 snapshot admission, RECHECK PENDING
+
+R1 ARB-R1-CI-SEMANTICS-03 `39826eb2f5dbd1f83d81882022e6f59313ebe5d5`
+прочитан/SHA записан до кода; owner PR45 r4-linked-20261111 и lease
+2026-11-14T00:13:12.404899+00:00 без изменения/продления, main3a9258c.
+Узкая domain/completeness prevalidation по fixed definitions; scoped proof и
+composite gate разделены. Схема/регрессии: verification/r4_cycle_interfaces/snapshot_correction/.
+Четыре REJECT/все предыдущие акты сохранены; interface counter4/material2.
+B03 OPEN, независимый R5 RECHECK exact нового C PENDING; parent IN_REVIEW.
+B01/B02/норматив/frozen helper/44bindings/4variants/calculations/CAD неизменны.
+W02/PLC/CAD вне scope, физический READY NO-GO, G1 OPEN; архитектура/ТЗ не утверждены.
+
+---
+
+## Предыдущие записи — история
+
+## T-r5-ci-types-recheck — независимый RECHECK завершён
+
+- R5/Codex/session r5-ci-strict-types-20261113, прямое поручение пользователя; REVIEW_COMPLETE / REJECT_WITH_BLOCKER.
+- Exact C fa0626372c03d11655624bb454458f82c30117f7, H ab0fb1900a2bbdfa81e284112b318320f3c5b480, R1 e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3.
+- B03 OPEN: 4 минимальных false TRUE при неполных/чужих origin/expected domains; six old escapes fixed,215/215 fresh exports,prior654/654+765/765. B01/B02 document regressions PASS.
+- Stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO; R3 study только прежняя WARNING область, без strength/native acceptance.
+- Три прежних REJECT/SHA/evidence сохранены; текущий четвёртый, interface_consecutive_rejections=4, material_contract_consecutive_rejections=2.
+- Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1/@R1: completeness vs frozen permissive path и precise agreement scope. Следующая коррекция BLOCKED до решения/плана по §6.1. Карточка verification/r5_ci_strict_types_recheck/R1_followup.md.
+- Норматив/frozen helper/44bindings/4variants/calculations/CAD сохранены. W02/physical READY NO-GO,G1 OPEN,architecture/TZ not approved. Геометрических пар0; strength/CAD/rebuild/physical trials NOT_RUN.
+- Не takeover R4 task; accepted owner/lease/main неизменны. Возможности: Git/Python documentary checks и SHA comparison; assignment/heartbeat UTC 2026-11-13T09:00:34.211433+00:00.
+
+---
+
+## T-r4-cycle-interfaces-01 — narrow B03 typing follow-up
+
+- R1 ARB-R1-CI-SEMANTICS-02 e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3 прочитан, SHA зафиксирован в капсуле до кода; прямое поручение пользователя, исполнитель R4/Codex/r4-b03-types-20261113.
+- ACCEPTED PR45 owner r4-linked-20261111 и lease 2026-11-14T00:13:12.404899+00:00 без изменения/продления; main 3a9258c. Предварительный audit/merge checkpoint 64154d8.
+- B03 OPEN / TYPE_CORRECTION_RECHECK_PENDING, приёмка интерфейса/CAD-передача NO-GO. interface_consecutive_rejections=3; material_contract_consecutive_rejections=2 сохранены.
+- Общая строгая проверка integer metadata до equality, все nested source/ref/AST/phase bindings, bool/int flags; без coercion. Recovery predicate согласован с frozen policy на тех же входах.
+- Норматив minimum.json и весь semantics_v1, frozen helper, B01/B02, 44 bindings, четыре силовых варианта, loads/calculations/CAD неизменны. Новые результаты: verification/r4_cycle_interfaces/type_correction/README.md.
+- Следующий участник independent R5 RECHECK точного нового C. Автор не закрывает B03, не меняет архитектуру/ТЗ/G1. W02/PLC/CAD/physical trials вне итерации, physical READY NO-GO, G1 OPEN.
+
+---
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — follow-up typed revisions
+
+- QUESTION P1 @R1, REOPENED: прежний нормативный подход по решению 5fe510bbc55a052c360ab39a2491a061584b8fb7 реализован, но типы ревизий ещё проверяются нестрого.
+- B03 OPEN на bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f; BOOL/FLOAT provenance false MATCH, recovery wrapper TRUE при frozen INDETERMINATE.
+- 2 исторических REJECT сохранены; текущий третий, interface_consecutive_rejections=3. Отдельный material counter=2 неизменён.
+- Следующий корректирующий B03 ход BLOCKED по §6.1 до записанного решения/плана R1; без нового выбора архитектуры/ослабления нормы.
+- Evidence/варианты: verification/r5_ci_semantic_minimum_recheck/R1_followup.md, review.md, independent_results.json.
+
+## T-r5-ci-minimum-recheck — независимый B03 RECHECK
+
+- R5 / Codex / session r5-ci-minimum-20261113; прямое поручение; REVIEW_COMPLETE / REJECT_WITH_BLOCKER.
+- Exact C bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f, H 0e519720d55b5b7b19d66b5a90c699b5d6697338, R1 5fe510bbc55a052c360ab39a2491a061584b8fb7.
+- Независимая authority/rules audit 53/84 и old-six pass; B03 OPEN из-за type-coercive revision equality. B01/B02 сохраняют документальное закрытие/положительные регрессии.
+- 765 own checks:759 MATCH/6 FAIL; author3277/8/6new methods411cases/7retained PASS, old independent654/654.
+- 44 bindings/4 force variants/frozen helper/расчёты/CAD/старые акты сохранены. Стабильная doc-передача NO-GO; R3 force-path study WARNING.
+- W02/G1 OPEN, physical READY NO-GO, native geometry/strength/physical trials NOT_RUN. Main claim/merge и owner/lease R4 не меняются.
+- UTC assignment/heartbeat: 2026-11-13T07:43:49.845789+00:00. Акт REV-R5-CI-MINIMUM-RECHECK-01-001 в verification/r5_ci_semantic_minimum_recheck/.
+
+## T-r4-cycle-interfaces-01 — разрешённая B03 итерация по R1
+
+- Прямое поручение пользователя и ARB-R1-CI-SEMANTICS-01 на 5fe510bbc55a052c360ab39a2491a061584b8fb7; SHA записан в капсуле до изменения checker.
+- R4 / Codex / r4-b03-semantics-20261113, продолжение accepted PR45 owner r4-linked-20261111 без переназначения/продления; lease до 2026-11-14T00:13:12.404899+00:00, main 3a9258c.
+- B03 OPEN / AUTHOR_CORRECTION_COMPLETE_RECHECK_PENDING; приёмка интерфейса BLOCKED, CYC-to-CAD NO-GO. interface_consecutive_rejections=2 сохранён отдельно от material_contract_consecutive_rejections=2.
+- B01/B02 CLOSED документально только на C144941c по R5 5fb7311; сохранение подтверждается регрессиями, новое независимое расширение области не заявляется.
+- Нормативный минимум v1 для 53 действий / 84 mode rules; typed coordinate/source expressions, outputs, exact recovery binding schema; независим от mutable payload и hashes.
+- План R1 выполнен автором: неизменённый probe R5 654/654, исторические 17 и 6 новых подмен; новые стадии/формулы/targets после re-export; подробности verification/r4_cycle_interfaces/semantic_iteration/README.md.
+- Расчёты/CAD/44 bindings/четыре force variants/frozen helper сохранены. W02/PLC вне scope, architecture/TZ not approved, physical READY NO-GO, G1 OPEN.
+- Следующий шаг: независимый R5 RECHECK точного нового C; автор не закрывает B03 и не выполняет merge в main.
+
+---
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — второй возврат B03
+
+- QUESTION P1, адресат @R1, parent T-r4-cycle-interfaces-01; OPEN.
+- OUTPUT 13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2 и новый RECHECK на 144941cbfc67002cbe81765e38c80e237473deff: interface_consecutive_rejections=2.
+- По AGENT_PROTOCOL §6.1 корректирующая B03 итерация BLOCKED до решения R1 и записанного плана проверки; owner/lease R4 не изменяются.
+- B01/B02 CLOSED только документально; B03 OPEN. Критерии/варианты — verification/r5_cycle_interfaces_recheck/arbitration_request.md.
+- R3 force-path study WARNING независимо; стабильный interface/CAD acceptance NO-GO, W02/physical READY NO-GO, G1 OPEN.
+
+## T-r5-ci-recheck — независимый RECHECK B01/B02/B03
+
+- R5 / Codex / session r5-ci-recheck-20261113; прямое поручение; REVIEW_COMPLETE / REJECT_WITH_BLOCKER.
+- Exact C 144941cbfc67002cbe81765e38c80e237473deff, H 7ee1c8f16eca515a3e21f64177152b4e7b93ce92, prior review 13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2.
+- B01 CLOSED: адресный historical fill, D0 commit и successor; B02 CLOSED: own-guard closure и separate history; документальная область.
+- B03 OPEN: шесть fresh-export semantic mutants ошибочно MATCH. Все исходные 17 исправлены.
+- 2376 document, 8 export, 7 methods PASS. Independent 654: 648 MATCH/6 FAIL; evidence capture exit 0 не acceptance.
+- 44 bindings/4 variants/расчёты/CAD/старые акты сохранены. Обе истории двух отказов не обнулены.
+- Акт/команды/probes: verification/r5_cycle_interfaces_recheck/. Reviewer parent ownership/main claim/merge не принимает.
+- UTC assignment/heartbeat: 2026-11-13T06:26:05.604651+00:00. W02/G1 OPEN, физические испытания/native geometry/strength NOT_RUN.
+
+## T-r4-cycle-interfaces-01 — исправление OUTPUT B01/B02/B03
+
+- R4 / Codex / executing session r4-cyc-fix-20261113; прямое поручение пользователя.
+- Continuation accepted PR45 owner r4-linked-20261111; owner не переназначен, lease до 2026-11-14T00:13:12.404899+00:00 без продления.
+- Ветка work-r4/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113; база e9b778e12dc2202100bee52df7a93f19510f569f (R5 H), main 3a9258c.
+- IN_REVIEW / RECHECK_PENDING; B01/B02/B03 OPEN. Корректирующая реализация автора не закрывает независимые замечания.
+- Явные FILL-CONFIRM/адресная квитанция/возврат D0/parent commit; scope и successor MATERIAL/FEED.
+- B closure recovery по собственным guards, отдельные targeted closure result/history reconciliation, штатный DEPENDENCY_VALID сохранён.
+- Semantic checker после re-export и положительные/отрицательные регрессии: verification/r4_cycle_interfaces/correction/README.md.
+- Сохранены 44 bindings, четыре силовых варианта, расчёты, CAD, registry, checked helpers и исходные акты/probe R5.
+- W02/physical READY NO-GO, G1 OPEN. Архитектура/ТЗ не утверждены; next participant independent R5, no self-acceptance.
+
+---
+
+## T-r5-cyc0203-output — независимый OUTPUT review
+
+- R5 / Codex / session r5-cyc0203-20261113; прямое поручение пользователя; parent ownership/lease не меняются.
+- Base H c18cb1e28a6358a2a7836809f461a3d594853796, reviewed C ed8272ce6ebc2047bb0d896db5951d02c42d5208.
+- Status REVIEW_COMPLETE; результат REJECT_WITH_BLOCKER для стабильного CYC-02/03 интерфейса, parent не DONE.
+- R5-CI-B01 OPEN P1: parent completion/return D, addressed fill receipt и mode/parent; R4 + R2/R3.
+- R5-CI-B02 OPEN P1: B reset recovery substeps и generic dependency; R4/R3.
+- R5-CI-B03 OPEN P2: semantic checks после coherent export; R4.
+- Акт REV-R5-CYC0203-OUTPUT-01-001: verification/r5_cycle_interfaces_output/review.md; 147+8 author MATCH, 1345 independent: 1328 PASS/17 FAIL.
+- A-V1/A-V2/B-V1/B-V2: каждый WARNING только для постановки силового расчёта R3. До CAD — исправления/RECHECK, силовой путь/опоры/материал/габариты/сервисные входы.
+- 44 bindings, расчёты/CAD/frozen packages неизменны. Старый B01 CLOSED только на C0c4eb5d; история двух отказов и consecutive_rejections=2 сохранены.
+- W02/physical READY NO-GO, native geometry/physical tests NOT_RUN, архитектура/ТЗ не утверждены, G1 OPEN.
+- Assignment/heartbeat UTC: 2026-11-13T05:22:13.063157+00:00. Review в отдельной ветке, main claim/merge не выполнены.
+
 ## T-r5-cc-b01-recheck — независимая документальная проверка
 
 - Session/owner review-пакета: r5-cc-b01-20261112 / Codex / R5; прямое поручение пользователя.
@@ -39,7 +261,43 @@ ID после создания не меняется. Для параллель�
 | T-r4-layout-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | claim принят PR #34; документальный черновик, OUTPUT review NOT_RUN | G1 |
 | T-r4-layout-build-01 | TASK | P2 | @R4 | IN_REVIEW | r4-linked-20261111 | финальный RECHECK WARNING; предложение ограниченной интеграции; legacy6 BLOCKED | G1 |
 | T-r4-calculated-layout-01 | TASK | P2 | @R4 | READY | NONE | PR #39 / BASE_A, BASE_B fixed-budget; claim PROPOSED_PENDING_MAIN | G1 |
-| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | READY | NONE | CYC-02/03; documentary WARNING; claim PROPOSED_PENDING_MAIN | G1 |
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-06 разрешает только OPEN-journal admission correction | G1 |
+
+---
+
+## Сохранённая история другой ветки
+
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-05 разрешает только journal-exception correction | G1 |
+
+---
+
+## Сохранённая история другой ветки
+
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-04 разрешает только composition correction | G1 |
+
+---
+
+## Сохранённая история другой ветки
+
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-03 разрешает только domain/snapshot correction | G1 |
+
+---
+
+## Сохранённая история другой ветки
+
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-02 разрешает только исправления типов | G1 |
+
+---
+
+## Сохранённая история другой ветки
+
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | BLOCKED | r4-linked-20261111 | B03 OPEN; ARB-R1-CI-SEMANTICS-01 разрешает только корректирующую итерацию | G1 |
+
+---
+
+## Сохранённая история другой ветки
+
+| T-r4-cycle-interfaces-01 | TASK | P1 | @R4 | IN_REVIEW | r4-linked-20261111 | PR45 ACCEPTED_MAIN; documentary output; R5 PENDING; W02 OPEN | G1 |
 | T-r4-cycle-contract-01 | TASK | P1 | @R4 | IN_REVIEW | r4-linked-20261111 | R5 e3c0d7d: B01 CLOSED documentary; integration proposed, W02 OPEN | G1 |
 | Q-R5-RECHECK-03 | QUESTION | P1 | @R1 | DONE | codex-01 | ARB-R1-RECHECK-03 | G1 |
 | Q-codex-01-02 | QUESTION | P1 | @R1 | BACKLOG | NONE | NONE | G1 |
@@ -49,6 +307,56 @@ ID после создания не меняется. Для параллель�
 | T-r3-compaction-measure-01 | TASK | P1 | @R3 | IN_REVIEW | r3-safety-01 | claim ACCEPTED_MAIN; R5-COMP-W03/W04 OPEN | G1 |
 
 ## T-r4-cycle-interfaces-01 — CYC-02/03, интерфейсы и силовая компоновка
+
+- TASK P1, адресат @R4, статус BLOCKED до независимого RECHECK B03; owner_session r4-linked-20261111 / Codex / R4; claim_acceptance ACCEPTED_MAIN через PR #45 на 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a. Прежние NONE/PENDING исторические; срок 2026-11-14T00:13:12.404899Z не продлён.
+
+---
+
+## Сохранённая история другой ветки
+
+- TASK P1, адресат @R4, статус BLOCKED до независимого RECHECK B03; owner_session r4-linked-20261111 / Codex / R4; claim_acceptance ACCEPTED_MAIN через PR #45 на 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a. Прежние NONE/PENDING сохранены в истории; срок 2026-11-14T00:13:12.404899Z не продлён.
+
+---
+
+## Сохранённая история другой ветки
+
+
+---
+
+## Сохранённая история другой ветки
+
+- TASK P1, адресат @R4, статус BLOCKED до независимого RECHECK B03; owner_session r4-linked-20261111 / Codex / R4; claim_acceptance ACCEPTED_MAIN через PR #45 на 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a. Прежние NONE/PENDING исторические; срок 2026-11-14T00:13:12.404899Z не продлён.
+
+---
+
+## Сохранённая история другой ветки
+
+- TASK P1, адресат @R4, статус BLOCKED до независимого RECHECK B03; owner_session r4-linked-20261111 / Codex / R4; claim_acceptance ACCEPTED_MAIN через PR #45 на 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a. Прежние NONE/PENDING сохранены в истории; срок 2026-11-14T00:13:12.404899Z не продлён.
+
+---
+
+## Сохранённая история другой ветки
+
+- TASK P1, адресат @R4, статус BLOCKED до независимого RECHECK B03; owner_session r4-linked-20261111 / Codex / R4; claim_acceptance ACCEPTED_MAIN через PR #45 на 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a. Исходные NONE/PENDING исторические; срок 2026-11-14T00:13:12.404899Z не продлён.
+
+---
+
+## Сохранённая история другой ветки
+
+**Выход первой итерации:** IN_REVIEW; owner_session: r4-linked-20261111;
+heartbeat_utc: 2026-11-13T00:54:05.040681+00:00; lease_expires_at: 2026-11-14T00:13:12.404899+00:00 без продления.
+Пакет: verification/r4_cycle_interfaces/proposal/README.md. 6 SVG, 51 строка
+поз/условий, 4 варианта A/B×V1/V2 без выбора, 44 source bindings сохранены.
+Нативная геометрия и силовая пригодность NOT_RUN; R5 OUTPUT PENDING, не DONE.
+Матрицы 16 фаз/2933 записей пар — только план; геометрически проверено 0 пар.
+W02 OPEN/NOT_IMPLEMENTED, executable material/physical READY NO-GO; G1 OPEN.
+Следующая запись IN_PROGRESS — история входа, не текущий итог.
+
+**Текущая запись:** IN_PROGRESS; owner_session: r4-linked-20261111; ACCEPTED_MAIN
+по PR45 / `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a` и прямому подтверждению пользователя.
+heartbeat_utc: 2026-11-13T00:41:30.394889+00:00; lease_expires_at: 2026-11-14T00:13:12.404899+00:00 (без продления).
+Входы и отсутствие другого принятого owner сверены; proposal/input_audit.md/json.
+Ниже — история предложения до PR45, не текущие owner/status.
 
 - TASK P1, адресат @R4, статус READY, **owner_session: NONE**, claim_acceptance PROPOSED_PENDING_MAIN. Proposed owner r4-linked-20261111 / Codex / R4; назначение роли сохранено, принятие нового claim не выполнено.
 - base_main: 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7; branch: work-r4/T-r4-cycle-interfaces-01/r4-linked-20261111; proposed_at_utc: 2026-11-13T00:13:12.404899+00:00; proposed_lease_expires_at: **2026-11-14T00:13:12.404899+00:00**. Не продлевает старый claim. В main нет task/принятого owner на момент аудита; принятие последовательно после повторной сверки времени/входов/конкурента.
@@ -1091,3 +1399,106 @@ CYC-01…09 и R5-CYCLE-W01/W02 остаются OPEN: план ранних к�
 ## ARB-R1-CC-01 — принятое в полномочиях R1 решение
 
 Claim R1 восстановлен PR #44 на `8a82b30d185a10c71dbedbb8b581cf6b5162b1b7`, owner codex-01, срок до 2026-11-13T22:14:32Z. Конкурирующий принятый owner T-INIT в трекере не обнаружен. R1 воспроизвёл 3/45 расхождения R5, JSON совпал с актом; 26/26 исходных исправлены. Решение `decisions/ARB-R1-CC-01.md`: адресные сохраняемые записи отказов и накопительная история отвергнутых ID; локальное снятие по guard/память только последнего ID отклонены. Разрешены только исправления R4 после фиксации точного SHA решения и проверки действующего claim. До независимого RECHECK R5-CC-B01 OPEN, contract BLOCKED, CYC-02/03 NO-GO как стабильная зависимость; consecutive_rejections=2 не обнуляется. W01 CLOSED только документально для проверенной редакции, W02 OPEN и не расширяется до полного материального движка в этой итерации. CAD/расчёты не менять, G1 OPEN.
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — semantic admission OPEN journal
+
+R1 решение `decisions/ARB-R1-CI-SEMANTICS-06.md`, DONE только для follow-up; R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85` на C `b89854ad709bcb5c2991376bed41bf2f73acef82`. R1 повторил matrix732/696/36 с теми же FAIL ID и minimal missing/null/known-FEED controls. Выбрана явная bounded schema/classification всех OPEN записей до positive admission: unsupported guard/неклассифицируемое scope не игнорируется как foreign; journal UNKNOWN не допускает TRUE, а independently known FALSE сохраняет BLOCKED. Known supported unrelated fault не создаёт blanket BLOCKED. R4 разрешена только узкая итерация после записи SHA решения и сверки main/owner/lease/входов. interface counter=7/material counter=2, история сохранена; B03 OPEN, stable documentary/CAD handoff NO-GO, W02/physical READY NO-GO, G1 OPEN. Helper/norm/44 bindings/4variants/расчёты/CAD не менять; scopes/lease не продлены.
+
+---
+
+## Сохранённая история другой ветки
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — current raw FALSE при journal exception
+
+R1 решение `decisions/ARB-R1-CI-SEMANTICS-05.md`, DONE только для follow-up; R5 `18e5af1dae177cdfcb24951d3b36c2fd43395421` на C `3060dbf561f95e4384fbfd13a9cc5569690515e5`. R1 воспроизвёл minimal raw FALSE и matrix231/223/8; одна причина в восьми сочетаниях без нового TRUE, readonly. interface counter=6, material counter=2, вся история сохраняется. Выбрано независимое сохранение validated raw current FALSE при exception journal-dependent reader; raw TRUE не расширяет разрешения, malformed журнал сам не является FALSE. R4 разрешена только узкая коррекция после чтения SHA решения и проверки main/owner/lease/входов. B03 OPEN, stable documentary/CAD handoff BLOCKED/NO-GO; W02/physical READY NO-GO, G1 OPEN. Helper/norm53/84/44bindings/4variants/расчёты/CAD не менять, scopes/lease не продлены.
+
+---
+
+## Сохранённая история другой ветки
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — композиция gate, пятый возврат
+
+R1 решение `decisions/ARB-R1-CI-SEMANTICS-04.md`, DONE только для follow-up; R5 `88a34f8b7d2d6dbf236101f207e206efb0e3c747` на C `e30b4b7caf3040905cc23c79ca696af2871c958a`. R1 воспроизвёл оба минимальных witness и 19 нарушений в матрице295. interface_consecutive_rejections=5, material_contract=2, история сохранена. Выбраны независимые own ENTRY/state и адресные causal assessments и единый final gate с known FALSE dominance на всех ветвях malformed proof. Отсутствующий target не выдумывается, unknown без достоверного запрета не становится BLOCKED по умолчанию. R4 разрешена только корректирующая итерация после фиксации SHA решения и проверки main/owner/lease/входов. B03 OPEN, приёмка BLOCKED, стабильный documentary/CAD handoff NO-GO. Не менять helper/norm53/84/44bindings/4variants/расчёты/CAD. W02/physical READY NO-GO, G1 OPEN; scopes/lease не продлены.
+
+---
+
+## Сохранённая история другой ветки
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — follow-up полноты snapshots
+
+R1 решение `decisions/ARB-R1-CI-SEMANTICS-03.md` опубликовано в пределах принятого claim; DONE только для этого follow-up. Входной акт `0ff3c8f4502ea29c712bf1f41e223f172c5a21c7`, C `fa0626372c03d11655624bb454458f82c30117f7`. R1 воспроизвёл 4 ложных TRUE в 7 incomplete cases, в том числе permissive возврат frozen helper; caller не менялся. Выбрана отдельная domain/type/completeness prevalidation по fixed guard/action перед делегированием неизменённому helper; policy agreement только внутри явно допустимых входов, intentional stricter rejection вне области документируется. interface_consecutive_rejections=4, material_contract=2, история сохранена. R4 разрешена только узкая корректировка после фиксации SHA решения и проверки main/owner/lease/входов. B03 OPEN, стабильный documentary/CAD handoff NO-GO; B01/B02 — прежнее документальное закрытие. 53/84 minimum, helper, 44 bindings/4force variants, расчёты/CAD не менять; W02/physical READY NO-GO, G1 OPEN.
+
+---
+
+## Сохранённая история другой ветки
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — follow-up типов
+
+DONE только для уточнения арбитража: `decisions/ARB-R1-CI-SEMANTICS-02.md`, входной акт `3d317b32596884cc60d9d42675924b88fcb29bf0` на C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`. R1 воспроизвёл 765=759+6 с теми же четырьмя source/ref ложными MATCH и двумя recovery ложными TRUE. interface_consecutive_rejections=3 сохранён (material_contract=2 отдельно). Выбрана строгая integer type-policy и typed nested source/ref validation, согласованная с frozen recovery policy; норму, реальные данные, расчёты/CAD не менять. R4 разрешена только корректирующая итерация после фиксации SHA решения и проверки main/owner/lease/входов. B03 OPEN, interface BLOCKED до независимого RECHECK, стабильный CAD handoff NO-GO. B01/B02 — прежнее документальное закрытие с обязательной регрессией; W02/physical READY NO-GO, G1 OPEN. Сроки claims не продлены.
+
+---
+
+## Сохранённая история другой ветки
+
+## Q-R1-CI-SEMANTICS-ARBITRATION-01 — решение R1
+
+QUESTION P1 для R1, parent T-r4-cycle-interfaces-01; DONE только для арбитража: `decisions/ARB-R1-CI-SEMANTICS-01.md`. Два последовательных отказа интерфейсного B03: OUTPUT `13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2` и RECHECK `5fb731182a2bdf6b11246558eca58962e48568d9` на C `144941cbfc67002cbe81765e38c80e237473deff`. interface_consecutive_rejections=2, не сбрасывается. R1 воспроизвёл 654=648+6; FAIL ID совпали с R5, evidence `verification/r1_ci_arbitration/`. Выбран явный версионированный семантический минимум всех подстадий/режимов и типизированные pose/source/recovery relations; ещё шесть локальных assert как единственный подход отклонены. Разрешена только корректирующая итерация R4 после чтения точного SHA решения и проверки owner/lease/inputs; BLOCKED для приёмки и CAD до независимого RECHECK. B01/B02 сохраняют документальное закрытие на C144941c; B03 OPEN. 44 source bindings, четыре силовых варианта, frozen material helper, расчёты/CAD не менять. R3 может отдельно исследовать четыре силовые постановки с WARNING и действующим claim. W02/физический READY NO-GO, G1 OPEN.
+
+---
+
+## Сохранённая история другой ветки
+
+## Q-r4-ci-r3-carrier — CI-R3-CARRIER
+
+- QUESTION P2, адресат @R3, статус BACKLOG, owner_session NONE.
+- Предложение/основание/точные прежние ID@revision: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json#CI-R3-CARRIER. Новые значения не назначены и не применены.
+- Гипотеза: сохранить source BASE_A/B fixed-budget и согласовать отдельный интерфейс/расчёт нового звена. Если подтверждается — отдельная ревизия/проверка до CAD; если нет или данных недостаточно — вариант INDETERMINATE, при необходимости изменение исходного требования через R1/R3. Не уменьшать D/d/F/section/strokes ради clearance.
+- Зависит T-r4-cycle-interfaces-01; блокирует соответствующий будущий CAD/физический допуск, а не независимую документальную постановку. Срок/claim другой роли не изменён; G1 OPEN.
+
+## Q-r4-ci-r3-offset — CI-R3-OFFSET
+
+- QUESTION P2, адресат @R3, статус BACKLOG, owner_session NONE.
+- Предложение/основание/точные прежние ID@revision: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json#CI-R3-OFFSET. Новые значения не назначены и не применены.
+- Гипотеза: сохранить source BASE_A/B fixed-budget и согласовать отдельный интерфейс/расчёт нового звена. Если подтверждается — отдельная ревизия/проверка до CAD; если нет или данных недостаточно — вариант INDETERMINATE, при необходимости изменение исходного требования через R1/R3. Не уменьшать D/d/F/section/strokes ради clearance.
+- Зависит T-r4-cycle-interfaces-01; блокирует соответствующий будущий CAD/физический допуск, а не независимую документальную постановку. Срок/claim другой роли не изменён; G1 OPEN.
+
+## Q-r4-ci-r3-mounts — CI-R3-MOUNTS
+
+- QUESTION P2, адресат @R3, статус BACKLOG, owner_session NONE.
+- Предложение/основание/точные прежние ID@revision: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json#CI-R3-MOUNTS. Новые значения не назначены и не применены.
+- Гипотеза: сохранить source BASE_A/B fixed-budget и согласовать отдельный интерфейс/расчёт нового звена. Если подтверждается — отдельная ревизия/проверка до CAD; если нет или данных недостаточно — вариант INDETERMINATE, при необходимости изменение исходного требования через R1/R3. Не уменьшать D/d/F/section/strokes ради clearance.
+- Зависит T-r4-cycle-interfaces-01; блокирует соответствующий будущий CAD/физический допуск, а не независимую документальную постановку. Срок/claim другой роли не изменён; G1 OPEN.
+
+## Q-r4-ci-r3-sequencing — CI-R3-SEQUENCING
+
+- QUESTION P2, адресат @R3, статус BACKLOG, owner_session NONE.
+- Предложение/основание/точные прежние ID@revision: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json#CI-R3-SEQUENCING. Новые значения не назначены и не применены.
+- Гипотеза: сохранить source BASE_A/B fixed-budget и согласовать отдельный интерфейс/расчёт нового звена. Если подтверждается — отдельная ревизия/проверка до CAD; если нет или данных недостаточно — вариант INDETERMINATE, при необходимости изменение исходного требования через R1/R3. Не уменьшать D/d/F/section/strokes ради clearance.
+- Зависит T-r4-cycle-interfaces-01; блокирует соответствующий будущий CAD/физический допуск, а не независимую документальную постановку. Срок/claim другой роли не изменён; G1 OPEN.
+
+## Q-r4-ci-r3-ejection — CI-R3-EJECTION
+
+- QUESTION P2, адресат @R3, статус BACKLOG, owner_session NONE.
+- Предложение/основание/точные прежние ID@revision: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json#CI-R3-EJECTION. Новые значения не назначены и не применены.
+- Гипотеза: сохранить source BASE_A/B fixed-budget и согласовать отдельный интерфейс/расчёт нового звена. Если подтверждается — отдельная ревизия/проверка до CAD; если нет или данных недостаточно — вариант INDETERMINATE, при необходимости изменение исходного требования через R1/R3. Не уменьшать D/d/F/section/strokes ради clearance.
+- Зависит T-r4-cycle-interfaces-01; блокирует соответствующий будущий CAD/физический допуск, а не независимую документальную постановку. Срок/claim другой роли не изменён; G1 OPEN.
+
+## Q-r4-ci-r2-inventory — CI-R2-INVENTORY
+
+- QUESTION P2, адресат @R2, статус BACKLOG, owner_session NONE.
+- Предложение/основание/точные прежние ID@revision: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json#CI-R2-INVENTORY. Новые значения не назначены и не применены.
+- Гипотеза: сохранить source BASE_A/B fixed-budget и согласовать отдельный интерфейс/расчёт нового звена. Если подтверждается — отдельная ревизия/проверка до CAD; если нет или данных недостаточно — вариант INDETERMINATE, при необходимости изменение исходного требования через R1/R3. Не уменьшать D/d/F/section/strokes ради clearance.
+- Зависит T-r4-cycle-interfaces-01; блокирует соответствующий будущий CAD/физический допуск, а не независимую документальную постановку. Срок/claim другой роли не изменён; G1 OPEN.
+
+
+## T-r5-ci-open-journal-recheck — независимый R5 RECHECK B03
+
+DONE / R5 / Codex / session r5-ci-open-journal-20261113; прямое поручение пользователя, UTC 2026-11-13T19:09:09.593707+00:00.
+Reviewed C `8b72716021b0c3a64972033d09fe5e80945eb98e`, H `fa4c59702e338e6b6d1e322b0698137a233ad011`, R1 `a85e69f3a495176c614202a518be6784be8f3b31`.
+Owner только review-задачи; parent R4 owner/lease не присвоены и не продлены; merge NOT_PERFORMED.
+Акт REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001: verification/r5_ci_open_journal_recheck/review.md.
+B03 CLOSED документально на exact C; stable documentary CYC-02/03 handoff GO, общий WARNING.
+5368/5368 independent;732/732 retained;36same-input repaired;minimal3/3.
+History interface counter7/material2 сохранена, старые акты не переписаны.
+Parent CYC IN_REVIEW до R1/integration; W02/PLC/physical READY NO-GO,G1OPEN.
+Следующий шаг R1: принять/интегрировать ограниченный акт и выбрать downstream работу с действующим claim/exact inputs.
