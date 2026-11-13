@@ -3630,3 +3630,203 @@ reproduction_artifacts:
 ### C подготовки опубликован, PR ожидает API-доступа
 
 2026-11-13T00:23:22.559324+00:00; C e6735141aef69c87e8a67708330c56b982ca3ac4 REMOTE. Содержание проверенных C0c4eb5d/R1/R5e3c0d7d не изменено; 7 frozen packages/129 files, 17 inputs/11 trees preserved, 205/587 stdout MATCH_SAVED, registry/diff PASS. Новый task/claim лишь PROPOSED_PENDING_MAIN, implementation NOT_STARTED; W02/executable/physical READY NO_GO, G1 OPEN. API Forbidden, network draft saved/requires publish, активная revision5 не разрешает api.github.com; PR не выдаётся за созданный, merge не выполнен. Payload/описание/compare URL в verification/cc_documentary_integration/.
+
+## OUTPUT CYC-02/03 — независимая проверка интерфейсов и силовых вариантов
+
+```yaml
+record_type: review
+review_id: REV-R5-CYC0203-OUTPUT-01-001
+kind: OUTPUT
+task_id: T-r4-cycle-interfaces-01
+created_at_utc: '2026-11-13T05:22:13.063157+00:00'
+reviewer:
+  role: R5
+  session_id: r5-cyc0203-20261113
+  model_label: Codex
+reviewed_roles:
+- R4
+author_sessions:
+- r4-linked-20261111
+independence_basis: Reviewer did not author interface package; own symbolic cases, pose/parent/source checks and
+  coherently re-exported mutations. Organizational independence not established.
+reviewed_commit: ed8272ce6ebc2047bb0d896db5951d02c42d5208
+parameter_refs: []
+artifacts:
+- path: verification/r4_cycle_interfaces/README.md
+  sha256: c1cb7f02dd67269342839efb9c011fb2f758434cd7260d0ed5b4f7851347e2b6
+- path: verification/r4_cycle_interfaces/claim.json
+  sha256: 92acb5f96e2925dc9bbae31adcb54c79db6e158eef009b72255d13e6d919e734
+- path: verification/r4_cycle_interfaces/claim.md
+  sha256: fb408ee426dfb5a98bf0bfde44b36072369fc83ad15f7fbb842abea59479db13
+- path: verification/r4_cycle_interfaces/input_manifest.json
+  sha256: 0e9ad55c908b249c4bc1fc3949134b62b74ab83e63c19b456d0899eceb62464b
+- path: verification/r4_cycle_interfaces/proposal/R2_R3_requests.json
+  sha256: 1127ed71650b436d8e8a8a7c43860cb056e7ca8fb0b54dc6f72c09835873cc56
+- path: verification/r4_cycle_interfaces/proposal/R2_R3_requests.md
+  sha256: e4b3b6b36c1d5ba1c1b769ee309986f0bda7bfa8d0188e9e734becd194685587
+- path: verification/r4_cycle_interfaces/proposal/README.md
+  sha256: 99aa2e8609894b5eda28fb8af96e1768e142109d39836a8868475ecb67967ab7
+- path: verification/r4_cycle_interfaces/proposal/baseline_bindings.json
+  sha256: bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0
+- path: verification/r4_cycle_interfaces/proposal/baseline_bindings.md
+  sha256: 905f464a250be615ae1a8c718a0c4f87a801fa4f602a1813eb85d795937aa7e5
+- path: verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py
+  sha256: 3916f8e4fd6002c4c67e310c6d30cab5beca923b105db2292ea21f77069252ff
+- path: verification/r4_cycle_interfaces/proposal/check_package.py
+  sha256: 3eae20c5d567f083ec616af8e27f5530dca8972bd089cd1589ffcbbec832de33
+- path: verification/r4_cycle_interfaces/proposal/checks.json
+  sha256: 8e7a25d8a02fb815c70f05e452b1a02a6327a4d3f23447ce26e84808e0d0750e
+- path: verification/r4_cycle_interfaces/proposal/document_checks.json
+  sha256: 111aef914d7ff0c757fff8cae10360381ee5ced4e37029567962bdef8cc2e3fd
+- path: verification/r4_cycle_interfaces/proposal/export_checks.json
+  sha256: c0c0fd9ec271488cdf53e3eb15da51e67f8ed687fdaec77a51c84a18cad1b425
+- path: verification/r4_cycle_interfaces/proposal/exports/exports_manifest.json
+  sha256: d99ddd45661e90abfdd3bd0a8a2f42de6aaac1c11142056e8fd096b9a98b1010
+- path: verification/r4_cycle_interfaces/proposal/exports/force_A-V1.svg
+  sha256: 7c2f40222ab653d13024b61333a6e77b68ce36c2b3885836d58acd53ca78ef46
+- path: verification/r4_cycle_interfaces/proposal/exports/force_A-V2.svg
+  sha256: b53d572c640485347be88eec2abd660503b65647ae4d7724f705ed2de1e2ef69
+- path: verification/r4_cycle_interfaces/proposal/exports/force_B-V1.svg
+  sha256: 7ac2fbe1e3ef43cc48d65efbfb6544b48ad2c0a10b071c7212f16c51c2436f9c
+- path: verification/r4_cycle_interfaces/proposal/exports/force_B-V2.svg
+  sha256: 7de19a72c6d3b6d45ded0a72df1ab2a56a2d7efe0abd34946d90fa23a3e60658
+- path: verification/r4_cycle_interfaces/proposal/exports/interface_A.svg
+  sha256: 50f0d058ee7e797c0f5ea264b55674fe192e80335b3fc5668a25ef90583647ea
+- path: verification/r4_cycle_interfaces/proposal/exports/interface_B.svg
+  sha256: fe6ae946974cb0c2468e058745a6cafd0ba75b164da311bf9335cf3c59f5ab88
+- path: verification/r4_cycle_interfaces/proposal/exports/positions_permissions.csv
+  sha256: 3afa786c338006839fcb92b2cc59ae3c9d6acd7c0abb78baf53b0ac48be2f279
+- path: verification/r4_cycle_interfaces/proposal/exports/positions_permissions.md
+  sha256: bb9a6a65e29b9df4ff4144b5180fa0ef557544fdbc16e675b112ef8ac958f0b2
+- path: verification/r4_cycle_interfaces/proposal/force_variants.json
+  sha256: 9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa
+- path: verification/r4_cycle_interfaces/proposal/force_variants.md
+  sha256: 000826d78d2a7fceca11a1373b3c4c777740be0a18e7c51d91e5c0408ef0426c
+- path: verification/r4_cycle_interfaces/proposal/input_audit.json
+  sha256: 32da9f705f770496b3ff5830c9d308467516f536c489535fd330e8766cb20a40
+- path: verification/r4_cycle_interfaces/proposal/input_audit.md
+  sha256: 40d370b970fb16aa3d5d7a0d4cbdf7ae4c88e1895a1bc0a5fe58521d7366d567
+- path: verification/r4_cycle_interfaces/proposal/interfaces.md
+  sha256: 02d99262492c5e28850e04748a1cafb7e24773f02329ca7dfefddda8f5331920
+- path: verification/r4_cycle_interfaces/proposal/mechanical_guards.json
+  sha256: 987d2254af5af0f2269f9d762a8a43737b0687dbe3d393aabedcaceaee7fb195
+- path: verification/r4_cycle_interfaces/proposal/permissions.json
+  sha256: f6fcf73c58120b99fe3ca2bed56850f9c2976e09fdcf7d6ece1cb3a0734792cb
+- path: verification/r4_cycle_interfaces/proposal/poses.json
+  sha256: 90caed265da05bfc8d98de3d4b9ca17acdd4938c55737ffd98df3a009abcc500
+- path: verification/r4_cycle_interfaces/proposal/preservation.json
+  sha256: 16caa1c09a489802a029f8c9b9fb04a6042e3a1ca19e5fa5a8d696fe3aea639d
+- path: verification/r4_cycle_interfaces/proposal/render_schemes.py
+  sha256: 8039f3e53d0ba2431f487de6a254ae76c2738bd839a91f2082e9000801a4955f
+- path: verification/r4_cycle_interfaces/proposal/review_request.md
+  sha256: 3ab38f6361be455d55a2db05d2c293e85d2d0fc15e513fbf97ded86500beae91
+- path: verification/r4_cycle_interfaces/proposal/unknown_inputs.json
+  sha256: c5ba9d3ef75836171203adefdae530d4ab4a1a0b4eda4303eaa06c4dedb986ef
+- path: verification/r4_cycle_interfaces/proposal/verification_plan.json
+  sha256: f0a660bfb1319808e287069f97bd2eaaf17a44f1b50b22175e1a8e5e4a15ceea
+- path: verification/r4_cycle_interfaces/proposal/verification_plan.md
+  sha256: ef44633035fba223865ba96e0b787c0a9e2e33af7254df4ceeca3cc856acfa69
+- path: verification/r4_cycle_interfaces/task.md
+  sha256: 90348c639a7c026a388c2ee8525da477325da89a3d6792440e653847c32b3f27
+scope: CYC-02/03 documentary interfaces, six schemes, 51 rows, four force-layout proposals; no material engine,
+  strength, native CAD or physical READY acceptance.
+checks:
+- id: CHK-CI-REPLAY
+  method: Run check_package.py and check_exports_reproduction.py read-only.
+  expected: 147 document and 8 export checks reproduced.
+  observed: 147/147 and 8/8 MATCH; no auto-repair.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: PASS
+- id: CHK-CI-44
+  method: Compare all 44 source rows and every action/phase ref with authoritative IDs, revisions, values, units
+    and hashes.
+  expected: No reduced diameter, load or stroke; correct scenario binding.
+  observed: All actual bindings preserved; source S=v*t/return sums match.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: PASS
+- id: CHK-CI-STAGES
+  method: Independent current-pose, mode/parent and fill-completion audit.
+  expected: Unambiguous completion/return boundary, legal parent mode, addressed fill receipt.
+  observed: 5 D0/D1 completion ambiguities, 3 unsupported mode/parent rows, 2 missing explicit fill linkage checks.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: FAIL
+- id: CHK-CI-RECOVERY
+  method: Frozen helper B-NEXT reset failure, fresh B-RESET ENTRY, child-condition comparison.
+  expected: Recovery parent and required mechanical substeps have a noncircular targeted path.
+  observed: Parent ENTRY ALLOWED_ASSUMED while dependency remains FALSE and STOP-CLOSE/RELOCK require it.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: FAIL
+- id: CHK-CI-MUTANTS
+  method: Independent validator plus coherent export of eight isolated semantic/source mutations.
+  expected: Invalid poses, guard omission, parent/scenario mismatch and source reductions rejected.
+  observed: Five semantic mutants erroneously MATCH in author checker; three baseline reductions correctly rejected.
+    Own validator detects each.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: FAIL
+- id: CHK-CI-FORCE
+  method: Inspect A/B V1/V2 schemes and force-loop/kinematic assumptions.
+  expected: Conditional R3 study only; new members, moments and mounts exposed.
+  observed: Four WARNING handoffs; i=1 assumed, strength/clearance/physical feasibility unconfirmed.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: PASS
+- id: CHK-CI-PRESERVE
+  method: Git trees/blobs and baseline worktree SHA256.
+  expected: Calculations/CAD/frozen packages and historical reviews unchanged.
+  observed: 1199 files during checks, 612 protected files, 7 frozen packages, 11 trees and 17 blobs preserved.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: PASS
+- id: CHK-CI-NATIVE
+  method: Inspect future-plan versus actual executed geometry.
+  expected: Do not present 2933 planned pairs as checked geometry.
+  observed: 0 actual pairs; native geometry/physical trials NOT_RUN.
+  reasoning: Documentary OUTPUT scope; no native geometry or physical validation.
+  result: NOT_RUN
+findings:
+- id: R5-CI-B01
+  status: OPEN
+  priority: P1
+  description: Clarify parent commit versus doser return/current D1, explicit addressed fill completion and mode/parent
+    consistency.
+- id: R5-CI-B02
+  status: OPEN
+  priority: P1
+  description: Define targeted B recovery substeps without circular generic DEPENDENCY_VALID; do not globally bypass
+    faults.
+- id: R5-CI-B03
+  status: OPEN
+  priority: P2
+  description: Add semantic pose/path/guard/parent/per-action binding checks after valid re-export.
+verdict: REJECT_WITH_BLOCKER
+validity: CURRENT
+blocker_ids:
+- R5-CI-B01
+- R5-CI-B02
+- R5-CI-B03
+allowed_downstream_scope: Each A-V1/A-V2/B-V1/B-V2 may be sent to R3 as conditional force-path study with WARNING;
+  stable interface and next CAD iteration blocked pending corrections and R3/R2 inputs.
+excluded_claims:
+- Native rod/chamber/feed clearance or strength
+- Physical READY, implemented W02 or full material lifecycle
+- Architecture/requirements approval, CYC or G1 closure
+closure_criteria:
+- Correct text/JSON/exports and explicit positive/negative sequential traces for new documentary blockers.
+- Semantic mutations rejected after legitimate export; authoritative 44 bindings unchanged.
+- Independent RECHECK of exact new C; R3 force/mount/ratio and R2 material inputs before CAD.
+reproduction_artifacts:
+- verification/r5_cycle_interfaces_output/review.md
+- verification/r5_cycle_interfaces_output/commands.json
+- verification/r5_cycle_interfaces_output/independent_probe.py
+- verification/r5_cycle_interfaces_output/independent_results.json
+- verification/r5_cycle_interfaces_output/preservation.json
+- verification/r5_cycle_interfaces_output/variant_verdicts.json
+variant_disposition:
+  A-V1: WARNING_FORCE_PATH_STUDY_ONLY; CAD_NO_GO
+  A-V2: WARNING_FORCE_PATH_STUDY_ONLY; CAD_NO_GO
+  B-V1: WARNING_FORCE_PATH_STUDY_ONLY; CAD_NO_GO
+  B-V2: WARNING_FORCE_PATH_STUDY_ONLY; CAD_NO_GO
+prior_conflict_history:
+  consecutive_rejections: 2
+  old_B01: CLOSED_DOCUMENTARY_C0c4eb5d_NOT_REOPENED
+  W02: OPEN_NOT_IMPLEMENTED
+supersedes: null
+```

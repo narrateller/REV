@@ -1,3 +1,32 @@
+# OUTPUT CYC-02/03 — независимый R5, REJECT_WITH_BLOCKER
+
+Проверенный C **ed8272ce6ebc2047bb0d896db5951d02c42d5208**, H
+c18cb1e28a6358a2a7836809f461a3d594853796. Session r5-cyc0203-20261113 / Codex / R5.
+Акт **REV-R5-CYC0203-OUTPUT-01-001**, verification/r5_cycle_interfaces_output/review.md.
+
+R5-CI-B01/B02/B03 OPEN: parent completion/возврат D и адресный FILL_COMPLETE,
+mode/parent, B recovery dependency и semantic checker. 147 document +8 export
+MATCH; независимые 1345 checks: 1328 PASS / 17 FAIL (12 исходных проверок полноты
+и согласованности, 5 пропущенных checker мутаций). Exit 0 сборщика не приёмка.
+**Все 44 привязки сохранены, d/D/F/ходы не уменьшены.** Расчёты/CAD не изменены.
+
+Для каждого A-V1/A-V2/B-V1/B-V2 допустима только силовая постановка R3 с WARNING.
+Перед следующей CAD-итерацией нужны документальные исправления/RECHECK и R3/R2
+входы по носителю/опорам/эксцентриситету/монтажу/материалу. Нет выбора архитектуры.
+Схемы NTS не доказывают отсутствие native penetrations. Проверенных geometry пар 0.
+W02 OPEN/NOT_IMPLEMENTED, physical READY NO-GO, **G1 OPEN**; ТЗ/архитектура не
+утверждены, native CAD/rebuild/физические испытания NOT_RUN.
+
+История двух отказов контракта и consecutive_rejections=2 сохранены. Старый B01
+C0c4eb5d закрыт в своей документальной области и не переоткрывается новыми IDs.
+R4 owner/lease не менялись; main не меняется, parent не DONE. Следующий шаг —
+отдельное рассмотрение точного review SHA; R4 исправляет новый OUTPUT по акту,
+затем независимый RECHECK. Ограниченное R3 исследование силового пути независимо.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
 # R4 — CYC-02/03 передано на независимый OUTPUT review
 
 **Рабочий C `ed8272ce6ebc2047bb0d896db5951d02c42d5208`, REMOTE** в
