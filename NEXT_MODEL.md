@@ -1,3 +1,52 @@
+# R4 — B03 strict types по ARB-R1-CI-SEMANTICS-02, независимый RECHECK PENDING
+
+**Рабочий C `fa0626372c03d11655624bb454458f82c30117f7`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-types-20261113`.
+https://github.com/narrateller/REV/commit/fa0626372c03d11655624bb454458f82c30117f7
+Следующий H — только STATE/NEXT/капсула; payload/checker в exact C не меняется.
+R1 **e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3** прочитан и записан в капсуле до кода,
+merge/audit checkpoint 64154d8. Исходный третий R5 REJECT 3d317b3 на Cbd7ce8a,
+H 480cc59ac76638802dcb96e231e5598c26594d37 сохранены полными предками.
+
+Исправлен общий type validation перед equality во всех nested source/ref/AST/
+phase/provenance; bool/float не integer. Metadata flags сравниваются по точным
+типам. Recovery predicate валидирует snapshots и использует frozen policy на
+том же proof/context/fault без применения возвращённого state. Невалидные
+origin false/0.0 дают UNKNOWN/INDETERMINATE, fault остаётся OPEN.
+[Контракт/аудит/команды](verification/r4_cycle_interfaces/type_correction/README.md),
+[результаты](verification/r4_cycle_interfaces/type_correction/checks.json),
+[типы и differential cases](verification/r4_cycle_interfaces/type_correction/type_cases.json).
+
+Фактически: 3277 document MATCH, 8 export MATCH; 244 fresh re-export type cases,
+36 same-input recovery comparisons PASS. Неизменённый R5 probe в изолированной
+копии: 765/765, против исходных 759/765 с 6 FAIL. 6 новых, 6 прежних semantic
+и 7 B01/B02 unittest methods PASS; registry --check-git PASS. Это авторская
+проверка, не новый независимый акт R5. Положительные integer/zero counters,
+корректное recovery и допустимая нормализация/арифметика сохранены.
+
+Норматив и весь semantics_v1, frozen helper, payload, 44 bindings, четыре
+силовых варианта, нагрузки/расчёты/CAD побайтно сохранены; 612 protected files
+MATCH. minimum.json SHA b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df.
+Обновлены только source hashes manifest; остальные exports побайтно прежние.
+Все три REJECT/исходные findings/SHA/hashes/evidence сохранены; только validity
+индекса последнего акта STALE для новой версии. interface_consecutive_rejections=3,
+отдельная material-contract history=2 не обнулены. **B03 OPEN / RECHECK_PENDING**,
+стабильная передача интерфейса и новая CAD-итерация NO-GO.
+
+Main 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a, accepted PR45 owner
+r4-linked-20261111 и lease 2026-11-14T00:13:12.404899+00:00 (14 ноября
+03:13 МСК) неизменны, без переназначения/продления/merge. Исполнитель R4/Codex/
+r4-b03-types-20261113 выполнял только разрешённый type follow-up. Старая ветка
+норматива не перезаписана. Следующий участник — независимый R5, exact C + R1
+решение + proposal/review_request.md, собственные positive/negative fixtures.
+W02/PLC/CAD/rebuild/physical trials вне scope; physical READY NO-GO,
+архитектура/ТЗ не утверждены, **G1 OPEN**, геометрических пар проверено 0.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-types-20261113.md;
+UTC 2026-11-13T08:35:26.150894+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # Follow-up R1 по строгим типам интерфейсного checker
 
 Входной R5 акт `3d317b32596884cc60d9d42675924b88fcb29bf0` на C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`: B03 OPEN, 765=759+6. R1 воспроизвёл новые подмены, решение `decisions/ARB-R1-CI-SEMANTICS-02.md`, evidence `verification/r1_ci_types_arbitration/`.
