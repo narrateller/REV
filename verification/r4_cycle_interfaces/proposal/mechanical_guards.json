@@ -114,6 +114,42 @@
       "actual": "UNKNOWN",
       "value": null,
       "unknown_reason": "Requires R2 inventory and R3 feed envelope/partial gather definition"
+    },
+    "FILL_COMPLETE": {
+      "meaning": "Historical addressed completed transfer at D1 for exact dose, material, subject, batch, epoch, LOAD and transfer operation and revisions; valid through proven retained return only. TRUE only by completed transfer observation/ledger receipt, never command or elapsed time.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "LOAD_COMMITTED_CURRENT": {
+      "meaning": "Exact referenced LOAD/REFILL has committed AFTER_DOSER_RETURN with same valid FILL_COMPLETE receipt and current D0. New refill dose cannot reuse prior receipt.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "FEEDER_SAFE": {
+      "meaning": "Conjunction of current D_HOME_CURRENT, D_PATH_CLEAR, MATERIAL_HELD_CURRENT, P_FEED_CLEAR and G_PATH_CLEAR for the same dose and complete isolation sweep; D0 alone insufficient.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "RECOVERY_SCOPE_VALID": {
+      "meaning": "Exact current closure recovery request, target fault ID/scope/origin and current revisions, fresh non-rejected operation, known receipt/inventory; unrelated fault domains remain open and own current conditions still block if FALSE.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "STOP_CLOSED_CURRENT": {
+      "meaning": "Current independently confirmed stop closure and support, full sweep/retained product checked; not B_RESET_CONFIRMED or READY.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
+    },
+    "LOCK_CLOSED_CURRENT": {
+      "meaning": "Current independently confirmed lock engagement after stop closure; not history reconciliation or READY.",
+      "actual": "UNKNOWN",
+      "value": null,
+      "unknown_reason": "Documentary proposal only; requires independently addressed R2/R3 feedback and evidence, not implemented signals"
     }
   },
   "common": [
@@ -137,5 +173,22 @@
   ],
   "invalidates": "Any changed subject/pose/path/load/geometry/material/resource/receiver invalidates its dependent evidence; evaluate at entry and completion, never cache READY",
   "failure_rule": "Proven blocking FALSE -> BLOCKED even with UNKNOWN elsewhere; otherwise mandatory UNKNOWN/stale/unsupported -> INDETERMINATE; only all current assumptions can be ALLOWED_ASSUMED documentary, never physical permission",
-  "faults": "Stable independent fault IDs/domain/subject; only targeted confirmation of same entity clears own fault. Rejected operation IDs retained forever including A→B→C→A; recovery new unique ID, own conditions, no universal READY, no clearing other faults."
+  "faults": "Stable independent fault IDs/domain/subject; only targeted confirmation of same entity clears own fault. Rejected operation IDs retained forever including A→B→C→A; recovery new unique ID, own conditions, no universal READY, no clearing other faults.",
+  "guard_dependencies": {
+    "FEEDER_SAFE": [
+      "D_HOME_CURRENT",
+      "D_PATH_CLEAR",
+      "MATERIAL_HELD_CURRENT",
+      "P_FEED_CLEAR",
+      "G_PATH_CLEAR"
+    ],
+    "G_ISOLATED_CURRENT": [
+      "G_PATH_CLEAR",
+      "MATERIAL_HELD_CURRENT"
+    ],
+    "B_STOP_LOCK_CLOSED": [
+      "STOP_CLOSED_CURRENT",
+      "LOCK_CLOSED_CURRENT"
+    ]
+  }
 }

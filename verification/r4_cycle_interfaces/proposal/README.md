@@ -1,6 +1,8 @@
 # CYC-02/03 — первая документальная постановка интерфейсов A/B
 
-**Для независимого OUTPUT review; не приёмка конструкции.** Owner R4 /
+**Исправление по R5 `13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2`; независимый RECHECK нового C PENDING.**
+
+B01/B02/B03 остаются OPEN до независимого акта. [Описание исправлений и регрессий](../correction/README.md), [протокол передачи/возврата/recovery](cycle_protocol.json). Исторический REJECT исходного C сохранён без изменения вердикта. Не приёмка конструкции. Owner R4 /
 r4-linked-20261111, claim принят PR45 на
 `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`; прежний срок сохранён.
 Входной акт [input_audit.md](input_audit.md), точные версии/хэши
@@ -14,7 +16,7 @@ r4-linked-20261111, claim принят PR45 на
   [символические позы](poses.json), [полные разрешения/условия](permissions.json),
   [guards и правила evidence](mechanical_guards.json).
   31 исходное материальное действие checked contract сохранено с полными
-  entry/completion; 20 дополнительных механических участков, всего 51 строка.
+  entry/completion; 22 дополнительных механических участка, всего 53 строки (добавлены A/B FILL-CONFIRM).
 - [Таблица поз/разрешений](exports/positions_permissions.md),
   [полная редактируемая CSV](exports/positions_permissions.csv).
   START, текущие инварианты, предварительные движения и completion различаются;
@@ -55,13 +57,14 @@ python3 -B verification/r4_cycle_interfaces/proposal/render_schemes.py --output-
 Read-only проверка сохранённого пакета, **без генерации/исправления**:
 
 ```bash
-python3 -B verification/r4_cycle_interfaces/proposal/check_package.py
-python3 -B verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py
-python3 -B scripts/check_registry.py --check-git
+.venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_package.py
+.venv/bin/python -B verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py
+.venv/bin/python -B -m unittest discover -s verification/r4_cycle_interfaces/correction -p 'test_*.py' -v
+.venv/bin/python -B scripts/check_registry.py --check-git
 git diff --check
 ```
 
-Полные результаты — [checks.json](checks.json),
+Текущие результаты исправления — [correction](../correction/README.md). Следующие файлы относятся только к **исходному C ed8272c**, не являются проверками новой редакции: [checks.json](checks.json),
 [документальные проверки](document_checks.json), [экспорт/негативные пробы](export_checks.json),
 [сохранность](preservation.json). Два повторных readonly запуска совпали без
 изменения файлов; два явных экспорта совпали с публикацией. Отсутствующий или

@@ -26,11 +26,11 @@ def interface(v):
  # Coordinates + sequence lanes
  box(s,50,310,420,260,['Базы и положения','O: задняя плоскость камеры','+x → выход; +y поперёк; +z вверх','D/G: свои базы, offsets UNKNOWN','P0 = x_P0 UNKNOWN','P1 = P0 + S_approach','P2 = P1 + S_work','P3 = P2 + S_eject'],'#e5eff7')
  txt(s,515,340,['Порядок подачи (каждая стрелка — полный путь и guards)'],'h')
- for x,l in [(515,['P0/PF','FEED_CLEAR']), (770,['G0: OPEN','D0 → D1 → D0']), (1025,['Доза учтена','G0 → G1']), (1280,['G1 подтверждён','P: подход/работа'])]:box(s,x,375,235,90,l,'#e2f2ec')
+ for x,l in [(515,['P0/PF','FEED_CLEAR']), (770,['G0; D0 → D1','FILL_COMPLETE → D0']), (1025,['LOAD commit в D0','FEEDER_SAFE → G1']), (1280,['Изоляция актуальна','P: подход/работа'])]:box(s,x,375,235,90,l,'#e2f2ec')
  for a,b in [(750,770),(1005,1025),(1260,1280)]:line(s,a,420,b,420)
- txt(s,515,505,['Закрытие G до завершения переноса дозы не разрешено.', 'Поза D/G/P ≠ доказательство материала, изоляции или READY.'],step=32)
+ txt(s,515,505,['FILL_COMPLETE: именно эта доза / материал / операция; не команда и не таймер.', 'D1 receipt → возврат D0 → commit LOAD → отсечение; READY отдельно.'],step=32)
  box(s,50,615,730,300,(['A empty → startup → column → steady','GATHER → partial RETURN → REFILL: тот же столб','PG_A/PF/число наборов UNKNOWN; реакция обязательна','COLUMN_CRITERION отдельно, не счётчик ходов','Steady: COMPACT → SEGMENT → EJECT','Остаток сохранён; зажим/реакция UNKNOWN','CROSS → RECEIVE, только затем допустим REMOVE','Возврат P3 → P0 по source S_return; READY отдельно'] if v=='A' else ['B load → repeated gather или single','GATHER → partial RETURN → REFILL: тот же batch','PG_B/PF/вместимость/удержание UNKNOWN','SELECT → COMPACT → UNLOAD → UNLOCK → OPEN','Открытие B INDETERMINATE, не из конца хода','EJECT → CROSS → RECEIVE → RETURN','STOP-CLOSE → RELOCK → RESET с остатками','B_RESET_CONFIRMED отдельно; P0 ≠ READY']),'#e2f2ec')
- box(s,825,615,725,300,['Условия каждого движения','START родителя + текущие инварианты + свои guards','Свидетельства: subject / operation / epoch / revisions','Изменение материала/позы/ресурса делает guards устаревшими','Доказанный отказ → BLOCKED, даже при другом UNKNOWN','Иначе обязательный UNKNOWN → INDETERMINATE','Recovery: свои guards, новый ID, без общего READY','Нельзя снять чужой fault или забыть rejected ID'],'#fff0da')
+ box(s,825,615,725,300,['Условия каждого движения','Подготовка: свои guards до START родителя','Остальные: START + инварианты + свои guards','Свидетельства: subject / operation / epoch / revisions','Изменение материала/позы/ресурса делает guards устаревшими','Доказанный отказ → BLOCKED, даже при другом UNKNOWN','Иначе обязательный UNKNOWN → INDETERMINATE','Recovery: свои guards, новый ID, без общего READY','Нельзя снять чужой fault или забыть rejected ID'],'#fff0da')
  return footer(s)
 def force(v,opt,rec):
  s=svg_start(f'{v} / {opt} / CYC-03 — {rec["title"]}', 'ASSUMED вариант без выбора • условный вид сверху, +x вправо / +y вверх • размеры UNKNOWN • не CAD')
@@ -66,22 +66,31 @@ def force(v,opt,rec):
  box(s,50,735,730,205,['До: прямой source шток входил в камеру/подачу.','После: изменена только предлагаемая топология, не BRep.','D/d/F/камера/ходы не уменьшены; все 44 source binding.','Носитель — новая силовая деталь, не переименованный шток.','Двусторонние joints, устойчивость и потери → R3.','Нативные пары/прочность: NOT_RUN / INDETERMINATE.'],'#e5eff7')
  box(s,825,735,725,205,['Доступы и последующая проверка','Извлечение цилиндра/штока/носителя и снятие T с опорой.','CylinderRemoval / DoserRemoval / новые QueryVolumes.','Направляющие, крепления, порты, ограждения, сервис по L.','Старые BLOCKED/SHORT_STROKE/unknown не закрыты.','B opening и физическая выполнимость L INDETERMINATE.'],'#fff0da')
  return footer(s)
-def generate(out):
- out=Path(out);out.mkdir(parents=True,exist_ok=True)
+def documents(folder=HERE):
+ """Pure rendering, also used to compare full export contents without writes."""
+ folder=Path(folder)
+ def read(n):return json.loads((folder/n).read_text())
  result={}
  for v in ['A','B']:result[f'interface_{v}.svg']=interface(v)
  for rec in read('force_variants.json')['variants']:result[f'force_{rec["id"]}.svg']=force(rec['variant'],rec['option'],rec)
  acts=read('permissions.json')['actions']
- columns=['id','variant','mode','material_from','material_to','poses','predecessors','entry_guards','completion_guards','extra_entry_guards','extra_completion_guards','contract_ref','source_rows','evidence_scope','resources','continuity','mandatory_checks','exit_receipt','recovery','check_ids','source_bindings','permission_actual','physical_permission']
+ columns=sorted(set().union(*(a.keys() for a in acts)))
  buf=io.StringIO(newline='');w=csv.writer(buf,lineterminator='\n');w.writerow(columns)
- for a in acts:w.writerow([json.dumps(a[k],ensure_ascii=False,sort_keys=True) if isinstance(a[k],(list,dict)) else a[k] for k in columns])
+ for a in acts:w.writerow([json.dumps(a.get(k),ensure_ascii=False,sort_keys=True) if isinstance(a.get(k),(list,dict)) or a.get(k) is None else a[k] for k in columns])
  result['positions_permissions.csv']=buf.getvalue()
  md=['# Положения и разрешения — документальная таблица','', 'Полные entry/completion, источники, scope/epoch/evidence, ресурсы и пары — permissions.json и positions_permissions.csv. Все actual INDETERMINATE, physical permission NO_GO. Guard-перечни исходных действий перенесены полностью из проверенного C; подстадии связывают START родителя, текущие инварианты и свои guards; предварительные движения имеют собственные условия. UNKNOWN не ноль.','', '| Действие / mode | Материал до → после | D / G / P | Предшественники | Дополнительные entry / completion |','|---|---|---|---|---|']
  for a in acts:
   ps=a['poses'];md.append('| '+a['id']+' / '+', '.join(a['mode'])+' | '+', '.join(a['material_from'])+' → '+a['material_to']+' | '+ps['doser']+' / '+ps['gate']+' / '+ps['punch']+' | '+a['predecessors']+' | '+', '.join(a['extra_entry_guards'])+' / '+', '.join(a['extra_completion_guards'])+' |')
  result['positions_permissions.md']='\n'.join(md)+'\n'
+ for v in 'AB':
+  metadata={'actions':[a for a in acts if a['variant']==v],'protocol':read('cycle_protocol.json')}
+  n=f'interface_{v}.svg';result[n]=result[n].replace('</svg>', '<metadata id="cycle-data">'+e(json.dumps(metadata,ensure_ascii=False,sort_keys=True))+'</metadata>\n</svg>')
+ return result
+def generate(out):
+ out=Path(out);out.mkdir(parents=True,exist_ok=True)
+ result=documents()
  for n,t in result.items():(out/n).write_text(t)
- manifest={'scope':'Document exports only, no CAD evidence','sources_sha256':{n:hashlib.sha256((HERE/n).read_bytes()).hexdigest() for n in ['render_schemes.py','force_variants.json','permissions.json','poses.json','mechanical_guards.json','baseline_bindings.json','verification_plan.json','unknown_inputs.json']},'exports_sha256':{n:hashlib.sha256((out/n).read_bytes()).hexdigest() for n in sorted(result)}}
+ manifest={'scope':'Document exports only, no CAD evidence','sources_sha256':{n:hashlib.sha256((HERE/n).read_bytes()).hexdigest() for n in ['render_schemes.py','force_variants.json','permissions.json','poses.json','mechanical_guards.json','baseline_bindings.json','verification_plan.json','unknown_inputs.json','cycle_protocol.json']},'exports_sha256':{n:hashlib.sha256((out/n).read_bytes()).hexdigest() for n in sorted(result)}}
  (out/'exports_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  return sorted(result)+['exports_manifest.json']
 if __name__=='__main__':

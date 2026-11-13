@@ -23,7 +23,7 @@
 ## A: empty → startup → column → steady
 
 A-AUDIT устанавливает документально пустое состояние только по своим
-подтверждениям. FEED-OPEN → LOAD-START (DOSE-DELIVER, DOSER-RETURN) →
+подтверждениям. FEED-OPEN → LOAD-START (DOSE-DELIVER, FILL-CONFIRM, DOSER-RETURN) →
 FEED-ISOLATE → GATHER → STARTUP-RETURN → REFILL повторяются при сохранении
 столба, собственной вместимости и реакции. PG_A/PF и число повторов UNKNOWN;
 источниковый полный work-stroke не навязывается частичному набору.
@@ -105,3 +105,22 @@ extra guards; историческое START не разрешает обойт�
 согласовать с R3; неопределённость даёт INDETERMINATE, не разрешение. Материальный
 переход фиксируется только после всех собственных completion и родительского
 completion; W02 engine/PLC этой постановкой не реализован.
+
+## Уточнение по OUTPUT R5 — B01/B02/B03
+
+[Полный протокол исправления](../correction/README.md) и cycle_protocol.json
+задают обязательную последовательность D0→D1→FILL-CONFIRM→D0→commit LOAD→G1.
+FILL_COMPLETE — адресная историческая квитанция именно этой дозы/материала/LOAD
+и transfer operation, а не команда, таймер или текущий D1 после возврата.
+Каждая подстадия завершает только себя; parent LOAD завершается после D0.
+При commit исходный helper меняет MATERIAL/FEED: требуется явный successor
+связанный с исходной квитанцией и точным +1 только этих ревизий. Отсечение
+требует также LOAD_COMMITTED_CURRENT и FEEDER_SAFE; изоляция/нагрузка неизвестны.
+
+A full APPROACH/WORK/HOLD-UNLOAD существуют только в A_STEADY. Для частичного
+startup остаются PG_A/PF и свои условия. STOP-CLOSE/RELOCK B требуют собственных
+текущих guards и адресного recovery request; общего DEPENDENCY_VALID на входе
+этих стадий нет. Closure fault, причинные dependency и остальные fault IDs
+разрешаются отдельно; нормальные NEXT/COMPACT не обходят нерешённые отказы.
+
+W02 и физический READY NO-GO, G1 OPEN; это документальное уточнение, не PLC.

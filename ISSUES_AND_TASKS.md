@@ -1,3 +1,17 @@
+## T-r4-cycle-interfaces-01 — исправление OUTPUT B01/B02/B03
+
+- R4 / Codex / executing session r4-cyc-fix-20261113; прямое поручение пользователя.
+- Continuation accepted PR45 owner r4-linked-20261111; owner не переназначен, lease до 2026-11-14T00:13:12.404899+00:00 без продления.
+- Ветка work-r4/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113; база e9b778e12dc2202100bee52df7a93f19510f569f (R5 H), main 3a9258c.
+- IN_REVIEW / RECHECK_PENDING; B01/B02/B03 OPEN. Корректирующая реализация автора не закрывает независимые замечания.
+- Явные FILL-CONFIRM/адресная квитанция/возврат D0/parent commit; scope и successor MATERIAL/FEED.
+- B closure recovery по собственным guards, отдельные targeted closure result/history reconciliation, штатный DEPENDENCY_VALID сохранён.
+- Semantic checker после re-export и положительные/отрицательные регрессии: verification/r4_cycle_interfaces/correction/README.md.
+- Сохранены 44 bindings, четыре силовых варианта, расчёты, CAD, registry, checked helpers и исходные акты/probe R5.
+- W02/physical READY NO-GO, G1 OPEN. Архитектура/ТЗ не утверждены; next participant independent R5, no self-acceptance.
+
+---
+
 ## T-r5-cyc0203-output — независимый OUTPUT review
 
 - R5 / Codex / session r5-cyc0203-20261113; прямое поручение пользователя; parent ownership/lease не меняются.

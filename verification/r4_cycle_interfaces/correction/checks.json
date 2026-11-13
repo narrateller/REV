@@ -1,0 +1,94 @@
+{
+  "execution_status": "COMPLETED",
+  "scope": "Author documentary correction validation; not independent acceptance",
+  "created_at_utc": "2026-11-13T06:05:11.093661+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/workspace/REV/.venv/bin/python",
+        "-B",
+        "verification/r4_cycle_interfaces/proposal/check_package.py"
+      ],
+      "cwd": "/workspace/REV",
+      "exit_code": 0,
+      "stdout": "document_checks.json",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/workspace/REV/.venv/bin/python",
+        "-B",
+        "verification/r4_cycle_interfaces/proposal/check_exports_reproduction.py"
+      ],
+      "cwd": "/workspace/REV",
+      "exit_code": 0,
+      "stdout": "export_checks.json",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "verification/r4_cycle_interfaces/correction",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": "/workspace/REV",
+      "exit_code": 0,
+      "stdout_stderr": "regressions.log"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "scripts/check_registry.py",
+        "--check-git"
+      ],
+      "cwd": "/workspace/REV",
+      "exit_code": 0,
+      "stdout": "registry.log"
+    }
+  ],
+  "document_checks": 2376,
+  "document_result": "MATCH",
+  "export_checks": 8,
+  "export_result": "MATCH",
+  "unittest_methods": 7,
+  "reexport_mutation_cases": 28,
+  "independent_R5_original_reproduction": {
+    "checks": 1345,
+    "PASS": 1328,
+    "FAIL": 17
+  },
+  "truth_table_cases": 27,
+  "load_parents": 5,
+  "load_mode_bindings": 6,
+  "registry": "PASS",
+  "force_variants": "four unselected, byte identical",
+  "baseline_bindings": 44,
+  "protected_files": 612,
+  "blockers": {
+    "R5-CI-B01": "OPEN_RECHECK_PENDING",
+    "R5-CI-B02": "OPEN_RECHECK_PENDING",
+    "R5-CI-B03": "OPEN_RECHECK_PENDING"
+  },
+  "geometry_pairs_checked": 0,
+  "CAD_calculations_physical_trials": "NOT_RUN",
+  "W02": "OPEN_NOT_IMPLEMENTED",
+  "physical_READY": "NO_GO",
+  "G1": "OPEN",
+  "evidence_sha256": {
+    "document_checks.json": "696ce0dfc6dee46454a3cadbb517dbd85aaf1e4338be3a8ddcbaaf1aaa3538b1",
+    "export_checks.json": "95b027ed829f3af67f8803450884278391101146e0ea8ca9e42c1fa458784292",
+    "regressions.log": "c9598f7b3aabde067579febf012820e41a800d430a5941f0d21734df887b89e3",
+    "registry.log": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda",
+    "baseline_reproduction.json": "1e76fa4de41c039dcf418596f6d9d314d64a765ac7d39519df79c80d93dff54a",
+    "preservation.json": "bd6d5e149837e3696403b20dc35c0eb81d0cc8902a11f22d24689e080d27559a",
+    "test_documentary.py": "14382efd7cc4624beb6810e4e3b49ba67ba1a5025ae0fd45da699f65657c2e08"
+  }
+}

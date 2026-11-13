@@ -3797,7 +3797,8 @@ findings:
   priority: P2
   description: Add semantic pose/path/guard/parent/per-action binding checks after valid re-export.
 verdict: REJECT_WITH_BLOCKER
-validity: CURRENT
+validity: STALE
+stale_reason: Documentary correction changes reviewed artifacts after ed8272c; original REJECT/findings/SHA/hashes remain historical. Independent RECHECK required.
 blocker_ids:
 - R5-CI-B01
 - R5-CI-B02

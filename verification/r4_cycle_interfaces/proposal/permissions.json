@@ -1,10 +1,10 @@
 {
-  "schema": 1,
+  "schema": 2,
   "type": "Documentary refinement; NOT motion controller or material engine",
   "contract_commit": "0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed",
   "all_real_conditions": "UNKNOWN; physical READY NO_GO; do not execute machinery",
   "entry_rule": "At parent START all checked contract entry guards AND extras. Every stage requires own current entry guards and bound parent current invariants; prerequisite motion uses own guards to establish missing start poses, never universal READY.",
-  "completion_rule": "Only after continuous motion and all inherited completion_guards plus extras; no advance from pose alone",
+  "completion_rule": "Local substep completion is not parent completion. LOAD/REFILL commit only AFTER DOSER-RETURN: addressed historical FILL_COMPLETE / DOSE_DELIVERED from D1, current D0, all inherited completion and current invariants. Other parents commit only after their own required completion evidence. No command, pose or timer establishes material completion.",
   "actions": [
     {
       "id": "A-AUDIT",
@@ -197,7 +197,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-LOAD-START",
@@ -211,7 +238,7 @@
       "material_to": "A_STARTUP_RAW",
       "material_effect": "UPSTREAM → PRESS_ACCOUNT: новая сырая доза, L2",
       "poses": {
-        "doser": "D0→D1",
+        "doser": "D0→D1→D0",
         "gate": "G0",
         "punch": "P0/PF"
       },
@@ -250,9 +277,10 @@
       ],
       "extra_completion_guards": [
         "CONTINUOUS_MECHANISM",
-        "D_DELIVERY_CURRENT"
+        "D_HOME_CURRENT",
+        "FILL_COMPLETE"
       ],
-      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip",
+      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip; parent commits only after addressed transfer confirmation, safe return to current D0 and full parent completion; same retained inventory remains explicit",
       "evidence_scope": "mechanical_guards.json evidence_key + immutable contract evidence_policy/fault_policy",
       "resources": {
         "time": null,
@@ -404,7 +432,73 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "commit_boundary": "AFTER_DOSER_RETURN",
+      "delivery_evidence": "DOSE_DELIVERED and FILL_COMPLETE refer to the same addressed historical transfer receipt at D1, still valid after proven D1→D0 return; not current D1.",
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "COMMIT",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "A-GATHER",
@@ -609,7 +703,35 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "PG_A"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-REFILL",
@@ -623,7 +745,7 @@
       "material_to": "A_COLUMN_BUILDING",
       "material_effect": "Новая доза к стартовому запасу; Δretained не обнуляется",
       "poses": {
-        "doser": "D0→D1",
+        "doser": "D0→D1→D0",
         "gate": "G0",
         "punch": "P0/PF"
       },
@@ -661,9 +783,10 @@
       ],
       "extra_completion_guards": [
         "CONTINUOUS_MECHANISM",
-        "D_DELIVERY_CURRENT"
+        "D_HOME_CURRENT",
+        "FILL_COMPLETE"
       ],
-      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip",
+      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip; parent commits only after addressed transfer confirmation, safe return to current D0 and full parent completion; same retained inventory remains explicit",
       "evidence_scope": "mechanical_guards.json evidence_key + immutable contract evidence_policy/fault_policy",
       "resources": {
         "time": null,
@@ -815,7 +938,73 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "commit_boundary": "AFTER_DOSER_RETURN",
+      "delivery_evidence": "DOSE_DELIVERED and FILL_COMPLETE refer to the same addressed historical transfer receipt at D1, still valid after proven D1→D0 return; not current D1.",
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "COMMIT",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "A-COLUMN",
@@ -1011,7 +1200,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-LOAD-STEADY",
@@ -1025,7 +1241,7 @@
       "material_to": "A_STEADY_LOADED",
       "material_effect": "Доза + существующий столб без двойного счёта",
       "poses": {
-        "doser": "D0→D1",
+        "doser": "D0→D1→D0",
         "gate": "G0",
         "punch": "P0/PF"
       },
@@ -1066,9 +1282,10 @@
       ],
       "extra_completion_guards": [
         "CONTINUOUS_MECHANISM",
-        "D_DELIVERY_CURRENT"
+        "D_HOME_CURRENT",
+        "FILL_COMPLETE"
       ],
-      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip",
+      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip; parent commits only after addressed transfer confirmation, safe return to current D0 and full parent completion; same retained inventory remains explicit",
       "evidence_scope": "mechanical_guards.json evidence_key + immutable contract evidence_policy/fault_policy",
       "resources": {
         "time": null,
@@ -1220,7 +1437,73 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "commit_boundary": "AFTER_DOSER_RETURN",
+      "delivery_evidence": "DOSE_DELIVERED and FILL_COMPLETE refer to the same addressed historical transfer receipt at D1, still valid after proven D1→D0 return; not current D1.",
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "COMMIT",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "A-COMPACT",
@@ -1460,7 +1743,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P2"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-SEGMENT",
@@ -1654,7 +1964,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-EJECT",
@@ -1872,7 +2209,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P3"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-CROSS",
@@ -2066,7 +2430,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-RECEIVE",
@@ -2262,7 +2653,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-REMOVE",
@@ -2458,7 +2876,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-RETURN",
@@ -2678,7 +3123,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P3"
+          ],
+          "end": [
+            "P0"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-NEXT",
@@ -2875,7 +3347,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-AUDIT",
@@ -3069,7 +3568,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-LOAD",
@@ -3084,7 +3610,7 @@
       "material_to": "B_RAW_LOADED",
       "material_effect": "Доставленная доза + начальный остаток L2",
       "poses": {
-        "doser": "D0→D1",
+        "doser": "D0→D1→D0",
         "gate": "G0",
         "punch": "P0/PF"
       },
@@ -3125,9 +3651,10 @@
       ],
       "extra_completion_guards": [
         "CONTINUOUS_MECHANISM",
-        "D_DELIVERY_CURRENT"
+        "D_HOME_CURRENT",
+        "FILL_COMPLETE"
       ],
-      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip",
+      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip; parent commits only after addressed transfer confirmation, safe return to current D0 and full parent completion; same retained inventory remains explicit",
       "evidence_scope": "mechanical_guards.json evidence_key + immutable contract evidence_policy/fault_policy",
       "resources": {
         "time": null,
@@ -3279,7 +3806,72 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "commit_boundary": "AFTER_DOSER_RETURN",
+      "delivery_evidence": "DOSE_DELIVERED and FILL_COMPLETE refer to the same addressed historical transfer receipt at D1, still valid after proven D1→D0 return; not current D1.",
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "COMMIT",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-GATHER",
@@ -3484,7 +4076,35 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "PG_B"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-REFILL",
@@ -3498,7 +4118,7 @@
       "material_to": "B_RAW_LOADED",
       "material_effect": "Новая доза к тому же batch/history; не новая выдача",
       "poses": {
-        "doser": "D0→D1",
+        "doser": "D0→D1→D0",
         "gate": "G0",
         "punch": "P0/PF"
       },
@@ -3535,9 +4155,10 @@
       ],
       "extra_completion_guards": [
         "CONTINUOUS_MECHANISM",
-        "D_DELIVERY_CURRENT"
+        "D_HOME_CURRENT",
+        "FILL_COMPLETE"
       ],
-      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip",
+      "predecessors": "Exact material_from plus mechanical substeps below; no unverified skip; parent commits only after addressed transfer confirmation, safe return to current D0 and full parent completion; same retained inventory remains explicit",
       "evidence_scope": "mechanical_guards.json evidence_key + immutable contract evidence_policy/fault_policy",
       "resources": {
         "time": null,
@@ -3689,7 +4310,72 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "commit_boundary": "AFTER_DOSER_RETURN",
+      "delivery_evidence": "DOSE_DELIVERED and FILL_COMPLETE refer to the same addressed historical transfer receipt at D1, still valid after proven D1→D0 return; not current D1.",
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "COMMIT",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-SELECT",
@@ -3886,7 +4572,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-COMPACT",
@@ -4128,7 +4841,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P2"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-OPEN-CONFIRM",
@@ -4333,7 +5073,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-EJECT",
@@ -4555,7 +5322,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P3"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-CROSS",
@@ -4750,7 +5544,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-RECEIVE",
@@ -4947,7 +5768,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-REMOVE",
@@ -5143,7 +5991,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-RETURN",
@@ -5362,7 +6237,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P3"
+          ],
+          "end": [
+            "P0"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-RESET",
@@ -5567,7 +6469,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P0"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-NEXT",
@@ -5767,7 +6696,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "gate": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        },
+        "punch": {
+          "start": [
+            "HOLD_CURRENT"
+          ],
+          "end": [
+            "HOLD_CURRENT"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-STARTUP-RETURN-A_COLUMN_BUILDING",
@@ -5970,7 +6926,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "PG_A"
+          ],
+          "end": [
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-STARTUP-RETURN-A_COLUMN_ESTABLISHED",
@@ -6173,7 +7156,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_A.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "PG_A"
+          ],
+          "end": [
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-GATHER-RETURN",
@@ -6375,7 +7385,34 @@
           "revision": 1,
           "source": "verification/r3_power_reconcile/results/BASE_B.json"
         }
-      ]
+      ],
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "PG_B"
+          ],
+          "end": [
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-MECH-FEED-OPEN",
@@ -6583,7 +7620,7 @@
         "A-LOAD-STEADY",
         "A-REFILL"
       ],
-      "parent_binding": "Prerequisite before listed LOAD/REFILL START. Own conditions plus current material/retention/receiver/resources/ledger/dependency; no parent FEED_CLEAR/TOOLS_HOME proof before motion has established required open feed pose.",
+      "parent_binding": "Own-guard prerequisite for exactly one intended parent, which has NOT STARTED. Check current_parent_guards plus own conditions; do not demand missing final poses. Start parent only later with ALL its inherited/extra entry guards.",
       "current_parent_guards": {
         "A-LOAD-START": [
           "BASIS_DEFINED",
@@ -6632,7 +7669,80 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "A_STARTUP": [
+          "A-LOAD-START",
+          "A-REFILL"
+        ],
+        "A_STEADY": [
+          "A-LOAD-STEADY"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PREPARE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "A-MECH-DOSE-DELIVER",
@@ -6840,7 +7950,7 @@
         "A-LOAD-STEADY",
         "A-REFILL"
       ],
-      "parent_binding": "Substep of exactly one listed authorized parent operation. Parent START guards attested at actual start; parent invariant guards remain current; start-only pose guards are recorded history, not required to stay HOME while executing. Completion still requires all parent completion guards.",
+      "parent_binding": "One authorized active LOAD/REFILL operation; local completion only. START D0/FEED_CLEAR evidence is historical; invariants remain current. Parent completion is evaluated once after return, not at every child completion.",
       "current_parent_guards": {
         "A-LOAD-START": [
           "BASIS_DEFINED",
@@ -6889,7 +7999,416 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "parent_commit_boundary": "AFTER_DOSER_RETURN",
+      "fill_context": "Exact dose_id/material_id/subject_id/batch_id/cycle_epoch/load_operation_id/transfer_operation_id and basis/revision scope per cycle_protocol.json; no receipt borrowing between operations or refill doses.",
+      "mode_parent_bindings": {
+        "A_STARTUP": [
+          "A-LOAD-START",
+          "A-REFILL"
+        ],
+        "A_STEADY": [
+          "A-LOAD-STEADY"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D1"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PREPARE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
+    },
+    {
+      "id": "A-MECH-FILL-CONFIRM",
+      "variant": "A",
+      "mode": [
+        "A_STARTUP",
+        "A_STEADY"
+      ],
+      "material_from": [
+        "UNCHANGED_BY_SUBSTEP"
+      ],
+      "material_to": "UNCHANGED_BY_SUBSTEP",
+      "material_effect": "Records documentary transfer receipt only; parent material commit deferred until return. No physical/material runtime implemented.",
+      "poses": {
+        "doser": "D1",
+        "gate": "G0",
+        "punch": "P0/PF"
+      },
+      "coordinate_base": "poses.json",
+      "source_rows": [
+        "CYC-02"
+      ],
+      "contract_ref": "Additional mechanical refinement, not replacement of checked contract action",
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY"
+      ],
+      "completion_guards": [],
+      "extra_entry_guards": [
+        "AUX_RESOURCE_CURRENT",
+        "CAPACITY_CURRENT",
+        "CONTINUOUS_MECHANISM",
+        "D_DELIVERY_CURRENT",
+        "D_PATH_CLEAR",
+        "G_OPEN_CURRENT",
+        "MATERIAL_HELD_CURRENT",
+        "P_FEED_CLEAR"
+      ],
+      "extra_completion_guards": [
+        "CONTINUOUS_MECHANISM",
+        "D_DELIVERY_CURRENT",
+        "FILL_COMPLETE"
+      ],
+      "predecessors": "After DOSE-DELIVER reaches D1; hold exact selected feed pose; wait for addressed completed transfer observation of this dose/material/LOAD operation. Command and elapsed time are not completion. Parent remains uncommitted.",
+      "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
+      "resources": {
+        "time": null,
+        "power": null,
+        "flow": null,
+        "unknown_reason": "Transfer confirmation latency/drive resource UNKNOWN; no timer completion assumption",
+        "source_main_axis_phase_refs": [],
+        "scope": "Source t/v only for listed full axial phases; no extrapolation to partial gather, auxiliary/unload/service or complete press cycle; t/P/Q null for remaining consumers."
+      },
+      "continuity": "Check all intermediate positions and previous end=current start",
+      "permission_actual": "INDETERMINATE",
+      "physical_permission": "NO_GO",
+      "mandatory_checks": "verification_plan.json",
+      "exit_receipt": "No lifecycle shortcut",
+      "recovery": "Targeted audit/recovery with own guards; new operation ID",
+      "check_ids": [
+        "A-FEED"
+      ],
+      "source_bindings": [
+        {
+          "proposed_cad_field": "chamber.width",
+          "parameter_id": "R3_IN_WIDTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "chamber.height",
+          "parameter_id": "R3_IN_HEIGHT",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "product.length",
+          "parameter_id": "R3_IN_PRODUCT_LENGTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "chamber.length",
+          "parameter_id": "R3_BASE_A_CHAMBER_LENGTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "material.occupied_length",
+          "parameter_id": "R3_BASE_A_OCCUPIED_LENGTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "stroke.approach",
+          "parameter_id": "R3_BASE_A_APPROACH_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "stroke.work",
+          "parameter_id": "R3_BASE_A_WORK_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "stroke.eject",
+          "parameter_id": "R3_BASE_A_EJECT_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "stroke.return",
+          "parameter_id": "R3_BASE_A_RETURN_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "cylinder.bore_min",
+          "parameter_id": "R3_BASE_A_BORE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "cylinder.rod_diameter",
+          "parameter_id": "R3_BASE_A_ROD",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "load.work_peak",
+          "parameter_id": "R3_BASE_A_FORCE_WORK_PEAK",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "load.return_required",
+          "parameter_id": "R3_BASE_A_FORCE_RETURN_REQUIRED",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.approach.time",
+          "parameter_id": "R3P_BASE_A_APPROACH_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.approach.speed",
+          "parameter_id": "R3P_BASE_A_APPROACH_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.work.time",
+          "parameter_id": "R3P_BASE_A_WORK_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.work.speed",
+          "parameter_id": "R3P_BASE_A_WORK_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.eject.time",
+          "parameter_id": "R3P_BASE_A_EJECT_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.eject.speed",
+          "parameter_id": "R3P_BASE_A_EJECT_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.return.time",
+          "parameter_id": "R3P_BASE_A_RETURN_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "phase.return.speed",
+          "parameter_id": "R3P_BASE_A_RETURN_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        },
+        {
+          "proposed_cad_field": "time.cycle_budget",
+          "parameter_id": "R3P_BASE_A_FIXED_BUDGET_CYCLE",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_A.json"
+        }
+      ],
+      "parent_action_choices": [
+        "A-LOAD-START",
+        "A-LOAD-STEADY",
+        "A-REFILL"
+      ],
+      "parent_binding": "One authorized active LOAD/REFILL operation; local completion only. START D0/FEED_CLEAR evidence is historical; invariants remain current. Parent completion is evaluated once after return, not at every child completion.",
+      "current_parent_guards": {
+        "A-LOAD-START": [
+          "BASIS_DEFINED",
+          "CONTINUITY_CONFIRMED",
+          "DEPENDENCY_VALID",
+          "EMPTY_CONFIRMED",
+          "EVENT_FRESH",
+          "FEEDBACK_VALID",
+          "INVENTORY_KNOWN",
+          "LEDGER_VALID",
+          "RECEIVER_DEFINED",
+          "RESOURCES_READY",
+          "TRANSFER_LEDGER_CLOSED"
+        ],
+        "A-LOAD-STEADY": [
+          "A_REACTION_DEFINED",
+          "BASIS_DEFINED",
+          "COLUMN_CRITERION",
+          "CONTINUITY_CONFIRMED",
+          "DEPENDENCY_VALID",
+          "EVENT_FRESH",
+          "FEEDBACK_VALID",
+          "INVENTORY_KNOWN",
+          "LEDGER_VALID",
+          "RECEIVER_DEFINED",
+          "RESOURCES_READY",
+          "RETAINED_STABLE",
+          "TRANSFER_LEDGER_CLOSED"
+        ],
+        "A-REFILL": [
+          "A_REACTION_DEFINED",
+          "BASIS_DEFINED",
+          "CONTINUITY_CONFIRMED",
+          "DEPENDENCY_VALID",
+          "EVENT_FRESH",
+          "FEEDBACK_VALID",
+          "INVENTORY_KNOWN",
+          "LEDGER_VALID",
+          "RECEIVER_DEFINED",
+          "RESOURCES_READY",
+          "STARTUP_INVENTORY_PRESERVED"
+        ]
+      },
+      "start_only_pose_evidence": [
+        "TOOLS_HOME",
+        "FEED_CLEAR",
+        "ISOLATION_CONFIRMED"
+      ],
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "parent_commit_boundary": "AFTER_DOSER_RETURN",
+      "fill_context": "Exact dose_id/material_id/subject_id/batch_id/cycle_epoch/load_operation_id/transfer_operation_id and basis/revision scope per cycle_protocol.json; no receipt borrowing between operations or refill doses.",
+      "mode_parent_bindings": {
+        "A_STARTUP": [
+          "A-LOAD-START",
+          "A-REFILL"
+        ],
+        "A_STEADY": [
+          "A-LOAD-STEADY"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D1"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PRODUCE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "A-MECH-DOSER-RETURN",
@@ -6931,6 +8450,7 @@
         "CONTINUOUS_MECHANISM",
         "D_DELIVERY_CURRENT",
         "D_PATH_CLEAR",
+        "FILL_COMPLETE",
         "G_OPEN_CURRENT",
         "MATERIAL_HELD_CURRENT",
         "P_FEED_CLEAR"
@@ -6940,7 +8460,7 @@
         "D_HOME_CURRENT",
         "P_FEED_CLEAR"
       ],
-      "predecessors": "После подтверждения дозы, до закрытия G; продукт не создаётся; parent binding/guard timing explicitly in parent_binding, stage prerequisites and START/invariants distinguished",
+      "predecessors": "After FILL-CONFIRM TRUE for exact active dose/transfer/LOAD; D1→D0 with retention and full swept-path proof. FALSE blocks, UNKNOWN waits; no parent commit until current D0 and addressed historical transfer receipt remain valid.",
       "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
       "resources": {
         "time": null,
@@ -7098,7 +8618,7 @@
         "A-LOAD-STEADY",
         "A-REFILL"
       ],
-      "parent_binding": "Substep of exactly one listed authorized parent operation. Parent START guards attested at actual start; parent invariant guards remain current; start-only pose guards are recorded history, not required to stay HOME while executing. Completion still requires all parent completion guards.",
+      "parent_binding": "One authorized active LOAD/REFILL operation; local completion only. START D0/FEED_CLEAR evidence is historical; invariants remain current. Parent completion is evaluated once after return, not at every child completion.",
       "current_parent_guards": {
         "A-LOAD-START": [
           "BASIS_DEFINED",
@@ -7147,7 +8667,82 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "parent_commit_boundary": "AFTER_DOSER_RETURN",
+      "fill_context": "Exact dose_id/material_id/subject_id/batch_id/cycle_epoch/load_operation_id/transfer_operation_id and basis/revision scope per cycle_protocol.json; no receipt borrowing between operations or refill doses.",
+      "mode_parent_bindings": {
+        "A_STARTUP": [
+          "A-LOAD-START",
+          "A-REFILL"
+        ],
+        "A_STEADY": [
+          "A-LOAD-STEADY"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "CONSUME",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "A-MECH-FEED-ISOLATE",
@@ -7188,7 +8783,10 @@
         "AUX_RESOURCE_CURRENT",
         "CONTINUOUS_MECHANISM",
         "D_HOME_CURRENT",
+        "FEEDER_SAFE",
+        "FILL_COMPLETE",
         "G_PATH_CLEAR",
+        "LOAD_COMMITTED_CURRENT",
         "MATERIAL_HELD_CURRENT",
         "P_FEED_CLEAR"
       ],
@@ -7196,7 +8794,7 @@
         "CONTINUOUS_MECHANISM",
         "G_ISOLATED_CURRENT"
       ],
-      "predecessors": "Только после D0 и завершения переноса, до APPROACH/GATHER; parent binding/guard timing explicitly in parent_binding, stage prerequisites and START/invariants distinguished",
+      "predecessors": "After referenced LOAD/REFILL commit at D0; FILL_COMPLETE + LOAD_COMMITTED_CURRENT + FEEDER_SAFE mandatory. Own guarded prerequisite before GATHER/COMPACT START; G_ISOLATED_CURRENT completion must support fresh ISOLATION_CONFIRMED at parent START.",
       "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
       "resources": {
         "time": null,
@@ -7353,7 +8951,7 @@
         "A-GATHER",
         "A-COMPACT"
       ],
-      "parent_binding": "Prerequisite before listed PRESS parent START; requires own guards plus current inventory/receiver/resources/ledger/dependency, not yet ISOLATION_CONFIRMED. Parent cannot start until completion of this prerequisite.",
+      "parent_binding": "Own-guard prerequisite for exactly one intended parent, which has NOT STARTED. Check current_parent_guards plus own conditions; do not demand missing final poses. Start parent only later with ALL its inherited/extra entry guards.",
       "current_parent_guards": {
         "A-GATHER": [
           "A_REACTION_DEFINED",
@@ -7386,13 +8984,85 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "fill_context": "Consumes receipt by explicit completed_load_ref, same batch/epoch/material/dose and revisions; isolation_operation_id is new and distinct from load_operation_id. Requires completed LOAD after safe return, not next PRESS completion.",
+      "mode_parent_bindings": {
+        "A_STARTUP": [
+          "A-GATHER"
+        ],
+        "A_STEADY": [
+          "A-COMPACT"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "CONSUME_COMMITTED",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "A-MECH-APPROACH",
       "variant": "A",
       "mode": [
-        "A_STARTUP",
         "A_STEADY"
       ],
       "material_from": [
@@ -7631,13 +9301,44 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "A_STEADY": [
+          "A-COMPACT"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P1"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-MECH-WORK",
       "variant": "A",
       "mode": [
-        "A_STARTUP",
         "A_STEADY"
       ],
       "material_from": [
@@ -7875,13 +9576,44 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "A_STEADY": [
+          "A-COMPACT"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P1"
+          ],
+          "end": [
+            "P2"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-MECH-HOLD-UNLOAD",
       "variant": "A",
       "mode": [
-        "A_STARTUP",
         "A_STEADY"
       ],
       "material_from": [
@@ -8101,7 +9833,39 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "A_STEADY": [
+          "A-EJECT"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "A-MECH-FEED-RESET",
@@ -8308,7 +10072,7 @@
         "A-REFILL",
         "A-LOAD-STEADY"
       ],
-      "parent_binding": "Prerequisite before listed LOAD/REFILL START. Own conditions plus current material/retention/receiver/resources/ledger/dependency; no parent FEED_CLEAR/TOOLS_HOME proof before motion has established required open feed pose.",
+      "parent_binding": "Own-guard prerequisite for exactly one intended parent, which has NOT STARTED. Check current_parent_guards plus own conditions; do not demand missing final poses. Start parent only later with ALL its inherited/extra entry guards.",
       "current_parent_guards": {
         "A-REFILL": [
           "A_REACTION_DEFINED",
@@ -8344,7 +10108,79 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "A_STARTUP": [
+          "A-REFILL"
+        ],
+        "A_STEADY": [
+          "A-LOAD-STEADY"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PREPARE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "A-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "A-LOAD-START",
+          "A-LOAD-STEADY",
+          "A-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-MECH-FEED-OPEN",
@@ -8551,7 +10387,7 @@
         "B-LOAD",
         "B-REFILL"
       ],
-      "parent_binding": "Prerequisite before listed LOAD/REFILL START. Own conditions plus current material/retention/receiver/resources/ledger/dependency; no parent FEED_CLEAR/TOOLS_HOME proof before motion has established required open feed pose.",
+      "parent_binding": "Own-guard prerequisite for exactly one intended parent, which has NOT STARTED. Check current_parent_guards plus own conditions; do not demand missing final poses. Start parent only later with ALL its inherited/extra entry guards.",
       "current_parent_guards": {
         "B-LOAD": [
           "BASIS_DEFINED",
@@ -8584,7 +10420,79 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-LOAD"
+        ],
+        "B_REPEAT": [
+          "B-LOAD",
+          "B-REFILL"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PREPARE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-MECH-DOSE-DELIVER",
@@ -8791,7 +10699,7 @@
         "B-LOAD",
         "B-REFILL"
       ],
-      "parent_binding": "Substep of exactly one listed authorized parent operation. Parent START guards attested at actual start; parent invariant guards remain current; start-only pose guards are recorded history, not required to stay HOME while executing. Completion still requires all parent completion guards.",
+      "parent_binding": "One authorized active LOAD/REFILL operation; local completion only. START D0/FEED_CLEAR evidence is historical; invariants remain current. Parent completion is evaluated once after return, not at every child completion.",
       "current_parent_guards": {
         "B-LOAD": [
           "BASIS_DEFINED",
@@ -8824,7 +10732,397 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "parent_commit_boundary": "AFTER_DOSER_RETURN",
+      "fill_context": "Exact dose_id/material_id/subject_id/batch_id/cycle_epoch/load_operation_id/transfer_operation_id and basis/revision scope per cycle_protocol.json; no receipt borrowing between operations or refill doses.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-LOAD"
+        ],
+        "B_REPEAT": [
+          "B-LOAD",
+          "B-REFILL"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D1"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PREPARE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
+    },
+    {
+      "id": "B-MECH-FILL-CONFIRM",
+      "variant": "B",
+      "mode": [
+        "B_SINGLE",
+        "B_REPEAT"
+      ],
+      "material_from": [
+        "UNCHANGED_BY_SUBSTEP"
+      ],
+      "material_to": "UNCHANGED_BY_SUBSTEP",
+      "material_effect": "Records documentary transfer receipt only; parent material commit deferred until return. No physical/material runtime implemented.",
+      "poses": {
+        "doser": "D1",
+        "gate": "G0",
+        "punch": "P0/PF"
+      },
+      "coordinate_base": "poses.json",
+      "source_rows": [
+        "CYC-02"
+      ],
+      "contract_ref": "Additional mechanical refinement, not replacement of checked contract action",
+      "entry_guards": [
+        "BASIS_DEFINED",
+        "CONTINUITY_CONFIRMED",
+        "DEPENDENCY_VALID",
+        "EVENT_FRESH",
+        "FEEDBACK_VALID",
+        "INVENTORY_KNOWN",
+        "LEDGER_VALID",
+        "METHOD_SUPPORTED",
+        "RECEIVER_DEFINED",
+        "RESOURCES_READY"
+      ],
+      "completion_guards": [],
+      "extra_entry_guards": [
+        "AUX_RESOURCE_CURRENT",
+        "CAPACITY_CURRENT",
+        "CONTINUOUS_MECHANISM",
+        "D_DELIVERY_CURRENT",
+        "D_PATH_CLEAR",
+        "G_OPEN_CURRENT",
+        "MATERIAL_HELD_CURRENT",
+        "P_FEED_CLEAR"
+      ],
+      "extra_completion_guards": [
+        "CONTINUOUS_MECHANISM",
+        "D_DELIVERY_CURRENT",
+        "FILL_COMPLETE"
+      ],
+      "predecessors": "After DOSE-DELIVER reaches D1; hold exact selected feed pose; wait for addressed completed transfer observation of this dose/material/LOAD operation. Command and elapsed time are not completion. Parent remains uncommitted.",
+      "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
+      "resources": {
+        "time": null,
+        "power": null,
+        "flow": null,
+        "unknown_reason": "Transfer confirmation latency/drive resource UNKNOWN; no timer completion assumption",
+        "source_main_axis_phase_refs": [],
+        "scope": "Source t/v only for listed full axial phases; no extrapolation to partial gather, auxiliary/unload/service or complete press cycle; t/P/Q null for remaining consumers."
+      },
+      "continuity": "Check all intermediate positions and previous end=current start",
+      "permission_actual": "INDETERMINATE",
+      "physical_permission": "NO_GO",
+      "mandatory_checks": "verification_plan.json",
+      "exit_receipt": "No lifecycle shortcut",
+      "recovery": "Targeted audit/recovery with own guards; new operation ID",
+      "check_ids": [
+        "B-FEED"
+      ],
+      "source_bindings": [
+        {
+          "proposed_cad_field": "chamber.width",
+          "parameter_id": "R3_IN_WIDTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "chamber.height",
+          "parameter_id": "R3_IN_HEIGHT",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "product.length",
+          "parameter_id": "R3_IN_PRODUCT_LENGTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "chamber.length",
+          "parameter_id": "R3_BASE_B_CHAMBER_LENGTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "material.occupied_length",
+          "parameter_id": "R3_BASE_B_OCCUPIED_LENGTH",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "stroke.approach",
+          "parameter_id": "R3_BASE_B_APPROACH_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "stroke.work",
+          "parameter_id": "R3_BASE_B_WORK_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "stroke.eject",
+          "parameter_id": "R3_BASE_B_EJECT_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "stroke.return",
+          "parameter_id": "R3_BASE_B_RETURN_STROKE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "cylinder.bore_min",
+          "parameter_id": "R3_BASE_B_BORE",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "cylinder.rod_diameter",
+          "parameter_id": "R3_BASE_B_ROD",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "load.work_peak",
+          "parameter_id": "R3_BASE_B_FORCE_WORK_PEAK",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "load.return_required",
+          "parameter_id": "R3_BASE_B_FORCE_RETURN_REQUIRED",
+          "revision": 1,
+          "source": "verification/r3_parametric_sizing/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.approach.time",
+          "parameter_id": "R3P_BASE_B_APPROACH_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.approach.speed",
+          "parameter_id": "R3P_BASE_B_APPROACH_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.work.time",
+          "parameter_id": "R3P_BASE_B_WORK_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.work.speed",
+          "parameter_id": "R3P_BASE_B_WORK_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.eject.time",
+          "parameter_id": "R3P_BASE_B_EJECT_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.eject.speed",
+          "parameter_id": "R3P_BASE_B_EJECT_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.return.time",
+          "parameter_id": "R3P_BASE_B_RETURN_TIME",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "phase.return.speed",
+          "parameter_id": "R3P_BASE_B_RETURN_SPEED",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        },
+        {
+          "proposed_cad_field": "time.cycle_budget",
+          "parameter_id": "R3P_BASE_B_FIXED_BUDGET_CYCLE",
+          "revision": 1,
+          "source": "verification/r3_power_reconcile/results/BASE_B.json"
+        }
+      ],
+      "parent_action_choices": [
+        "B-LOAD",
+        "B-REFILL"
+      ],
+      "parent_binding": "One authorized active LOAD/REFILL operation; local completion only. START D0/FEED_CLEAR evidence is historical; invariants remain current. Parent completion is evaluated once after return, not at every child completion.",
+      "current_parent_guards": {
+        "B-LOAD": [
+          "BASIS_DEFINED",
+          "B_RESET_CONFIRMED",
+          "CONTINUITY_CONFIRMED",
+          "DEPENDENCY_VALID",
+          "EVENT_FRESH",
+          "FEEDBACK_VALID",
+          "INVENTORY_KNOWN",
+          "LEDGER_VALID",
+          "RECEIVER_DEFINED",
+          "RESIDUE_ALLOWED",
+          "RESOURCES_READY",
+          "TRANSFER_LEDGER_CLOSED"
+        ],
+        "B-REFILL": [
+          "BASIS_DEFINED",
+          "CONTINUITY_CONFIRMED",
+          "DEPENDENCY_VALID",
+          "EVENT_FRESH",
+          "FEEDBACK_VALID",
+          "INVENTORY_KNOWN",
+          "LEDGER_VALID",
+          "PARTIAL_CRITERION",
+          "RESOURCES_READY"
+        ]
+      },
+      "start_only_pose_evidence": [
+        "TOOLS_HOME",
+        "FEED_CLEAR",
+        "ISOLATION_CONFIRMED"
+      ],
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "parent_commit_boundary": "AFTER_DOSER_RETURN",
+      "fill_context": "Exact dose_id/material_id/subject_id/batch_id/cycle_epoch/load_operation_id/transfer_operation_id and basis/revision scope per cycle_protocol.json; no receipt borrowing between operations or refill doses.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-LOAD"
+        ],
+        "B_REPEAT": [
+          "B-LOAD",
+          "B-REFILL"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D1"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PRODUCE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-MECH-DOSER-RETURN",
@@ -8864,18 +11162,19 @@
       "extra_entry_guards": [
         "AUX_RESOURCE_CURRENT",
         "CONTINUOUS_MECHANISM",
+        "D_DELIVERY_CURRENT",
         "D_PATH_CLEAR",
+        "FILL_COMPLETE",
         "G_OPEN_CURRENT",
         "MATERIAL_HELD_CURRENT",
-        "P_FEED_CLEAR",
-        "D_DELIVERY_CURRENT"
+        "P_FEED_CLEAR"
       ],
       "extra_completion_guards": [
         "CONTINUOUS_MECHANISM",
         "D_HOME_CURRENT",
         "P_FEED_CLEAR"
       ],
-      "predecessors": "После подтверждения дозы, до закрытия G; продукт не создаётся; parent binding/guard timing explicitly in parent_binding, stage prerequisites and START/invariants distinguished",
+      "predecessors": "After FILL-CONFIRM TRUE for exact active dose/transfer/LOAD; D1→D0 with retention and full swept-path proof. FALSE blocks, UNKNOWN waits; no parent commit until current D0 and addressed historical transfer receipt remain valid.",
       "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
       "resources": {
         "time": null,
@@ -9032,7 +11331,7 @@
         "B-LOAD",
         "B-REFILL"
       ],
-      "parent_binding": "Substep of exactly one listed authorized parent operation. Parent START guards attested at actual start; parent invariant guards remain current; start-only pose guards are recorded history, not required to stay HOME while executing. Completion still requires all parent completion guards.",
+      "parent_binding": "One authorized active LOAD/REFILL operation; local completion only. START D0/FEED_CLEAR evidence is historical; invariants remain current. Parent completion is evaluated once after return, not at every child completion.",
       "current_parent_guards": {
         "B-LOAD": [
           "BASIS_DEFINED",
@@ -9065,7 +11364,81 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "parent_commit_boundary": "AFTER_DOSER_RETURN",
+      "fill_context": "Exact dose_id/material_id/subject_id/batch_id/cycle_epoch/load_operation_id/transfer_operation_id and basis/revision scope per cycle_protocol.json; no receipt borrowing between operations or refill doses.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-LOAD"
+        ],
+        "B_REPEAT": [
+          "B-LOAD",
+          "B-REFILL"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D1"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "CONSUME",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-MECH-FEED-ISOLATE",
@@ -9106,7 +11479,10 @@
         "AUX_RESOURCE_CURRENT",
         "CONTINUOUS_MECHANISM",
         "D_HOME_CURRENT",
+        "FEEDER_SAFE",
+        "FILL_COMPLETE",
         "G_PATH_CLEAR",
+        "LOAD_COMMITTED_CURRENT",
         "MATERIAL_HELD_CURRENT",
         "P_FEED_CLEAR"
       ],
@@ -9114,7 +11490,7 @@
         "CONTINUOUS_MECHANISM",
         "G_ISOLATED_CURRENT"
       ],
-      "predecessors": "Только после D0 и завершения переноса, до APPROACH/GATHER; parent binding/guard timing explicitly in parent_binding, stage prerequisites and START/invariants distinguished",
+      "predecessors": "After referenced LOAD/REFILL commit at D0; FILL_COMPLETE + LOAD_COMMITTED_CURRENT + FEEDER_SAFE mandatory. Own guarded prerequisite before GATHER/COMPACT START; G_ISOLATED_CURRENT completion must support fresh ISOLATION_CONFIRMED at parent START.",
       "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
       "resources": {
         "time": null,
@@ -9271,7 +11647,7 @@
         "B-GATHER",
         "B-COMPACT"
       ],
-      "parent_binding": "Prerequisite before listed PRESS parent START; requires own guards plus current inventory/receiver/resources/ledger/dependency, not yet ISOLATION_CONFIRMED. Parent cannot start until completion of this prerequisite.",
+      "parent_binding": "Own-guard prerequisite for exactly one intended parent, which has NOT STARTED. Check current_parent_guards plus own conditions; do not demand missing final poses. Start parent only later with ALL its inherited/extra entry guards.",
       "current_parent_guards": {
         "B-GATHER": [
           "BASIS_DEFINED",
@@ -9304,7 +11680,80 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "fill_context": "Consumes receipt by explicit completed_load_ref, same batch/epoch/material/dose and revisions; isolation_operation_id is new and distinct from load_operation_id. Requires completed LOAD after safe return, not next PRESS completion.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-COMPACT"
+        ],
+        "B_REPEAT": [
+          "B-GATHER",
+          "B-COMPACT"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G0"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "CONSUME_COMMITTED",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-MECH-APPROACH",
@@ -9548,7 +11997,42 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-COMPACT"
+        ],
+        "B_REPEAT": [
+          "B-COMPACT"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P1"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-MECH-WORK",
@@ -9791,7 +12275,42 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-COMPACT"
+        ],
+        "B_REPEAT": [
+          "B-COMPACT"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P1"
+          ],
+          "end": [
+            "P2"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-MECH-HOLD-UNLOAD",
@@ -10013,7 +12532,42 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-OPEN-CONFIRM"
+        ],
+        "B_REPEAT": [
+          "B-OPEN-CONFIRM"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-MECH-FEED-RESET",
@@ -10220,7 +12774,7 @@
         "B-REFILL",
         "B-LOAD"
       ],
-      "parent_binding": "Prerequisite before listed LOAD/REFILL START. Own conditions plus current material/retention/receiver/resources/ledger/dependency; no parent FEED_CLEAR/TOOLS_HOME proof before motion has established required open feed pose.",
+      "parent_binding": "Own-guard prerequisite for exactly one intended parent, which has NOT STARTED. Check current_parent_guards plus own conditions; do not demand missing final poses. Start parent only later with ALL its inherited/extra entry guards.",
       "current_parent_guards": {
         "B-REFILL": [
           "BASIS_DEFINED",
@@ -10253,7 +12807,79 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-LOAD"
+        ],
+        "B_REPEAT": [
+          "B-REFILL",
+          "B-LOAD"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G0"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0",
+            "PF"
+          ],
+          "end": [
+            "P0",
+            "PF"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence.",
+      "fill_binding": {
+        "role": "PREPARE",
+        "scope_fields": [
+          "variant",
+          "mode",
+          "subject_id",
+          "dose_id",
+          "material_id",
+          "batch_id",
+          "cycle_epoch",
+          "basis_id",
+          "basis_revision",
+          "load_action",
+          "load_operation_id",
+          "transfer_operation_id"
+        ],
+        "revision_fields": [
+          "material",
+          "feed",
+          "inventory",
+          "geometry",
+          "resource",
+          "receiver",
+          "history"
+        ],
+        "producer": "B-MECH-FILL-CONFIRM",
+        "receipt_pose": "D1",
+        "load_commit_boundary": "AFTER_DOSER_RETURN",
+        "load_actions": [
+          "B-LOAD",
+          "B-REFILL"
+        ],
+        "receipt_reference": "Explicit active transfer receipt ID; new dose and operation per REFILL; exact completed_load_ref required for isolation"
+      }
     },
     {
       "id": "B-MECH-UNLOCK",
@@ -10270,7 +12896,9 @@
       "poses": {
         "doser": "D0",
         "gate": "G1",
-        "punch": "P2"
+        "punch": "P2",
+        "end_stop": "STOP_CLOSED",
+        "lock": "LOCK_CLOSED→LOCK_OPEN"
       },
       "coordinate_base": "poses.json",
       "source_rows": [
@@ -10478,7 +13106,58 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-OPEN-CONFIRM"
+        ],
+        "B_REPEAT": [
+          "B-OPEN-CONFIRM"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ]
+        },
+        "end_stop": {
+          "start": [
+            "STOP_CLOSED"
+          ],
+          "end": [
+            "STOP_CLOSED"
+          ]
+        },
+        "lock": {
+          "start": [
+            "LOCK_CLOSED"
+          ],
+          "end": [
+            "LOCK_OPEN"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-MECH-STOP-OPEN",
@@ -10495,7 +13174,9 @@
       "poses": {
         "doser": "D0",
         "gate": "G1",
-        "punch": "P2"
+        "punch": "P2",
+        "end_stop": "STOP_CLOSED→STOP_OPEN",
+        "lock": "LOCK_OPEN"
       },
       "coordinate_base": "poses.json",
       "source_rows": [
@@ -10702,7 +13383,58 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-OPEN-CONFIRM"
+        ],
+        "B_REPEAT": [
+          "B-OPEN-CONFIRM"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P2"
+          ],
+          "end": [
+            "P2"
+          ]
+        },
+        "end_stop": {
+          "start": [
+            "STOP_CLOSED"
+          ],
+          "end": [
+            "STOP_OPEN"
+          ]
+        },
+        "lock": {
+          "start": [
+            "LOCK_OPEN"
+          ],
+          "end": [
+            "LOCK_OPEN"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-MECH-STOP-CLOSE",
@@ -10719,7 +13451,9 @@
       "poses": {
         "doser": "D0",
         "gate": "G1",
-        "punch": "P0"
+        "punch": "P0",
+        "end_stop": "STOP_OPEN→STOP_CLOSED",
+        "lock": "LOCK_OPEN"
       },
       "coordinate_base": "poses.json",
       "source_rows": [
@@ -10729,7 +13463,6 @@
       "entry_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
-        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -10742,17 +13475,22 @@
       "extra_entry_guards": [
         "AUX_RESOURCE_CURRENT",
         "CONTINUOUS_MECHANISM",
+        "D_HOME_CURRENT",
         "EXIT_NO_INTERACTION",
+        "G_ISOLATED_CURRENT",
+        "MATERIAL_HELD_CURRENT",
         "P_FEED_CLEAR",
         "P_PATH_CLEAR",
         "RECEIPT_VALID",
+        "RECOVERY_SCOPE_VALID",
         "RESET_SWEEP_CLEAR",
         "RESTORE_SEQUENCE_DEFINED"
       ],
       "extra_completion_guards": [
-        "CONTINUOUS_MECHANISM"
+        "CONTINUOUS_MECHANISM",
+        "STOP_CLOSED_CURRENT"
       ],
-      "predecessors": "After RETURN and receipt, restore stop without sweeping retained product; entry and completion of parent B-OPEN-CONFIRM or B-RESET/RESTORE_B_CLOSURE mandatory",
+      "predecessors": "After received product and continuous punch RETURN to P0; own reset sweep/receipt/resource/material/feedback guards and exact closure recovery request. STOP-CLOSE then RELOCK, no automatic READY or clearing unrelated faults.",
       "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
       "resources": {
         "time": null,
@@ -10908,7 +13646,7 @@
       "parent_action_choices": [
         "B-RESET"
       ],
-      "parent_binding": "Substep of exactly one listed authorized parent operation. Parent START guards attested at actual start; parent invariant guards remain current; start-only pose guards are recorded history, not required to stay HOME while executing. Completion still requires all parent completion guards.",
+      "parent_binding": "B-RESET / RESTORE_B_CLOSURE ENTRY uses own required guards without generic DEPENDENCY_VALID or pre-existing B_RESET_CONFIRMED. Closure feedback, targeted fault recovery, history reconciliation and fresh NEXT are separate boundaries.",
       "current_parent_guards": {
         "B-RESET": [
           "BASIS_DEFINED",
@@ -10928,7 +13666,67 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "recovery_binding": {
+        "parent": "B-RESET",
+        "request_action": "RESTORE_B_CLOSURE",
+        "target_guard": "B_RESET_CONFIRMED",
+        "target_fault_id": "REQUIRED_EXACT_FAULT_ID",
+        "scope": "Same closure subject/epoch/mode and original fault revisions; new unique operation. B closure motion only; no history or material/service fault clearing.",
+        "history_reconcile": "RECONCILE_HISTORY only after causal faults addressed separately",
+        "clears_faults_automatically": false
+      },
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-RESET"
+        ],
+        "B_REPEAT": [
+          "B-RESET"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P0"
+          ]
+        },
+        "end_stop": {
+          "start": [
+            "STOP_OPEN"
+          ],
+          "end": [
+            "STOP_CLOSED"
+          ]
+        },
+        "lock": {
+          "start": [
+            "LOCK_OPEN"
+          ],
+          "end": [
+            "LOCK_OPEN"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     },
     {
       "id": "B-MECH-RELOCK",
@@ -10945,7 +13743,9 @@
       "poses": {
         "doser": "D0",
         "gate": "G1",
-        "punch": "P0"
+        "punch": "P0",
+        "end_stop": "STOP_CLOSED",
+        "lock": "LOCK_OPEN→LOCK_CLOSED"
       },
       "coordinate_base": "poses.json",
       "source_rows": [
@@ -10955,7 +13755,6 @@
       "entry_guards": [
         "BASIS_DEFINED",
         "CONTINUITY_CONFIRMED",
-        "DEPENDENCY_VALID",
         "EVENT_FRESH",
         "FEEDBACK_VALID",
         "INVENTORY_KNOWN",
@@ -10968,17 +13767,24 @@
       "extra_entry_guards": [
         "AUX_RESOURCE_CURRENT",
         "CONTINUOUS_MECHANISM",
+        "D_HOME_CURRENT",
+        "G_ISOLATED_CURRENT",
+        "MATERIAL_HELD_CURRENT",
         "P_FEED_CLEAR",
         "P_PATH_CLEAR",
         "RECEIPT_VALID",
+        "RECOVERY_SCOPE_VALID",
         "RESET_SWEEP_CLEAR",
-        "RESTORE_SEQUENCE_DEFINED"
+        "RESTORE_SEQUENCE_DEFINED",
+        "STOP_CLOSED_CURRENT"
       ],
       "extra_completion_guards": [
         "B_STOP_LOCK_CLOSED",
-        "CONTINUOUS_MECHANISM"
+        "CONTINUOUS_MECHANISM",
+        "LOCK_CLOSED_CURRENT",
+        "STOP_CLOSED_CURRENT"
       ],
-      "predecessors": "After STOP-CLOSE feedback; no automatic B_RESET_CONFIRMED; entry and completion of parent B-OPEN-CONFIRM or B-RESET/RESTORE_B_CLOSURE mandatory",
+      "predecessors": "After received product and continuous punch RETURN to P0; own reset sweep/receipt/resource/material/feedback guards and exact closure recovery request. STOP-CLOSE then RELOCK, no automatic READY or clearing unrelated faults.",
       "evidence_scope": "subject+operation+epoch+material/geometry/resource revisions; fresh at start/end",
       "resources": {
         "time": null,
@@ -11134,7 +13940,7 @@
       "parent_action_choices": [
         "B-RESET"
       ],
-      "parent_binding": "Substep of exactly one listed authorized parent operation. Parent START guards attested at actual start; parent invariant guards remain current; start-only pose guards are recorded history, not required to stay HOME while executing. Completion still requires all parent completion guards.",
+      "parent_binding": "B-RESET / RESTORE_B_CLOSURE ENTRY uses own required guards without generic DEPENDENCY_VALID or pre-existing B_RESET_CONFIRMED. Closure feedback, targeted fault recovery, history reconciliation and fresh NEXT are separate boundaries.",
       "current_parent_guards": {
         "B-RESET": [
           "BASIS_DEFINED",
@@ -11154,8 +13960,68 @@
         "FEED_CLEAR",
         "ISOLATION_CONFIRMED"
       ],
-      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY."
+      "guard_timing_note": "Each omitted start pose is replaced by stage-specific D/G/P conditions; no omission of receiver, resources, material retention, history, feedback, continuity or ledger. Missing scope/confirmation remains INDETERMINATE. Prerequisite is an own action, not cached parent READY.",
+      "recovery_binding": {
+        "parent": "B-RESET",
+        "request_action": "RESTORE_B_CLOSURE",
+        "target_guard": "B_RESET_CONFIRMED",
+        "target_fault_id": "REQUIRED_EXACT_FAULT_ID",
+        "scope": "Same closure subject/epoch/mode and original fault revisions; new unique operation. B closure motion only; no history or material/service fault clearing.",
+        "history_reconcile": "RECONCILE_HISTORY only after causal faults addressed separately",
+        "clears_faults_automatically": false
+      },
+      "mode_parent_bindings": {
+        "B_SINGLE": [
+          "B-RESET"
+        ],
+        "B_REPEAT": [
+          "B-RESET"
+        ]
+      },
+      "pose_endpoints": {
+        "doser": {
+          "start": [
+            "D0"
+          ],
+          "end": [
+            "D0"
+          ]
+        },
+        "gate": {
+          "start": [
+            "G1"
+          ],
+          "end": [
+            "G1"
+          ]
+        },
+        "punch": {
+          "start": [
+            "P0"
+          ],
+          "end": [
+            "P0"
+          ]
+        },
+        "end_stop": {
+          "start": [
+            "STOP_CLOSED"
+          ],
+          "end": [
+            "STOP_CLOSED"
+          ]
+        },
+        "lock": {
+          "start": [
+            "LOCK_OPEN"
+          ],
+          "end": [
+            "LOCK_CLOSED"
+          ]
+        }
+      },
+      "pose_choice_rule": "Bind one actual start choice at operation START; held bodies keep that exact pose across substeps. PF is not silently P0. Current endpoint and supported full sweep require independent evidence."
     }
   ],
-  "substep_parent_rule": "Bind exactly one current parent action/operation. START-only pose evidence describes historical authorized origin; do not require stationary HOME during D movement. At each dependent movement recheck all invariant material/receiver/resource/history predicates and stage-specific poses. Prerequisites FEED-OPEN/ISOLATE establish start poses using own guards. No parent may START before its full entry guards; no material commit before full parent completion."
+  "substep_parent_rule": "Bind exactly one current parent action/operation and legal mode. All parent START guards recorded at actual START; current_parent_guards and own guards remain mandatory. No parent may START before its full entry guards. FEED-OPEN/RESET and FEED-ISOLATE are own-guard prerequisites, not prematurely started LOAD/PRESS. Local completion never implies parent completion. See cycle_protocol.json for addressed transfer/return/commit and recovery boundaries."
 }

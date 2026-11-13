@@ -3,6 +3,7 @@
 import argparse, csv, hashlib, json, subprocess, sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
+from document_semantics import inspect_semantics
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -45,6 +46,7 @@ def inspect(folder=HERE):
  check('explicit_b_unlock_unloaded','B_UNLOADED' in lookup['B-MECH-UNLOCK']['extra_entry_guards'] and 'LOCK_CLEAR' in lookup['B-MECH-STOP-OPEN']['extra_entry_guards'])
  check('feed_before_isolation','D_HOME_CURRENT' in lookup['A-MECH-FEED-ISOLATE']['extra_entry_guards'] and 'G_OPEN_CURRENT' in lookup['B-MECH-DOSE-DELIVER']['extra_entry_guards'])
  check('parent_guard_no_shortcut',lookup['A-MECH-APPROACH']['parent_action_choices']==['A-COMPACT'] and 'No parent may START' in package['substep_parent_rule'])
+ checks.extend(inspect_semantics(folder,frozen))
  opts=read(folder/'force_variants.json')['variants'];check('four_unselected_alternatives',{o['id'] for o in opts}=={'A-V1','A-V2','B-V1','B-V2'} and all(o['status']=='ASSUMED_PROPOSAL_NOT_SELECTED' and o['native_geometry']=='NOT_BUILT_NOT_CHECKED' for o in opts))
  unknowns=read(folder/'unknown_inputs.json')['unknowns'];check('unknown_not_zero',all(u['value'] is None and u['status']=='UNKNOWN' and u['unknown_reason'] and u['tolerance'] is None for u in unknowns))
  plan=read(folder/'verification_plan.json');check('no_geometric_pairs_claimed',plan['checked_pairs_this_iteration']==[] and all(s['geometry_result']=='NOT_RUN_INDETERMINATE' and s['pairs'] for s in plan['phases']))
