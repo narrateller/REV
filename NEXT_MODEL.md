@@ -1,3 +1,11 @@
+# R1 — positive admission всех OPEN journal records
+
+Акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85` на C `b89854ad709bcb5c2991376bed41bf2f73acef82`, седьмой REJECT. R1 воспроизвёл 732/696/36 и minimal missing/null/known-FEED; решение `decisions/ARB-R1-CI-SEMANTICS-06.md`, evidence `verification/r1_ci_open_journal_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, сверить claim/входы и исправить bounded semantic admission/classification всех OPEN записей перед положительным journal/recovery выводом. Неизвестный tag не foreign; raw TRUE не обходит unknown journal, known FALSE сохраняет BLOCKED. Затем независимый R5 RECHECK. Helper/норматив/расчёты/CAD unchanged; counter7 и material2 сохраняются, stable handoff/physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
 # R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
 
 **C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
