@@ -1,3 +1,11 @@
+# Арбитраж интерфейсного checker — ARB-R1-CI-SEMANTICS-01
+
+R1 воспроизвёл шесть semantic-пропусков из R5 `5fb731182a2bdf6b11246558eca58962e48568d9` на C `144941cbfc67002cbe81765e38c80e237473deff`: 654 проверки, 648 совпадений, 6 FAIL с теми же ID. Решение `decisions/ARB-R1-CI-SEMANTICS-01.md`; evidence `verification/r1_ci_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения, записать в капсуле, сверить main/owner/lease и входы; реализовать только версионированный semantic minimum и typed pose/source/recovery checks с планом независимого RECHECK. B03 OPEN, приёмка интерфейса BLOCKED; стабильная CAD-передача NO-GO. B01/B02 — документальное закрытие на предыдущем C, регрессию проверить в новом. R3 допускается условная силовая работа отдельно от CAD. W02/physical READY NO-GO; архитектура/ТЗ не утверждены, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
 # R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
 
 **C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
