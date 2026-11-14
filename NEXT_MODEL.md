@@ -1,3 +1,48 @@
+# T-r3-force-path-01 — принять новый claim до расчёта
+
+Состояние HANDOFF / AWAITING_MAIN_CLAIM_ACCEPTANCE, UTC 2026-11-14T12:19:16Z.
+Проект narrateller/REV; автор R3 / Codex / r3-force-path-20261114 по прямому
+поручению пользователя подготовить постановку и claim.
+Ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`; C `d5c1afd74a152f9e04596b296df0e6812a3b2d18` REMOTE_VERIFIED.
+База main `e35086f2e87611faa7013095d110092198b912dc` (PR #46).
+
+- Задача READY, claim PROPOSED_PENDING_MAIN, owner_session NONE.
+  Предложенный исполнитель r3-force-path-20261114; предложенный срок до
+  2026-11-15T12:11:55Z, действующий lease отсутствует.
+- Результат: verification/r3_force_path/task.md, claim.md/json, input_manifest.json,
+  input_gaps.md, checks.json/validation_C.log; запись ISSUES_AND_TASKS.md.
+  Подготовлены цель/четыре варианта/состояния/зависимости/UNKNOWN/DoD.
+  Ни инженерный аудит, ни расчёт не начаты.
+- Точные входы: C/base и 20 blobs/SHA-256 в input_manifest.json, в том числе
+  verification/r4_cycle_interfaces/proposal/force_variants.md/json,
+  baseline_bindings.json (44 строки с прежними ID@revision и hashes),
+  R2_R3_requests/unknown_inputs, BASE_A/B sizing и fixed-budget power results,
+  registry, R1 documentary decision и независимый R5 акт. Не подменять их current
+  значениями без diff/проверки; новая гипотеза требует отдельного ID/основания.
+- Следующий участник R1/оператор рассматривает и последовательно принимает
+  постановку и новый claim в main; это предложение координации, не назначение R1
+  этой сессией. Не сливать собственный PR как самопринятие. Если proposed lease
+  истёк до принятия, нужна новая согласованная запись, без автоматического продления.
+- Первый инженерный шаг R3 только после принятия: fetch main, проверить ancestry
+  claim-коммита/фактического owner/срок/конкуренцию и inputs по manifest, разобрать
+  diff, оформить аудит §6. Критерий старта: принятый действующий claim и явная
+  разрешённая область WARNING; затем свободные тела/матрица состояний из task.md.
+  При недостающем входе сохранить UNKNOWN и продолжать только независимые зависимости.
+- Прочность/устойчивость/реальные реакции и COTS не подтверждены; независимый
+  OUTPUT-review будущего расчёта NOT_RUN, нужен R5 вне author_sessions.
+  Нет новых численных плеч/материалов/сечений. CAD и baseline не меняются.
+  W02 OPEN; PLC/physical READY NO-GO; G1 OPEN; architecture/TZ NOT_APPROVED;
+  SHORT_STROKE/clamp/reset/legacy UP и семь REJECT сохранены; physical trials NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Входной review источника: verification/r5_ci_open_journal_recheck/review.md
+(C 6ec51742fea1be36a989dfa691ddfccf1cb20675; только bounded documentary WARNING).
+Эта постановка не является его расширением на физику/прочность.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # R1 — интеграция проверенного документального CYC-02/03
 
 C `8b72716021b0c3a64972033d09fe5e80945eb98e`, R5 `6ec51742fea1be36a989dfa691ddfccf1cb20675` (B03 CLOSED bounded documentary; GO/WARNING), H `fdb03dc48f509ee88badcfaa7a7e9fc160ddbaff`. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`; до merge IN_REVIEW. Семь отказов/арбитражи/проверки сохранены, code/payload/frozen helper не меняются.

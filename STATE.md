@@ -1,3 +1,29 @@
+# R3 — T-r3-force-path-01, постановка и claim ожидают принятия
+
+Документальный результат C `d5c1afd74a152f9e04596b296df0e6812a3b2d18` опубликован и проверен по remote,
+ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`; база main `e35086f2e87611faa7013095d110092198b912dc`.
+Полная постановка: verification/r3_force_path/task.md; claim.md/json; exact inputs/
+protected trees: input_manifest.json; UNKNOWN: input_gaps.md; checks.json/validation_C.log.
+Задача READY, claim PROPOSED_PENDING_MAIN, owner NONE, предложен r3-force-path-20261114;
+предложенный lease до 2026-11-15T12:11:55Z, действующий lease отсутствует.
+
+Сравнение A-V1/A-V2/B-V1/B-V2: рабочий/обратный силовой путь до рамы,
+устойчивость носителя/штока, направляющие, эксцентриситеты/F·e и опоры/соединения.
+Все 44 BASE_A/BASE_B fixed-budget bindings и protected inputs сохранены;
+реестр/CAD/расчёты/интерфейс/helper не менялись. Registry --check-git и diff PASS.
+Это проверка документов, не инженерная приёмка; расчёт/входной аудит NOT_STARTED.
+
+Следующий участник R1/оператор: последовательно рассмотреть/принять отдельный claim
+в main. Затем R3 проверяет owner/lease/конкуренцию/ancestry/exact inputs и выполняет
+входной аудит перед расчётом. Собственный merge не выполнен, прежние claims не продлены.
+W02 OPEN, PLC/physical READY NO-GO, G1 OPEN; архитектура/ТЗ NOT_APPROVED,
+физические испытания NOT_RUN. Капсула:
+handoffs/T-r3-force-path-01/r3-force-path-20261114.md. UTC 2026-11-14T12:19:16Z.
+
+---
+
+## Предыдущая сводка — сохранённая история
+
 # R1 — предложение документальной интеграции CYC-02/03
 
 R5 акт `6ec51742fea1be36a989dfa691ddfccf1cb20675` закрыл B03 на exact C `8b72716021b0c3a64972033d09fe5e80945eb98e`. GO/WARNING относится только к bounded документальному интерфейсу. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`, до merge IN_REVIEW. Семь отказов и все ограничения сохранены; W02/PLC/physical READY NO-GO, G1 OPEN. Следующая инженерная работа — силовые варианты R3 по отдельной задаче, не общий CAD-rebuild.
