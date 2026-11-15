@@ -1,3 +1,63 @@
+# Обновление proposal claim — редакция 2, 2026-11-15
+
+```yaml
+task_id: T-r3-force-path-01
+role: R3
+session_id: r3-force-path-20261114
+model_label: Codex
+status: PROPOSED_PENDING_MAIN
+owner_session: NONE
+proposed_owner_session: r3-force-path-20261114
+proposal_revision: 2
+updated_at_utc: '2026-11-15T18:56:30Z'
+heartbeat_utc: '2026-11-15T18:56:30Z'
+proposed_at_utc: '2026-11-15T18:56:30Z'
+proposed_lease_expires_at: '2026-11-16T18:56:30Z'
+proposed_duration_hours: 24
+lease_expires_at: null
+C_commit: 8d54c0defeffbbc44d8b61496148f5c21173a994
+C_availability: REMOTE_VERIFIED
+branch: work-r3/T-r3-force-path-01/r3-force-path-20261114
+main_at_check: e35086f2e87611faa7013095d110092198b912dc
+competition_at_check: NONE_OBSERVED_IN_MAIN_OPEN_PRS_AND_TASK_BRANCHES
+claim_history: verification/r3_force_path/claim_history/20261114T121155Z/
+blocking_record_history: verification/r3_force_path/resume_preflight_20261115/
+start_gate: BLOCKED_PENDING_MAIN_ACCEPTANCE
+force_path_calculations: NOT_STARTED
+engineering_input_audit: NOT_RUN
+input_files_unchanged: 20
+protected_trees_unchanged: 12
+baseline_bindings_unchanged: 44
+CAD_changes: NONE
+W02: NO_GO
+physical_READY: NO_GO
+G1: OPEN
+architecture_TZ: NOT_APPROVED
+main_merge: NOT_PERFORMED
+next_role: R1/operator for sequential acceptance, then R3 preflight and audit
+handoff_created_at_utc: '2026-11-15T19:00:13Z'
+```
+
+Обновление proposal прямо поручено пользователем; продолжена та же session ID.
+Это не активный lease/назначение и не снятие main acceptance gate.
+Текущий claim.json/claim.md, проверки main/конкуренции/inputs и точного интервала
+в claim_renewal_20261115/; старые JSON/Markdown сохранены побайтно в claim_history/,
+resume_preflight_20261115/ и его C/H не изменены. Все прежние сводки ниже — история.
+C проверен registry --check-git и diff; история/24 часа/owner NONE/inputs сверены.
+H меняет только STATE/NEXT/эту капсулу. Проверка перед H: `.venv/bin/python scripts/check_registry.py --check-git`,
+exit 0, PASS (engineering acceptance NOT assessed); `git diff --check` PASS.
+Ровно 24 часа, PROPOSED_PENDING_MAIN/owner NONE/lease null, архив/акт блокировки,
+все input hashes и ограничение H тремя файлами эстафеты дополнительно сверены.
+
+Первый шаг: R1/оператор последовательно принимает актуальный proposal в main.
+После принятия R3 проверяет ancestry/owner/lease/конкуренцию/manifest/44 bindings
+и аудит §6; расчёт в рамках этого обновления не начинается. При истечении
+предложенного срока до принятия нужен новый согласованный proposal.
+
+---
+
+## Предыдущие капсулы — сохранённая история
+
 # Проверка возобновления — BLOCKED 2026-11-15
 
 ```yaml

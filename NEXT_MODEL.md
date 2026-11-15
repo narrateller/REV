@@ -1,3 +1,34 @@
+# T-r3-force-path-01 — обновлённый proposal в PR #47 ожидает принятия
+
+UTC эстафеты 2026-11-15T19:00:13Z; R3 / Codex / session_id r3-force-path-20261114.
+C `8d54c0defeffbbc44d8b61496148f5c21173a994` REMOTE_VERIFIED; ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`.
+Status PROPOSED_PENDING_MAIN, owner NONE, lease_expires_at null; расчёт NOT_STARTED.
+
+- Updated/proposed/heartbeat UTC `2026-11-15T18:56:30Z`; proposed expiry UTC
+  `2026-11-16T18:56:30Z` — 24 часа. Это предложенный срок,
+  действующий claim до main acceptance не возникает.
+- Main `e35086f2e87611faa7013095d110092198b912dc` и отсутствие конкурирующего владельца проверены;
+  scope/evidence: verification/r3_force_path/claim_renewal_20261115/checks.json.
+  Текущий proposal — claim.json/claim.md; исходная постановка task.md неизменна.
+- Истёкший claim и акт блокировки сохранены: claim_history/20261114T121155Z/,
+  resume_preflight_20261115/ (в verification/r3_force_path/). Они описывают
+  прошлую редакцию, а не срок обновлённого предложения. Старые общие файлы сохранены.
+- Следующая роль R1/оператор: последовательно принять обновлённое предложение
+  в main до истечения proposed lease. Затем R3 повторяет fetch/ancestry/фактического
+  owner/lease/конкуренцию/manifest/44 bindings и входной аудит §6; только после этого
+  отдельное продолжение расчёта по task.md. Эта поставка расчёт не начинает.
+- Если срок истёк до принятия, нужно новое согласованное обновление; автоматически
+  не продлевать. До принятия owner NONE и PROPOSED_PENDING_MAIN сохраняются.
+- Inputs, нагрузки/ходы, расчёты/CAD и 44 BASE_A/B fixed-budget bindings неизменны.
+  W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED; physical trials NOT_RUN.
+  Будущий расчётный C требует независимого R5 вне author_sessions; OUTPUT ещё нет.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
 # T-r3-force-path-01 — BLOCKED, нужны принятие claim и актуальный lease
 
 UTC 2026-11-15T18:48:28Z; R3 / Codex / r3-force-path-20261114, проверка по прямому поручению

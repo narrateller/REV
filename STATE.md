@@ -1,3 +1,30 @@
+# T-r3-force-path-01 — обновлённое предложение claim, редакция 2
+
+C `8d54c0defeffbbc44d8b61496148f5c21173a994` REMOTE_VERIFIED, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`;
+UTC записи эстафеты 2026-11-15T19:00:13Z. Session ID / proposed_owner r3-force-path-20261114,
+Codex / R3; status PROPOSED_PENDING_MAIN, owner NONE, действующий lease null.
+Updated/proposed/heartbeat UTC `2026-11-15T18:56:30Z`;
+proposed lease до `2026-11-16T18:56:30Z` — ровно 24 часа.
+Расчёт NOT_STARTED, старт BLOCKED_PENDING_MAIN_ACCEPTANCE.
+
+Main `e35086f2e87611faa7013095d110092198b912dc` проверена; задачи/принятого claim в main нет,
+конкурирующего владельца в проверенных main/открытых PR/ветках задачи не найдено.
+Доказательства: verification/r3_force_path/claim_renewal_20261115/checks.json.
+Текущий proposal: claim.json/claim.md той же папки. Истёкшая редакция сохранена
+побайтно в claim_history/20261114T121155Z/; resume_preflight_20261115/ и его
+C44dcbc8/H9ef5055 неизменны как история. Предыдущие сводки ниже — история.
+
+Все 20 exact inputs/12 protected trees/44 BASE_A/B fixed-budget bindings,
+нагрузки/ходы/расчёты/CAD сохранены; registry --check-git и diff PASS.
+Следующий шаг R1/оператора — последовательно принять обновлённое предложение
+в main; R3 после принятия повторяет ancestry/owner/lease/конкуренцию/inputs
+и входной аудит. W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED.
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущие сводки — сохранённая история
+
 # T-r3-force-path-01 — возобновление BLOCKED, claim не принят / срок истёк
 
 UTC 2026-11-15T18:48:28Z; R3 / Codex / r3-force-path-20261114. Проверка предпосылок C
