@@ -1,3 +1,14 @@
+## T-r3-force-path-01 — проверка возобновления 2026-11-15: BLOCKED
+
+- Статус выполнения BLOCKED_CLAIM_NOT_ACCEPTED_AND_PROPOSED_LEASE_EXPIRED; исполнитель проверки R3 / Codex / r3-force-path-20261114 по прямому поручению пользователя продолжить при действующем claim. Инженерный расчёт и входной аудит NOT_STARTED/NOT_RUN.
+- Remote main `e35086f2e87611faa7013095d110092198b912dc`; PR #47 OPEN; claim C `d5c1afd74a152f9e04596b296df0e6812a3b2d18` не принят в main. В main нет задачи/claim; сохранённый proposal owner NONE, lease null, proposed deadline `2026-11-15T12:11:55Z` истёк. Две SUCCESS CI прежнего H не означают принятие или продление.
+- Доказательства: verification/r3_force_path/resume_preflight_20261115/preflight.json и report.md. 20 exact inputs и 12 protected trees совпали в main/рабочей копии с manifest; 44 BASE_A/B fixed-budget bindings, нагрузки/ходы и CAD сохранены. Прежние claim.md/json и постановка не переписаны; новый lease не назначался, main не сливался.
+- Следующее действие R1/оператора: последовательно принять задачу/claim в main с согласованным действующим owner/lease; после этого R3 повторяет ancestry/owner/lease/конкуренцию/inputs и входной аудит перед расчётом. Новый численный результат для независимого R5 отсутствует. W02/physical READY NO-GO; G1 OPEN; architecture/TZ NOT_APPROVED; физические испытания NOT_RUN.
+
+---
+
+## Предыдущая запись постановки — сохранённая история
+
 ## T-r3-force-path-01 — отдельное сравнение силовых путей A-V1/A-V2/B-V1/B-V2
 
 - TASK P1, родитель T-INIT, адресат R3, связь T-r4-cycle-interfaces-01. Статус READY; claim PROPOSED_PENDING_MAIN; owner_session NONE; предложен r3-force-path-20261114 / Codex / R3 по прямому поручению пользователя подготовить и опубликовать постановку и новый claim. Инженерный аудит и расчёт NOT_STARTED до принятия claim в main.
