@@ -1,3 +1,16 @@
+## T-r3-force-path-01 — обновление предложения claim, редакция 2
+
+- По прямому поручению пользователя обновлён proposal в PR #47; статус PROPOSED_PENDING_MAIN, owner NONE, READY к рассмотрению; расчёт NOT_STARTED / start gate BLOCKED_PENDING_MAIN_ACCEPTANCE. Session ID / proposed_owner_session r3-force-path-20261114 / Codex / R3, продолжение той же сессии.
+- updated_at_utc / proposed_at_utc / heartbeat_utc `2026-11-15T18:56:30Z`; proposed_lease_expires_at `2026-11-16T18:56:30Z` — ровно 24 часа от обновления. lease_expires_at null: действующего lease до принятия нет. Прежние assignment_utc/claims не подменяются действующим назначением.
+- Проверена main `e35086f2e87611faa7013095d110092198b912dc`; задача/claim в main отсутствуют, PR #47 OPEN. Среди всех открытых PR и matching remote task branches конкурирующего владельца не выявлено. Область/UTC сверки и точные hashes — verification/r3_force_path/claim_renewal_20261115/checks.json.
+- Актуальный proposal — verification/r3_force_path/claim.json и claim.md. Истёкшая редакция сохранена побайтно в claim_history/20261114T121155Z/ той же папки; resume_preflight_20261115/ и C44dcbc8/H9ef5055 сохранены без изменений как история блокировки. Предыдущие записи трекера ниже не переписаны.
+- Все 20 exact inputs / 12 protected trees / 44 BASE_A/B fixed-budget bindings, нагрузки/ходы/реестр/расчёты/CAD неизменны. W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED; испытания NOT_RUN.
+- Следующее действие R1/оператора: последовательно рассмотреть и принять обновлённый claim в main. R3 после принятия повторяет ancestry/owner/lease/конкуренцию/inputs и входной аудит; эта поставка не начинает численный расчёт и не принимает собственный claim.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 ## T-r3-force-path-01 — проверка возобновления 2026-11-15: BLOCKED
 
 - Статус выполнения BLOCKED_CLAIM_NOT_ACCEPTED_AND_PROPOSED_LEASE_EXPIRED; исполнитель проверки R3 / Codex / r3-force-path-20261114 по прямому поручению пользователя продолжить при действующем claim. Инженерный расчёт и входной аудит NOT_STARTED/NOT_RUN.
