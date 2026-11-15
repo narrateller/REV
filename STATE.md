@@ -1,3 +1,28 @@
+# T-r3-force-path-01 — возобновление BLOCKED, claim не принят / срок истёк
+
+UTC 2026-11-15T18:48:28Z; R3 / Codex / r3-force-path-20261114. Проверка предпосылок C
+`44dcbc8120e9fb174096518e8abb0d148190d3fe` REMOTE_VERIFIED, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`.
+Remote main `e35086f2e87611faa7013095d110092198b912dc`, PR #47 OPEN;
+задачи/claim в main нет, owner NONE, lease null, proposed deadline
+`2026-11-15T12:11:55Z` истёк. SUCCESS CI старого H не является принятием claim.
+Текущий статус выполнения BLOCKED; исторический proposal READY сохранён.
+
+Доказательства: verification/r3_force_path/resume_preflight_20261115/preflight.json,
+report.md, validation_C.log. Все 20 input hashes, 12 protected trees и 44 BASE_A/B
+fixed-budget bindings неизменны; нагрузки/ходы/расчёты/CAD/реестр/helper сохранены.
+Registry --check-git и diff PASS. Инженерный аудит NOT_RUN, расчёт NOT_STARTED;
+нового расчётного OUTPUT для независимого R5 нет. Claim/lease не продлевались.
+
+Следующий шаг R1/оператора: последовательно принять постановку и claim в main
+с согласованным текущим owner/lease; затем R3 повторяет preflight и входной аудит
+до сравнения четырёх вариантов. W02/physical READY NO-GO, G1 OPEN;
+архитектура/ТЗ NOT_APPROVED, physical trials NOT_RUN.
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущая сводка — сохранённая история
+
 # R3 — T-r3-force-path-01, постановка и claim ожидают принятия
 
 Документальный результат C `d5c1afd74a152f9e04596b296df0e6812a3b2d18` опубликован и проверен по remote,

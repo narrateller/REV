@@ -1,3 +1,62 @@
+# Проверка возобновления — BLOCKED 2026-11-15
+
+```yaml
+task_id: T-r3-force-path-01
+role: R3
+session_id: r3-force-path-20261114
+model_label: Codex
+status: BLOCKED_CLAIM_NOT_ACCEPTED_AND_PROPOSED_LEASE_EXPIRED
+scope: Read-only prerequisites and input preservation check, no engineering calculation
+C_commit: 44dcbc8120e9fb174096518e8abb0d148190d3fe
+C_availability: REMOTE_VERIFIED
+branch: work-r3/T-r3-force-path-01/r3-force-path-20261114
+main_at_check: e35086f2e87611faa7013095d110092198b912dc
+PR: 47
+PR_state_at_check: OPEN
+claim_commit_in_main: false
+owner_session: NONE
+lease_expires_at: null
+proposed_lease_expires_at: '2026-11-15T12:11:55Z'
+proposed_lease_expired: true
+claim_renewal: NOT_PERFORMED
+self_merge: NOT_PERFORMED
+input_hashes_unchanged: 20
+protected_trees_unchanged: 12
+baseline_bindings_unchanged: 44
+baseline_mode: fixed-budget
+engineering_input_audit: NOT_RUN
+force_path_calculations: NOT_STARTED
+independent_R5_calculation_review: NOT_RUN_NO_NEW_CALCULATION
+W02: NO_GO
+physical_READY: NO_GO
+G1: OPEN
+architecture_TZ: NOT_APPROVED
+CAD_changes: NONE
+physical_trials: NOT_RUN
+next_role: R1/operator for sequential acceptance and agreed active owner/lease
+created_at_utc: '2026-11-15T18:48:28Z'
+```
+
+Доказательства C: verification/r3_force_path/resume_preflight_20261115/preflight.json,
+report.md, validation_C.log; актуальная запись ISSUES_AND_TASKS.md. Все прежние
+inputs и сам proposal claim/lease сохранены; старые состояния ниже — история.
+C проверен registry --check-git и diff, исходные SHA-256/деревья сверены с main.
+H меняет только STATE/NEXT/эту капсулу; численного результата для R5 нет.
+Проверка перед H: `.venv/bin/python scripts/check_registry.py --check-git`,
+exit 0, PASS (engineering acceptance NOT assessed). `git diff --check` PASS;
+H ограничен тремя файлами эстафеты, прежние документы сохранены как суффиксы;
+пакет C, claim/lease и все exact inputs неизменны.
+
+Первый проверяемый шаг: R1/оператор принимает постановку и claim в main
+с согласованным действующим владельцем/сроком. После этого R3 повторяет
+fetch/ancestry/owner/lease/конкуренцию/inputs и входной аудит §6 перед расчётом.
+При отсутствии этих условий сохранять BLOCKED, UNKNOWN и исходные численные
+входы. Сравнение четырёх вариантов и отдельный OUTPUT-review R5 — будущая работа.
+
+---
+
+## Предыдущая капсула — сохранённая история
+
 # Капсула — публикация постановки T-r3-force-path-01
 
 ```yaml

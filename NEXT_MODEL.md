@@ -1,3 +1,35 @@
+# T-r3-force-path-01 — BLOCKED, нужны принятие claim и актуальный lease
+
+UTC 2026-11-15T18:48:28Z; R3 / Codex / r3-force-path-20261114, проверка по прямому поручению
+продолжить только при действующем claim. C `44dcbc8120e9fb174096518e8abb0d148190d3fe` REMOTE_VERIFIED;
+ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`. Это checkpoint проверки старта, не расчёт силовых вариантов.
+
+- Main `e35086f2e87611faa7013095d110092198b912dc` не содержит proposal C
+  d5c1afd74a152f9e04596b296df0e6812a3b2d18 и записи задачи/claim. PR #47 OPEN.
+  Owner NONE, действующий lease отсутствует; предложенный срок
+  2026-11-15T12:11:55Z истёк. Старый proposal не переписан/не продлён.
+- Проверены 20 точных inputs и 12 protected trees; 44 BASE_A/B fixed-budget
+  bindings неизменны. Evidence: verification/r3_force_path/resume_preflight_20261115/.
+  Реестр --check-git PASS; расчёт/инженерный аудит/независимый R5 OUTPUT NOT_RUN.
+- Следующий участник R1/оператор должен последовательно принять постановку/claim
+  в main с согласованным действующим владельцем и новым сроком. Merge старого
+  истёкшего предложения без lease не является разрешением расчёта.
+- Первое действие R3 после этого: fetch, claim ancestry/owner/lease/конкуренция,
+  сравнение input_manifest.json/44 bindings и diff, входной аудит §6; только затем
+  свободные тела и матрица состояний A-V1/A-V2/B-V1/B-V2 по task.md.
+- Будущий reviewer R5 должен быть вне author_sessions будущего расчёта; текущая
+  поставка не содержит численных сценариев/вывода о конструкции. W02 и physical
+  READY NO-GO; G1 OPEN; архитектура/ТЗ NOT_APPROVED; испытания NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Постановка/UNKNOWN/manifest: verification/r3_force_path/task.md, input_gaps.md,
+input_manifest.json. Задача BLOCKED до действующего claim; вопросами данных
+и независимыми вычислениями условие старта не обходится.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # T-r3-force-path-01 — принять новый claim до расчёта
 
 Состояние HANDOFF / AWAITING_MAIN_CLAIM_ACCEPTANCE, UTC 2026-11-14T12:19:16Z.
