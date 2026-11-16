@@ -1,0 +1,61 @@
+{
+  "completed_at_utc": "2026-11-16T17:56:44.280513+00:00",
+  "session": "r1-pr48-integration-20261116",
+  "task_id": "T-r4-force-geometry-01",
+  "base_main": "381d67d428faacf05f7d076249cf220fb4b94e98",
+  "commands": [
+    {
+      "command": ".venv/bin/python verification/r4_force_geometry/verify_claim.py",
+      "returncode": 0,
+      "result": "82 claim/input checks; 54 pinned files; 44 bindings; unaccepted proposal",
+      "evidence": "claim_validation.json"
+    },
+    {
+      "command": "Existing verification/pr48_integration/verify_preservation.py, import with only HERE redirected to verification/r4_force_geometry",
+      "returncode": 0,
+      "result": "754 preservation checks; immutable source/loads/strokes/CAD and R3/R5 packages",
+      "evidence": "preservation.json"
+    },
+    {
+      "command": ".venv/bin/python scripts/check_registry.py --check-git",
+      "returncode": 0,
+      "result": "PASS: repository consistency; engineering acceptance not assessed",
+      "evidence": "active_registry.log",
+      "status_evidence": "active_registry_status.json"
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "result": "PASS"
+    }
+  ],
+  "main_merge_CI": [
+    {
+      "conclusion": "success",
+      "databaseId": 43921097524,
+      "event": "push",
+      "headSha": "381d67d428faacf05f7d076249cf220fb4b94e98",
+      "status": "completed",
+      "url": "https://github.com/narrateller/REV/actions/runs/43921097524"
+    }
+  ],
+  "initial_attempt": {
+    "runner_exit_code": 1,
+    "output": "PASS",
+    "evidence": "active_registry_initial.log",
+    "accepted_as_pass": false,
+    "resolution": "Repeated with subprocess.run returncode captured directly; final underlying returncode 0 and runner 0"
+  },
+  "claim_status": "PROPOSED_PENDING_MAIN",
+  "claim_accepted": false,
+  "owner_session": "NONE",
+  "lease_expires_at": null,
+  "engineering_geometry": "NOT_STARTED",
+  "native_CAD_CAE": "NOT_RUN",
+  "physical_trials": "NOT_RUN",
+  "code_hashes": {
+    "verification/r4_force_geometry/verify_claim.py": "0baa6084ef659b7b1c17f5fa0579bdaf1e43bd4cb7a7daa304b5cdaa2a568a2a",
+    "verification/pr48_integration/verify_preservation.py": "9bbd256c2bdd7237d8b218ef5aba98082cb254d473682db5a30ba6236f866169"
+  },
+  "proposal_head_CI": "Check exact final H after publication; do not reuse merge PR48 CI for the proposal"
+}
