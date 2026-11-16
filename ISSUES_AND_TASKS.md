@@ -1,3 +1,23 @@
+# R1 — DOCUMENTARY_PACKAGE_ACCEPTED_WARNING / интеграция подготовляется
+
+UTC 2026-11-16T22:23:55.198818+00:00; T-r4-force-geometry-01 не DONE: принят только документальный
+результат на exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe. OBS-01 CLOSED
+по независимому R5 C 3784efa32ca26547f2581101474d6188f000c348 / H
+fe156cb3fbbb11d86a2716db9adcc7f44057a042: 388 PASS / 0 FAIL, общий WARNING.
+Решение R1 decisions/R1-R4-SYMBOLIC-PACKAGE-ACCEPTANCE.md. Прежний акт STALE,
+его четыре FAIL/история сохранены. Новые проверенные артефакты не менялись.
+Подготовить отдельный PR без merge. Owner/lease/heartbeat R4 не менять;
+исходный срок 2026-11-17T17:44:00Z не продлевать. Main не изменяется.
+
+T-r1-force-inputs-intake-01 / PROPOSED: owner NONE, lease null, engineering
+NOT_STARTED. Предлагается только отдельный сбор реальных источников и владельцев
+входов; см. verification/r1_r4_symbolic_integration/next_step.md. Назначений чужих
+ролей/claims нет. 42 состояния не рассчитаны; §4/5/6 NOT_RUN; UNKNOWN сохранены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/physical READY NO-GO;
+CAD-rebuild/численные и физические расчёты/испытания не разрешены.
+
+---
+
 # T-r5-r4-symbolic-obs01-recheck-01 — COMPLETE / OBS-01 CLOSED exact C
 
 UTC 2026-11-16T22:07:18.628369+00:00; direct user assignment; R5/Codex на базе GPT-6 (exact runtime ID unavailable).
