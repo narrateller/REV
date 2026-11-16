@@ -1,3 +1,111 @@
+# T-r3-force-path-01 — обновлённый proposal в PR #47 ожидает принятия
+
+UTC эстафеты 2026-11-15T19:00:13Z; R3 / Codex / session_id r3-force-path-20261114.
+C `8d54c0defeffbbc44d8b61496148f5c21173a994` REMOTE_VERIFIED; ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`.
+Status PROPOSED_PENDING_MAIN, owner NONE, lease_expires_at null; расчёт NOT_STARTED.
+
+- Updated/proposed/heartbeat UTC `2026-11-15T18:56:30Z`; proposed expiry UTC
+  `2026-11-16T18:56:30Z` — 24 часа. Это предложенный срок,
+  действующий claim до main acceptance не возникает.
+- Main `e35086f2e87611faa7013095d110092198b912dc` и отсутствие конкурирующего владельца проверены;
+  scope/evidence: verification/r3_force_path/claim_renewal_20261115/checks.json.
+  Текущий proposal — claim.json/claim.md; исходная постановка task.md неизменна.
+- Истёкший claim и акт блокировки сохранены: claim_history/20261114T121155Z/,
+  resume_preflight_20261115/ (в verification/r3_force_path/). Они описывают
+  прошлую редакцию, а не срок обновлённого предложения. Старые общие файлы сохранены.
+- Следующая роль R1/оператор: последовательно принять обновлённое предложение
+  в main до истечения proposed lease. Затем R3 повторяет fetch/ancestry/фактического
+  owner/lease/конкуренцию/manifest/44 bindings и входной аудит §6; только после этого
+  отдельное продолжение расчёта по task.md. Эта поставка расчёт не начинает.
+- Если срок истёк до принятия, нужно новое согласованное обновление; автоматически
+  не продлевать. До принятия owner NONE и PROPOSED_PENDING_MAIN сохраняются.
+- Inputs, нагрузки/ходы, расчёты/CAD и 44 BASE_A/B fixed-budget bindings неизменны.
+  W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED; physical trials NOT_RUN.
+  Будущий расчётный C требует независимого R5 вне author_sessions; OUTPUT ещё нет.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
+# T-r3-force-path-01 — BLOCKED, нужны принятие claim и актуальный lease
+
+UTC 2026-11-15T18:48:28Z; R3 / Codex / r3-force-path-20261114, проверка по прямому поручению
+продолжить только при действующем claim. C `44dcbc8120e9fb174096518e8abb0d148190d3fe` REMOTE_VERIFIED;
+ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`. Это checkpoint проверки старта, не расчёт силовых вариантов.
+
+- Main `e35086f2e87611faa7013095d110092198b912dc` не содержит proposal C
+  d5c1afd74a152f9e04596b296df0e6812a3b2d18 и записи задачи/claim. PR #47 OPEN.
+  Owner NONE, действующий lease отсутствует; предложенный срок
+  2026-11-15T12:11:55Z истёк. Старый proposal не переписан/не продлён.
+- Проверены 20 точных inputs и 12 protected trees; 44 BASE_A/B fixed-budget
+  bindings неизменны. Evidence: verification/r3_force_path/resume_preflight_20261115/.
+  Реестр --check-git PASS; расчёт/инженерный аудит/независимый R5 OUTPUT NOT_RUN.
+- Следующий участник R1/оператор должен последовательно принять постановку/claim
+  в main с согласованным действующим владельцем и новым сроком. Merge старого
+  истёкшего предложения без lease не является разрешением расчёта.
+- Первое действие R3 после этого: fetch, claim ancestry/owner/lease/конкуренция,
+  сравнение input_manifest.json/44 bindings и diff, входной аудит §6; только затем
+  свободные тела и матрица состояний A-V1/A-V2/B-V1/B-V2 по task.md.
+- Будущий reviewer R5 должен быть вне author_sessions будущего расчёта; текущая
+  поставка не содержит численных сценариев/вывода о конструкции. W02 и physical
+  READY NO-GO; G1 OPEN; архитектура/ТЗ NOT_APPROVED; испытания NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Постановка/UNKNOWN/manifest: verification/r3_force_path/task.md, input_gaps.md,
+input_manifest.json. Задача BLOCKED до действующего claim; вопросами данных
+и независимыми вычислениями условие старта не обходится.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# T-r3-force-path-01 — принять новый claim до расчёта
+
+Состояние HANDOFF / AWAITING_MAIN_CLAIM_ACCEPTANCE, UTC 2026-11-14T12:19:16Z.
+Проект narrateller/REV; автор R3 / Codex / r3-force-path-20261114 по прямому
+поручению пользователя подготовить постановку и claim.
+Ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`; C `d5c1afd74a152f9e04596b296df0e6812a3b2d18` REMOTE_VERIFIED.
+База main `e35086f2e87611faa7013095d110092198b912dc` (PR #46).
+
+- Задача READY, claim PROPOSED_PENDING_MAIN, owner_session NONE.
+  Предложенный исполнитель r3-force-path-20261114; предложенный срок до
+  2026-11-15T12:11:55Z, действующий lease отсутствует.
+- Результат: verification/r3_force_path/task.md, claim.md/json, input_manifest.json,
+  input_gaps.md, checks.json/validation_C.log; запись ISSUES_AND_TASKS.md.
+  Подготовлены цель/четыре варианта/состояния/зависимости/UNKNOWN/DoD.
+  Ни инженерный аудит, ни расчёт не начаты.
+- Точные входы: C/base и 20 blobs/SHA-256 в input_manifest.json, в том числе
+  verification/r4_cycle_interfaces/proposal/force_variants.md/json,
+  baseline_bindings.json (44 строки с прежними ID@revision и hashes),
+  R2_R3_requests/unknown_inputs, BASE_A/B sizing и fixed-budget power results,
+  registry, R1 documentary decision и независимый R5 акт. Не подменять их current
+  значениями без diff/проверки; новая гипотеза требует отдельного ID/основания.
+- Следующий участник R1/оператор рассматривает и последовательно принимает
+  постановку и новый claim в main; это предложение координации, не назначение R1
+  этой сессией. Не сливать собственный PR как самопринятие. Если proposed lease
+  истёк до принятия, нужна новая согласованная запись, без автоматического продления.
+- Первый инженерный шаг R3 только после принятия: fetch main, проверить ancestry
+  claim-коммита/фактического owner/срок/конкуренцию и inputs по manifest, разобрать
+  diff, оформить аудит §6. Критерий старта: принятый действующий claim и явная
+  разрешённая область WARNING; затем свободные тела/матрица состояний из task.md.
+  При недостающем входе сохранить UNKNOWN и продолжать только независимые зависимости.
+- Прочность/устойчивость/реальные реакции и COTS не подтверждены; независимый
+  OUTPUT-review будущего расчёта NOT_RUN, нужен R5 вне author_sessions.
+  Нет новых численных плеч/материалов/сечений. CAD и baseline не меняются.
+  W02 OPEN; PLC/physical READY NO-GO; G1 OPEN; architecture/TZ NOT_APPROVED;
+  SHORT_STROKE/clamp/reset/legacy UP и семь REJECT сохранены; physical trials NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Входной review источника: verification/r5_ci_open_journal_recheck/review.md
+(C 6ec51742fea1be36a989dfa691ddfccf1cb20675; только bounded documentary WARNING).
+Эта постановка не является его расширением на физику/прочность.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
 # R1 — интеграция проверенного документального CYC-02/03
 
 C `8b72716021b0c3a64972033d09fe5e80945eb98e`, R5 `6ec51742fea1be36a989dfa691ddfccf1cb20675` (B03 CLOSED bounded documentary; GO/WARNING), H `fdb03dc48f509ee88badcfaa7a7e9fc160ddbaff`. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`; до merge IN_REVIEW. Семь отказов/арбитражи/проверки сохранены, code/payload/frozen helper не меняются.

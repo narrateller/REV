@@ -1,3 +1,81 @@
+# T-r3-force-path-01 — обновлённое предложение claim, редакция 2
+
+C `8d54c0defeffbbc44d8b61496148f5c21173a994` REMOTE_VERIFIED, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`;
+UTC записи эстафеты 2026-11-15T19:00:13Z. Session ID / proposed_owner r3-force-path-20261114,
+Codex / R3; status PROPOSED_PENDING_MAIN, owner NONE, действующий lease null.
+Updated/proposed/heartbeat UTC `2026-11-15T18:56:30Z`;
+proposed lease до `2026-11-16T18:56:30Z` — ровно 24 часа.
+Расчёт NOT_STARTED, старт BLOCKED_PENDING_MAIN_ACCEPTANCE.
+
+Main `e35086f2e87611faa7013095d110092198b912dc` проверена; задачи/принятого claim в main нет,
+конкурирующего владельца в проверенных main/открытых PR/ветках задачи не найдено.
+Доказательства: verification/r3_force_path/claim_renewal_20261115/checks.json.
+Текущий proposal: claim.json/claim.md той же папки. Истёкшая редакция сохранена
+побайтно в claim_history/20261114T121155Z/; resume_preflight_20261115/ и его
+C44dcbc8/H9ef5055 неизменны как история. Предыдущие сводки ниже — история.
+
+Все 20 exact inputs/12 protected trees/44 BASE_A/B fixed-budget bindings,
+нагрузки/ходы/расчёты/CAD сохранены; registry --check-git и diff PASS.
+Следующий шаг R1/оператора — последовательно принять обновлённое предложение
+в main; R3 после принятия повторяет ancestry/owner/lease/конкуренцию/inputs
+и входной аудит. W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED.
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущие сводки — сохранённая история
+
+# T-r3-force-path-01 — возобновление BLOCKED, claim не принят / срок истёк
+
+UTC 2026-11-15T18:48:28Z; R3 / Codex / r3-force-path-20261114. Проверка предпосылок C
+`44dcbc8120e9fb174096518e8abb0d148190d3fe` REMOTE_VERIFIED, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`.
+Remote main `e35086f2e87611faa7013095d110092198b912dc`, PR #47 OPEN;
+задачи/claim в main нет, owner NONE, lease null, proposed deadline
+`2026-11-15T12:11:55Z` истёк. SUCCESS CI старого H не является принятием claim.
+Текущий статус выполнения BLOCKED; исторический proposal READY сохранён.
+
+Доказательства: verification/r3_force_path/resume_preflight_20261115/preflight.json,
+report.md, validation_C.log. Все 20 input hashes, 12 protected trees и 44 BASE_A/B
+fixed-budget bindings неизменны; нагрузки/ходы/расчёты/CAD/реестр/helper сохранены.
+Registry --check-git и diff PASS. Инженерный аудит NOT_RUN, расчёт NOT_STARTED;
+нового расчётного OUTPUT для независимого R5 нет. Claim/lease не продлевались.
+
+Следующий шаг R1/оператора: последовательно принять постановку и claim в main
+с согласованным текущим owner/lease; затем R3 повторяет preflight и входной аудит
+до сравнения четырёх вариантов. W02/physical READY NO-GO, G1 OPEN;
+архитектура/ТЗ NOT_APPROVED, physical trials NOT_RUN.
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущая сводка — сохранённая история
+
+# R3 — T-r3-force-path-01, постановка и claim ожидают принятия
+
+Документальный результат C `d5c1afd74a152f9e04596b296df0e6812a3b2d18` опубликован и проверен по remote,
+ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`; база main `e35086f2e87611faa7013095d110092198b912dc`.
+Полная постановка: verification/r3_force_path/task.md; claim.md/json; exact inputs/
+protected trees: input_manifest.json; UNKNOWN: input_gaps.md; checks.json/validation_C.log.
+Задача READY, claim PROPOSED_PENDING_MAIN, owner NONE, предложен r3-force-path-20261114;
+предложенный lease до 2026-11-15T12:11:55Z, действующий lease отсутствует.
+
+Сравнение A-V1/A-V2/B-V1/B-V2: рабочий/обратный силовой путь до рамы,
+устойчивость носителя/штока, направляющие, эксцентриситеты/F·e и опоры/соединения.
+Все 44 BASE_A/BASE_B fixed-budget bindings и protected inputs сохранены;
+реестр/CAD/расчёты/интерфейс/helper не менялись. Registry --check-git и diff PASS.
+Это проверка документов, не инженерная приёмка; расчёт/входной аудит NOT_STARTED.
+
+Следующий участник R1/оператор: последовательно рассмотреть/принять отдельный claim
+в main. Затем R3 проверяет owner/lease/конкуренцию/ancestry/exact inputs и выполняет
+входной аудит перед расчётом. Собственный merge не выполнен, прежние claims не продлены.
+W02 OPEN, PLC/physical READY NO-GO, G1 OPEN; архитектура/ТЗ NOT_APPROVED,
+физические испытания NOT_RUN. Капсула:
+handoffs/T-r3-force-path-01/r3-force-path-20261114.md. UTC 2026-11-14T12:19:16Z.
+
+---
+
+## Предыдущая сводка — сохранённая история
+
 # R1 — предложение документальной интеграции CYC-02/03
 
 R5 акт `6ec51742fea1be36a989dfa691ddfccf1cb20675` закрыл B03 на exact C `8b72716021b0c3a64972033d09fe5e80945eb98e`. GO/WARNING относится только к bounded документальному интерфейсу. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`, до merge IN_REVIEW. Семь отказов и все ограничения сохранены; W02/PLC/physical READY NO-GO, G1 OPEN. Следующая инженерная работа — силовые варианты R3 по отдельной задаче, не общий CAD-rebuild.
