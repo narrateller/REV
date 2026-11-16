@@ -1,3 +1,60 @@
+# R1 — exact C символической поставки R4 готов к передаче независимому R5
+
+UTC 2026-11-16T20:18:23.781046+00:00; R1/Codex/r1-pr48-integration-20261116.
+C координационной передачи: c2c16d1ac4f5a4da44f407872733eba90d08a4a2.
+Ветка work-r1/r5-symbolic-review-handoff/r1-pr48-integration-20261116;
+main не меняется, PR не создаётся. Source R4 **b840dfd5444da2bf62483b7f4a6069d2bb255b71**,
+request H **9433ef749df14a3bbf8ea32331e2f895fd5bf7aa** сохранены без изменения.
+Main f731910273b47f46c6d45114cecd76de6fa8adf9; authority R1
+80f1028c25d1c4344c0115b7908e02346d895701. H после C добавил request.md/json
+и изменил STATE/NEXT/капсулу; target остаётся C, не H и не плавающий branch head.
+
+52 строки интерфейсов (13 на вариант), соответствие 42 исходным состояниям,
+84 RAW/null и 54 pinned inputs/12 trees/44 full bindings сохранены. Авторский
+checker повторён с новым output: 1274 PASS. Renderer из exact кода с только HERE,
+направленным в fresh temporary directory: 7 файлов byte-MATCH, source не перезаписан.
+124 coordinator handoff checks PASS; это воспроизводимость/проверка передачи,
+**не независимый R5 review**. Итоги — verification/r1_r5_symbolic_handoff/validation.json.
+
+Review task T-r5-r4-force-geometry-symbolic-review-01 —
+REQUESTED_AWAITING_SEPARATE_INDEPENDENT_ASSIGNMENT. Reviewer ещё не назначен: session/model/lease null,
+review **NOT_RUN**, нового claim R5 нет. Поручение для пользователя —
+verification/r1_r5_symbolic_handoff/R5_review_command.md; оно вступает в силу
+только при прямом вызове подходящей независимой сессии пользователем.
+
+Не могут быть reviewer фактический автор R4 6afb4750-7918-8191-8569-77b5b0c41050
+и координатор r1-pr48-integration-20261116, даже под другими именами/ролями.
+До review реальный R5 сообщает/фиксирует actual session/model/tools и independence;
+при соавторстве — не выполняет review. Роль, назначенная прямым user-поручением,
+повторно не запрашивается. R4 claim/heartbeat/lease reviewer не меняет.
+R4 исходный deadline **2026-11-17T17:44:00Z** не продлён. Readonly review
+неизменяемого результата после срока автора не возобновляет его инженерию.
+
+Следующий атомарный шаг R5: получить exact C/H/authority/предыдущий audit C/H,
+прочитать request на H и review_scope на C, независимо проверить каждую строку,
+смысл источников/условий/UNKNOWN, оба направления/плоскости/полный ход, все
+42 состояния, сохранность и отсутствие новых значений. Авторские 138/1274 PASS
+и координационные проверки не заменяют собственную методику reviewer.
+
+Выход — отдельный акт достаточности только документальной/символической
+постановки с PASS/FAIL/NOT_RUN, конкретными row_key/source/получателями замечаний,
+командами/exit codes/evidence и итогом WARNING либо REJECT_WITH_BLOCKER.
+R5 пишет только собственную review-папку/ветку/акт, не исправляет C автора,
+сохраняет назначение/independence/свои проверки/запись review и отдельные C/H,
+tracker/STATE/NEXT_MODEL/капсулу; main/чужие claims сам не сливает/не принимает.
+
+§4/5/6 остаются NOT_RUN; 42 состояния не рассчитаны; фактическая геометрия,
+реакции/прочность/устойчивость/capacity/margins/цикл/материалы/COTS UNKNOWN.
+Архитектура/ТЗ NOT_APPROVED, W02/physical READY NO-GO, G1 OPEN;
+CAD/CAE-build/rebuild/испытания/новые физические расчёты не разрешены.
+Старые дефекты/семь REJECT/material history=2 сохраняются. Результат R4
+остаётся IN_REVIEW до фактического R5 и отдельного решения R1/оператора.
+Капсула: handoffs/T-r4-force-geometry-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
 # R4 — символические интерфейсы готовы к независимому OUTPUT-review
 
 HANDOFF / IN_REVIEW, UTC 2026-11-16T20:05:39.708525+00:00; narrateller/REV; R4 / Codex on GPT-6 base
