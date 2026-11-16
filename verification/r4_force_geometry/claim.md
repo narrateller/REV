@@ -1,4 +1,4 @@
-# Claim T-r4-force-geometry-01 — принят PR49, входной аудит ещё не выполнен
+# Claim T-r4-force-geometry-01 — принят PR49, входной аудит WARNING записан
 
 Пользователь прямо назначил R4 сессии **6afb4750-7918-8191-8569-77b5b0c41050**
 и разрешил обычное слияние PR49 после проверки main/head/CI/inputs/срока.
@@ -14,20 +14,22 @@ reviewed head `70ab9a1926235170e449b85d558f135ddae90add`.
   без продления/сдвига от merge. Прежние R1/R3/R4 leases не продлены.
 - claim_acceptance_commit — фактический merge PR49; acceptance PR — 49.
   Координатор записывает принятое состояние, не создаёт новое назначение.
-- Executor heartbeat ещё отсутствует: R1 не выдаёт свою запись за heartbeat R4.
-- Input audit NOT_RUN_PENDING_ACTUAL_R4_PREFLIGHT; инженерная геометрия NOT_STARTED.
-  **Start gate BLOCKED_PENDING_INPUT_AUDIT.**
+- Фактический heartbeat R4: 2026-11-16T19:08:03.489858+00:00; начало —
+  preflight_20261116/heartbeat_start.json, окончание — heartbeat_end.json в той же папке.
+- Input audit COMPLETED_WARNING_4_PASS_3_NOT_RUN; input_audit.md/json.
+  Геометрия/расчёты NOT_STARTED. Start gate: только документальная/символическая
+  условная постановка; зависимые численные/физические работы блокированы NOT_RUN.
 
 Поля NONE/null/role-unconfirmed в редакциях 1 и 2 были состоянием предложения.
 Обе редакции сохранены в claim_history/ и Git; нормализация опирается на новый
 прямой приказ пользователя и фактическое принятие в main, а не на самопринятие.
 
-## Следующее действие фактического R4
+## Выполненный шаг и дальнейшая граница
 
-Выполнить R4_command.md: fetch main, проверить ancestry принятия, актуального
-владельца, непросроченный срок и конкуренцию, manifest/44 bindings, затем
-оформить входной аудит §6 с точными источниками и PASS/FAIL/NOT_APPLICABLE/NOT_RUN.
-До завершения аудита инженерную геометрию и расчёты не начинать. Если срок истёк,
+Выполнены fetch main, ancestry/owner/срок/конкуренция, 54 inputs/12 trees/44 bindings;
+138 preflight PASS. Семь пунктов §6 оформлены: 4 PASS, 3 NOT_RUN, 0 FAIL/N_A.
+Для дальнейшей работы действуют точные ограничения input_audit.md: WARNING только
+для документальной/символической постановки; NOT_RUN не даёт физического допуска. Если срок истёк,
 изменились inputs или найден другой принятый owner — stop, без продления и подмены.
 
 Scope WARNING — только условная геометрическая постановка четырёх вариантов;

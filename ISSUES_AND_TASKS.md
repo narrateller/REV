@@ -1,3 +1,41 @@
+# R4 — preflight и входной аудит T-r4-force-geometry-01 записаны
+
+UTC 2026-11-16T19:08:03.489858+00:00; session/owner 6afb4750-7918-8191-8569-77b5b0c41050; R4 USER_CONFIRMED.
+Модель: Codex on GPT-6 base, exact runtime model identifier unavailable.
+Прямое поручение пользователя: fetch актуальной main, проверка принятия PR49/owner/
+срока/конкуренции/manifest/44 bindings, аудит §6 и сохранение C/H без инженерного старта.
+
+- Base main f731910273b47f46c6d45114cecd76de6fa8adf9; PR49 принят обычным merge
+  cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9, head 70ab9a1926235170e449b85d558f135ddae90add.
+  Ancestry/receipt/два родителя/равенство дерева подтверждены. Конкурирующего
+  принятого claim в текущих main records и live open PRs нет; скрытая работа не наблюдаема.
+- Owner/session совпадает; lease до 2026-11-17T17:44:00Z без продления.
+  Фактический heartbeat R4 2026-11-16T19:08:03.489858+00:00; start/end JSON в preflight_20261116/.
+- 138 preflight PASS (два отдельных прогона); 54 inputs/12 protected trees/
+  44 full bindings MATCH, 706 materialized files/48 LFS сверены. Registry --check-git PASS, code 0.
+- Статус INPUT_AUDIT_RECORDED_WARNING; audit COMPLETED_WARNING_4_PASS_3_NOT_RUN.
+  §1/2/3/7 PASS только в указанной документальной области; §4/5/6 NOT_RUN.
+  Только документальная/символическая условная постановка может следовать в WARNING
+  scope; зависимые реальные/численные оценки блокированы отсутствующими входами/NOT_RUN.
+- Геометрия/расчёты NOT_STARTED; native CAD/CAE/physical trials NOT_RUN. Parent
+  инженерная задача не DONE; независимый OUTPUT-review нового результата NOT_RUN.
+- Доказательства: verification/r4_force_geometry/input_audit.md/json,
+  preflight_20261116/checks/ и final_checks/, active_registry.log/status.json, heartbeat.
+
+Следующий шаг: передать координатору exact C/H; дальше в действующем lease
+только условная постановка по task.md с UNKNOWN и без подмены baseline. Для
+численной оценки — R4/R3 геометрические/опорные входы, R2/R3 фазовые нагрузки,
+R3/R4/R6 joints/COTS/материалы, R5/R6/R1 критерии; новые численные гипотезы
+отдельно ASSUMED ID/revision/основание. Назначения чужих claims не делаются.
+42 состояния не рассчитаны, 84 RAW/null сохранены. Старые SHORT_STROKE/A clamp/B reset/
+legacy UP/physical L/B opening/семь REJECT/material history=2 сохранены.
+Архитектура/ТЗ NOT_APPROVED, общий CAD-rebuild запрещён, W02/PLC/physical READY
+NO-GO, G1 OPEN; испытания/выпуск не разрешены. Enforcement PROCEDURAL.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R4 назначен пользователем, PR49 принят: сначала входной аудит
 
 - Прямое текущее поручение пользователя: назначить роль R4 сессии
