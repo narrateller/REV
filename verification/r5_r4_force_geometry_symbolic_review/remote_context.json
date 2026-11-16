@@ -1,0 +1,29 @@
+{
+  "observed_at_utc": "2026-11-16T20:38:20.048631+00:00",
+  "observations": [
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "origin",
+        "refs/heads/main"
+      ],
+      "exit_code": 0,
+      "stdout": "f731910273b47f46c6d45114cecd76de6fa8adf9\trefs/heads/main\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/pulls/49",
+        "--jq",
+        "{number,state,merged,merge_commit_sha,merged_at,head_sha:.head.sha}"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"head_sha\":\"70ab9a1926235170e449b85d558f135ddae90add\",\"merge_commit_sha\":\"cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9\",\"merged\":true,\"merged_at\":\"2026-11-16T18:40:12Z\",\"number\":49,\"state\":\"closed\"}\n",
+      "stderr": ""
+    }
+  ],
+  "limitation": "Current PR49/main read only; historical no-competition snapshots are not a current claim/CI enforcement proof."
+}
