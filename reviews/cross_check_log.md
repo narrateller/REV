@@ -5976,3 +5976,209 @@ reproduction_artifacts:
 - verification/r5_ci_open_journal_recheck/commands.json
 - verification/r5_ci_open_journal_recheck/semantic_iteration.stderr
 ```
+
+## OUTPUT-review силового контура R3
+
+```yaml
+record_type: review
+review_id: REV-R5-R3-FORCE-PATH-OUTPUT-01-001
+review_type: OUTPUT
+reviewed_commit: 93b4aead4983f88919d8e8b4165e29d7f3246600
+reviewed_handoff_commit: aadc08a70fbaee16b7ba4c16463bab97275926bb
+reviewer:
+  role: R5
+  model_label: Codex
+  session_id: r5-force-path-output-20261116
+author_sessions:
+- r3-force-path-20261114
+reviewed_at_utc: '2026-11-16T14:39:27.912033+00:00'
+scope: Conditional force-path arithmetic only; 26 scalars, four topologies; no actual strength, reactions, CAD or
+  physical permission
+independence_basis: Direct user assignment; reviewer did not author C; independent Decimal/rational oracle, no author
+  coefficients for expected values
+parameter_refs:
+- id: R3_IN_WIDTH
+  revision: 1
+  engineering_sha256: d643aa3a03ec008438d5087bc4b3011edfe152875effb725a04feae80a33c1ff
+- id: R3_IN_HEIGHT
+  revision: 1
+  engineering_sha256: 8c5c16ec5d1055417f306b176bffd22fff62ba9be27c36132ccf54da49581c8a
+- id: R3_IN_PRODUCT_LENGTH
+  revision: 1
+  engineering_sha256: 6de1c62bb4e3ce436ad93e909cfce9c5450f0f6f3684026969677b1f23aed6b3
+- id: R3_BASE_A_CHAMBER_LENGTH
+  revision: 1
+  engineering_sha256: 1f65785331d188ba85e902ea6420853bb5f0e0378e7a987c846d92fdc1f76df2
+- id: R3_BASE_A_OCCUPIED_LENGTH
+  revision: 1
+  engineering_sha256: 6eddd8be3b045acb0a6bf36ac09a4f0f45e271cb93ddff2d6286755dec6f4c65
+- id: R3_BASE_A_APPROACH_STROKE
+  revision: 1
+  engineering_sha256: 98645adfda66bebe880adbcad38da8445316135aee160f0d249fb299feb0cbb9
+- id: R3_BASE_A_WORK_STROKE
+  revision: 1
+  engineering_sha256: 4da9871b7b734d5e25c85b83740d4ec54277a98be55265ce4b284e38993d0a32
+- id: R3_BASE_A_EJECT_STROKE
+  revision: 1
+  engineering_sha256: dd5af41f3ff553043ed5cc115b13b7b46171fc92be4feeac5c7f5bac074df1de
+- id: R3_BASE_A_RETURN_STROKE
+  revision: 1
+  engineering_sha256: f699ed8cbe193f4b9717ea08c17d133d734971d115e735d304a25554a1e813d5
+- id: R3_BASE_A_BORE
+  revision: 1
+  engineering_sha256: 05c64eda07ec93be6a28869a8cf129fa5b9d6a9998fb741dd7806675de6c9159
+- id: R3_BASE_A_ROD
+  revision: 1
+  engineering_sha256: 8d8593ad3c342c40c90463b94d9674ea45052aeafa1bc06ff660de3cf4b67474
+- id: R3_BASE_A_FORCE_WORK_PEAK
+  revision: 1
+  engineering_sha256: 14f8433c2fbfb8841177e205fc5f6a4d933419e488ccab8b7fb71bba7fdb6a02
+- id: R3_BASE_A_FORCE_RETURN_REQUIRED
+  revision: 1
+  engineering_sha256: 23f9ea74a3bcd39cd3f52b7c3a369f79d59907cd24338f4f8440302003caa36a
+- id: R3P_BASE_A_APPROACH_TIME
+  revision: 1
+  engineering_sha256: d49efe65d0373fabf7760047d5b4d44fcac69fb8e807cf4f7c8d1339adff3def
+- id: R3P_BASE_A_APPROACH_SPEED
+  revision: 1
+  engineering_sha256: c81b3ac419dd00fbd6ecc411f44553d919fdf2e199dd150cb92aae3b613a6745
+- id: R3P_BASE_A_WORK_TIME
+  revision: 1
+  engineering_sha256: fa8fad8df323521564c5b189e08afe07f077b31f5075444bb2e90616fee73951
+- id: R3P_BASE_A_WORK_SPEED
+  revision: 1
+  engineering_sha256: 957728504d3e7dcc9994e7299b5e9088a3cbc6ae98288771c59b13840af3b8a5
+- id: R3P_BASE_A_EJECT_TIME
+  revision: 1
+  engineering_sha256: 018ee8fe4ee0bda143e892541e7706fecce5dda89a06dccc260f160630f60e5a
+- id: R3P_BASE_A_EJECT_SPEED
+  revision: 1
+  engineering_sha256: 1f653c9e94740b4f8f089d3b6669436d36c140a67d31888afbbe74d94c0fd1ab
+- id: R3P_BASE_A_RETURN_TIME
+  revision: 1
+  engineering_sha256: 32be25dfee1d0f807df5ee37b02150f12c171665be5ca06c70b7fc742c899442
+- id: R3P_BASE_A_RETURN_SPEED
+  revision: 1
+  engineering_sha256: 1758645969aa4a904e76672b406d1890fb6924e816f260446ec3d40c3600274e
+- id: R3P_BASE_A_FIXED_BUDGET_CYCLE
+  revision: 1
+  engineering_sha256: 32284da21f90846684c5077a51dedf89a93f50450eddb51fb1ab3c56046dcfbe
+- id: R3_BASE_B_CHAMBER_LENGTH
+  revision: 1
+  engineering_sha256: 7afe1c6d48c8d28d7a9cb559d5f4046d3836b3e959414055f525926645277402
+- id: R3_BASE_B_OCCUPIED_LENGTH
+  revision: 1
+  engineering_sha256: 4deb2f14d824e5d9ae04c9b153d771415f1d3bc87f2ae9ba8f34bfe04e6f2da8
+- id: R3_BASE_B_APPROACH_STROKE
+  revision: 1
+  engineering_sha256: be79a8938a64066768edfa201035e4a3b7efce29c7560006721ddd71487352ed
+- id: R3_BASE_B_WORK_STROKE
+  revision: 1
+  engineering_sha256: a469e88240f61257c770eb9eaca4557409ae1c5cd00dbfc945c70a47983816b0
+- id: R3_BASE_B_EJECT_STROKE
+  revision: 1
+  engineering_sha256: 0a3586ecb9e6c8710b89c06daa825c729b64df7d2427abbe0768a4ee51e5f809
+- id: R3_BASE_B_RETURN_STROKE
+  revision: 1
+  engineering_sha256: aac701db499dd41fd2342d71f77e4f945d15d7f6a588d7fb75ab3e549514ea90
+- id: R3_BASE_B_BORE
+  revision: 1
+  engineering_sha256: 995a9fd66907509880e3d3306f53feeb249b8915a4a79baac6eedf5716237c16
+- id: R3_BASE_B_ROD
+  revision: 1
+  engineering_sha256: 26738f42950bd1441dffe72011b6c64408ea198c0c980d4ad96c9cc914435549
+- id: R3_BASE_B_FORCE_WORK_PEAK
+  revision: 1
+  engineering_sha256: 561b8a3724234fada0e6c6753832ccf319875f71dbf3cb9528fdd8ac486a2016
+- id: R3_BASE_B_FORCE_RETURN_REQUIRED
+  revision: 1
+  engineering_sha256: 2e9f9404d86599641d1ed6fb699927484578a2de1792bdafb1697abff1369137
+- id: R3P_BASE_B_APPROACH_TIME
+  revision: 1
+  engineering_sha256: 7b83c36a5cde6c9f1339485dedaddd9da6330515377e45412da843b494a8728e
+- id: R3P_BASE_B_APPROACH_SPEED
+  revision: 1
+  engineering_sha256: e83b60e6f2c6023d9d1a1eedf1698a5f57704c4bab6bc0348497904f7ce885f8
+- id: R3P_BASE_B_WORK_TIME
+  revision: 1
+  engineering_sha256: 6ab18b2b58bcd4c53ffa195920bf89f0703375ccffdf90c78f1137176a4acd00
+- id: R3P_BASE_B_WORK_SPEED
+  revision: 1
+  engineering_sha256: 0ccd27122b0d9514a51d7ea257a5901c904f3f8cea522333168e0e470388cb29
+- id: R3P_BASE_B_EJECT_TIME
+  revision: 1
+  engineering_sha256: 156773d856d6edfa2cb22a0799a26b0d863c540d2cead81c93cc33950fe5d045
+- id: R3P_BASE_B_EJECT_SPEED
+  revision: 1
+  engineering_sha256: f841f4a1a5b5b3449416a87f1e23e9569ebc9466c352b41842f6a47b7a18da97
+- id: R3P_BASE_B_RETURN_TIME
+  revision: 1
+  engineering_sha256: 362d13390bd29b93356c508ae6d4c8fd2ee7127850a7b3be535a4a8bb8875a1f
+- id: R3P_BASE_B_RETURN_SPEED
+  revision: 1
+  engineering_sha256: 121e9bbef7dc38ba1b1fb583d49e80ac8c3066a961271a8ce4a3f343252c464b
+- id: R3P_BASE_B_FIXED_BUDGET_CYCLE
+  revision: 1
+  engineering_sha256: 2508d013863a8bc6255b074ca5b3b639ad62f273198df077e6eb940e5d7833c1
+artifacts:
+- path: verification/r3_force_path/analysis/report.md
+  sha256: e9b19634e1f2d7feef65e38f138369736453cb3b4b4de91083185cc43d1487c4
+- path: verification/r3_force_path/analysis/free_bodies.md
+  sha256: 86bdd7be3655a295b4afe1f021b8f48a06a588cc74fdae6bba34514709006172
+- path: verification/r3_force_path/analysis/compare.py
+  sha256: 9d384b2212c0f4452665222ecc3a5e1fda9d97bb1828a450774b7fa6a1fa4c67
+- path: verification/r3_force_path/analysis/results_A.json
+  sha256: 830fe5a7851c034c4be7702c5f49c767a2115b640b7e87a99481228453fd26f8
+- path: verification/r3_force_path/analysis/results_B.json
+  sha256: 62537d49ad286cda4248428f0f57363e55fae7792b4e6decb74be44d8d0c18a8
+- path: verification/r3_force_path/analysis/params/registry.yaml
+  sha256: bd9659a87f5c8a507c35a1f79e4b3e405dbda3d7523a85fb5af5147f94e8a440
+- path: verification/r3_force_path/analysis/state_matrix.json
+  sha256: 32d410ebbe41c0d16e817f03a690da56c66d69a5ff9e9efa26e66bde35b42680
+checks:
+- id: FP-ARITHMETIC
+  method: Decimal 60-digit independent oracle
+  expected: 26 correct values, units, signs
+  observed: 26/26 match; 204 checks passed
+  reasoning: Scope is conditional analytical research; no downstream physical permission
+  result: PASS
+- id: FP-STATICS
+  method: Independent rational moving-body/frame equilibrium
+  expected: Closed force/moment residuals in explicitly assumed system
+  observed: Work/return/opposite e/known zero and UNKNOWN distinguished
+  reasoning: Scope is conditional analytical research; no downstream physical permission
+  result: PASS
+- id: FP-PRESERVATION
+  method: Git blobs SHA256 and tree IDs, full binding objects
+  expected: 44 bindings, 20 inputs, 12 source trees unchanged
+  observed: All preserved BASE/C/H; carrier not assigned rod section
+  reasoning: Scope is conditional analytical research; no downstream physical permission
+  result: PASS
+- id: FP-UNKNOWN
+  method: Inspect 84 RAW entries, 42 states and actual JSON
+  expected: Unknown physical quantities never fabricated
+  observed: Null/UNKNOWN preserved; no physical feasibility claim
+  reasoning: Scope is conditional analytical research; no downstream physical permission
+  result: PASS
+- id: FP-PHYSICAL
+  method: Native geometry, measured contacts and structural assessment
+  expected: Actual capacity, stability and full stroke physical validation
+  observed: Inputs missing; no actual test or CAE performed
+  reasoning: Scope is conditional analytical research; no downstream physical permission
+  result: NOT_RUN
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+conditional_arithmetic_verdict: PASS_26_OF_26
+R4_next_conditional_study: SUFFICIENT_WITH_REQUIRED_INPUTS_AND_SEPARATE_TASK
+G1: OPEN
+W02: NO_GO
+physical_READY: NO_GO
+architecture_selected: false
+general_CAD_rebuild_authorized: false
+reproduction_artifacts:
+- verification/r5_force_path_output_review/review.md
+- verification/r5_force_path_output_review/independent.py
+- verification/r5_force_path_output_review/independent_results.json
+- verification/r5_force_path_output_review/validation.json
+```

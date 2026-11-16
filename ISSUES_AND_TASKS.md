@@ -1,3 +1,47 @@
+# R1 — PR #48 подготовка ограниченной интеграции, без слияния
+
+- T-r1-pr48-integration-01 / P1 / R1 / Codex / session r1-pr48-integration-20261116.
+  Прямое поручение пользователя в текущей беседе: подготовить документы/историю PR48,
+  решение WARNING и следующий R4 proposal. Status IN_REVIEW / PREPARED_NO_MERGE;
+  main claim не принят. Старый owner T-INIT codex-01 и lease
+  2026-11-13T22:14:32Z не продлены; чужие claims не захвачены.
+- Main 1dce280bf4c6a790ef0ace10a757fe0a72148b5f; PR48 H
+  aadc08a70fbaee16b7ba4c16463bab97275926bb. R3 C
+  93b4aead4983f88919d8e8b4165e29d7f3246600; R5 C
+  db6b9774649f99ad1b157cba2a9c7cdeec570302, H
+  6ef3afc123004c43e007dc477241edfed8efabbb включаются с сохранением ancestry.
+- Решение decisions/R1-FORCE-PATH-CONDITIONAL-ACCEPTANCE.md:
+  WARNING только для ограниченной условной параметрической проработки R4.
+  26 условных величин, 42 строки условий НЕ рассчитанные состояния;
+  реальные реакции/прочность/устойчивость не подтверждены, 84 RAW/null сохранены.
+  T-r3-force-path-01 IN_REVIEW, не DONE. Активные параметры не повышены.
+- Owner R3 r3-force-path-20261114, нормализация после PR47, исходный lease
+  2026-11-16T18:56:30Z без продления; read-only оценка не даёт нового старта.
+- T-r4-force-geometry-01 / P1 / @R4 / PROPOSED, owner NONE, lease null,
+  BLOCKED_PENDING_SEPARATE_CLAIM. Постановка:
+  verification/pr48_integration/R4_task_proposal.md. Четыре варианта, опоры,
+  e_y/e_z(q), L_free(q), сечения/материалы/двусторонние joints; реальные пробелы UNKNOWN.
+- W02/PLC/physical READY NO-GO, G1 OPEN; архитектура/ТЗ NOT_APPROVED,
+  общий CAD-rebuild не разрешён, physical tests NOT_RUN. История/дефекты сохранены.
+  Доказательства новой проверки — verification/pr48_integration/.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R5 OUTPUT-review T-r3-force-path-01
+
+UTC 2026-11-16T14:39:27.912033+00:00; session r5-force-path-output-20261116; R5 / Codex, назначение — прямой запрос пользователя.
+Задача T-r5-force-path-output-review: COMPLETE_REVIEW_WARNING, отдельно от задачи автора.
+Возможности: Git/Python/Decimal/rational checks; native CAD/CAE/physical trials NOT_RUN.
+База H aadc08a70fbaee16b7ba4c16463bab97275926bb; exact reviewed C 93b4aead4983f88919d8e8b4165e29d7f3246600.
+Новый claim автора не создаётся, lease автора не продлевается. R4 требует отдельной постановки/claim.
+Результат: verification/r5_force_path_output_review/review.md; независимые проверки там же.
+Вердикт WARNING, arithmetic PASS; R4 conditional parametrization sufficient with mandatory inputs.
+G1 OPEN; W02/physical READY NO-GO; архитектура не выбрана, общий CAD-rebuild не разрешён.
+
+---
+
 ## T-r3-force-path-01 — условное сравнение завершено, независимый R5 ожидается
 
 - R3 / Codex / r3-force-path-20261114, IN_REVIEW, не DONE. Claim принят PR #47 в main `1dce280bf4c6a790ef0ace10a757fe0a72148b5f` UTC 2026-11-16T06:28:34Z; owner r3-force-path-20261114, lease до 2026-11-16T18:56:30Z без продления. Предварительные NONE/PENDING/null нормализованы к принятому proposal; исходная редакция сохранена в claim_history/20261115T185630Z/. Heartbeat/окончание расчётной проверки UTC `2026-11-16T06:54:08Z`.
