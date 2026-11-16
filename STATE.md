@@ -1,3 +1,41 @@
+# R1 — PR51 MERGED; только документальная интеграция с WARNING
+
+UTC 2026-11-16T22:46:34.483323+00:00; координатор R1 / r1-pr48-integration-20261116.
+PR https://github.com/narrateller/REV/pull/51 слит по прямому разрешению пользователя
+обычным merge 3353de6c9fc699fbd565f1ce63cebedad3137a12, UTC 2026-11-16T22:44:16Z.
+Прежняя main f731910273b47f46c6d45114cecd76de6fa8adf9; второй parent и точный head
+7fac152d7b16e2ebb871386eba0831f50ad18ddb. Дерево merge = дерево head, история сохранена.
+
+C квитанции: 237252a8813c6ae89785e3c8e36d2d63609ba4ab. Следующий H — в отдельной ветке
+work-r1/pr51-merge-receipt/r1-pr48-integration-20261116; полного H внутри самого H нет.
+Это сохранение факта после merge, без второго merge/дополнительной записи в main.
+Main на момент квитанции — 3353de6c9fc699fbd565f1ce63cebedad3137a12.
+Evidence: verification/pr51_merge_20261116/authorization.json, premerge.json,
+premerge_preservation.json, merge_request.json, merge_result.json, postmerge.json, main_CI.json,
+registry_status.json. Свежие premerge 844 PASS, два CI exact head SUCCESS,
+один принятый owner; подтверждены 54 inputs/44 полные bindings/84 RAW-null и CAD.
+
+OBS-01 CLOSED только на R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+независимый R5 recheck C 3784efa32ca26547f2581101474d6188f000c348,
+H fe156cb3fbbb11d86a2716db9adcc7f44057a042: 388 PASS / 0 FAIL; общий WARNING.
+Старый акт STALE/четыре FAIL/архив/первоначальный registry FAIL сохранены.
+Owner R4 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+исходный lease 2026-11-17T17:44:00Z и фактический heartbeat не изменены.
+Нового claim/назначения/инженерного старта эта операция не создаёт.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; отсутствующие реальные данные UNKNOWN.
+Прочность, устойчивость, реальные реакции и цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED, G1 OPEN, W02/PLC/physical READY NO-GO. Численный/физический этап,
+CAD-build/rebuild, испытания/изготовление/выпуск не начаты и не разрешены.
+SHORT_STROKE/A clamp/B reset-product collision/legacy UP/physical L/B opening,
+семь REJECT/material history=2 сохранены; задача R4 не DONE/VERIFIED/LOCKED/PASSED.
+Предложенный intake T-r1-force-inputs-intake-01 остаётся PROPOSED, owner NONE,
+lease null, engineering NOT_STARTED; дальнейший план — verification/r1_r4_symbolic_integration/next_step.md.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R1 — символическая поставка принята с WARNING; OBS-01 CLOSED exact C
 
 UTC 2026-11-16T22:23:55.198818+00:00; координатор R1 / r1-pr48-integration-20261116.
