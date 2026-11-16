@@ -226,6 +226,9 @@ def main():
             refs += [ref('REG', 'domains.*.' + selected[f]['parameter_id'],
                          selected[f]['parameter_id'], selected[f]['revision']) for f in fields]
             ci_ids = [x for x in ci_groups[key] if x != ('CI-B_OPEN_RESET' if family == 'A' else 'CI-A_REACTION')]
+            if key == 'datum_motion':
+                foreign_gather = 'CI-X_B_GATHER' if family == 'A' else 'CI-X_COLUMN_GATHER'
+                ci_ids = [x for x in ci_ids if x != foreign_gather]
             refs += [ref('CI', 'unknowns[id=' + x + ']', x) for x in ci_ids]
             if key in ('datum_motion', 'receiver_cycle'):
                 refs.append(ref('CYCLE', 'bases / A startup / B open-reset / partial return'))

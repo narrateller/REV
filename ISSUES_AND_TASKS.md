@@ -1,3 +1,35 @@
+# R4 — R5-SYM-OBS-01 OPEN: четыре ссылки исправлены автором, recheck ожидается
+
+UTC 2026-11-16T21:16:56.073089+00:00, heartbeat R4/session 6afb4750-7918-8191-8569-77b5b0c41050.
+T-r4-force-geometry-01 / OBS01_AUTHOR_CORRECTION_PENDING_INDEPENDENT_RECHECK.
+Claim ACCEPTED_MAIN PR49 cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9, owner прежний,
+lease до 2026-11-17T17:44:00Z без продления. Main f731910273b47f46c6d45114cecd76de6fa8adf9.
+
+Прямое поручение пользователя + R1 e380f6d05fe58fe5125c940ac90a151c5bba546b;
+исходный акт R5 C 4aa23509b45efc2c2c166935102ca5caa76f55e2 / H
+92230cef87b71aa7e2d51fe6f21c11360331dd37, WARNING / 2422 PASS / 4 advisory FAIL
+сохранён. В datum_motion A-V1/A-V2 удалены CI-X_B_GATHER, B-V1/B-V2 —
+CI-X_COLUMN_GATHER; собственные gather и остальные refs сохранены. Каталоги
+не менялись. Остальные 48 строк и прочие renderer outputs равны исходным.
+Авторская проверка исправления: 1341 PASS; negative control старых таблиц
+новыми assertions: ожидаемые 1337 PASS / 8 FAIL (не R5 verdict).
+Доказательства/архив/provenance в verification/r4_force_geometry/obs01_correction/.
+
+OBS-01 остаётся OPEN/P2; локальная правка не закрывает замечание. Новый exact C
+требует targeted independent R5 recheck; запрос записывается следующим H.
+42 source-state объекта/84 RAW/null/44 полные bindings/54 inputs/12 trees/baseline
+сохранены. §4/5/6 NOT_RUN; реальные реакции/прочность/устойчивость/цикл UNKNOWN.
+Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO; новых чисел/
+гипотез/геометрии/CAD/физических расчётов/испытаний нет. Старые дефекты/REJECT
+не закрыты и не сброшены. Полный инженерный объём не DONE/VERIFIED/LOCKED/PASSED.
+
+---
+
+Precommit heartbeat 2026-11-16T21:21:46.876876+00:00; registry --check-git PASS, rc 0.
+CI нового C запускается после push; OBS-01 OPEN до независимого recheck.
+
+## Предыдущие записи — сохранённая история
+
 # R4 — T-r4-force-geometry-01: документальные интерфейсы IN_REVIEW
 
 UTC 2026-11-16T19:57:49.471899+00:00; фактический R4/session/owner

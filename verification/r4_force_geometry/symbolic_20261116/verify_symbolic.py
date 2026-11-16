@@ -102,6 +102,44 @@ def main():
               == {(x['scenario'], x['proposed_cad_field']) for x in bindings}, len(consumed_bindings))
         original_raw = {k for k, v in scoped.items() if k.startswith('R3F_') and v['lifecycle'] == 'RAW'}
         check('all_84_RAW_referenced', consumed_raw == original_raw and len(original_raw) == 84, len(consumed_raw))
+        # R5-SYM-OBS-01: exact applicability and preservation, not just ID existence.
+        original_C = 'b840dfd5444da2bf62483b7f4a6069d2bb255b71'
+        rel = 'verification/r4_force_geometry/symbolic_20261116/'
+        original_rows = json.loads(blob(original_C, rel + 'interfaces.json'))['rows']
+        old_by_key = {r['row_key']: r for r in original_rows}
+        check('OBS01_row_order_and_cardinality', [r['row_key'] for r in rows]
+              == [r['row_key'] for r in original_rows], 'Same 52 source row keys/order')
+        for row in rows:
+            key = row['row_key']
+            original = old_by_key[key]
+            if key.endswith('/datum_motion'):
+                foreign = 'CI-X_B_GATHER' if row['variant'].startswith('A') else 'CI-X_COLUMN_GATHER'
+                own = 'CI-X_COLUMN_GATHER' if row['variant'].startswith('A') else 'CI-X_B_GATHER'
+                ci_refs = {r['source_id'] for r in row['source_references'] if r['source'] == 'CI'}
+                expected = [r for r in original['source_references']
+                            if not (r['source'] == 'CI' and r['source_id'] == foreign)]
+                check('OBS01_foreign_absent:' + key, foreign not in ci_refs, foreign)
+                check('OBS01_own_retained:' + key, own in ci_refs, own)
+                check('OBS01_only_one_ref_removed:' + key,
+                      row['source_references'] == expected
+                      and len(original['source_references']) - len(expected) == 1,
+                      'Ordered original refs minus exactly ' + foreign)
+                check('OBS01_other_fields_unchanged:' + key,
+                      {k: v for k, v in row.items() if k != 'source_references'}
+                      == {k: v for k, v in original.items() if k != 'source_references'},
+                      'No semantic/provenance changes outside the selected reference')
+            else:
+                check('OBS01_unaffected_row:' + key, row == original,
+                      'One of the other 48 rows, all fields unchanged')
+        check('OBS01_catalog_unchanged', (HERE / 'source_catalog.json').read_bytes()
+              == blob(original_C, rel + 'source_catalog.json'), 'Original source catalog retained byte-for-byte')
+        ci_path = sources['CI']['path']
+        check('OBS01_source_CI_unchanged', (ROOT / ci_path).read_bytes() == blob(original_C, ci_path)
+              and {'CI-X_COLUMN_GATHER', 'CI-X_B_GATHER'} <= ci, 'Both IDs remain in unchanged original CI catalog')
+        for name in ('symbolic_dependencies.json', 'state_dependencies.json',
+                     'state_dependencies.md', 'unknown_index.json'):
+            check('OBS01_unchanged_output:' + name, (HERE / name).read_bytes() == blob(original_C, rel + name),
+                  'No semantic change to other derived outputs')
         for name, formula in formulas.items():
             source = sources[formula['source']['source']]
             text = blob(source['commit'], source['path']).decode()

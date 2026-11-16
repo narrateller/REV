@@ -1,0 +1,109 @@
+{
+  "checked_at_utc": "2026-11-16T21:15:19.840823+00:00",
+  "original_C": "b840dfd5444da2bf62483b7f4a6069d2bb255b71",
+  "modified_rows": [
+    {
+      "row_key": "A-V1/datum_motion",
+      "removed": {
+        "source": "CI",
+        "path": "verification/r4_cycle_interfaces/proposal/unknown_inputs.json",
+        "commit": "f731910273b47f46c6d45114cecd76de6fa8adf9",
+        "selector": "unknowns[id=CI-X_B_GATHER]",
+        "source_id": "CI-X_B_GATHER",
+        "revision": null,
+        "revision_basis": "no numeric revision in source; pinned commit/blob, not invented revision"
+      },
+      "own_retained": "CI-X_COLUMN_GATHER"
+    },
+    {
+      "row_key": "A-V2/datum_motion",
+      "removed": {
+        "source": "CI",
+        "path": "verification/r4_cycle_interfaces/proposal/unknown_inputs.json",
+        "commit": "f731910273b47f46c6d45114cecd76de6fa8adf9",
+        "selector": "unknowns[id=CI-X_B_GATHER]",
+        "source_id": "CI-X_B_GATHER",
+        "revision": null,
+        "revision_basis": "no numeric revision in source; pinned commit/blob, not invented revision"
+      },
+      "own_retained": "CI-X_COLUMN_GATHER"
+    },
+    {
+      "row_key": "B-V1/datum_motion",
+      "removed": {
+        "source": "CI",
+        "path": "verification/r4_cycle_interfaces/proposal/unknown_inputs.json",
+        "commit": "f731910273b47f46c6d45114cecd76de6fa8adf9",
+        "selector": "unknowns[id=CI-X_COLUMN_GATHER]",
+        "source_id": "CI-X_COLUMN_GATHER",
+        "revision": null,
+        "revision_basis": "no numeric revision in source; pinned commit/blob, not invented revision"
+      },
+      "own_retained": "CI-X_B_GATHER"
+    },
+    {
+      "row_key": "B-V2/datum_motion",
+      "removed": {
+        "source": "CI",
+        "path": "verification/r4_cycle_interfaces/proposal/unknown_inputs.json",
+        "commit": "f731910273b47f46c6d45114cecd76de6fa8adf9",
+        "selector": "unknowns[id=CI-X_COLUMN_GATHER]",
+        "source_id": "CI-X_COLUMN_GATHER",
+        "revision": null,
+        "revision_basis": "no numeric revision in source; pinned commit/blob, not invented revision"
+      },
+      "own_retained": "CI-X_B_GATHER"
+    }
+  ],
+  "JSON_exact_original_minus_four_refs": true,
+  "other_48_rows_unchanged": true,
+  "row_provenance_changes": [],
+  "unchanged_outputs": [
+    "source_catalog.json",
+    "symbolic_dependencies.json",
+    "state_dependencies.json",
+    "state_dependencies.md",
+    "unknown_index.json"
+  ],
+  "markdown_delta": [
+    {
+      "line": 30,
+      "row_key": "A-V1/datum_motion",
+      "old": "| A-V1/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:A-V1; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_A_V1_E_Y@1; RAW:R3F_A_V1_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_A_CHAMBER_LENGTH@1; BIND:R3_BASE_A_OCCUPIED_LENGTH@1; BIND:R3_BASE_A_APPROACH_STROKE@1; BIND:R3_BASE_A_WORK_STROKE@1; BIND:R3_BASE_A_EJECT_STROKE@1; BIND:R3_BASE_A_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_A_CHAMBER_LENGTH@1; REG:R3_BASE_A_OCCUPIED_LENGTH@1; REG:R3_BASE_A_APPROACH_STROKE@1; REG:R3_BASE_A_WORK_STROKE@1; REG:R3_BASE_A_EJECT_STROKE@1; REG:R3_BASE_A_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_COLUMN_GATHER; CI:CI-X_B_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V1: задняя компоновка/длинный отдельный носитель; e_y/e_z(q) UNKNOWN, не нули. A: startup без столба не имеет доказанной реакции; зажим/канал/столб, retention/refill и обратное сопротивление требуют своих контактов. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |",
+      "new": "| A-V1/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:A-V1; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_A_V1_E_Y@1; RAW:R3F_A_V1_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_A_CHAMBER_LENGTH@1; BIND:R3_BASE_A_OCCUPIED_LENGTH@1; BIND:R3_BASE_A_APPROACH_STROKE@1; BIND:R3_BASE_A_WORK_STROKE@1; BIND:R3_BASE_A_EJECT_STROKE@1; BIND:R3_BASE_A_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_A_CHAMBER_LENGTH@1; REG:R3_BASE_A_OCCUPIED_LENGTH@1; REG:R3_BASE_A_APPROACH_STROKE@1; REG:R3_BASE_A_WORK_STROKE@1; REG:R3_BASE_A_EJECT_STROKE@1; REG:R3_BASE_A_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_COLUMN_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V1: задняя компоновка/длинный отдельный носитель; e_y/e_z(q) UNKNOWN, не нули. A: startup без столба не имеет доказанной реакции; зажим/канал/столб, retention/refill и обратное сопротивление требуют своих контактов. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |"
+    },
+    {
+      "line": 47,
+      "row_key": "A-V2/datum_motion",
+      "old": "| A-V2/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:A-V2; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_A_V2_E_Y@1; RAW:R3F_A_V2_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_A_CHAMBER_LENGTH@1; BIND:R3_BASE_A_OCCUPIED_LENGTH@1; BIND:R3_BASE_A_APPROACH_STROKE@1; BIND:R3_BASE_A_WORK_STROKE@1; BIND:R3_BASE_A_EJECT_STROKE@1; BIND:R3_BASE_A_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_A_CHAMBER_LENGTH@1; REG:R3_BASE_A_OCCUPIED_LENGTH@1; REG:R3_BASE_A_APPROACH_STROKE@1; REG:R3_BASE_A_WORK_STROKE@1; REG:R3_BASE_A_EJECT_STROKE@1; REG:R3_BASE_A_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_COLUMN_GATHER; CI:CI-X_B_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V2: боковая компоновка с порталом; e_y/e_z(q), обе плоскости/местный изгиб/кручение UNKNOWN; полную силу не делить. A: startup без столба не имеет доказанной реакции; зажим/канал/столб, retention/refill и обратное сопротивление требуют своих контактов. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |",
+      "new": "| A-V2/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:A-V2; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_A_V2_E_Y@1; RAW:R3F_A_V2_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_A_CHAMBER_LENGTH@1; BIND:R3_BASE_A_OCCUPIED_LENGTH@1; BIND:R3_BASE_A_APPROACH_STROKE@1; BIND:R3_BASE_A_WORK_STROKE@1; BIND:R3_BASE_A_EJECT_STROKE@1; BIND:R3_BASE_A_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_A_CHAMBER_LENGTH@1; REG:R3_BASE_A_OCCUPIED_LENGTH@1; REG:R3_BASE_A_APPROACH_STROKE@1; REG:R3_BASE_A_WORK_STROKE@1; REG:R3_BASE_A_EJECT_STROKE@1; REG:R3_BASE_A_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_COLUMN_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V2: боковая компоновка с порталом; e_y/e_z(q), обе плоскости/местный изгиб/кручение UNKNOWN; полную силу не делить. A: startup без столба не имеет доказанной реакции; зажим/канал/столб, retention/refill и обратное сопротивление требуют своих контактов. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |"
+    },
+    {
+      "line": 64,
+      "row_key": "B-V1/datum_motion",
+      "old": "| B-V1/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:B-V1; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_B_V1_E_Y@1; RAW:R3F_B_V1_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_B_CHAMBER_LENGTH@1; BIND:R3_BASE_B_OCCUPIED_LENGTH@1; BIND:R3_BASE_B_APPROACH_STROKE@1; BIND:R3_BASE_B_WORK_STROKE@1; BIND:R3_BASE_B_EJECT_STROKE@1; BIND:R3_BASE_B_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_B_CHAMBER_LENGTH@1; REG:R3_BASE_B_OCCUPIED_LENGTH@1; REG:R3_BASE_B_APPROACH_STROKE@1; REG:R3_BASE_B_WORK_STROKE@1; REG:R3_BASE_B_EJECT_STROKE@1; REG:R3_BASE_B_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_COLUMN_GATHER; CI:CI-X_B_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V1: задняя компоновка/длинный отдельный носитель; e_y/e_z(q) UNKNOWN, не нули. B: только закрытый контакт упора/замка условно реакционен; unload/unlock/open/reset и возврат открытого узла требуют собственных условий/остаточных нагрузок. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |",
+      "new": "| B-V1/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:B-V1; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_B_V1_E_Y@1; RAW:R3F_B_V1_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_B_CHAMBER_LENGTH@1; BIND:R3_BASE_B_OCCUPIED_LENGTH@1; BIND:R3_BASE_B_APPROACH_STROKE@1; BIND:R3_BASE_B_WORK_STROKE@1; BIND:R3_BASE_B_EJECT_STROKE@1; BIND:R3_BASE_B_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_B_CHAMBER_LENGTH@1; REG:R3_BASE_B_OCCUPIED_LENGTH@1; REG:R3_BASE_B_APPROACH_STROKE@1; REG:R3_BASE_B_WORK_STROKE@1; REG:R3_BASE_B_EJECT_STROKE@1; REG:R3_BASE_B_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_B_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V1: задняя компоновка/длинный отдельный носитель; e_y/e_z(q) UNKNOWN, не нули. B: только закрытый контакт упора/замка условно реакционен; unload/unlock/open/reset и возврат открытого узла требуют собственных условий/остаточных нагрузок. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |"
+    },
+    {
+      "line": 81,
+      "row_key": "B-V2/datum_motion",
+      "old": "| B-V2/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:B-V2; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_B_V2_E_Y@1; RAW:R3F_B_V2_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_B_CHAMBER_LENGTH@1; BIND:R3_BASE_B_OCCUPIED_LENGTH@1; BIND:R3_BASE_B_APPROACH_STROKE@1; BIND:R3_BASE_B_WORK_STROKE@1; BIND:R3_BASE_B_EJECT_STROKE@1; BIND:R3_BASE_B_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_B_CHAMBER_LENGTH@1; REG:R3_BASE_B_OCCUPIED_LENGTH@1; REG:R3_BASE_B_APPROACH_STROKE@1; REG:R3_BASE_B_WORK_STROKE@1; REG:R3_BASE_B_EJECT_STROKE@1; REG:R3_BASE_B_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_COLUMN_GATHER; CI:CI-X_B_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V2: боковая компоновка с порталом; e_y/e_z(q), обе плоскости/местный изгиб/кручение UNKNOWN; полную силу не делить. B: только закрытый контакт упора/замка условно реакционен; unload/unlock/open/reset и возврат открытого узла требуют собственных условий/остаточных нагрузок. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |",
+      "new": "| B-V2/datum_motion: Базы камеры/ось пуансона → осевая цепь. Объявленные +x/+y/+z исходной схемы; локальные базы и ориентации узлов UNKNOWN. Желаемая осевая передача из исходной гипотезы; реальные разрешённые/запрещённые DOF UNKNOWN. Обязательны соответствующие связи work/return; фактические контакты и способность передачи обоих знаков UNKNOWN. | VAR:B-V2; FB:named force loop and limitations; GAPS:missing input groups; R5:Отдельный вердикт для R4 и обязательные входы; RAW:R3F_B_V2_E_Y@1; RAW:R3F_B_V2_E_Z@1; BIND:R3_IN_WIDTH@1; BIND:R3_IN_HEIGHT@1; BIND:R3_IN_PRODUCT_LENGTH@1; BIND:R3_BASE_B_CHAMBER_LENGTH@1; BIND:R3_BASE_B_OCCUPIED_LENGTH@1; BIND:R3_BASE_B_APPROACH_STROKE@1; BIND:R3_BASE_B_WORK_STROKE@1; BIND:R3_BASE_B_EJECT_STROKE@1; BIND:R3_BASE_B_RETURN_STROKE@1; REG:R3_IN_WIDTH@1; REG:R3_IN_HEIGHT@1; REG:R3_IN_PRODUCT_LENGTH@1; REG:R3_BASE_B_CHAMBER_LENGTH@1; REG:R3_BASE_B_OCCUPIED_LENGTH@1; REG:R3_BASE_B_APPROACH_STROKE@1; REG:R3_BASE_B_WORK_STROKE@1; REG:R3_BASE_B_EJECT_STROKE@1; REG:R3_BASE_B_RETURN_STROKE@1; CI:CI-X_P0; CI:CI-X_REFILL_PUNCH; CI:CI-X_B_GATHER; CYCLE:bases / A startup / B open-reset / partial return | Источник объявляет +x к выходу, +y к стороне цилиндра V2, +z вверх; O — задняя плоскость камеры/ось. Source strokes остаются неизменными. | фактическая привязка O/локальных осей; начальная поза x_P0; траектории полных/частичных и промежуточных поз; e_y(q), e_z(q) | KIN. V2: боковая компоновка с порталом; e_y/e_z(q), обе плоскости/местный изгиб/кручение UNKNOWN; полную силу не делить. B: только закрытый контакт упора/замка условно реакционен; unload/unlock/open/reset и возврат открытого узла требуют собственных условий/остаточных нагрузок. | R4/R3: Сверить базы/знаки и непрерывность всех поз, не приравнивать PF к P0. |"
+    }
+  ],
+  "render_command": [
+    ".venv/bin/python",
+    "verification/r4_force_geometry/symbolic_20261116/render_tables.py"
+  ],
+  "render_returncode": 0,
+  "repeatability": "PASS",
+  "current_output_sha256": {
+    "interfaces.json": "75f2c9b2c97ca4d83ebb7d2d56e9b26e6a4d19c22f789c8bf820f9b201c88ec2",
+    "interfaces.md": "357063d4bb02ee8dab4b5b6dd00868b9522697af42bd1ec67a1a0ae727b59325",
+    "source_catalog.json": "bcc7dd58bdebf7a25c0d6b5a588c4a6adf7aef7c6117f1ddf048b508320b94df",
+    "symbolic_dependencies.json": "47e6c77d990ecc1f23bcca62d2d21f9df2e0f37cfa7117dd67f5ae4c5d0c5408",
+    "state_dependencies.json": "fa564484adbc5d95e8014f88abc9db63db1c64033f8988ad114948dcd0dbb748",
+    "state_dependencies.md": "633b580246569c18faaca84eeb4e837219ffcc3b3ef299e35dd0a1259e7d828a",
+    "unknown_index.json": "95cc64afbeb889bf021e81c68370377f22e9b6615aa02a1b6d48b49cd9d7799d"
+  }
+}
