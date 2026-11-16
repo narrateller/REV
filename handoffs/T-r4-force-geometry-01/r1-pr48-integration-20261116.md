@@ -1,3 +1,54 @@
+# R1 — PR49 revision 2: фактическая сессия R4 уточнена, назначение не подтверждено
+
+UTC 2026-11-16T18:26:58.976275+00:00; R1 / Codex / r1-pr48-integration-20261116.
+C результата: 54f57a3ce492658765960f75f492b7e5b24ecff4; ветка PR49
+`work-r1/claim-r4-force-geometry/r1-pr48-integration-20261116`.
+Отчёт кандидата передан пользователем после чтения exact head
+`d84adaab398ffee4fe15ab87c9899ffa8beb22e8`. В этой поставке PR49 не сливается.
+
+- Фактическая существующая сессия кандидата: **6afb4750-7918-8191-8569-77b5b0c41050**.
+  proposed_owner_session и session_id уточнены на этот UUID; placeholder
+  r4-force-geometry-20261116 сохранён в revision 1 / claim_history/20261116T174400Z/.
+  Название существующей сессии не подменяется новым псевдонимом.
+- Модель по отчёту R4: Codex на базе GPT-6; exact runtime model ID недоступен.
+  Сообщены Bash, Git/LFS, gh read PR, Python 3.12.14/dependencies,
+  import FreeCAD 1.0.0/Part, file read/write. Координатор записал этот отчёт,
+  не выдавая его за независимый повтор. CAE не проверены; ccx/gmsh отсутствуют
+  в PATH по отчёту той сессии. Импорт модулей не означает CAD-build/CAE.
+- Роль R4 предложена, **назначение пользователем не подтверждено**.
+  Claim PROPOSED_PENDING_MAIN; owner NONE, lease null, heartbeat null,
+  acceptance commit/PR null. Execution NOT_STARTED; gate
+  BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION.
+- Исходные proposed_at 2026-11-16T17:44:00Z и expiry **2026-11-17T17:44:00Z**
+  сохранены. Уточнение UUID не продлевает никакие leases и не меняет scope.
+- 85 claim/input checks PASS, 754 preservation checks PASS; 8 файлов старой
+  редакции архивированы побайтно. 54 pinned files/12 trees/44 bindings,
+  нагрузки/ходы/fixed-budget/active registry/CAD/R3/R5 packages неизменны.
+  Итоги проверки registry и команд —
+  verification/r4_force_geometry/identity_update_validation.json;
+  новые CI привязывать к финальному H после push, а не к старому d84adaab.
+
+PR48 остаётся MERGED обычным merge-коммитом
+`381d67d428faacf05f7d076249cf220fb4b94e98`; main и история R3/R5 не изменяются
+этим proposal update. 42 состояния не рассчитаны, прочность/устойчивость/реальные
+реакции не подтверждены; 84 RAW/null и UNKNOWN сохранены. Архитектура/ТЗ
+NOT_APPROVED, общий CAD-rebuild не разрешён, W02/physical READY NO-GO,
+G1 OPEN; инженерная геометрия NOT_STARTED, physical trials NOT_RUN.
+
+Следующее отдельное решение пользователя — назначить R4 фактической сессии и
+разрешить принятие уточнённого PR49 после сверки main/head/CI/inputs/конкуренции
+и срока. Отчёт об инструментах, файл, PR или CI сами по себе не являются такими решениями.
+После принятия R4 проверяет accepted ancestry/owner/lease/44 bindings/manifest,
+оформляет входной аудит §6, затем действует только в ограниченном WARNING scope.
+Уже сообщённый UUID/модель/инструменты повторно запрашивать не нужно; необходимые
+для конкретной будущей операции способности проверять при её запуске.
+Команда обновлена: verification/r4_force_geometry/R4_command.md.
+Капсула: handoffs/T-r4-force-geometry-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
 # R1 — PR48 интегрирован; отдельный claim R4 подготовлен, НЕ ПРИНЯТ
 
 UTC 2026-11-16T17:57:36.206143+00:00; R1 / Codex / r1-pr48-integration-20261116.
