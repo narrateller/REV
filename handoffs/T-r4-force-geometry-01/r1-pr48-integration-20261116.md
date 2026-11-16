@@ -1,3 +1,46 @@
+# R1 — символическая поставка принята с WARNING; OBS-01 CLOSED exact C
+
+UTC 2026-11-16T22:23:55.198818+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и подготовки PR: a603bea2878eaf78d418b5a750293970728d0da5.
+PR документальной поставки: #51 — https://github.com/narrateller/REV/pull/51 (без слияния).
+H получать из Git/remote ветки
+work-r1/r4-symbolic-integration/r1-pr48-integration-20261116.
+
+- Проверенный R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Независимый R5 recheck C 3784efa32ca26547f2581101474d6188f000c348;
+  H fe156cb3fbbb11d86a2716db9adcc7f44057a042. Акт
+  REV-R5-R4-SYM-OBS01-RECHECK-01-001: 388 PASS / 0 FAIL, OBS-01 CLOSED /
+  PASS_DOCUMENTARY_EXACT_C только на указанном R4 C; общий вердикт WARNING.
+- R1 принимает закрытие по этому независимому акту, не выполняя самоприёмку.
+  Решение decisions/R1-R4-SYMBOLIC-PACKAGE-ACCEPTANCE.md; инженерный DoD не закрыт.
+- Старый акт R5 остаётся STALE, исторические WARNING/2422 PASS/4 FAIL/OBS OPEN
+  и verbatim archive сохранены. Новая CURRENT запись закрывает только OBS-01.
+- Owner R4 6afb4750-7918-8191-8569-77b5b0c41050, claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления. Claim/heartbeat автора не менялись;
+  pending-строка в claim — авторский снимок до нового review, не текущий акт.
+- Подготовить отдельный PR в main без слияния, сохранить ancestry обычного merge.
+  Main f731910273b47f46c6d45114cecd76de6fa8adf9 остаётся неизменной. Точный head
+  и CI брать из GitHub. При последующей разрешённой интеграции повторить
+  main/head/CI/owner/lease/inputs/конкуренцию; автоматического merge нет.
+- Checks/registry/source CI/preservation — verification/r1_r4_symbolic_integration/.
+  Исходные 54 inputs/12 tree identities/44 полные bindings/84 RAW-null сохранены;
+  reviews отличается только уже оформленными актами и требуемой меткой STALE.
+- Далее предложен отдельный intake T-r1-force-inputs-intake-01: PROPOSED,
+  owner NONE, lease null, инженерное исполнение NOT_STARTED. Это запрос реальных
+  источников/владельцев входов, не разрешение расчёта. План next_step.md там же.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Прочность, устойчивость, реальные реакции и цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO. CAD-build/rebuild,
+численные/физические расчёты, испытания/изготовление/выпуск запрещены.
+Прежние SHORT_STROKE/A clamp/B reset-product collision/legacy UP/physical L/B
+opening, семь REJECT и material history=2 сохранены; задача R4 не DONE/VERIFIED/LOCKED/PASSED.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R1 — коррекция OBS-01 получена; независимый R5 recheck NOT_RUN
 
 UTC 2026-11-16T21:37:27.577390+00:00; координатор R1 / r1-pr48-integration-20261116.
