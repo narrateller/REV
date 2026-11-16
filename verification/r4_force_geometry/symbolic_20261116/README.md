@@ -1,3 +1,20 @@
+# Текущая ограниченная коррекция R5-SYM-OBS-01
+
+В interfaces.json/md изменены только четыре row-local CI-ссылки datum_motion
+по R1 e380f6d05fe58fe5125c940ac90a151c5bba546b. Source catalog/unknown_inputs.json
+не меняются. Остальные 48 строк и все другие производные данные неизменны.
+OBS-01 OPEN до независимого recheck нового exact C; локальные PASS его не закрывают.
+Новые evidence/команды/актуальные counts — ../obs01_correction/. Старые snapshots
+(table_checks*, validation, render_repeatability) ниже относятся к b840dfd и
+не выдаются за проверку исправленного target. Заменённые документы/код и их
+исторические evidence сохранены в obs01_correction/archive_b840dfd/ и в Git.
+Историческая broad authority 80f1028 сохранена; дополнительная команда/акт R1
+и исходные четыре FAIL R5 закреплены отдельно, без редактирования reviewer oracle.
+
+---
+
+## Исходная поставка — сохранённая история
+
 # Документальная/символическая постановка T-r4-force-geometry-01
 
 WARNING; author/session R4 `6afb4750-7918-8191-8569-77b5b0c41050`.

@@ -1,3 +1,54 @@
+# R1 — доставка коррекции OBS-01 на независимый targeted R5 recheck
+
+UTC 2026-11-16T21:37:27.577390+00:00; T-r5-r4-symbolic-obs01-recheck-01 / REQUEST_READY, review NOT_RUN.
+R4 exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe; H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+OBS-01 остаётся OPEN/P2; прежние четыре FAIL R5 сохранены. Только независимый
+recheck нового C может закрыть это замечание. Команда:
+verification/r1_r5_obs01_recheck/R5_recheck_command.md; metadata review_task.json.
+Claim R4 owner/исходный lease 2026-11-17T17:44:00Z не меняются. Новый reviewer
+claim не создан, публикация файла не подменяет назначение пользователя.
+R1 соединяет истории в отдельной ветке; main не изменена. 42 состояния не
+рассчитаны, §4/5/6 NOT_RUN, UNKNOWN сохранены; G1 OPEN, W02/physical READY NO-GO.
+CAD-rebuild/физические расчёты/испытания запрещены; прежние отказы не сброшены.
+
+Активная метка прежнего акта R5 — STALE по §4 протокола: interfaces исправлены.
+Исходная запись архивирована дословно; WARNING и четыре FAIL не изменены.
+Первый registry FAIL и точное изменение одного поля сохранены в review_staleness.json.
+
+---
+
+# R4 — R5-SYM-OBS-01 OPEN: четыре ссылки исправлены автором, recheck ожидается
+
+UTC 2026-11-16T21:16:56.073089+00:00, heartbeat R4/session 6afb4750-7918-8191-8569-77b5b0c41050.
+T-r4-force-geometry-01 / OBS01_AUTHOR_CORRECTION_PENDING_INDEPENDENT_RECHECK.
+Claim ACCEPTED_MAIN PR49 cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9, owner прежний,
+lease до 2026-11-17T17:44:00Z без продления. Main f731910273b47f46c6d45114cecd76de6fa8adf9.
+
+Прямое поручение пользователя + R1 e380f6d05fe58fe5125c940ac90a151c5bba546b;
+исходный акт R5 C 4aa23509b45efc2c2c166935102ca5caa76f55e2 / H
+92230cef87b71aa7e2d51fe6f21c11360331dd37, WARNING / 2422 PASS / 4 advisory FAIL
+сохранён. В datum_motion A-V1/A-V2 удалены CI-X_B_GATHER, B-V1/B-V2 —
+CI-X_COLUMN_GATHER; собственные gather и остальные refs сохранены. Каталоги
+не менялись. Остальные 48 строк и прочие renderer outputs равны исходным.
+Авторская проверка исправления: 1341 PASS; negative control старых таблиц
+новыми assertions: ожидаемые 1337 PASS / 8 FAIL (не R5 verdict).
+Доказательства/архив/provenance в verification/r4_force_geometry/obs01_correction/.
+
+OBS-01 остаётся OPEN/P2; локальная правка не закрывает замечание. Новый exact C
+требует targeted independent R5 recheck; запрос записывается следующим H.
+42 source-state объекта/84 RAW/null/44 полные bindings/54 inputs/12 trees/baseline
+сохранены. §4/5/6 NOT_RUN; реальные реакции/прочность/устойчивость/цикл UNKNOWN.
+Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO; новых чисел/
+гипотез/геометрии/CAD/физических расчётов/испытаний нет. Старые дефекты/REJECT
+не закрыты и не сброшены. Полный инженерный объём не DONE/VERIFIED/LOCKED/PASSED.
+
+---
+
+Precommit heartbeat 2026-11-16T21:21:46.876876+00:00; registry --check-git PASS, rc 0.
+CI нового C запускается после push; OBS-01 OPEN до независимого recheck.
+
+## Предыдущие записи — сохранённая история
+
 # R1 координация R5-SYM-OBS-01 — OPEN/P2
 
 UTC 2026-11-16T20:59:21.699648+00:00; T-r4-force-geometry-01 остаётся DOCUMENTARY_SYMBOLIC_ONLY / IN_REVIEW.

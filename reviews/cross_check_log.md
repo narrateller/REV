@@ -6281,7 +6281,7 @@ findings:
   - R4
   - R1
 verdict: WARNING
-validity: CURRENT
+validity: STALE
 blocker_ids: []
 documentary_symbolic_sufficiency: SUFFICIENT_WITH_OBS01
 input_audit_sections:
