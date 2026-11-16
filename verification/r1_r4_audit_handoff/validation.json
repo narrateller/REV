@@ -1,0 +1,59 @@
+{
+  "completed_at_utc": "2026-11-16T19:38:14.142308+00:00",
+  "coordinator": "R1 / Codex / r1-pr48-integration-20261116",
+  "R4_C": "45caac78f00ab1535387bb5ed8d7f17caf9afc1f",
+  "R4_H": "d94096faa3ce9904c9a86b6d38ad1d5863e0f6e9",
+  "main": "f731910273b47f46c6d45114cecd76de6fa8adf9",
+  "audit": {
+    "verdict": "WARNING",
+    "PASS": 4,
+    "NOT_RUN": 3,
+    "FAIL": 0,
+    "NOT_APPLICABLE": 0,
+    "independent_R5_review": "NOT_RUN"
+  },
+  "checks": [
+    {
+      "command": ".venv/bin/python verification/r1_r4_audit_handoff/verify_handoff.py",
+      "returncode": 0,
+      "passed": 109,
+      "evidence": "checks.json"
+    },
+    {
+      "command": "R1 immutable-source preservation checker with only HERE redirected outside earlier evidence",
+      "returncode": 0,
+      "passed": 754,
+      "evidence": "preservation.json"
+    },
+    {
+      "command": ".venv/bin/python scripts/check_registry.py --check-git",
+      "returncode": 0,
+      "evidence": "active_registry.log",
+      "status_evidence": "active_registry_status.json"
+    },
+    {
+      "command": "Exact previous histories plus reference-free H prefix; git diff --check",
+      "returncode": 0
+    }
+  ],
+  "source_R4_H_CI": [
+    {
+      "conclusion": "success",
+      "databaseId": 43937146896,
+      "event": "push",
+      "headSha": "d94096faa3ce9904c9a86b6d38ad1d5863e0f6e9",
+      "status": "completed",
+      "url": "https://github.com/narrateller/REV/actions/runs/43937146896"
+    }
+  ],
+  "R4_actual_session_preflight_replayed_by_coordinator": false,
+  "scope": "Existing WARNING documentary/symbolic tables only; NOT_RUN still block dependent numeric/physical results",
+  "engineering_geometry": "NOT_STARTED",
+  "physical_trials": "NOT_RUN",
+  "lease_expires_at": "2026-11-17T17:44:00Z",
+  "lease_extended": false,
+  "main_merged": false,
+  "checker_initial_note": "First coordinator attempt incorrectly compared Counter without absent zero-count keys against full dict. Fixed to compare Counter counts plus explicit full expected dict. R4 evidence/statuses were unchanged; final check passed.",
+  "new_head_CI": "Verify exact published H separately from source R4 H CI",
+  "code_sha256": "988b09e12e5dae27e48c4ec469f7202a37bc201562b06928778513ac5b9b024d"
+}
