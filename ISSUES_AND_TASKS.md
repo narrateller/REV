@@ -1,3 +1,34 @@
+# R1 — символическая поставка R4 передаётся независимому R5
+
+- Exact C R4 b840dfd5444da2bf62483b7f4a6069d2bb255b71, request H
+  9433ef749df14a3bbf8ea32331e2f895fd5bf7aa. Main f731910273b47f46c6d45114cecd76de6fa8adf9
+  не меняется. H имеет пять допустимых изменений: STATE/NEXT/капсула и две request записи.
+- T-r4-force-geometry-01 остаётся IN_REVIEW, полный инженерный объём не DONE.
+  52 строки по четырём вариантам, 42 исходных состояния и 84 RAW/null сохранены.
+- T-r5-r4-force-geometry-symbolic-review-01 / P1 / @R5:
+  REQUESTED_AWAITING_SEPARATE_INDEPENDENT_ASSIGNMENT, review NOT_RUN,
+  reviewer_session/model/lease null, нового claim нет. Шаблон user-поручения
+  R5_review_command.md действует только при прямой передаче подходящему reviewer.
+- Исключены фактическая сессия R4 6afb4750-7918-8191-8569-77b5b0c41050 и
+  координатор r1-pr48-integration-20261116; смена имени/роли не создаёт независимость.
+  Reviewer сначала фиксирует фактическую идентичность/модель/инструменты и отсутствие
+  соавторства, затем действует в отдельной readonly review-задаче/ветке.
+- Координатор повторил author checker: 1274 PASS, renderer: 7 файлов byte-MATCH
+  в fresh tmp, без перезаписи source. Это воспроизводимость, не независимый R5.
+  124 coordinator handoff checks PASS; новые physical/numerical evaluations NOT_RUN.
+- 54 inputs/12 trees/44 bindings/baseline/84 null/нагрузки/ходы/CAD/registry/R3/R5
+  сохранить. R4 deadline 2026-11-17T17:44:00Z не продлён; review не захватывает R4 claim.
+- Аудит §4/5/6 NOT_RUN; физические реакции/прочность/устойчивость/цикл UNKNOWN.
+  Архитектура/ТЗ NOT_APPROVED, W02/physical READY NO-GO, G1 OPEN,
+  CAD-build/rebuild/испытания не разрешены, история дефектов/REJECT сохранена.
+- Следующий выход — отдельный независимый акт на exact C с методами/командами/
+  evidence/замечаниями и WARNING либо REJECT_WITH_BLOCKER по ограниченной
+  документальной/символической достаточности. Слияние в main этой передачей не выполняется.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R4 — T-r4-force-geometry-01: документальные интерфейсы IN_REVIEW
 
 UTC 2026-11-16T19:57:49.471899+00:00; фактический R4/session/owner
