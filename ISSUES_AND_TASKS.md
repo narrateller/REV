@@ -1,3 +1,20 @@
+# T-r1-force-inputs-intake-01 — предварительный референтный пакет
+
+UTC 2026-11-16T23:19:49.897566+00:00; direct user instruction to start next R1 intake; actual proposed owner
+6afb300b-1540-8191-a5c4-be1a684c20e0, R1 assignment continues. Новый claim
+PROPOSED_PENDING_MAIN, effective owner NONE/lease null; proposed deadline
+2026-11-17T23:16:47.225017Z, не продление старых claims.
+Пользователь задал цели/сырьё по BP500, адаптацию площадки и релевантное применение
+других имеющихся руководств. Точные директивы и policy — verification/r1_force_inputs_intake/.
+Подготовлены scoped RAW-кандидат, source pages/hashes, relevance/supplement rules,
+21 группа/84 прежних UNKNOWN, план следующих задач и R5 source-review command.
+Нет назначения других сессий/сроков, нового численного/физического старта или
+переноса кандидата в активный registry. Исходные 44 bindings/CAD/нагрузки/ходы
+сохранены; 42 состояния не рассчитаны, §4/5/6 NOT_RUN, G1 OPEN, physical READY NO-GO.
+SOURCE-POWER/UNIT OPEN, independent review NOT_RUN. Старые REJECT/ограничения сохранены.
+
+---
+
 # PR51 — MERGED / документальный результат с WARNING
 
 UTC 2026-11-16T22:46:34.483323+00:00; прямое разрешение пользователя — verification/pr51_merge_20261116/authorization.json.
