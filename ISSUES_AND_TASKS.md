@@ -1,3 +1,18 @@
+# PR51 — MERGED / документальный результат с WARNING
+
+UTC 2026-11-16T22:46:34.483323+00:00; прямое разрешение пользователя — verification/pr51_merge_20261116/authorization.json.
+Merge 3353de6c9fc699fbd565f1ce63cebedad3137a12 от exact head 7fac152d7b16e2ebb871386eba0831f50ad18ddb,
+двухродительский обычный merge; дерево head сохранено. Premerge 844 PASS,
+main/head/два CI/accepted owner/неизменный lease/входы/конкуренция проверены.
+OBS-01 CLOSED exact R4 C, общий WARNING; прежний акт STALE/четыре FAIL сохранены.
+Claim/heartbeat/срок R4 не изменены. Численная/физическая стадия не начиналась.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; UNKNOWN сохранены; G1 OPEN,
+W02/physical READY NO-GO, архитектура/ТЗ NOT_APPROVED; CAD-rebuild/испытания запрещены.
+T-r1-force-inputs-intake-01 остаётся только PROPOSED, owner NONE/lease null,
+engineering NOT_STARTED. Новых ролей/claims/ворот эта операция не принимает.
+
+---
+
 # R1 — DOCUMENTARY_PACKAGE_ACCEPTED_WARNING / интеграция подготовляется
 
 UTC 2026-11-16T22:23:55.198818+00:00; T-r4-force-geometry-01 не DONE: принят только документальный
