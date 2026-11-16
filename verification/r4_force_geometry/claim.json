@@ -1,16 +1,16 @@
 {
   "task_id": "T-r4-force-geometry-01",
-  "proposal_revision": 1,
+  "proposal_revision": 2,
   "status": "PROPOSED_PENDING_MAIN",
   "task_status": "READY_FOR_CLAIM_REVIEW",
   "execution_status": "NOT_STARTED",
-  "start_gate": "BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_EXECUTOR_CONFIRMATION",
+  "start_gate": "BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION",
   "owner_session": "NONE",
-  "proposed_owner_session": "r4-force-geometry-20261116",
-  "session_id": null,
-  "model_label": "UNKNOWN_UNTIL_EXECUTOR_CONFIRMATION",
+  "proposed_owner_session": "6afb4750-7918-8191-8569-77b5b0c41050",
+  "session_id": "6afb4750-7918-8191-8569-77b5b0c41050",
+  "model_label": "Codex on GPT-6 base; exact runtime model identifier unavailable",
   "role": "R4",
-  "assignment_status": "PROPOSED_NOT_CONFIRMED",
+  "assignment_status": "R4_ROLE_PROPOSED_PENDING_USER_CONFIRMATION",
   "assignment_utc": null,
   "proposal_author_session": "r1-pr48-integration-20261116",
   "proposal_author_role": "R1",
@@ -27,7 +27,7 @@
   "PR48_merge_commit": "381d67d428faacf05f7d076249cf220fb4b94e98",
   "PR48_reviewed_head": "e51cc669e60444d07a29083c77a93aab9940939b",
   "proposal_branch": "work-r1/claim-r4-force-geometry/r1-pr48-integration-20261116",
-  "proposed_execution_branch": "work-r4/T-r4-force-geometry-01/r4-force-geometry-20261116",
+  "proposed_execution_branch": "work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050",
   "branch_naming_note": "Existing local branch work prevents work/<task>/<session>; retain it and use established work-r1/work-r4 conventions. No worktree is needed.",
   "scope": "WARNING: conditional geometry/interface specification for A-V1/A-V2/B-V1/B-V2; supports, eccentricities, free lengths, sections, materials, bilateral joints; real missing data UNKNOWN",
   "exclusions": [
@@ -46,18 +46,48 @@
   "engineering_geometry": "NOT_STARTED",
   "native_CAD_CAE": "NOT_RUN",
   "physical_trials": "NOT_RUN",
-  "future_executor_capabilities": "UNKNOWN; verify when a real executor is assigned",
+  "future_executor_capabilities": "Reported inventory recorded; recheck only operations needed by the assigned workflow at startup",
   "old_claims_extended": false,
   "self_acceptance_permitted": false,
   "enforcement": "PROCEDURAL",
   "acceptance_conditions": [
-    "User-confirmed R4 executor and actual unique session ID; proposed identifier is not evidence of a live executor",
+    "Actual candidate session and reported model/tools recorded; user confirmation of R4 assignment still required, then sequential claim acceptance in main",
     "Sequential acceptance into main by coordinator/operator, record exact commit/PR",
-    "If actual executor/session differs, update the proposal before acceptance; expired task leases stay expired and are not extended by this separate proposal",
+    "If candidate identity changes again, update the proposal before acceptance; existing session identity does not renew any expired task lease",
     "Acceptance before proposed expiry; an expired proposal requires a new explicitly agreed record, never automatic renewal",
     "Before engineering: fetch main, verify accepted ancestry, owner, current lease, absence of competing owner, exact inputs/44 bindings and WARNING scope; complete input audit"
   ],
   "author_sessions": [
     "r1-pr48-integration-20261116"
+  ],
+  "updated_at_utc": "2026-11-16T18:23:10.611826+00:00",
+  "candidate_identity_status": "ACTUAL_SESSION_REPORTED_VIA_USER",
+  "exact_runtime_model_id": null,
+  "role_assignment_confirmed": false,
+  "executor_report": "verification/r4_force_geometry/executor_report_20261116.json",
+  "executor_report_sha256": "9223ce70184cb5fa2530eab8270e88a19649cdb2f76f75c265821a4e04b50b54",
+  "executor_capabilities": [
+    "Bash",
+    "Git and Git LFS",
+    "GitHub CLI: read PR",
+    "Python 3.12.14 and dependencies",
+    "Import FreeCAD 1.0.0 and Part",
+    "Read/write local files"
+  ],
+  "executor_capabilities_evidence": "User-forwarded R4 report; not independently retested by R1",
+  "executor_CAE_status": "NOT_VERIFIED; ccx/gmsh reported absent from PATH",
+  "identity_update_basis": "Actual candidate session reported via user on PR49 exact head d84adaab398ffee4fe15ab87c9899ffa8beb22e8; role still proposed, not assigned",
+  "history": [
+    {
+      "proposal_revision": 1,
+      "source_C": "f364f576e79e185b441c61c44339198c48e46c65",
+      "source_H": "d84adaab398ffee4fe15ab87c9899ffa8beb22e8",
+      "proposed_owner_session": "r4-force-geometry-20261116",
+      "status": "SUPERSEDED_IDENTITY_PROPOSAL_NOT_ACCEPTED",
+      "archive": "verification/r4_force_geometry/claim_history/20261116T174400Z",
+      "proposed_at_utc": "2026-11-16T17:44:00Z",
+      "proposed_lease_expires_at": "2026-11-17T17:44:00Z",
+      "reason": "Actual session differs from provisional label; no deadline or scope change"
+    }
   ]
 }

@@ -1,3 +1,37 @@
+# T-r4-force-geometry-01 — proposal revision 2, фактическая кандидатская сессия
+
+- R1 / Codex / r1-pr48-integration-20261116; UTC 2026-11-16T18:23:56.469291+00:00.
+  PR49 пока OPEN; отчёт кандидата получен пользователем с exact head
+  d84adaab398ffee4fe15ab87c9899ffa8beb22e8, файлы/PR им не изменялись.
+- Фактическая существующая сессия / proposed_owner_session / session_id:
+  6afb4750-7918-8191-8569-77b5b0c41050. Условный ID r4-force-geometry-20261116 заменён только в актуальном
+  proposal; редакция 1 сохранена в claim_history/20261116T174400Z/ и Git.
+- Модель по отчёту: Codex на базе GPT-6, точный runtime model ID недоступен.
+  Сообщены Bash, Git/LFS, gh read PR, Python 3.12.14/dependencies,
+  import FreeCAD 1.0.0/Part, file read/write. Это отчёт R4, не независимый повтор R1.
+  CAE не проверены; ccx/gmsh отсутствуют в PATH по отчёту той сессии.
+- Роль R4 ещё предложена, назначение пользователем НЕ подтверждено.
+  Claim PROPOSED_PENDING_MAIN, owner NONE, действующий lease null,
+  acceptance commit/PR null, инженерное исполнение NOT_STARTED.
+  Gate BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION.
+- Первоначальные proposed_at 2026-11-16T17:44:00Z и expiry
+  2026-11-17T17:44:00Z сохранены. Уточнение UUID не продлевает старые claims,
+  не создаёт heartbeat/lease и не сдвигает срок предложения.
+- Scope/54 pinned files/12 trees/44 bindings/loads/strokes/fixed-budget/registry/CAD
+  неизменны. 42 состояния не рассчитаны; прочность/устойчивость/реальные реакции
+  не подтверждены. W02/physical READY NO-GO, G1 OPEN; архитектура/ТЗ NOT_APPROVED,
+  общий CAD-rebuild не разрешён, physical trials NOT_RUN.
+- Следующий шаг: отдельное назначение роли R4 фактической сессии и последовательное
+  принятие уточнённого claim в main до срока после сверки exact head/main/CI/inputs.
+  Это уточнение PR49 не выполняет его слияние и не запускает инженерную работу.
+- Evidence: verification/r4_force_geometry/executor_report_20261116.md/json,
+  claim.json/md, identity_update_validation.json; команда R4 обновлена без
+  повторного запроса уже сообщённого session ID и инвентаря инструментов.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # PR48 интегрирован; отдельный claim R4 подготовлен, инженерный старт запрещён
 
 - Прямое разрешение пользователя исполнено: PR48 MERGED обычным merge-коммитом

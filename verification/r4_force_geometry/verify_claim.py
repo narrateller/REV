@@ -4,6 +4,7 @@ from datetime import datetime, timezone, timedelta
 import hashlib
 import json
 import subprocess
+import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -26,9 +27,32 @@ def main():
 
     check('unaccepted_proposal', claim['status'] == 'PROPOSED_PENDING_MAIN'
           and claim['owner_session'] == 'NONE'
-          and all(claim[k] is None for k in ('session_id', 'lease_expires_at',
+          and all(claim[k] is None for k in ('lease_expires_at',
                   'claim_acceptance_commit', 'claim_acceptance_PR', 'heartbeat_utc')),
-          'No active owner, lease, session, heartbeat or acceptance is manufactured')
+          'Known candidate identity does not create owner, lease, heartbeat or acceptance')
+    report_raw = (ROOT / claim['executor_report']).read_bytes()
+    report = json.loads(report_raw)
+    check('actual_candidate_report', str(uuid.UUID(claim['session_id'])) == claim['session_id']
+          == claim['proposed_owner_session'] == report['session_id']
+          and report['read_head'] == 'd84adaab398ffee4fe15ab87c9899ffa8beb22e8'
+          and hashlib.sha256(report_raw).hexdigest() == claim['executor_report_sha256']
+          and claim['model_label'] == report['model_label']
+          and claim['exact_runtime_model_id'] is report['exact_runtime_model_id'] is None
+          and report['coordinator_independently_retested_capabilities'] is False,
+          'Actual existing session/model/tools are recorded as a user-forwarded R4 report')
+    check('role_still_unconfirmed', claim['role_assignment_confirmed'] is False
+          and report['role_assignment_confirmed'] is False
+          and claim['assignment_utc'] is None
+          and claim['start_gate'] == 'BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION',
+          'No user role confirmation or execution permission is inferred from identity')
+    old_claim = json.loads((HERE / 'claim_history/20261116T174400Z/claim.json').read_text())
+    check('identity_update_without_lease_renewal', claim['proposal_revision'] == 2
+          and old_claim['proposed_owner_session'] == 'r4-force-geometry-20261116'
+          and claim['proposed_at_utc'] == old_claim['proposed_at_utc']
+          and claim['proposed_lease_expires_at'] == old_claim['proposed_lease_expires_at']
+          and (HERE / 'claim_history/20261116T174400Z/claim.json').read_bytes()
+          == git('show', 'd84adaab398ffee4fe15ab87c9899ffa8beb22e8:verification/r4_force_geometry/claim.json'),
+          'Revision 1 preserved exactly; only candidate identity is clarified')
     check('no_engineering', claim['execution_status'] == 'NOT_STARTED'
           and claim['engineering_geometry'] == 'NOT_STARTED'
           and claim['native_CAD_CAE'] == claim['physical_trials'] == 'NOT_RUN',

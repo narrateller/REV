@@ -1,12 +1,27 @@
 {
-  "checked_at_utc": "2026-11-16T18:00:49.749552+00:00",
+  "checked_at_utc": "2026-11-16T18:23:56.436867+00:00",
   "task_id": "T-r4-force-geometry-01",
   "base_main": "381d67d428faacf05f7d076249cf220fb4b94e98",
   "checks": [
     {
       "check": "unaccepted_proposal",
       "passed": true,
-      "evidence": "No active owner, lease, session, heartbeat or acceptance is manufactured"
+      "evidence": "Known candidate identity does not create owner, lease, heartbeat or acceptance"
+    },
+    {
+      "check": "actual_candidate_report",
+      "passed": true,
+      "evidence": "Actual existing session/model/tools are recorded as a user-forwarded R4 report"
+    },
+    {
+      "check": "role_still_unconfirmed",
+      "passed": true,
+      "evidence": "No user role confirmation or execution permission is inferred from identity"
+    },
+    {
+      "check": "identity_update_without_lease_renewal",
+      "passed": true,
+      "evidence": "Revision 1 preserved exactly; only candidate identity is clarified"
     },
     {
       "check": "no_engineering",
@@ -418,7 +433,7 @@
       }
     }
   ],
-  "passed": 82,
+  "passed": 85,
   "failed": 0,
   "engineering_execution": "NOT_STARTED",
   "claim_accepted": false,
