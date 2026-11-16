@@ -1,3 +1,23 @@
+# R4 — символическая поставка, независимый review ожидается
+
+Фактический heartbeat R4 2026-11-16T20:03:23.460489+00:00; lease до
+2026-11-17T17:44:00Z без продления. Task SYMBOLIC_SPECIFICATION_IN_REVIEW,
+execution DOCUMENTARY_SYMBOLIC_ONLY; пакет symbolic_20261116/.
+52 строки интерфейсов четырёх вариантов, 42 сопоставленных исходных состояния,
+84 RAW/null; source ID/revision/commit, аргументы/адресаты и условия.
+Геометрия в численной/native форме NOT_STARTED; физические расчёты/CAD/испытания
+NOT_RUN. Аудит WARNING и §4/5/6 NOT_RUN неизменны. Independent R5 NOT_RUN;
+запрос на exact новый C записывается следующим H. Engineering_geometry NOT_STARTED
+в машинном claim означает отсутствие numerical/native геометрии, не отсутствие
+этой явно указанной документальной таблицы.
+
+Новый preflight — symbolic_20261116/preflight_start/ и preflight_final/.
+Предыдущие evidence/аудит не исправлялись. Ни baseline, ни срок не изменены.
+
+---
+
+## Предыдущая запись — сохранённая история
+
 # Claim T-r4-force-geometry-01 — принят PR49, входной аудит WARNING записан
 
 Пользователь прямо назначил R4 сессии **6afb4750-7918-8191-8569-77b5b0c41050**

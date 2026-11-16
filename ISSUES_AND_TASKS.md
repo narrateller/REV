@@ -1,3 +1,45 @@
+# R4 — T-r4-force-geometry-01: документальные интерфейсы IN_REVIEW
+
+UTC 2026-11-16T19:57:49.471899+00:00; фактический R4/session/owner
+6afb4750-7918-8191-8569-77b5b0c41050, USER_CONFIRMED/ACCEPTED_MAIN PR49
+cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9. Lease до 2026-11-17T17:44:00Z
+не продлён; heartbeat равен UTC этой записи, start/end JSON в symbolic_20261116/.
+
+- Статус SYMBOLIC_SPECIFICATION_IN_REVIEW; только DOCUMENTARY_SYMBOLIC_ONLY.
+  Результат: verification/r4_force_geometry/symbolic_20261116/interfaces.md/json,
+  source_catalog.json, symbolic_dependencies.json, unknown_index.json,
+  state_dependencies.md/json. Четыре варианта/52 интерфейса/42 source строки.
+- По каждой строке: точные source ID/revision/commit, узлы/оси/связь/DOF/стороны,
+  work/return, известное/UNKNOWN, аргументы/условия/получатели данных и next check.
+  Все функции e(q)/L_free(q), фактические сечения/материалы/E/контакты UNKNOWN.
+  Никаких новых численных размеров/сценариев/подстановок или инженерных вычислений.
+- Основание — прямое поручение пользователя и R1 command/decision на exact C
+  80f1028c25d1c4344c0115b7908e02346d895701, прочитанном без merge ветки R1.
+  Base current main f731910273b47f46c6d45114cecd76de6fa8adf9; diff к audited base
+  содержит только прежнюю R4 документацию, защищённые источники не менялись.
+- Fresh preflight start/final: по 138 PASS; 54 pinned inputs/12 trees/44 full
+  bindings MATCH, 706 materialized files/48 LFS. Table release checks 1274 PASS
+  только источников/документального покрытия; независимый review не заменены.
+- Сохранены 84 RAW/null и все 42 source состояния с UNKNOWN/actual null.
+  Аудит §1/2/3/7 PASS только согласованности, §4/5/6 NOT_RUN; старый акт не изменён.
+  Numerical/native geometry NOT_STARTED; физические расчёты/CAD/CAE/испытания NOT_RUN.
+
+Следующая стадия — запрос независимому R5 вне author_sessions на exact новый C
+(запись в следующем H). Reviewer ещё не назначен этим файлом; review NOT_RUN.
+Полный инженерный объём не DONE/VERIFIED/LOCKED/PASSED. Функциональные адресаты
+в таблице не получают claims/сроков. Для последующей численной стадии по-прежнему
+нужны надлежащие входы и повтор применимых проверок; эта поставка её не разрешает.
+SHORT_STROKE/A clamp/B reset/legacy UP/physical L/B opening и семь REJECT/
+material history=2 сохранены; W02/PLC/physical READY NO-GO, G1 OPEN,
+архитектура/ТЗ NOT_APPROVED; CAD-build/rebuild/испытания/выпуск запрещены.
+
+---
+
+Финальный heartbeat/precommit R4 2026-11-16T20:03:23.460489+00:00, registry --check-git
+PASS с прямым returncode 0; запись symbolic_20261116/heartbeat_precommit.json.
+
+## Предыдущие записи — сохранённая история
+
 # R4 — preflight и входной аудит T-r4-force-geometry-01 записаны
 
 UTC 2026-11-16T19:08:03.489858+00:00; session/owner 6afb4750-7918-8191-8569-77b5b0c41050; R4 USER_CONFIRMED.
