@@ -1,3 +1,79 @@
+# R5 targeted recheck OBS-01 — CLOSED exact C; общая поставка WARNING
+
+UTC 2026-11-16T22:12:42.503154+00:00; task T-r5-r4-symbolic-obs01-recheck-01.
+R5 / Codex на базе GPT-6, runtime deployment ID unavailable; фактическая сессия
+`6afb0a73-b16c-8191-a539-9a6685e89034`. Прямое поручение пользователя продолжить R5.
+Коррекция R4/координация R1 не авторские для reviewer; прежнее upstream R5
+авторство раскрыто в identity.json и не переоценивается независимо.
+
+**C акта `3784efa32ca26547f2581101474d6188f000c348` — REMOTE_VERIFIED** до создания этого H.
+Ветка `work-r5/T-r5-r4-symbolic-obs01-recheck-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+Этот H — следующий commit со ссылкой на C; его SHA получать из Git/remote.
+База ветки — coordination H `1d5e2a8ed3c9be340897d6485c7a4383edf62152`.
+
+## Проверенный exact результат
+
+- Target R4 C `beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe`,
+  request H `47db9013c3cf3756987cdb480850cc0487c59b1e`.
+- Команда R1 C `57e6cd452e3567f837bb95af041b3514e0ce437e`, correction authority
+  `e380f6d05fe58fe5125c940ac90a151c5bba546b`.
+- Исходные R4 C/H `b840dfd5444da2bf62483b7f4a6069d2bb255b71` /
+  `9433ef749df14a3bbf8ea32331e2f895fd5bf7aa`; R5 C/H
+  `4aa23509b45efc2c2c166935102ca5caa76f55e2` /
+  `92230cef87b71aa7e2d51fe6f21c11360331dd37`.
+- Акт REV-R5-R4-SYM-OBS01-RECHECK-01-001:
+  verification/r5_r4_symbolic_obs01_recheck/review.md; identity/checker/independent_final/
+  document_replay/remote_context/source CI/validation в той же папке.
+
+**R5-SYM-OBS-01 CLOSED / PASS_DOCUMENTARY_EXACT_C.** Общий WARNING сохраняется.
+Все четыре datum_motion исправления PASS: A-V1/A-V2 удалили CI-X_B_GATHER,
+сохранили CI-X_COLUMN_GATHER; B-V1/B-V2 — наоборот. По одному удалению в строке,
+остальной порядок/значения refs/поля и 48 полных строк прежние. JSON/MD/генератор
+согласованы; оба CI ID остаются в неизменном master catalog.
+
+Финальные собственные проверки: **388 PASS / 0 FAIL**. На старом C те же четыре
+FAIL_EXPECTED, исходные 2422 PASS/4 FAIL не ретушировались. Авторские 8 FAIL —
+две проверки каждой из тех же четырёх строк; supplemental повтор 1337 PASS/8 FAIL
+(exit1 ожидаем), исправленный авторский verifier 1341 PASS; renderer 7 MATCH.
+54 inputs/12 исходных trees/44 полные bindings/84 RAW-null/42 полных source-state
+objects, нагрузки/ходы/fixed-budget/registry/CAD и 8 архивов сохранены.
+Claims меняют только раскрытые служебные поля; owner/lease/scope не расширены.
+
+Старый R5 record остаётся **STALE** с историческими WARNING/checks/OBS OPEN.
+Его verbatim archive и старый journal prefix сохранены, единственная старая
+метка CURRENT→STALE не возвращается. Первый исторический registry FAIL с кодом1
+и причиной сохранён. Новое закрытие — отдельная запись этого exact recheck.
+Root registry --check-git после нового акта PASS; diff --check PASS. CI exact
+source R4 C/H success, registry PASS/100 tests OK каждый. Новые reviewer C/H
+CI проверяются после push и не подменяются результатами source C/H.
+
+## Передача R1
+
+Следующий участник R1: fetch эти C/H, подтвердить exact target/OBS closure,
+сохранить общую WARNING-область и обе истории в последующей координации.
+Первый проверяемый шаг — прочитать новый акт/4 row_results, убедиться, что
+старый акт STALE и новая запись относится к beb4cf4, а не старому b840dfd.
+Критерий успеха — согласованное документальное закрытие только OBS-01 без
+возвращения старого акта в CURRENT и без расширения инженерных полномочий.
+Main не сливалась; PR не сливался. Owner R4 прежний, lease **2026-11-17T17:44:00Z**
+не продлевался и reviewer его не присваивал. Дальнейшая численная/физическая
+работа требует отдельной разрешённой области и надлежащих входов/проверок.
+
+## Ограничения
+
+**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Реальные отсутствующие данные
+UNKNOWN; прочность/устойчивость/реакции/capacity/margins/цикл не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO.
+CAD-build/rebuild, численные/физические расчёты, испытания/выпуск запрещены.
+Старые блокеры, семь REJECT и material history=2 не закрыты/не сброшены.
+Задача R4 не объявлена DONE/VERIFIED/LOCKED/PASSED.
+
+Капсула: handoffs/T-r5-r4-symbolic-obs01-recheck-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
 # R1 — коррекция OBS-01 получена; независимый R5 recheck NOT_RUN
 
 UTC 2026-11-16T21:37:27.577390+00:00; координатор R1 / r1-pr48-integration-20261116.
