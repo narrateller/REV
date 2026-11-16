@@ -1,3 +1,20 @@
+# R1 координация R5-SYM-OBS-01 — OPEN/P2
+
+UTC 2026-11-16T20:59:21.699648+00:00; T-r4-force-geometry-01 остаётся DOCUMENTARY_SYMBOLIC_ONLY / IN_REVIEW.
+R5 exact C 4aa23509b45efc2c2c166935102ca5caa76f55e2 проверил R4 exact C
+b840dfd5444da2bf62483b7f4a6069d2bb255b71: WARNING, 2422 PASS / 4 advisory FAIL.
+Решение R1 decisions/R1-R5-SYMBOLIC-OBS-01-DISPOSITION.md принимает только
+документальную область. Исправляет R4: удалить четыре чужие datum_motion CI refs,
+сохранить собственные; новый C/H и targeted independent R5 recheck обязательны.
+Команда verification/r1_r5_symbolic_observation/R4_correction_command.md.
+Owner 6afb4750-7918-8191-8569-77b5b0c41050, lease 2026-11-17T17:44:00Z,
+без продления; перед продолжением проверить фактические полномочия и входы.
+42 состояния не рассчитаны, §4/5/6 NOT_RUN, UNKNOWN сохранены, G1 OPEN,
+W02/physical READY NO-GO; CAD-rebuild/испытания запрещены. Main не сливается.
+История отказов/блокеров и акт R5 сохранены; OBS-01 не закрыт автором/R1.
+
+---
+
 # T-r5-r4-force-geometry-symbolic-review-01 — независимый OUTPUT-review
 
 UTC 2026-11-16T20:40:28.444872+00:00; R5 / Codex on GPT-6 base, runtime deployment ID unavailable.

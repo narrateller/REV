@@ -1,0 +1,72 @@
+{
+  "completed_at_utc": "2026-11-16T21:04:42.661748+00:00",
+  "R4_C": "b840dfd5444da2bf62483b7f4a6069d2bb255b71",
+  "R4_H": "9433ef749df14a3bbf8ea32331e2f895fd5bf7aa",
+  "R5_C": "4aa23509b45efc2c2c166935102ca5caa76f55e2",
+  "R5_H": "92230cef87b71aa7e2d51fe6f21c11360331dd37",
+  "coordination_checks": {
+    "PASS": 832,
+    "FAIL": 0
+  },
+  "preserved_materialized_files": 706,
+  "registry": {
+    "command": ".venv/bin/python scripts/check_registry.py --check-git",
+    "started_at_utc": "2026-11-16T20:59:36.334557+00:00",
+    "finished_at_utc": "2026-11-16T21:03:46.922928+00:00",
+    "returncode": 0,
+    "scope": "Registry consistency only; no numerical/physical validation; original R5 4 advisory FAIL remain OPEN"
+  },
+  "decision_yaml": "PASS: coordination scope, no gate approval or parameter locking",
+  "diff_check_exit_code": 0,
+  "R5_original_counts": {
+    "PASS": 2422,
+    "FAIL": 4
+  },
+  "observation_status": "R5-SYM-OBS-01 OPEN/P2",
+  "new_independent_review": false,
+  "session_bound_scripts_replayed": false,
+  "R4_author_correction_executed": false,
+  "main_changed": false,
+  "merge_performed": false,
+  "planned_H_scope": [
+    "STATE.md",
+    "NEXT_MODEL.md",
+    "handoffs/T-r4-force-geometry-01/r1-pr48-integration-20261116.md"
+  ],
+  "H_change": "Only the C placeholder in already checked reference-free new summary prefixes; old H5 files retained byte-for-byte as suffixes. CI must validate exact published H.",
+  "packaging_correction": "Initial packaging assertion incorrectly required the log to end with PASS; actual PASS message and returncode 0 were preserved. Shell continued and made an unpublished local C without validation.json. Added this record and amended only that unpublished coordinator commit; no upstream/R3/R4/R5 history changed. Corrected packaging uses fail-fast shell and actual complete log message.",
+  "files": [
+    {
+      "path": "decisions/R1-R5-SYMBOLIC-OBS-01-DISPOSITION.md",
+      "sha256": "8fe661ca7f2fb9b9402189690de3a24154e497b8d71c93ef0d5da70709c4f888"
+    },
+    {
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "fa873c89986b68480d26af999328990548763d0d27110ecda3c10243ae4276d1"
+    },
+    {
+      "path": "verification/r1_r5_symbolic_observation/R4_correction_command.md",
+      "sha256": "cf0c833150e5ed1dfa7b9ec6675f2cda8c9d1ceed8f27238b4b9e48d0c115d8a"
+    },
+    {
+      "path": "verification/r1_r5_symbolic_observation/checks.json",
+      "sha256": "8239c971cf808a751946f66e141faa0c9e2b2ea8f358e32cf082d5e0ec281629"
+    },
+    {
+      "path": "verification/r1_r5_symbolic_observation/registry.log",
+      "sha256": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda"
+    },
+    {
+      "path": "verification/r1_r5_symbolic_observation/registry_status.json",
+      "sha256": "39033279ff44c2c0024100afb132a8afca830706c4a41b47b46926bba36622c7"
+    },
+    {
+      "path": "verification/r1_r5_symbolic_observation/remote_context.json",
+      "sha256": "4bbb81e28879b06056a3a2d4b6048d11304f94f960e15cadb1944f15cd873b4f"
+    },
+    {
+      "path": "verification/r1_r5_symbolic_observation/verify_disposition.py",
+      "sha256": "627af836732b5c83254f3066f66d95741a7605a8c7b339b0f742d9465ef702d7"
+    }
+  ]
+}
