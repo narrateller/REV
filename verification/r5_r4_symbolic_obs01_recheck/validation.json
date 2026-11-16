@@ -1,0 +1,139 @@
+{
+  "target_C": "beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe",
+  "target_H": "47db9013c3cf3756987cdb480850cc0487c59b1e",
+  "branch_base_H": "1d5e2a8ed3c9be340897d6485c7a4383edf62152",
+  "actual_session_id": "6afb0a73-b16c-8191-a539-9a6685e89034",
+  "completed_at_utc": "2026-11-16T22:11:44.778224+00:00",
+  "commands": [
+    {
+      "command": ".venv/bin/python verification/r5_r4_symbolic_obs01_recheck/recheck.py --output verification/r5_r4_symbolic_obs01_recheck/independent_final.json",
+      "exit_code": 0,
+      "result": "388 PASS / 0 FAIL; four old FAIL_EXPECTED controls; OBS01 closed documentary exact C",
+      "evidence": "independent_final.json"
+    },
+    {
+      "command": ".venv/bin/python verification/r5_r4_symbolic_obs01_recheck/replay_documents.py --output verification/r5_r4_symbolic_obs01_recheck/document_replay.json",
+      "exit_code": 0,
+      "result": "7 MATCH; author positive 1341 PASS; author old negative exit1 expected with1337 PASS/8FAIL",
+      "evidence": "document_replay.json"
+    },
+    {
+      "command": ".venv/bin/python verification/r5_r4_symbolic_obs01_recheck/replay_documents.py --output verification/r5_r4_symbolic_obs01_recheck/document_replay_repeat.json --artifacts-dir <fresh temporary directory>",
+      "exit_code": 0,
+      "result": "Repetition with independent fresh output paths; same match/control outcomes",
+      "evidence": "document_replay_repeat.json"
+    },
+    {
+      "command": ".venv/bin/python scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "result": "PASS after new review record; previous record remains STALE",
+      "evidence": "final_registry.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "Fresh GitHub API exact source C/H check-runs and gh run view summaries",
+      "exit_code": 0,
+      "result": "Both exact source C and H CI completed/success; registry PASS and100 tests OK each",
+      "evidence": "source_C_H_CI.json"
+    }
+  ],
+  "package_hashes": [
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/assignment.md",
+      "sha256": "5f763856e770b9c932821fc79fe77a46e84098b8a513e554cb2caecc3ddaec45"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/author_negative_old.json",
+      "sha256": "46ec2c1b564f2a1016d6f98ee9ad9db76d7dc26a9770ab2098cd7d98de3733be"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/author_negative_old.log",
+      "sha256": "d50433b960ad015cc9a1c1138ccc2a6af949f98606fd31596d51cedf64360629"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/author_positive.json",
+      "sha256": "90fb35cb67065e27956c31bb915eb9d54b03cbf8fde3f2c6a349c75d59471905"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/author_positive.log",
+      "sha256": "6604b7f9ccd3b68f5db1f277876bfe26adc99807f708d889aba326b2e5b0a0b4"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/document_replay.json",
+      "sha256": "739fe940260569ba8408c1c5a7185f762259a19cee209af920ef3c485e35cba9"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/document_replay.log",
+      "sha256": "594215912494496c53891e57cc885265dc484f2cbe9906c17408074afcc33258"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/document_replay_repeat.json",
+      "sha256": "e2f10f5a9d11b1ed406c5a8a97947a4c36392171497eae6189ca15b7e696f8b7"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/document_replay_repeat.log",
+      "sha256": "594215912494496c53891e57cc885265dc484f2cbe9906c17408074afcc33258"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/final_registry.log",
+      "sha256": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/identity.json",
+      "sha256": "556dea346ef1eff119f6d456f240a3a3ade7e06d0c7d64d36e4edfab6cc62087"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/independent.json",
+      "sha256": "e73b6bd7f17460241e4a8b9b85275c08a0ab607199bd59b7e2cce3119b2e33dd"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/independent_final.json",
+      "sha256": "e4c4f315e9e2da670a59fbcecf7684e16199a72fb6645f1a6a7c3f780f867248"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/independent_final.log",
+      "sha256": "efa3de2bddab5d34a150d31235e348b724f0724b6a3dd3be2c5deb917b6f7138"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/recheck.py",
+      "sha256": "34866366568e420ce83eec7c927396310273ab62336a4093f890dbe0000a0a87"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/remote_context.json",
+      "sha256": "40cdd9d86e703bdcccffa047a8cae323797bf96a427fd75abfd0c9cc4cf56fcc"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/replay_documents.py",
+      "sha256": "a32e155e669cd43343879cb2052731aeb86a743ddb7b439b4556553f49bbc7b0"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/review.md",
+      "sha256": "644a9e30d30a18f263c11d206cc7a45638bc1611b0b2761a9606850fdbab7aaa"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/source_C_CI_summary.log",
+      "sha256": "d22dc6e7c393c1fe7c5d2bf1169c1731ac1d86a7907f5f3e1a1ecad49d5350bd"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/source_C_H_CI.json",
+      "sha256": "d553e93cae26ec10cc760aad474b83be61aaede2eb9b6b5ed9585cb8082074c7"
+    },
+    {
+      "path": "verification/r5_r4_symbolic_obs01_recheck/source_H_CI_summary.log",
+      "sha256": "44bf85411ba532aceb37b815d47aa8cf28af672108f88f4c0ac3ae15718dde3d"
+    }
+  ],
+  "OBS01": "CLOSED_DOCUMENTARY_EXACT_C",
+  "overall_verdict": "WARNING",
+  "input_audit_456": "NOT_RUN",
+  "source_states_solved": false,
+  "G1": "OPEN",
+  "physical_READY": "NO_GO",
+  "main_merged": false,
+  "R4_lease_extended": false,
+  "note": "Initial own354-pass result predates expanded verifier/history preservation checks; final388-pass result is the current complete oracle. Source C/H CI evidence is distinct from reviewer C/H CI, read only after publication."
+}

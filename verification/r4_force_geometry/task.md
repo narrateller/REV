@@ -1,11 +1,16 @@
 # T-r4-force-geometry-01 — отдельная условная геометрическая постановка R4
 
 TASK / P1 / parent T-INIT; поставщики R2/R3, потребители R3/R5/R6.
-Статус CLAIM_ACCEPTED_PENDING_INPUT_AUDIT; owner
+Статус OBS01_AUTHOR_CORRECTION_PENDING_INDEPENDENT_RECHECK; owner
 6afb4750-7918-8191-8569-77b5b0c41050, lease до 2026-11-17T17:44:00Z.
 Роль R4 назначена пользователем, claim принят PR49 merge
-cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9. Исполнение NOT_STARTED /
-BLOCKED_PENDING_INPUT_AUDIT. Инженерную работу до входного аудита не начинать.
+cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9. Исполнение DOCUMENTARY_SYMBOLIC_ONLY: 52 строки интерфейсов и сопоставление
+42 source состояний в symbolic_20261116/. Исходный R5 review WARNING на b840dfd5444da2bf62483b7f4a6069d2bb255b71:
+2422 PASS / 4 advisory FAIL, R5-SYM-OBS-01 OPEN. Авторская правка только четырёх
+gather refs подготовлена; независимый recheck нового C NOT_RUN;
+полный инженерный объём не DONE. WARNING только для документальной/символической постановки.
+Аудит input_audit.md/json: 4 PASS / 3 NOT_RUN / 0 FAIL / 0 N_A; физические/численные
+зависимые оценки блокированы NOT_RUN. В этой поставке numerical/native геометрия и физические расчёты не начаты.
 
 ## Основание и входы
 
@@ -57,9 +62,10 @@ manifest/доказательство сохранности, отдельные
 
 Роль и claim уже приняты по прямому приказу пользователя и фактическому PR49.
 Оперативные owner/lease/acceptance сведения — claim.json и acceptance_20261116/.
-Входной аудит должен выполнить фактический R4 после fetch/accepted ancestry/
-owner/lease/конкуренции/manifest/44 bindings. До аудита инженерное исполнение
-не начинать. Принятие не меняет исходный срок 2026-11-17T17:44:00Z.
+Фактический R4 выполнил preflight после fetch/accepted ancestry/owner/lease/
+конкуренции/manifest/44 bindings; входной аудит input_audit.md/json записан WARNING.
+Полного инженерного PASS нет: §4/5/6 NOT_RUN. До новых численных/физических оценок
+нужны соответствующие входы и повтор применимых проверок; в этой поставке они не начинались. Принятие не меняет исходный срок 2026-11-17T17:44:00Z.
 
 Все 44 привязки, нагрузки/ходы, fixed-budget, active registry, существующий CAD
 и исходные расчёты сохранять. Обоснованную необходимость их изменения оформлять

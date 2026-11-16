@@ -1,3 +1,231 @@
+# R1 — DOCUMENTARY_PACKAGE_ACCEPTED_WARNING / интеграция подготовляется
+
+UTC 2026-11-16T22:23:55.198818+00:00; T-r4-force-geometry-01 не DONE: принят только документальный
+результат на exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe. OBS-01 CLOSED
+по независимому R5 C 3784efa32ca26547f2581101474d6188f000c348 / H
+fe156cb3fbbb11d86a2716db9adcc7f44057a042: 388 PASS / 0 FAIL, общий WARNING.
+Решение R1 decisions/R1-R4-SYMBOLIC-PACKAGE-ACCEPTANCE.md. Прежний акт STALE,
+его четыре FAIL/история сохранены. Новые проверенные артефакты не менялись.
+Подготовить отдельный PR без merge. Owner/lease/heartbeat R4 не менять;
+исходный срок 2026-11-17T17:44:00Z не продлевать. Main не изменяется.
+
+T-r1-force-inputs-intake-01 / PROPOSED: owner NONE, lease null, engineering
+NOT_STARTED. Предлагается только отдельный сбор реальных источников и владельцев
+входов; см. verification/r1_r4_symbolic_integration/next_step.md. Назначений чужих
+ролей/claims нет. 42 состояния не рассчитаны; §4/5/6 NOT_RUN; UNKNOWN сохранены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/physical READY NO-GO;
+CAD-rebuild/численные и физические расчёты/испытания не разрешены.
+
+---
+
+# T-r5-r4-symbolic-obs01-recheck-01 — COMPLETE / OBS-01 CLOSED exact C
+
+UTC 2026-11-16T22:07:18.628369+00:00; direct user assignment; R5/Codex на базе GPT-6 (exact runtime ID unavailable).
+Actual session `6afb0a73-b16c-8191-a539-9a6685e89034`, независимость/раскрытие upstream-авторства — identity.json.
+Branch base H `1d5e2a8ed3c9be340897d6485c7a4383edf62152`; exact target `beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe`, request H `47db9013c3cf3756987cdb480850cc0487c59b1e`.
+Акт REV-R5-R4-SYM-OBS01-RECHECK-01-001: verification/r5_r4_symbolic_obs01_recheck/review.md.
+Final independent 388 PASS / 0 FAIL, old negative four FAIL_EXPECTED. Четыре правки PASS; остальное сохранено.
+OBS-01 CLOSED / PASS_DOCUMENTARY_EXACT_C, общая поставка WARNING. Старый акт остаётся STALE/историей.
+R1 получает отдельные C/H для координации; main не сливать, R4 owner/lease не менять.
+§4/5/6 NOT_RUN; 42 состояния не рассчитаны; G1 OPEN; W02/physical READY NO-GO.
+Численная/физическая стадия, CAD-rebuild, испытания/выпуск не разрешены. R4 не объявлена DONE.
+
+---
+
+# R1 — доставка коррекции OBS-01 на независимый targeted R5 recheck
+
+UTC 2026-11-16T21:37:27.577390+00:00; T-r5-r4-symbolic-obs01-recheck-01 / REQUEST_READY, review NOT_RUN.
+R4 exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe; H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+OBS-01 остаётся OPEN/P2; прежние четыре FAIL R5 сохранены. Только независимый
+recheck нового C может закрыть это замечание. Команда:
+verification/r1_r5_obs01_recheck/R5_recheck_command.md; metadata review_task.json.
+Claim R4 owner/исходный lease 2026-11-17T17:44:00Z не меняются. Новый reviewer
+claim не создан, публикация файла не подменяет назначение пользователя.
+R1 соединяет истории в отдельной ветке; main не изменена. 42 состояния не
+рассчитаны, §4/5/6 NOT_RUN, UNKNOWN сохранены; G1 OPEN, W02/physical READY NO-GO.
+CAD-rebuild/физические расчёты/испытания запрещены; прежние отказы не сброшены.
+
+Активная метка прежнего акта R5 — STALE по §4 протокола: interfaces исправлены.
+Исходная запись архивирована дословно; WARNING и четыре FAIL не изменены.
+Первый registry FAIL и точное изменение одного поля сохранены в review_staleness.json.
+
+---
+
+# R4 — R5-SYM-OBS-01 OPEN: четыре ссылки исправлены автором, recheck ожидается
+
+UTC 2026-11-16T21:16:56.073089+00:00, heartbeat R4/session 6afb4750-7918-8191-8569-77b5b0c41050.
+T-r4-force-geometry-01 / OBS01_AUTHOR_CORRECTION_PENDING_INDEPENDENT_RECHECK.
+Claim ACCEPTED_MAIN PR49 cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9, owner прежний,
+lease до 2026-11-17T17:44:00Z без продления. Main f731910273b47f46c6d45114cecd76de6fa8adf9.
+
+Прямое поручение пользователя + R1 e380f6d05fe58fe5125c940ac90a151c5bba546b;
+исходный акт R5 C 4aa23509b45efc2c2c166935102ca5caa76f55e2 / H
+92230cef87b71aa7e2d51fe6f21c11360331dd37, WARNING / 2422 PASS / 4 advisory FAIL
+сохранён. В datum_motion A-V1/A-V2 удалены CI-X_B_GATHER, B-V1/B-V2 —
+CI-X_COLUMN_GATHER; собственные gather и остальные refs сохранены. Каталоги
+не менялись. Остальные 48 строк и прочие renderer outputs равны исходным.
+Авторская проверка исправления: 1341 PASS; negative control старых таблиц
+новыми assertions: ожидаемые 1337 PASS / 8 FAIL (не R5 verdict).
+Доказательства/архив/provenance в verification/r4_force_geometry/obs01_correction/.
+
+OBS-01 остаётся OPEN/P2; локальная правка не закрывает замечание. Новый exact C
+требует targeted independent R5 recheck; запрос записывается следующим H.
+42 source-state объекта/84 RAW/null/44 полные bindings/54 inputs/12 trees/baseline
+сохранены. §4/5/6 NOT_RUN; реальные реакции/прочность/устойчивость/цикл UNKNOWN.
+Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO; новых чисел/
+гипотез/геометрии/CAD/физических расчётов/испытаний нет. Старые дефекты/REJECT
+не закрыты и не сброшены. Полный инженерный объём не DONE/VERIFIED/LOCKED/PASSED.
+
+---
+
+Precommit heartbeat 2026-11-16T21:21:46.876876+00:00; registry --check-git PASS, rc 0.
+CI нового C запускается после push; OBS-01 OPEN до независимого recheck.
+
+## Предыдущие записи — сохранённая история
+
+# R1 координация R5-SYM-OBS-01 — OPEN/P2
+
+UTC 2026-11-16T20:59:21.699648+00:00; T-r4-force-geometry-01 остаётся DOCUMENTARY_SYMBOLIC_ONLY / IN_REVIEW.
+R5 exact C 4aa23509b45efc2c2c166935102ca5caa76f55e2 проверил R4 exact C
+b840dfd5444da2bf62483b7f4a6069d2bb255b71: WARNING, 2422 PASS / 4 advisory FAIL.
+Решение R1 decisions/R1-R5-SYMBOLIC-OBS-01-DISPOSITION.md принимает только
+документальную область. Исправляет R4: удалить четыре чужие datum_motion CI refs,
+сохранить собственные; новый C/H и targeted independent R5 recheck обязательны.
+Команда verification/r1_r5_symbolic_observation/R4_correction_command.md.
+Owner 6afb4750-7918-8191-8569-77b5b0c41050, lease 2026-11-17T17:44:00Z,
+без продления; перед продолжением проверить фактические полномочия и входы.
+42 состояния не рассчитаны, §4/5/6 NOT_RUN, UNKNOWN сохранены, G1 OPEN,
+W02/physical READY NO-GO; CAD-rebuild/испытания запрещены. Main не сливается.
+История отказов/блокеров и акт R5 сохранены; OBS-01 не закрыт автором/R1.
+
+---
+
+# T-r5-r4-force-geometry-symbolic-review-01 — независимый OUTPUT-review
+
+UTC 2026-11-16T20:40:28.444872+00:00; R5 / Codex on GPT-6 base, runtime deployment ID unavailable.
+Фактический session ID `6afb0a73-b16c-8191-a539-9a6685e89034`, прямое назначение пользователя; identity.json записан до review.
+Нет соавторства exact C R4; прежнее авторство upstream R5 раскрыто и не переоценивается.
+Target C `b840dfd5444da2bf62483b7f4a6069d2bb255b71`, request H `9433ef749df14a3bbf8ea32331e2f895fd5bf7aa`, command C `c2c16d1ac4f5a4da44f407872733eba90d08a4a2`.
+Статус REVIEW_COMPLETE_WARNING; R5-SYM-OBS-01 OPEN P2 (4 строки datum_motion), адресаты R4/R1.
+Акт: verification/r5_r4_force_geometry_symbolic_review/review.md, independent.json и replay evidence там же.
+2422 PASS / 4 advisory FAIL; 52 строки и 42 source состояния проверены документально; состояние не решено.
+54 inputs/12 trees/44 bindings/84 RAW/null сохранены; R4 claim/heartbeat/lease не менялись.
+R4 задачу не объявлять DONE/VERIFIED/LOCKED/PASSED. Исправление источников — R4, координация — R1.
+§4/5/6 NOT_RUN, G1 OPEN, W02/physical READY NO-GO; расчёты/CAD-rebuild/испытания/выпуск не разрешены.
+
+---
+
+# R1 — символическая поставка R4 передаётся независимому R5
+
+- Exact C R4 b840dfd5444da2bf62483b7f4a6069d2bb255b71, request H
+  9433ef749df14a3bbf8ea32331e2f895fd5bf7aa. Main f731910273b47f46c6d45114cecd76de6fa8adf9
+  не меняется. H имеет пять допустимых изменений: STATE/NEXT/капсула и две request записи.
+- T-r4-force-geometry-01 остаётся IN_REVIEW, полный инженерный объём не DONE.
+  52 строки по четырём вариантам, 42 исходных состояния и 84 RAW/null сохранены.
+- T-r5-r4-force-geometry-symbolic-review-01 / P1 / @R5:
+  REQUESTED_AWAITING_SEPARATE_INDEPENDENT_ASSIGNMENT, review NOT_RUN,
+  reviewer_session/model/lease null, нового claim нет. Шаблон user-поручения
+  R5_review_command.md действует только при прямой передаче подходящему reviewer.
+- Исключены фактическая сессия R4 6afb4750-7918-8191-8569-77b5b0c41050 и
+  координатор r1-pr48-integration-20261116; смена имени/роли не создаёт независимость.
+  Reviewer сначала фиксирует фактическую идентичность/модель/инструменты и отсутствие
+  соавторства, затем действует в отдельной readonly review-задаче/ветке.
+- Координатор повторил author checker: 1274 PASS, renderer: 7 файлов byte-MATCH
+  в fresh tmp, без перезаписи source. Это воспроизводимость, не независимый R5.
+  124 coordinator handoff checks PASS; новые physical/numerical evaluations NOT_RUN.
+- 54 inputs/12 trees/44 bindings/baseline/84 null/нагрузки/ходы/CAD/registry/R3/R5
+  сохранить. R4 deadline 2026-11-17T17:44:00Z не продлён; review не захватывает R4 claim.
+- Аудит §4/5/6 NOT_RUN; физические реакции/прочность/устойчивость/цикл UNKNOWN.
+  Архитектура/ТЗ NOT_APPROVED, W02/physical READY NO-GO, G1 OPEN,
+  CAD-build/rebuild/испытания не разрешены, история дефектов/REJECT сохранена.
+- Следующий выход — отдельный независимый акт на exact C с методами/командами/
+  evidence/замечаниями и WARNING либо REJECT_WITH_BLOCKER по ограниченной
+  документальной/символической достаточности. Слияние в main этой передачей не выполняется.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R4 — T-r4-force-geometry-01: документальные интерфейсы IN_REVIEW
+
+UTC 2026-11-16T19:57:49.471899+00:00; фактический R4/session/owner
+6afb4750-7918-8191-8569-77b5b0c41050, USER_CONFIRMED/ACCEPTED_MAIN PR49
+cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9. Lease до 2026-11-17T17:44:00Z
+не продлён; heartbeat равен UTC этой записи, start/end JSON в symbolic_20261116/.
+
+- Статус SYMBOLIC_SPECIFICATION_IN_REVIEW; только DOCUMENTARY_SYMBOLIC_ONLY.
+  Результат: verification/r4_force_geometry/symbolic_20261116/interfaces.md/json,
+  source_catalog.json, symbolic_dependencies.json, unknown_index.json,
+  state_dependencies.md/json. Четыре варианта/52 интерфейса/42 source строки.
+- По каждой строке: точные source ID/revision/commit, узлы/оси/связь/DOF/стороны,
+  work/return, известное/UNKNOWN, аргументы/условия/получатели данных и next check.
+  Все функции e(q)/L_free(q), фактические сечения/материалы/E/контакты UNKNOWN.
+  Никаких новых численных размеров/сценариев/подстановок или инженерных вычислений.
+- Основание — прямое поручение пользователя и R1 command/decision на exact C
+  80f1028c25d1c4344c0115b7908e02346d895701, прочитанном без merge ветки R1.
+  Base current main f731910273b47f46c6d45114cecd76de6fa8adf9; diff к audited base
+  содержит только прежнюю R4 документацию, защищённые источники не менялись.
+- Fresh preflight start/final: по 138 PASS; 54 pinned inputs/12 trees/44 full
+  bindings MATCH, 706 materialized files/48 LFS. Table release checks 1274 PASS
+  только источников/документального покрытия; независимый review не заменены.
+- Сохранены 84 RAW/null и все 42 source состояния с UNKNOWN/actual null.
+  Аудит §1/2/3/7 PASS только согласованности, §4/5/6 NOT_RUN; старый акт не изменён.
+  Numerical/native geometry NOT_STARTED; физические расчёты/CAD/CAE/испытания NOT_RUN.
+
+Следующая стадия — запрос независимому R5 вне author_sessions на exact новый C
+(запись в следующем H). Reviewer ещё не назначен этим файлом; review NOT_RUN.
+Полный инженерный объём не DONE/VERIFIED/LOCKED/PASSED. Функциональные адресаты
+в таблице не получают claims/сроков. Для последующей численной стадии по-прежнему
+нужны надлежащие входы и повтор применимых проверок; эта поставка её не разрешает.
+SHORT_STROKE/A clamp/B reset/legacy UP/physical L/B opening и семь REJECT/
+material history=2 сохранены; W02/PLC/physical READY NO-GO, G1 OPEN,
+архитектура/ТЗ NOT_APPROVED; CAD-build/rebuild/испытания/выпуск запрещены.
+
+---
+
+Финальный heartbeat/precommit R4 2026-11-16T20:03:23.460489+00:00, registry --check-git
+PASS с прямым returncode 0; запись symbolic_20261116/heartbeat_precommit.json.
+
+## Предыдущие записи — сохранённая история
+
+# R4 — preflight и входной аудит T-r4-force-geometry-01 записаны
+
+UTC 2026-11-16T19:08:03.489858+00:00; session/owner 6afb4750-7918-8191-8569-77b5b0c41050; R4 USER_CONFIRMED.
+Модель: Codex on GPT-6 base, exact runtime model identifier unavailable.
+Прямое поручение пользователя: fetch актуальной main, проверка принятия PR49/owner/
+срока/конкуренции/manifest/44 bindings, аудит §6 и сохранение C/H без инженерного старта.
+
+- Base main f731910273b47f46c6d45114cecd76de6fa8adf9; PR49 принят обычным merge
+  cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9, head 70ab9a1926235170e449b85d558f135ddae90add.
+  Ancestry/receipt/два родителя/равенство дерева подтверждены. Конкурирующего
+  принятого claim в текущих main records и live open PRs нет; скрытая работа не наблюдаема.
+- Owner/session совпадает; lease до 2026-11-17T17:44:00Z без продления.
+  Фактический heartbeat R4 2026-11-16T19:08:03.489858+00:00; start/end JSON в preflight_20261116/.
+- 138 preflight PASS (два отдельных прогона); 54 inputs/12 protected trees/
+  44 full bindings MATCH, 706 materialized files/48 LFS сверены. Registry --check-git PASS, code 0.
+- Статус INPUT_AUDIT_RECORDED_WARNING; audit COMPLETED_WARNING_4_PASS_3_NOT_RUN.
+  §1/2/3/7 PASS только в указанной документальной области; §4/5/6 NOT_RUN.
+  Только документальная/символическая условная постановка может следовать в WARNING
+  scope; зависимые реальные/численные оценки блокированы отсутствующими входами/NOT_RUN.
+- Геометрия/расчёты NOT_STARTED; native CAD/CAE/physical trials NOT_RUN. Parent
+  инженерная задача не DONE; независимый OUTPUT-review нового результата NOT_RUN.
+- Доказательства: verification/r4_force_geometry/input_audit.md/json,
+  preflight_20261116/checks/ и final_checks/, active_registry.log/status.json, heartbeat.
+
+Следующий шаг: передать координатору exact C/H; дальше в действующем lease
+только условная постановка по task.md с UNKNOWN и без подмены baseline. Для
+численной оценки — R4/R3 геометрические/опорные входы, R2/R3 фазовые нагрузки,
+R3/R4/R6 joints/COTS/материалы, R5/R6/R1 критерии; новые численные гипотезы
+отдельно ASSUMED ID/revision/основание. Назначения чужих claims не делаются.
+42 состояния не рассчитаны, 84 RAW/null сохранены. Старые SHORT_STROKE/A clamp/B reset/
+legacy UP/physical L/B opening/семь REJECT/material history=2 сохранены.
+Архитектура/ТЗ NOT_APPROVED, общий CAD-rebuild запрещён, W02/PLC/physical READY
+NO-GO, G1 OPEN; испытания/выпуск не разрешены. Enforcement PROCEDURAL.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R4 назначен пользователем, PR49 принят: сначала входной аудит
 
 - Прямое текущее поручение пользователя: назначить роль R4 сессии

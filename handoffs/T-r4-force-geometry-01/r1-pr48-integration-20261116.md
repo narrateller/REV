@@ -1,3 +1,132 @@
+# R1 — символическая поставка принята с WARNING; OBS-01 CLOSED exact C
+
+UTC 2026-11-16T22:23:55.198818+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и подготовки PR: a603bea2878eaf78d418b5a750293970728d0da5.
+PR документальной поставки: #51 — https://github.com/narrateller/REV/pull/51 (без слияния).
+H получать из Git/remote ветки
+work-r1/r4-symbolic-integration/r1-pr48-integration-20261116.
+
+- Проверенный R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Независимый R5 recheck C 3784efa32ca26547f2581101474d6188f000c348;
+  H fe156cb3fbbb11d86a2716db9adcc7f44057a042. Акт
+  REV-R5-R4-SYM-OBS01-RECHECK-01-001: 388 PASS / 0 FAIL, OBS-01 CLOSED /
+  PASS_DOCUMENTARY_EXACT_C только на указанном R4 C; общий вердикт WARNING.
+- R1 принимает закрытие по этому независимому акту, не выполняя самоприёмку.
+  Решение decisions/R1-R4-SYMBOLIC-PACKAGE-ACCEPTANCE.md; инженерный DoD не закрыт.
+- Старый акт R5 остаётся STALE, исторические WARNING/2422 PASS/4 FAIL/OBS OPEN
+  и verbatim archive сохранены. Новая CURRENT запись закрывает только OBS-01.
+- Owner R4 6afb4750-7918-8191-8569-77b5b0c41050, claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления. Claim/heartbeat автора не менялись;
+  pending-строка в claim — авторский снимок до нового review, не текущий акт.
+- Подготовить отдельный PR в main без слияния, сохранить ancestry обычного merge.
+  Main f731910273b47f46c6d45114cecd76de6fa8adf9 остаётся неизменной. Точный head
+  и CI брать из GitHub. При последующей разрешённой интеграции повторить
+  main/head/CI/owner/lease/inputs/конкуренцию; автоматического merge нет.
+- Checks/registry/source CI/preservation — verification/r1_r4_symbolic_integration/.
+  Исходные 54 inputs/12 tree identities/44 полные bindings/84 RAW-null сохранены;
+  reviews отличается только уже оформленными актами и требуемой меткой STALE.
+- Далее предложен отдельный intake T-r1-force-inputs-intake-01: PROPOSED,
+  owner NONE, lease null, инженерное исполнение NOT_STARTED. Это запрос реальных
+  источников/владельцев входов, не разрешение расчёта. План next_step.md там же.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Прочность, устойчивость, реальные реакции и цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO. CAD-build/rebuild,
+численные/физические расчёты, испытания/изготовление/выпуск запрещены.
+Прежние SHORT_STROKE/A clamp/B reset-product collision/legacy UP/physical L/B
+opening, семь REJECT и material history=2 сохранены; задача R4 не DONE/VERIFIED/LOCKED/PASSED.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R1 — коррекция OBS-01 получена; независимый R5 recheck NOT_RUN
+
+UTC 2026-11-16T21:37:27.577390+00:00; координатор R1 / r1-pr48-integration-20261116.
+C передачи: 57e6cd452e3567f837bb95af041b3514e0ce437e. H получать из Git/remote ветки
+work-r1/r5-obs01-recheck/r1-pr48-integration-20261116.
+
+- Новый target R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  request H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Исходный R4 C b840dfd5444da2bf62483b7f4a6069d2bb255b71;
+  акт R5 C 4aa23509b45efc2c2c166935102ca5caa76f55e2,
+  H 92230cef87b71aa7e2d51fe6f21c11360331dd37;
+  R1 correction authority e380f6d05fe58fe5125c940ac90a151c5bba546b.
+- OBS-01 OPEN/P2; новый targeted independent recheck NOT_RUN. Автор исправил
+  ровно четыре чужие gather refs, сохранил собственные и остальные 48 строк.
+  R1 не закрывает OBS-01; старый акт относится только к старому C.
+- Команда для исходного независимого R5: verification/r1_r5_obs01_recheck/R5_recheck_command.md.
+  Task T-r5-r4-symbolic-obs01-recheck-01. Preferred previous actual reviewer
+  6afb0a73-b16c-8191-a539-9a6685e89034, с повторной проверкой независимости и
+  раскрытием upstream-авторства. Файл не создаёт автоматического назначения.
+- R4 owner 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления и без новой инженерной стадии.
+- Авторский verifier воспроизведён R1: 1341 PASS; renderer 7 MATCH в tmp.
+  Это supplemental evidence, не независимый review. Свои routing/preservation
+  checks и root registry result — verification/r1_r5_obs01_recheck/.
+- Координационная ветка сохраняет ancestry обеих поставок: предыдущий R1 H
+  aaaaf5285b8066722e81cf0127d5a2572369d068 и новый R4 H. Конфликты трёх сводок
+  разрешены сохранением обоих новых префиксов и общей истории один раз;
+  исходные пакеты сохранены. Исторический акт R5 архивирован дословно;
+  в активном журнале изменено только validity CURRENT -> STALE по §4 протокола,
+  поскольку исправлены reviewed interfaces. WARNING/четыре FAIL/OBS OPEN сохранены.
+  Первый registry выявил эту stale-связь; лог/код 1 сохранены отдельно.
+  Новый exact C всё ещё требует независимого recheck.
+  Это сборка эстафеты в отдельной ветке; main f731910273b47f46c6d45114cecd76de6fa8adf9
+  не изменена. PR не сливался.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Реальные реакции, прочность, устойчивость и цикл не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN, W02/PLC/physical READY NO-GO.
+CAD-build/rebuild, численные/физические расчёты, испытания и выпуск не разрешены.
+54 inputs/12 исходных деревьев/44 полные bindings/84 RAW-null/нагрузки/ходы/CAD,
+прежние блокеры, семь REJECT/material history=2 сохранены; задача R4 не DONE.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R1 — WARNING принят в документальной области; R4 исправляет OBS-01
+
+UTC 2026-11-16T20:59:21.699648+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и команды: e380f6d05fe58fe5125c940ac90a151c5bba546b. Полный H получать из Git/remote этой ветки:
+work-r1/r5-symbolic-observation/r1-pr48-integration-20261116.
+Main f731910273b47f46c6d45114cecd76de6fa8adf9 не изменяется; PR не сливается.
+
+- R4 target C b840dfd5444da2bf62483b7f4a6069d2bb255b71, H 9433ef749df14a3bbf8ea32331e2f895fd5bf7aa.
+- R5 act C 4aa23509b45efc2c2c166935102ca5caa76f55e2, H 92230cef87b71aa7e2d51fe6f21c11360331dd37.
+  CI exact R5 H: success, run 43953112276. Акт: 2422 PASS / 4 advisory FAIL,
+  WARNING / SUFFICIENT_DOCUMENTARY_SYMBOLIC_ONLY; исходные результаты сохранены.
+- R5-SYM-OBS-01 OPEN/P2. Выбран минимальный вариант: удалить из datum_motion
+  A-V1/A-V2 только CI-X_B_GATHER, B-V1/B-V2 только CI-X_COLUMN_GATHER;
+  собственные gather refs и общий исходный каталог сохранить. До исправления
+  и targeted independent recheck безусловная машинная интерпретация запрещена.
+- Владелец R4 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease 2026-11-17T17:44:00Z без продления. Перед продолжением нужен fresh
+  actual-session preflight/main/owner/lease/inputs/конкуренция. Просрочка — STOP.
+- Команда: verification/r1_r5_symbolic_observation/R4_correction_command.md.
+  Решение: decisions/R1-R5-SYMBOLIC-OBS-01-DISPOSITION.md.
+  Новый результат R4 требует нового exact C/H и независимого R5 recheck;
+  автор и координатор не закрывают замечание сами. Старый акт не переносится.
+- Раскрыто прежнее upstream-авторство R5; его собственная физическая правильность
+  заново независимо не проверялась. R1 не исполняет сессионные проверки за R4/R5.
+- Проверки R1: verification/r1_r5_symbolic_observation/checks.json;
+  registry.log/registry_status.json — фактический отдельный результат validator.
+  Старый журнал сохранён префиксом, новый акт R5 точен; исходные 12 tree hashes
+  проверяются на pinned main, reviews на рабочей ветке отличается добавлением акта.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Все отсутствующие реальные данные
+UNKNOWN; прочность, устойчивость и реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO.
+54 inputs, 44 полные привязки, 84 RAW/null, нагрузки/ходы/CAD и прежние
+блокеры/семь REJECT/material history=2 сохраняются. CAD-build/rebuild,
+численные/физические расчёты, испытания и выпуск не разрешены. R4 не DONE.
+
+---
+
+## Предыдущая запись — сохранённая история
+
 # R1 — R4 назначен; claim принят PR49, входной аудит НЕ ВЫПОЛНЕН
 
 UTC 2026-11-16T18:45:36.975663+00:00; координатор R1/Codex/r1-pr48-integration-20261116.

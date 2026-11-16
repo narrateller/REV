@@ -1,3 +1,524 @@
+# R1 — символическая поставка принята с WARNING; OBS-01 CLOSED exact C
+
+UTC 2026-11-16T22:23:55.198818+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и подготовки PR: a603bea2878eaf78d418b5a750293970728d0da5.
+PR документальной поставки: #51 — https://github.com/narrateller/REV/pull/51 (без слияния).
+H получать из Git/remote ветки
+work-r1/r4-symbolic-integration/r1-pr48-integration-20261116.
+
+- Проверенный R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Независимый R5 recheck C 3784efa32ca26547f2581101474d6188f000c348;
+  H fe156cb3fbbb11d86a2716db9adcc7f44057a042. Акт
+  REV-R5-R4-SYM-OBS01-RECHECK-01-001: 388 PASS / 0 FAIL, OBS-01 CLOSED /
+  PASS_DOCUMENTARY_EXACT_C только на указанном R4 C; общий вердикт WARNING.
+- R1 принимает закрытие по этому независимому акту, не выполняя самоприёмку.
+  Решение decisions/R1-R4-SYMBOLIC-PACKAGE-ACCEPTANCE.md; инженерный DoD не закрыт.
+- Старый акт R5 остаётся STALE, исторические WARNING/2422 PASS/4 FAIL/OBS OPEN
+  и verbatim archive сохранены. Новая CURRENT запись закрывает только OBS-01.
+- Owner R4 6afb4750-7918-8191-8569-77b5b0c41050, claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления. Claim/heartbeat автора не менялись;
+  pending-строка в claim — авторский снимок до нового review, не текущий акт.
+- Подготовить отдельный PR в main без слияния, сохранить ancestry обычного merge.
+  Main f731910273b47f46c6d45114cecd76de6fa8adf9 остаётся неизменной. Точный head
+  и CI брать из GitHub. При последующей разрешённой интеграции повторить
+  main/head/CI/owner/lease/inputs/конкуренцию; автоматического merge нет.
+- Checks/registry/source CI/preservation — verification/r1_r4_symbolic_integration/.
+  Исходные 54 inputs/12 tree identities/44 полные bindings/84 RAW-null сохранены;
+  reviews отличается только уже оформленными актами и требуемой меткой STALE.
+- Далее предложен отдельный intake T-r1-force-inputs-intake-01: PROPOSED,
+  owner NONE, lease null, инженерное исполнение NOT_STARTED. Это запрос реальных
+  источников/владельцев входов, не разрешение расчёта. План next_step.md там же.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Прочность, устойчивость, реальные реакции и цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO. CAD-build/rebuild,
+численные/физические расчёты, испытания/изготовление/выпуск запрещены.
+Прежние SHORT_STROKE/A clamp/B reset-product collision/legacy UP/physical L/B
+opening, семь REJECT и material history=2 сохранены; задача R4 не DONE/VERIFIED/LOCKED/PASSED.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R5 targeted recheck OBS-01 — CLOSED exact C; общая поставка WARNING
+
+UTC 2026-11-16T22:12:42.503154+00:00; task T-r5-r4-symbolic-obs01-recheck-01.
+R5 / Codex на базе GPT-6, runtime deployment ID unavailable; фактическая сессия
+`6afb0a73-b16c-8191-a539-9a6685e89034`. Прямое поручение пользователя продолжить R5.
+Коррекция R4/координация R1 не авторские для reviewer; прежнее upstream R5
+авторство раскрыто в identity.json и не переоценивается независимо.
+
+**C акта `3784efa32ca26547f2581101474d6188f000c348` — REMOTE_VERIFIED** до создания этого H.
+Ветка `work-r5/T-r5-r4-symbolic-obs01-recheck-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+Этот H — следующий commit со ссылкой на C; его SHA получать из Git/remote.
+База ветки — coordination H `1d5e2a8ed3c9be340897d6485c7a4383edf62152`.
+
+## Проверенный exact результат
+
+- Target R4 C `beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe`,
+  request H `47db9013c3cf3756987cdb480850cc0487c59b1e`.
+- Команда R1 C `57e6cd452e3567f837bb95af041b3514e0ce437e`, correction authority
+  `e380f6d05fe58fe5125c940ac90a151c5bba546b`.
+- Исходные R4 C/H `b840dfd5444da2bf62483b7f4a6069d2bb255b71` /
+  `9433ef749df14a3bbf8ea32331e2f895fd5bf7aa`; R5 C/H
+  `4aa23509b45efc2c2c166935102ca5caa76f55e2` /
+  `92230cef87b71aa7e2d51fe6f21c11360331dd37`.
+- Акт REV-R5-R4-SYM-OBS01-RECHECK-01-001:
+  verification/r5_r4_symbolic_obs01_recheck/review.md; identity/checker/independent_final/
+  document_replay/remote_context/source CI/validation в той же папке.
+
+**R5-SYM-OBS-01 CLOSED / PASS_DOCUMENTARY_EXACT_C.** Общий WARNING сохраняется.
+Все четыре datum_motion исправления PASS: A-V1/A-V2 удалили CI-X_B_GATHER,
+сохранили CI-X_COLUMN_GATHER; B-V1/B-V2 — наоборот. По одному удалению в строке,
+остальной порядок/значения refs/поля и 48 полных строк прежние. JSON/MD/генератор
+согласованы; оба CI ID остаются в неизменном master catalog.
+
+Финальные собственные проверки: **388 PASS / 0 FAIL**. На старом C те же четыре
+FAIL_EXPECTED, исходные 2422 PASS/4 FAIL не ретушировались. Авторские 8 FAIL —
+две проверки каждой из тех же четырёх строк; supplemental повтор 1337 PASS/8 FAIL
+(exit1 ожидаем), исправленный авторский verifier 1341 PASS; renderer 7 MATCH.
+54 inputs/12 исходных trees/44 полные bindings/84 RAW-null/42 полных source-state
+objects, нагрузки/ходы/fixed-budget/registry/CAD и 8 архивов сохранены.
+Claims меняют только раскрытые служебные поля; owner/lease/scope не расширены.
+
+Старый R5 record остаётся **STALE** с историческими WARNING/checks/OBS OPEN.
+Его verbatim archive и старый journal prefix сохранены, единственная старая
+метка CURRENT→STALE не возвращается. Первый исторический registry FAIL с кодом1
+и причиной сохранён. Новое закрытие — отдельная запись этого exact recheck.
+Root registry --check-git после нового акта PASS; diff --check PASS. CI exact
+source R4 C/H success, registry PASS/100 tests OK каждый. Новые reviewer C/H
+CI проверяются после push и не подменяются результатами source C/H.
+
+## Передача R1
+
+Следующий участник R1: fetch эти C/H, подтвердить exact target/OBS closure,
+сохранить общую WARNING-область и обе истории в последующей координации.
+Первый проверяемый шаг — прочитать новый акт/4 row_results, убедиться, что
+старый акт STALE и новая запись относится к beb4cf4, а не старому b840dfd.
+Критерий успеха — согласованное документальное закрытие только OBS-01 без
+возвращения старого акта в CURRENT и без расширения инженерных полномочий.
+Main не сливалась; PR не сливался. Owner R4 прежний, lease **2026-11-17T17:44:00Z**
+не продлевался и reviewer его не присваивал. Дальнейшая численная/физическая
+работа требует отдельной разрешённой области и надлежащих входов/проверок.
+
+## Ограничения
+
+**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Реальные отсутствующие данные
+UNKNOWN; прочность/устойчивость/реакции/capacity/margins/цикл не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO.
+CAD-build/rebuild, численные/физические расчёты, испытания/выпуск запрещены.
+Старые блокеры, семь REJECT и material history=2 не закрыты/не сброшены.
+Задача R4 не объявлена DONE/VERIFIED/LOCKED/PASSED.
+
+Капсула: handoffs/T-r5-r4-symbolic-obs01-recheck-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
+# R1 — коррекция OBS-01 получена; независимый R5 recheck NOT_RUN
+
+UTC 2026-11-16T21:37:27.577390+00:00; координатор R1 / r1-pr48-integration-20261116.
+C передачи: 57e6cd452e3567f837bb95af041b3514e0ce437e. H получать из Git/remote ветки
+work-r1/r5-obs01-recheck/r1-pr48-integration-20261116.
+
+- Новый target R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  request H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Исходный R4 C b840dfd5444da2bf62483b7f4a6069d2bb255b71;
+  акт R5 C 4aa23509b45efc2c2c166935102ca5caa76f55e2,
+  H 92230cef87b71aa7e2d51fe6f21c11360331dd37;
+  R1 correction authority e380f6d05fe58fe5125c940ac90a151c5bba546b.
+- OBS-01 OPEN/P2; новый targeted independent recheck NOT_RUN. Автор исправил
+  ровно четыре чужие gather refs, сохранил собственные и остальные 48 строк.
+  R1 не закрывает OBS-01; старый акт относится только к старому C.
+- Команда для исходного независимого R5: verification/r1_r5_obs01_recheck/R5_recheck_command.md.
+  Task T-r5-r4-symbolic-obs01-recheck-01. Preferred previous actual reviewer
+  6afb0a73-b16c-8191-a539-9a6685e89034, с повторной проверкой независимости и
+  раскрытием upstream-авторства. Файл не создаёт автоматического назначения.
+- R4 owner 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления и без новой инженерной стадии.
+- Авторский verifier воспроизведён R1: 1341 PASS; renderer 7 MATCH в tmp.
+  Это supplemental evidence, не независимый review. Свои routing/preservation
+  checks и root registry result — verification/r1_r5_obs01_recheck/.
+- Координационная ветка сохраняет ancestry обеих поставок: предыдущий R1 H
+  aaaaf5285b8066722e81cf0127d5a2572369d068 и новый R4 H. Конфликты трёх сводок
+  разрешены сохранением обоих новых префиксов и общей истории один раз;
+  исходные пакеты сохранены. Исторический акт R5 архивирован дословно;
+  в активном журнале изменено только validity CURRENT -> STALE по §4 протокола,
+  поскольку исправлены reviewed interfaces. WARNING/четыре FAIL/OBS OPEN сохранены.
+  Первый registry выявил эту stale-связь; лог/код 1 сохранены отдельно.
+  Новый exact C всё ещё требует независимого recheck.
+  Это сборка эстафеты в отдельной ветке; main f731910273b47f46c6d45114cecd76de6fa8adf9
+  не изменена. PR не сливался.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Реальные реакции, прочность, устойчивость и цикл не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN, W02/PLC/physical READY NO-GO.
+CAD-build/rebuild, численные/физические расчёты, испытания и выпуск не разрешены.
+54 inputs/12 исходных деревьев/44 полные bindings/84 RAW-null/нагрузки/ходы/CAD,
+прежние блокеры, семь REJECT/material history=2 сохранены; задача R4 не DONE.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R4 — OBS-01: авторская коррекция передана на targeted R5 recheck
+
+HANDOFF / IN_REVIEW, UTC 2026-11-16T21:26:46.902037+00:00; R4/Codex/session 6afb4750-7918-8191-8569-77b5b0c41050.
+T-r4-force-geometry-01; OBS01_AUTHOR_CORRECTION_PENDING_INDEPENDENT_RECHECK.
+**R5-SYM-OBS-01 остаётся OPEN/P2.** Эта запись не закрывает замечание.
+
+**Новый C `beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe` — REMOTE_VERIFIED.**
+Ветка `work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050`.
+https://github.com/narrateller/REV/tree/work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050
+Этот следующий H добавляет только STATE/NEXT/капсулу, targeted request и receipt CI C.
+
+## Полномочия и точные входы
+
+- Audited/current main `f731910273b47f46c6d45114cecd76de6fa8adf9`. Принятие claim PR49
+  cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9 в ancestry; owner/session 6afb4750-7918-8191-8569-77b5b0c41050.
+  Lease до **2026-11-17T17:44:00Z**, без продления. Фактический precommit heartbeat
+  R4 **2026-11-16T21:21:46.876876+00:00**; source — obs01_correction/heartbeat_precommit.json.
+- Команда/решение R1 прочитаны на e380f6d05fe58fe5125c940ac90a151c5bba546b.
+  Исходный R4 C/H b840dfd5444da2bf62483b7f4a6069d2bb255b71 /
+  9433ef749df14a3bbf8ea32331e2f895fd5bf7aa; R5 C/H
+  4aa23509b45efc2c2c166935102ca5caa76f55e2 / 92230cef87b71aa7e2d51fe6f21c11360331dd37.
+- R1/R5 ветки не слиты ради чтения; reviews рабочего checkout неизменны. Новый
+  R5 акт в его C сохранён как добавление к старому prefix, scope checker не менялся.
+  Дополнительный provenance не переписывает broad authority 80f1028 или source catalog.
+
+## Исправление и проверки
+
+Только A-V1/A-V2 datum_motion: удалить CI-X_B_GATHER, оставить CI-X_COLUMN_GATHER.
+Только B-V1/B-V2 datum_motion: удалить CI-X_COLUMN_GATHER, оставить CI-X_B_GATHER.
+Renderer и interfaces.json/md согласованы. Остальные refs/поля четырёх строк и
+остальные 48 строк неизменны; row-level provenance не менялся. Source catalog
+и master unknown_inputs.json побайтно прежние, оба gather ID в мастер-каталоге.
+
+- Авторская проверка: **1341 PASS**. Новые assertions проверяют отсутствие чужого,
+  сохранение собственного, ровно одно исключение и неизменность остального.
+- Negative control старых таблиц: ожидаемые 1337 PASS / 8 авторских FAIL по
+  новым predicates; это не переименование четырёх historical reviewer FAIL.
+- Исходный независимый R5 WARNING / **2422 PASS / 4 FAIL** сохранён без ретуши.
+  Архив прежних документов/код/evidence — obs01_correction/archive_b840dfd/;
+  source Git C/H, hashes и четыре original FAIL закреплены отдельно.
+- Два fresh actual-session preflight по 138 PASS; 54 inputs/12 trees/44 full
+  bindings, 52 интерфейса/42 полных source states/84 RAW-null сохранены.
+  706 materialized files/48 LFS проверены; source нагрузки/ходы/fixed-budget/CAD неизменны.
+- Детерминированный повтор PASS; semantic JSON delta ровно четыре удаления,
+  Markdown delta четыре строки. Остальные renderer outputs неизменны.
+- Локальный registry --check-git PASS, прямой returncode 0; git diff --check PASS.
+- **CI exact C SUCCESS:** https://github.com/narrateller/REV/actions/runs/43959353148. Receipt ci_C.json и фактическое исполнение
+  тестов — ci_C_test_summary.txt в obs01_correction/. CI следующего H проверяется
+  отдельно после push; прежний CI к нему не переносится и инженерный PASS не означает.
+
+## Передача независимому R5
+
+REQ-R5-R4-SYM-OBS01-TARGETED-RECHECK-01 на exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe:
+verification/r4_force_geometry/obs01_correction/recheck_request.md/json в этом H.
+Reviewer — вне author_sessions; назначение/claim/lease R5 этим не создаются.
+Targeted recheck нового C **NOT_RUN**. Автор и R1 не закрывают OBS-01 сами.
+
+Первый шаг назначенного R5: fetch exact C/H, R1 authority и original R5 C/H;
+проверить четыре active source_references против original C, обе каталожные
+записи и сохранность остальных зависимостей/источников, отсутствие новых FAIL
+или ограничений. Критерий — отдельный независимый акт на exact новый C с
+отдельными исходами по четырём строкам и сохранности. Старый oracle/акт не ретушировать.
+При изменении полномочий/истечении срока — stop новой работе R4, без продления.
+
+## Сохранённые ограничения
+
+§4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN; 42 состояния не рассчитаны.
+Геометрия/опоры/e_y/e_z(q)/L_free(q)/сечения/материалы/контакты/фазовые нагрузки,
+реакции/прочность/устойчивость/capacity/margins и реальный цикл не подтверждены.
+Новых размеров/ASSUMED-сценариев/подстановок/CAD-build/rebuild/физических расчётов/
+испытаний нет. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/PLC/physical READY NO-GO.
+SHORT_STROKE, A clamp, B reset/product collision, legacy UP, physical L/B opening,
+семь REJECT/material history=2 не закрыты. Полный инженерный объём не DONE/VERIFIED/
+LOCKED/PASSED. Enforcement PROCEDURAL, неопубликованная чужая работа не наблюдаема.
+
+Капсула: handoffs/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R1 — WARNING принят в документальной области; R4 исправляет OBS-01
+
+UTC 2026-11-16T20:59:21.699648+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и команды: e380f6d05fe58fe5125c940ac90a151c5bba546b. Полный H получать из Git/remote этой ветки:
+work-r1/r5-symbolic-observation/r1-pr48-integration-20261116.
+Main f731910273b47f46c6d45114cecd76de6fa8adf9 не изменяется; PR не сливается.
+
+- R4 target C b840dfd5444da2bf62483b7f4a6069d2bb255b71, H 9433ef749df14a3bbf8ea32331e2f895fd5bf7aa.
+- R5 act C 4aa23509b45efc2c2c166935102ca5caa76f55e2, H 92230cef87b71aa7e2d51fe6f21c11360331dd37.
+  CI exact R5 H: success, run 43953112276. Акт: 2422 PASS / 4 advisory FAIL,
+  WARNING / SUFFICIENT_DOCUMENTARY_SYMBOLIC_ONLY; исходные результаты сохранены.
+- R5-SYM-OBS-01 OPEN/P2. Выбран минимальный вариант: удалить из datum_motion
+  A-V1/A-V2 только CI-X_B_GATHER, B-V1/B-V2 только CI-X_COLUMN_GATHER;
+  собственные gather refs и общий исходный каталог сохранить. До исправления
+  и targeted independent recheck безусловная машинная интерпретация запрещена.
+- Владелец R4 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease 2026-11-17T17:44:00Z без продления. Перед продолжением нужен fresh
+  actual-session preflight/main/owner/lease/inputs/конкуренция. Просрочка — STOP.
+- Команда: verification/r1_r5_symbolic_observation/R4_correction_command.md.
+  Решение: decisions/R1-R5-SYMBOLIC-OBS-01-DISPOSITION.md.
+  Новый результат R4 требует нового exact C/H и независимого R5 recheck;
+  автор и координатор не закрывают замечание сами. Старый акт не переносится.
+- Раскрыто прежнее upstream-авторство R5; его собственная физическая правильность
+  заново независимо не проверялась. R1 не исполняет сессионные проверки за R4/R5.
+- Проверки R1: verification/r1_r5_symbolic_observation/checks.json;
+  registry.log/registry_status.json — фактический отдельный результат validator.
+  Старый журнал сохранён префиксом, новый акт R5 точен; исходные 12 tree hashes
+  проверяются на pinned main, reviews на рабочей ветке отличается добавлением акта.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Все отсутствующие реальные данные
+UNKNOWN; прочность, устойчивость и реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO.
+54 inputs, 44 полные привязки, 84 RAW/null, нагрузки/ходы/CAD и прежние
+блокеры/семь REJECT/material history=2 сохраняются. CAD-build/rebuild,
+численные/физические расчёты, испытания и выпуск не разрешены. R4 не DONE.
+
+---
+
+## Предыдущая запись — сохранённая история
+
+# R5 — OUTPUT-review символической поставки R4: WARNING / OBS-01 OPEN
+
+UTC 2026-11-16T20:45:42.984774+00:00; task T-r5-r4-force-geometry-symbolic-review-01.
+Фактический session ID `6afb0a73-b16c-8191-a539-9a6685e89034`; R5 / Codex на базе GPT-6,
+точный runtime deployment ID недоступен. Назначение — прямое поручение пользователя.
+Авторства target R4/координации R1 нет; прежнее upstream R5 авторство раскрыто
+в identity.json, его собственная правильность здесь не переоценивается независимо.
+
+**C акта `4aa23509b45efc2c2c166935102ca5caa76f55e2`**. Этот H — следующий коммит с точной ссылкой на C;
+его полный SHA получать из Git/remote. Ветка публикации:
+`work-r5/T-r5-r4-force-geometry-symbolic-review-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+
+## Exact inputs и результат
+
+- Target R4 C `b840dfd5444da2bf62483b7f4a6069d2bb255b71`; request H
+  `9433ef749df14a3bbf8ea32331e2f895fd5bf7aa`, отдельно от target.
+- Command C `c2c16d1ac4f5a4da44f407872733eba90d08a4a2`; authority
+  `80f1028c25d1c4344c0115b7908e02346d895701`; observed main
+  `f731910273b47f46c6d45114cecd76de6fa8adf9`, PR49 acceptance
+  `cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9`. R4 owner/claim/lease не менялись.
+- Акт REV-R5-R4-FORCE-GEOMETRY-SYMBOLIC-OUTPUT-01-001,
+  verification/r5_r4_force_geometry_symbolic_review/review.md.
+  identity/independent/renderer replay/author replay/readonly/validation там же.
+- **WARNING / SUFFICIENT_DOCUMENTARY_SYMBOLIC_ONLY**: 52/52 строки осмысленно
+  сопоставлены с источниками, 2422 PASS / 4 advisory FAIL одного P2 замечания.
+- R5-SYM-OBS-01 OPEN: A-V1/A-V2 datum_motion содержат CI-X_B_GATHER,
+  B-V1/B-V2 datum_motion содержат CI-X_COLUMN_GATHER без квалификации применимости.
+  Это не четыре физических отказа. Общая символическая постановка пригодна,
+  но source_references нельзя использовать как безусловный машинный граф предпосылок.
+- 54 inputs / 12 trees / 44 полные bindings / 84 RAW/null / 42 полных source states
+  сохранены; 706 materialized protected files, 161 R4/R3/upstream R5 files unchanged.
+  Source нагрузки/ходы/fixed-budget/registry/CAD не изменены.
+- Renderer 7/7 MATCH дважды, 37 author symbolic files unchanged; supplemental
+  author verifier 1274 PASS не заменяет review. Новый R4-only preflight/подмена
+  CODEX_SESSION_ID не выполнялись. Registry --check-git после акта PASS, diff --check PASS.
+
+## Следующий участник и критерий
+
+R1 получает этот exact акт/C/H для координации без самостоятельного закрытия
+физических пробелов. R4 — квалифицировать 4 CI-ссылки как comparison-only/N_A
+либо исключить чужую ветвь. Первый проверяемый шаг: прочитать OBS-01 по row_key
+и исходный unknown_inputs.json; до автоматической интерпретации зависимостей
+снять неоднозначность. Критерий успеха — новый exact C с явной применимостью
+и точечный независимый recheck; reviewer автора не исправлял.
+
+Новые численные/физические стадии требуют отдельных надлежащих входов или
+зарегистрированных ASSUMED и применимых повторных проверок: geometry/опоры,
+e_y/e_z(q), L_free_rod/carrier(q), раздельные сечения/материалы/E/COTS/joints,
+фазовые нагрузки/контакты A startup/retention, B unload/unlock/open/reset,
+массы/потери/критерии и ресурсы. Сейчас это не разрешено и не выполнялось.
+
+## Сохранённые границы
+
+§4/5/6 входного аудита **NOT_RUN**. **42 состояния не рассчитаны**. Реальные
+геометрия/реакции/прочность/устойчивость/capacity/margins/цикл/COTS/материалы
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/PLC/physical READY
+NO-GO. CAD-build/rebuild, физические/численные расчёты в этой review-задаче,
+испытания и выпуск не разрешены. R4 не объявлена DONE/VERIFIED/LOCKED/PASSED.
+SHORT_STROKE/A clamp contacts/B reset-product collision/legacy UP/physical L/B opening,
+семь REJECT и material history=2 не закрыты и не сброшены. PR не сливался.
+
+Капсула: handoffs/T-r5-r4-force-geometry-symbolic-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
+# R4 — символические интерфейсы готовы к независимому OUTPUT-review
+
+HANDOFF / IN_REVIEW, UTC 2026-11-16T20:05:39.708525+00:00; narrateller/REV; R4 / Codex on GPT-6 base
+(exact runtime model identifier unavailable) / session 6afb4750-7918-8191-8569-77b5b0c41050.
+Task T-r4-force-geometry-01, статус SYMBOLIC_SPECIFICATION_IN_REVIEW; полный
+инженерный объём не DONE/VERIFIED/LOCKED/PASSED.
+
+**C результата `b840dfd5444da2bf62483b7f4a6069d2bb255b71` — REMOTE_VERIFIED.**
+Ветка `work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050`.
+https://github.com/narrateller/REV/tree/work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050
+Следующий H меняет только эту эстафету/STATE/капсулу и запрос R5 на exact C.
+
+## Входы и действующий claim
+
+- Fetched main `f731910273b47f46c6d45114cecd76de6fa8adf9`; PR49 acceptance
+  cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9 / head 70ab9a1926235170e449b85d558f135ddae90add
+  в ancestry, owner/session 6afb4750-7918-8191-8569-77b5b0c41050, R4 USER_CONFIRMED/ACCEPTED_MAIN.
+  Lease до **2026-11-17T17:44:00Z** без продления; фактический heartbeat R4
+  **2026-11-16T20:03:23.460489+00:00** в symbolic_20261116/heartbeat_precommit.json.
+- Команда/решение R1 прочитаны на exact C
+  80f1028c25d1c4344c0115b7908e02346d895701; ветка R1 не сливалась.
+  Предыдущие R4 C/H: 45caac78f00ab1535387bb5ed8d7f17caf9afc1f /
+  d94096faa3ce9904c9a86b6d38ad1d5863e0f6e9. Diff к audited main — прежняя R4
+  документация; baseline/54 inputs/12 trees/44 bindings сохранены.
+- Manifest SHA256 6268bfbd94adc293ff27071f960e49c81558016c9b5d14be2207dba52546fe36.
+  Source ID/revision/commit строк интерфейсов — source_catalog/interfaces.json;
+  все 54 pinned inputs отдельно закреплены исходным input_manifest.json.
+  R3 C/H 93b4aead4983f88919d8e8b4165e29d7f3246600 / aadc08a70fbaee16b7ba4c16463bab97275926bb;
+  R5 C/H db6b9774649f99ad1b157cba2a9c7cdeec570302 / 6ef3afc123004c43e007dc477241edfed8efabbb.
+
+## Проверенный документальный результат
+
+Пакет verification/r4_force_geometry/symbolic_20261116/: interfaces.md/json —
+52 строки интерфейсов (по 13 для A-V1/A-V2/B-V1/B-V2); узлы/оси, связи/DOF/стороны,
+work/return, существующие source ID/revision/commit, известное/UNKNOWN, условия/
+недостающие аргументы/функциональные адресаты и next checks.
+Symbolic_dependencies — только исходные формулы с ограничениями, без вычисления.
+State_dependencies — все 42 source строки и зависимости, без решения состояний;
+unknown_index — указатель 84 исходных scoped RAW/null, не новый registry.
+
+- Два fresh preflight по 138 PASS: start/final/commands/competition/preservation;
+  54 inputs/12 trees/44 full bindings MATCH, 706 materialized files/48 LFS.
+  Наблюдаемых competing accepted owners нет; open PRs пусты на моменты проверки.
+  Неопубликованная работа не наблюдаема; enforcement PROCEDURAL.
+- Table release checks 1274 PASS только источников/покрытия/UNKNOWN; текущие
+  SHA256 в table_checks_release.json и validation.json. Renderer repeatability PASS.
+- Текущий registry --check-git PASS, прямой returncode 0; git diff --check PASS.
+  Старые audit/evidence не редактировались; historical CI не переносится на C/H.
+  CI нового C/H не удостоверен этой записью; это не физическая проверка.
+
+## Передача и следующий шаг
+
+Запрос REQ-R5-R4-FORCE-GEOMETRY-SYMBOLIC-01 на exact C:
+verification/r4_force_geometry/symbolic_20261116/review_request.md/json
+в этом H; критерии review_scope.md на C. Независимый R5 — вне author_sessions,
+REQUESTED_AWAITING_SEPARATE_ASSIGNMENT, review **NOT_RUN**. Запрос не создаёт
+claim/lease другого исполнителя. Координатору передаются C/H и ограничения;
+собственная проверка R4 и R1 заключение не независимый OUTPUT-review.
+
+Первый шаг будущего назначенного R5: fetch exact C/H/authority C, сверить scope,
+claimed owner/исходный срок/inputs и immutable source IDs; независимо проверить
+трассировку/полноту и отсутствие новых значений. Критерий успеха — отдельный
+акт достаточности только документальной/символической постановки с evidence и
+конкретными замечаниями, без численного/физического расчёта. При отсутствии
+назначения — только чтение/передача координатору, не присвоение чужого claim.
+
+## Оставшиеся ограничения
+
+Аудит AUD-R4-FORCE-GEOMETRY-INPUT-01 неизменён: WARNING, четыре PASS только
+документальной согласованности, §4/5/6 NOT_RUN. Нет новых численных размеров,
+материалов/E/допусков/диапазонов/сил/сечений, ASSUMED-сценариев или подстановок.
+Numerical/native geometry NOT_STARTED; физические расчёты/CAD/CAE/испытания NOT_RUN.
+Функции e_y/e_z(q), L_free_rod/carrier(q), опоры/сечения/материалы/joints, контакты
+и фазовые F(q,t), реакции/прочность/устойчивость/capacity/margins остаются UNKNOWN.
+V1 не получает нулевую несоосность; V2 не делит силу. Полный ход/частичные и
+промежуточные позы и обе плоскости остаются требованиями, не проверенным sweep.
+
+42 состояния не рассчитаны, 84 RAW/null сохранены. SHORT_STROKE, A clamp contacts,
+B reset/product collision, legacy UP, physical L/B opening, семь REJECT и
+material history=2 не закрыты. Архитектура/ТЗ NOT_APPROVED, W02/PLC/physical
+READY NO-GO, G1 OPEN; CAD-build/rebuild, изменение baseline, испытания и выпуск
+не разрешены. Численная стадия требует новых надлежащих входов/проверок и отдельной
+области; этот H её не разрешает.
+
+Капсула: handoffs/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R4 — preflight и входной аудит WARNING; передача координатору
+
+HANDOFF, UTC 2026-11-16T19:13:24.657655+00:00; проект narrateller/REV, R4 / Codex on GPT-6 base
+(exact runtime model identifier unavailable) / session 6afb4750-7918-8191-8569-77b5b0c41050.
+Задача T-r4-force-geometry-01: INPUT_AUDIT_RECORDED_WARNING, инженерный объём не DONE.
+
+**C результата `45caac78f00ab1535387bb5ed8d7f17caf9afc1f` — REMOTE_VERIFIED.**
+Ветка `work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050`;
+https://github.com/narrateller/REV/tree/work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050
+Этот следующий H содержит только STATE/NEXT_MODEL/капсулу, без изменений пакета C.
+
+## Принятое назначение и входы
+
+- Проверенная fetched main `f731910273b47f46c6d45114cecd76de6fa8adf9`. PR49 acceptance merge
+  `cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9` — предок main, reviewed head
+  `70ab9a1926235170e449b85d558f135ddae90add`; receipt/два родителя/равенство деревьев PASS.
+- Owner/session `6afb4750-7918-8191-8569-77b5b0c41050`, R4 USER_CONFIRMED/ACCEPTED_MAIN.
+  Lease **2026-11-17T17:44:00Z**, без продления. Фактический heartbeat R4
+  **2026-11-16T19:08:03.489858+00:00**, start/end JSON в preflight_20261116/.
+- Точный manifest SHA256 6268bfbd94adc293ff27071f960e49c81558016c9b5d14be2207dba52546fe36.
+  54 pinned файла (commit/blob/SHA256), 12 protected trees, 44 full bindings MATCH;
+  706 materialized files, 48 LFS SHA256/size сверены. Конкурирующего accepted
+  owner в актуальных main records и открытых PR не найдено на момент preflight.
+  Неопубликованные работы не наблюдаемы; enforcement PROCEDURAL.
+- R3 C/H 93b4aead4983f88919d8e8b4165e29d7f3246600 / aadc08a70fbaee16b7ba4c16463bab97275926bb;
+  R5 C/H db6b9774649f99ad1b157cba2a9c7cdeec570302 / 6ef3afc123004c43e007dc477241edfed8efabbb;
+  R1 decision C 732998ceff472492421fb97478b3b160f89eeaa0. Все ancestry/hashes сверены.
+
+## Выполнено и граница доказательств
+
+- Два текущих preflight по 138 PASS; команды/exit codes/UTC и отдельные
+  результаты в verification/r4_force_geometry/preflight_20261116/checks/ и final_checks/.
+- Входной акт AUD-R4-FORCE-GEOMETRY-INPUT-01 в input_audit.md/json: **WARNING**,
+  семь пунктов рассмотрены; §1/2/3/7 — 4 PASS только документальной согласованности;
+  §4/5/6 — 3 NOT_RUN. FAIL 0, NOT_APPLICABLE 0 (все семь пунктов применимы).
+  Запись аудита завершена; полного инженерного PASS нет.
+- Текущий active registry --check-git PASS, прямой returncode 0; проверка перед C
+  без --check-git также returncode 0. git diff --check PASS. Исторический CI/акт
+  не выдаются за эти запуски; CI нового C/H не удостоверен этой записью.
+- Фактические .venv Python 3.12.14/PyYAML 6.0.3, pip check PASS, system
+  FreeCAD 1.0.0/Part import PASS. Импорт не проверка модели/геометрии.
+- Геометрия и инженерные расчёты **NOT_STARTED**. Native CAD/CAE/physical trials NOT_RUN.
+  Source нагрузки/ходы/fixed-budget/active registry/CAD/R3/R5 packages не изменены.
+
+## Незакрытое и следующий шаг
+
+Координатору R1 передаются точные C/H и ограничения, без нового назначения/продления.
+В действующем claim R4 допустима только документальная/символическая условная
+постановка A-V1/A-V2/B-V1/B-V2 и явных пробелов по task.md; в этой поставке она
+не выполнялась. NOT_RUN не разрешают зависимые физические/численные выводы.
+Перед продолжением: fetch main, сверить owner/lease/accepted ancestry/конкуренцию,
+C и manifest/44 bindings; при расхождении или истечении — stop координатору.
+Первый следующий атомарный результат — таблица известных/UNKNOWN интерфейсов
+с точными source ID@revision/owner получения, без назначения размеров.
+Критерий успеха — прослеживаемость и сохранность, а не расчёт реализуемости.
+
+Для численной оценки недостающие e_y/e_z(q), L_free(q), опоры/сечения/материалы/E,
+двусторонние joints/COTS и фазовые F(q,t), контакты, массы/трение/инерция и критерии
+прочности/устойчивости должны быть получены от соответствующих R2/R3/R4/R5/R6/R1
+либо явно зарегистрированы как отдельные количественные ASSUMED сценарии с
+ID/revision/основанием/областью; затем повтор применимых пунктов аудита.
+Входные акты R5/R1 имеют WARNING scope; независимый OUTPUT-review этого аудита/
+будущего инженерного C NOT_RUN. Будущий инженерный C передать независимому R5
+вне author_sessions; текущая самопроверка R4 его не заменяет.
+
+42 состояния не рассчитаны, 84 RAW/null сохранены. Реальные реакции/прочность/
+устойчивость/capacity/margins UNKNOWN. SHORT_STROKE, A clamp contacts, B reset/product
+collision, legacy UP, physical L/B opening, семь REJECT/material history=2 не закрыты.
+Архитектура/ТЗ NOT_APPROVED, общий CAD-rebuild запрещён, W02/PLC/physical READY NO-GO,
+G1 OPEN; испытания/изготовление/выпуск не разрешены. Вопросов для повторного
+подтверждения UUID/роли нет.
+
+Капсула: handoffs/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
 # R1 — R4 назначен; claim принят PR49, входной аудит НЕ ВЫПОЛНЕН
 
 UTC 2026-11-16T18:45:36.975663+00:00; координатор R1/Codex/r1-pr48-integration-20261116.
