@@ -1,3 +1,60 @@
+# R1 — PR #48 подготовка ограниченной интеграции, без слияния
+
+- T-r1-pr48-integration-01 / P1 / R1 / Codex / session r1-pr48-integration-20261116.
+  Прямое поручение пользователя в текущей беседе: подготовить документы/историю PR48,
+  решение WARNING и следующий R4 proposal. Status IN_REVIEW / PREPARED_NO_MERGE;
+  main claim не принят. Старый owner T-INIT codex-01 и lease
+  2026-11-13T22:14:32Z не продлены; чужие claims не захвачены.
+- Main 1dce280bf4c6a790ef0ace10a757fe0a72148b5f; PR48 H
+  aadc08a70fbaee16b7ba4c16463bab97275926bb. R3 C
+  93b4aead4983f88919d8e8b4165e29d7f3246600; R5 C
+  db6b9774649f99ad1b157cba2a9c7cdeec570302, H
+  6ef3afc123004c43e007dc477241edfed8efabbb включаются с сохранением ancestry.
+- Решение decisions/R1-FORCE-PATH-CONDITIONAL-ACCEPTANCE.md:
+  WARNING только для ограниченной условной параметрической проработки R4.
+  26 условных величин, 42 строки условий НЕ рассчитанные состояния;
+  реальные реакции/прочность/устойчивость не подтверждены, 84 RAW/null сохранены.
+  T-r3-force-path-01 IN_REVIEW, не DONE. Активные параметры не повышены.
+- Owner R3 r3-force-path-20261114, нормализация после PR47, исходный lease
+  2026-11-16T18:56:30Z без продления; read-only оценка не даёт нового старта.
+- T-r4-force-geometry-01 / P1 / @R4 / PROPOSED, owner NONE, lease null,
+  BLOCKED_PENDING_SEPARATE_CLAIM. Постановка:
+  verification/pr48_integration/R4_task_proposal.md. Четыре варианта, опоры,
+  e_y/e_z(q), L_free(q), сечения/материалы/двусторонние joints; реальные пробелы UNKNOWN.
+- W02/PLC/physical READY NO-GO, G1 OPEN; архитектура/ТЗ NOT_APPROVED,
+  общий CAD-rebuild не разрешён, physical tests NOT_RUN. История/дефекты сохранены.
+  Доказательства новой проверки — verification/pr48_integration/.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R5 OUTPUT-review T-r3-force-path-01
+
+UTC 2026-11-16T14:39:27.912033+00:00; session r5-force-path-output-20261116; R5 / Codex, назначение — прямой запрос пользователя.
+Задача T-r5-force-path-output-review: COMPLETE_REVIEW_WARNING, отдельно от задачи автора.
+Возможности: Git/Python/Decimal/rational checks; native CAD/CAE/physical trials NOT_RUN.
+База H aadc08a70fbaee16b7ba4c16463bab97275926bb; exact reviewed C 93b4aead4983f88919d8e8b4165e29d7f3246600.
+Новый claim автора не создаётся, lease автора не продлевается. R4 требует отдельной постановки/claim.
+Результат: verification/r5_force_path_output_review/review.md; независимые проверки там же.
+Вердикт WARNING, arithmetic PASS; R4 conditional parametrization sufficient with mandatory inputs.
+G1 OPEN; W02/physical READY NO-GO; архитектура не выбрана, общий CAD-rebuild не разрешён.
+
+---
+
+## T-r3-force-path-01 — условное сравнение завершено, независимый R5 ожидается
+
+- R3 / Codex / r3-force-path-20261114, IN_REVIEW, не DONE. Claim принят PR #47 в main `1dce280bf4c6a790ef0ace10a757fe0a72148b5f` UTC 2026-11-16T06:28:34Z; owner r3-force-path-20261114, lease до 2026-11-16T18:56:30Z без продления. Предварительные NONE/PENDING/null нормализованы к принятому proposal; исходная редакция сохранена в claim_history/20261115T185630Z/. Heartbeat/окончание расчётной проверки UTC `2026-11-16T06:54:08Z`.
+- Результат: verification/r3_force_path/analysis/report.md, free_bodies.md, calculated.md, results_A/B.json, state_matrix.json; preflight.json, input_audit.md (WARNING), README.md, review_request.md, checks.json и логи. Полные A-V1/A-V2/B-V1/B-V2 тесты передачи S_WORK/S_RETURN; исходные F не делятся между цилиндрами и не заменяют фактические распределённые нагрузки. Коэффициенты F·e/реакций и номинальные напряжения вычислены; capacities/margins/материал/геометрия/новая потребность привода UNKNOWN.
+- Отдельный расчётный подреестр analysis/params/registry.yaml сохраняет прежние определения и добавляет 26 CALCULATED коэффициентов/номинальных величин и 84 RAW/null поля четырёх вариантов. Активный params/registry.yaml не изменён. 44 BASE_A/B fixed-budget bindings и все 20 pinned inputs/12 protected trees, нагрузки/ходы/времена/скорости/CAD/helper/прежние расчёты сохранены.
+- Авторские проверки: 15 unittest methods PASS (нет FAIL/skip), 6 артефактов воспроизведены без записи, стандартная проверка scoped registry с --check-git PASS. Матрица 42 условий — зависимости и UNKNOWN, не 42 физических испытания. Нативный sweep/прочность/устойчивость/испытания NOT_RUN. Итоговые проверки активного реестра и preservation — в checks.json после исполнения.
+- CI-R3-CARRIER/OFFSET рассмотрены аналитически, MOUNTS как интерфейс спроса и пробелы; исходные вопросы физически не закрыты. Для A empty startup/retention и B unload/open/reset нет доказанной реальной реакции/готовности. SHORT_STROKE/clamp/reset/legacy UP и история REJECT сохранены.
+- Следующий участник — независимый R5 вне author_sessions, точный C из следующего H; запрос analysis/review_request.md. Собственные проверки не независимый OUTPUT-review. Архитектура не выбрана, W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED; прежние claims не продлены и main не сливался этой сессией.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 ## T-r3-force-path-01 — обновление предложения claim, редакция 2
 
 - По прямому поручению пользователя обновлён proposal в PR #47; статус PROPOSED_PENDING_MAIN, owner NONE, READY к рассмотрению; расчёт NOT_STARTED / start gate BLOCKED_PENDING_MAIN_ACCEPTANCE. Session ID / proposed_owner_session r3-force-path-20261114 / Codex / R3, продолжение той же сессии.

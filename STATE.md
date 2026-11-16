@@ -1,3 +1,115 @@
+# R1 — PR #48 подготовлен к ограниченной интеграции, без слияния
+
+UTC 2026-11-16T16:48:47.497517+00:00; session `r1-pr48-integration-20261116` / Codex / R1.
+C **732998ceff472492421fb97478b3b160f89eeaa0**: решение R1 + merge истории R5, родителями сохранены
+R3 H `aadc08a70fbaee16b7ba4c16463bab97275926bb` и R5 H
+`6ef3afc123004c43e007dc477241edfed8efabbb`. PR48 остаётся OPEN; main
+`1dce280bf4c6a790ef0ace10a757fe0a72148b5f` не изменена.
+
+Решение `decisions/R1-FORCE-PATH-CONDITIONAL-ACCEPTANCE.md` — **WARNING только
+для ограниченной условной параметрической проработки R4**. Точный результат R3
+`93b4aead4983f88919d8e8b4165e29d7f3246600`; независимый акт R5
+`db6b9774649f99ad1b157cba2a9c7cdeec570302`,
+REV-R5-R3-FORCE-PATH-OUTPUT-01-001. Авторские/R5 пакеты и история побайтно сохранены.
+T-r3-force-path-01 IN_REVIEW, не DONE; активные параметры не повышены.
+
+- 754 preservation checks PASS, 44 полных bindings/20 pinned inputs сохранены;
+  старые файлы 12 source trees сохранены (review journal дополнен актом R5).
+  Нагрузки/ходы/fixed-budget/CAD и прежние REJECT/material history неизменны.
+- 100 общих + 15 авторских tests PASS, 0 fail/skip; повтор oracle R5 — 204 PASS,
+  26/26 величин, байты исходного evidence MATCH. Шесть artifacts MATCH;
+  scoped и active registry --check-git PASS; LFS fsck/diff checks PASS.
+  Логи и exit statuses: verification/pr48_integration/validation.json.
+- **42 строки — условия, не рассчитанные состояния.** 84 RAW/null сохранены.
+  Прочность, устойчивость, реальные реакции, capacities/margins и full sweep
+  не подтверждены. Архитектура/ТЗ NOT_APPROVED; общий CAD-rebuild не разрешён.
+  W02/PLC/physical READY NO-GO, G1 OPEN; physical trials NOT_RUN, не проводить.
+- Подготовка R1 выполнена по прямому поручению пользователя; истёкший T-INIT
+  claim codex-01 (2026-11-13T22:14:32Z) не продлён. Lease R3 исходный до
+  2026-11-16T18:56:30Z, не продлён. Read-only review не даёт нового инженерного старта.
+
+Следующее предложенное действие — **отдельная T-r4-force-geometry-01**:
+`verification/pr48_integration/R4_task_proposal.md`. Owner NONE, lease null,
+PROPOSED / BLOCKED_PENDING_SEPARATE_CLAIM. Опоры, e_y/e_z(q), L_free(q) по полным
+ходам/промежуточным позам, сечения, материалы и двусторонние joints четырёх
+вариантов; реальные недостающие значения UNKNOWN. Первый проверяемый шаг после
+отдельного назначения/принятия claim — fetch main, ancestry/owner/lease/конкуренция,
+exact C/H и hashes/44 bindings, затем таблица геометрических интерфейсов и пробелов.
+Успех — прослеживаемая условная постановка с независимым review request,
+без выбора архитектуры, source-подмены и общего CAD-rebuild.
+
+Перед отдельным решением о слиянии оператору сверить текущие main/head, exact
+inputs и **CI именно финального H** через PR48; успешный CI исходного R3 H
+не переносится на новый head. Публикация этой эстафеты не является merge.
+Капсула: handoffs/T-r1-pr48-integration-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R5 OUTPUT-review T-r3-force-path-01 — WARNING, условная проработка R4
+
+UTC 2026-11-16T14:44:01.093962+00:00; reviewer R5/Codex/session `r5-force-path-output-20261116`.
+C акта `db6b9774649f99ad1b157cba2a9c7cdeec570302`; публикация проверяется по remote после создания H.
+Проверенный авторский C `93b4aead4983f88919d8e8b4165e29d7f3246600`,
+входной H `aadc08a70fbaee16b7ba4c16463bab97275926bb`.
+Акт REV-R5-R3-FORCE-PATH-OUTPUT-01-001:
+verification/r5_force_path_output_review/review.md; независимый oracle/results/validation там же.
+
+- Условная арифметика PASS 26/26, независимые проверки 204 PASS; авторские tests 15/15;
+  шесть артефактов MATCH, scoped и активный registry --check-git PASS.
+- 44 binding rows, 20 pinned inputs, 12 source trees BASE/C/H сохранены, 19 analysis files unchanged.
+  Source нагрузки/ходы/CAD/fixed-budget не менялись. 84 RAW/null, 42 UNKNOWN states сохранены.
+- Общий WARNING. Достаточно для следующей ограниченной условной параметрической постановки R4;
+  реальные реакции, прочность, устойчивость и sweep не доказаны. T-r3-force-path-01 не объявлена DONE,
+  исходные вопросы/дефекты не закрыты, параметры не повышались до VERIFIED/LOCKED.
+- Следующий участник R1/R4 по отдельной задаче/claim: exact reviewed C/H + акт R5, task.md,
+  analysis/free_bodies/report/state_matrix, input_gaps и неизменные baseline_bindings.
+  Первый проверяемый шаг: определить геометрию/опоры/e(q)/L_free(q)/сечения и перечень
+  недостающих фазовых контактов/нагрузок; зарегистрировать новые количественные ASSUMED
+  входы отдельно. Успех — прослеживаемая условная постановка без подмены UNKNOWN или source.
+- Обязательны двусторонние joints/COTS, материалы/жёсткости, A startup/retention, B unload/reset,
+  фазовые силы/потери и критерии устойчивости; подробные владельцы/ограничения — акт.
+- G1 OPEN; W02/PLC/physical READY NO-GO. Архитектура не выбрана, общий CAD-rebuild не разрешён.
+  Native CAD/CAE и physical trials NOT_RUN. Семь REJECT/material history не сбрасываются.
+
+Капсула: handoffs/T-r5-force-path-output-review/r5-force-path-output-20261116.md.
+
+---
+
+## Предыдущая сводка — история
+
+# T-r3-force-path-01 — условное сравнение IN_REVIEW, ожидает независимый R5
+
+C `93b4aead4983f88919d8e8b4165e29d7f3246600` **REMOTE_VERIFIED**, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114-result`.
+Автор R3 / Codex / r3-force-path-20261114; UTC эстафеты 2026-11-16T06:59:21Z.
+Claim принят PR #47/main 1dce280bf4c6a790ef0ace10a757fe0a72148b5f;
+owner r3-force-path-20261114, lease до 2026-11-16T18:56:30Z без продления.
+Предварительные NONE/PENDING нормализованы по merge; все proposal/blocker snapshots сохранены.
+
+[Отчёт](verification/r3_force_path/analysis/report.md),
+[свободные тела](verification/r3_force_path/analysis/free_bodies.md),
+[численные коэффициенты](verification/r3_force_path/analysis/calculated.md),
+[проверки](verification/r3_force_path/analysis/checks.json),
+[запрос R5](verification/r3_force_path/analysis/review_request.md).
+A-V1/A-V2/B-V1/B-V2 рассмотрены для идеальных S_WORK/S_RETURN и 42 условий
+зависимостей состояний. 26 величин CALCULATED в отдельном case registry,
+84 поля RAW/null. Реальная прочность/устойчивость/нагрузки/готовность UNKNOWN;
+42 условия не являются физическими тестами. Конструкция не выбрана.
+
+15 unittest methods PASS; шесть артефактов воспроизведены без записи;
+стандартные проверки scoped registry и активного реестра --check-git PASS.
+Все 44 BASE_A/B fixed-budget bindings, 20 pinned inputs/12 protected trees,
+активный params/registry.yaml, нагрузки/ходы/расчёты/CAD/helper неизменны.
+Следующий шаг — независимый R5 на exact C, не автор этой версии.
+IN_REVIEW, не DONE; W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED.
+Native CAD/реальные прочность/устойчивость/испытания NOT_RUN.
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущие сводки — сохранённая история
+
 # T-r3-force-path-01 — обновлённое предложение claim, редакция 2
 
 C `8d54c0defeffbbc44d8b61496148f5c21173a994` REMOTE_VERIFIED, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`;
