@@ -1,3 +1,49 @@
+# R1 — коррекция OBS-01 получена; независимый R5 recheck NOT_RUN
+
+UTC 2026-11-16T21:37:27.577390+00:00; координатор R1 / r1-pr48-integration-20261116.
+C передачи: 57e6cd452e3567f837bb95af041b3514e0ce437e. H получать из Git/remote ветки
+work-r1/r5-obs01-recheck/r1-pr48-integration-20261116.
+
+- Новый target R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  request H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Исходный R4 C b840dfd5444da2bf62483b7f4a6069d2bb255b71;
+  акт R5 C 4aa23509b45efc2c2c166935102ca5caa76f55e2,
+  H 92230cef87b71aa7e2d51fe6f21c11360331dd37;
+  R1 correction authority e380f6d05fe58fe5125c940ac90a151c5bba546b.
+- OBS-01 OPEN/P2; новый targeted independent recheck NOT_RUN. Автор исправил
+  ровно четыре чужие gather refs, сохранил собственные и остальные 48 строк.
+  R1 не закрывает OBS-01; старый акт относится только к старому C.
+- Команда для исходного независимого R5: verification/r1_r5_obs01_recheck/R5_recheck_command.md.
+  Task T-r5-r4-symbolic-obs01-recheck-01. Preferred previous actual reviewer
+  6afb0a73-b16c-8191-a539-9a6685e89034, с повторной проверкой независимости и
+  раскрытием upstream-авторства. Файл не создаёт автоматического назначения.
+- R4 owner 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления и без новой инженерной стадии.
+- Авторский verifier воспроизведён R1: 1341 PASS; renderer 7 MATCH в tmp.
+  Это supplemental evidence, не независимый review. Свои routing/preservation
+  checks и root registry result — verification/r1_r5_obs01_recheck/.
+- Координационная ветка сохраняет ancestry обеих поставок: предыдущий R1 H
+  aaaaf5285b8066722e81cf0127d5a2572369d068 и новый R4 H. Конфликты трёх сводок
+  разрешены сохранением обоих новых префиксов и общей истории один раз;
+  исходные пакеты сохранены. Исторический акт R5 архивирован дословно;
+  в активном журнале изменено только validity CURRENT -> STALE по §4 протокола,
+  поскольку исправлены reviewed interfaces. WARNING/четыре FAIL/OBS OPEN сохранены.
+  Первый registry выявил эту stale-связь; лог/код 1 сохранены отдельно.
+  Новый exact C всё ещё требует независимого recheck.
+  Это сборка эстафеты в отдельной ветке; main f731910273b47f46c6d45114cecd76de6fa8adf9
+  не изменена. PR не сливался.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Реальные реакции, прочность, устойчивость и цикл не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN, W02/PLC/physical READY NO-GO.
+CAD-build/rebuild, численные/физические расчёты, испытания и выпуск не разрешены.
+54 inputs/12 исходных деревьев/44 полные bindings/84 RAW-null/нагрузки/ходы/CAD,
+прежние блокеры, семь REJECT/material history=2 сохранены; задача R4 не DONE.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R4 — OBS-01: авторская коррекция передана на targeted R5 recheck
 
 HANDOFF / IN_REVIEW, UTC 2026-11-16T21:26:46.902037+00:00; R4/Codex/session 6afb4750-7918-8191-8569-77b5b0c41050.
