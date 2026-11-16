@@ -1,0 +1,57 @@
+{
+  "observed_at_utc": "2026-11-16T22:04:58.117027+00:00",
+  "checks": [
+    {
+      "sha": "beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe",
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/commits/beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe/check-runs",
+        "--jq",
+        "{total_count,checks:[.check_runs[]|{id,name,head_sha,status,conclusion,started_at,completed_at,html_url}]}"
+      ],
+      "exit_code": 0,
+      "result": {
+        "checks": [
+          {
+            "completed_at": "2026-11-16T21:25:22Z",
+            "conclusion": "success",
+            "head_sha": "beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe",
+            "html_url": "https://github.com/narrateller/REV/actions/runs/43959353148/job/133622269383",
+            "id": 133622269383,
+            "name": "verify-engineering-state",
+            "started_at": "2026-11-16T21:22:05Z",
+            "status": "completed"
+          }
+        ],
+        "total_count": 1
+      }
+    },
+    {
+      "sha": "47db9013c3cf3756987cdb480850cc0487c59b1e",
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/commits/47db9013c3cf3756987cdb480850cc0487c59b1e/check-runs",
+        "--jq",
+        "{total_count,checks:[.check_runs[]|{id,name,head_sha,status,conclusion,started_at,completed_at,html_url}]}"
+      ],
+      "exit_code": 0,
+      "result": {
+        "checks": [
+          {
+            "completed_at": "2026-11-16T21:30:28Z",
+            "conclusion": "success",
+            "head_sha": "47db9013c3cf3756987cdb480850cc0487c59b1e",
+            "html_url": "https://github.com/narrateller/REV/actions/runs/43960254990/job/133625423885",
+            "id": 133625423885,
+            "name": "verify-engineering-state",
+            "started_at": "2026-11-16T21:27:22Z",
+            "status": "completed"
+          }
+        ],
+        "total_count": 1
+      }
+    }
+  ]
+}
