@@ -1,3 +1,34 @@
+# T-r3-force-path-01 — условное сравнение IN_REVIEW, ожидает независимый R5
+
+C `93b4aead4983f88919d8e8b4165e29d7f3246600` **REMOTE_VERIFIED**, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114-result`.
+Автор R3 / Codex / r3-force-path-20261114; UTC эстафеты 2026-11-16T06:59:21Z.
+Claim принят PR #47/main 1dce280bf4c6a790ef0ace10a757fe0a72148b5f;
+owner r3-force-path-20261114, lease до 2026-11-16T18:56:30Z без продления.
+Предварительные NONE/PENDING нормализованы по merge; все proposal/blocker snapshots сохранены.
+
+[Отчёт](verification/r3_force_path/analysis/report.md),
+[свободные тела](verification/r3_force_path/analysis/free_bodies.md),
+[численные коэффициенты](verification/r3_force_path/analysis/calculated.md),
+[проверки](verification/r3_force_path/analysis/checks.json),
+[запрос R5](verification/r3_force_path/analysis/review_request.md).
+A-V1/A-V2/B-V1/B-V2 рассмотрены для идеальных S_WORK/S_RETURN и 42 условий
+зависимостей состояний. 26 величин CALCULATED в отдельном case registry,
+84 поля RAW/null. Реальная прочность/устойчивость/нагрузки/готовность UNKNOWN;
+42 условия не являются физическими тестами. Конструкция не выбрана.
+
+15 unittest methods PASS; шесть артефактов воспроизведены без записи;
+стандартные проверки scoped registry и активного реестра --check-git PASS.
+Все 44 BASE_A/B fixed-budget bindings, 20 pinned inputs/12 protected trees,
+активный params/registry.yaml, нагрузки/ходы/расчёты/CAD/helper неизменны.
+Следующий шаг — независимый R5 на exact C, не автор этой версии.
+IN_REVIEW, не DONE; W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED.
+Native CAD/реальные прочность/устойчивость/испытания NOT_RUN.
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущие сводки — сохранённая история
+
 # T-r3-force-path-01 — обновлённое предложение claim, редакция 2
 
 C `8d54c0defeffbbc44d8b61496148f5c21173a994` REMOTE_VERIFIED, ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`;

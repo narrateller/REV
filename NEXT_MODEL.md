@@ -1,3 +1,44 @@
+# Независимый R5 — OUTPUT-review условного сравнения T-r3-force-path-01
+
+Состояние HANDOFF / IN_REVIEW, UTC 2026-11-16T06:59:21Z; автор R3 / Codex /
+r3-force-path-20261114. C **93b4aead4983f88919d8e8b4165e29d7f3246600** REMOTE_VERIFIED;
+ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114-result`. Следующий H меняет только эстафету.
+
+- Claim R3 принят PR #47/main 1dce280bf4c6a790ef0ace10a757fe0a72148b5f;
+  owner r3-force-path-20261114, lease до 2026-11-16T18:56:30Z без продления.
+  Предварительные поля нормализованы после merge, предыдущий proposal сохранён.
+- Результаты exact C: verification/r3_force_path/analysis/report.md,
+  free_bodies.md, results_A/B.json, calculated.md, state_matrix.json,
+  params/registry.yaml (отдельный case snapshot), baseline_snapshot.json.
+  Preflight/input_audit/checks/preservation и логи находятся там же.
+- Новые 26 CALCULATED case IDs и 84 RAW/null не перенесены в активный реестр.
+  Source ID/revision/value/unit/hash/mode/status всех 44 bindings сохранены;
+  список точных source blobs/hashes — analysis/preflight.json и preservation.json.
+  Нагрузки/ходы/расчёты/CAD и active root registry unchanged.
+- Проверки автора: 15 tests PASS (0 fail/skip), MATCH 6 artifacts,
+  scoped validator и active registry --check-git PASS; это не независимый review.
+- Следующая подходящая роль — независимый R5 вне author_sessions текущего C.
+  Это предложение передачи, не назначение reviewer этой сессией; запрос и критерии
+  analysis/review_request.md. Первый шаг: проверить remote exact C, main/ancestry,
+  input hashes/44 bindings и смысл S_WORK/S_RETURN, затем README команды без записи.
+  Не использовать авторский --write для review: readonly воспроизведение работает
+  и после истечения author lease, новые инженерные изменения требуют своего claim.
+- Затем независимо вывести F/N, r×F, R0/R1/баланс рамы, nominal rod stress,
+  область/границу Эйлера; проверить UNKNOWN против известного нуля, no load split,
+  полные состояния A startup/retention и B unload/open/reset. Критерий результата —
+  отдельный акт на exact C с собственной методикой и явными PASS/FAIL/NOT_RUN;
+  отсутствие размеров/материалов не маскируется номинальными коэффициентами.
+- Реальные e/L/E/I/критерии/опоры/спектры/новая потребность привода UNKNOWN;
+  архитектура не выбрана, G1 OPEN, W02/physical READY NO-GO. SHORT_STROKE,
+  clamp/reset/legacy UP и семь REJECT/material history сохранены. Испытания NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Входной аудит R3 WARNING: analysis/input_audit.md. Независимый OUTPUT нового C NOT_RUN.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
 # T-r3-force-path-01 — обновлённый proposal в PR #47 ожидает принятия
 
 UTC эстафеты 2026-11-15T19:00:13Z; R3 / Codex / session_id r3-force-path-20261114.
