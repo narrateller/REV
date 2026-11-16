@@ -1,3 +1,43 @@
+# R1 — WARNING принят в документальной области; R4 исправляет OBS-01
+
+UTC 2026-11-16T20:59:21.699648+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и команды: e380f6d05fe58fe5125c940ac90a151c5bba546b. Полный H получать из Git/remote этой ветки:
+work-r1/r5-symbolic-observation/r1-pr48-integration-20261116.
+Main f731910273b47f46c6d45114cecd76de6fa8adf9 не изменяется; PR не сливается.
+
+- R4 target C b840dfd5444da2bf62483b7f4a6069d2bb255b71, H 9433ef749df14a3bbf8ea32331e2f895fd5bf7aa.
+- R5 act C 4aa23509b45efc2c2c166935102ca5caa76f55e2, H 92230cef87b71aa7e2d51fe6f21c11360331dd37.
+  CI exact R5 H: success, run 43953112276. Акт: 2422 PASS / 4 advisory FAIL,
+  WARNING / SUFFICIENT_DOCUMENTARY_SYMBOLIC_ONLY; исходные результаты сохранены.
+- R5-SYM-OBS-01 OPEN/P2. Выбран минимальный вариант: удалить из datum_motion
+  A-V1/A-V2 только CI-X_B_GATHER, B-V1/B-V2 только CI-X_COLUMN_GATHER;
+  собственные gather refs и общий исходный каталог сохранить. До исправления
+  и targeted independent recheck безусловная машинная интерпретация запрещена.
+- Владелец R4 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease 2026-11-17T17:44:00Z без продления. Перед продолжением нужен fresh
+  actual-session preflight/main/owner/lease/inputs/конкуренция. Просрочка — STOP.
+- Команда: verification/r1_r5_symbolic_observation/R4_correction_command.md.
+  Решение: decisions/R1-R5-SYMBOLIC-OBS-01-DISPOSITION.md.
+  Новый результат R4 требует нового exact C/H и независимого R5 recheck;
+  автор и координатор не закрывают замечание сами. Старый акт не переносится.
+- Раскрыто прежнее upstream-авторство R5; его собственная физическая правильность
+  заново независимо не проверялась. R1 не исполняет сессионные проверки за R4/R5.
+- Проверки R1: verification/r1_r5_symbolic_observation/checks.json;
+  registry.log/registry_status.json — фактический отдельный результат validator.
+  Старый журнал сохранён префиксом, новый акт R5 точен; исходные 12 tree hashes
+  проверяются на pinned main, reviews на рабочей ветке отличается добавлением акта.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Все отсутствующие реальные данные
+UNKNOWN; прочность, устойчивость и реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO.
+54 inputs, 44 полные привязки, 84 RAW/null, нагрузки/ходы/CAD и прежние
+блокеры/семь REJECT/material history=2 сохраняются. CAD-build/rebuild,
+численные/физические расчёты, испытания и выпуск не разрешены. R4 не DONE.
+
+---
+
+## Предыдущая запись — сохранённая история
+
 # R1 — R4 назначен; claim принят PR49, входной аудит НЕ ВЫПОЛНЕН
 
 UTC 2026-11-16T18:45:36.975663+00:00; координатор R1/Codex/r1-pr48-integration-20261116.
