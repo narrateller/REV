@@ -1,3 +1,54 @@
+# R1 — R4 назначен; claim принят PR49, входной аудит НЕ ВЫПОЛНЕН
+
+UTC 2026-11-16T18:45:36.975663+00:00; координатор R1/Codex/r1-pr48-integration-20261116.
+C документальной фиксации: bdef6434525727bec67aea8546c1224d27d2e0cc.
+PR49 MERGED обычным merge **cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9**,
+UTC 2026-11-16T18:40:12Z; reviewed head 70ab9a1926235170e449b85d558f135ddae90add.
+Оба исходных CI, 85 input checks, main/head/owner/deadline проверены перед merge.
+Пользователь прямо назначил R4 реальной сессии и разрешил это принятие.
+
+- Task T-r4-force-geometry-01 / CLAIM_ACCEPTED_PENDING_INPUT_AUDIT.
+  Owner/session **6afb4750-7918-8191-8569-77b5b0c41050**, R4 USER_CONFIRMED,
+  claim ACCEPTED_MAIN; acceptance commit/PR — фактический merge выше / 49.
+- Lease до **2026-11-17T17:44:00Z** — исходный срок, без продления и без сдвига
+  от merge/нормализации. Прежние R1/R3/R4 leases не продлены.
+- Канонические claim.json/md нормализованы по уже состоявшемуся принятию.
+  Pending/NONE/null и role-unconfirmed прежних редакций/отчёта — история;
+  обе редакции сохранены в claim_history/ и Git, отчёт R4 не переписывается.
+  Это документальная запись фактов, не новое назначение/lease или расширение scope.
+- Executor heartbeat пока отсутствует: координатор не имитирует heartbeat R4.
+  **Start gate BLOCKED_PENDING_INPUT_AUDIT**, audit NOT_RUN_PENDING_ACTUAL_R4_PREFLIGHT,
+  инженерная геометрия NOT_STARTED; CAD/CAE/physical trials NOT_RUN.
+- Проверки текущего состояния, immutable inputs и неизменности срока —
+  verification/r4_force_geometry/acceptance_20261116/validation.json.
+  Фактические receipt/authorization/premerge находятся в той же папке.
+  CI документальной записи проверять на точном опубликованном head;
+  успешный CI исходного PR49 не заменяет проверку изменённых документов.
+
+Назначение/UUID/сообщённые модель и инструменты повторно запрашивать не нужно.
+Следующая команда назначенному R4: verification/r4_force_geometry/R4_command.md.
+Первый атомарный шаг — fetch main, проверить ancestry фактического принятия,
+текущие owner/session/непросроченный lease/конкуренцию, 54 pinned files/12 trees/
+44 full bindings; затем входной аудит §6 с точными версиями и семью пунктами
+PASS/FAIL/NOT_APPLICABLE/NOT_RUN. Критерий старта инженерии — принятое назначение,
+действующий срок и завершённый пригодный аудит в разрешённой WARNING области.
+До аудита геометрию и расчёты не начинать; на FAIL/смене inputs/owner/истечении
+срока остановить зависимую работу и сообщить точное расхождение координатору.
+
+После надлежащего аудита — только условная геометрическая постановка четырёх
+вариантов по task.md: опоры, эксцентриситеты, свободные длины, сечения, материалы,
+двусторонние соединения. Реальные пробелы UNKNOWN, новые численные гипотезы —
+отдельные ASSUMED ID/revision/основания. Baseline/44 bindings/loads/strokes/CAD
+не менять. Будущий результат требует C/H и независимого R5 вне author_sessions.
+42 состояния не рассчитаны; прочность/устойчивость/реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED, общий CAD-rebuild не разрешён, W02/physical READY
+NO-GO, G1 OPEN, испытания не проводить, старые дефекты/REJECT не закрывать.
+Капсула: handoffs/T-r4-force-geometry-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
 # R1 — PR49 revision 2: фактическая сессия R4 уточнена, назначение не подтверждено
 
 UTC 2026-11-16T18:26:58.976275+00:00; R1 / Codex / r1-pr48-integration-20261116.

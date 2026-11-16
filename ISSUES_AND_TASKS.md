@@ -1,3 +1,33 @@
+# R4 назначен пользователем, PR49 принят: сначала входной аудит
+
+- Прямое текущее поручение пользователя: назначить роль R4 сессии
+  6afb4750-7918-8191-8569-77b5b0c41050 для T-r4-force-geometry-01 и интегрировать
+  PR49 обычным merge после проверок. Принятие фактически выполнено
+  cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9, UTC 2026-11-16T18:40:12Z.
+- Owner/session — 6afb4750-7918-8191-8569-77b5b0c41050; role R4 USER_CONFIRMED,
+  claim ACCEPTED_MAIN, acceptance PR49/фактический merge выше. Lease до
+  2026-11-17T17:44:00Z, ровно исходный deadline, без продления/сдвига.
+  Нормализуются предварительные pending/NONE/null; старые редакции и отчёт сохранены.
+- Task CLAIM_ACCEPTED_PENDING_INPUT_AUDIT, execution NOT_STARTED,
+  gate BLOCKED_PENDING_INPUT_AUDIT. Input audit NOT_RUN_PENDING_ACTUAL_R4_PREFLIGHT.
+  Heartbeat ещё не сообщён реальным R4; координатор его не имитирует.
+- Source: verification/r4_force_geometry/acceptance_20261116/receipt.json,
+  operator_authorization.json, premerge.json; канонические claim.json/md,
+  task.md и R4_command.md отражают уже разрешённое и принятое состояние.
+- Нормализация документальная: не новое назначение/lease/инженерное разрешение.
+  Scope/54 pinned files/12 trees/44 bindings/loads/strokes/fixed-budget/CAD/registry
+  сохранены. 42 состояния не рассчитаны, реальные реакции/прочность/устойчивость
+  не подтверждены; W02/physical READY NO-GO, G1 OPEN, архитектура/ТЗ NOT_APPROVED,
+  общий CAD-rebuild не разрешён, physical trials NOT_RUN.
+- Следующее действие назначенного R4: fetch main, проверить accepted ancestry,
+  owner/lease/конкуренцию/manifest/44 bindings, затем оформить входной аудит §6
+  с PASS/FAIL/NOT_APPLICABLE/NOT_RUN и точными источниками. До аудита инженерную
+  геометрию/расчёты не начинать. Повторного назначения роли/UUID не требуется.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # T-r4-force-geometry-01 — proposal revision 2, фактическая кандидатская сессия
 
 - R1 / Codex / r1-pr48-integration-20261116; UTC 2026-11-16T18:23:56.469291+00:00.

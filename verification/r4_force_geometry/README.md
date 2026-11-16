@@ -1,3 +1,29 @@
+# Claim R4 принят; сначала входной аудит
+
+PR49 принят пользователем и фактически слит обычным merge
+cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9. Фактический owner
+6afb4750-7918-8191-8569-77b5b0c41050, роль R4 USER_CONFIRMED,
+lease до 2026-11-17T17:44:00Z без продления. Канонические сведения — claim.json/md;
+receipt и назначение — acceptance_20261116/. Предварительные proposal-поля и
+прежние проверки сохранены как история; запись принятия не расширяет scope.
+
+Инженерная работа NOT_STARTED / BLOCKED_PENDING_INPUT_AUDIT. Следующая команда
+назначенному R4 — R4_command.md: fetch/ancestry/owner/lease/конкуренция/inputs,
+затем семь пунктов аудита §6. Повторное подтверждение уже назначенной роли не нужно.
+85 проверок до merge — preflight; актуальная проверка verify_claim.py учитывает
+реальное принятие, фиксированный lease и незавершённый аудит. Новые результаты —
+acceptance_20261116/validation.json. Ни один тест не выдаётся за инженерную приёмку.
+
+```bash
+.venv/bin/python verification/r4_force_geometry/verify_claim.py
+.venv/bin/python scripts/check_registry.py --check-git
+git diff --check
+```
+
+---
+
+## История подготовки до назначения и принятия
+
 # Отдельный claim R4 после интеграции PR48
 
 Только подготовка координационных документов. Инженерная геометрия, расчёты,

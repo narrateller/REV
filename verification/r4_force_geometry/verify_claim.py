@@ -1,4 +1,4 @@
-"""Validate the unaccepted R4 proposal and preserved immutable input package."""
+"""Validate R4 claim provenance, current gate and immutable input package."""
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import hashlib
@@ -25,11 +25,17 @@ def main():
         if not ok:
             raise ValueError(name)
 
-    check('unaccepted_proposal', claim['status'] == 'PROPOSED_PENDING_MAIN'
-          and claim['owner_session'] == 'NONE'
-          and all(claim[k] is None for k in ('lease_expires_at',
-                  'claim_acceptance_commit', 'claim_acceptance_PR', 'heartbeat_utc')),
-          'Known candidate identity does not create owner, lease, heartbeat or acceptance')
+    accepted = claim['status'] == 'ACCEPTED_MAIN'
+    if accepted:
+        check('accepted_owner', claim['owner_session'] == claim['session_id']
+              and claim['claim_acceptance_PR'] == 49,
+              'Accepted owner is the actual user-assigned session')
+    else:
+        check('unaccepted_proposal', claim['status'] == 'PROPOSED_PENDING_MAIN'
+              and claim['owner_session'] == 'NONE'
+              and all(claim[k] is None for k in ('lease_expires_at',
+                      'claim_acceptance_commit', 'claim_acceptance_PR', 'heartbeat_utc')),
+              'Identity alone does not create ownership or acceptance')
     report_raw = (ROOT / claim['executor_report']).read_bytes()
     report = json.loads(report_raw)
     check('actual_candidate_report', str(uuid.UUID(claim['session_id'])) == claim['session_id']
@@ -40,11 +46,44 @@ def main():
           and claim['exact_runtime_model_id'] is report['exact_runtime_model_id'] is None
           and report['coordinator_independently_retested_capabilities'] is False,
           'Actual existing session/model/tools are recorded as a user-forwarded R4 report')
-    check('role_still_unconfirmed', claim['role_assignment_confirmed'] is False
-          and report['role_assignment_confirmed'] is False
-          and claim['assignment_utc'] is None
-          and claim['start_gate'] == 'BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION',
-          'No user role confirmation or execution permission is inferred from identity')
+    if accepted:
+        auth = json.loads((ROOT / claim['role_authorization']).read_text())
+        check('user_role_assignment', claim['role_assignment_confirmed'] is True
+              and auth['role_assignment_confirmed'] is True
+              and auth['session_id'] == claim['owner_session']
+              and auth['role'] == claim['role'] == 'R4'
+              and auth['task_id'] == claim['task_id']
+              and claim['assignment_utc'] == auth['assignment_recorded_at_premerge_utc']
+              and report['role_assignment_confirmed'] is False,
+              'New explicit user assignment; earlier R4 report remains historical and unchanged')
+        receipt = json.loads((ROOT / claim['acceptance_receipt']).read_text())
+        merge = claim['claim_acceptance_commit']
+        check('PR49_actual_merge', receipt['merged'] is True
+              and receipt['merge_commit_sha'] == merge
+              and receipt['number'] == 49
+              and git('show', '-s', '--format=%P', merge).decode().strip().split()
+              == ['381d67d428faacf05f7d076249cf220fb4b94e98',
+                  '70ab9a1926235170e449b85d558f135ddae90add']
+              and subprocess.run(['git', '-C', str(ROOT), 'merge-base', '--is-ancestor',
+                                  merge, 'origin/main']).returncode == 0,
+              'Actual ordinary merge is accepted into remote main')
+        old_proposal = (HERE / 'claim_history/20261116T182310Z/claim.json').read_bytes()
+        check('accepted_proposal_preserved', old_proposal == git('show',
+              '70ab9a1926235170e449b85d558f135ddae90add:verification/r4_force_geometry/claim.json'),
+              'Pending owner/role/lease values preserved before normalization')
+        check('engineering_still_blocked', claim['input_audit_required_before_engineering'] is True
+              and claim['input_audit'] == 'NOT_RUN_PENDING_ACTUAL_R4_PREFLIGHT'
+              and claim['start_gate'] == 'BLOCKED_PENDING_INPUT_AUDIT'
+              and auth['engineering_before_input_audit_authorized'] is False,
+              'Accepted claim does not replace actual executor input audit')
+        check('no_impersonated_heartbeat', claim['heartbeat_utc'] is None,
+              'Coordinator records acceptance, not an executor heartbeat')
+    else:
+        check('role_still_unconfirmed', claim['role_assignment_confirmed'] is False
+              and report['role_assignment_confirmed'] is False
+              and claim['assignment_utc'] is None
+              and claim['start_gate'] == 'BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION',
+              'No user role confirmation is inferred from identity')
     old_claim = json.loads((HERE / 'claim_history/20261116T174400Z/claim.json').read_text())
     check('identity_update_without_lease_renewal', claim['proposal_revision'] == 2
           and old_claim['proposed_owner_session'] == 'r4-force-geometry-20261116'
@@ -64,6 +103,12 @@ def main():
     check('new_proposed_24h', expiry - start == timedelta(hours=24)
           and claim['proposed_lease_duration_hours'] == 24, 'Coordination metadata, not a live lease')
     check('proposal_current_at_validation', datetime.now(timezone.utc) < expiry, expiry.isoformat())
+    if accepted:
+        check('active_lease_not_extended', claim['lease_expires_at'] == claim['proposed_lease_expires_at']
+              == auth['deadline'] == '2026-11-17T17:44:00Z'
+              and auth['lease_extension_authorized'] is False
+              and datetime.fromisoformat(claim['acceptance_at_utc'].replace('Z', '+00:00')) < expiry,
+              'Original fixed deadline activated on acceptance without renewal')
     check('manifest_binding', hashlib.sha256(raw).hexdigest() == claim['input_manifest_sha256']
           and len(manifest['inputs']) == 54
           and len({x['path'] for x in manifest['inputs']}) == 54
@@ -97,7 +142,7 @@ def main():
     result = {'checked_at_utc': datetime.now(timezone.utc).isoformat(),
               'task_id': claim['task_id'], 'base_main': base, 'checks': checks,
               'passed': len(checks), 'failed': 0, 'engineering_execution': 'NOT_STARTED',
-              'claim_accepted': False, 'physical_trials': 'NOT_RUN'}
+              'claim_accepted': accepted, 'physical_trials': 'NOT_RUN'}
     (HERE / 'claim_validation.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(f'PASS {len(checks)} claim/input checks; 54 pinned files, 44 bindings; engineering NOT_STARTED')
 
