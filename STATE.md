@@ -1,3 +1,81 @@
+# R4 — preflight и входной аудит WARNING; передача координатору
+
+HANDOFF, UTC 2026-11-16T19:13:24.657655+00:00; проект narrateller/REV, R4 / Codex on GPT-6 base
+(exact runtime model identifier unavailable) / session 6afb4750-7918-8191-8569-77b5b0c41050.
+Задача T-r4-force-geometry-01: INPUT_AUDIT_RECORDED_WARNING, инженерный объём не DONE.
+
+**C результата `45caac78f00ab1535387bb5ed8d7f17caf9afc1f` — REMOTE_VERIFIED.**
+Ветка `work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050`;
+https://github.com/narrateller/REV/tree/work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050
+Этот следующий H содержит только STATE/NEXT_MODEL/капсулу, без изменений пакета C.
+
+## Принятое назначение и входы
+
+- Проверенная fetched main `f731910273b47f46c6d45114cecd76de6fa8adf9`. PR49 acceptance merge
+  `cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9` — предок main, reviewed head
+  `70ab9a1926235170e449b85d558f135ddae90add`; receipt/два родителя/равенство деревьев PASS.
+- Owner/session `6afb4750-7918-8191-8569-77b5b0c41050`, R4 USER_CONFIRMED/ACCEPTED_MAIN.
+  Lease **2026-11-17T17:44:00Z**, без продления. Фактический heartbeat R4
+  **2026-11-16T19:08:03.489858+00:00**, start/end JSON в preflight_20261116/.
+- Точный manifest SHA256 6268bfbd94adc293ff27071f960e49c81558016c9b5d14be2207dba52546fe36.
+  54 pinned файла (commit/blob/SHA256), 12 protected trees, 44 full bindings MATCH;
+  706 materialized files, 48 LFS SHA256/size сверены. Конкурирующего accepted
+  owner в актуальных main records и открытых PR не найдено на момент preflight.
+  Неопубликованные работы не наблюдаемы; enforcement PROCEDURAL.
+- R3 C/H 93b4aead4983f88919d8e8b4165e29d7f3246600 / aadc08a70fbaee16b7ba4c16463bab97275926bb;
+  R5 C/H db6b9774649f99ad1b157cba2a9c7cdeec570302 / 6ef3afc123004c43e007dc477241edfed8efabbb;
+  R1 decision C 732998ceff472492421fb97478b3b160f89eeaa0. Все ancestry/hashes сверены.
+
+## Выполнено и граница доказательств
+
+- Два текущих preflight по 138 PASS; команды/exit codes/UTC и отдельные
+  результаты в verification/r4_force_geometry/preflight_20261116/checks/ и final_checks/.
+- Входной акт AUD-R4-FORCE-GEOMETRY-INPUT-01 в input_audit.md/json: **WARNING**,
+  семь пунктов рассмотрены; §1/2/3/7 — 4 PASS только документальной согласованности;
+  §4/5/6 — 3 NOT_RUN. FAIL 0, NOT_APPLICABLE 0 (все семь пунктов применимы).
+  Запись аудита завершена; полного инженерного PASS нет.
+- Текущий active registry --check-git PASS, прямой returncode 0; проверка перед C
+  без --check-git также returncode 0. git diff --check PASS. Исторический CI/акт
+  не выдаются за эти запуски; CI нового C/H не удостоверен этой записью.
+- Фактические .venv Python 3.12.14/PyYAML 6.0.3, pip check PASS, system
+  FreeCAD 1.0.0/Part import PASS. Импорт не проверка модели/геометрии.
+- Геометрия и инженерные расчёты **NOT_STARTED**. Native CAD/CAE/physical trials NOT_RUN.
+  Source нагрузки/ходы/fixed-budget/active registry/CAD/R3/R5 packages не изменены.
+
+## Незакрытое и следующий шаг
+
+Координатору R1 передаются точные C/H и ограничения, без нового назначения/продления.
+В действующем claim R4 допустима только документальная/символическая условная
+постановка A-V1/A-V2/B-V1/B-V2 и явных пробелов по task.md; в этой поставке она
+не выполнялась. NOT_RUN не разрешают зависимые физические/численные выводы.
+Перед продолжением: fetch main, сверить owner/lease/accepted ancestry/конкуренцию,
+C и manifest/44 bindings; при расхождении или истечении — stop координатору.
+Первый следующий атомарный результат — таблица известных/UNKNOWN интерфейсов
+с точными source ID@revision/owner получения, без назначения размеров.
+Критерий успеха — прослеживаемость и сохранность, а не расчёт реализуемости.
+
+Для численной оценки недостающие e_y/e_z(q), L_free(q), опоры/сечения/материалы/E,
+двусторонние joints/COTS и фазовые F(q,t), контакты, массы/трение/инерция и критерии
+прочности/устойчивости должны быть получены от соответствующих R2/R3/R4/R5/R6/R1
+либо явно зарегистрированы как отдельные количественные ASSUMED сценарии с
+ID/revision/основанием/областью; затем повтор применимых пунктов аудита.
+Входные акты R5/R1 имеют WARNING scope; независимый OUTPUT-review этого аудита/
+будущего инженерного C NOT_RUN. Будущий инженерный C передать независимому R5
+вне author_sessions; текущая самопроверка R4 его не заменяет.
+
+42 состояния не рассчитаны, 84 RAW/null сохранены. Реальные реакции/прочность/
+устойчивость/capacity/margins UNKNOWN. SHORT_STROKE, A clamp contacts, B reset/product
+collision, legacy UP, physical L/B opening, семь REJECT/material history=2 не закрыты.
+Архитектура/ТЗ NOT_APPROVED, общий CAD-rebuild запрещён, W02/PLC/physical READY NO-GO,
+G1 OPEN; испытания/изготовление/выпуск не разрешены. Вопросов для повторного
+подтверждения UUID/роли нет.
+
+Капсула: handoffs/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
 # R1 — R4 назначен; claim принят PR49, входной аудит НЕ ВЫПОЛНЕН
 
 UTC 2026-11-16T18:45:36.975663+00:00; координатор R1/Codex/r1-pr48-integration-20261116.
