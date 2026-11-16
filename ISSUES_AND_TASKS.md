@@ -1,3 +1,16 @@
+## T-r3-force-path-01 — условное сравнение завершено, независимый R5 ожидается
+
+- R3 / Codex / r3-force-path-20261114, IN_REVIEW, не DONE. Claim принят PR #47 в main `1dce280bf4c6a790ef0ace10a757fe0a72148b5f` UTC 2026-11-16T06:28:34Z; owner r3-force-path-20261114, lease до 2026-11-16T18:56:30Z без продления. Предварительные NONE/PENDING/null нормализованы к принятому proposal; исходная редакция сохранена в claim_history/20261115T185630Z/. Heartbeat/окончание расчётной проверки UTC `2026-11-16T06:54:08Z`.
+- Результат: verification/r3_force_path/analysis/report.md, free_bodies.md, calculated.md, results_A/B.json, state_matrix.json; preflight.json, input_audit.md (WARNING), README.md, review_request.md, checks.json и логи. Полные A-V1/A-V2/B-V1/B-V2 тесты передачи S_WORK/S_RETURN; исходные F не делятся между цилиндрами и не заменяют фактические распределённые нагрузки. Коэффициенты F·e/реакций и номинальные напряжения вычислены; capacities/margins/материал/геометрия/новая потребность привода UNKNOWN.
+- Отдельный расчётный подреестр analysis/params/registry.yaml сохраняет прежние определения и добавляет 26 CALCULATED коэффициентов/номинальных величин и 84 RAW/null поля четырёх вариантов. Активный params/registry.yaml не изменён. 44 BASE_A/B fixed-budget bindings и все 20 pinned inputs/12 protected trees, нагрузки/ходы/времена/скорости/CAD/helper/прежние расчёты сохранены.
+- Авторские проверки: 15 unittest methods PASS (нет FAIL/skip), 6 артефактов воспроизведены без записи, стандартная проверка scoped registry с --check-git PASS. Матрица 42 условий — зависимости и UNKNOWN, не 42 физических испытания. Нативный sweep/прочность/устойчивость/испытания NOT_RUN. Итоговые проверки активного реестра и preservation — в checks.json после исполнения.
+- CI-R3-CARRIER/OFFSET рассмотрены аналитически, MOUNTS как интерфейс спроса и пробелы; исходные вопросы физически не закрыты. Для A empty startup/retention и B unload/open/reset нет доказанной реальной реакции/готовности. SHORT_STROKE/clamp/reset/legacy UP и история REJECT сохранены.
+- Следующий участник — независимый R5 вне author_sessions, точный C из следующего H; запрос analysis/review_request.md. Собственные проверки не независимый OUTPUT-review. Архитектура не выбрана, W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED; прежние claims не продлены и main не сливался этой сессией.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 ## T-r3-force-path-01 — обновление предложения claim, редакция 2
 
 - По прямому поручению пользователя обновлён proposal в PR #47; статус PROPOSED_PENDING_MAIN, owner NONE, READY к рассмотрению; расчёт NOT_STARTED / start gate BLOCKED_PENDING_MAIN_ACCEPTANCE. Session ID / proposed_owner_session r3-force-path-20261114 / Codex / R3, продолжение той же сессии.
