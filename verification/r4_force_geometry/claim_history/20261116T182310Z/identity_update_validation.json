@@ -1,0 +1,55 @@
+{
+  "completed_at_utc": "2026-11-16T18:29:19.528872+00:00",
+  "proposal_revision": 2,
+  "coordinator_session": "r1-pr48-integration-20261116",
+  "previous_PR_head": "d84adaab398ffee4fe15ab87c9899ffa8beb22e8",
+  "actual_candidate_session": "6afb4750-7918-8191-8569-77b5b0c41050",
+  "identity_source": "User-forwarded R4 report; not independent R1 re-verification of reported capabilities",
+  "role_assignment_confirmed": false,
+  "claim_accepted": false,
+  "owner_session": "NONE",
+  "lease_expires_at": null,
+  "proposed_lease_expires_at": "2026-11-17T17:44:00Z",
+  "deadline_changed": false,
+  "engineering_execution": "NOT_STARTED",
+  "physical_trials": "NOT_RUN",
+  "checks": [
+    {
+      "command": ".venv/bin/python verification/r4_force_geometry/verify_claim.py",
+      "returncode": 0,
+      "passed": 85,
+      "evidence": "claim_validation.json"
+    },
+    {
+      "command": "Existing R1 verify_preservation.py, only HERE redirected outside old evidence package",
+      "returncode": 0,
+      "passed": 754,
+      "evidence": "identity_update_preservation.json"
+    },
+    {
+      "command": "Archive compare against immutable Git blobs of previous PR head",
+      "returncode": 0,
+      "preserved_files": 8,
+      "evidence": "identity_update_archive_validation.json"
+    },
+    {
+      "command": ".venv/bin/python scripts/check_registry.py --check-git",
+      "returncode": 0,
+      "evidence": "active_registry_revision2.log",
+      "status_evidence": "active_registry_revision2_status.json"
+    },
+    {
+      "command": "H draft prefix plus exact previous STATE/NEXT/capsule suffix; no active parameter references in prefix; git diff --check",
+      "returncode": 0
+    }
+  ],
+  "manifest_unchanged": true,
+  "baseline_bindings": 44,
+  "case_states_42": "NOT_NUMERICALLY_SOLVED",
+  "actual_strength_stability_reactions": "NOT_CONFIRMED",
+  "CI": "Verify exact new H after publication; previous d84 head success is historical evidence",
+  "code_hashes": {
+    "verification/r4_force_geometry/verify_claim.py": "4137441eb4d583748e1630e11825a6d8847d51b1ae86e5552eff37f5194eddf5",
+    "verification/pr48_integration/verify_preservation.py": "9bbd256c2bdd7237d8b218ef5aba98082cb254d473682db5a30ba6236f866169"
+  }
+}

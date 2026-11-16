@@ -1,12 +1,12 @@
 {
-  "checked_at_utc": "2026-11-16T18:23:56.436867+00:00",
+  "checked_at_utc": "2026-11-16T18:44:04.497139+00:00",
   "task_id": "T-r4-force-geometry-01",
   "base_main": "381d67d428faacf05f7d076249cf220fb4b94e98",
   "checks": [
     {
-      "check": "unaccepted_proposal",
+      "check": "accepted_owner",
       "passed": true,
-      "evidence": "Known candidate identity does not create owner, lease, heartbeat or acceptance"
+      "evidence": "Accepted owner is the actual user-assigned session"
     },
     {
       "check": "actual_candidate_report",
@@ -14,9 +14,29 @@
       "evidence": "Actual existing session/model/tools are recorded as a user-forwarded R4 report"
     },
     {
-      "check": "role_still_unconfirmed",
+      "check": "user_role_assignment",
       "passed": true,
-      "evidence": "No user role confirmation or execution permission is inferred from identity"
+      "evidence": "New explicit user assignment; earlier R4 report remains historical and unchanged"
+    },
+    {
+      "check": "PR49_actual_merge",
+      "passed": true,
+      "evidence": "Actual ordinary merge is accepted into remote main"
+    },
+    {
+      "check": "accepted_proposal_preserved",
+      "passed": true,
+      "evidence": "Pending owner/role/lease values preserved before normalization"
+    },
+    {
+      "check": "engineering_still_blocked",
+      "passed": true,
+      "evidence": "Accepted claim does not replace actual executor input audit"
+    },
+    {
+      "check": "no_impersonated_heartbeat",
+      "passed": true,
+      "evidence": "Coordinator records acceptance, not an executor heartbeat"
     },
     {
       "check": "identity_update_without_lease_renewal",
@@ -42,6 +62,11 @@
       "check": "proposal_current_at_validation",
       "passed": true,
       "evidence": "2026-11-17T17:44:00+00:00"
+    },
+    {
+      "check": "active_lease_not_extended",
+      "passed": true,
+      "evidence": "Original fixed deadline activated on acceptance without renewal"
     },
     {
       "check": "manifest_binding",
@@ -433,9 +458,9 @@
       }
     }
   ],
-  "passed": 85,
+  "passed": 90,
   "failed": 0,
   "engineering_execution": "NOT_STARTED",
-  "claim_accepted": false,
+  "claim_accepted": true,
   "physical_trials": "NOT_RUN"
 }
