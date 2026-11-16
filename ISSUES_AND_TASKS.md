@@ -1,3 +1,73 @@
+# T-r4-force-geometry-01 — proposal revision 2, фактическая кандидатская сессия
+
+- R1 / Codex / r1-pr48-integration-20261116; UTC 2026-11-16T18:23:56.469291+00:00.
+  PR49 пока OPEN; отчёт кандидата получен пользователем с exact head
+  d84adaab398ffee4fe15ab87c9899ffa8beb22e8, файлы/PR им не изменялись.
+- Фактическая существующая сессия / proposed_owner_session / session_id:
+  6afb4750-7918-8191-8569-77b5b0c41050. Условный ID r4-force-geometry-20261116 заменён только в актуальном
+  proposal; редакция 1 сохранена в claim_history/20261116T174400Z/ и Git.
+- Модель по отчёту: Codex на базе GPT-6, точный runtime model ID недоступен.
+  Сообщены Bash, Git/LFS, gh read PR, Python 3.12.14/dependencies,
+  import FreeCAD 1.0.0/Part, file read/write. Это отчёт R4, не независимый повтор R1.
+  CAE не проверены; ccx/gmsh отсутствуют в PATH по отчёту той сессии.
+- Роль R4 ещё предложена, назначение пользователем НЕ подтверждено.
+  Claim PROPOSED_PENDING_MAIN, owner NONE, действующий lease null,
+  acceptance commit/PR null, инженерное исполнение NOT_STARTED.
+  Gate BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION.
+- Первоначальные proposed_at 2026-11-16T17:44:00Z и expiry
+  2026-11-17T17:44:00Z сохранены. Уточнение UUID не продлевает старые claims,
+  не создаёт heartbeat/lease и не сдвигает срок предложения.
+- Scope/54 pinned files/12 trees/44 bindings/loads/strokes/fixed-budget/registry/CAD
+  неизменны. 42 состояния не рассчитаны; прочность/устойчивость/реальные реакции
+  не подтверждены. W02/physical READY NO-GO, G1 OPEN; архитектура/ТЗ NOT_APPROVED,
+  общий CAD-rebuild не разрешён, physical trials NOT_RUN.
+- Следующий шаг: отдельное назначение роли R4 фактической сессии и последовательное
+  принятие уточнённого claim в main до срока после сверки exact head/main/CI/inputs.
+  Это уточнение PR49 не выполняет его слияние и не запускает инженерную работу.
+- Evidence: verification/r4_force_geometry/executor_report_20261116.md/json,
+  claim.json/md, identity_update_validation.json; команда R4 обновлена без
+  повторного запроса уже сообщённого session ID и инвентаря инструментов.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# PR48 интегрирован; отдельный claim R4 подготовлен, инженерный старт запрещён
+
+- Прямое разрешение пользователя исполнено: PR48 MERGED обычным merge-коммитом
+  `381d67d428faacf05f7d076249cf220fb4b94e98`, head
+  `e51cc669e60444d07a29083c77a93aab9940939b`, UTC merge 2026-11-16T17:41:55Z.
+  Родители main/head и одинаковые деревья проверены; история R3/R5/R1 сохранена.
+- R1 / Codex / r1-pr48-integration-20261116 продолжает отдельную разрешённую
+  координацию: интеграция PR48 и подготовка нового proposal. Старый T-INIT claim
+  codex-01 и чужие claims не продлены. T-r3-force-path-01 остаётся ограниченным
+  принятым условным результатом; полный инженерный объём не объявлен DONE.
+- T-r4-force-geometry-01 / TASK / P1 / @R4 / READY_FOR_CLAIM_REVIEW;
+  claim PROPOSED_PENDING_MAIN, owner_session NONE, действующий lease null,
+  исполнение NOT_STARTED / BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_EXECUTOR_CONFIRMATION.
+  Предлагаемая новая сессия r4-force-geometry-20261116; фактический исполнитель,
+  модель и возможности UNKNOWN до подтверждения. Это не уже назначенный R4.
+- Предложено 2026-11-16T17:44:00Z; предлагаемый срок до
+  2026-11-17T17:44:00Z (24 часа), без автоматического сдвига от merge.
+  При позднем принятии требуется новая согласованная запись; никакого продления
+  прежних R1/R3/R4 полномочий. Acceptance commit/PR пока null.
+- Документы: verification/r4_force_geometry/claim.json, claim.md, task.md,
+  input_manifest.json и R4_command.md. 54 pinned files, 12 protected trees и
+  все 44 source bindings закреплены на принятом merge PR48.
+- Следующий шаг координатора/оператора: подтвердить фактического исполнителя R4,
+  при отличии session уточнить proposal, затем отдельно рассмотреть и последовательно
+  принять claim в main до истечения срока. Создание/CI/push PR не является принятием.
+  До этого не создавать инженерную геометрию/расчёты и не выполнять CAD-rebuild.
+- WARNING только для условной геометрии четырёх вариантов: опоры, эксцентриситеты,
+  свободные длины, сечения, материалы, двусторонние joints; реальные пробелы UNKNOWN.
+  42 состояния не рассчитаны; прочность/устойчивость/реальные реакции не подтверждены.
+  Архитектура/ТЗ NOT_APPROVED, W02/PLC/physical READY NO-GO, G1 OPEN;
+  physical trials NOT_RUN. Нагрузки/ходы/CAD/registry/старые дефекты сохранены.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R1 — PR #48 подготовка ограниченной интеграции, без слияния
 
 - T-r1-pr48-integration-01 / P1 / R1 / Codex / session r1-pr48-integration-20261116.
