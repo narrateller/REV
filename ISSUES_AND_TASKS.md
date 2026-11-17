@@ -1,3 +1,28 @@
+# R1 → R5: область принята в main;ожидается выполнение задания
+
+UTC 2026-11-17T16:42:20.764741+00:00;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR61 MERGED обычнымmerge `04a6486527c9ba4fd4d22fcf50e0427213443507`,scopeC `542e23eae035a4b54ee843a7a54b03503f9a6911`,H `b7280420a9f3e42bdc973eba9c5f6f1ff3072b88`.
+Канонический claim/owner/исходныйdeadline `2026-11-18T01:58:30.990734+00:00` неизменны.
+Main содержит explicit amendment `coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEFINITION-REGISTER-01.json` на новыйtarget.
+PR60 DRAFT/unmerged,exacttargetC `7e2d5ecff42fe1d09b461e05375924cb644c27c9`,requestH `7e4ce7aad8396493da6e2284d29441b46b4abb80`.
+Новый independentOUTPUT-review NOT_RUN;старыеакты/closures не распространены на новыйC.
+Следующийучастник — уже назначенная R5 `6afb0a73-b16c-8191-a539-9a6685e89034` впрежнейзадаче.
+Полнаякоманда verification/r1_definition_review_activation_20261117/R5_execute.md.
+Первыйшаг:свежийmain/ancestry/owner/UTC/lease/exactpins/independence/inputaudit,
+затем собственнаяоценка22REQ/VAL,144элементов,22DM,40dispositions,9open decisiongroups,
+4outputs иограничений. Критерийвозврата R1:formalreview exactC,своидоказательства,C/H,
+registry/CI/remoteSHA;неавторскийreplay вместоsemanticоценки. R5heartbeat не имитирован.
+R1 ожидает ответ на опубликованное задание,а не новоеразрешение/назначение/внешнегокоординатора.
+MainCI проверяется до финальнойпубликацииквитанции. Обычныеmerge заранее разрешены.
+WARNING/B01-B03/sourceissues/country/engineeringowners OPEN/UNKNOWN;RAW не повышены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN;прочность/устойчивость/реальныереакции
+не подтверждены. ТЗ/архитектураNOT_APPROVED,G1OPEN,W02/physicalREADY NO-GO.
+Расчёты/CAD-build/rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
 # R1 → R5: отдельная область проверки нового проекта определений G1
 
 UTC 2026-11-17T16:32:04.139887+00:00;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
