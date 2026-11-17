@@ -7022,3 +7022,246 @@ reproduction_artifacts:
 - verification/r5_g1_supplement_review/validation.json
 - verification/r5_g1_supplement_review/registry.log
 ```
+
+
+## R5 — независимый DOC01/TRACE02 recheck exact новой ревизии
+
+```yaml
+record_type: review
+review_id: REV-R5-G1-DOC-TRACE-RECHECK-01-001
+review_type: TARGETED_DOCUMENTARY_RECHECK
+reviewed_commit: 45d5964786e608cdfcc656819fd6df8c77e495fe
+reviewed_handoff_commit: 2b99776187345729f1c3e177d0e5ed83e1239b07
+execution_command_commit: b8485a93b7ced741261e7979f9438bad8590d368
+reviewer:
+  role: R5
+  session_id: 6afb0a73-b16c-8191-a539-9a6685e89034
+  model_label: Codex on GPT-6 base;exact runtime model identifier UNAVAILABLE
+author_sessions:
+- 6afb300b-1540-8191-a5c4-be1a684c20e0
+reviewed_at_utc: '2026-11-17T13:06:38.800563+00:00'
+scope: Independent DOC01/TRACE02 author-correction recheck of new exact C,conditional documentary/numeric/model
+  evidence and force-provenance trace;preservation/reproduction only,no G1/program/physical acceptance
+independence_basis: Reviewer did not author new target;authored predecessor observations and upstream R5 acts,explicitly
+  disclosed. Their correctness is not independently re-certified. New semantic assessments/delta checks/policy cases
+  are own;author332 andold4117 are not this recheck.
+parameter_refs: []
+artifacts:
+- path: verification/r1_g1_observation_revision_20261117/README.md
+  sha256: 897f57600c025adf0c6e31b1b785d7aee0b7acb7b089f1636ca5c6fbddb9e46b
+- path: verification/r1_g1_observation_revision_20261117/active_bundle.json
+  sha256: 52a058266bbc005233cb1afc27241daee702f4e153ffb1da42d25a09fbf9ab83
+- path: verification/r1_g1_observation_revision_20261117/author_checks.json
+  sha256: c92ec109c1e4bb116b696e11d723b4ea98da6ac4931f94a9732058d2e3e442c3
+- path: verification/r1_g1_observation_revision_20261117/authorization.json
+  sha256: 98fb819f2cb066f0d883e8ed9bd10bd05d09ab10b3348d559606cbbbe76025ac
+- path: verification/r1_g1_observation_revision_20261117/criterion_cards.json
+  sha256: 9ffb84012f5c1eb10fe00e676311862fba37507667b55020e5c919233c06f061
+- path: verification/r1_g1_observation_revision_20261117/criterion_cards.md
+  sha256: 74beb3f8ae67ad29fd13488c9b1f97a0e3650534a7ad211a4088305fb6987a83
+- path: verification/r1_g1_observation_revision_20261117/document_assurance.md
+  sha256: cd0f5a97b937553587faccaed526fd609e8ca50f770e1133bc974c66b3db707b
+- path: verification/r1_g1_observation_revision_20261117/evidence_schema.json
+  sha256: 7d6c182faf3f489c6ad9306c59e9274b177462f22012a1a438c48d55bd96da9a
+- path: verification/r1_g1_observation_revision_20261117/evidence_schema.md
+  sha256: 02abf76816e7780c80de033813e17b20d1540243c9196cd17900aceea23ae124
+- path: verification/r1_g1_observation_revision_20261117/execution_board.md
+  sha256: 3a7377862906c856e55dbff3e63d7434572061f08bd4cbf8bf6e1c5821b1b5d1
+- path: verification/r1_g1_observation_revision_20261117/force_evidence_plan.json
+  sha256: 724792ea4b37197a166fcdf86556c9098494d9d91602292cf291046eb76a7ca3
+- path: verification/r1_g1_observation_revision_20261117/force_evidence_plan.md
+  sha256: 6fb080c5abd4d13c0040c3170cf5b695a8d5027a5546ec7e34224b64fd26cdff
+- path: verification/r1_g1_observation_revision_20261117/hazard_to_evidence.json
+  sha256: 25f051126b64a5b4204d0b10d4aa22cf3abbe30fcd72a3abcfb1c9c4461954b8
+- path: verification/r1_g1_observation_revision_20261117/input_audit.json
+  sha256: 5f4caa5af649feda52a60ce5b3289ed4bfaaf0e6d3c44d2411117355a43db488
+- path: verification/r1_g1_observation_revision_20261117/input_manifest.json
+  sha256: 6d02d531723c26516624ec664bf720c18b87a46b746b8b51877106d82215d491
+- path: verification/r1_g1_observation_revision_20261117/metrology_plan.json
+  sha256: fc83773c3d97da0dffd261b9a9d3dfb428827fe333fb698b04a09e7e161177d3
+- path: verification/r1_g1_observation_revision_20261117/metrology_plan.md
+  sha256: 2e415b98da871a88a3baf9e38a2db703f062a6f91b82103e039719724b3b68c6
+- path: verification/r1_g1_observation_revision_20261117/observation_status.json
+  sha256: b3c0c8588ea6221086ebae3c0977c7d450ac49bad489cc37a434352b82630b87
+- path: verification/r1_g1_observation_revision_20261117/registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r1_g1_observation_revision_20261117/registry_status.json
+  sha256: 386c49c4a4cf14780ca187fd34eda4d7b80bc3a0a0f538580706163e9c061966
+- path: verification/r1_g1_observation_revision_20261117/render_revision.py
+  sha256: 75d0f81fa04b26b147d026063cae5b460491c40c5c571ddebe47619e4ccefd7c
+- path: verification/r1_g1_observation_revision_20261117/reproducibility.json
+  sha256: 518e2f31211089fc0b61d5373018d02ae2847b5d11832ac0cfc3326f69fd1118
+- path: verification/r1_g1_observation_revision_20261117/safety_plan.md
+  sha256: b545bd204daf2bb7e632eb646c470ac586a8ebf270551edfcf37e943d9d5de95
+- path: verification/r1_g1_observation_revision_20261117/task_before_revision.json
+  sha256: 037999504b1bb6bd44003d7eb91c962b212efa1a5e7bd9b133298060cda99270
+- path: verification/r1_g1_observation_revision_20261117/verify_revision.py
+  sha256: 51377b588b9d92f78d1cb896f98e4e97ba5efee615e5ec4ad45e14540933d513
+- path: verification/r1_g1_observation_revision_20261117/review_target_manifest.json
+  sha256: beb1e0caf3de46fdb57f0c570f9a2ae633c3c0608126cd68f3c63935dff2c755
+checks:
+- id: DTR-AUTH
+  method: Fresh remote/Git scope amendment,base-claim SHA/owner/deadline,actual session and manifest
+  expected: Explicit main authorization for changed exact target; no old-claim retarget/renewal
+  observed: mainb8485a9 accepted amendment;actual owner6afb0a73;unchanged base SHA9b610d.../original deadline2026-11-18T01:58:30.990734+00:00
+    live;no target coauthorship
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-INPUT
+  method: Fresh bounded input audit and immutable pins
+  expected: 22 exact inputs/25 sealed target;physical audits not run
+  observed: WARNING input audit4 bounded PASS/3 NOT_RUN;seals match;upstream participation disclosed
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-DOC01
+  method: Own assurance/profile/field semantic assessment and pure/mixed row deltas
+  expected: Qualitative assurance distinct;method/scope remain applicable;no measured subclaim N_A bypass
+  observed: DOC01 CLOSED_DOCUMENTARY_EXACT_C;four assurance dimensions;pure18-21 use reasoned field N_A;method/scope
+    UNKNOWN;mixed numerical/calibration requirements retained
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-TRACE02
+  method: Own H01/REQ09/VAL09/MET09/FORCE_REACTION/provenance/route analysis
+  expected: Original lifting obligations retained;own loads/reactions require version/frame/sign/time/quality/validation
+  observed: TRACE02 CLOSED_DOCUMENTARY_EXACT_C;old H01 cells/REQ16/17 retained;direct structural trace added;routes
+    unselected;model prediction not actual reaction
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-ALLROWS
+  method: Independent exact whole-object comparisons plus assessments of22cards/22metrology/20hazards/12channels
+  expected: 17cards/12no-DOCUMENT rows/19hazards/10channels exact unchanged;new values absent
+  observed: All required unchanged sets match;new artifacts preserve UNKNOWN/null/NOT_RUN and no PL/SIL or engineering
+    owner assignment
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-POLICY
+  method: Eight explicit semantic cases applied to written proposed contract
+  expected: Missing method/scope,REQ label,mixed data,model inputs,bad provenance andinvalid/violations cannot fabricate
+    PASS
+  observed: Own documentary conclusions recorded;not actual machine cases andnot tests of an implemented evidence
+    evaluator
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-RESOLVER
+  method: Independent explicit logical-name/path/hash map and13-output TEMP replay after code reading
+  expected: 17 locators:12new+5unchanged;resolver13th output;source scopes preserved
+  observed: All17 locators/SHA valid,13 MATCH;author R1 verifier not run or spoofed;author332/old4117 not independent
+    proof
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-PRESERVE
+  method: Immutable old26/25,pins54/trees12,whole objects,current protected paths,LFS SHA/history
+  expected: All old sources/evidence/44fullbindings/52interfaces/84UNKNOWN/42states/15gaps and history retained
+  observed: 3804 guards PASS/0FAIL;3300basefiles/59LFS match;old journal exact prefix;material2/four FAIL/oldOBS01
+    closure preserved;old act CURRENT only predecessor
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: PASS
+- id: DTR-4
+  method: Actual balances/forces/mass/power/model computation
+  expected: Real inputs,applicable analysis and separate authorization required
+  observed: NOT_RUN;42 states unsolved;no engineering/physical execution
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: NOT_RUN
+- id: DTR-5
+  method: Actual geometry/joints/strength/stability/support reactions
+  expected: Real inputs,applicable analysis and separate authorization required
+  observed: NOT_RUN;42 states unsolved;no engineering/physical execution
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: NOT_RUN
+- id: DTR-6
+  method: Real cycle/resources/physical READY
+  expected: Real inputs,applicable analysis and separate authorization required
+  observed: NOT_RUN;42 states unsolved;no engineering/physical execution
+  reasoning: Closure is documentary and exact-C only. No physical/numerical result, approved criterion/program or
+    G1 readiness follows.
+  result: NOT_RUN
+verdict: WARNING
+validity: CURRENT
+rechecks_review_id: REV-R5-G1-SUPPLEMENT-OUTPUT-01-001
+predecessor_reviewed_commit: fe10c0bc7242fe9d2df3e571c80b4e687f731d7c
+predecessor_applicability_to_new_target: STALE_TARGET_CHANGED; original act remains unchanged for its exact predecessor
+observation_decisions:
+  R5-G1-DOC-01:
+    status: CLOSED_DOCUMENTARY_EXACT_C
+    exact_C: 45d5964786e608cdfcc656819fd6df8c77e495fe
+    basis: Pure procedural assurance with applicable method/scope retained, mixed/measurement/model-input metrology
+      not waived.
+    failing_guards: []
+  R5-G1-TRACE-02:
+    status: CLOSED_DOCUMENTARY_EXACT_C
+    exact_C: 45d5964786e608cdfcc656819fd6df8c77e495fe
+    basis: Direct H01→REQ09/VAL09/MET09→FORCE_REACTION provenance with unselected measurement/model routes and no
+      actual reaction claim.
+    failing_guards: []
+findings:
+- id: R5-G1-DOC-01
+  status: CLOSED
+  closure_scope: DOCUMENTARY_EXACT_C_ONLY
+  closed_on_commit: 45d5964786e608cdfcc656819fd6df8c77e495fe
+  description: Pure procedural assurance with applicable method/scope retained, mixed/measurement/model-input metrology
+    not waived.
+- id: R5-G1-TRACE-02
+  status: CLOSED
+  closure_scope: DOCUMENTARY_EXACT_C_ONLY
+  closed_on_commit: 45d5964786e608cdfcc656819fd6df8c77e495fe
+  description: Direct H01→REQ09/VAL09/MET09→FORCE_REACTION provenance with unselected measurement/model routes and
+    no actual reaction claim.
+- id: R5-TZ-B01
+  status: OPEN
+  scope: TZ/G1/source approval not closed
+- id: R5-TZ-B02
+  status: OPEN
+  scope: TZ/G1/source approval not closed
+- id: R5-TZ-B03
+  status: OPEN
+  scope: TZ/G1/source approval not closed
+- id: SOURCE-POWER
+  status: OPEN
+  scope: TZ/G1/source approval not closed
+- id: SOURCE-PRESSURE-UNIT
+  status: OPEN
+  scope: TZ/G1/source approval not closed
+- id: SOURCE-MOISTURE-BASIS
+  status: OPEN
+  scope: TZ/G1/source approval not closed
+blocker_ids:
+- R5-TZ-B01
+- R5-TZ-B02
+- R5-TZ-B03
+requirements_approved: false
+source_states_solved: false
+G1: OPEN
+W02: NO_GO
+physical_READY: NO_GO
+input_audit_sections:
+  '4': NOT_RUN
+  '5': NOT_RUN
+  '6': NOT_RUN
+base_claim_modified: false
+scope_amendment_modified: false
+lease_extension: false
+reproduction_artifacts:
+- verification/r5_doc_trace_recheck_20261117/identity.json
+- verification/r5_doc_trace_recheck_20261117/independent_results.json
+- verification/r5_doc_trace_recheck_20261117/input_audit.json
+- verification/r5_doc_trace_recheck_20261117/input_audit.md
+- verification/r5_doc_trace_recheck_20261117/merge_context.json
+- verification/r5_doc_trace_recheck_20261117/recheck.py
+- verification/r5_doc_trace_recheck_20261117/remote_context.json
+- verification/r5_doc_trace_recheck_20261117/renderer_replay.json
+- verification/r5_doc_trace_recheck_20261117/review.md
+- verification/r5_doc_trace_recheck_20261117/target_CI.json
+- verification/r5_doc_trace_recheck_20261117/task_before_recheck.json
+- verification/r5_doc_trace_recheck_20261117/validation.json
+- verification/r5_doc_trace_recheck_20261117/registry.log
+```
