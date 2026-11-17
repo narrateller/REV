@@ -1,3 +1,18 @@
+# HANDOFF: main acceptance дополнительной области R5
+
+C координационного результата `542e23eae035a4b54ee843a7a54b03503f9a6911`;base main `65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3`.
+Target C `7e2d5ecff42fe1d09b461e05375924cb644c27c9`,request H `7e4ce7aad8396493da6e2284d29441b46b4abb80`,PR60 DRAFT,independentreview NOT_RUN.
+Scope amendment `coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEFINITION-REGISTER-01.json` становится действующим только после normal merge в main.
+Следующий шаг R1:свежий main/exacthead/CI/claim/owner/originaldeadline/input preflight,
+обычный merge контрольного PR,postmerge parents/tree/claim/CI receipt;дополнительного
+согласия пользователя на merge не спрашивать. Действующая R5 после main activation
+читает verification/r1_r5_definition_scope_20261117/R5_execute.md ивыполняетсвойаудит/review.
+Срок `2026-11-18T01:58:30.990734+00:00` не продлён,canonical claim неизменён.
+PR60 не сливать до независимойоценки/решения R1;ТЗ/G1/engineering не утверждены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN,G1OPEN,W02/physicalREADY NO-GO.
+
+---
+
 # R1 → R5: отдельная область проверки нового проекта определений G1
 
 UTC 2026-11-17T16:32:04.139887+00:00;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
