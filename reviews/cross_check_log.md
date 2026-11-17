@@ -7265,3 +7265,273 @@ reproduction_artifacts:
 - verification/r5_doc_trace_recheck_20261117/validation.json
 - verification/r5_doc_trace_recheck_20261117/registry.log
 ```
+
+
+## R5 — G1 definition register exact-C OUTPUT-review
+
+```yaml
+record_type: review
+review_id: REV-R5-G1-DEFINITION-OUTPUT-01-001
+review_type: INDEPENDENT_OUTPUT_REVIEW
+reviewed_commit: 7e2d5ecff42fe1d09b461e05375924cb644c27c9
+reviewed_handoff_commit: 7e4ce7aad8396493da6e2284d29441b46b4abb80
+execution_command_commit: 42482a6330c08a3d8e224ddc2eb307b8dfcc8242
+accepted_scope_main: 04a6486527c9ba4fd4d22fcf50e0427213443507
+reviewer:
+  role: R5
+  session_id: 6afb0a73-b16c-8191-a539-9a6685e89034
+  model_label: Codex on GPT-6 base;exact runtime model ID UNAVAILABLE
+author_sessions:
+- 6afb300b-1540-8191-a5c4-be1a684c20e0
+reviewed_at_utc: '2026-11-17T17:21:05.442459+00:00'
+scope: Exact new proposed G1 definition register22REQ/VAL144scope items22DM40source dispositions9decisions;new DOC01/TRACE02
+  applicability and evidence preservation;documentary only
+independence_basis: Not coauthor of target. Same actual session authored upstream R5 reviews and claim preparation;disclosed,not
+  independently re-certified. Own144item/22row/22method/40source/9decision rationales and new oracle;author296/old
+  reviews/replay are not new semantic review. No organizational certification.
+parameter_refs: []
+artifacts:
+- path: verification/r1_g1_definition_register_20261117/README.md
+  sha256: 0b65d168358fa2488b2f53555b8ca9110dd47d7c1e0f7e7db898c8798eb42536
+- path: verification/r1_g1_definition_register_20261117/author_checks.json
+  sha256: 66aaf2e07efa6db8f16ceb03cbd957558ec2d1da11972c41cb6df78f3570750d
+- path: verification/r1_g1_definition_register_20261117/authority.json
+  sha256: 30ede541975421f0697016282cc66a77fe1dbe38a0b428ca0a4b5e179f2dd5be
+- path: verification/r1_g1_definition_register_20261117/base_main_CI.json
+  sha256: 93645a3ce6a0ac4eb6f7abea8b8cb62557eb3f255d29f5364c5eb7ca8e52393a
+- path: verification/r1_g1_definition_register_20261117/checker_notes.json
+  sha256: 96192e2c539c8447835cab9070cef24ead6f986581cd55e8486c291060ff369a
+- path: verification/r1_g1_definition_register_20261117/decision_register.json
+  sha256: 22a3351448626b9992c1fee86d8e16a081d5545e9e31e322f61b8bf181c7ccb0
+- path: verification/r1_g1_definition_register_20261117/definition_register.json
+  sha256: 0b8b311d7a169af908043ee8afb17a791c58a82140eeb4ccd29fdee7deff3f23
+- path: verification/r1_g1_definition_register_20261117/definition_register.md
+  sha256: 68900a4ac3a0b06fc2ddc1c71d49b1f5ea6f5859e38d35a0cd5ae43420244a8d
+- path: verification/r1_g1_definition_register_20261117/input_audit.json
+  sha256: c97f455ac8a434b24ece4c809f6da29221be30894997d63849c38044efb7d427
+- path: verification/r1_g1_definition_register_20261117/input_manifest.json
+  sha256: a7273c3fa6e367b648a321ef2e907a75b6cee728c8e7a51c332d20b117174a92
+- path: verification/r1_g1_definition_register_20261117/method_catalog.json
+  sha256: ea9240077b64e07a5973a2d2c2341210fed157334e1e06029e45466aa7c18ce7
+- path: verification/r1_g1_definition_register_20261117/preflight.json
+  sha256: fee55d6d61c5aed7c8fa11d379810fc6472f3ad3d1adf54197c45ba296f02de0
+- path: verification/r1_g1_definition_register_20261117/readiness.md
+  sha256: f02756ea83825eeac3a03b58642700d7bd32161921164604d9449f6ca8b4da71
+- path: verification/r1_g1_definition_register_20261117/registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r1_g1_definition_register_20261117/registry_status.json
+  sha256: 980b3ccb0f5dcea3a7c627b3bf392a50ab1c19553349a7c419b9bd3f27f9dc4b
+- path: verification/r1_g1_definition_register_20261117/render_register.py
+  sha256: 0b9956b438c9203a4e3284c66dc5bc47a17e9d17b3d42f00ed4a04ef71ac27fb
+- path: verification/r1_g1_definition_register_20261117/reproducibility.json
+  sha256: 8925294fa098e3ea2cc01fa39f6f376f7bf3c9134fd67e5bc3c567a0b9948d34
+- path: verification/r1_g1_definition_register_20261117/source_applicability.json
+  sha256: 703b877233d423cb0c6153f7a2d322a7f3847347e63d3d23b5a01cc659ec65d5
+- path: verification/r1_g1_definition_register_20261117/source_applicability.md
+  sha256: bc09fe8bc68c631cfb1ae60f46fd46070e8a9f6ee8acd98787f6de36a054e7f3
+- path: verification/r1_g1_definition_register_20261117/task_before_register.json
+  sha256: 533a0ddfdd03e175d91de7b400eefe5dd75ce47f3d2b687464608ab1a1f885e8
+- path: verification/r1_g1_definition_register_20261117/verification_plan.md
+  sha256: 1265fe701fa976d51cc25c79c3d3c57f7914dd826776c5bee910ad97579b74d3
+- path: verification/r1_g1_definition_register_20261117/verify_register.py
+  sha256: 4c0266521b31e80067661ce4c435acc4fd8e261206cde9e2c541141b27bc849b
+- path: verification/r1_g1_definition_register_20261117/review_target_manifest.json
+  sha256: e3a48e8d2679df11dd08c802281ff0b8ad81bd26a99de38fd6733fe5e1c55d58
+checks:
+- id: DEF-IDENTITY
+  method: Actual session/model/tools,coauthorship and fresh explicit main scope/claim audit
+  expected: Different target author;accepted same-owner scope;unchanged original live lease
+  observed: Actual R5 6afb0a73-b16c-8191-a539-9a6685e89034;target not coauthored;upstream reviews disclosed;no new
+    claim/lease
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-INPUT
+  method: Independent immutable source/target seal audit
+  expected: 92 input pins/22 target artifacts and exact amendment manifest
+  observed: All match;input audit4 bounded PASS/3 NOT_RUN;no engineering results
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-SCOPE
+  method: Own item-by-item subject reading and independent frozen REQ/VAL/predecessor crosswalk
+  expected: All22rows/144items assessed;no false scope completeness
+  observed: 22row/144item rationales;OBS-01 explicit density/product-mass crosswalk remains OPEN;useful preliminary
+    proposal
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-METHODS
+  method: Own22method assessments/common protocol and six documentary semantic cases
+  expected: Definition audit distinct from future machine method;no missing data/exclusion PASS
+  observed: All22 DM DRAFT-01/NOT_APPROVED/NOT_RUN;OBS-02 incomplete-output wording remains OPEN;no actual record
+    loss shown
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-SOURCE
+  method: Own40 disposition/qualifier applicability assessments and whole-row frozen comparisons
+  expected: BP500 primary;others relevant only;RAW/null/no invented units,power or moisture basis
+  observed: 10proposals/23context/7issues;all40 unchanged;source contradictions OPEN;not new PDF certification
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-DOC-TRACE
+  method: Own new-profile/common-metrology/DM09-DM16-to-preserved-plan analysis
+  expected: No categorical waiver for numeric/model inputs;H01 structural/lifting provenance retained
+  observed: 18mixed/4pure profiles;H01→REQ09/VAL09/MET09→FORCE_REACTION andREQ16/17 retained;actual inputs UNKNOWN;old
+    closures exact45 only
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-DECISIONS
+  method: Own assessment of9open groups and authority/criterion/method/owner fields
+  expected: No fabricated thresholds,engineering owner,country,G1 readiness or future-stage prerequisite
+  observed: All9 OPEN;R1 documentary only;country pending prior question;future G2-G4/CAD/tests not demanded for
+    definition review
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-REPLAY
+  method: Four-output TEMP replay on detached exact-C worktree before own append
+  expected: Four exact hashes;no author checks as independent assessment
+  observed: 4MATCH/exit0;92physical pins checked;renderer replay separated from semantic findings
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-PRESERVE
+  method: Whole-object Git/material SHA preservation plus old/current review-tree prefix checks
+  expected: 44full bindings,loads,strokes,CAD;52interfaces84RAW-null42states15gaps;old25/26/25new22;54oldpins12trees
+  observed: 4171PASS/0FAIL/3NOT_RUN;3403baseline files59LFS;lawful journal append and historical counter2/fourFAIL/STALE/OBS01
+    retained
+  reasoning: Documentary invariant/assessment only. Open semantic observations prevent scope/method approval; no
+    machine conformity or G1 follows.
+  result: PASS
+- id: DEF-4
+  method: Actual engineering/physical input-audit section 4
+  expected: Actual inputs,applicable analysis and separate execution authority required
+  observed: NOT_RUN;42 states unsolved;strength/stability/actual reactions unconfirmed
+  reasoning: Outside authorized documentary review;no numerical/physical/CAD/test execution.
+  result: NOT_RUN
+- id: DEF-5
+  method: Actual engineering/physical input-audit section 5
+  expected: Actual inputs,applicable analysis and separate execution authority required
+  observed: NOT_RUN;42 states unsolved;strength/stability/actual reactions unconfirmed
+  reasoning: Outside authorized documentary review;no numerical/physical/CAD/test execution.
+  result: NOT_RUN
+- id: DEF-6
+  method: Actual engineering/physical input-audit section 6
+  expected: Actual inputs,applicable analysis and separate execution authority required
+  observed: NOT_RUN;42 states unsolved;strength/stability/actual reactions unconfirmed
+  reasoning: Outside authorized documentary review;no numerical/physical/CAD/test execution.
+  result: NOT_RUN
+verdict: WARNING
+validity: CURRENT
+findings:
+- id: R5-DEF-OBS-01
+  status: OPEN
+  blocking_preliminary_DRAFT: false
+  blocks_scope_completeness: true
+  refs:
+  - VAL-REV-02
+  - VAL-REV-03
+  - DEF-REQ-REV-02
+  - DEF-REQ-REV-03
+  - DM-02
+  - DM-03
+  description: Retained VAL02 includes density and MATERIAL channel bulk density; VAL03 includes product mass/residue
+    and MASS evidence. Enumerated DEF02/03 scope does not explicitly identify density/product-mass coverage or a
+    controlled crosswalk. No actual evidence was deleted. Residue is also retained under REQ22; duplication is not
+    required.
+  required_action: Explicitly map each retained quantity to a controlled definition scope item/cross-reference,
+    or justify any exclusion through independent review and actual user authority. No new numerical threshold/calculation
+    is requested.
+- id: R5-DEF-OBS-02
+  status: OPEN
+  blocking_preliminary_DRAFT: false
+  blocks_method_approval: true
+  refs:
+  - DM-03
+  - DEF-01-E
+  - DEF-04-D
+  - REQ-REV-22
+  description: DM03 phrase «предусмотреть отсутствие результата при неполной выдаче» is ambiguous. Absence of product/measurement
+    must not mean omission of failed/incomplete cycle or disposition record. Other retained scopes/schema preserve
+    those records; no actual data loss demonstrated.
+  required_action: Clarify retained cycle/product outcome, quality/missing reason and failed/incomplete disposition
+    even when product/measurement is absent; link the full-series accounting schema before method/program approval.
+- id: B01
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Own defined quantity/limit/tolerance/mode or objective completeness and competent owners required;
+    null not zero.
+- id: B02
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Controlled methods, scope/coverage, missing/stop rules and applicable metrology need independent
+    program review.
+- id: B03
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Actual safety-state/retention/isolation/recovery and normative scope need justified definitions;
+    no assigned PL/SIL.
+- id: SOURCE-POWER
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Primary contradiction unresolved; justified exclusion/own criterion needs independent review and
+    user decision.
+- id: SOURCE-PRESSURE-UNIT
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Physical quantity/unit/point/conditions unresolved; do not convert guessed kgf.
+- id: SOURCE-MOISTURE-BASIS
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Wet/dry basis/method unresolved; comparator windows noninterchangeable.
+- id: OPERATING-COUNTRY
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Pending existing user question; no fabricated answer or repeated questionnaire. RF manufacture is
+    not operation jurisdiction.
+- id: ENGINEERING-OWNERS
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: Actual competent session appointments remain missing; R1 is documentary coordinator only.
+- id: G1-FULL-REVIEW
+  status: OPEN
+  scope: Blocks dependent TZ/G1 approval;not closed by this DRAFT
+  description: New whole-package sufficiency and separate user approval remain required; predecessor acts only cover
+    exact predecessors.
+preliminary_DRAFT_usable: true
+G1_sufficient: false
+requirements_approved: false
+source_states_solved: false
+G1: OPEN
+W02: NO_GO
+physical_READY: NO_GO
+input_audit_sections:
+  '4': NOT_RUN
+  '5': NOT_RUN
+  '6': NOT_RUN
+base_claim_modified: false
+scope_amendment_modified: false
+lease_extension: false
+reproduction_artifacts:
+- verification/r5_g1_definition_review_20261117/capture_remote.py
+- verification/r5_g1_definition_review_20261117/check_publication.py
+- verification/r5_g1_definition_review_20261117/identity.json
+- verification/r5_g1_definition_review_20261117/independent_results.json
+- verification/r5_g1_definition_review_20261117/input_audit.json
+- verification/r5_g1_definition_review_20261117/input_audit.md
+- verification/r5_g1_definition_review_20261117/inspect_definitions.py
+- verification/r5_g1_definition_review_20261117/merge_context.json
+- verification/r5_g1_definition_review_20261117/remote_context.json
+- verification/r5_g1_definition_review_20261117/renderer_replay.json
+- verification/r5_g1_definition_review_20261117/review.md
+- verification/r5_g1_definition_review_20261117/semantic_expectations.py
+- verification/r5_g1_definition_review_20261117/target_CI.json
+- verification/r5_g1_definition_review_20261117/task_before_review.json
+- verification/r5_g1_definition_review_20261117/independent_after_record.json
+- verification/r5_g1_definition_review_20261117/validation.json
+- verification/r5_g1_definition_review_20261117/registry.log
+```

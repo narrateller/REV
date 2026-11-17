@@ -1,3 +1,36 @@
+R5 2026-11-17T17:21:05.442459+00:00: independent OUTPUT-review exact C `7e2d5ecff42fe1d09b461e05375924cb644c27c9` (PR60), review `REV-R5-G1-DEFINITION-OUTPUT-01-001`. WARNING: preliminary DRAFT useful;not sufficient for TZ/G1. 22REQ/VAL144items22DM40sources9OPEN groups assessed;4171guards PASS/0FAIL/3NOT_RUN and4renderer MATCH. OBS-01 density/product-mass crosswalk andOBS-02 DM03 failed/incomplete record retention OPEN. Act `verification/r5_g1_definition_review_20261117/review.md`;own C/H pending publication. Same actual session,accepted scope main04a6486,unchanged original lease;no renewal. 42 states unsolved;§4/5/6 NOT_RUN;G1 OPEN;W02/physical READY NO-GO;PR60 unmerged,no CAD/engineering/tests.
+
+> Isolated R5 review context: accepted main scope then exact target H, both histories retained; no PR60/main merge.
+
+# R1 → R5: отдельная область проверки нового проекта определений G1
+
+UTC 2026-11-17T16:32:04.139887+00:00;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR60 DRAFT targetC 7e2d5ecff42fe1d09b461e05375924cb644c27c9,requestH 7e4ce7aad8396493da6e2284d29441b46b4abb80,review NOT_RUN.
+Предлагаемое main acceptance: coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEFINITION-REGISTER-01.json;в рабочейветке это candidate.
+Прежняя actual R5 6afb0a73-b16c-8191-a539-9a6685e89034,taskT-r5-g1-supplement-output-review-01,
+canonicalclaim побайтнонеизменён,originaldeadline 2026-11-18T01:58:30.990734+00:00 не продлён.
+Новаяроль/задача/lease/чужойheartbeat не создаются;прежний amendment/акты сохранены.
+R1 контролирует отдельный serial merge scope послеCI/claim/input preflight.
+После активации R5:свежийаудит/независимость,самостоятельнаяоценка22REQ/VAL,144областей,
+22DM/40source dispositions,9open groups и4replay outputs;свойактC затемH.
+Команда verification/r1_r5_definition_scope_20261117/R5_execute.md.
+PR60 не слит,новый review NOT_RUN;старыеакты не распространены на новыйtarget.
+Обычныйmerge заранее разрешёнпользователем,нового per-PR согласия не спрашивать.
+BP500primary/прочиепо релевантности/адаптируемаяплощадка сохранены.
+B01/B02/B03/source power/pressure/moisture/country/engineeringowners OPEN/UNKNOWN.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,ТЗ/архитектура NOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Расчёты/CAD-rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+
+
+---
+
+## Exact target H history
+
 # R1 — новый проект определений G1; независимый OUTPUT-review NOT_RUN
 
 UTC 2026-11-17T16:27:37.384566+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3.
