@@ -1,3 +1,26 @@
+# R1: OBS-03 исправлен автором, независимый recheck NOT_RUN
+
+UTC 2026-11-17T23:06:51.239395+00:00; R1 6afb300b-1540-8191-a5c4-be1a684c20e0, task T-r1-requirements-draft-01.
+Main 974767804240ca24997d3ca538825ff9a4baebab; working base R5 H 9140a2dec3679934e0b24ece1ff7190db87d0f39. Входной акт 234ea8a1917899c69e68ec3ef6e7ebcefbe79fae
+закрыл OBS-01/02 только на 97f58fd437947e26963bdbbc2f2d89df7438e8cc, общий WARNING/OBS-03 OPEN.
+Исходный FAIL сводки сохранён. Новый renderer берёт revision_label из method_catalog,
+проверяет method/REQ/VAL identity; в сводке DM02/03 DRAFT-02, остальные DRAFT-01.
+Все исходные JSON/146 пунктов/22 метода/mappings/retention/source dispositions неизменны;
+из 6 выходов только2 строки сводки изменены. Пакет verification/r1_def_obs03_renderer_revision_20261117/.
+Новый OBS03 recheck NOT_RUN; автор не закрывает замечание и не переносит старые closures.
+Действующие R1/R5 claims/owners/исходныйdeadline 2026-11-18T01:58:30.990734+00:00 неизменны.
+Следующий шаг R1:опубликовать C/H в PR60,CI exacthead; отдельно принять main scope
+recheck OBS03 на новыйC/H для прежней R5, затем выдать команду и ждать её новый акт C/H.
+PR60 DRAFT/unmerged. Обычные merge заранее разрешены пользователем,повторно не спрашивать.
+WARNING/B01-B03/source issues/country/engineeringowners OPEN/UNKNOWN;RAW не повышены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,G1OPEN,ТЗ/архитектура NOT_APPROVED,
+W02/physical READY NO-GO;прочность/устойчивость/реальные реакции не подтверждены.
+Расчёты,CAD-rebuild ииспытания запрещены.
+
+---
+
+## Предыдущие записи — история
+
 R5 handoff 2026-11-17T22:36:22.943747+00:00:act C `234ea8a1917899c69e68ec3ef6e7ebcefbe79fae`,reviewed exact C `97f58fd437947e26963bdbbc2f2d89df7438e8cc`,WARNING. OBS01/02 CLOSED_DOCUMENTARY_EXACT_C;new OBS03 OPEN(DM02/03 renderedDRAFT01vsJSONDRAFT02).4261PASS/1FAIL(OBS03)/3NOT_RUN,6MATCH;allspecified inputs/evidence preserved.C remote MATCH andCI44190680660SUCCESS;this following H references C,HCI checked after publication. Act verification/r5_definition_obs_recheck_20261118/review.md;capsule handoffs/T-r5-g1-supplement-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md. R1 considers closures/correctsOBS03;original lease unchanged,PR60 unmerged,42states unsolved,§4/5/6NOT_RUN,G1OPEN,W02/physicalREADY NO-GO,noengineering/CAD/tests.
 
 R5 recheck 2026-11-17T22:25:34.942329+00:00: reviewed exact C `97f58fd437947e26963bdbbc2f2d89df7438e8cc`;act `REV-R5-G1-DEF-OBS-RECHECK-01-001` WARNING. OBS01/02 CLOSED_DOCUMENTARY_EXACT_C;new OBS03 OPEN:DM02/03 JSON DRAFT02 versus rendered DRAFT01. Own4261PASS/1FAIL(OBS03)/3NOT_RUN,22REQ-VAL146scope22DM4mappings40sources9OPEN groups;6rendererMATCH. Act `verification/r5_definition_obs_recheck_20261118/review.md`;own C/H pending publication. Same actual R5/accepted9747678scope/original deadline unchanged. PR60 unmerged,42states unsolved,§4/5/6NOT_RUN,G1OPEN,W02/physical READY NO-GO,no engineering/CAD/tests.
