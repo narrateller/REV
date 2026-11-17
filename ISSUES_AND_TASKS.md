@@ -1,3 +1,28 @@
+# R1 → R5: recheck OBS03 renderer разрешён в main
+
+UTC 2026-11-17T23:29:56.014698+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR63 normal merge `b99e37a4a9ef78afb32f5a1fa936ea9d7befaaa5`;scopeC `edea79206f326dcb48d98f37619f41e87dd68a3f`/H `35bb9dc44b8d6ea7ef78a0e1dab6fd8cd65d8337`.
+CI main SUCCESS,registry PASS/100softwaretests OK. PR60 DRAFT/unmerged,
+новый exactC `5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a`/requestH `e6d0d0cdf78526b1879ec32fd8db274cc8e875d5`.
+Renderer выводит фактические версии изJSON;только2 строки сводки изменены;
+129authorPASS/0FAIL,6MATCH;Все146 пунктов/22метода/quantitymappings/retention/40dispositions и5выходов неизменны.
+R5-DEF-OBS-03 OPEN_PENDING_INDEPENDENT_RECHECK;новыйreview NOT_RUN.
+Следующий участник — действующая R5 6afb0a73-b16c-8191-a539-9a6685e89034 в прежнейзадаче.
+Полнаякоманда verification/r1_obs03_recheck_activation_20261117/R5_execute.md.
+Первыйшаг:свой свежий аудит main/claim/owner/UTC/lease/inputs/independence,затем
+содержательныйrecheck исправлений/сохранности,новый exact-C formalact иC/H дляR1.
+Canonicalclaims/owner/исходныйdeadline `2026-11-18T01:58:30.990734+00:00` не изменены.
+Обычныеmerge заранее разрешены;нового per-PR согласия не спрашивать.
+R1 ожидает результат выданного R5задания. Старыe акты остаются на своихexactC.
+WARNING/B01-B03/sourceissues/country/engineeringowners OPEN/UNKNOWN,RAW не повышены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN,ТЗ/архитектураNOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Прочность/устойчивость/реальные реакции не подтверждены.
+Расчёты/CAD-build/rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
 # R1 → R5: отдельная область проверки нового проекта определений G1
 
 UTC 2026-11-17T23:13:01.209187+00:00;base main 974767804240ca24997d3ca538825ff9a4baebab;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
