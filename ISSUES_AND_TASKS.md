@@ -1,3 +1,38 @@
+# R1 — intake source review принят с WARNING; PR52 подготовляется без merge
+
+UTC 2026-11-17T00:17:45.118945+00:00; T-r1-force-inputs-intake-01 / PRELIMINARY_DOCUMENTARY_INPUT_REVIEWED.
+Exact source C f2cbd96bb78c915dca74cb4eb29daffbb52ee172; R5 C/H
+853a72b63fd8c89a3fa54ac1f309f24e7104f1c4 / c086c2a497614c193373d58c1b854078cd7accd0.
+Независимые 1250 PASS / 0 FAIL; общий WARNING, SOURCE-POWER/UNIT OPEN,
+влажностная база UNKNOWN. ARS допускает и неметаллическое сырьё; source-specific
+физика не переносится, qualification в решении R1 сохранена. RAW40 не повышены.
+Claim всё ещё PROPOSED_PENDING_MAIN, owner NONE/lease null; proposed owner actual
+R1, исходный proposed deadline 2026-11-17T23:16:47.225017Z без продления.
+Ни review, ни это решение не принимают claim или роль другого исполнителя.
+План отдельной принятой записи, сохраняющий CURRENT reviewed snapshot:
+verification/r1_reference_intake_acceptance/integration_and_claim_plan.md.
+Main не изменяется. Численная/физическая стадия не начиналась; §4/5/6 NOT_RUN,
+42 состояния не рассчитаны, G1 OPEN, W02/physical READY NO-GO. Прежние блокеры/
+REJECT/STALE/четыре FAIL сохранены; 44 bindings/нагрузки/ходы/CAD неизменны.
+
+---
+
+# T-r5-reference-intake-review-01 — COMPLETE / WARNING exact C
+
+UTC 2026-11-16T23:55:05.101591+00:00; R5/Codex на базе GPT-6; exact runtime model ID unavailable.
+Actual session `6afb0a73-b16c-8191-a539-9a6685e89034`, direct user assignment; intake coauthorship absent, upstream disclosure in identity.json.
+Target `f2cbd96bb78c915dca74cb4eb29daffbb52ee172`. Акт REV-R5-REFERENCE-INTAKE-REVIEW-01-001:
+verification/r5_reference_intake_review/review.md, собственные PDF renders/visual notes/checker/results там же.
+1250 PASS /0 FAIL;4 PDF hashes,11 rendered primary pages,40 source fields,16 qualitative records.
+84 IDs/21 groups/52 interfaces/42 unsolved states traceable;961 preserved old files.
+SOURCE-POWER/PRESSURE-UNIT OPEN, moisture basis UNKNOWN; scope documentary RAW reference only.
+Intake claim PROPOSED_PENDING_MAIN, owner NONE, lease null: принятие/назначение этим актом не создаются.
+R1 получает отдельные C/H; main не сливать, старые сроки/claims не менять.
+G1 OPEN; §4/5/6 NOT_RUN; architecture/TZ NOT_APPROVED; W02/physical READY NO-GO.
+Нет инженерных расчётов/CAD/испытаний/выпуска; прежние OBS-01 exact closure и REJECT history сохранены.
+
+---
+
 # T-r1-force-inputs-intake-01 — предварительный референтный пакет
 
 UTC 2026-11-16T23:19:49.897566+00:00; direct user instruction to start next R1 intake; actual proposed owner

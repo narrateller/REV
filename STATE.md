@@ -1,3 +1,89 @@
+# R5 — референтный intake: WARNING, exact C проверен по первичным PDF
+
+UTC 2026-11-17T00:01:09.781057+00:00; task T-r5-reference-intake-review-01.
+R5 / Codex на базе GPT-6, exact runtime model ID unavailable. Actual session
+`6afb0a73-b16c-8191-a539-9a6685e89034`. Прямое назначение пользователя.
+Авторства intake R1 нет; прежнее upstream R5 авторство раскрыто в identity.json
+и не переоценивается независимо.
+
+**C акта `853a72b63fd8c89a3fa54ac1f309f24e7104f1c4` REMOTE_VERIFIED** до создания этого H.
+Ветка `work-r5/T-r5-reference-intake-review-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+Этот H — следующий commit с точной ссылкой на C; SHA самого H получать из Git/remote.
+
+## Exact вход и результат
+
+Target/команда R1 C **f2cbd96bb78c915dca74cb4eb29daffbb52ee172**.
+Observed source head 411bb36f9559d80caec4e2f870e8120148d9c6a9 прочитан для актуальной
+эстафеты, не подменял target. Main при проверке3353de6c9fc699fbd565f1ce63cebedad3137a12;
+PR52 OPEN. Intake на exact C PROPOSED_PENDING_MAIN, owner NONE/effective lease null;
+предложенный срок2026-11-17T23:16:47.225017Z не считается действующим lease.
+Reviewer не принимает claim в main и не продлевает R1/R4 сроки.
+
+Акт **REV-R5-REFERENCE-INTAKE-REVIEW-01-001**,
+verification/r5_reference_intake_review/review.md. Там же identity, PDF hashes,
+render manifests/11 rendered images, visual_transcription/qualitative_assessments,
+inspect_reference/independent_final, builder replay/remote context/target CI/validation.
+
+**WARNING / пригоден только как предварительный документальный референтный пакет.**
+- 4 PDF SHA256/LFS OID совпали. Независимо просмотрены BP500 PDF3/4, E55 PDF5/14,
+ WEIMA PDF7/18, ARS PDF17, дополнительно ARS1–4. Полного перечитывания всех PDF не заявлено.
+- 40/40 source fields совпали:39 SI-представлений проверены по точным определениям,
+ ambiguous1700kg/cm² осталось null;16 qualitative/supplemental записей проверены визуально.
+- Final independent **1250 PASS /0 FAIL**.8 builder outputs MATCH в temporary HERE,
+ 28 author files unchanged; R1-only verifier не запускался, session spoofing не было.
+- 84 RAW/null /21 групп /52 интерфейса /42 исходных состояния прослеживаются,
+ состояния не рассчитаны.26 intake pins/54 прежних pins/961 old files сохранены,
+ active registry/44 bindings/нагрузки/ходы/CAD/R3/R4/R5 и REJECT history не изменены.
+- Root registry --check-git с новым актом PASS, diff --check PASS. Target C CI success;
+ CI новых reviewer C/H проверяется отдельно после push и не подменяется source CI.
+
+## Обязательные квалификаторы
+
+SOURCE-POWER OPEN: total34.2kW и строки30/2.6/1.5kW не исправлены и не превращены
+в новый электрический бюджет. SOURCE-PRESSURE-UNIT OPEN:1700kg/cm² не истолковано
+как kgf/cm², силу из него не получать.300bar — гидравлический максимум источника,
+не давление материала. Влажностная wet/dry база и метод UNKNOWN.
+BP5006–14%, E558–14%, WEIMA8–20% material-dependent не объединены/не усреднены.
+Up to600units/h of0.83kg, material/settings dependent — не гарантированный минимум
+и не новая массовая производительность REV; преобразована только единица.
+
+E55 удержание при возврате, WEIMA level/K3T, ARS branch/door/reset — только
+документированные принципы, без переноса геометрии/уставок/PLC/READY. ARS PDF4
+§4.6 не исключительно металлический: также plastic chips/sawdust/grinding swarf.
+На диаграмме ARS путь eject присоединяется к retract/reset;0.15sec не доказывает
+разгрузку REV. Сохранять этот контекст при дальнейшем использовании источников.
+
+## Передача R1
+
+Следующий R1: fetch эти C/H, прочитать акт/primary render notes, сохранить
+источниковые квалификаторы в дальнейшей документальной ревизии требований.
+Первый проверяемый шаг — рассмотреть открытые SOURCE-POWER/UNIT/MOISTURE и
+явно отделить заявленную характеристику от физического входа REV. Критерий
+успеха — прослеживаемая ревизия требований/входов без тихого устранения пробелов
+или повышения RAW/принятия claim по одному файлу. Принятие нового claim/ТЗ и
+дальнейшая инженерная область оформляются отдельно в пределах полномочий.
+Функции в intake — предложения; owner/session не назначены, даты UNKNOWN.
+Готовые чертежи будущего пресса не требуются от оператора этой проверкой.
+
+## Сохранённые границы
+
+Candidate40 остаётся RAW/scoped; переноса в active registry/CAD нет. OBS-01
+CLOSED только на прежнем R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe; старый
+акт STALE и исторические четыре FAIL сохранены. Новая reference policy не
+проверяет применимость старых WHAT_IF расчётов к новым целям автоматически.
+**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Реальные геометрия/материалы/
+контакты/реакции/прочность/устойчивость/цикл/ресурс UNKNOWN/не подтверждены.
+G1 OPEN; architecture/TZ NOT_APPROVED; W02/physical READY NO-GO.
+CAD-build/rebuild, новые инженерные расчёты/испытания/изготовление/выпуск
+не выполнялись и не разрешаются. Семь REJECT/material history=2 и блокеры
+не закрыты/не сброшены. Main не сливалась.
+
+Капсула: handoffs/T-r5-reference-intake-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
 # R1 — intake начат: референтный пакет BP500 и дополнительных источников
 
 UTC 2026-11-16T23:19:49.897566+00:00; task T-r1-force-inputs-intake-01 / PRECLAIM_DOCUMENTARY_DRAFT.
