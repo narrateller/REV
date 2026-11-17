@@ -1,3 +1,58 @@
+# R1 — PR54 MERGED; только предварительный DRAFT/WARNING, ТЗ/G1 не утверждены
+
+UTC 2026-11-17T06:46:03.629306+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; T-r1-requirements-draft-01.
+PR54 обычный merge 043271b57aa3d49b6d9b45da03496ea11dad41b1, UTC 2026-11-17T06:38:16Z; parent1 bec317a4483e7f69c2af0aa1c52ef091bdef57b4,
+parent2/exact head6ad3c2b2afcb8db4fefa810cf75f2f7c744c31b0. Tree=head,14 исторических C/H ancestors PASS.
+Свежий preflight280 PASS/0FAIL; main/head/owner/lease/конкуренция/target seals перепроверены.
+Оба exact-head CI44031076521/44031066257 и main CI44032688799 SUCCESS:
+registry PASS и по100 тестов. Фактическая квитанция verification/pr54_merge_20261117/.
+C этой postmerge-квитанции: ebc2a252f75808023cfd47c499276df2f38e419f; следующий H содержит exact C и эстафету.
+
+Интегрированы target rev8 C8d1b45afa84eca078a8de0a9822d6925dd87745b,
+R5 C04502cfe2eb2eadae242690cfad8f414bd96bff2 / H64ac3efbffcf77e50f2e867390cf141e580de644,
+R1 C7a508e0638743b8c50fde7bdb251496af9f5f1df / H6ad3c2b2afcb8db4fefa810cf75f2f7c744c31b0.
+REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001 CURRENT/WARNING и решение R1
+R1-REQUIREMENTS-REV8-DRAFT-ACCEPTANCE принимают только пригодность предварительного
+DRAFT к документальной доработке. Gate null, requirements_approved false. Полнота
+проверяемого ТЗ/G1 недостаточна,3890 R5 checks не являются физической валидацией.
+Все25 target/26 formal review artifacts и исходные акты/доказательства сохранены.
+
+Claim R1 ACCEPTED_MAIN, единственный действующий claim этой сессии, deadline
+2026-11-18T01:58:30.990734+00:00 не продлён. Accepted ledger побайтно неизменён;
+intake released/NONE, его старый срок не перенесён. Task metadata получила только
+DOCUMENTARY_DRAFT_INTEGRATED_WARNING/actual merge SHA, original snapshot сохранён.
+Новые роли/сессии/claims/сроки здесь не назначаются; новый этап не начинается.
+
+Следующий плановый шаг — документальные карточки критериев22 REQ, программа/
+метрология/прослеживаемость B02, безопасность/нормативная применимость B03 и
+source clarification/disposition для power/pressure/moisture. План в
+verification/r1_rev8_documentary_acceptance_20261117/next_step_plan.md. Его исходная
+фраза «нет разрешения merge» описывала прошлый checkpoint; новая команда пользователя
+на PR54 сохранена в текущей authorization.json. Реальные владельцы/сроки только
+после назначения; численные определения без доказательства UNKNOWN. Уже заданные
+BP500/сырьё/адаптация площадки повторно не спрашивать; готовые будущие чертежи от
+оператора не требуются. Критерии/план не подменять выполнением физических испытаний.
+Перед следующим действием проверить claim/UTC/deadline/main/inputs; при истечении
+не продлевать автоматически. Для новой ревизии учесть STALE/зависимости, сохранить
+old exact C/evidence, провести независимый exact-C review; ТЗ/G1 утверждает пользователь.
+Текущая поставка сохраняет receipt и handoff, документальную доработку не запускает.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+B01/B02/B03 и SOURCE-POWER/PRESSURE-UNIT/MOISTURE-BASIS OPEN. RAW40 не повышены,
+active registry/44 full bindings/нагрузки/ходы/CAD/54 pins/52 interfaces/42 source-state
+объекта/84 RAW-null/15 gaps сохранены. Старые REJECT/STALE/material2/четыре FAIL,
+OBS01 exact-C closure и WHAT_IF applicability NOT_EVALUATED остаются без изменения.
+BP500 primary, площадка адаптируется, E55/WEIMA/ARS по релевантности, реальные свойства
+и конструкция UNKNOWN; ARS допускает неметаллическое сырьё, его режимы/свойства не REV.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции/
+цикл не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild и физические испытания не разрешены.
+Общий срок завершения проекта UNKNOWN.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — rev8 OUTPUT-review принят с WARNING; PR54 подготовлен к документальной интеграции
 
 UTC 2026-11-17T06:16:36.843399+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0, T-r1-requirements-draft-01.
