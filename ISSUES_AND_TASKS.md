@@ -1,3 +1,66 @@
+# R1 — rev8 OUTPUT-review принят с WARNING; PR54 подготовлен к документальной интеграции
+
+UTC 2026-11-17T06:16:36.843399+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0, T-r1-requirements-draft-01.
+Exact target C 8d1b45afa84eca078a8de0a9822d6925dd87745b, request H 87f2f5889f9ba74e8eef3a3a040d936d13e0a011.
+R5 C 04502cfe2eb2eadae242690cfad8f414bd96bff2; H 64ac3efbffcf77e50f2e867390cf141e580de644; новый акт REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001 CURRENT/WARNING.
+3890 собственных PASS/0 FAIL,22 REQ/VAL,40 dispositions,16 qualitative assessments.
+Исходные авторские358/source1250/replay не выданы за новый независимый review.
+Source act853a по f2c остаётся отдельным входом, его область не расширяется.
+
+Решение decisions/R1-REQUIREMENTS-REV8-DRAFT-ACCEPTANCE.md принимает только пригодность
+предварительного DRAFT к дальнейшей документальной проработке. Недостаточность для
+утверждения ТЗ/G1 сохраняется. Gate null, requirements_approved false.
+B01 критерии/допуски/режимы/владельцы, B02 программа/метрология/неопределённость/полнота,
+B03 безопасность/нормативная область и source power/pressure/moisture остаются OPEN.
+Решение и обе истории включаются в PR54 без squash/rebase; target не редактируется.
+C результата R1: отдельный C этой поставки; exact SHA в H; следующий H — эстафета с exact C.
+Evidence: verification/r1_rev8_documentary_acceptance_20261117/.
+
+Main bec317a4483e7f69c2af0aa1c52ef091bdef57b4 не меняется; PR54 OPEN/draft, merge/auto-merge не выполняются.
+Claim R1 ACCEPTED_MAIN, owner 6afb300b-1540-8191-a5c4-be1a684c20e0, исходный deadline
+2026-11-18T01:58:30.990734+00:00 действует и не продлён. Intake released/NONE;
+другие роли/leases/владельцы не назначаются. Фактический preflight сохранён отдельно.
+В R5 H историческом STATE/NEXT есть шаблонные UNK<UTC>N токены; точная история H
+сохранена, authoritative review/source данные корректны, текущая сводка пишет UNKNOWN.
+
+Следующий проверяемый шаг R1 после отдельной команды на merge: повторить main/head/CI,
+точный owner/срок/конкуренцию и target seals, затем обычный merge PR54 с обеими историями.
+После этого — документальный план доработки B01/B02/B03/source conflicts: реальные
+владельцы/сроки только после назначения, численные критерии/методы без доказательства
+UNKNOWN; новую rev проверяет независимый R5, ТЗ утверждает пользователь отдельно.
+Текущий акт не разрешает численный/физический этап или закрытие G1.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+40 поля RAW не повышены;10 target proposals/23 context/7 open issues, active registry
+не меняется. BP500 primary, площадка адаптируется; E55/WEIMA/ARS по релевантности,
+ARS также неметаллический, source уставки/свойства не REV. UNKNOWN остаются UNKNOWN.
+44 bindings/нагрузки/ходы/CAD,54 старых pins,52 interfaces,84 RAW/null и15 OPEN gaps,
+старые R3/R4/R5 evidence/REJECT/STALE/material2/четыре FAIL/OBS01 closure сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции/цикл
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild и физические испытания не начинались.
+
+---
+
+## Предыдущие записи — история
+
+# R5 — OUTPUT-review DRAFT rev8 завершён документально
+
+T-r5-requirements-rev8-output-review-01 / DONE_DOCUMENTARY_SCOPE / WARNING.
+Прямое поручение пользователя; R5 session6afb0a73-b16c-8191-a539-9a6685e89034.
+Exact reviewed C8d1b45afa84eca078a8de0a9822d6925dd87745b, request H87f2f5889f9ba74e8eef3a3a040d936d13e0a011.
+Акт REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001: verification/r5_requirements_rev8_review/review.md.
+22 REQ/VAL,40 RAW dispositions,16 qualitative refs оценены независимо по новому target.
+3890 guards PASS/0FAIL; предварительный DRAFT пригоден, утверждение ТЗ/G1 недостаточно.
+B01/B02/B03 и source power/pressure/moisture OPEN; владельцы/критерии/метрология нужны.
+Старые собственные R5 акты раскрыты, их выводы независимо не переаттестованы.
+R1 owner/lease не присвоены/не продлены; deadline2026-11-18T01:58:30.990734+00:00 прежний.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, G1 OPEN, W02/physical READY NO-GO.
+PR54/main не сливались, ТЗ не утверждено, инженерный этап/CAD-rebuild/испытания не разрешены.
+Публикация C акта, затем H/эстафета R1; CI/remote SHA проверяются на собственных C/H.
+
+---
+
 # R1 — PR53 MERGED; DRAFT требований rev8 готов к независимому R5
 
 UTC 2026-11-17T02:18:29.822771+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; task T-r1-requirements-draft-01 / IN_REVIEW_DOCUMENTARY.

@@ -1,0 +1,28 @@
+{
+  "initial_counts": {
+    "PASS": 3885,
+    "FAIL": 2
+  },
+  "initial_guard_failures": [
+    {
+      "id": "REQ-REV-08:meaning:давление материала",
+      "result": "FAIL",
+      "observed": "давление материала",
+      "expected": "Required semantic distinction present in actual row"
+    },
+    {
+      "id": "validation-sequence",
+      "result": "FAIL",
+      "observed": {
+        "решение пользователя по G1": 9830,
+        "согласованная программа": 9859,
+        "независимое рассмотрение программы": 9902,
+        "отдельное разрешение выполнения": 9939,
+        "исходные записи/результаты": 9973,
+        "независимая оценка": 5189
+      },
+      "expected": "G1 basis -> program -> independent program review -> separate execution authority -> results -> review"
+    }
+  ],
+  "disposition": "Both are reviewer guard defects, not target failures: row08 says воздействие на материал and global text separately says hydraulic≠material pressure; sequence guard incorrectly used first phrase occurrence across earlier table. Corrected before final evaluation; target never edited."
+}

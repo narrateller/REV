@@ -1,0 +1,120 @@
+{
+  "status": "DOCUMENTARY_REVIEW_COMPLETE_REGISTRY_PASS",
+  "verdict": "WARNING",
+  "preliminary_DRAFT": "SUITABLE_WITH_OPEN_INPUTS",
+  "TZ_G1_acceptance": "INSUFFICIENT",
+  "target_C": "8d1b45afa84eca078a8de0a9822d6925dd87745b",
+  "request_H": "87f2f5889f9ba74e8eef3a3a040d936d13e0a011",
+  "base_main": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+  "actual_session_id": "6afb0a73-b16c-8191-a539-9a6685e89034",
+  "completed_at_utc": "2026-11-17T05:55:38.302163+00:00",
+  "tools": {
+    "Python": "3.12.14",
+    "PyYAML": "6.0.3",
+    "Git": "git version 2.52.0",
+    "GitHub_CLI": "gh version 2.46.0 (2025-01-13 Debian 2.46.0-3)"
+  },
+  "commands": [
+    {
+      "command": "python3 verification/r5_requirements_rev8_review/independent_review.py",
+      "exit_code": 0,
+      "result": "3890 PASS /0FAIL; own22/40/16 assessments",
+      "evidence": "independent_results.json"
+    },
+    {
+      "command": "python3 verification/r1_requirements_draft_20261117/build_draft.py --output-dir <fresh temporary directory>",
+      "exit_code": 0,
+      "result": "10/10 outputs match exact C; replay only",
+      "evidence": "renderer_replay.json"
+    },
+    {
+      "command": "python3 scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "result": "PASS after formal review record; full old history retained",
+      "evidence": "registry.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "PASS"
+    }
+  ],
+  "independent_counts": {
+    "PASS": 3890
+  },
+  "coverage": {
+    "REQ_VAL": 22,
+    "RAW_dispositions": 40,
+    "qualitative_refs": 16,
+    "target_artifacts": 25,
+    "input_pins": 27,
+    "old_R4_pins": 54,
+    "old_files_preserved": 3084,
+    "LFS_SHA_matches": 59,
+    "bindings": 44,
+    "interfaces": 52,
+    "source_state_objects": 42,
+    "source_UNKNOWN_RAW_null": 84,
+    "additional_OPEN_gaps": 15
+  },
+  "historical_journal_exact_prefix": true,
+  "review_log_sha256": "253ba3f3b915e6fde4c440a560df4340891c516468de479a66d9ffef82aebdbe",
+  "own_evidence_sha256": [
+    {
+      "path": "verification/r5_requirements_rev8_review/check_publication.py",
+      "sha256": "0dd4d5a384d488b045d61c19837df46660049a2e42a694afc4e85fa0961f9dc1"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/identity.json",
+      "sha256": "03df4c9bd81ce9adf2193bbd85756df3d37815cb994a3212fb18aadaa4840cad"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/independent_results.json",
+      "sha256": "907f8ef38f99b3458ffce1055459305c2e9d8748f7fb72a7c3b6b3985bf8b1a9"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/independent_review.py",
+      "sha256": "99b6a97512174fb43ac86008c9953abd64d63e90a3b3c9ac13b4a5681c7d7390"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/oracle_development.json",
+      "sha256": "415293d5c806abd68b133f27f6677b4006e0707929dd2fdd9b3eec1ddd9f9389"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/registry.log",
+      "sha256": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/remote_context.json",
+      "sha256": "a48f6b7ea3969e7001c3b9ba5a167668db3adefeee8c35d3310d64c1b336e715"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/renderer_replay.json",
+      "sha256": "66c43a35454809795d6fd33713d4cdf53f2a02b422242df4c2a83addcd61cece"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/review.md",
+      "sha256": "c844e88a5b7cf1bb5de53d03f6a4559489adbd1a7c8803d3ab6ca84a5aea2856"
+    },
+    {
+      "path": "verification/r5_requirements_rev8_review/target_CI.json",
+      "sha256": "e638d962a3ca460c56449ffd3fcc84ef9d29a536cf7dbdd3694d2fd1b8bd526f"
+    }
+  ],
+  "source_CI": "Target C has no separate run; H push/PR and accepted main SUCCESS; job registry/test steps SUCCESS",
+  "publication": "Own exact C/H and their push CI necessarily verified after committing, using check_publication.py; C receipt in H and final post-H remote receipt.",
+  "input_audit_sections": {
+    "4": "NOT_RUN",
+    "5": "NOT_RUN",
+    "6": "NOT_RUN"
+  },
+  "requirements_approved": false,
+  "architecture_selected": false,
+  "G1": "OPEN",
+  "W02": "NO_GO",
+  "physical_READY": "NO_GO",
+  "source_states_solved": false,
+  "CAD_rebuild_authorized": false,
+  "PR54_merged": false,
+  "lease_extension": false
+}
