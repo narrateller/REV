@@ -1,3 +1,31 @@
+# R1: исправления OBS-01/02 подготовлены, recheck NOT_RUN
+
+UTC 2026-11-17T18:20:02.232593+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0, task T-r1-requirements-draft-01.
+Main 04a6486527c9ba4fd4d22fcf50e0427213443507; working base R5 H ad627d310ee9f49d730b71c84ab4af7c9c1ff0da.
+Входной review R5 C 1d4593f93ba0b315379a885ba9fd955b7ded392c на exact C 7e2d5ecff42fe1d09b461e05375924cb644c27c9: WARNING,
+4171 PASS/0 FAIL,4 MATCH, OBS-01/02 OPEN. История R5 включена в предков поставки.
+Диспозиция R1 decisions/R1-G1-DEFINITION-OBS-DISPOSITION.md принимает только основание
+предварительной документальной доработки. Новая ревизия verification/r1_g1_definition_obs_revision_20261117/:
+146 пунктов (144 старых сохранены),4 quantity mappings,DM02/03 DRAFT-02,
+сохранение записей всех попыток цикла; остальные20 строк/методов и40dispositions неизменны.
+Author172 PASS/0FAIL,6renderer outputs; независимый recheck NOT_RUN,обаOBS OPEN.
+Канонические claims/owners и исходныйdeadline 2026-11-18T01:58:30.990734+00:00 неизменны.
+Следующий шаг R1:опубликовать новый C/H в PR60,проверить CI head; отдельно принять
+в main exact-target scope recheck действующей R5,без новой роли/задачи/lease.
+Затем actual R5 6afb0a73-b16c-8191-a539-9a6685e89034 выполняет свой аудит/recheck,
+возвращает formal act иC/H. Автор не закрывает собственные исправления.
+PR60 DRAFT/unmerged. Прежние target/акты/доказательства/44fullbindings/нагрузки/ходы/CAD
+иUNKNOWN/RAW сохранены. BP500 primary,прочие по релевантности,площадка адаптируется.
+B01/B02/B03/source issues/country/engineering owners OPEN; ТЗ/архитектура NOT_APPROVED.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,G1 OPEN,W02/physical READY NO-GO.
+Прочность/устойчивость/реальные реакции не подтверждены; расчёты/CAD-rebuild/испытания запрещены.
+Обычный merge согласованныхзадач заранее разрешён,повторно согласия не спрашивать.
+Капсула handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+---
+
+## Предыдущие записи — история
+
 R5 2026-11-17T17:21:05.442459+00:00: independent OUTPUT-review exact C `7e2d5ecff42fe1d09b461e05375924cb644c27c9` (PR60), review `REV-R5-G1-DEFINITION-OUTPUT-01-001`. WARNING: preliminary DRAFT useful;not sufficient for TZ/G1. 22REQ/VAL144items22DM40sources9OPEN groups assessed;4171guards PASS/0FAIL/3NOT_RUN and4renderer MATCH. OBS-01 density/product-mass crosswalk andOBS-02 DM03 failed/incomplete record retention OPEN. Act `verification/r5_g1_definition_review_20261117/review.md`;own C/H pending publication. Same actual session,accepted scope main04a6486,unchanged original lease;no renewal. 42 states unsolved;§4/5/6 NOT_RUN;G1 OPEN;W02/physical READY NO-GO;PR60 unmerged,no CAD/engineering/tests.
 
 > Isolated R5 review context: accepted main scope then exact target H, both histories retained; no PR60/main merge.
