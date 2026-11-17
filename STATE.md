@@ -1,3 +1,260 @@
+# R1 — принятие claim intake по прямому решению пользователя; PR52
+
+UTC 2026-11-17T00:42:13.477163+00:00; actual R1 session 6afb300b-1540-8191-a5c4-be1a684c20e0. Действующее назначение R1 продолжается.
+Пользователь разрешил принять T-r1-force-inputs-intake-01 и выполнить обычный merge PR52.
+Исходный exact head 49f0045e504863b335869748b7f9385c001469ca повторно проверен:
+оба CI SUCCESS. Main до интеграции 3353de6c9fc699fbd565f1ce63cebedad3137a12;
+конкурирующий принятый владелец intake не обнаружен. Исходные входы: 1163 PASS,
+951 baseline-файл сохранён, exact source C f2cbd96bb78c915dca74cb4eb29daffbb52ee172.
+
+Запись владения: coordination/claims/T-r1-force-inputs-intake-01.json; owner 6afb300b-1540-8191-a5c4-be1a684c20e0.
+Статус ACCEPTED_MAIN означает действующее принятие только при включении этой точной
+записи в remote main и живом исходном сроке. В рабочей ветке блокировки не создаёт.
+Lease до 2026-11-17T23:16:47.225017Z, без продления. Проверенный proposal claim.json
+не меняется; его NONE/null — историческое состояние exact reviewed snapshot.
+Фактическое разрешение/конкуренция/preflight — verification/pr52_claim_merge_20261117/.
+C принятия/подготовки: 01a5fe0512769b8863b4fe3948983e5b1c928285; следующий H сохраняет эту эстафету.
+Точный merge SHA и main CI появятся только в фактической postmerge-квитанции.
+
+R5 C/H 853a72b63fd8c89a3fa54ac1f309f24e7104f1c4 / c086c2a497614c193373d58c1b854078cd7accd0,
+1250 PASS / 0 FAIL, WARNING только для предварительного документального входа.
+R1 decision c3ca6728425b59138fa04d72ef26295de1ff207f и все источники/акты сохранены.
+SOURCE-POWER, SOURCE-PRESSURE-UNIT OPEN; влажностная база/метод UNKNOWN; RAW40
+не перенесены в активный registry. BP500 — основной reference, другие прессы по
+релевантности; ARS допускает и неметаллическое сырьё, но его режимы не параметры REV.
+
+Первый шаг после подтверждённого merge — проверить ancestry/единственного owner/срок,
+затем подготовить отдельную документальную задачу T-r1-requirements-draft-01 на
+ревизию требований и критериев. Подготовка задачи не принимает новый claim и не
+утверждает ТЗ. Готовые чертежи будущего пресса не запрашивать у оператора;
+площадка адаптируется под пресс, реальные свойства/параметры остаются UNKNOWN.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания не разрешены.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, R3/R4/R5 история, REJECT/STALE/четыре FAIL
+сохранены; прежний OBS-01 CLOSED только на exact R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — референтный intake принят предварительно с WARNING; claim не принят
+
+UTC 2026-11-17T00:17:45.118945+00:00; R1 actual session 6afb300b-1540-8191-a5c4-be1a684c20e0,
+coordinator alias r1-pr48-integration-20261116. PR52 OPEN, main не сливается.
+C решения/подготовки PR: c3ca6728425b59138fa04d72ef26295de1ff207f; следующий H — в ветке
+work-r1/T-r1-force-inputs-intake-01/6afb300b-1540-8191-a5c4-be1a684c20e0.
+
+- Exact target R1 C f2cbd96bb78c915dca74cb4eb29daffbb52ee172;
+  исходный H 411bb36f9559d80caec4e2f870e8120148d9c6a9.
+- R5 act C 853a72b63fd8c89a3fa54ac1f309f24e7104f1c4;
+  H c086c2a497614c193373d58c1b854078cd7accd0.
+  REV-R5-REFERENCE-INTAKE-REVIEW-01-001: 1250 PASS / 0 FAIL, 4 PDF/11 страниц,
+  40 деклараций/единицы/квалификаторы, verdict WARNING_DOCUMENTARY_REFERENCE_ONLY.
+- Решение R1 decisions/R1-REFERENCE-INTAKE-PRELIMINARY-ACCEPTANCE.md принимает
+  только предварительный документальный пакет, без новой самопроверки R1.
+  История акта/эстафеты R5 включается в PR обычным merge без squash/rebase.
+  Проверенные source-файлы и original proposed claim не изменены.
+- BP500 первичен по указанию пользователя; площадка адаптируется под пресс,
+  другие руководства применяются по релевантности. SOURCE-POWER/UNIT OPEN,
+  wet/dry база/метод UNKNOWN, up-to/material-dependent оговорки сохранены.
+- ARS не исключительно металлический: PDF4 §4.6 включает plastic chips/sawdust;
+  физические свойства/уставки BP500/REV из этого не следуют. Eject на PDF17 также
+  возвращается в retract/reset. Эти квалификаторы закреплены в решении R1,
+  40 RAW-кандидатов не редактировались и не перенесены в active registry/CAD.
+- Claim intake PROPOSED_PENDING_MAIN; owner NONE, effective lease null.
+  Proposed owner 6afb300b-1540-8191-a5c4-be1a684c20e0, исходный proposed deadline
+  2026-11-17T23:16:47.225017Z без продления. Review не назначает owner и не
+  принимает claim. Назначение R1 в текущей беседе повторно не запрашивается.
+  План последующего разрешённого принятия без изменения reviewed claim.json:
+  verification/r1_reference_intake_acceptance/integration_and_claim_plan.md.
+- Source/CI/preservation evidence: verification/r1_reference_intake_acceptance/.
+  Main 3353de6c9fc699fbd565f1ce63cebedad3137a12 сохраняется; claim R4 не менялся.
+  Функции/сроки будущих задач по-прежнему не являются назначенными сессиями.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Реальные геометрия/материалы/
+контакты/реакции/прочность/устойчивость/цикл UNKNOWN/не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, испытания/изготовление/выпуск не разрешены.
+44 bindings/нагрузки/ходы/CAD и старые C/H сохранены; OBS-01 CLOSED только на
+R4 exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe; прежний акт STALE/четыре FAIL,
+семь REJECT/material history=2 сохранены, не сброшены. Инженерный DoD не закрыт.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R5 — референтный intake: WARNING, exact C проверен по первичным PDF
+
+UTC 2026-11-17T00:01:09.781057+00:00; task T-r5-reference-intake-review-01.
+R5 / Codex на базе GPT-6, exact runtime model ID unavailable. Actual session
+`6afb0a73-b16c-8191-a539-9a6685e89034`. Прямое назначение пользователя.
+Авторства intake R1 нет; прежнее upstream R5 авторство раскрыто в identity.json
+и не переоценивается независимо.
+
+**C акта `853a72b63fd8c89a3fa54ac1f309f24e7104f1c4` REMOTE_VERIFIED** до создания этого H.
+Ветка `work-r5/T-r5-reference-intake-review-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+Этот H — следующий commit с точной ссылкой на C; SHA самого H получать из Git/remote.
+
+## Exact вход и результат
+
+Target/команда R1 C **f2cbd96bb78c915dca74cb4eb29daffbb52ee172**.
+Observed source head 411bb36f9559d80caec4e2f870e8120148d9c6a9 прочитан для актуальной
+эстафеты, не подменял target. Main при проверке3353de6c9fc699fbd565f1ce63cebedad3137a12;
+PR52 OPEN. Intake на exact C PROPOSED_PENDING_MAIN, owner NONE/effective lease null;
+предложенный срок2026-11-17T23:16:47.225017Z не считается действующим lease.
+Reviewer не принимает claim в main и не продлевает R1/R4 сроки.
+
+Акт **REV-R5-REFERENCE-INTAKE-REVIEW-01-001**,
+verification/r5_reference_intake_review/review.md. Там же identity, PDF hashes,
+render manifests/11 rendered images, visual_transcription/qualitative_assessments,
+inspect_reference/independent_final, builder replay/remote context/target CI/validation.
+
+**WARNING / пригоден только как предварительный документальный референтный пакет.**
+- 4 PDF SHA256/LFS OID совпали. Независимо просмотрены BP500 PDF3/4, E55 PDF5/14,
+ WEIMA PDF7/18, ARS PDF17, дополнительно ARS1–4. Полного перечитывания всех PDF не заявлено.
+- 40/40 source fields совпали:39 SI-представлений проверены по точным определениям,
+ ambiguous1700kg/cm² осталось null;16 qualitative/supplemental записей проверены визуально.
+- Final independent **1250 PASS /0 FAIL**.8 builder outputs MATCH в temporary HERE,
+ 28 author files unchanged; R1-only verifier не запускался, session spoofing не было.
+- 84 RAW/null /21 групп /52 интерфейса /42 исходных состояния прослеживаются,
+ состояния не рассчитаны.26 intake pins/54 прежних pins/961 old files сохранены,
+ active registry/44 bindings/нагрузки/ходы/CAD/R3/R4/R5 и REJECT history не изменены.
+- Root registry --check-git с новым актом PASS, diff --check PASS. Target C CI success;
+ CI новых reviewer C/H проверяется отдельно после push и не подменяется source CI.
+
+## Обязательные квалификаторы
+
+SOURCE-POWER OPEN: total34.2kW и строки30/2.6/1.5kW не исправлены и не превращены
+в новый электрический бюджет. SOURCE-PRESSURE-UNIT OPEN:1700kg/cm² не истолковано
+как kgf/cm², силу из него не получать.300bar — гидравлический максимум источника,
+не давление материала. Влажностная wet/dry база и метод UNKNOWN.
+BP5006–14%, E558–14%, WEIMA8–20% material-dependent не объединены/не усреднены.
+Up to600units/h of0.83kg, material/settings dependent — не гарантированный минимум
+и не новая массовая производительность REV; преобразована только единица.
+
+E55 удержание при возврате, WEIMA level/K3T, ARS branch/door/reset — только
+документированные принципы, без переноса геометрии/уставок/PLC/READY. ARS PDF4
+§4.6 не исключительно металлический: также plastic chips/sawdust/grinding swarf.
+На диаграмме ARS путь eject присоединяется к retract/reset;0.15sec не доказывает
+разгрузку REV. Сохранять этот контекст при дальнейшем использовании источников.
+
+## Передача R1
+
+Следующий R1: fetch эти C/H, прочитать акт/primary render notes, сохранить
+источниковые квалификаторы в дальнейшей документальной ревизии требований.
+Первый проверяемый шаг — рассмотреть открытые SOURCE-POWER/UNIT/MOISTURE и
+явно отделить заявленную характеристику от физического входа REV. Критерий
+успеха — прослеживаемая ревизия требований/входов без тихого устранения пробелов
+или повышения RAW/принятия claim по одному файлу. Принятие нового claim/ТЗ и
+дальнейшая инженерная область оформляются отдельно в пределах полномочий.
+Функции в intake — предложения; owner/session не назначены, даты UNKNOWN.
+Готовые чертежи будущего пресса не требуются от оператора этой проверкой.
+
+## Сохранённые границы
+
+Candidate40 остаётся RAW/scoped; переноса в active registry/CAD нет. OBS-01
+CLOSED только на прежнем R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe; старый
+акт STALE и исторические четыре FAIL сохранены. Новая reference policy не
+проверяет применимость старых WHAT_IF расчётов к новым целям автоматически.
+**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Реальные геометрия/материалы/
+контакты/реакции/прочность/устойчивость/цикл/ресурс UNKNOWN/не подтверждены.
+G1 OPEN; architecture/TZ NOT_APPROVED; W02/physical READY NO-GO.
+CAD-build/rebuild, новые инженерные расчёты/испытания/изготовление/выпуск
+не выполнялись и не разрешаются. Семь REJECT/material history=2 и блокеры
+не закрыты/не сброшены. Main не сливалась.
+
+Капсула: handoffs/T-r5-reference-intake-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
+# R1 — intake начат: референтный пакет BP500 и дополнительных источников
+
+UTC 2026-11-16T23:19:49.897566+00:00; task T-r1-force-inputs-intake-01 / PRECLAIM_DOCUMENTARY_DRAFT.
+Фактическая сессия R1 6afb300b-1540-8191-a5c4-be1a684c20e0; действующее назначение
+R1 продолжается, прежний coordinator alias r1-pr48-integration-20261116.
+C предварительного пакета: f2cbd96bb78c915dca74cb4eb29daffbb52ee172. PR: #52 — https://github.com/narrateller/REV/pull/52.
+Ветка work-r1/T-r1-force-inputs-intake-01/6afb300b-1540-8191-a5c4-be1a684c20e0.
+
+Новые прямые указания пользователя: характеристики/сырьё как у BP500,
+площадка адаптируется под пресс; другие имеющиеся руководства использовать
+по релевантности. Точные сообщения — verification/r1_force_inputs_intake/user_direction.json.
+Повторный запрос уже определённых целей/сырья/площадочных ограничений не нужен.
+Основные цели берутся из BP500, E55/WEIMA/ARS дополняют с явными ограничениями.
+Нет разрешения автоматически выбирать архитектуру или считать REV испытанным.
+
+Пакет verification/r1_force_inputs_intake/: 40 полей отдельного scoped RAW
+registry candidate, 8 дополнительных референтных наблюдений, 8 качественных
+описаний BP500, связь 84 RAW/null с 21 группой будущих входов/решений.
+Сверены первичные страницы и SHA256 четырёх PDF. SOURCE-POWER и
+SOURCE-PRESSURE-UNIT остаются открытыми; диапазоны влажности не усредняются.
+Ввод реальных e(q)/L_free(q)/материалов/контактов не выполнялся. Отсутствующая
+геометрия будущей конструкции — задача разработки, не запрос готовых чертежей
+от оператора. SI-значения — перепись/точные единицы, не инженерные расчёты.
+
+Новый claim только PROPOSED_PENDING_MAIN: owner NONE, lease null;
+proposed owner actual R1, исходный proposed lease 2026-11-17T23:16:47.225017Z.
+По §4 протокола claim вступает в силу после последовательного принятия main;
+локальная подготовка/публикация не являются блокировкой. Role R1 заново не
+запрашивается; прежние leases/claim R4 не изменены. Инженерное исполнение NOT_STARTED.
+Независимый source review NOT_RUN; команда R5_review_command.md на exact C.
+Функции будущих поставщиков — предложения, их owner/session не назначены,
+согласованные сроки UNKNOWN; дата завершения всего проекта UNKNOWN.
+
+Main 3353de6c9fc699fbd565f1ce63cebedad3137a12 (PR51 MERGED) сохраняется.
+Активный реестр/44 bindings/нагрузки/ходы/CAD и прежние R3/R4/R5 пакеты неизменны;
+52 интерфейса/42 source states/84 RAW-null сохранены. OBS-01 CLOSED только на
+R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe, старый акт STALE/четыре FAIL сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции
+не подтверждены; ТЗ/архитектура NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, испытания/изготовление/выпуск не разрешены.
+Прежние блокеры, семь REJECT и material history=2 не закрыты/не сброшены.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R1 — PR51 MERGED; только документальная интеграция с WARNING
+
+UTC 2026-11-16T22:46:34.483323+00:00; координатор R1 / r1-pr48-integration-20261116.
+PR https://github.com/narrateller/REV/pull/51 слит по прямому разрешению пользователя
+обычным merge 3353de6c9fc699fbd565f1ce63cebedad3137a12, UTC 2026-11-16T22:44:16Z.
+Прежняя main f731910273b47f46c6d45114cecd76de6fa8adf9; второй parent и точный head
+7fac152d7b16e2ebb871386eba0831f50ad18ddb. Дерево merge = дерево head, история сохранена.
+
+C квитанции: 237252a8813c6ae89785e3c8e36d2d63609ba4ab. Следующий H — в отдельной ветке
+work-r1/pr51-merge-receipt/r1-pr48-integration-20261116; полного H внутри самого H нет.
+Это сохранение факта после merge, без второго merge/дополнительной записи в main.
+Main на момент квитанции — 3353de6c9fc699fbd565f1ce63cebedad3137a12.
+Evidence: verification/pr51_merge_20261116/authorization.json, premerge.json,
+premerge_preservation.json, merge_request.json, merge_result.json, postmerge.json, main_CI.json,
+registry_status.json. Свежие premerge 844 PASS, два CI exact head SUCCESS,
+один принятый owner; подтверждены 54 inputs/44 полные bindings/84 RAW-null и CAD.
+
+OBS-01 CLOSED только на R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+независимый R5 recheck C 3784efa32ca26547f2581101474d6188f000c348,
+H fe156cb3fbbb11d86a2716db9adcc7f44057a042: 388 PASS / 0 FAIL; общий WARNING.
+Старый акт STALE/четыре FAIL/архив/первоначальный registry FAIL сохранены.
+Owner R4 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+исходный lease 2026-11-17T17:44:00Z и фактический heartbeat не изменены.
+Нового claim/назначения/инженерного старта эта операция не создаёт.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; отсутствующие реальные данные UNKNOWN.
+Прочность, устойчивость, реальные реакции и цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED, G1 OPEN, W02/PLC/physical READY NO-GO. Численный/физический этап,
+CAD-build/rebuild, испытания/изготовление/выпуск не начаты и не разрешены.
+SHORT_STROKE/A clamp/B reset-product collision/legacy UP/physical L/B opening,
+семь REJECT/material history=2 сохранены; задача R4 не DONE/VERIFIED/LOCKED/PASSED.
+Предложенный intake T-r1-force-inputs-intake-01 остаётся PROPOSED, owner NONE,
+lease null, engineering NOT_STARTED; дальнейший план — verification/r1_r4_symbolic_integration/next_step.md.
+
+---
+
+## Предыдущие записи — сохранённая история
+
 # R1 — символическая поставка принята с WARNING; OBS-01 CLOSED exact C
 
 UTC 2026-11-16T22:23:55.198818+00:00; координатор R1 / r1-pr48-integration-20261116.

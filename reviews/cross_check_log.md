@@ -6429,3 +6429,148 @@ reproduction_artifacts:
 - verification/r5_r4_symbolic_obs01_recheck/source_C_H_CI.json
 - verification/r5_r4_symbolic_obs01_recheck/validation.json
 ```
+
+## R5 — независимый review референтного intake
+
+```yaml
+record_type: review
+review_id: REV-R5-REFERENCE-INTAKE-REVIEW-01-001
+review_type: OUTPUT_SOURCE_REVIEW
+reviewed_commit: f2cbd96bb78c915dca74cb4eb29daffbb52ee172
+reviewer:
+  role: R5
+  session_id: 6afb0a73-b16c-8191-a539-9a6685e89034
+  model_label: Codex on GPT-6 base; exact runtime model identifier unavailable
+author_sessions:
+- 6afb300b-1540-8191-a5c4-be1a684c20e0
+- r1-pr48-integration-20261116
+reviewed_at_utc: '2026-11-16T23:55:05.101591+00:00'
+scope: Primary PDF transcription, exact unit translations, qualifier and borrowing applicability, scoped RAW and
+  intake preservation only; no engineering or claim acceptance
+independence_basis: Actual session differs from R1 author; did not author intake. Prior upstream R5 authorship disclosed,
+  correctness not independently re-reviewed. Own visual PDF rendering/transcription separate from R1 tables/OCR.
+parameter_refs: []
+artifacts:
+- path: verification/r1_force_inputs_intake/source_manifest.json
+  sha256: aff49c7669d6430f38760cca1a4693d4eeafd34a3036c2fcfb6aa588471ff56d
+- path: verification/r1_force_inputs_intake/reference_facts.json
+  sha256: eb5c69a05688febb3c0ada3fcb9f20764dfb9d90d213e4cb46f7656264861518
+- path: verification/r1_force_inputs_intake/qualitative_reference_facts.json
+  sha256: cbb7666fd3984e17b246e246e5f9870139259e5ff19a2720b494a22b287bd2e9
+- path: verification/r1_force_inputs_intake/supplemental_references.json
+  sha256: 79ac1b7c560ece069b38b596860a007e89427e552d47d944d4505bbb01f2e340
+- path: verification/r1_force_inputs_intake/reference_policy.json
+  sha256: d80e34814f035c7b42f4235684fdb760e083701acfe8ef11f14a01502af15ff2
+- path: verification/r1_force_inputs_intake/reference_candidate/params/registry.yaml
+  sha256: 8e95ad7f7e2ef0f858f3b5ec862c920fb41aae47bbf74e34ade79dcf06d283d7
+- path: verification/r1_force_inputs_intake/intake_register.json
+  sha256: dac0e61f87726921e4dc882eb1d37ec9b37465ef25c020a8707d3e2c1d8c4207
+- path: verification/r1_force_inputs_intake/additional_gaps.json
+  sha256: f20ac892715e4c6ae564fa7fcb6ae5f709b7bfc4d8ef48fadf774cfcc302b0f7
+- path: verification/r1_force_inputs_intake/claim.json
+  sha256: 6b80b47d3344fbb728796f7d90dbe6b112bc403739c87d1a1bd012384730efe9
+- path: verification/r1_force_inputs_intake/user_direction.json
+  sha256: 88796b7db255299c318697295dc76b5cb40efce75ee60a17e1f2c130a8bac9f9
+- path: sources/raw/Target_object_BP500.pdf
+  sha256: bf7276191a73b3d9a22ef516316bc59aac5d12fd708a7adc454bd6d9da4bec0c
+- path: sources/raw/additional_Prodeco_E55.pdf
+  sha256: 27d27b7e41247e1098531204581953e6cba388ec918418fa2ee64891bda4cc87
+- path: sources/raw/additional_Weima200.pdf
+  sha256: 477fcb54af5f7210afc9640137391fbb97a950be41daa52cc7d8b601e4f5e135
+- path: sources/raw/additional_Ars_Rst_500.pdf
+  sha256: 631b7186c7f2d38251625b77a70e790d2c257cdeb1dd3343befe3783cd983c40
+checks:
+- id: REF-PRIMARY
+  method: Independent original PDF rendering and visual reading, whole-file SHA/LFS OID
+  expected: 40 numeric source fields and16 qualitative records correctly qualified
+  observed: 4 PDFs SHA match;11 primary pages viewed;40 fields and16 bounded records agree
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: PASS
+- id: REF-UNITS
+  method: Independent rational/Decimal exact unit definitions, no engineering model
+  expected: 39 SI translations and1 unresolved literal pressure; no invented moisture basis/tolerance
+  observed: 1250 independent checks PASS; scoped40 RAW;600/h is1/6s^-1 only
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: PASS
+- id: REF-APPLICABILITY
+  method: Read feedstock/material conditions and diagram arrows
+  expected: Other-source windows/dimensions/dwell/controls not automatically assigned to REV
+  observed: BP500 primary; E55/WEIMA separate; ARS reset shared after eject; metal and nonmetal context retained
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: PASS
+- id: REF-INTAKE
+  method: Compare full original index; independently trace groups->interfaces->states
+  expected: 84 records/21 groups/52 interfaces/42 states traced, not solved; no assigned owners/dates
+  observed: All traceable; actual owner/date/inputs UNKNOWN; source claim still preclaim
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: PASS
+- id: REF-PRESERVE
+  method: Git immutable blobs/full bindings/LFS and historical review records
+  expected: Active registry/CAD/loads/strokes/old R3/R4/R5/OBS closure and REJECT history unchanged
+  observed: 26 intake pins,54 old pins,961 files preserved;44 full bindings unchanged
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: PASS
+- id: REF-4
+  method: Physical/engineering balances
+  expected: Engineering inputs and applicable analysis needed
+  observed: No force/performance/mass-rate/life calculation performed
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: NOT_RUN
+- id: REF-5
+  method: Real geometry/supports/structural applicability
+  expected: Actual geometry/materials/contacts needed
+  observed: Real strength/stability/reactions not assessed
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: NOT_RUN
+- id: REF-6
+  method: Actual cycle/resources/READY
+  expected: Phase contact/load/resource evidence needed
+  observed: 42 conditions not solved, physical READY NO-GO
+  reasoning: WARNING applies only to preliminary documentary reference package; source declarations are not actual
+    REV evidence.
+  result: NOT_RUN
+verdict: WARNING
+validity: CURRENT
+blocker_ids: []
+findings:
+- id: SOURCE-POWER
+  status: OPEN
+  description: Published total34.2 and listed motor rows30/2.6/1.5kW not reconciled; no silent repair
+- id: SOURCE-PRESSURE-UNIT
+  status: OPEN
+  description: Printed1700kg/cm2 unresolved to SI pressure; no kgf assumption
+- id: SOURCE-MOISTURE-BASIS
+  status: UNKNOWN
+  description: Wet/dry basis and measurement method not established; source windows remain separate
+claim_effective: false
+raw_candidate_promoted: false
+G1: OPEN
+W02: NO_GO
+physical_READY: NO_GO
+input_audit_sections:
+  '4': NOT_RUN
+  '5': NOT_RUN
+  '6': NOT_RUN
+reproduction_artifacts:
+- verification/r5_reference_intake_review/identity.json
+- verification/r5_reference_intake_review/review.md
+- verification/r5_reference_intake_review/pdf_hashes.json
+- verification/r5_reference_intake_review/render_manifest.json
+- verification/r5_reference_intake_review/additional_render_manifest.json
+- verification/r5_reference_intake_review/visual_transcription.json
+- verification/r5_reference_intake_review/qualitative_assessments.json
+- verification/r5_reference_intake_review/inspect_reference.py
+- verification/r5_reference_intake_review/independent_final.json
+- verification/r5_reference_intake_review/replay_builder.py
+- verification/r5_reference_intake_review/builder_replay_repeat.json
+- verification/r5_reference_intake_review/remote_context.json
+- verification/r5_reference_intake_review/target_CI.json
+- verification/r5_reference_intake_review/validation.json
+```

@@ -1,0 +1,28 @@
+{
+  "observed_at_utc": "2026-11-16T23:43:22.960599+00:00",
+  "results": [
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "origin",
+        "refs/heads/main"
+      ],
+      "exit_code": 0,
+      "stdout": "3353de6c9fc699fbd565f1ce63cebedad3137a12\trefs/heads/main\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/pulls?state=open&per_page=100",
+        "--jq",
+        "[.[]|{number,title,head_sha:.head.sha,head_branch:.head.ref,base:.base.ref}]"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"base\":\"main\",\"head_branch\":\"work-r1/T-r1-force-inputs-intake-01/6afb300b-1540-8191-a5c4-be1a684c20e0\",\"head_sha\":\"411bb36f9559d80caec4e2f870e8120148d9c6a9\",\"number\":52,\"title\":\"R1: \u0440\u0435\u0444\u0435\u0440\u0435\u043d\u0442\u043d\u044b\u0439 \u043f\u0430\u043a\u0435\u0442 BP500/WEIMA/E55/ARS \u0438 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0435\u043d\u0438\u0435 claim intake\"}]\n",
+      "stderr": ""
+    }
+  ]
+}
