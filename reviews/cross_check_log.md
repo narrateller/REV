@@ -6777,3 +6777,248 @@ reproduction_artifacts:
 - verification/r5_requirements_rev8_review/validation.json
 - verification/r5_requirements_rev8_review/registry.log
 ```
+
+
+## R5 — независимый OUTPUT-review G1 supplement PR55
+
+```yaml
+record_type: review
+review_id: REV-R5-G1-SUPPLEMENT-OUTPUT-01-001
+review_type: OUTPUT_DOCUMENTARY_SUPPLEMENT
+reviewed_commit: fe10c0bc7242fe9d2df3e571c80b4e687f731d7c
+reviewed_handoff_commit: e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658
+reviewer:
+  role: R5
+  session_id: 6afb0a73-b16c-8191-a539-9a6685e89034
+  model_label: Codex on GPT-6 base; exact runtime model identifier UNAVAILABLE
+author_sessions:
+- 6afb300b-1540-8191-a5c4-be1a684c20e0
+reviewed_at_utc: '2026-11-17T09:34:11.821516+00:00'
+scope: New PR55 criterion/metrology/hazard/normative/source-action supplement, documentary applicability/definitions/UNKNOWN/preservation
+  only; preliminary DRAFT fitness, no G1 or engineering acceptance
+independence_basis: Actual reviewer did not author this target. Prior same-session upstream R5 force/symbolic/OBS01/source/rev8
+  acts and claim preparation disclosed; no independent recertification of own old conclusions. Own22+22/11/20/6/3
+  semantic assessments; author395/old3890 and renderer replay not the new review.
+parameter_refs: []
+artifacts:
+- path: verification/r1_g1_criteria_plan_20261117/README.md
+  sha256: 7f85c998aa7cfcdb343bd31a68b0f4c8621e5df29bc8926872a602b9459de2c7
+- path: verification/r1_g1_criteria_plan_20261117/author_checks.json
+  sha256: cde81b162f3e1f8b2ceb3ac57834aeeb3a0e2ed8a74fce66b71af428e0436f4e
+- path: verification/r1_g1_criteria_plan_20261117/authorization_and_scope.json
+  sha256: 4ad7be978916e11abab8cac6c7c622226a142142bbeb7dba1d1616ad773d8795
+- path: verification/r1_g1_criteria_plan_20261117/build_plan.py
+  sha256: cb522928473ff144cb6ff46fd2337fc379cf0bd6e9eecc7adcfca709f33048d5
+- path: verification/r1_g1_criteria_plan_20261117/criterion_cards.json
+  sha256: 782bc1f86ac701548d4fb02e363d623a5b3c5f32e2db307caad62c6d792b24c9
+- path: verification/r1_g1_criteria_plan_20261117/criterion_cards.md
+  sha256: db39c753962b3455dc1147d9b3eb40391e97f6e779823422eed5ebf7747034c3
+- path: verification/r1_g1_criteria_plan_20261117/evaluation_rules.json
+  sha256: cd4bfbdb598200aa8d5fc5ffec097b3550c0a12c4c2d20ec5875229142e6aa41
+- path: verification/r1_g1_criteria_plan_20261117/evidence_schema.json
+  sha256: 27225afed72daea9c9199be2e62d1cc5e6a2d12522c9ce1096aef36d44e33cf7
+- path: verification/r1_g1_criteria_plan_20261117/execution_board.md
+  sha256: a2538d9aff1b95c5763b9912b2ea8e4ab8570a5c2844ddb2d62545c11e3d84ab
+- path: verification/r1_g1_criteria_plan_20261117/hazard_to_evidence.json
+  sha256: 3d212342d0cc597d7f96ee358c9d2fbe9f7381ad3972231ae646e2a0c89f4ddc
+- path: verification/r1_g1_criteria_plan_20261117/input_audit.json
+  sha256: 1ea4214ab2702dcd73f763582eb30c4857ffe52cc916f56b151b916ddf8d6e3f
+- path: verification/r1_g1_criteria_plan_20261117/input_manifest.json
+  sha256: ee837a4a50f1f78a99895a4da748a7b17dd121749c554357b0cc3b78ae28f7fa
+- path: verification/r1_g1_criteria_plan_20261117/metrology_plan.json
+  sha256: 46f854459a069726fd91bfc13962269cbfc9f451e30c2de4d028fd240af0032f
+- path: verification/r1_g1_criteria_plan_20261117/metrology_plan.md
+  sha256: e6cf739bba921d8bb8102bda5224aca1ca926e4ec6082915cf1b0ace51fd74c6
+- path: verification/r1_g1_criteria_plan_20261117/normative_applicability_plan.json
+  sha256: 409206767807dd3bd536af79476ff4bda7923880e4478e0819a16a00975f34f1
+- path: verification/r1_g1_criteria_plan_20261117/normative_plan.md
+  sha256: a75c3ae9e9c81284be0f19a5344a1332947e55d16fd51f7bc608fba2aad6bcd1
+- path: verification/r1_g1_criteria_plan_20261117/registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r1_g1_criteria_plan_20261117/registry_status.json
+  sha256: 5a2b344e45c30f9957dbd07fa78665148ef001cb5f782c9d66541b91b7164f57
+- path: verification/r1_g1_criteria_plan_20261117/reproducibility.json
+  sha256: c75750198e3f968c3e4b0364f240455634c77c487dba432b7bbb871c1b130a4c
+- path: verification/r1_g1_criteria_plan_20261117/safety_plan.md
+  sha256: 59a8957f49ef081b9cdcb2798047004bf2148f6723b51f0b8b717202a7c85c98
+- path: verification/r1_g1_criteria_plan_20261117/search_sources.py
+  sha256: e8fa15353b1c27835d94a3b993cfb9370d289a93d96405eb900c882c6d32d2d7
+- path: verification/r1_g1_criteria_plan_20261117/source_actions.json
+  sha256: 2c18fd7cb2befb12740653f63f808047dd4a66f8b8345b729107f3201e4913f5
+- path: verification/r1_g1_criteria_plan_20261117/source_actions.md
+  sha256: 0f1663c1e60e048308f4a2df0eb791d28db70321169a49c14f8e0ce3eaf2647c
+- path: verification/r1_g1_criteria_plan_20261117/source_text_search.json
+  sha256: 2922e80e3bcb3813f6cc701f103db75b0258339cbc2252ceb2697da5d3081671
+- path: verification/r1_g1_criteria_plan_20261117/task_before_supplement.json
+  sha256: b95f608d64b752dde7a6c3a1efb3acaec0a185a8cd82f85f1c94b4a5a0d4d995
+- path: verification/r1_g1_criteria_plan_20261117/verify_plan.py
+  sha256: aa0a923217ca77ec06948ca9379d0de47f6f0d242fc8cd86e003ee280b1d8b9b
+- path: verification/r1_g1_criteria_plan_20261117/review_target_manifest.json
+  sha256: 318c0d6809c77cf9a5f033ea734414de0edf2a26515b1bacf614eecb4c3a775d
+checks:
+- id: G1-CLAIM
+  method: Fresh Git/API main/head/PR56/ledger/time/competition and actual session
+  expected: Accepted actual owner, exact scope, original live deadline, target not coauthored
+  observed: main98d1494 accepted PR56; owner6afb0a73; deadline2026-11-18T01:58:30.990734+00:00 unchanged; no competing
+    accepted owner; upstream authorship disclosed
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-INPUT
+  method: Independent immutable seals and bounded input audit
+  expected: 31 inputs and valid accepted scope; physical audit unavailable explicitly
+  observed: WARNING input audit4 bounded PASS/3 NOT_RUN;31 pins match
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-22
+  method: Read all22 criterion/metrology pairs; own distinct per-row assessments and expected links/classes
+  expected: Meaningful future predicate/evidence/mode; objective completeness distinguished; UNKNOWN remains null
+  observed: 22 own criterion+22 metrology assessments;18 mixed/4 objective; no threshold/device/count/owner invented;
+    all NOT_RUN
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-CHANNELS
+  method: Read11 method classes and uncertainty terms
+  expected: Sampling/calibration/time/context proposed without asserted metrological validity
+  observed: 11 plausible method classes; all budgets unevaluated; DOCUMENT terminology followup DOC01; own loads/reactions
+    method needed for MET09
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-HAZARDS
+  method: Read all20 original scenarios and compare whole cells, REQ/VAL, safe-state conditions
+  expected: No cell loss; no PL/SIL/retention/unload proof from power-off/pressure/timer/signal
+  observed: 20 scoped mappings preserved; no risk/effectiveness/completeness claimed; TRACE02 lifting/structural-case
+    linkage recommendation
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-NORMS
+  method: Compare six full historical identity/read-scope/direction cells and new applicability boundary
+  expected: Historical pages/cards not full or current legal applicability
+  observed: N01-N06 qualified; N05 first decision page only, N06 card only; current edition/jurisdiction/applicability
+    null; no new legal conclusion
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-SOURCE
+  method: Read3 action cards, frozen40/16 applicability and own bounded4-PDF navigation
+  expected: Open power/literal pressure/moisture, no kgf/basis/budget repair or contact
+  observed: 3 questions/evidence/no-reply policies remain OPEN; BP500primary; comparator windows separate; ARS no
+    readable text; no-hit is not absence proof
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-EVIDENCE
+  method: Review evaluation order, quality states and empty schema
+  expected: Known violations/invalid observations retained; many-to-many and unknown fractions; no fake PASS
+  observed: Authorization precedes evaluation; valid known FAIL distinct from missing/invalid INDETERMINATE; empty
+    actual records; SIGNAL_LOSS/INVALID not NO_MOTION_CONFIRMED
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-PRESERVE
+  method: Immutable full blobs/trees, current protected paths and hydrated LFS SHA
+  expected: 26new/31pins/25old/26formal/54pins/12trees and44fullbindings preserved
+  observed: 4117 guards PASS/0FAIL;3152 base files preserved;59 LFS match;44/52/84/42 full objects;15 gaps and all
+    old history remain
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-REPLAY
+  method: Read-before-run documentary builder/search to fresh TEMP; no author verifier
+  expected: 13 outputs match and search equals except observation UTC
+  observed: 13/13 MATCH; source search MATCH except checked_at_utc; source navigation independent and bounded; no
+    session spoofing
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: PASS
+- id: G1-4
+  method: Actual balances/forces/power/process
+  expected: Actual inputs/applicable analysis and separate authority needed
+  observed: NOT_RUN; no engineering or tests executed;42 states unsolved
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: NOT_RUN
+- id: G1-5
+  method: Actual geometry/supports/joints/strength/stability
+  expected: Actual inputs/applicable analysis and separate authority needed
+  observed: NOT_RUN; no engineering or tests executed;42 states unsolved
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: NOT_RUN
+- id: G1-6
+  method: Real cycle/resources/physical READY
+  expected: Actual inputs/applicable analysis and separate authority needed
+  observed: NOT_RUN; no engineering or tests executed;42 states unsolved
+  reasoning: Scope is preliminary documentary supplement; physical/engineering criteria are not closed by structure,
+    counts or software CI.
+  result: NOT_RUN
+verdict: WARNING
+validity: CURRENT
+draft_suitability: SUITABLE_PRELIMINARY_DOCUMENTARY_PROPOSAL_WITH_OPEN_DEFINITIONS
+requirements_approved: false
+source_states_solved: false
+G1: OPEN
+W02: NO_GO
+physical_READY: NO_GO
+input_audit_sections:
+  '4': NOT_RUN
+  '5': NOT_RUN
+  '6': NOT_RUN
+blocker_ids:
+- R5-TZ-B01
+- R5-TZ-B02
+- R5-TZ-B03
+findings:
+- id: R5-TZ-B01
+  status: OPEN
+  scope: TZ/G1 approval remains blocked; not rejection of preliminary documentary proposal
+- id: R5-TZ-B02
+  status: OPEN
+  scope: TZ/G1 approval remains blocked; not rejection of preliminary documentary proposal
+- id: R5-TZ-B03
+  status: OPEN
+  scope: TZ/G1 approval remains blocked; not rejection of preliminary documentary proposal
+- id: SOURCE-POWER
+  status: OPEN
+  scope: TZ/G1 approval remains blocked; not rejection of preliminary documentary proposal
+- id: SOURCE-PRESSURE-UNIT
+  status: OPEN
+  scope: TZ/G1 approval remains blocked; not rejection of preliminary documentary proposal
+- id: SOURCE-MOISTURE-BASIS
+  status: OPEN
+  scope: TZ/G1 approval remains blocked; not rejection of preliminary documentary proposal
+- id: R5-G1-DOC-01
+  status: OPEN
+  severity: NONBLOCKING_DOCUMENTARY_FOLLOWUP
+  description: DOCUMENT channel uses generic calibration/uncertainty terminology for reviewer competence/source
+    completeness. Specialize assurance criteria and justified not-applicable fields; do not invent a numerical budget.
+  scope: Before program approval
+- id: R5-G1-TRACE-02
+  status: OPEN
+  severity: NONBLOCKING_DOCUMENTARY_FOLLOWUP
+  description: Consider direct REQ09 structural-case trace for H01 lifting/stability, and define actual load/reaction
+    evidence in MET09; current table does not prove complete coverage.
+  scope: Before complete safety/program mapping approval
+upstream_acts_recertified: false
+lease_extension: false
+reproduction_artifacts:
+- verification/r5_g1_supplement_review/identity.json
+- verification/r5_g1_supplement_review/independent_results.json
+- verification/r5_g1_supplement_review/input_audit.json
+- verification/r5_g1_supplement_review/input_audit.md
+- verification/r5_g1_supplement_review/inspect_supplement.py
+- verification/r5_g1_supplement_review/merge_context.json
+- verification/r5_g1_supplement_review/own_source_navigation.json
+- verification/r5_g1_supplement_review/remote_context.json
+- verification/r5_g1_supplement_review/renderer_replay.json
+- verification/r5_g1_supplement_review/review.md
+- verification/r5_g1_supplement_review/source_search_replay.json
+- verification/r5_g1_supplement_review/target_CI.json
+- verification/r5_g1_supplement_review/task_before_review.json
+- verification/r5_g1_supplement_review/validation.json
+- verification/r5_g1_supplement_review/registry.log
+```

@@ -1,3 +1,69 @@
+# R5 — независимый OUTPUT-review PR55 завершён документально
+
+T-r5-g1-supplement-output-review-01 / REVIEW_COMPLETE_PENDING_PUBLICATION / WARNING.
+Actual session6afb0a73-b16c-8191-a539-9a6685e89034; принятый claim main98d1494334ad5161ea8f56226c770dc762fb59d3.
+Exact reviewed Cfe10c0bc7242fe9d2df3e571c80b4e687f731d7c; request He6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+Акт REV-R5-G1-SUPPLEMENT-OUTPUT-01-001: verification/r5_g1_supplement_review/review.md.
+Предварительное документальное предложение пригодно; ТЗ/G1 недостаточно, B01/B02/B03/source OPEN.
+22 criterion +22 metrology/11 channel/20 hazard/6 norm/3 source semantic assessments;
+4117 guards PASS/0FAIL;13 outputs MATCH/search MATCH кроме UTC; author395/old3890 не новый review.
+DOC01/TRACE02 — неблокирующие замечания для следующей программы/карты доказательств.
+Claim owner/исходный deadline2026-11-18T01:58:30.990734+00:00 неизменны; чужие leases не продлены.
+R1 следующий: получить отдельные C/H, проверить exact SHA/CI/main/срок и разобрать замечания/определения.
+PR55/main не сливать. ТЗ/G1 не утверждены; UNKNOWN/RAW сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; G1 OPEN; W02/physical READY NO-GO.
+Расчёты/CAD-build/rebuild/испытания не начинались и не разрешены.
+
+---
+
+> R5: объединение сохранённых историй только в изолированной review-ветке.
+> Canonical claim принят в main98d1494; target PR55 остаётся exact fe10c0b.
+> Ниже — принятая координационная история, затем контекст target H и общая история.
+
+# R1 — принятие отдельного claim R5 для PR55: кандидат до main
+
+UTC 2026-11-17T08:32:38.977670+00:00; coordinator 6afb300b-1540-8191-a5c4-be1a684c20e0; owner proposed/accepted candidate R5 6afb0a73-b16c-8191-a539-9a6685e89034.
+Task T-r5-g1-supplement-output-review-01; exact C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c; request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+Canonical ledger coordination/claims/T-r5-g1-supplement-output-review-01.json; исходный срок 2026-11-18T01:58:30.990734+00:00 не продлён.
+Полномочия только после включения ledger в main и проверки фактического UTC/ancestry.
+R5 OUTPUT-review/13 replay NOT_RUN;verdict null. PR56 содержит claim,не target PR55.
+R1 decision decisions/R1-R5-G1-SUPPLEMENT-CLAIM-ACCEPTANCE.md; original proposal
+C91b95034950e7b92eeb021035ff63dbe577c05f2/H7ecdb2fefa96c0c72bf2bf009f354d705371aa28
+/checkpoint1c374da4bb7a67b0106efa82d3f145729bc11bc7 сохранены.
+После main activation R5 проверяет owner/lease/конкуренцию/target pins/input audit,
+затем выполняет независимую документальную оценку и публикует собственные C/H.
+R1/old intake ledgers неизменны; новой роли или продления чужих полномочий нет.
+WARNING/UNKNOWN/RAW сохранены;ТЗ/G1 не утверждены,42 состояния не рассчитаны,
+§4/5/6 NOT_RUN,G1 OPEN,W02/physical READY NO-GO. Расчёты/CAD-rebuild/испытания запрещены.
+
+---
+
+## Предыдущие записи — история
+
+# R5 — предложение claim на независимый review PR55
+
+T-r5-g1-supplement-output-review-01 / PROPOSED_NOT_ACCEPTED / BLOCKED_CLAIM_ACCEPTANCE.
+Actual session 6afb0a73-b16c-8191-a539-9a6685e89034; прямое назначение R5 действует, принятого claim этой задачи в main нет.
+Предложение: coordination/proposals/T-r5-g1-supplement-output-review-01.json; owner_session NONE, claim_effective false.
+Exact future reviewed_commit fe10c0bc7242fe9d2df3e571c80b4e687f731d7c; request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+Документальная приёмка предложения отдельно от PR55; PR55 не сливать.
+Запрошенный предел lease 2026-11-18T01:58:30.990734+00:00 только предложение, фактический срок не создан.
+Старые R1/R4/прочие leases не продлены; accepted ledgers не редактируются.
+22 карточки/22 метрологии/20 hazards/6 norms/3 source actions и13 outputs: OUTPUT-review NOT_RUN до принятого claim.
+Автор395 и старые3890 R5 не являются новым независимым review. Target quality verdict отсутствует.
+Первый шаг R1: проверить scope/owner/срок/конкуренцию/remote SHA и оформить последовательное принятие claim в main.
+После принятия — отдельный input audit/review exact C, собственный акт C/H и CI.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; G1 OPEN; W02/physical READY NO-GO.
+ТЗ/архитектура не утверждены; RAW не повышены; численный/физический этап/CAD-rebuild/испытания не начаты.
+
+---
+
+
+
+---
+
+## Контекст exact target H — сохранённая история
+
 # R1 — координация продолжается: рабочие критерии/метрология/безопасность G1
 
 UTC 2026-11-17T07:28:04.361876+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; existing accepted task T-r1-requirements-draft-01.

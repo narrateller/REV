@@ -1,0 +1,369 @@
+{
+  "observed_at_utc": "2026-11-17T08:13:05.737006+00:00",
+  "scope": "Claim/authority preflight only; NOT an OUTPUT-review",
+  "target_C": "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c",
+  "request_H": "e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658",
+  "base_main": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+  "actual_session_id": "6afb0a73-b16c-8191-a539-9a6685e89034",
+  "checks": [
+    {
+      "id": "fresh-main",
+      "result": "PASS",
+      "observed": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+      "expected": "043271b57aa3d49b6d9b45da03496ea11dad41b1"
+    },
+    {
+      "id": "actual-session",
+      "result": "PASS",
+      "observed": "6afb0a73-b16c-8191-a539-9a6685e89034",
+      "expected": "6afb0a73-b16c-8191-a539-9a6685e89034"
+    },
+    {
+      "id": "request-parent",
+      "result": "PASS",
+      "observed": "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c",
+      "expected": "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c"
+    },
+    {
+      "id": "accepted-main-ancestor",
+      "result": "PASS",
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "id": "PR55-exact-head-open",
+      "result": "PASS",
+      "observed": {
+        "state": "open",
+        "merged": false,
+        "head": "e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658",
+        "base": "043271b57aa3d49b6d9b45da03496ea11dad41b1"
+      },
+      "expected": "PR55 OPEN/unmerged, exact request H and accepted main"
+    },
+    {
+      "id": "R1-authority-and-deadline",
+      "result": "PASS",
+      "observed": {
+        "status": "ACCEPTED_MAIN",
+        "owner": "6afb300b-1540-8191-a5c4-be1a684c20e0",
+        "lease_expires_at": "2026-11-18T01:58:30.990734+00:00",
+        "observed_at_utc": "2026-11-17T08:13:05.737006+00:00"
+      },
+      "expected": "R1 original accepted scope/deadline active; no renewal"
+    },
+    {
+      "id": "intake-released",
+      "result": "PASS",
+      "observed": {
+        "status": "COMPLETED_DOCUMENTARY_RELEASED",
+        "owner": "NONE"
+      },
+      "expected": "Earlier intake released"
+    },
+    {
+      "id": "R5-claim-absent",
+      "result": "PASS",
+      "observed": 0,
+      "expected": "No accepted claim; substantive OUTPUT-review remains NOT_RUN until serialized acceptance"
+    },
+    {
+      "id": "R5-no-other-active-owned-task",
+      "result": "PASS",
+      "observed": [],
+      "expected": "No other accepted active task owned by this actual session"
+    },
+    {
+      "id": "no-visible-competing-PR",
+      "result": "PASS",
+      "observed": [],
+      "expected": "No competing visible proposal for exact same task; recheck before acceptance"
+    },
+    {
+      "id": "target-not-coauthored",
+      "result": "PASS",
+      "observed": [
+        "6afb300b-1540-8191-a5c4-be1a684c20e0"
+      ],
+      "expected": "Actual reviewer session absent from target authors; upstream disclosed"
+    },
+    {
+      "id": "manifest-unchanged-at-H",
+      "result": "PASS",
+      "observed": "318c0d6809c77cf9a5f033ea734414de0edf2a26515b1bacf614eecb4c3a775d",
+      "expected": "Exact manifest preserved at request H; contents not independently reviewed yet"
+    },
+    {
+      "id": "H-only-context",
+      "result": "PASS",
+      "observed": [
+        "NEXT_MODEL.md",
+        "STATE.md",
+        "handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md",
+        "verification/r1_g1_criteria_plan_20261117/R5_review_command.md"
+      ],
+      "expected": "H changes only request/operational context"
+    },
+    {
+      "id": "binding44-preflight-seal",
+      "result": "PASS",
+      "observed": {
+        "count": 44,
+        "sha256": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0"
+      },
+      "expected": "44 complete objects sealed; this is preservation metadata, no engineering review"
+    }
+  ],
+  "counts": {
+    "PASS": 14,
+    "FAIL": 0
+  },
+  "own_claim_accepted": false,
+  "review_status": "NOT_RUN_PENDING_ACCEPTED_CLAIM",
+  "review_verdict": null,
+  "author395_used_as_independent_review": false,
+  "prior3890_used_as_independent_review": false,
+  "renderer13_status": "NOT_RUN",
+  "engineering_execution": "NOT_STARTED",
+  "input_audit_sections": {
+    "4": "NOT_RUN",
+    "5": "NOT_RUN",
+    "6": "NOT_RUN"
+  },
+  "G1": "OPEN",
+  "W02": "NO_GO",
+  "physical_READY": "NO_GO",
+  "accepted_ledgers": [
+    {
+      "path": "coordination/claims/T-r1-force-inputs-intake-01.json",
+      "sha256": "952b4c4ef67501dfa8f5773afe22e3059c1d122d596411360e1750aab71a9b9b",
+      "record": {
+        "record_type": "task_claim_acceptance",
+        "task_id": "T-r1-force-inputs-intake-01",
+        "status": "COMPLETED_DOCUMENTARY_RELEASED",
+        "status_semantics": "Released only when this updated record and completion are in remote main. Original deadline remains historical and is not extended.",
+        "acceptance_authority": "USER_EXPLICIT_INSTRUCTION",
+        "authorization": "verification/pr52_claim_merge_20261117/authorization.json",
+        "recorded_at_utc": "2026-11-17T00:42:13.477163+00:00",
+        "owner_session": "NONE",
+        "session_id": "6afb300b-1540-8191-a5c4-be1a684c20e0",
+        "role": "R1",
+        "model_label": "Codex on GPT-6 base; exact runtime model identifier unavailable",
+        "assignment_basis": "Existing R1 assignment continues; explicit user acceptance of this task claim; coordinator records the user decision, not independent self-review",
+        "lease_expires_at": "2026-11-17T23:16:47.225017Z",
+        "lease_extension": false,
+        "heartbeat_utc": "2026-11-17T00:42:13.477163+00:00",
+        "heartbeat_basis": "Actual reread, exact-head CI/remote and source-preservation preflight performed by owner",
+        "proposal_path": "verification/r1_force_inputs_intake/claim.json",
+        "proposal_commit": "f2cbd96bb78c915dca74cb4eb29daffbb52ee172",
+        "proposal_sha256": "6b80b47d3344fbb728796f7d90dbe6b112bc403739c87d1a1bd012384730efe9",
+        "original_main": "3353de6c9fc699fbd565f1ce63cebedad3137a12",
+        "original_PR_head": "49f0045e504863b335869748b7f9385c001469ca",
+        "acceptance_PR": 52,
+        "activation_predicate": "Inactive after inclusion of this completion/release in remote main; does not authorize further task execution",
+        "integration_receipt_location": "verification/pr52_claim_merge_receipt_20261117/ (created only after actual merge; no future SHA is asserted here)",
+        "task_status_on_activation": "CLAIMED_DOCUMENTARY_ONLY",
+        "scope": "Limited documentary source intake and preparation of a separate requirements-draft task; preserve reference qualifications, source uncertainties and RAW maturity",
+        "excluded_actions": [
+          "No numerical or physical stage, CAD-build/rebuild or physical trials",
+          "No automatic RAW promotion, architecture/TZ approval or gate closure",
+          "No claim renewal, takeover or assignment of other sessions",
+          "No assertion that 42 states are solved, strength/stability/reactions confirmed, W02 or physical READY permitted"
+        ],
+        "source_review": "REV-R5-REFERENCE-INTAKE-REVIEW-01-001 / WARNING_DOCUMENTARY_REFERENCE_ONLY / exact f2cbd96bb78c915dca74cb4eb29daffbb52ee172",
+        "input_audit_456": "NOT_RUN",
+        "engineering_execution": "NOT_STARTED",
+        "enforcement": "PROCEDURAL",
+        "previous_owner_session": "6afb300b-1540-8191-a5c4-be1a684c20e0",
+        "lease_active": false,
+        "completed_at_recorded_utc": "2026-11-17T01:58:30.990734+00:00",
+        "completion_record": "coordination/completions/T-r1-force-inputs-intake-01.json",
+        "original_accepted_record_commit": "a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3",
+        "original_accepted_record_sha256": "0fc190e14947e70e247554c2a0f11b50c23cc82351bf19b284bf22e6257c7d41",
+        "original_accepted_record_archive": "verification/r1_requirements_claim_20261117/intake_accepted_ledger_before.json"
+      }
+    },
+    {
+      "path": "coordination/claims/T-r1-requirements-draft-01.json",
+      "sha256": "afa227803c3faddd5bff17151ecb9cecf57ef9f7a7fc399429e05022c395794b",
+      "record": {
+        "record_type": "task_claim_acceptance",
+        "task_id": "T-r1-requirements-draft-01",
+        "status": "ACCEPTED_MAIN",
+        "owner_session": "6afb300b-1540-8191-a5c4-be1a684c20e0",
+        "session_id": "6afb300b-1540-8191-a5c4-be1a684c20e0",
+        "role": "R1",
+        "model_label": "Codex on GPT-6 base; exact runtime model identifier unavailable",
+        "acceptance_authority": "USER_EXPLICIT_INSTRUCTION",
+        "authorization": "verification/r1_requirements_claim_20261117/authorization.json",
+        "proposed_at_utc": "2026-11-17T01:58:30.990734+00:00",
+        "recorded_at_utc": "2026-11-17T01:58:30.990734+00:00",
+        "heartbeat_utc": "2026-11-17T01:58:30.990734+00:00",
+        "heartbeat_basis": "Actual role/protocol/state/input/remote/CI preflight and authorized preparation",
+        "lease_expires_at": "2026-11-18T01:58:30.990734+00:00",
+        "lease_duration_hours": 24,
+        "lease_basis": "New task, exactly 24 hours from recorded proposal preparation UTC; not extension/transfer of intake lease",
+        "acceptance_PR": 53,
+        "base_main": "a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3",
+        "original_PR_head": "5674ca6a6c4d8d98eaa9fab953691fd2ac61a2e7",
+        "predecessor_claim": "T-r1-force-inputs-intake-01",
+        "predecessor_completion": "coordination/completions/T-r1-force-inputs-intake-01.json",
+        "activation_predicate": "Effective only when this exact record, intake release and completion are included atomically in remote main, old intake owner is NONE, no competing accepted task owner and current UTC is before this deadline",
+        "status_semantics": "Working-branch record is a candidate; no lock until serialized main acceptance",
+        "scope": "DRAFT requirements/verification matrix, all 22 REQ/VAL, applicability of 40 RAW reference fields, criteria/gaps and independent exact-C R5 request; documentary only after input audit",
+        "input_audit": "NOT_RUN_PENDING_MAIN_ACCEPTANCE",
+        "documentary_execution": "NOT_STARTED",
+        "engineering_execution": "NOT_STARTED",
+        "numerical_physical_CAD_stage_authorized": false,
+        "requirements_approved": false,
+        "G1": "OPEN",
+        "physical_READY": "NO_GO",
+        "enforcement": "PROCEDURAL"
+      }
+    }
+  ],
+  "input_seals": [
+    {
+      "commit": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+      "path": "AGENTS.md",
+      "sha256": "f81c3d5c0a10720a062abb311fa0fda0b4f5ab34e104a2eba9317597ebfbe1d0"
+    },
+    {
+      "commit": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+      "path": "AGENT_PROTOCOL.md",
+      "sha256": "0743915fbfe47870f95e883a9962536283f81ec53de5b7f2588a9df6457e7234"
+    },
+    {
+      "commit": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+      "path": "STATE.md",
+      "sha256": "c792970114ccdc9a16c5db27c6b9d925dc0764126d6156f7658bf976cff8f823"
+    },
+    {
+      "commit": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+      "path": "NEXT_MODEL.md",
+      "sha256": "d1d7c0c05c2cb1332c07da6d6fba1f29a9f19f015f427840ca85caab210edc8c"
+    },
+    {
+      "commit": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "2a81697bdb613986a477e8130c49b1efaff29bf06adea505d00f0453e21f5c72"
+    },
+    {
+      "commit": "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c",
+      "path": "verification/r1_g1_criteria_plan_20261117/review_target_manifest.json",
+      "sha256": "318c0d6809c77cf9a5f033ea734414de0edf2a26515b1bacf614eecb4c3a775d"
+    },
+    {
+      "commit": "e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658",
+      "path": "verification/r1_g1_criteria_plan_20261117/R5_review_command.md",
+      "sha256": "8c8287724840faa40233e596164a47f804265e3d34332e4693f8b30a3f7e6511"
+    }
+  ],
+  "open_PRs": [
+    {
+      "number": 55,
+      "title": "R1: DRAFT критериев 22 REQ, метрологии и безопасности G1",
+      "branch": "work-r1/pr54-merge-receipt/6afb300b-1540-8191-a5c4-be1a684c20e0",
+      "sha": "e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "origin",
+        "refs/heads/main"
+      ],
+      "exit_code": 0,
+      "stdout": "043271b57aa3d49b6d9b45da03496ea11dad41b1\trefs/heads/main\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "fetch",
+        "origin",
+        "main"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/narrateller/REV\n * branch            main       -> FETCH_HEAD\n"
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "origin/main"
+      ],
+      "exit_code": 0,
+      "stdout": "043271b57aa3d49b6d9b45da03496ea11dad41b1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658^"
+      ],
+      "exit_code": 0,
+      "stdout": "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658^"
+      ],
+      "exit_code": 0,
+      "stdout": "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/pulls/55"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"url\":\"https://api.github.com/repos/narrateller/REV/pulls/55\",\"id\":5352250979,\"node_id\":\"PR_kwDOVpSP_88AAAABPwTeYw\",\"html_url\":\"https://github.com/narrateller/REV/pull/55\",\"diff_url\":\"https://github.com/narrateller/REV/pull/55.diff\",\"patch_url\":\"https://github.com/narrateller/REV/pull/55.patch\",\"issue_url\":\"https://api.github.com/repos/narrateller/REV/issues/55\",\"commits_url\":\"https://api.github.com/repos/narrateller/REV/pulls/55/commits\",\"review_comments_url\":\"https://api.github.com/repos/narrateller/REV/pulls/55/comments\",\"review_comment_url\":\"https://api.github.com/repos/narrateller/REV/pulls/comments{/number}\",\"comments_url\":\"https://api.github.com/repos/narrateller/REV/issues/55/comments\",\"statuses_url\":\"https://api.github.com/repos/narrateller/REV/statuses/e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658\",\"number\":55,\"state\":\"open\",\"locked\":false,\"title\":\"R1: DRAFT критериев 22 REQ, метрологии и безопасности G1\",\"user\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"body\":\"PR55 продолжает документальную работу после PR54: вместо ожидания дальнейших указаний R1 подготовил рабочие карточки критериев,программу метрологии и связи безопасности. В истории сохранены квитанция PR54 и её C/H; новая содержательная поставка — отдельный DRAFT supplement к неизменённой rev8.\\n\\n- **22 criterion cards**: наблюдение,будущий PASS-предикат,обязательные evidence fields,режим/source refs,недостающие определения и реальный R1 owner документальной подготовки. Численные и objective-completeness критерии различены;threshold/tolerance/approved ranges не выдуманы.\\n- **22 metrology rows /11 channel classes**: классы методов,калибровки,синхронизация,статьи неопределённости и условия допуска;конкретные средства/диапазоны/точность/серия UNKNOWN. Все VAL/TEST NOT_RUN,execution_permission false,actual records пусты.\\n- **20 hazard-to-evidence rows H01–H20** сохраняют предыдущую карту и старые узкие documentary closures;заданы предлагаемые ограничения/доказательства и REQ/VAL links. Риск/PL/SIL/защитные функции не выбраны и не проверены.\\n- **6 normative candidates N01–N06** переиспользованы с историческими пределами чтения/проверки. Нет нового юридического заключения,обязательности или актуальной консолидированной редакции.\\n- **3 source action cards** содержат точные вопросы и required closure evidence;выполнен bounded text search четырёх PDF. Явная wet/dry база по шаблонам не найдена;у ARS нет text layer. Это не полное перечитывание или доказательство отсутствия в сканах. Source power/pressure/moisture OPEN;есть два документальных пути дальнейшего решения без догадок/численного бюджета/внешних отправок.\\n\\nR1 actual session `6afb300b-1540-8191-a5c4-be1a684c20e0` координирует и владеет документальной поставкой в существующем accepted claim `T-r1-requirements-draft-01`,deadline `2026-11-18T01:58:30.990734+00:00` без продления/переноса. Инженерные роли/сессии/сроки не назначены. Очередь действий — execution_board.md;нового руководителя не ждём.\\n\\n**Rev8 и25 target/26 reviewed artifacts сохранены неизменными.** R5 C04502cfe/H64ac3e CURRENT/WARNING относится только к rev8,не к этому supplement;новый review NOT_RUN. Матрица/реестр/CAD не редактируются,RAW не повышаются. История PR54 merge `043271b57aa3d49b6d9b45da03496ea11dad41b1`,main CI SUCCESS/100 tests и postmerge165 PASS остаются в verification/pr54_merge_20261117/.\\n\\nНовый пакет: verification/r1_g1_criteria_plan_20261117/. 31 exact input,documentary input audit WARNING/4 PASS/3 NOT_RUN. Авторские проверки **395 PASS/0FAIL**,renderer **13 MATCH**,source-search replay MATCH except UTC. Root registry --check-git и CI итогового head фиксируются после публикации. Это авторская целостность/воспроизводимость,не independent review или реальный PASS требований. Следующий H содержит R5 request на exact C.\\n\\nB01/B02/B03/source issues OPEN. 40 scoped RAW/84 UNKNOWN/15 gaps,54 old pins/12 protected trees,44 full bindings/loads/strokes/CAD,52 interfaces и42 source-state объекта сохранены. Старые REJECT/STALE/счётчики/четыре FAIL/OBS01 exact-C closure не сброшены.\\n\\n**42 состояния не рассчитаны;§4/5/6 NOT_RUN.** Прочность/устойчивость/реальные реакции не подтверждены. Архитектура/ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO. Численный/физический этап,CAD-rebuild и физические испытания не начинаются. PR55 остаётся DRAFT для рассмотрения,main merge/auto-merge не выполняются.\\n\\n\\n<!-- R1 exact documentary supplement -->\\n\\nC результата `fe10c0bc7242fe9d2df3e571c80b4e687f731d7c`; H/head `e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658`. Root registry --check-git PASS, код0.\\nЗапрос независимому R5: [R5_review_command.md](https://github.com/narrateller/REV/blob/e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658/verification/r1_g1_criteria_plan_20261117/R5_review_command.md). Новый review NOT_RUN; CI exact H проверяется.\\n\\n\\n**Exact head CI проверен:** [pull_request44039635935](https://github.com/narrateller/REV/actions/runs/44039635935) и [push44039627695](https://github.com/narrateller/REV/actions/runs/44039627695) SUCCESS; в каждом registry PASS,100 tests OK. Фактические SHA C `fe10c0bc7242fe9d2df3e571c80b4e687f731d7c` и H `e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658` проверены на GitHub. Новый независимый review NOT_RUN; прежний rev8 review не расширен.\\n\",\"labels\":[],\"milestone\":null,\"active_lock_reason\":null,\"created_at\":\"2026-11-17T06:49:40Z\",\"updated_at\":\"2026-11-17T07:40:02Z\",\"closed_at\":null,\"merged_at\":null,\"merge_commit_sha\":\"c89289a4d9349b1a254179f44dd3ffb17af3eaf9\",\"assignee\":null,\"assignees\":[],\"requested_reviewers\":[],\"requested_teams\":[],\"head\":{\"label\":\"narrateller:work-r1/pr54-merge-receipt/6afb300b-1540-8191-a5c4-be1a684c20e0\",\"ref\":\"work-r1/pr54-merge-receipt/6afb300b-1540-8191-a5c4-be1a684c20e0\",\"repo\":{\"id\":1452576767,\"node_id\":\"R_kgDOVpSP_w\",\"name\":\"REV\",\"full_name\":\"narrateller/REV\",\"owner\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"private\":false,\"fork\":false,\"archived\":false,\"disabled\":false,\"description\":null,\"homepage\":null,\"language\":\"Python\",\"visibility\":\"public\",\"is_template\":false,\"topics\":[],\"forks_count\":0,\"forks\":0,\"stargazers_count\":0,\"watchers_count\":0,\"watchers\":0,\"open_issues_count\":1,\"open_issues\":1,\"size\":65093,\"default_branch\":\"main\",\"has_issues\":true,\"has_projects\":true,\"has_wiki\":false,\"has_pages\":false,\"has_downloads\":false,\"has_discussions\":false,\"has_pull_requests\":true,\"pushed_at\":\"2026-11-17T07:33:27Z\",\"created_at\":\"2026-11-10T11:33:01Z\",\"updated_at\":\"2026-11-12T14:11:34Z\",\"allow_forking\":true,\"web_commit_signoff_required\":false,\"pull_request_creation_policy\":\"all\",\"license\":null,\"url\":\"https://api.github.com/repos/narrateller/REV\",\"html_url\":\"https://github.com/narrateller/REV\",\"archive_url\":\"https://api.github.com/repos/narrateller/REV/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/narrateller/REV/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/narrateller/REV/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/narrateller/REV/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/narrateller/REV/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/narrateller/REV/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/narrateller/REV/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/narrateller/REV/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/narrateller/REV/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/narrateller/REV/contributors\",\"deployments_url\":\"https://api.github.com/repos/narrateller/REV/deployments\",\"downloads_url\":\"https://api.github.com/repos/narrateller/REV/downloads\",\"events_url\":\"https://api.github.com/repos/narrateller/REV/events\",\"forks_url\":\"https://api.github.com/repos/narrateller/REV/forks\",\"git_commits_url\":\"https://api.github.com/repos/narrateller/REV/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/narrateller/REV/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/narrateller/REV/git/tags{/sha}\",\"git_url\":\"git://github.com/narrateller/REV.git\",\"issue_comment_url\":\"https://api.github.com/repos/narrateller/REV/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/narrateller/REV/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/narrateller/REV/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/narrateller/REV/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/narrateller/REV/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/narrateller/REV/languages\",\"merges_url\":\"https://api.github.com/repos/narrateller/REV/merges\",\"milestones_url\":\"https://api.github.com/repos/narrateller/REV/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/narrateller/REV/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/narrateller/REV/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/narrateller/REV/releases{/id}\",\"ssh_url\":\"git@github.com:narrateller/REV.git\",\"stargazers_url\":\"https://api.github.com/repos/narrateller/REV/stargazers\",\"statuses_url\":\"https://api.github.com/repos/narrateller/REV/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/narrateller/REV/subscribers\",\"subscription_url\":\"https://api.github.com/repos/narrateller/REV/subscription\",\"tags_url\":\"https://api.github.com/repos/narrateller/REV/tags\",\"teams_url\":\"https://api.github.com/repos/narrateller/REV/teams\",\"trees_url\":\"https://api.github.com/repos/narrateller/REV/git/trees{/sha}\",\"clone_url\":\"https://github.com/narrateller/REV.git\",\"mirror_url\":null,\"hooks_url\":\"https://api.github.com/repos/narrateller/REV/hooks\",\"svn_url\":\"https://github.com/narrateller/REV\"},\"sha\":\"e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658\",\"user\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false}},\"base\":{\"label\":\"narrateller:main\",\"ref\":\"main\",\"repo\":{\"id\":1452576767,\"node_id\":\"R_kgDOVpSP_w\",\"name\":\"REV\",\"full_name\":\"narrateller/REV\",\"owner\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"private\":false,\"fork\":false,\"archived\":false,\"disabled\":false,\"description\":null,\"homepage\":null,\"language\":\"Python\",\"visibility\":\"public\",\"is_template\":false,\"topics\":[],\"forks_count\":0,\"forks\":0,\"stargazers_count\":0,\"watchers_count\":0,\"watchers\":0,\"open_issues_count\":1,\"open_issues\":1,\"size\":65093,\"default_branch\":\"main\",\"has_issues\":true,\"has_projects\":true,\"has_wiki\":false,\"has_pages\":false,\"has_downloads\":false,\"has_discussions\":false,\"has_pull_requests\":true,\"pushed_at\":\"2026-11-17T07:33:27Z\",\"created_at\":\"2026-11-10T11:33:01Z\",\"updated_at\":\"2026-11-12T14:11:34Z\",\"allow_forking\":true,\"web_commit_signoff_required\":false,\"pull_request_creation_policy\":\"all\",\"license\":null,\"url\":\"https://api.github.com/repos/narrateller/REV\",\"html_url\":\"https://github.com/narrateller/REV\",\"archive_url\":\"https://api.github.com/repos/narrateller/REV/{archive_format}{/ref}\",\"assignees_url\":\"https://api.github.com/repos/narrateller/REV/assignees{/user}\",\"blobs_url\":\"https://api.github.com/repos/narrateller/REV/git/blobs{/sha}\",\"branches_url\":\"https://api.github.com/repos/narrateller/REV/branches{/branch}\",\"collaborators_url\":\"https://api.github.com/repos/narrateller/REV/collaborators{/collaborator}\",\"comments_url\":\"https://api.github.com/repos/narrateller/REV/comments{/number}\",\"commits_url\":\"https://api.github.com/repos/narrateller/REV/commits{/sha}\",\"compare_url\":\"https://api.github.com/repos/narrateller/REV/compare/{base}...{head}\",\"contents_url\":\"https://api.github.com/repos/narrateller/REV/contents/{+path}\",\"contributors_url\":\"https://api.github.com/repos/narrateller/REV/contributors\",\"deployments_url\":\"https://api.github.com/repos/narrateller/REV/deployments\",\"downloads_url\":\"https://api.github.com/repos/narrateller/REV/downloads\",\"events_url\":\"https://api.github.com/repos/narrateller/REV/events\",\"forks_url\":\"https://api.github.com/repos/narrateller/REV/forks\",\"git_commits_url\":\"https://api.github.com/repos/narrateller/REV/git/commits{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/narrateller/REV/git/refs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/narrateller/REV/git/tags{/sha}\",\"git_url\":\"git://github.com/narrateller/REV.git\",\"issue_comment_url\":\"https://api.github.com/repos/narrateller/REV/issues/comments{/number}\",\"issue_events_url\":\"https://api.github.com/repos/narrateller/REV/issues/events{/number}\",\"issues_url\":\"https://api.github.com/repos/narrateller/REV/issues{/number}\",\"keys_url\":\"https://api.github.com/repos/narrateller/REV/keys{/key_id}\",\"labels_url\":\"https://api.github.com/repos/narrateller/REV/labels{/name}\",\"languages_url\":\"https://api.github.com/repos/narrateller/REV/languages\",\"merges_url\":\"https://api.github.com/repos/narrateller/REV/merges\",\"milestones_url\":\"https://api.github.com/repos/narrateller/REV/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/narrateller/REV/notifications{?since,all,participating}\",\"pulls_url\":\"https://api.github.com/repos/narrateller/REV/pulls{/number}\",\"releases_url\":\"https://api.github.com/repos/narrateller/REV/releases{/id}\",\"ssh_url\":\"git@github.com:narrateller/REV.git\",\"stargazers_url\":\"https://api.github.com/repos/narrateller/REV/stargazers\",\"statuses_url\":\"https://api.github.com/repos/narrateller/REV/statuses/{sha}\",\"subscribers_url\":\"https://api.github.com/repos/narrateller/REV/subscribers\",\"subscription_url\":\"https://api.github.com/repos/narrateller/REV/subscription\",\"tags_url\":\"https://api.github.com/repos/narrateller/REV/tags\",\"teams_url\":\"https://api.github.com/repos/narrateller/REV/teams\",\"trees_url\":\"https://api.github.com/repos/narrateller/REV/git/trees{/sha}\",\"clone_url\":\"https://github.com/narrateller/REV.git\",\"mirror_url\":null,\"hooks_url\":\"https://api.github.com/repos/narrateller/REV/hooks\",\"svn_url\":\"https://github.com/narrateller/REV\"},\"sha\":\"043271b57aa3d49b6d9b45da03496ea11dad41b1\",\"user\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false}},\"_links\":{\"comments\":{\"href\":\"https://api.github.com/repos/narrateller/REV/issues/55/comments\"},\"commits\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/55/commits\"},\"statuses\":{\"href\":\"https://api.github.com/repos/narrateller/REV/statuses/e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658\"},\"html\":{\"href\":\"https://github.com/narrateller/REV/pull/55\"},\"issue\":{\"href\":\"https://api.github.com/repos/narrateller/REV/issues/55\"},\"review_comments\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/55/comments\"},\"review_comment\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/comments{/number}\"},\"self\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/55\"}},\"author_association\":\"OWNER\",\"auto_merge\":null,\"draft\":true,\"merged\":false,\"mergeable\":true,\"rebaseable\":true,\"mergeable_state\":\"clean\",\"merged_by\":null,\"comments\":0,\"review_comments\":0,\"maintainer_can_modify\":false,\"commits\":4,\"additions\":10846,\"deletions\":3,\"changed_files\":56}",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/pulls?state=open&per_page=100"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"url\":\"https://api.github.com/repos/narrateller/REV/pulls/55\",\"id\":5352250979,\"node_id\":\"PR_kwDOVpSP_88AAAABPwTeYw\",\"html_url\":\"https://github.com/narrateller/REV/pull/55\",\"diff_url\":\"https://github.com/narrateller/REV/pull/55.diff\",\"patch_url\":\"https://github.com/narrateller/REV/pull/55.patch\",\"issue_url\":\"https://api.github.com/repos/narrateller/REV/issues/55\",\"number\":55,\"state\":\"open\",\"locked\":false,\"title\":\"R1: DRAFT критериев 22 REQ, метрологии и безопасности G1\",\"user\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"body\":\"PR55 продолжает документальную работу после PR54: вместо ожидания дальнейших указаний R1 подготовил рабочие карточки критериев,программу метрологии и связи безопасности. В истории сохранены квитанция PR54 и её C/H; новая содержательная поставка — отдельный DRAFT supplement к неизменённой rev8.\\n\\n- **22 criterion cards**: наблюдение,будущий PASS-предикат,обязательные evidence fields,режим/source refs,недостающие определения и реальный R1 owner документальной подготовки. Численные и objective-completeness критерии различены;threshold/tolerance/approved ranges не выдуманы.\\n- **22 metrology rows /11 channel classes**: классы методов,калибровки,синхронизация,статьи неопределённости и условия допуска;конкретные средства/диапазоны/точность/серия UNKNOWN. Все VAL/TEST NOT_RUN,execution_permission false,actual records пусты.\\n- **20 hazard-to-evidence rows H01–H20** сохраняют предыдущую карту и старые узкие documentary closures;заданы предлагаемые ограничения/доказательства и REQ/VAL links. Риск/PL/SIL/защитные функции не выбраны и не проверены.\\n- **6 normative candidates N01–N06** переиспользованы с историческими пределами чтения/проверки. Нет нового юридического заключения,обязательности или актуальной консолидированной редакции.\\n- **3 source action cards** содержат точные вопросы и required closure evidence;выполнен bounded text search четырёх PDF. Явная wet/dry база по шаблонам не найдена;у ARS нет text layer. Это не полное перечитывание или доказательство отсутствия в сканах. Source power/pressure/moisture OPEN;есть два документальных пути дальнейшего решения без догадок/численного бюджета/внешних отправок.\\n\\nR1 actual session `6afb300b-1540-8191-a5c4-be1a684c20e0` координирует и владеет документальной поставкой в существующем accepted claim `T-r1-requirements-draft-01`,deadline `2026-11-18T01:58:30.990734+00:00` без продления/переноса. Инженерные роли/сессии/сроки не назначены. Очередь действий — execution_board.md;нового руководителя не ждём.\\n\\n**Rev8 и25 target/26 reviewed artifacts сохранены неизменными.** R5 C04502cfe/H64ac3e CURRENT/WARNING относится только к rev8,не к этому supplement;новый review NOT_RUN. Матрица/реестр/CAD не редактируются,RAW не повышаются. История PR54 merge `043271b57aa3d49b6d9b45da03496ea11dad41b1`,main CI SUCCESS/100 tests и postmerge165 PASS остаются в verification/pr54_merge_20261117/.\\n\\nНовый пакет: verification/r1_g1_criteria_plan_20261117/. 31 exact input,documentary input audit WARNING/4 PASS/3 NOT_RUN. Авторские проверки **395 PASS/0FAIL**,renderer **13 MATCH**,source-search replay MATCH except UTC. Root registry --check-git и CI итогового head фиксируются после публикации. Это авторская целостность/воспроизводимость,не independent review или реальный PASS требований. Следующий H содержит R5 request на exact C.\\n\\nB01/B02/B03/source issues OPEN. 40 scoped RAW/84 UNKNOWN/15 gaps,54 old pins/12 protected trees,44 full bindings/loads/strokes/CAD,52 interfaces и42 source-state объекта сохранены. Старые REJECT/STALE/счётчики/четыре FAIL/OBS01 exact-C closure не сброшены.\\n\\n**42 состояния не рассчитаны;§4/5/6 NOT_RUN.** Прочность/устойчивость/реальные реакции не подтверждены. Архитектура/ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO. Численный/физический этап,CAD-rebuild и физические испытания не начинаются. PR55 остаётся DRAFT для рассмотрения,main merge/auto-merge не выполняются.\\n\\n\\n<!-- R1 exact documentary supplement -->\\n\\nC результата `fe10c0bc7242fe9d2df3e571c80b4e687f731d7c`; H/head `e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658`. Root registry --check-git PASS, код0.\\nЗапрос независимому R5: [R5_review_command.md](https://github.com/narrateller/REV/blob/e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658/verification/r1_g1_criteria_plan_20261117/R5_review_command.md). Новый review NOT_RUN; CI exact H проверяется.\\n\\n\\n**Exact head CI проверен:** [pull_request44039635935](https://github.com/narrateller/REV/actions/runs/44039635935) и [push44039627695](https://github.com/narrateller/REV/actions/runs/44039627695) SUCCESS; в каждом registry PASS,100 tests OK. Фактические SHA C `fe10c0bc7242fe9d2df3e571c80b4e687f731d7c` и H `e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658` проверены на GitHub. Новый независимый review NOT_RUN; прежний rev8 review не расширен.\\n\",\"created_at\":\"2026-11-17T06:49:40Z\",\"updated_at\":\"2026-11-17T07:40:02Z\",\"closed_at\":null,\"merged_at\":null,\"merge_commit_sha\":\"c89289a4d9349b1a254179f44dd3ffb17af3eaf9\",\"assignees\":[],\"requested_reviewers\":[],\"requested_teams\":[],\"labels\":[],\"milestone\":null,\"draft\":true,\"commits_url\":\"https://api.github.com/repos/narrateller/REV/pulls/55/commits\",\"review_comments_url\":\"https://api.github.com/repos/narrateller/REV/pulls/55/comments\",\"review_comment_url\":\"https://api.github.com/repos/narrateller/REV/pulls/comments{/number}\",\"comments_url\":\"https://api.github.com/repos/narrateller/REV/issues/55/comments\",\"statuses_url\":\"https://api.github.com/repos/narrateller/REV/statuses/e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658\",\"head\":{\"label\":\"narrateller:work-r1/pr54-merge-receipt/6afb300b-1540-8191-a5c4-be1a684c20e0\",\"ref\":\"work-r1/pr54-merge-receipt/6afb300b-1540-8191-a5c4-be1a684c20e0\",\"sha\":\"e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658\",\"user\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"repo\":{\"id\":1452576767,\"node_id\":\"R_kgDOVpSP_w\",\"name\":\"REV\",\"full_name\":\"narrateller/REV\",\"private\":false,\"owner\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"html_url\":\"https://github.com/narrateller/REV\",\"description\":null,\"fork\":false,\"url\":\"https://api.github.com/repos/narrateller/REV\",\"forks_url\":\"https://api.github.com/repos/narrateller/REV/forks\",\"keys_url\":\"https://api.github.com/repos/narrateller/REV/keys{/key_id}\",\"collaborators_url\":\"https://api.github.com/repos/narrateller/REV/collaborators{/collaborator}\",\"teams_url\":\"https://api.github.com/repos/narrateller/REV/teams\",\"hooks_url\":\"https://api.github.com/repos/narrateller/REV/hooks\",\"issue_events_url\":\"https://api.github.com/repos/narrateller/REV/issues/events{/number}\",\"events_url\":\"https://api.github.com/repos/narrateller/REV/events\",\"assignees_url\":\"https://api.github.com/repos/narrateller/REV/assignees{/user}\",\"branches_url\":\"https://api.github.com/repos/narrateller/REV/branches{/branch}\",\"tags_url\":\"https://api.github.com/repos/narrateller/REV/tags\",\"blobs_url\":\"https://api.github.com/repos/narrateller/REV/git/blobs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/narrateller/REV/git/tags{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/narrateller/REV/git/refs{/sha}\",\"trees_url\":\"https://api.github.com/repos/narrateller/REV/git/trees{/sha}\",\"statuses_url\":\"https://api.github.com/repos/narrateller/REV/statuses/{sha}\",\"languages_url\":\"https://api.github.com/repos/narrateller/REV/languages\",\"stargazers_url\":\"https://api.github.com/repos/narrateller/REV/stargazers\",\"contributors_url\":\"https://api.github.com/repos/narrateller/REV/contributors\",\"subscribers_url\":\"https://api.github.com/repos/narrateller/REV/subscribers\",\"subscription_url\":\"https://api.github.com/repos/narrateller/REV/subscription\",\"commits_url\":\"https://api.github.com/repos/narrateller/REV/commits{/sha}\",\"git_commits_url\":\"https://api.github.com/repos/narrateller/REV/git/commits{/sha}\",\"comments_url\":\"https://api.github.com/repos/narrateller/REV/comments{/number}\",\"issue_comment_url\":\"https://api.github.com/repos/narrateller/REV/issues/comments{/number}\",\"contents_url\":\"https://api.github.com/repos/narrateller/REV/contents/{+path}\",\"compare_url\":\"https://api.github.com/repos/narrateller/REV/compare/{base}...{head}\",\"merges_url\":\"https://api.github.com/repos/narrateller/REV/merges\",\"archive_url\":\"https://api.github.com/repos/narrateller/REV/{archive_format}{/ref}\",\"downloads_url\":\"https://api.github.com/repos/narrateller/REV/downloads\",\"issues_url\":\"https://api.github.com/repos/narrateller/REV/issues{/number}\",\"pulls_url\":\"https://api.github.com/repos/narrateller/REV/pulls{/number}\",\"milestones_url\":\"https://api.github.com/repos/narrateller/REV/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/narrateller/REV/notifications{?since,all,participating}\",\"labels_url\":\"https://api.github.com/repos/narrateller/REV/labels{/name}\",\"releases_url\":\"https://api.github.com/repos/narrateller/REV/releases{/id}\",\"deployments_url\":\"https://api.github.com/repos/narrateller/REV/deployments\",\"created_at\":\"2026-11-10T11:33:01Z\",\"updated_at\":\"2026-11-12T14:11:34Z\",\"pushed_at\":\"2026-11-17T07:33:27Z\",\"git_url\":\"git://github.com/narrateller/REV.git\",\"ssh_url\":\"git@github.com:narrateller/REV.git\",\"clone_url\":\"https://github.com/narrateller/REV.git\",\"svn_url\":\"https://github.com/narrateller/REV\",\"homepage\":null,\"size\":65093,\"stargazers_count\":0,\"watchers_count\":0,\"language\":\"Python\",\"has_issues\":true,\"has_projects\":true,\"has_downloads\":false,\"has_wiki\":false,\"has_pages\":false,\"has_discussions\":false,\"forks_count\":0,\"mirror_url\":null,\"archived\":false,\"disabled\":false,\"open_issues_count\":1,\"license\":null,\"allow_forking\":true,\"is_template\":false,\"web_commit_signoff_required\":false,\"has_pull_requests\":true,\"pull_request_creation_policy\":\"all\",\"topics\":[],\"visibility\":\"public\",\"forks\":0,\"open_issues\":1,\"watchers\":0,\"default_branch\":\"main\"}},\"base\":{\"label\":\"narrateller:main\",\"ref\":\"main\",\"sha\":\"043271b57aa3d49b6d9b45da03496ea11dad41b1\",\"user\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"repo\":{\"id\":1452576767,\"node_id\":\"R_kgDOVpSP_w\",\"name\":\"REV\",\"full_name\":\"narrateller/REV\",\"private\":false,\"owner\":{\"login\":\"narrateller\",\"id\":217332124,\"node_id\":\"U_kgDODPQ5nA\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/217332124?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/narrateller\",\"html_url\":\"https://github.com/narrateller\",\"followers_url\":\"https://api.github.com/users/narrateller/followers\",\"following_url\":\"https://api.github.com/users/narrateller/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/narrateller/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/narrateller/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/narrateller/subscriptions\",\"organizations_url\":\"https://api.github.com/users/narrateller/orgs\",\"repos_url\":\"https://api.github.com/users/narrateller/repos\",\"events_url\":\"https://api.github.com/users/narrateller/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/narrateller/received_events\",\"type\":\"User\",\"user_view_type\":\"public\",\"site_admin\":false},\"html_url\":\"https://github.com/narrateller/REV\",\"description\":null,\"fork\":false,\"url\":\"https://api.github.com/repos/narrateller/REV\",\"forks_url\":\"https://api.github.com/repos/narrateller/REV/forks\",\"keys_url\":\"https://api.github.com/repos/narrateller/REV/keys{/key_id}\",\"collaborators_url\":\"https://api.github.com/repos/narrateller/REV/collaborators{/collaborator}\",\"teams_url\":\"https://api.github.com/repos/narrateller/REV/teams\",\"hooks_url\":\"https://api.github.com/repos/narrateller/REV/hooks\",\"issue_events_url\":\"https://api.github.com/repos/narrateller/REV/issues/events{/number}\",\"events_url\":\"https://api.github.com/repos/narrateller/REV/events\",\"assignees_url\":\"https://api.github.com/repos/narrateller/REV/assignees{/user}\",\"branches_url\":\"https://api.github.com/repos/narrateller/REV/branches{/branch}\",\"tags_url\":\"https://api.github.com/repos/narrateller/REV/tags\",\"blobs_url\":\"https://api.github.com/repos/narrateller/REV/git/blobs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/narrateller/REV/git/tags{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/narrateller/REV/git/refs{/sha}\",\"trees_url\":\"https://api.github.com/repos/narrateller/REV/git/trees{/sha}\",\"statuses_url\":\"https://api.github.com/repos/narrateller/REV/statuses/{sha}\",\"languages_url\":\"https://api.github.com/repos/narrateller/REV/languages\",\"stargazers_url\":\"https://api.github.com/repos/narrateller/REV/stargazers\",\"contributors_url\":\"https://api.github.com/repos/narrateller/REV/contributors\",\"subscribers_url\":\"https://api.github.com/repos/narrateller/REV/subscribers\",\"subscription_url\":\"https://api.github.com/repos/narrateller/REV/subscription\",\"commits_url\":\"https://api.github.com/repos/narrateller/REV/commits{/sha}\",\"git_commits_url\":\"https://api.github.com/repos/narrateller/REV/git/commits{/sha}\",\"comments_url\":\"https://api.github.com/repos/narrateller/REV/comments{/number}\",\"issue_comment_url\":\"https://api.github.com/repos/narrateller/REV/issues/comments{/number}\",\"contents_url\":\"https://api.github.com/repos/narrateller/REV/contents/{+path}\",\"compare_url\":\"https://api.github.com/repos/narrateller/REV/compare/{base}...{head}\",\"merges_url\":\"https://api.github.com/repos/narrateller/REV/merges\",\"archive_url\":\"https://api.github.com/repos/narrateller/REV/{archive_format}{/ref}\",\"downloads_url\":\"https://api.github.com/repos/narrateller/REV/downloads\",\"issues_url\":\"https://api.github.com/repos/narrateller/REV/issues{/number}\",\"pulls_url\":\"https://api.github.com/repos/narrateller/REV/pulls{/number}\",\"milestones_url\":\"https://api.github.com/repos/narrateller/REV/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/narrateller/REV/notifications{?since,all,participating}\",\"labels_url\":\"https://api.github.com/repos/narrateller/REV/labels{/name}\",\"releases_url\":\"https://api.github.com/repos/narrateller/REV/releases{/id}\",\"deployments_url\":\"https://api.github.com/repos/narrateller/REV/deployments\",\"created_at\":\"2026-11-10T11:33:01Z\",\"updated_at\":\"2026-11-12T14:11:34Z\",\"pushed_at\":\"2026-11-17T07:33:27Z\",\"git_url\":\"git://github.com/narrateller/REV.git\",\"ssh_url\":\"git@github.com:narrateller/REV.git\",\"clone_url\":\"https://github.com/narrateller/REV.git\",\"svn_url\":\"https://github.com/narrateller/REV\",\"homepage\":null,\"size\":65093,\"stargazers_count\":0,\"watchers_count\":0,\"language\":\"Python\",\"has_issues\":true,\"has_projects\":true,\"has_downloads\":false,\"has_wiki\":false,\"has_pages\":false,\"has_discussions\":false,\"forks_count\":0,\"mirror_url\":null,\"archived\":false,\"disabled\":false,\"open_issues_count\":1,\"license\":null,\"allow_forking\":true,\"is_template\":false,\"web_commit_signoff_required\":false,\"has_pull_requests\":true,\"pull_request_creation_policy\":\"all\",\"topics\":[],\"visibility\":\"public\",\"forks\":0,\"open_issues\":1,\"watchers\":0,\"default_branch\":\"main\"}},\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/55\"},\"html\":{\"href\":\"https://github.com/narrateller/REV/pull/55\"},\"issue\":{\"href\":\"https://api.github.com/repos/narrateller/REV/issues/55\"},\"comments\":{\"href\":\"https://api.github.com/repos/narrateller/REV/issues/55/comments\"},\"review_comments\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/55/comments\"},\"review_comment\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/comments{/number}\"},\"commits\":{\"href\":\"https://api.github.com/repos/narrateller/REV/pulls/55/commits\"},\"statuses\":{\"href\":\"https://api.github.com/repos/narrateller/REV/statuses/e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658\"}},\"author_association\":\"OWNER\",\"auto_merge\":null,\"assignee\":null,\"active_lock_reason\":null}]",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "ls-tree",
+        "-r",
+        "--name-only",
+        "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+        "coordination/claims"
+      ],
+      "exit_code": 0,
+      "stdout": "coordination/claims/T-r1-force-inputs-intake-01.json\ncoordination/claims/T-r1-requirements-draft-01.json\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c",
+        "e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658"
+      ],
+      "exit_code": 0,
+      "stdout": "NEXT_MODEL.md\nSTATE.md\nhandoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md\nverification/r1_g1_criteria_plan_20261117/R5_review_command.md\n",
+      "stderr": ""
+    }
+  ]
+}
