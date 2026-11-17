@@ -1,3 +1,20 @@
+# R5 — OUTPUT-review DRAFT rev8 завершён документально
+
+T-r5-requirements-rev8-output-review-01 / DONE_DOCUMENTARY_SCOPE / WARNING.
+Прямое поручение пользователя; R5 session6afb0a73-b16c-8191-a539-9a6685e89034.
+Exact reviewed C8d1b45afa84eca078a8de0a9822d6925dd87745b, request H87f2f5889f9ba74e8eef3a3a040d936d13e0a011.
+Акт REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001: verification/r5_requirements_rev8_review/review.md.
+22 REQ/VAL,40 RAW dispositions,16 qualitative refs оценены независимо по новому target.
+3890 guards PASS/0FAIL; предварительный DRAFT пригоден, утверждение ТЗ/G1 недостаточно.
+B01/B02/B03 и source power/pressure/moisture OPEN; владельцы/критерии/метрология нужны.
+Старые собственные R5 акты раскрыты, их выводы независимо не переаттестованы.
+R1 owner/lease не присвоены/не продлены; deadline2026-11-18T01:58:30.990734+00:00 прежний.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, G1 OPEN, W02/physical READY NO-GO.
+PR54/main не сливались, ТЗ не утверждено, инженерный этап/CAD-rebuild/испытания не разрешены.
+Публикация C акта, затем H/эстафета R1; CI/remote SHA проверяются на собственных C/H.
+
+---
+
 # R1 — PR53 MERGED; DRAFT требований rev8 готов к независимому R5
 
 UTC 2026-11-17T02:18:29.822771+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; task T-r1-requirements-draft-01 / IN_REVIEW_DOCUMENTARY.

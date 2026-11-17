@@ -6574,3 +6574,206 @@ reproduction_artifacts:
 - verification/r5_reference_intake_review/target_CI.json
 - verification/r5_reference_intake_review/validation.json
 ```
+
+
+## R5 — независимый OUTPUT-review предварительного DRAFT rev8
+
+```yaml
+record_type: review
+review_id: REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001
+review_type: OUTPUT_REQUIREMENTS_DRAFT
+reviewed_commit: 8d1b45afa84eca078a8de0a9822d6925dd87745b
+reviewed_handoff_commit: 87f2f5889f9ba74e8eef3a3a040d936d13e0a011
+reviewer:
+  role: R5
+  session_id: 6afb0a73-b16c-8191-a539-9a6685e89034
+  model_label: Codex on GPT-6 base; exact runtime model identifier unavailable
+author_sessions:
+- 6afb300b-1540-8191-a5c4-be1a684c20e0
+reviewed_at_utc: '2026-11-17T05:51:07.828760+00:00'
+scope: Independent review of new rev8 requirement wording, criteria/UNKNOWN and qualified RAW applicability, documentary
+  traceability/preservation; preliminary DRAFT only
+independence_basis: Reviewer did not author target. Same actual session authored upstream force/symbolic/OBS01/source
+  acts, explicitly disclosed; no independent re-attestation of own upstream conclusions. Own22/40/16 assessments
+  and immutable checks; author358/replay are not the review.
+parameter_refs: []
+artifacts:
+- path: requirements/system_requirements.md
+  sha256: 2c49b2eabe8aa6c22b3d6c1479d0921bf1413e6c76c5eb346d4891d394c86705
+- path: requirements/verification_matrix.md
+  sha256: 6a34302ab716cefb8a049eab3c3e80405991460984df07f783006432661ddb99
+- path: verification/r1_requirements_draft_20261117/draft_requirements.json
+  sha256: 2c340bcad260321e035e827d666518031a86a1b8ef83b2544c4b61b5e111a72e
+- path: verification/r1_requirements_draft_20261117/source_disposition.json
+  sha256: 0478a7a40469a9de103e831e23308aeb5c86791165e3d7711b3a66283a4a1cb5
+- path: verification/r1_requirements_draft_20261117/qualitative_applicability.json
+  sha256: 241f912be2bda6c712c0066fe4f2b0412ae73a6eff84eb464ce898d09e4e9fef
+- path: verification/r1_requirements_draft_20261117/open_gaps.json
+  sha256: c4e6ce382f2532d83843ae9977bd9a831038ef0d769d411a0ee57fb6b23a2178
+- path: verification/r1_requirements_draft_20261117/traceability_schema.json
+  sha256: 0a06360a1b946bb97250186b5989523cb5619f863f174d56df7bfa130c1ad40c
+- path: verification/r1_requirements_draft_20261117/source_disposition.md
+  sha256: e2fbf3328fdb33b26ae276c2b4e63715c95bda4ba7b40f1e86d9704463431b7d
+- path: verification/r1_requirements_draft_20261117/traceability.md
+  sha256: e886464be394e9c437043f01b87cc9f443769727ddcc33ba2f08a3e2a2583afb
+- path: verification/r1_requirements_draft_20261117/open_gaps.md
+  sha256: 22b6f9e05a42afe99323ef10c6409f5361f807a83a7e1a90ae0b3ca47dbb01bc
+- path: verification/r1_requirements_draft_20261117/build_draft.py
+  sha256: 846871e7ef742f4439ec984c8cb93d85a785f3798889c61eabfb7beaaa6f7646
+- path: verification/r1_requirements_draft_20261117/verify_draft.py
+  sha256: 58eada28c7601f7aef4ca2313bac3a59d2537cfdd5cf8f45f030c77bb9080144
+- path: verification/r1_requirements_draft_20261117/input_manifest.json
+  sha256: 6cd8475fc746b386d14f90bbe1b4964da09144c93231d1cab26aac1a22d4dfaf
+- path: verification/r1_requirements_draft_20261117/input_audit.json
+  sha256: b0ec1aee4c59abcc68e1c0f235bbc7407784e8ac9b0e1b5b1182cb0c24305fa3
+- path: verification/r1_requirements_draft_20261117/input_audit.md
+  sha256: f7b53593a001611f6fd9519c8a0781783b375c1e362720d9b36027d69669ff4b
+- path: verification/r1_requirements_draft_20261117/README.md
+  sha256: a00fa20b1fbb62236dfb04f26db0d3b90f871299c924c79008af454d57b97081
+- path: verification/r1_requirements_draft_20261117/changes.md
+  sha256: db3bd40873975af05eb015964710edd94bcb64c7c4575de6512188611e94877f
+- path: verification/r1_requirements_draft_20261117/author_checks.json
+  sha256: 856f9930fcd98237d1cf8ca5feba6645dabe249126867368964205f6ce8b41a8
+- path: verification/r1_requirements_draft_20261117/reproducibility.json
+  sha256: 00df3a64fd8a6708f6bb0d6de66c132256f142983d4c6177e3fe858d34abbb3e
+- path: verification/r1_requirements_draft_20261117/registry_status.json
+  sha256: d7816b13eeb9868ff01b27225a2adbfaca568ce58032e11c7e68d977d2712d83
+- path: verification/r1_requirements_draft_20261117/registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r1_requirements_draft_20261117/change_impact.json
+  sha256: bbe48ad73b5ff6f713f50e0363bcec81d1e2452231f5dd20627063c1ee19d567
+- path: verification/r1_requirements_draft_20261117/archive_rev7/system_requirements.md
+  sha256: 5d2bba2a64c9897572959f43e968363c9d15d156465023c9d4b2f6ea456c9d21
+- path: verification/r1_requirements_draft_20261117/archive_rev7/verification_matrix.md
+  sha256: ec0076a1c933496598c10e00bd916819839dd23d833a192ff5ba07eaa488f9a2
+- path: verification/r1_requirements_draft_20261117/archive_rev7/manifest.json
+  sha256: 8c325c33cbbfd92b43ad3a116f10a2ecc65409086b94b0fa86cefc1b3f713b32
+- path: verification/r1_requirements_draft_20261117/review_target_manifest.json
+  sha256: a1ae66a53e440afc0cc5ac734ac80340dd26141bf7b21b2ef0b45d6973b810b7
+checks:
+- id: REV8-IDENTITY
+  method: Record actual environment/session before review; compare target authors; disclose upstream authorship
+  expected: No target coauthorship; truthful limited independence
+  observed: Session6afb0a73; target author6afb300b; own upstream R5 acts disclosed and not independently re-certified
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-AUTHORITY
+  method: Immutable PR53 merge/claim/intake transition and timestamped remote reads
+  expected: Accepted documentary scope, active original deadline, no takeover/renewal
+  observed: PR53 mergedbec317a; intake released; R1 deadline2026-11-18T01:58:30.990734+00:00 unchanged
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-22
+  method: Read each REQ/VAL and compose separate assessment/mandatory-input list; compare archive/lineage/rendered
+    wording
+  expected: 22 original IDs/pairs, meaningful future observations/methods, incomplete criteria explicitly UNKNOWN
+  observed: 22/22 preliminarily suitable; each acceptance criterion remains INCOMPLETE_NOT_APPROVED; all VAL NOT_RUN
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-40
+  method: Independent explicit40-field decision/link map against frozen source and candidate
+  expected: Qualified applicability, no approved/actual REV values or RAW promotion
+  observed: 10 proposed targets/23 context/7 source issues;40 own reasons; all realized REV values null
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-16
+  method: Read all16 relevance/limits and compare restricted use in requirements
+  expected: No donor material/settings/brands/dwell automatically transferred
+  observed: 16 scoped references; ARS nonmetal and shared eject/retract reset; power/unit/moisture conflicts retained
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-TRACE
+  method: Review lineage cardinalities, null rules, failures/loss and validation sequence
+  expected: Many-to-many with unknown fractions; valid-signal distinction; G1 before separate execution authorization
+  observed: 8 node types; actual_records null; SIGNAL_LOSS/INVALID distinct from NO_MOTION_CONFIRMED; program independent
+    review before execution
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-PRESERVE
+  method: Immutable full blobs/objects, SHA256 and hydrated LFS; archive and historical records
+  expected: All original evidence/44 bindings/52 interfaces/42 states/84 UNKNOWN retained
+  observed: 25 target artifacts/27 inputs/54 old pins;3084 protected base files and59 LFS match;15 gaps OPEN; old4
+    FAIL/material2 and exact OBS01 closure retained
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-REPRO
+  method: Independent documentary oracle and read-before-run renderer to temporary output
+  expected: Own semantic evidence separate from author358 and replay
+  observed: 3890 own guards PASS/0FAIL plus22/40/16 assessments;10 rendered outputs MATCH; author identity guard
+    not bypassed
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: PASS
+- id: REV8-4
+  method: Numerical/physical balances and loads
+  expected: Separate actual inputs, applicable analysis and authorization needed
+  observed: Not performed;42 states unsolved; physical READY NO_GO
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: NOT_RUN
+- id: REV8-5
+  method: Real geometry, supports, joints, strength and stability
+  expected: Separate actual inputs, applicable analysis and authorization needed
+  observed: Not performed;42 states unsolved; physical READY NO_GO
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: NOT_RUN
+- id: REV8-6
+  method: Real phase cycle/resources/READY
+  expected: Separate actual inputs, applicable analysis and authorization needed
+  observed: Not performed;42 states unsolved; physical READY NO_GO
+  reasoning: Documentary DRAFT suitability only; missing acceptance inputs and physical NOT_RUN are not closed.
+  result: NOT_RUN
+verdict: WARNING
+validity: CURRENT
+draft_suitability: SUITABLE_PRELIMINARY_DRAFT_WITH_OPEN_INPUTS
+requirements_approved: false
+G1: OPEN
+W02: NO_GO
+physical_READY: NO_GO
+blocker_ids:
+- R5-TZ-B01
+- R5-TZ-B02
+- R5-TZ-B03
+findings:
+- id: R5-TZ-B01
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+- id: R5-TZ-B02
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+- id: R5-TZ-B03
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+- id: SOURCE-POWER
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+- id: SOURCE-PRESSURE-UNIT
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+- id: SOURCE-MOISTURE-BASIS
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+- id: REQ-GAP-TOLERANCES
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+- id: R5-OBS-04
+  status: OPEN
+  scope: TZ/G1 acceptance, not rejection of preliminary DRAFT
+input_audit_sections:
+  '4': NOT_RUN
+  '5': NOT_RUN
+  '6': NOT_RUN
+source_states_solved: false
+R1_claim_takeover: false
+lease_extension: false
+reproduction_artifacts:
+- verification/r5_requirements_rev8_review/check_publication.py
+- verification/r5_requirements_rev8_review/identity.json
+- verification/r5_requirements_rev8_review/independent_results.json
+- verification/r5_requirements_rev8_review/independent_review.py
+- verification/r5_requirements_rev8_review/oracle_development.json
+- verification/r5_requirements_rev8_review/remote_context.json
+- verification/r5_requirements_rev8_review/renderer_replay.json
+- verification/r5_requirements_rev8_review/review.md
+- verification/r5_requirements_rev8_review/target_CI.json
+- verification/r5_requirements_rev8_review/validation.json
+- verification/r5_requirements_rev8_review/registry.log
+```
