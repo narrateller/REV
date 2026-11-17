@@ -1,3 +1,41 @@
+# R1 — завершение documentary intake и принятие нового claim через PR53
+
+UTC 2026-11-17T01:58:30.990734+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; назначение R1 продолжается.
+Исходная main a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3, exact исходный head 5674ca6a6c4d8d98eaa9fab953691fd2ac61a2e7; оба CI SUCCESS.
+C этой транзакции: 3421bbea081c605100e61c199254f6dcf77d3b54; следующий H содержит эту эстафету.
+
+Пользователь завершает документальный scope T-r1-force-inputs-intake-01 с WARNING.
+Completion: coordination/completions/T-r1-force-inputs-intake-01.json. Старый live ledger
+переведён в COMPLETED_DOCUMENTARY_RELEASED / owner NONE при включении в main;
+его исходный lease 2026-11-17T23:16:47.225017Z не продлён. Оригинал ledger архивирован.
+Проверенный proposal claim.json и R5 evidence не меняются. Открытые gaps/физика не закрыты.
+
+Новый claim T-r1-requirements-draft-01: coordination/claims/T-r1-requirements-draft-01.json,
+owner 6afb300b-1540-8191-a5c4-be1a684c20e0; preparation UTC 2026-11-17T01:58:30.990734+00:00, новый deadline 2026-11-18T01:58:30.990734+00:00, ровно 24 часа.
+Оба изменения действуют только после одной атомарной интеграции в remote main.
+До merge действует прежний intake; после merge он освобождён и действует только новый
+claim этой сессии. Перекрытие владения и перенос/продление старого lease исключены.
+Enforcement PROCEDURAL; конкуренция/27 pins/source28/R5 seals проверены в
+verification/r1_requirements_claim_20261117/preflight.json. Аудит новой задачи NOT_RUN
+до main acceptance; DRAFT требований ещё не начат. Инженерный старт NOT_STARTED.
+
+Следующий R1 после merge проверяет main/ancestry/owner/новый срок/нет конкуренции,
+оформляет входной аудит точных версий, затем DRAFT ревизии требований и матрицы:
+22 REQ/VAL, disposition 40 RAW полей, criteria/gaps, BP500 primary, другие прессы по
+релевантности. Независимый R5 нужен на exact будущий C; ТЗ отдельно утверждает пользователь.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+SOURCE-POWER/PRESSURE-UNIT OPEN, moisture basis UNKNOWN; RAW40 не повышены.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 interfaces и R3/R4/R5 история сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания не разрешены.
+REJECT/STALE/четыре FAIL/material history=2 и OBS-01 exact-C closure сохранены.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — PR52 MERGED; claim intake принят; следующая документальная задача подготовлена
 
 UTC 2026-11-17T00:58:48.225095+00:00; actual R1 session 6afb300b-1540-8191-a5c4-be1a684c20e0; existing role assignment continues.
