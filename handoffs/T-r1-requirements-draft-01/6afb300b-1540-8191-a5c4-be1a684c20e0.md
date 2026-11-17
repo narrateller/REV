@@ -1,3 +1,54 @@
+# R1 — PR53 MERGED; DRAFT требований rev8 готов к независимому R5
+
+UTC 2026-11-17T02:18:29.822771+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; task T-r1-requirements-draft-01 / IN_REVIEW_DOCUMENTARY.
+PR53 обычный merge bec317a4483e7f69c2af0aa1c52ef091bdef57b4, parent1 a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3,
+parent2/exact head bb78bef9661a95c557db765ed2df1e8df4ffddbc. Tree = head; история R3/R4/R5 сохранена.
+C принятия нового claim 3421bbea081c605100e61c199254f6dcf77d3b54; H bb78bef9661a95c557db765ed2df1e8df4ffddbc.
+Оба head CI и main CI44000928125 SUCCESS, registry PASS и по 100 тестов.
+Receipt и postmerge owner checks: verification/r1_requirements_draft_20261117/.
+
+Intake T-r1-force-inputs-intake-01 DONE_DOCUMENTARY_SCOPE / WARNING, owner NONE/released.
+Его исходный lease 2026-11-17T23:16:47.225017Z не продлён; completion/архив ledger сохранены.
+Новый claim T-r1-requirements-draft-01 ACCEPTED_MAIN, единственный действующий claim
+этой сессии, deadline 2026-11-18T01:58:30.990734+00:00, ровно 24h от подготовки.
+Срок не переносился, перекрытия не было; проверенный historical proposal f2c неизменён.
+Входной аудит exact main: WARNING / 4 PASS / 3 NOT_RUN, независимым review не является;
+§4/5/6 блокируют численные/физические выводы, разрешён только документальный DRAFT.
+
+Результат: requirements/system_requirements.md и verification_matrix.md rev8,
+22 REQ/VAL с будущими критериями/методами/evidence/gaps, все VAL/TEST NOT_RUN.
+Applicability40: 10 TARGET_PROPOSAL по ссылкам на frozen RAW, 23 REFERENCE_CONTEXT,
+7 OPEN_SOURCE_ISSUE; числа в активную базу не переносились, RAW не повышены.
+16 качественных/дополнительных ссылок; many-to-many схема без фактических записей;
+15 открытых source/criteria gaps плюс все 84 исходных UNKNOWN. Rev7 сохранена побайтно.
+Author checks 358 PASS / 0 FAIL, 10 renderer outputs MATCH — целостность/документальная
+трассировка, не независимое подтверждение требований или физики. Root registry/CI
+актуальной поставки сохраняются отдельно. C результата: 8d1b45afa84eca078a8de0a9822d6925dd87745b; следующий H
+содержит эстафету и R5_review_command.md с этим exact C. Сама C не ссылается на себя.
+
+Следующий участник: независимый R5 вне author_sessions [6afb300b-1540-8191-a5c4-be1a684c20e0], actual identity/model
+и upstream authorship disclosure обязательны; назначение/срок R5 здесь не создаются.
+Первый шаг — fetch exact C и следующий H, проверить main/target/claim/lease/источники,
+затем самостоятельно проверить 22 REQ/VAL,40 dispositions,ограничения и сохранившиеся
+блокеры. Авторский replay — лишь воспроизводимость. Source R5 act853a по f2c остаётся
+CURRENT/WARNING, но не заменяет OUTPUT-review этой ревизии. Новый R5 review NOT_RUN.
+ТЗ отдельно утверждает пользователь; G1 не закрывается. Полная команда в папке пакета.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+BP500 primary; площадка адаптируется; сырьевое окно BP500, реальные партии/модель UNKNOWN.
+E55/WEIMA/ARS по релевантности, ARS также неметаллический; его уставки/свойства не REV.
+SOURCE-POWER/PRESSURE-UNIT OPEN, moisture basis/method UNKNOWN, up-to qualifiers сохранены.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 interfaces,42 source-state объекта неизменны.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции/цикл
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания не разрешены.
+REJECT/STALE/четыре FAIL/material history=2, старые R5 TZ блокеры/акты и OBS-01 exact-C closure
+сохранены. Срок завершения проекта UNKNOWN; новых инженерных владельцев/дат не назначено.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — завершение documentary intake и принятие нового claim через PR53
 
 UTC 2026-11-17T01:58:30.990734+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; назначение R1 продолжается.
