@@ -1,3 +1,42 @@
+# R1 — PR56 MERGED: отдельный claim R5 принят в main
+
+UTC 2026-11-17T08:46:14.024260+00:00; coordinator R1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR56 обычный merge 98d1494334ad5161ea8f56226c770dc762fb59d3; parent1 043271b57aa3d49b6d9b45da03496ea11dad41b1,
+parent2/exact head/C принятия f130c82acda91a7dbaa84ec2a8a776969ea45d98. Tree=head; proposal C91b95034950e7b92eeb021035ff63dbe577c05f2,
+H7ecdb2fefa96c0c72bf2bf009f354d705371aa28/checkpoint1c374da4bb7a67b0106efa82d3f145729bc11bc7
+в ancestry, истории/предложение сохранены. R1179/premerge89/postmerge30 PASS/0FAIL.
+Head CI44048437954/44048431253 SUCCESS: registry PASS/по100 tests OK.
+Main CI44049371735 SUCCESS: registry PASS/100 tests OK; фактическое завершение подтверждено.
+
+Claim T-r5-g1-supplement-output-review-01 ACCEPTED_MAIN; owner actual R5 6afb0a73-b16c-8191-a539-9a6685e89034.
+Canonical ledger coordination/claims/T-r5-g1-supplement-output-review-01.json включён в main.
+Исходный deadline 2026-11-18T01:58:30.990734+00:00 не продлён. R5 heartbeat сохранён из его proposal,
+R1 не имитирует новый heartbeat R5. R1 claim/старый intake ledger неизменны,
+по одному принятому task на каждую сессию; intake released/NONE.
+Исторические proposal/old preflight/task checkpoint остаются подготовительными
+снимками. Текущая активация определяется accepted ledger+фактическим main ancestry/UTC;
+старое слово PENDING_MAIN не отменяет состоявшийся merge. Новое назначение роли не требуется.
+
+Следующая команда actual R5: выполнить verification/r1_r5_g1_claim_acceptance_20261117/R5_execute.md.
+Проверить свежий main/owner/срок/конкуренцию и оформить новый входной аудит, затем
+содержательно проверить exact target C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c, request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+PR55 OPEN/unmerged,его target не включён в этот main. OUTPUT-review/13 replay NOT_RUN,
+verdict null. Старые R1 author395 и R5 rev8 3890 не проверка нового supplement.
+Независимость target/старое upstream участие раскрыты,организационная независимость не аттестована.
+R1 собственную поставку независимо не одобряет; после нового акта разберёт замечания.
+
+Квитанции/проверки verification/r1_r5_g1_claim_acceptance_20261117/; C результата принятия выше,
+этот следующий H сохраняет actual main/эстафету. PR55 merge/утверждение ТЗ не выполняются.
+44 полные bindings/нагрузки/ходы/CAD,54 pins/12 protected trees,25 rev8 artifacts,
+RAW/UNKNOWN и старые review/STALE/REJECT/FAIL сохранены. WARNING только документальная область.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-build/rebuild и физические испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — принятие отдельного claim R5 для PR55: кандидат до main
 
 UTC 2026-11-17T08:32:38.977670+00:00; coordinator 6afb300b-1540-8191-a5c4-be1a684c20e0; owner proposed/accepted candidate R5 6afb0a73-b16c-8191-a539-9a6685e89034.
