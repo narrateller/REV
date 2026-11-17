@@ -1,3 +1,17 @@
+# HANDOFF: exact C проекта определений G1
+
+C результата `7e2d5ecff42fe1d09b461e05375924cb644c27c9`; base main `65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3`.
+Ветка `work-r1/g1-definition-register/6afb300b-1540-8191-a5c4-be1a684c20e0`. Author296 PASS/0FAIL,4 renderer outputs MATCH,registry --check-git PASS/код0.
+Новый independent OUTPUT-review NOT_RUN; запрос `verification/r1_g1_definition_register_20261117/R5_review_request.md`.
+Следующий шаг R1:публикация/CI нового exact head иотдельное принятие exact-target scope R5 в main.
+До main activation новый target R5 не исполнять;старый baseclaim/его deadline неизменны.
+После активации R5 самостоятельно проверяет22 REQ/VAL,144scopeitems,22DM и40dispositions,
+публикует новый акт C/H. Действующая роль/сессия/исходныйdeadline прежние,не продлены.
+Общее WARNING,G1OPEN,42состояния нерассчитаны,§4/5/6NOT_RUN,W02/physicalREADY NO-GO.
+Расчёты/CAD-rebuild/испытания не разрешены. Обычный merge согласованныхзадач заранее разрешён.
+
+---
+
 # R1 — новый проект определений G1; независимый OUTPUT-review NOT_RUN
 
 UTC 2026-11-17T16:27:37.384566+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3.
