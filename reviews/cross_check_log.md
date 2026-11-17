@@ -7535,3 +7535,324 @@ reproduction_artifacts:
 - verification/r5_g1_definition_review_20261117/validation.json
 - verification/r5_g1_definition_review_20261117/registry.log
 ```
+
+
+## R5 — exact-C OBS01/02 definition correction recheck
+
+```yaml
+record_type: review
+review_id: REV-R5-G1-DEF-OBS-RECHECK-01-001
+review_type: TARGETED_DOCUMENTARY_RECHECK
+reviewed_commit: 97f58fd437947e26963bdbbc2f2d89df7438e8cc
+reviewed_handoff_commit: 46cbf199c3d17049ac31aa337378f0b176e70a2e
+execution_command_commit: 64ed653039275d9eeaaa081681794f54bbe54e73
+accepted_scope_main: 974767804240ca24997d3ca538825ff9a4baebab
+reviewer:
+  role: R5
+  session_id: 6afb0a73-b16c-8191-a539-9a6685e89034
+  model_label: Codex on GPT-6 base;exact runtime model ID UNAVAILABLE
+author_sessions:
+- 6afb300b-1540-8191-a5c4-be1a684c20e0
+reviewed_at_utc: '2026-11-17T22:25:34.942329+00:00'
+scope: Exact OBS01/02 documentary correction recheck:22REQ/VAL146scope22DM4quantity mappings,full-attempt retention,source/limits/evidence
+  preservation and6output replay;new render revision mismatch separately reported
+independence_basis: Not coauthor of R1 correction target. Same actual session authored original observations/old
+  upstream R5 reviews and claim preparation;disclosed,not independently re-certified. Own fresh semantic/delta/retention/mapping/revision
+  evidence;author172/old4171/replay not new review.No organizational certification.
+parameter_refs: []
+artifacts:
+- path: verification/r1_g1_definition_obs_revision_20261117/R5_44136910294_CI.json
+  sha256: 3fa1df1e1bf219412c9204f8a2fc059e7a59692be360b60b3468a65c584d8576
+- path: verification/r1_g1_definition_obs_revision_20261117/R5_44136910294_CI_proof.txt
+  sha256: 43d8ef4b3359f3a117428006f294aa158bb155f7f8a1cd34b3b246398f32c0cb
+- path: verification/r1_g1_definition_obs_revision_20261117/R5_44138097052_CI.json
+  sha256: 1e8ff896e3262558ef9b0cc37dff008430895a7d2b7ebd64af04b45696dd640d
+- path: verification/r1_g1_definition_obs_revision_20261117/R5_44138097052_CI_proof.txt
+  sha256: 7c21b456089918a39f36e5bfc893bb3a684c1e5c78346916e6657cde6ef13b1d
+- path: verification/r1_g1_definition_obs_revision_20261117/README.md
+  sha256: 64b48c4e2b6a409eff901b039bf2d7d66703df009c2d2e219d8446e9188ce180
+- path: verification/r1_g1_definition_obs_revision_20261117/author_checks.json
+  sha256: ce227a7531530c27247ce34b94fe9563aa4f0bc07589ace9c665510bfd574b94
+- path: verification/r1_g1_definition_obs_revision_20261117/decision_register.json
+  sha256: e4bfadc2397f1bdd2f14975fa97e917b7640c84049f7ad2674f21b08bd37dd6e
+- path: verification/r1_g1_definition_obs_revision_20261117/definition_register.json
+  sha256: 62c2a07a4b856cfef69ae6473c882974e62d3239b2002fdb6a42c58f8bea6e67
+- path: verification/r1_g1_definition_obs_revision_20261117/definition_register.md
+  sha256: 9548b0835c2959a15e436a7197073f2cab915680bbf5de4cbb0c79498b7cd103
+- path: verification/r1_g1_definition_obs_revision_20261117/input_audit.json
+  sha256: 916475954957beb095ded4b37bbcc1f5676eee4bb85b82268a281de2523ef531
+- path: verification/r1_g1_definition_obs_revision_20261117/input_manifest.json
+  sha256: ff97e587dff6d0563aa0ab3e5424cfbe7e4e9cffcfa023187d6635e4f833730d
+- path: verification/r1_g1_definition_obs_revision_20261117/method_catalog.json
+  sha256: b434cc5646cf0912f35ef68074c835163529a5ed6724ffe00a7b5837c4ebf8e1
+- path: verification/r1_g1_definition_obs_revision_20261117/observations.json
+  sha256: b2dc5312b0079f00f7f827b80c583ca94685c796261395a421e6d047c0a8f84d
+- path: verification/r1_g1_definition_obs_revision_20261117/preflight.json
+  sha256: f0bab16264143ff18b527bf14dfb64aff98150430bd9a2bb21b73792a56a3788
+- path: verification/r1_g1_definition_obs_revision_20261117/quantity_crosswalk.json
+  sha256: 5557570dd1781b96fd84229552f5e7a6e33f0517a14a7a76cb6413450cdc41ff
+- path: verification/r1_g1_definition_obs_revision_20261117/quantity_crosswalk.md
+  sha256: 1510db41a604f1d5e0bfe09a71120d57dd879196f2eb281b35a2b9de28600b2f
+- path: verification/r1_g1_definition_obs_revision_20261117/readiness.md
+  sha256: f02756ea83825eeac3a03b58642700d7bd32161921164604d9449f6ca8b4da71
+- path: verification/r1_g1_definition_obs_revision_20261117/record_retention_plan.json
+  sha256: d58f4d3e349203e73931d93de79da083ee1b6de4abf2c207d532c1c26ec70962
+- path: verification/r1_g1_definition_obs_revision_20261117/record_retention_plan.md
+  sha256: 5909b9afe15a84d734a5c52d0cc47fe97295e62be74952f4d21f2499c1a06a13
+- path: verification/r1_g1_definition_obs_revision_20261117/registry.log
+  sha256: f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda
+- path: verification/r1_g1_definition_obs_revision_20261117/registry_status.json
+  sha256: 8fdcee828d379c28bc7be5526f1f831da441c79afcaa522dd505f0b49f51ca3c
+- path: verification/r1_g1_definition_obs_revision_20261117/render_register.py
+  sha256: f8edea709626e2c7123f2dba624680cd725c47c8c21e528dff2cf42dcee7728c
+- path: verification/r1_g1_definition_obs_revision_20261117/reproducibility.json
+  sha256: 62b91f807a17a61db814cba703eba7b428b34b6ad9c44ac07d9cbab0467d03bb
+- path: verification/r1_g1_definition_obs_revision_20261117/source_applicability.json
+  sha256: 5c2b316760cb4bf91e23f4f4f5a52854932084fcd42b19fdb3a496e361d598b7
+- path: verification/r1_g1_definition_obs_revision_20261117/source_applicability.md
+  sha256: bc09fe8bc68c631cfb1ae60f46fd46070e8a9f6ee8acd98787f6de36a054e7f3
+- path: verification/r1_g1_definition_obs_revision_20261117/task_before_revision.json
+  sha256: 6478a6e9722bb02f9b3cbfd7d14260cca894aaeda88c8f8b41b01b3a3b69cf62
+- path: verification/r1_g1_definition_obs_revision_20261117/verification_plan.md
+  sha256: c59c4739fbbfbbd2745e24396f79ed3617df3b48e01ea9a6e30cb42d7a696b87
+- path: verification/r1_g1_definition_obs_revision_20261117/verify_revision.py
+  sha256: ad00eedf61dbaee36b5c40094705bb820ab8ff23c33b5490f157694d64bb4fe9
+- path: verification/r1_g1_definition_obs_revision_20261117/review_target_manifest.json
+  sha256: e40ecd8299a02b2aa32e9a1517bedbb47acac5ab8e676d105734b3e82aec476a
+checks:
+- id: RECHECK-IDENTITY
+  method: Fresh actual identity/coauthorship/upstream and main scope/claim/owner/original lease audit
+  expected: Explicit accepted new scope,live original lease,same actual R5,noncoauthor
+  observed: Actual6afb0a73-b16c-8191-a539-9a6685e89034;main9747678 acceptedscope;canonical SHA unchanged;upstream
+    original observations disclosed
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-INPUT
+  method: Own immutable input Git/SHA/material seals and bounded input audit
+  expected: 53inputs/28target artifacts;no physical audit completion
+  observed: All match;4bounded PASS/3NOT_RUN;no new claim/lease
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-OBS01
+  method: Own four physical-quantity/object mappings and VAL02/03-MATERIAL/MASS-REQ22 semantic analysis
+  expected: Distinct general/bulk density and product/residue/dose objects;explicit scope;unknown actual criteria/methods
+  observed: DEF02G/03F plus4mappings correct;values/units/tolerances/methods null;no actual measurements;OBS01 CLOSED_DOCUMENTARY_EXACT_C
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-OBS02
+  method: Own per-attempt retention/schema field mapping/derived-selection semantic analysis
+  expected: Every attempted cycle retained with outcome/quality/reason/disposition/raw/series links,even missing
+    product/measurement
+  observed: DM03DRAFT02 andretention plan preserve full ledger;missing_reason→unknown_reason;subsets retain unfiltered
+    base;no executable schema/results;OBS02 CLOSED_DOCUMENTARY_EXACT_C
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-ROWS
+  method: Own22REQ/VAL146scope22method assessment and whole-object deltas
+  expected: 144old items/20full rows and methods unchanged;two bounded additions
+  observed: All retained;row02/03 numeric definitions/results/owners remain UNKNOWN/NOT_RUN;11 reasoning cases recorded,not
+    implemented evaluator tests
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-SOURCE
+  method: Own source qualifier/disposition applicability and whole-row comparison
+  expected: 40full RAW/null rows with primary/relevance policy and no guessed reconciliation
+  observed: 10proposal23context7issue unchanged;power/literalpressure/moisture unresolved;no source PDF recertification
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-DOC-TRACE
+  method: Own mixed/pure assurance and new-target H01/FORCE_REACTION analysis
+  expected: No numeric-metrology waiver or actual reaction claim
+  observed: 4pure/18mixed selection retained;H01→REQ09/VAL09/MET09→FORCE_REACTION andREQ16/17 retained;routes unselected;prediction
+    not actual reaction
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-DECISIONS
+  method: Own9open group/criterion/method/owner/country analysis
+  expected: No implicit G1/TZ/source approval or future-stage prerequisite
+  observed: All9 groups OPEN;R1 documentary not engineering assignment;country pending prior question;G2-G4/CAD/tests
+    not demanded instead of G1 definitions
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-PRESERVE
+  method: Immutable new53/old92/54pins,12trees,manifests,whole baseline and LFS/prefix evidence
+  expected: 44full bindings/loads/strokes/CAD52interfaces84RAW-null42states15gaps and history retained
+  observed: 3464baseline files59LFS;old22/25/26/25new28 sealed artifacts;oldjournal exactprefix,counter2/fourFAIL/STALE/oldOBS01
+    exactclosure preserved;old acts not recertified
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-REPLAY
+  method: Read renderer then actual exact-C detached TEMP replay before own append
+  expected: Six exact output hashes and53physical input seals
+  observed: 6MATCH/exit0,own HEAD exactC;author172/old4171/replay not new semantic proof
+  reasoning: Bounded documentary recheck only;closed original observations do not approve definitions/methods/TZ/G1
+    or confirm machine strength/stability/reactions.
+  result: PASS
+- id: RECHECK-REVISION
+  method: Independent JSON-to-Markdown controlled method identity comparison,not renderer replay
+  expected: Rendered DM02/03 revisions match JSON DRAFT-02
+  observed: definition_register.md lines49/74 say DRAFT-01;method_catalog.json lines70/105 say DRAFT-02;renderer
+    line37 hardcodes DRAFT-01
+  reasoning: A reproducible summary can misidentify its method revision.New OBS03 OPEN;must correct before using
+    a consistent controlled method package.No target edit by reviewer.
+  result: FAIL
+- id: RECHECK-4
+  method: Actual physical/numerical engineering input-audit section4
+  expected: Real inputs,applicable analysis and separate execution authorization
+  observed: NOT_RUN;42states unsolved;no geometry/force/strength/stability/reaction/cycle/physical verification
+  reasoning: Excluded by current documentary assignment;not replaced by software checks or replay.
+  result: NOT_RUN
+- id: RECHECK-5
+  method: Actual physical/numerical engineering input-audit section5
+  expected: Real inputs,applicable analysis and separate execution authorization
+  observed: NOT_RUN;42states unsolved;no geometry/force/strength/stability/reaction/cycle/physical verification
+  reasoning: Excluded by current documentary assignment;not replaced by software checks or replay.
+  result: NOT_RUN
+- id: RECHECK-6
+  method: Actual physical/numerical engineering input-audit section6
+  expected: Real inputs,applicable analysis and separate execution authorization
+  observed: NOT_RUN;42states unsolved;no geometry/force/strength/stability/reaction/cycle/physical verification
+  reasoning: Excluded by current documentary assignment;not replaced by software checks or replay.
+  result: NOT_RUN
+verdict: WARNING
+validity: CURRENT
+rechecks_review_id: REV-R5-G1-DEFINITION-OUTPUT-01-001
+predecessor_reviewed_commit: 7e2d5ecff42fe1d09b461e05375924cb644c27c9
+predecessor_act_applicability: Original act preserved on its exact C;no automatic inheritance for new97f58 target
+observation_decisions:
+  R5-DEF-OBS-01:
+    status: CLOSED_DOCUMENTARY_EXACT_C
+    exact_C: 97f58fd437947e26963bdbbc2f2d89df7438e8cc
+    basis: Four explicit quantity mappings and new DEF02G/03F preserve distinct density/mass objects and UNKNOWN
+      definitions.
+  R5-DEF-OBS-02:
+    status: CLOSED_DOCUMENTARY_EXACT_C
+    exact_C: 97f58fd437947e26963bdbbc2f2d89df7438e8cc
+    basis: DM03/retention proposal preserves every attempt/outcome/quality/reason/disposition/raw/series record,including
+      absent product/measurement and derived subsets.
+findings:
+- id: R5-DEF-OBS-01
+  status: CLOSED
+  closure_scope: DOCUMENTARY_EXACT_C_ONLY
+  closed_on_commit: 97f58fd437947e26963bdbbc2f2d89df7438e8cc
+  description: Four explicit quantity mappings and new DEF02G/03F preserve distinct density/mass objects and UNKNOWN
+    definitions.
+- id: R5-DEF-OBS-02
+  status: CLOSED
+  closure_scope: DOCUMENTARY_EXACT_C_ONLY
+  closed_on_commit: 97f58fd437947e26963bdbbc2f2d89df7438e8cc
+  description: DM03/retention proposal preserves every attempt/outcome/quality/reason/disposition/raw/series record,including
+    absent product/measurement and derived subsets.
+- id: R5-DEF-OBS-03
+  status: OPEN
+  severity: DOCUMENTARY_VERSION_INCONSISTENCY
+  blocking_preliminary_DRAFT: false
+  blocks_controlled_method_identity: true
+  reviewed_commit: 97f58fd437947e26963bdbbc2f2d89df7438e8cc
+  description: definition_register.md renders DM02 andDM03 asDRAFT-01 although method_catalog.json defines DRAFT-02.
+    render_register.py hardcodes /DRAFT-01. Six MATCH reproduce this inconsistency;they do not validate revision
+    fidelity.
+  evidence:
+  - requirement_id: REQ-REV-02
+    method_id: DM-02
+    JSON_revision: DRAFT-02
+    rendered_revision: DRAFT-01
+  - requirement_id: REQ-REV-03
+    method_id: DM-03
+    JSON_revision: DRAFT-02
+    rendered_revision: DRAFT-01
+  required_action: Author must derive displayed DM revision from the matching method row,regenerate affected documentary
+    outputs and request exact-C review of the correction. Do not change old snapshots or treat the current summary
+    as an approved method.
+- id: R5-TZ-B01
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Approve own criterion/quantity/tolerance/mode or objective completeness definition, and appoint competent
+    definition owners; null is not zero.
+- id: R5-TZ-B02
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Approve controlled methods, scope/coverage, missing-data/stop rules and applicable metrology; independent
+    program review required.
+- id: R5-TZ-B03
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Define safety states/retention/isolation/recovery and normative boundary from actual project facts
+    and current primary texts; PL/SIL not assigned.
+- id: SOURCE-POWER
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Resolve primary BP500 total/components or separately justify exclusion/own criterion with independent
+    review and user decision; no invented budget.
+- id: SOURCE-PRESSURE-UNIT
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Resolve literal unit/quantity/point/conditions or separately justify exclusion/own criterion; no
+    kgf assumption or derived force.
+- id: SOURCE-MOISTURE-BASIS
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Resolve wet/dry basis and method; do not combine donor windows or claim actual lot conformity.
+- id: OPERATING-COUNTRY
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: User question pending; country remains UNKNOWN; manufacturing in РФ does not establish operation
+    jurisdiction.
+- id: ENGINEERING-OWNERS
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Actual competent owners unassigned; R1 documentary ownership does not appoint engineers or establish
+    their competence.
+- id: G1-FULL-REVIEW
+  status: OPEN
+  scope: Dependent TZ/G1/definition approval
+  description: Independent whole-package sufficiency review and separate user approval required; inherited acts
+    cover only their exact predecessors.
+blocker_ids:
+- R5-TZ-B01
+- R5-TZ-B02
+- R5-TZ-B03
+- R5-DEF-OBS-03
+preliminary_DRAFT_usable: true
+G1_sufficient: false
+requirements_approved: false
+source_states_solved: false
+G1: OPEN
+W02: NO_GO
+physical_READY: NO_GO
+input_audit_sections:
+  '4': NOT_RUN
+  '5': NOT_RUN
+  '6': NOT_RUN
+base_claim_modified: false
+scope_amendment_modified: false
+lease_extension: false
+reproduction_artifacts:
+- verification/r5_definition_obs_recheck_20261118/README.md
+- verification/r5_definition_obs_recheck_20261118/check_publication.py
+- verification/r5_definition_obs_recheck_20261118/identity.json
+- verification/r5_definition_obs_recheck_20261118/independent_results.json
+- verification/r5_definition_obs_recheck_20261118/input_audit.json
+- verification/r5_definition_obs_recheck_20261118/input_audit.md
+- verification/r5_definition_obs_recheck_20261118/merge_context.json
+- verification/r5_definition_obs_recheck_20261118/observation_decisions.json
+- verification/r5_definition_obs_recheck_20261118/recheck.py
+- verification/r5_definition_obs_recheck_20261118/remote_context.json
+- verification/r5_definition_obs_recheck_20261118/renderer_replay.json
+- verification/r5_definition_obs_recheck_20261118/review.md
+- verification/r5_definition_obs_recheck_20261118/semantic_expectations.py
+- verification/r5_definition_obs_recheck_20261118/target_CI.json
+- verification/r5_definition_obs_recheck_20261118/task_before_recheck.json
+- verification/r5_definition_obs_recheck_20261118/independent_after_record.json
+- verification/r5_definition_obs_recheck_20261118/validation.json
+- verification/r5_definition_obs_recheck_20261118/registry.log
+```

@@ -1,0 +1,118 @@
+{
+  "recorded_at_utc": "2026-11-17T22:29:59.620729+00:00",
+  "reviewed_commit": "97f58fd437947e26963bdbbc2f2d89df7438e8cc",
+  "request_H": "46cbf199c3d17049ac31aa337378f0b176e70a2e",
+  "review_id": "REV-R5-G1-DEF-OBS-RECHECK-01-001",
+  "overall_verdict": "WARNING",
+  "observation_decisions": {
+    "R5-DEF-OBS-01": {
+      "status": "CLOSED_DOCUMENTARY_EXACT_C",
+      "exact_C": "97f58fd437947e26963bdbbc2f2d89df7438e8cc",
+      "basis": "Four explicit quantity mappings and new DEF02G/03F preserve distinct density/mass objects and UNKNOWN definitions."
+    },
+    "R5-DEF-OBS-02": {
+      "status": "CLOSED_DOCUMENTARY_EXACT_C",
+      "exact_C": "97f58fd437947e26963bdbbc2f2d89df7438e8cc",
+      "basis": "DM03/retention proposal preserves every attempt/outcome/quality/reason/disposition/raw/series record,including absent product/measurement and derived subsets."
+    }
+  },
+  "new_findings": [
+    {
+      "id": "R5-DEF-OBS-03",
+      "status": "OPEN",
+      "severity": "DOCUMENTARY_VERSION_INCONSISTENCY",
+      "blocking_preliminary_DRAFT": false,
+      "blocks_controlled_method_identity": true,
+      "reviewed_commit": "97f58fd437947e26963bdbbc2f2d89df7438e8cc",
+      "description": "definition_register.md renders DM02 andDM03 asDRAFT-01 although method_catalog.json defines DRAFT-02. render_register.py hardcodes /DRAFT-01. Six MATCH reproduce this inconsistency;they do not validate revision fidelity.",
+      "evidence": [
+        {
+          "requirement_id": "REQ-REV-02",
+          "method_id": "DM-02",
+          "JSON_revision": "DRAFT-02",
+          "rendered_revision": "DRAFT-01"
+        },
+        {
+          "requirement_id": "REQ-REV-03",
+          "method_id": "DM-03",
+          "JSON_revision": "DRAFT-02",
+          "rendered_revision": "DRAFT-01"
+        }
+      ],
+      "required_action": "Author must derive displayed DM revision from the matching method row,regenerate affected documentary outputs and request exact-C review of the correction. Do not change old snapshots or treat the current summary as an approved method."
+    }
+  ],
+  "own_check_counts": {
+    "PASS": 4261,
+    "FAIL": 1,
+    "NOT_RUN": 3
+  },
+  "own_checker_exit_code": 1,
+  "exit1_reason": "Explicit unresolved rendered-method-revision-consistency FAIL OBS03;not hidden or relabelled PASS",
+  "unexpected_failures": [],
+  "semantic_assessment_counts": {
+    "REQ_VAL": 22,
+    "scope_items": 146,
+    "methods": 22,
+    "quantity_mappings": 4,
+    "sources": 40,
+    "open_decisions": 9,
+    "documentary_cases": 11
+  },
+  "renderer": {
+    "outputs": 6,
+    "MATCH": 6,
+    "exit_code": 0,
+    "separate_from_semantic_recheck": true
+  },
+  "registry": {
+    "command": [
+      "python3",
+      "scripts/check_registry.py",
+      "--check-git"
+    ],
+    "exit_code": 0,
+    "log": "verification/r5_definition_obs_recheck_20261118/registry.log",
+    "engineering_acceptance_assessed": false
+  },
+  "diff_check_exit_code": 0,
+  "py_compile_exit_code": 0,
+  "preserved_baseline_files": 3464,
+  "materialized_LFS": 59,
+  "old_own_acts_recertified": false,
+  "publication": "NEXT_C_then_H;not yet created",
+  "CI": "Source runs saved by exact SHA;own C/H CI only after actual commits exist",
+  "own_evidence_sha256": {
+    "verification/r5_definition_obs_recheck_20261118/README.md": "c9956adfcf8ac9ce1e45541f7bb834e44fd9c53b825b2c3f531e1529158f11a1",
+    "verification/r5_definition_obs_recheck_20261118/check_publication.py": "146bb819332431d35e71506527cf91a3abfc465ceefea32da386d31fc3ac8fb8",
+    "verification/r5_definition_obs_recheck_20261118/identity.json": "5e7db86da6b03b2ddb45f5938aca0ec9fa4f1b493e136a9b50e1ec6a93df742c",
+    "verification/r5_definition_obs_recheck_20261118/independent_after_record.json": "7a32c1f31c902fa92e664f53ab5bcfbe54df69483ca8e75ac6a530fdf4c5d6d8",
+    "verification/r5_definition_obs_recheck_20261118/independent_results.json": "b54ff8ee0468393a0c55244ada2224bd8a27f537ee423cbb77cd6ee78cf7817b",
+    "verification/r5_definition_obs_recheck_20261118/input_audit.json": "37e70d8e3a48381fb3a81415d570cfc816a1fd61f0830aa601134547262a5d3b",
+    "verification/r5_definition_obs_recheck_20261118/input_audit.md": "52013e80e558290bb543d7093695a4551e3b5f6bc75c9f80b21819cf48412e70",
+    "verification/r5_definition_obs_recheck_20261118/merge_context.json": "27279e0d1bd0021f450fbddeeb3f8bf91654ca2c23647813370a7e41ba615379",
+    "verification/r5_definition_obs_recheck_20261118/observation_decisions.json": "a336d3a71c342ec82b855da01711c66401c8112e91027388c13061ba4f3c8ffb",
+    "verification/r5_definition_obs_recheck_20261118/recheck.py": "fa94d8e74fb9522e4857be57610f6d881c948be1b09ae0b734e8bd5ce501e8c6",
+    "verification/r5_definition_obs_recheck_20261118/registry.log": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda",
+    "verification/r5_definition_obs_recheck_20261118/remote_context.json": "301bf825a65f7251e1243ee0f574b71e01a2e59e66b4eb34e68eade97cf4fe42",
+    "verification/r5_definition_obs_recheck_20261118/renderer_replay.json": "bf5081e959f38a8d48f755f713455702e7498abf8881f5f93b59be7ea15bfbbb",
+    "verification/r5_definition_obs_recheck_20261118/review.md": "bf21dac3d9c06d2923d49139e2f76def3ed16e629e21a7cd4184d737dbf16c1c",
+    "verification/r5_definition_obs_recheck_20261118/semantic_expectations.py": "b2db2dbb25b35d4f9bff7755996686497ae6cb62916866e4a6be47ee491ecfad",
+    "verification/r5_definition_obs_recheck_20261118/target_CI.json": "810e64656547e8f50c03733f25bfb40a56d4af343b65372d1e9c6d0e30bfbed9",
+    "verification/r5_definition_obs_recheck_20261118/task_before_recheck.json": "5470f1d2660ada42d2e1c5c60977195541d854355603188bfc08fd7c35e75010"
+  },
+  "journal_sha256": "dfe7adbd92ffcf71540f05b7dfa9c0814691d7556ed555489378d9fda181e638",
+  "canonical_claim_sha256": "9b610dbb7bbbaaa1590e72ac8ea407f0075994cdb0056e005ac6a0499bd12ab3",
+  "scope_amendment_sha256": "f647798e1d58130021ce3828e965baa02ddbe0b156217a3f80f2ea943fa99d5a",
+  "original_deadline": "2026-11-18T01:58:30.990734+00:00",
+  "lease_extension": false,
+  "source_states_solved": false,
+  "physical_sections": {
+    "4": "NOT_RUN",
+    "5": "NOT_RUN",
+    "6": "NOT_RUN"
+  },
+  "G1": "OPEN",
+  "W02": "NO_GO",
+  "physical_READY": "NO_GO"
+}
