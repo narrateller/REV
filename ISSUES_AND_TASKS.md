@@ -1,3 +1,21 @@
+# R5 — предложение claim на независимый review PR55
+
+T-r5-g1-supplement-output-review-01 / PROPOSED_NOT_ACCEPTED / BLOCKED_CLAIM_ACCEPTANCE.
+Actual session 6afb0a73-b16c-8191-a539-9a6685e89034; прямое назначение R5 действует, принятого claim этой задачи в main нет.
+Предложение: coordination/proposals/T-r5-g1-supplement-output-review-01.json; owner_session NONE, claim_effective false.
+Exact future reviewed_commit fe10c0bc7242fe9d2df3e571c80b4e687f731d7c; request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+Документальная приёмка предложения отдельно от PR55; PR55 не сливать.
+Запрошенный предел lease 2026-11-18T01:58:30.990734+00:00 только предложение, фактический срок не создан.
+Старые R1/R4/прочие leases не продлены; accepted ledgers не редактируются.
+22 карточки/22 метрологии/20 hazards/6 norms/3 source actions и13 outputs: OUTPUT-review NOT_RUN до принятого claim.
+Автор395 и старые3890 R5 не являются новым независимым review. Target quality verdict отсутствует.
+Первый шаг R1: проверить scope/owner/срок/конкуренцию/remote SHA и оформить последовательное принятие claim в main.
+После принятия — отдельный input audit/review exact C, собственный акт C/H и CI.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; G1 OPEN; W02/physical READY NO-GO.
+ТЗ/архитектура не утверждены; RAW не повышены; численный/физический этап/CAD-rebuild/испытания не начаты.
+
+---
+
 # R1 — rev8 OUTPUT-review принят с WARNING; PR54 подготовлен к документальной интеграции
 
 UTC 2026-11-17T06:16:36.843399+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0, T-r1-requirements-draft-01.
