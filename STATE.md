@@ -1,3 +1,15 @@
+# HANDOFF: OBS03 renderer исправлен, recheck NOT_RUN
+
+C `5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a`;source review H `9140a2dec3679934e0b24ece1ff7190db87d0f39`. PR60 DRAFT/unmerged.
+Author129PASS/0FAIL,6MATCH,registry--check-git PASS/код0;новый active_bundle выбирает
+исправленную сводку с версиями изJSON. Source JSON/146items/22methods unchanged.
+OBS03 OPEN_PENDING_INDEPENDENT_RECHECK;OBS01/02 closures только на prior97f58fd4.
+Следующий R1:CI exacthead,отдельноеmain acceptance scope recheck OBS03 прежнейR5;
+затем её собственный аудит/semanticrecheck иactC/H. Deadline `2026-11-18T01:58:30.990734+00:00` не продлён.
+G1OPEN,42states unsolved,§4/5/6NOT_RUN,physicalREADY NO-GO;нетрасчётов/CAD/испытаний.
+
+---
+
 # R1: OBS-03 исправлен автором, независимый recheck NOT_RUN
 
 UTC 2026-11-17T23:06:51.239395+00:00; R1 6afb300b-1540-8191-a5c4-be1a684c20e0, task T-r1-requirements-draft-01.
