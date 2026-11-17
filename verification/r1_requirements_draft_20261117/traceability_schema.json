@@ -1,0 +1,33 @@
+{
+  "scope": "Future traceability schema only; no actual observations",
+  "nodes": [
+    "Batch_ID",
+    "Stage_ID",
+    "Sample_ID",
+    "Dose_ID",
+    "Cycle_ID",
+    "Briquette_ID",
+    "Residual_ID",
+    "Loss_ID"
+  ],
+  "cardinality": "many-to-many with split/merge/refill/changeover events",
+  "edge_fields": [
+    "from_id",
+    "to_id",
+    "event_id",
+    "timestamp",
+    "source_revision",
+    "known_fraction_or_null",
+    "uncertainty_or_null",
+    "missing_reason"
+  ],
+  "rules": [
+    "Retain unknown fractions instead of zero/default equal split",
+    "Keep residual/loss and unlinked records in accounting",
+    "Keep full failed/incomplete cycles and products",
+    "Do not infer product mass from dose mass",
+    "SIGNAL_LOSS/INVALID is not NO_MOTION_CONFIRMED"
+  ],
+  "actual_records": null,
+  "actual_records_status": "NOT_RUN"
+}

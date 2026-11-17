@@ -1,0 +1,927 @@
+{
+  "document_revision": 8,
+  "status": "DRAFT_NOT_APPROVED",
+  "author_sessions": [
+    "6afb300b-1540-8191-a5c4-be1a684c20e0"
+  ],
+  "task_id": "T-r1-requirements-draft-01",
+  "input_commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+  "source_review": {
+    "review_id": "REV-R5-REFERENCE-INTAKE-REVIEW-01-001",
+    "target_C": "f2cbd96bb78c915dca74cb4eb29daffbb52ee172",
+    "verdict": "WARNING_DOCUMENTARY_REFERENCE_ONLY"
+  },
+  "requirements_output_review": "NOT_RUN",
+  "requirements": [
+    {
+      "id": "REQ-REV-01",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Реализовать функциональный аналог BP500: приём, дозирование, гидравлическое уплотнение и выдачу; предусмотреть изготовление в РФ.",
+      "mode": "Полный цикл",
+      "quantity_or_observation": "Выполнение F-REV-01…04; число годных/невыданных изделий",
+      "future_criterion": "Все функции связаны с наблюдаемыми входами/выходами; годность каждого результата оценивается по заранее утверждённым подусловиям.",
+      "future_method": "Будущий TEST-F-05 и аудит функциональной схемы",
+      "expected_evidence": "Схема функций, журнал цикла и изделия, карта критериев",
+      "unknown_definition": "Пороги годности, сравнимые условия, полнота будущей программы UNKNOWN",
+      "responsible_functions": "R1",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_BUNKER_OPENING_1",
+        "BPR_BUNKER_OPENING_2",
+        "BPR_BUNKER_VOLUME"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-INFEED",
+        "SREF-WEIMA-LEVEL"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-01"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-01",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-02",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Принимать сырьё в проектном окне BP500; фактическую пригодность партии устанавливать отдельно. Старое сообщение о строительной древесине сохранить как контекст.",
+      "mode": "Вход пресса",
+      "quantity_or_observation": "Состав, фракция/форма, влажность, плотность, примеси",
+      "future_criterion": "Партия соответствует согласованной входной спецификации и определённой влажностной базе; неизвестная характеристика не считается соответствием.",
+      "future_method": "Будущая характеризация по согласованным методикам",
+      "expected_evidence": "Паспорт партии/стадии/пробы и результаты методов",
+      "unknown_definition": "База/метод влажности, реальные свойства, пределы примесей и кондиция UNKNOWN",
+      "responsible_functions": "R2",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_MOISTURE_MIN",
+        "BPR_MOISTURE_MAX",
+        "SUPR_E55_MOISTURE_MIN",
+        "SUPR_E55_MOISTURE_MAX",
+        "SUPR_WEIMA_MOISTURE_MIN",
+        "SUPR_WEIMA_MOISTURE_MAX"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-FEEDSTOCK",
+        "BPR-INFEED",
+        "SREF-E55-FEED",
+        "SREF-E55-MATERIAL",
+        "SREF-WEIMA-MATERIAL"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-02"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-02",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-03",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Предусмотреть регулирование геометрии брикета по референтным полям BP500; отдельно проверять формование, состояние после выдержки и полную выдачу.",
+      "mode": "Серия и смена настройки",
+      "quantity_or_observation": "Размеры изделия m; масса kg; дефекты; остаток на выходе",
+      "future_criterion": "03a: геометрия сопоставляется с предложенными source-полями и будущими допусками; 03b: изделие полностью выдано по отдельному критерию. Масса дозы не заменяет свойства изделия.",
+      "future_method": "Будущие TEST-F-03/04: обмер, взвешивание, наблюдение выхода",
+      "expected_evidence": "Полная серия изделий/дефектов/остатка до и после выдержки",
+      "unknown_definition": "Допуски, время/условия выдержки, годность и допустимый остаток UNKNOWN",
+      "responsible_functions": "R1/R2",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_BRIQUETTE_SIDE_1",
+        "BPR_BRIQUETTE_SIDE_2",
+        "BPR_BRIQUETTE_LENGTH_MIN",
+        "BPR_BRIQUETTE_LENGTH_MAX",
+        "BPR_COMPACTION_PRESSURE_LITERAL"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-WEAR",
+        "SREF-E55-HOLD",
+        "SREF-ARS-OPEN"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-03"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-03",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-04",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Сравнивать выпуск REV с условной up-to декларацией BP500; определить собственный режим сравнения, учёт брака, простоев и энергии.",
+      "mode": "Полный цикл при описанном материале/настройках",
+      "quantity_or_observation": "Изделия за время; энергия; простой; доля брака",
+      "future_criterion": "Up-to ориентир не превращается в гарантированный минимум. Критерий выпуска задаётся вместе с материалом, настройками, окном учёта и годностью; фиксированная масса всех изделий не выводится.",
+      "future_method": "Будущий TEST-F-05 и раздельный учёт потерь/остановов",
+      "expected_evidence": "Исходный журнал выпуска/событий/энергии с условиями сравнения",
+      "unknown_definition": "Гарантированный минимум, сопоставимые условия, энергия/простой/брак UNKNOWN",
+      "responsible_functions": "R1/R3",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_THROUGHPUT_UPPER",
+        "BPR_REFERENCE_BRIQUETTE_MASS"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-COMPLETION"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-04"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-04",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-05",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Согласованно выполнять подачу, дозирование, уплотнение, выдачу, паузу и возобновление; различать состояние, команду и разрешение движения.",
+      "mode": "Пуск/работа/останов/восстановление",
+      "quantity_or_observation": "Состояния, события, команды и обратные связи",
+      "future_criterion": "Каждый будущий переход имеет условие, наблюдение, диагностику и сценарий отказа; наличие материала не равно готовой дозе или READY.",
+      "future_method": "Будущие проверки автомата и TEST-F-01…05",
+      "expected_evidence": "Матрица переходов, трассы и перечень запрещённых переходов",
+      "unknown_definition": "Уставки, тайм-ауты, подтверждённая циклограмма/параллелизм UNKNOWN",
+      "responsible_functions": "R1/R3",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [
+        "BPR-CONTROLS",
+        "SREF-E55-HOLD",
+        "SREF-E55-FEED",
+        "SREF-WEIMA-LEVEL",
+        "SREF-ARS-BRANCH",
+        "SREF-ARS-OPEN",
+        "SREF-ARS-RESET"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-05"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-05",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-06",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Определить вход/выход пресса и ответственность за подготовку/буфер/подачу. Существующая линия остаётся сообщённым контекстом; будущий интерфейс разрабатывается под пресс.",
+      "mode": "Границы подготовки и выдачи",
+      "quantity_or_observation": "Состояние потока, заполнение, буфер, интерфейс",
+      "future_criterion": "Входная кондиция и ответственность однозначны; объём бункера и наличие потока не выданы за объём полной дозы.",
+      "future_method": "Будущий review интерфейсов и TEST-F-01/02/04",
+      "expected_evidence": "Спецификация передачи и карта ответственности",
+      "unknown_definition": "Реальные расходы/буфер/кондиция/очистка и интерфейс UNKNOWN",
+      "responsible_functions": "R1/R3/R4",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_BUNKER_OPENING_1",
+        "BPR_BUNKER_OPENING_2",
+        "BPR_BUNKER_HEIGHT",
+        "BPR_BUNKER_VOLUME"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-INFEED",
+        "SREF-E55-FEED"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-06"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-06",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-07",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Сформировать требования к подключению и ресурсам площадки по будущему проекту; BP500 задаёт референтные кандидаты, площадка адаптируется под пресс.",
+      "mode": "Пуск/работа/пауза",
+      "quantity_or_observation": "V, Hz, A, W по выбранным точкам и режимам",
+      "future_criterion": "Ресурсы согласованы с собственным приводом и пуском; исходный конфликт мощностей сохранён, реальная готовность площадки не предполагается.",
+      "future_method": "Будущий электрический/энергетический review и измерения",
+      "expected_evidence": "Спецификация подключения, режимов и защиты",
+      "unknown_definition": "SOURCE-POWER, пусковые/рабочие нагрузки, допуски и реализация UNKNOWN",
+      "responsible_functions": "R3",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_SUPPLY_VOLTAGE",
+        "BPR_SUPPLY_FREQUENCY",
+        "BPR_SUPPLY_CURRENT",
+        "BPR_MOTOR_COUNT",
+        "BPR_INSTALLED_POWER",
+        "BPR_MAIN_MOTOR_POWER",
+        "BPR_INFEED_MOTORS_POWER",
+        "BPR_COOLING_POWER",
+        "BPR_MAIN_MOTOR_PHASES",
+        "BPR_MAIN_MOTOR_SPEED"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-SITE"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-07"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-07",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-08",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Обеспечивать управляемое гидравлическое воздействие и движения собственной архитектуры; различать давление масла, воздействие на материал и фазовые нагрузки.",
+      "mode": "Рабочие/переходные/предельные режимы",
+      "quantity_or_observation": "Pa, m, время, расход, температура; силы при подтверждении",
+      "future_criterion": "Режимы обоснованы собственной схемой/материалом/контактами; source максимум не является рабочим спектром всех состояний, ambiguous pressure не используется как сила.",
+      "future_method": "Будущие синхронные измерения и профильный анализ",
+      "expected_evidence": "Схема точек, трассы, модели и неопределённости",
+      "unknown_definition": "SOURCE-PRESSURE-UNIT, реальные силы/контакты/потери/диапазоны UNKNOWN",
+      "responsible_functions": "R2/R3",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_MOTOR_COUNT",
+        "BPR_INSTALLED_POWER",
+        "BPR_MAIN_MOTOR_POWER",
+        "BPR_INFEED_MOTORS_POWER",
+        "BPR_COOLING_POWER",
+        "BPR_MAIN_MOTOR_PHASES",
+        "BPR_MAIN_MOTOR_SPEED",
+        "BPR_CYLINDER_COUNT",
+        "BPR_PUMP_COUNT",
+        "BPR_HYDRAULIC_PRESSURE_MAX",
+        "BPR_OIL_TANK_VOLUME",
+        "BPR_FILTER_COUNT",
+        "BPR_FILTER_FROM",
+        "BPR_COMPACTION_PRESSURE_LITERAL"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-OIL",
+        "SREF-E55-FEED",
+        "SREF-ARS-BRANCH"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-08"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-08",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-09",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Определить собственный силовой контур, критерии жёсткости/прочности/устойчивости/ресурса до подтверждения несущей конструкции.",
+      "mode": "Нагрузочные случаи и отклонения",
+      "quantity_or_observation": "Напряжения Pa, деформации m, реакции N, критерии ресурса",
+      "future_criterion": "Каждый случай связан с нагрузкой, опорами, соединениями, материалом и утверждённым критерием. Общая масса, закалка или гарантия источника не заменяют эти входы.",
+      "future_method": "Будущий аналитический/CAE review и отдельное подтверждение",
+      "expected_evidence": "Исходная геометрия/условия, модели, сходимость и независимый акт",
+      "unknown_definition": "Геометрия/материалы/опоры/контакты/нагрузки/допуски/ресурс UNKNOWN",
+      "responsible_functions": "R4/R5",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_HYDRAULIC_PRESSURE_MAX",
+        "BPR_MACHINE_MASS"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-WEAR",
+        "BPR-WARRANTY",
+        "SREF-E55-HOLD"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-09"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-09",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-10",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Предусмотреть защиту доступа к опасным движениям на загрузке, дозировании, прессовании и выходе по собственной оценке риска.",
+      "mode": "Работа/наладка/очистка",
+      "quantity_or_observation": "Зоны, доступы, защитные функции и сценарии",
+      "future_criterion": "Каждая установленная опасность имеет требование функции, область, критерий и доказательство; наличие выключателя на референсе не подтверждает защиту REV.",
+      "future_method": "Будущий анализ риска и согласованные проверки функций",
+      "expected_evidence": "Карта зон, реестр опасностей и протоколы защит",
+      "unknown_definition": "Опасные зоны/режимы, целевые характеристики защит и применимость UNKNOWN",
+      "responsible_functions": "R1/R3/R4",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [
+        "BPR-INFEED"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-10"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-10",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-11",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Определить безопасные состояния при отказе, потере питания, засоре, неполной выдаче и восстановлении; исключить неподтверждённое открытие под остаточной нагрузкой.",
+      "mode": "Отказ/перезапуск/разгрузка",
+      "quantity_or_observation": "Состояния, остаточная энергия, обратные движения",
+      "future_criterion": "Каждый сценарий имеет безопасное состояние, запреты рестарта и способ подтверждения разгрузки; выдержка чужого цикла не является доказательством нулевой реакции.",
+      "future_method": "Будущая матрица отказов и проверки только по разрешённой программе",
+      "expected_evidence": "Трассы остановов/разгрузки/восстановления и независимая оценка",
+      "unknown_definition": "Реальные реакции, остаточная энергия, времена и уставки UNKNOWN",
+      "responsible_functions": "R3/R5",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [
+        "SREF-E55-HOLD",
+        "SREF-ARS-OPEN",
+        "SREF-ARS-RESET"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-11"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-11",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-12",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Контролировать цикл по пригодным наблюдениям и диагностировать недостоверность сигналов отдельно от причины остановки материала.",
+      "mode": "Автоматический/ручной/сервисный",
+      "quantity_or_observation": "Сигналы L/F/M, команды, движение, заполнение, синхронизация",
+      "future_criterion": "NO_MOTION_CONFIRMED требует пригодного канала; SIGNAL_LOSS/INVALID не означает отсутствие движения. Уровень бункера не доказывает полную дозу.",
+      "future_method": "Будущая проверка измерительной цепи и TEST-F-01…05",
+      "expected_evidence": "Карта сигналов, пригодность F, синхронные журналы и исключения",
+      "unknown_definition": "Методы/каналы, чувствительность, окна и пороги UNKNOWN",
+      "responsible_functions": "R3",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [
+        "BPR-CONTROLS",
+        "BPR-INFEED",
+        "SREF-WEIMA-LEVEL",
+        "SREF-ARS-BRANCH",
+        "SREF-ARS-RESET"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-12"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-12",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-13",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Предложить область эксплуатации в помещении по BP500; влажностное окно сырья и климатические условия задавать раздельно.",
+      "mode": "Работа/пауза/хранение",
+      "quantity_or_observation": "Температура K, характеристики среды, влажностная база сырья",
+      "future_criterion": "Референтные климатические кандидаты проверяются после определения допусков и применимых воздействий; окна других прессов не усредняются и не подменяют BP500.",
+      "future_method": "Будущий review среды и разрешённые проверки воздействий",
+      "expected_evidence": "Паспорт среды/сырья, методы и условия",
+      "unknown_definition": "Метод влажности, фактическая среда/опасности и неопределённость UNKNOWN",
+      "responsible_functions": "R1/R3",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_MOISTURE_MIN",
+        "BPR_MOISTURE_MAX",
+        "BPR_AMBIENT_MIN",
+        "BPR_AMBIENT_MAX",
+        "SUPR_E55_MOISTURE_MIN",
+        "SUPR_E55_MOISTURE_MAX",
+        "SUPR_WEIMA_MOISTURE_MIN",
+        "SUPR_WEIMA_MOISTURE_MAX"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-SITE",
+        "SREF-WEIMA-MATERIAL"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-13"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-13",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-14",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Учитывать опасности реального сырья, включая пыль, примеси, покрытия и клей; расширение материалов за окно BP500 оформлять отдельно.",
+      "mode": "Подготовка/подача/прессование/сервис",
+      "quantity_or_observation": "Состав, опасности, воздействие и загрязнение",
+      "future_criterion": "Применимые опасности охвачены подтверждёнными свойствами и мерами; сообщение оператора об опыте и неметаллическое сырьё ARS не подтверждают безопасность REV.",
+      "future_method": "Будущая характеризация и профильная оценка риска",
+      "expected_evidence": "Паспорт состава, оценка опасностей и доказательства мер",
+      "unknown_definition": "Состав/пыль/примеси, методы/пределы и меры UNKNOWN",
+      "responsible_functions": "R1/R2/R5",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [
+        "BPR-FEEDSTOCK",
+        "SREF-E55-MATERIAL",
+        "SREF-WEIMA-MATERIAL"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-14"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-14",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-15",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Предусмотреть очистку, устранение засоров, обслуживание и замену изнашиваемых частей с изоляцией всех источников энергии.",
+      "mode": "Сервис/обслуживание",
+      "quantity_or_observation": "Операции доступа, изоляция и контроль состояния",
+      "future_criterion": "Для каждой операции определены доступ, изоляция, остаточная энергия и критерий завершения; референтный интервал сервиса не становится ресурсом конструкции.",
+      "future_method": "Будущий сервисный/DFM review и демонстрация по программе",
+      "expected_evidence": "Карты операций, изоляции и обслуживания",
+      "unknown_definition": "Доступы, исполнение, совместимость масла/узлов, интервалы UNKNOWN",
+      "responsible_functions": "R3/R4/R6",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_CYLINDER_COUNT",
+        "BPR_PUMP_COUNT",
+        "BPR_OIL_TANK_VOLUME",
+        "BPR_FILTER_COUNT",
+        "BPR_FILTER_FROM",
+        "BPR_BUNKER_HEIGHT"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-OIL",
+        "BPR-WEAR",
+        "BPR-COMPLETION",
+        "BPR-WARRANTY"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-15"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-15",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-16",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Разработать монтажные, транспортные и сервисные требования как выход проекта под адаптируемую площадку; габариты/массу BP500 использовать как сравнение.",
+      "mode": "Транспорт/монтаж/работа",
+      "quantity_or_observation": "Габариты m, массы kg, реакции N и зоны доступа",
+      "future_criterion": "Выбранный проект имеет собственные подтверждённые габариты, массы, реакции и проходы; listed source dimensions не назначают оси/опоры, полная масса не равна движущейся.",
+      "future_method": "Будущий компоновочный/монтажный review и обмер",
+      "expected_evidence": "План размещения, масса/центр тяжести/реакции и сервисные зоны",
+      "unknown_definition": "Собственные размеры/оси/массы/фундамент/реакции/зоны UNKNOWN",
+      "responsible_functions": "R4/R6",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_BUNKER_OPENING_1",
+        "BPR_BUNKER_OPENING_2",
+        "BPR_BUNKER_HEIGHT",
+        "BPR_BUNKER_VOLUME",
+        "BPR_MACHINE_DIM_1",
+        "BPR_MACHINE_DIM_2",
+        "BPR_MACHINE_DIM_3",
+        "BPR_WITH_TABLE_DIM_1",
+        "BPR_MACHINE_MASS"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-SITE",
+        "BPR-COMPLETION"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-16"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-16",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-17",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "MACHINE_OR_INTERFACE",
+      "proposed_requirement": "Обеспечить проектную возможность изготовления и обслуживания собственного пресса в РФ без автоматического копирования покупных исполнений референса.",
+      "mode": "Изготовление/сборка/ремонт",
+      "quantity_or_observation": "Маршруты, материалы, операции, COTS и контроль",
+      "future_criterion": "Детали и закупки имеют подтверждённые возможности/интерфейсы/контроль; CANDIDATE или бренд из буклета не является APPROVED_FOR_LAYOUT.",
+      "future_method": "Будущий DFM и каталоговый review",
+      "expected_evidence": "Маршруты, подтверждения изготовителей и паспорта узлов",
+      "unknown_definition": "Материалы/станки/подрядчики/исполнения/допуски UNKNOWN",
+      "responsible_functions": "R4/R6",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [
+        "BPR_MOTOR_COUNT",
+        "BPR_MAIN_MOTOR_PHASES",
+        "BPR_MAIN_MOTOR_SPEED",
+        "BPR_CYLINDER_COUNT",
+        "BPR_PUMP_COUNT",
+        "BPR_OIL_TANK_VOLUME",
+        "BPR_FILTER_COUNT",
+        "BPR_FILTER_FROM"
+      ],
+      "qualitative_reference_ids": [
+        "BPR-WEAR"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-17"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-17",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-18",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "PROJECT_OR_TRACEABILITY",
+      "proposed_requirement": "Определить применимость нормативных требований именно к машине и её интерфейсам; отделить её от коммерциализации продукта.",
+      "mode": "Проектирование/эксплуатация/выпуск",
+      "quantity_or_observation": "Область, документ/редакция, требование и доказательство",
+      "future_criterion": "Для каждой принятой обязанности есть обоснованная область и компетентная проверка; конкретные уровни/нормы не назначаются без основания.",
+      "future_method": "Будущий компетентный review применимости",
+      "expected_evidence": "Реестр применимости с основаниями и открытыми вопросами",
+      "unknown_definition": "Классификация, юрисдикция применения, нормы/редакции UNKNOWN",
+      "responsible_functions": "R1/R6",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-18"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-18",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-19",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "PROJECT_OR_TRACEABILITY",
+      "proposed_requirement": "Сохранять воспроизводимую документацию и согласованную инженерную базу с версиями, исходниками и ограничениями.",
+      "mode": "Разработка/проверка/передача",
+      "quantity_or_observation": "Опись, версии, хэши, среда и воспроизводимость",
+      "future_criterion": "Каждый используемый артефакт имеет входную версию, автора, область и результат воспроизведения; CI целостности не выдаётся за инженерную приёмку.",
+      "future_method": "Аудит описи и воспроизведение применимых проверок",
+      "expected_evidence": "Manifest, C/H, журналы, файлы среды и независимые акты",
+      "unknown_definition": "Полный состав будущего комплекта/критерии приёмки UNKNOWN",
+      "responsible_functions": "R1/R6",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-19"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-19",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-20",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "PROJECT_OR_TRACEABILITY",
+      "proposed_requirement": "Подготовить проверяемую программу подтверждения функций; исполнение и оценку результатов проводить отдельным последующим этапом.",
+      "mode": "Планирование; позже разрешённая серия",
+      "quantity_or_observation": "Покрытие TEST-F-01…05 и принятых критериев",
+      "future_criterion": "Проект ТЗ/G1 задаёт основу программы; независимый review программы предшествует отдельному разрешению исполнения. G1 не является результатом будущей серии.",
+      "future_method": "Будущий review программы; после разрешения выполнение/оценка",
+      "expected_evidence": "Программа и её акт; позднее исходные записи/протоколы результатов",
+      "unknown_definition": "Методы/редакции/средства/неопределённость/размер серии/пороги UNKNOWN",
+      "responsible_functions": "R1/R5",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-20"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-20",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-21",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "PROJECT_OR_TRACEABILITY",
+      "proposed_requirement": "Сохранять самостоятельное происхождение требований и решений REV, пользовательскую директиву и первичные референсы с квалификаторами.",
+      "mode": "Все ревизии/изменения",
+      "quantity_or_observation": "Цепочки источник → предложение → решение → проверка",
+      "future_criterion": "У каждого требования и source-поля есть происхождение и область; исторический pending source review не подменяет новый акт и новый DRAFT review. BP500-ANALOG не используется.",
+      "future_method": "Аудит полной карты происхождения",
+      "expected_evidence": "Source locators, dispositions, история и независимый review",
+      "unknown_definition": "Физическая применимость референтных деклараций к REV не подтверждена",
+      "responsible_functions": "R1",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-21"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-21",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    },
+    {
+      "id": "REQ-REV-22",
+      "revision": 8,
+      "status": "DRAFT_NOT_APPROVED",
+      "kind": "PROJECT_OR_TRACEABILITY",
+      "proposed_requirement": "Связывать партию/стадию/пробу с дозами, циклами, изделиями, остатками и потерями, сохраняя смешение, разделение и неполноту.",
+      "mode": "Полный цикл и смена партии",
+      "quantity_or_observation": "Граф идентификаторов и событий; массы при наличии",
+      "future_criterion": "Many-to-many связи и неизвестные доли записаны явно; несвязанная запись/потеря не исключается молча. Масса дозы не принимается за массу изделия.",
+      "future_method": "Будущий TEST-F-05 и аудит журнала происхождения",
+      "expected_evidence": "Batch/Stage/Sample/Dose/Cycle/Briquette/Residual/Loss edges",
+      "unknown_definition": "Фактические записи, измеренные доли/массы и критерии полноты UNKNOWN",
+      "responsible_functions": "R1/R2/R5",
+      "assigned_engineering_owner_session": null,
+      "priority": "P1",
+      "source_field_ids": [],
+      "qualitative_reference_ids": [
+        "BPR-FEEDSTOCK"
+      ],
+      "lineage": {
+        "commit": "bec317a4483e7f69c2af0aa1c52ef091bdef57b4",
+        "document": "requirements/system_requirements.md",
+        "revision": 7,
+        "requirement_id": "REQ-REV-22"
+      },
+      "source_basis": [
+        "USER_BP500_REFERENCE_POLICY",
+        "AGENT_PROTOCOL_R1_G1_DOD",
+        "REV7_LINEAGE"
+      ],
+      "active_parameter_refs": [],
+      "validation_id": "VAL-REV-22",
+      "validation_status": "NOT_RUN",
+      "criterion_approved": false,
+      "architecture_selected": false
+    }
+  ],
+  "source_field_disposition_count": 40,
+  "numerical_machine_models_run": false,
+  "active_registry_modified": false,
+  "source_states_solved": false,
+  "G1": "OPEN",
+  "physical_READY": "NO_GO"
+}
