@@ -1,5 +1,28 @@
 # R1 → R5: отдельная область проверки нового проекта определений G1
 
+UTC 2026-11-17T23:13:01.209187+00:00;base main 974767804240ca24997d3ca538825ff9a4baebab;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR60 DRAFT targetC 5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a,requestH e6d0d0cdf78526b1879ec32fd8db274cc8e875d5,review NOT_RUN.
+Предлагаемое main acceptance: coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS03-RENDERER-01.json;в рабочейветке это candidate.
+Прежняя actual R5 6afb0a73-b16c-8191-a539-9a6685e89034,taskT-r5-g1-supplement-output-review-01,
+canonicalclaim побайтнонеизменён,originaldeadline 2026-11-18T01:58:30.990734+00:00 не продлён.
+Новаяроль/задача/lease/чужойheartbeat не создаются;прежний amendment/акты сохранены.
+R1 контролирует отдельный serial merge scope послеCI/claim/input preflight.
+После активации R5:свежийаудит/независимость,самостоятельнаяоценка22REQ/VAL,146областей,
+22DM/40source dispositions,9open groups и6replay outputs;свойактC затемH.
+Команда verification/r1_r5_obs03_scope_20261117/R5_execute.md.
+PR60 не слит,новый review NOT_RUN;старыеакты не распространены на новыйtarget.
+Обычныйmerge заранее разрешёнпользователем,нового per-PR согласия не спрашивать.
+BP500primary/прочиепо релевантности/адаптируемаяплощадка сохранены.
+B01/B02/B03/source power/pressure/moisture/country/engineeringowners OPEN/UNKNOWN.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,ТЗ/архитектура NOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Расчёты/CAD-rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+# R1 → R5: отдельная область проверки нового проекта определений G1
+
 UTC 2026-11-17T18:26:02.121547+00:00;base main 04a6486527c9ba4fd4d22fcf50e0427213443507;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
 PR60 DRAFT targetC 97f58fd437947e26963bdbbc2f2d89df7438e8cc,requestH 46cbf199c3d17049ac31aa337378f0b176e70a2e,review NOT_RUN.
 Предлагаемое main acceptance: coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS01-02-REVISION-01.json;в рабочейветке это candidate.
