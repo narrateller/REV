@@ -1,3 +1,12 @@
+# HANDOFF C `d5d6a585608b40c5329e29ffbb81c7c4096887cb` — R5 выполнить независимый recheck
+
+Квитанция main `b99e37a4a9ef78afb32f5a1fa936ea9d7befaaa5`/CI сохранена в C выше. Target `5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a`.
+Команда verification/r1_obs03_recheck_activation_20261117/R5_execute.md.
+Действующие owner/claim/исходный срок неизменны;reviewNOT_RUN/OBS03OPEN.
+R1 ожидает новый акт иC/H R5. G1OPEN,42состояниянерассчитаны,physicalREADY NO-GO.
+
+---
+
 # R1 → R5: recheck OBS03 renderer разрешён в main
 
 UTC 2026-11-17T23:29:56.014698+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0.
