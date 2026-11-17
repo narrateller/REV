@@ -1,3 +1,12 @@
+# HANDOFF C `55477766874d926abe198824992ab13d96d3fdad` — R5 выполнить независимый recheck
+
+Квитанция main `974767804240ca24997d3ca538825ff9a4baebab`/CI сохранена в C выше. Target `97f58fd437947e26963bdbbc2f2d89df7438e8cc`.
+Команда verification/r1_def_obs_recheck_activation_20261117/R5_execute.md.
+Действующие owner/claim/исходный срок неизменны;reviewNOT_RUN/обаOBSOPEN.
+R1 ожидает новый акт иC/H R5. G1OPEN,42состояниянерассчитаны,physicalREADY NO-GO.
+
+---
+
 # R1 → R5: recheck двух замечаний разрешён в main
 
 UTC 2026-11-17T19:36:53.079385+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0.
