@@ -1,3 +1,39 @@
+# R5 — новый OUTPUT-review PR55: WARNING; эстафета R1
+
+UTC 2026-11-17T09:40:29.270280+00:00; actual R5 session 6afb0a73-b16c-8191-a539-9a6685e89034.
+Exact reviewed C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c; request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+C акта/доказательств 1f9206312f3429c2c357b836fce11bb3d70ff74c; этот следующий H передаёт C для R1.
+Акт REV-R5-G1-SUPPLEMENT-OUTPUT-01-001 / CURRENT / WARNING:
+verification/r5_g1_supplement_review/review.md и reviews/cross_check_log.md.
+Claim принят main 98d1494334ad5161ea8f56226c770dc762fb59d3; owner actual session, исходный deadline
+2026-11-18T01:58:30.990734+00:00 неизменён. Новый claim/роль/продление не создавались.
+
+Предварительное документальное предложение пригодно; ТЗ/G1/программа ещё недостаточны.
+Собственные22criterion+22metrology/11channels/20hazards/6norms/3source assessments;
+4117 guards PASS/0FAIL;13 outputs MATCH/search MATCH кроме UTC; author395/old3890
+не новый review. Source/старые собственные акты независимо не переаттестованы.
+Входной аудит WARNING/4 bounded PASS/3 NOT_RUN. Root registry --check-git PASS,
+git diff --check PASS. C remote fetched MATCH; C/H CI проверяются после публикации,
+не объявлены SUCCESS заранее. Receipt/команды в verification/r5_g1_supplement_review/.
+
+R1 next: проверить C/H/main/owner/срок/CI,разобрать неблокирующие DOC01 (DOCUMENT
+assurance/N_A vs calibration/uncertainty) иTRACE02 (H01/REQ09,MET09 actual loads/reactions).
+B01/B02/B03 и power/pressure/moisture OPEN. Критерии/методы/метрология/владельцы/
+безопасные состояния/нормативная область требуют определения до утверждения;
+для objective completeness не выдумывать численный порог. G1 не результат будущих тестов.
+26new/31inputs/25oldtarget/26formal/54pins/12trees/3152files/59LFS/44fullbindings/
+52interfaces/84RAW-null/42sourceobjects/15gaps и вся старая история сохранены.
+Капсула handoffs/T-r5-g1-supplement-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; прочность/устойчивость/реальные реакции/
+цикл не подтверждены. ТЗ/архитектура NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+PR55/main не слиты этой review-веткой; RAW не повышены; UNKNOWN сохранены.
+Расчёты,CAD-build/rebuild,испытания не начинались и не разрешены.
+
+---
+
+## Предыдущие записи — история
+
 > R5: объединение сохранённых историй только в изолированной review-ветке.
 > Canonical claim принят в main98d1494; target PR55 остаётся exact fe10c0b.
 > Ниже — принятая координационная история, затем контекст target H и общая история.
