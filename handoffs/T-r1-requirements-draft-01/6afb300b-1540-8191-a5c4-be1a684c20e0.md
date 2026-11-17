@@ -1,3 +1,15 @@
+# HANDOFF: новый C исправлений OBS-01/02
+
+C `97f58fd437947e26963bdbbc2f2d89df7438e8cc`,working base R5H `ad627d310ee9f49d730b71c84ab4af7c9c1ff0da`;PR60 DRAFT/unmerged.
+Author172 PASS/0FAIL,6rendererMATCH,rootregistry--check-git PASS/код0.
+ОбаOBS OPEN_PENDING_INDEPENDENT_RECHECK,новыйreviewNOT_RUN.
+Следующий R1:проверитьCI exacthead иотдельно принять main scope на новыйC/H
+для прежнейR5сессии/задачи/исходногоdeadline `2026-11-18T01:58:30.990734+00:00`.
+Затем R5 выполняетполный R5_recheck_request.md,возвращаетсвойакт/C/H.
+ТЗ/G1неутверждены;42состояниянерассчитаны,§4/5/6NOT_RUN,physicalREADY NO-GO.
+
+---
+
 # R1: исправления OBS-01/02 подготовлены, recheck NOT_RUN
 
 UTC 2026-11-17T18:20:02.232593+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0, task T-r1-requirements-draft-01.
