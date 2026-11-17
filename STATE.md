@@ -1,3 +1,38 @@
+# R5 — DOC01/TRACE02 CLOSED документально на exact новой ревизии;общийWARNING
+
+UTC 2026-11-17T13:13:57.729354+00:00;actual R5 session6afb0a73-b16c-8191-a539-9a6685e89034,same taskT-r5-g1-supplement-output-review-01.
+Exact reviewed_commit 45d5964786e608cdfcc656819fd6df8c77e495fe;target request H 2b99776187345729f1c3e177d0e5ed83e1239b07.
+Accepted scope main b8485a93b7ced741261e7979f9438bad8590d368,owner/исходный deadline2026-11-18T01:58:30.990734+00:00
+иbase-claimSHA неизменны. Новыйtarget разрешён explicit main amendment,не подменой
+base_claim.target_C. Canonical claim/amendment не переписаны,продления/новогоclaim нет.
+C нового акта/доказательств c1b1688308fdc0ff5e7ac8d363cc0d02acdada0f;этот следующий H передаёт exact C дляR1.
+Акт REV-R5-G1-DOC-TRACE-RECHECK-01-001:verification/r5_doc_trace_recheck_20261117/review.md
+иreviews/cross_check_log.md. DOC01/TRACE02 CLOSED_DOCUMENTARY_EXACT_C только на указанномC.
+ОбщийWARNING,B01/B02/B03/sourcepower/pressure/moistureOPEN;ТЗ/G1 не утверждены.
+
+DOC01: qualitative assurance/N_A по полям чистого аудита;method/scope applicableUNKNOWN,
+mixed/measurement/model-input calibration иuncertainty не сняты. TRACE02: прямая
+H01/REQ09/VAL09/MET09/FORCE_REACTION provenance;routes/actual inputs UNKNOWN,
+model prediction не actual reactions. Нет новых cases/results/расчётов/исполнения.
+3804 own guards PASS/0FAIL;22cards/22metrology/20hazards/12channels,8semantic cases;
+13outputs MATCH/17resolver entries valid. Author332/old4117 не этотindependentrecheck.
+17cards/12no-DOCUMENT rows/19hazards/10channels exact unchanged;26old/25rev8/
+54pins/12trees/3300files/59LFS/44fullbindings/52interfaces/84RAW-null/42states/
+15gaps ивсястараяистория сохранены. Старыйакт predecessor-only;applicabilitynewtargetSTALE.
+Root registry --check-git PASS/git diff --check PASS;C fetched remote SHA MATCH;
+C/H CI проверяются после публикации,не объявленыSUCCESS заранее. Пакетverification/r5_doc_trace_recheck_20261117/.
+R1 next:fetch C/H,проверитьscope/main/owner/срок/CI,принятьузкое documentaryclosure,
+вести определения/программу без утверждения ТЗ/G1/RAW ибез mergePR57 этим актом.
+Капсула handoffs/T-r5-g1-supplement-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. G1 OPEN,W02/physical READY NO-GO. Расчёты,CAD-build/rebuild,
+испытания не начинались и не разрешены. PR57/main не слиты этой review-веткой.
+
+---
+
+## Предыдущие записи — история
+
 > R5 isolated recheck context: accepted main amendment then exact target H context; both histories preserved below. No PR57/main merge.
 
 # R1 — отдельное scope amendment R5 для DOC01/TRACE02 recheck
