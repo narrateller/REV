@@ -1,0 +1,12 @@
+PR53 сохраняет фактическую квитанцию PR52 и переводит R1 от завершённого документального intake к DRAFT требований REV по прямому решению пользователя. Принятие нового claim и освобождение старого выполняются одним обычным merge; DRAFT начинается после main acceptance и входного аудита.
+
+- PR52 merge `a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3`, exact head `770b05c9f70be83c8e6a2f9f7f91daeab5f0a1ce`: родители/дерево/20 C/H ancestors подтверждены; оба head CI и main CI SUCCESS, registry PASS и по 100 тестов. Receipt C/H `dfa0e4c3469b57b65a02af8eb302a4655bdf61ec` / `5674ca6a6c4d8d98eaa9fab953691fd2ac61a2e7`, checks134 сохранены как история exact предыдущего состояния.
+- Intake `T-r1-force-inputs-intake-01` завершается **только в документальной области с WARNING**. Completion record и архив прежнего accepted ledger сохранены. Старый owner освобождается при main inclusion; его срок `2026-11-17T23:16:47.225017Z` не продлён. Reviewed proposal NONE/null и CURRENT source act R5 неизменны.
+- Новый claim `T-r1-requirements-draft-01`: actual R1 `6afb300b-1540-8191-a5c4-be1a684c20e0`, preparation `2026-11-17T01:58:30.990734+00:00`, новый deadline `2026-11-18T01:58:30.990734+00:00`, ровно 24 часа. До merge действует прежний main claim; после атомарного merge только новый. Enforcement PROCEDURAL, повторное назначение роли не требуется.
+- Проверены исходный head `5674ca6a6c4d8d98eaa9fab953691fd2ac61a2e7`, main, оба CI, все remote branch pages/open PR и отсутствие конкурирующего принятого owner. Свежие preflight94 PASS и transition104 PASS; root registry --check-git и CI нового exact head приводятся в квитанции ниже.
+
+После merge R1 проверяет ancestry/main/владельца/срок и оформляет точный входной аудит. Затем готовит DRAFT требований/матрицы: 22 REQ/VAL, applicability40, критерии/gaps, BP500 primary, E55/WEIMA/ARS по релевантности; независимый R5 на exact будущий C. Пользователь отдельно утверждает ТЗ/G1.
+
+SOURCE-POWER/PRESSURE-UNIT OPEN, влажностная база UNKNOWN; 40 scoped RAW и активный registry не повышаются. 44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 интерфейса и R3/R4/R5 история сохраняются. Старые REJECT/STALE/четыре FAIL и material history=2 не сбрасываются.
+
+**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Прочность/устойчивость/реальные реакции не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO. Численный/физический этап, CAD-build/rebuild и физические испытания не разрешены.

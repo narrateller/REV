@@ -1,12 +1,12 @@
 {
   "record_type": "task_claim_acceptance",
   "task_id": "T-r1-force-inputs-intake-01",
-  "status": "ACCEPTED_MAIN",
-  "status_semantics": "ACCEPTED_MAIN is effective only when this exact record is included in remote main and original lease remains live. A working-branch copy grants no lock.",
+  "status": "COMPLETED_DOCUMENTARY_RELEASED",
+  "status_semantics": "Released only when this updated record and completion are in remote main. Original deadline remains historical and is not extended.",
   "acceptance_authority": "USER_EXPLICIT_INSTRUCTION",
   "authorization": "verification/pr52_claim_merge_20261117/authorization.json",
   "recorded_at_utc": "2026-11-17T00:42:13.477163+00:00",
-  "owner_session": "6afb300b-1540-8191-a5c4-be1a684c20e0",
+  "owner_session": "NONE",
   "session_id": "6afb300b-1540-8191-a5c4-be1a684c20e0",
   "role": "R1",
   "model_label": "Codex on GPT-6 base; exact runtime model identifier unavailable",
@@ -21,7 +21,7 @@
   "original_main": "3353de6c9fc699fbd565f1ce63cebedad3137a12",
   "original_PR_head": "49f0045e504863b335869748b7f9385c001469ca",
   "acceptance_PR": 52,
-  "activation_predicate": "remote main contains this exact record via PR52 normal merge, no earlier conflicting accepted owner, current UTC is before lease_expires_at",
+  "activation_predicate": "Inactive after inclusion of this completion/release in remote main; does not authorize further task execution",
   "integration_receipt_location": "verification/pr52_claim_merge_receipt_20261117/ (created only after actual merge; no future SHA is asserted here)",
   "task_status_on_activation": "CLAIMED_DOCUMENTARY_ONLY",
   "scope": "Limited documentary source intake and preparation of a separate requirements-draft task; preserve reference qualifications, source uncertainties and RAW maturity",
@@ -34,5 +34,12 @@
   "source_review": "REV-R5-REFERENCE-INTAKE-REVIEW-01-001 / WARNING_DOCUMENTARY_REFERENCE_ONLY / exact f2cbd96bb78c915dca74cb4eb29daffbb52ee172",
   "input_audit_456": "NOT_RUN",
   "engineering_execution": "NOT_STARTED",
-  "enforcement": "PROCEDURAL"
+  "enforcement": "PROCEDURAL",
+  "previous_owner_session": "6afb300b-1540-8191-a5c4-be1a684c20e0",
+  "lease_active": false,
+  "completed_at_recorded_utc": "2026-11-17T01:58:30.990734+00:00",
+  "completion_record": "coordination/completions/T-r1-force-inputs-intake-01.json",
+  "original_accepted_record_commit": "a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3",
+  "original_accepted_record_sha256": "0fc190e14947e70e247554c2a0f11b50c23cc82351bf19b284bf22e6257c7d41",
+  "original_accepted_record_archive": "verification/r1_requirements_claim_20261117/intake_accepted_ledger_before.json"
 }
