@@ -1,0 +1,41 @@
+{
+  "task_id": "T-r1-requirements-draft-01",
+  "author_sessions": [
+    "6afb300b-1540-8191-a5c4-be1a684c20e0"
+  ],
+  "input_main": "043271b57aa3d49b6d9b45da03496ea11dad41b1",
+  "working_base": "c50a5eaf8f99b6aacfea7d2d63ca1c049fbdffff",
+  "scope": "Proposed evaluation order only; no measurement or criterion evaluation performed",
+  "new_review": "NOT_RUN",
+  "G1": "OPEN",
+  "requirements_approved": false,
+  "source_states_solved": false,
+  "engineering_calculations_run": false,
+  "physical_tests_run": false,
+  "rules": [
+    {
+      "order": 1,
+      "condition": "No separately approved program/execution authorization",
+      "future_status": "NOT_RUN"
+    },
+    {
+      "order": 2,
+      "condition": "Known valid violation of an approved criterion, even if other data missing",
+      "future_status": "FAIL; retain additional unknowns separately"
+    },
+    {
+      "order": 3,
+      "condition": "Critical criterion/threshold/basis/method missing, invalid data or uncertainty prevents decision",
+      "future_status": "INDETERMINATE; never substitute zero or PASS"
+    },
+    {
+      "order": 4,
+      "condition": "Complete valid evidence satisfies every applicable preapproved subcriterion",
+      "future_status": "PASS only in that authorized scope"
+    }
+  ],
+  "current_execution": "NOT_RUN",
+  "unsolicited_observations_policy": "Retain any unsolicited/unauthorized observation or known violation as evidence/incident; no retrospective execution authorization, no silent deletion or PASS",
+  "G1_definition_review": "Separate documentary review; does not execute VAL or confirm future machine performance",
+  "source_up_to_rule": "Not a guaranteed minimum; direction/limit of any REV throughput criterion remains unapproved"
+}

@@ -1,0 +1,197 @@
+{
+  "checked_at_utc": "2026-11-17T07:09:47.931628+00:00",
+  "patterns": {
+    "explicit_moisture_basis": "wet[ -]basis|dry[ -]basis|dry[ -]matter|Trockenmasse|Trockensubstanz|Nassbasis|base.{0,20}(secca|asciutta)|bezogen.{0,30}(trocken|nass)",
+    "moisture_navigation": "moist|humidi|feucht|umid",
+    "power_navigation": "\\bkW\\b|installed power|main motor|cooling system",
+    "pressure_unit_navigation": "kg\\s*/\\s*c[mn]|kgf|\\bbar\\b|compaction pressure"
+  },
+  "sources": [
+    {
+      "source": "BP500",
+      "path": "sources/raw/Target_object_BP500.pdf",
+      "sha256": "bf7276191a73b3d9a22ef516316bc59aac5d12fd708a7adc454bd6d9da4bec0c",
+      "command": "pdftotext -layout SOURCE TEMP",
+      "returncode": 0,
+      "stderr": "",
+      "extracted_text_bytes": 6916,
+      "extracted_text_sha256": "4108903bb2789977854e986d5134571a3279b86d59ffe12dac6287d3a71aa413",
+      "pdf_pages_with_extracted_text": 3,
+      "searches": {
+        "explicit_moisture_basis": [],
+        "moisture_navigation": [
+          {
+            "pdf_page": 3,
+            "line_count": 1,
+            "excerpts": [
+              "ВР-500 Hydraulic briquette press turns dry (6-14% humidity) Ьiomass (sawdust,"
+            ],
+            "excerpt_scope": "RAW source quote only; not REV parameter or ambiguity resolution"
+          }
+        ],
+        "power_navigation": [
+          {
+            "pdf_page": 3,
+            "line_count": 5,
+            "excerpts": [
+              "ВР-500 has 4 electrical motors with total installed power of 34.2kW:",
+              "Main motor                                                                        30kW",
+              "Cooling system                                                                    l.SkW",
+              "Main motor is 380 V, 50 Hz, 3-phase, 1500RPM, 30 kW, IE2 energy-saving motor       30 kW",
+              "Automatic heating/cooling system control with oil heaters and coolers which"
+            ],
+            "excerpt_scope": "RAW source quote only; not REV parameter or ambiguity resolution"
+          }
+        ],
+        "pressure_unit_navigation": [
+          {
+            "pdf_page": 3,
+            "line_count": 2,
+            "excerpts": [
+              "Мах pressure                                                                      300 bar",
+              "Vertical pre-compaction pressure and distance is regulated and tracked Ьу the"
+            ],
+            "excerpt_scope": "RAW source quote only; not REV parameter or ambiguity resolution"
+          },
+          {
+            "pdf_page": 4,
+            "line_count": 1,
+            "excerpts": [
+              "Pressure and distance is regulated and tracked Ьу the ruler system with max             1700 kg/cm 2"
+            ],
+            "excerpt_scope": "RAW source quote only; not REV parameter or ambiguity resolution"
+          }
+        ]
+      },
+      "scope": "Text-layer navigation/limited matching only, no full semantic reread; absence of a match is not proof of absence in scans, images or other languages"
+    },
+    {
+      "source": "E55",
+      "path": "sources/raw/additional_Prodeco_E55.pdf",
+      "sha256": "27d27b7e41247e1098531204581953e6cba388ec918418fa2ee64891bda4cc87",
+      "command": "pdftotext -layout SOURCE TEMP",
+      "returncode": 0,
+      "stderr": "",
+      "extracted_text_bytes": 45852,
+      "extracted_text_sha256": "4f9e9698a2759f9616ae35efcce1a37e0e0801befb50ffe8736b042de6997a33",
+      "pdf_pages_with_extracted_text": 39,
+      "searches": {
+        "explicit_moisture_basis": [],
+        "moisture_navigation": [
+          {
+            "pdf_page": 8,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          },
+          {
+            "pdf_page": 14,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          }
+        ],
+        "power_navigation": [],
+        "pressure_unit_navigation": [
+          {
+            "pdf_page": 6,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          },
+          {
+            "pdf_page": 27,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          },
+          {
+            "pdf_page": 33,
+            "line_count": 3,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          },
+          {
+            "pdf_page": 41,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          }
+        ]
+      },
+      "scope": "Text-layer navigation/limited matching only, no full semantic reread; absence of a match is not proof of absence in scans, images or other languages"
+    },
+    {
+      "source": "WEIMA",
+      "path": "sources/raw/additional_Weima200.pdf",
+      "sha256": "477fcb54af5f7210afc9640137391fbb97a950be41daa52cc7d8b601e4f5e135",
+      "command": "pdftotext -layout SOURCE TEMP",
+      "returncode": 0,
+      "stderr": "",
+      "extracted_text_bytes": 95635,
+      "extracted_text_sha256": "eba60fb59a9c95fbe4103a76f541bdc7963abf03aa0469db9bbd244b49dc4adb",
+      "pdf_pages_with_extracted_text": 41,
+      "searches": {
+        "explicit_moisture_basis": [],
+        "moisture_navigation": [
+          {
+            "pdf_page": 7,
+            "line_count": 2,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          }
+        ],
+        "power_navigation": [
+          {
+            "pdf_page": 4,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          },
+          {
+            "pdf_page": 30,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          },
+          {
+            "pdf_page": 34,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          }
+        ],
+        "pressure_unit_navigation": [
+          {
+            "pdf_page": 33,
+            "line_count": 1,
+            "excerpts": [],
+            "excerpt_scope": "Navigation only; no new numerical transcription/adoption"
+          }
+        ]
+      },
+      "scope": "Text-layer navigation/limited matching only, no full semantic reread; absence of a match is not proof of absence in scans, images or other languages"
+    },
+    {
+      "source": "ARS",
+      "path": "sources/raw/additional_Ars_Rst_500.pdf",
+      "sha256": "631b7186c7f2d38251625b77a70e790d2c257cdeb1dd3343befe3783cd983c40",
+      "command": "pdftotext -layout SOURCE TEMP",
+      "returncode": 0,
+      "stderr": "",
+      "extracted_text_bytes": 46,
+      "extracted_text_sha256": "8c3f6c4fabe89d5e019fe9a615a9f4e4265de63ab538bddc0574a368acf01ebe",
+      "pdf_pages_with_extracted_text": 0,
+      "searches": {
+        "explicit_moisture_basis": [],
+        "moisture_navigation": [],
+        "power_navigation": [],
+        "pressure_unit_navigation": []
+      },
+      "scope": "Text-layer navigation/limited matching only, no full semantic reread; absence of a match is not proof of absence in scans, images or other languages"
+    }
+  ],
+  "source_issues_resolved": false,
+  "engineering_values_adopted": false,
+  "new_numerical_or_physical_calculations": false
+}
