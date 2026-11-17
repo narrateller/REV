@@ -1,3 +1,56 @@
+# R1 — координация продолжается: рабочие критерии/метрология/безопасность G1
+
+UTC 2026-11-17T07:28:04.361876+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; existing accepted task T-r1-requirements-draft-01.
+Main043271b57aa3d49b6d9b45da03496ea11dad41b1,исходный PR55 headc50a5eaf8f99b6aacfea7d2d63ca1c049fbdffff.
+Claim/owner подтверждены,deadline2026-11-18T01:58:30.990734+00:00 не продлён.
+Пользователь потребовал активного продолжения координации;R1 исполняет следующий
+документальный шаг в текущем scope,нового руководителя/роли/claim не ждёт.
+
+Пакет verification/r1_g1_criteria_plan_20261117/:
+22 criterion cards с наблюдениями/PASS-предикатами/evidence fields/source refs;
+22 metrology rows/11 channel classes,калибровки/синхронизация/неопределённость;
+H01–H20 hazard→REQ/VAL/evidence;N01–N06 план применимости с историческими limits;
+3 source action cards и фактический bounded text search4PDF;execution_board.
+Документальный владелец R1 actual session,engineering sessions/dates не назначены.
+31 exact inputs,audit WARNING/4 PASS/3 NOT_RUN;author395 PASS/0FAIL,13 renderer MATCH,
+source-search replay MATCH кроме UTC. Root registry/CI фиксируются отдельно.
+C результата: отдельный C новой поставки;exact SHA в H;следующий H сохраняет exact C и запрос независимому R5.
+
+Это новый DRAFT supplement,не изменение reviewed rev8. Все25 target/26 formal
+review artifacts rev8 сохранены,старый R5 CURRENT/WARNING относится только к
+C8d1b45afa84eca078a8de0a9822d6925dd87745b. Новый OUTPUT-review supplement NOT_RUN.
+Никакие критерии/ТЗ/G1 не утверждены. Missing inputs не превращаются в PASS/ноль;
+известные нарушения/неполнота сохраняются. Actual records пусты,VAL/TEST NOT_RUN,
+execution_permission false. Конкретные приборы/методики/пороги/допуски/серии UNKNOWN.
+Source power/pressure/moisture OPEN;вопросы/доказательства и варианты дальнейшего
+решения подготовлены,внешние запросы не отправлены. Нет догадок kgf/влажностной
+базы/нового бюджета мощности. Поиск текста не доказывает отсутствия в сканах;ARS text layer пуст.
+
+Следующий контрольный шаг R5 — независимая проверка exact нового C по команде
+R5_review_command.md в следующем H,не переиспользование3890 review rev8 как нового.
+АвторR1 не является независимым reviewer своего supplement;session/model/upstream
+R5 disclosure и собственные checks обязательны. Назначение/lease R5 здесь не создаются.
+R1 ведёт очередь и последующий разбор замечаний в живом claim;реальные численные
+определения/владельцы требуют основания/назначения,UNKNOWN сохраняются.
+Работа передаётся через C/H/PR55,не через ожидание самопроизвольного вызова модели.
+Капсула handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+История PR54 merge043271b57aa3d49b6d9b45da03496ea11dad41b1 иreceipt Cebc2a252f75808023cfd47c499276df2f38e419f /
+Hc50a5eaf8f99b6aacfea7d2d63ca1c049fbdffff сохранены. PR55 готовится с содержательной
+доработкой и прежней квитанцией,новый PR только ради отчёта не создаётся. Main merge
+не выполняется;при любом следующем действии проверить UTC/main/claim/lease/inputs.
+
+RAW40/84 UNKNOWN/15 gaps,54 old pins/12 protected trees,44 full bindings/нагрузки/
+ходы/CAD,52interfaces/42 source-state объекта истарые REJECT/STALE/material2/четыре FAIL/
+OBS01 exact-C closure сохранены. 42 состояния не рассчитаны;§4/5/6 NOT_RUN;
+прочность/устойчивость/реальные реакции/цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO. Численный/физический этап,
+CAD-build/rebuild и физические испытания не разрешены. Общий срок проекта UNKNOWN.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — PR54 MERGED; только предварительный DRAFT/WARNING, ТЗ/G1 не утверждены
 
 UTC 2026-11-17T06:46:03.629306+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; T-r1-requirements-draft-01.
