@@ -1,3 +1,43 @@
+# R1 — новый проект определений G1; независимый OUTPUT-review NOT_RUN
+
+UTC 2026-11-17T16:27:37.384566+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3.
+Task T-r1-requirements-draft-01,owner/claim прежние;исходный deadline
+2026-11-18T01:58:30.990734+00:00 без продления. Назначение R1 продолжается.
+Результат verification/r1_g1_definition_register_20261117/:22 REQ/VAL,
+144 предложенных элемента области,22 документальных DM/DRAFT-01,40 неизменённых
+source dispositions,9 открытых групп решений. Author296 PASS/0FAIL,4render outputs MATCH,
+92 input pins;preflight125 PASS/0FAIL;root registry --check-git PASS/код0.
+Это DRAFT_NOT_APPROVED,не утверждённые критерии/методы и не выполненная программа.
+
+Прежняя rev8/target45d5964/акты/journal/closed DOC01-TRACE02 exact-C остаются неизменными.
+Новый target не покрыт их review. Старое закрытие не переписано;новый independent
+OUTPUT-review NOT_RUN. B01/B02/B03/source power/pressure/moisture/engineeringowners
+и странаэксплуатации OPEN/UNKNOWN. BP500 primary,остальные по релевантности,
+площадка адаптируется;RAW не повышены. Численные пределы/допуски/инженерныевладельцы
+не выдуманы. R1 документальный owner не назначает автоматически владельцев инженерных
+определений. Все44fullbindings/нагрузки/ходы/CAD/54oldpins/52interfaces/84RAW-null сохранены.
+
+Следующий атомарный шаг R1:опубликовать C/H нового DRAFT,проверить CI exacthead;
+отдельной контрольной веткой принять amendment existing R5task на exact новый C/H
+в main,сохраняя owner/baseclaim/исходныйdeadline ивсе старые scope/evidence.
+После main activation — actual assigned R5 6afb0a73-b16c-8191-a539-9a6685e89034
+выполняет новый входной аудит и самостоятельную оценку новой области/методов,
+не только replay. Ветка/предложение/main старыйtarget не разрешают новыйreview.
+Содержательный DRAFT не интегрировать до независимой оценки/решения R1.
+При истечении срока остановиться;автоматического продления нет.
+
+Обычные merge согласованных задач заранее разрешены пользователем,повторно не спрашивать:
+coordination/user_authorizations/ordinary_pr_merges_20261117.json. CI/claim/lease/input checks
+остаются обязательны. Инженерная область этим разрешением не расширена.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. ТЗ/архитектура NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-build/rebuild ифизические испытания не разрешены.
+Полная капсула handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — PR57 MERGED;обычные merge REV заранее разрешены пользователем
 
 UTC 2026-11-17T15:25:01.424487+00:00;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0;taskT-r1-requirements-draft-01.
