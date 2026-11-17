@@ -1,3 +1,86 @@
+# R1 — завершение documentary intake и принятие нового claim через PR53
+
+UTC 2026-11-17T01:58:30.990734+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; назначение R1 продолжается.
+Исходная main a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3, exact исходный head 5674ca6a6c4d8d98eaa9fab953691fd2ac61a2e7; оба CI SUCCESS.
+C этой транзакции: отдельный C этой поставки; exact SHA в H; следующий H содержит эту эстафету.
+
+Пользователь завершает документальный scope T-r1-force-inputs-intake-01 с WARNING.
+Completion: coordination/completions/T-r1-force-inputs-intake-01.json. Старый live ledger
+переведён в COMPLETED_DOCUMENTARY_RELEASED / owner NONE при включении в main;
+его исходный lease 2026-11-17T23:16:47.225017Z не продлён. Оригинал ledger архивирован.
+Проверенный proposal claim.json и R5 evidence не меняются. Открытые gaps/физика не закрыты.
+
+Новый claim T-r1-requirements-draft-01: coordination/claims/T-r1-requirements-draft-01.json,
+owner 6afb300b-1540-8191-a5c4-be1a684c20e0; preparation UTC 2026-11-17T01:58:30.990734+00:00, новый deadline 2026-11-18T01:58:30.990734+00:00, ровно 24 часа.
+Оба изменения действуют только после одной атомарной интеграции в remote main.
+До merge действует прежний intake; после merge он освобождён и действует только новый
+claim этой сессии. Перекрытие владения и перенос/продление старого lease исключены.
+Enforcement PROCEDURAL; конкуренция/27 pins/source28/R5 seals проверены в
+verification/r1_requirements_claim_20261117/preflight.json. Аудит новой задачи NOT_RUN
+до main acceptance; DRAFT требований ещё не начат. Инженерный старт NOT_STARTED.
+
+Следующий R1 после merge проверяет main/ancestry/owner/новый срок/нет конкуренции,
+оформляет входной аудит точных версий, затем DRAFT ревизии требований и матрицы:
+22 REQ/VAL, disposition 40 RAW полей, criteria/gaps, BP500 primary, другие прессы по
+релевантности. Независимый R5 нужен на exact будущий C; ТЗ отдельно утверждает пользователь.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+SOURCE-POWER/PRESSURE-UNIT OPEN, moisture basis UNKNOWN; RAW40 не повышены.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 interfaces и R3/R4/R5 история сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания не разрешены.
+REJECT/STALE/четыре FAIL/material history=2 и OBS-01 exact-C closure сохранены.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — PR52 MERGED; claim intake принят; следующая документальная задача подготовлена
+
+UTC 2026-11-17T00:58:48.225095+00:00; actual R1 session 6afb300b-1540-8191-a5c4-be1a684c20e0; existing role assignment continues.
+PR52 обычный merge a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3, UTC 2026-11-17T00:54:30Z; parent1 3353de6c9fc699fbd565f1ce63cebedad3137a12,
+parent2/exact head 770b05c9f70be83c8e6a2f9f7f91daeab5f0a1ce. Tree = exact head; R3/R4/R5 C/H ancestry сохранена.
+C принятия 01a5fe0512769b8863b4fe3948983e5b1c928285; H 770b05c9f70be83c8e6a2f9f7f91daeab5f0a1ce.
+Оба exact-head CI SUCCESS, registry PASS и по 100 тестов; main CI 43991412075
+SUCCESS, registry PASS и 100 тестов. Postmerge evidence: verification/pr52_claim_merge_receipt_20261117/.
+C этой postmerge-квитанции/постановки: отдельный C этой postmerge-поставки; полный SHA в H; следующий H сохраняет эстафету.
+
+T-r1-force-inputs-intake-01: claim ACCEPTED_MAIN, единственный effective owner 6afb300b-1540-8191-a5c4-be1a684c20e0,
+исходный lease до 2026-11-17T23:16:47.225017Z без продления; новая запись
+coordination/claims/T-r1-force-inputs-intake-01.json присутствует в remote main.
+Проверенный proposal claim.json NONE/null сохранён как исторический exact-C snapshot.
+Это разрешение только на ограниченный документальный intake; инженерный старт NOT_STARTED.
+R4/старые claims не продлены; их сроки нужно оценивать заново при будущем чтении.
+
+T-r1-requirements-draft-01 — отдельная постановка READY_FOR_CLAIM_REVIEW:
+coordination/tasks/T-r1-requirements-draft-01/task.md, task.json и task_input_manifest.json.
+Предложенная функция R1, owner NONE/lease null; новый claim НЕ принят, ревизия требований
+НЕ начата. Следующий шаг — после проверки закрытия/освобождения текущего intake
+последовательно принять отдельный claim нового исполнителя/срока без переноса старого lease.
+Затем проверить main/точные входы/владельца/срок и применимый аудит, подготовить DRAFT
+требований/матрицы: все 22 REQ/VAL, disposition 40 source-полей, критерии и gaps,
+источники/оговорки/UNKNOWN. Независимый R5 на exact будущий C, пользовательское
+утверждение ТЗ и G1 — отдельные шаги. Эта поставка только готовит задачу.
+Капсула новой задачи: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+BP500 — основная референтная база; E55/WEIMA/ARS по релевантности, ARS допускает
+и неметаллическое сырьё. Площадка адаптируется; реальные свойства партий и свойства
+будущей конструкции UNKNOWN. SOURCE-POWER/PRESSURE-UNIT OPEN, wet/dry база/метод UNKNOWN;
+up-to/material-dependent qualifiers сохранены. RAW40 не повышены, active registry неизменен.
+R5 C/H 853a72b63fd8c89a3fa54ac1f309f24e7104f1c4 / c086c2a497614c193373d58c1b854078cd7accd0:
+1250 PASS / 0 FAIL, WARNING только на preliminary documentary exact source f2cbd96bb78c915dca74cb4eb29daffbb52ee172.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 интерфейса, R3/R4/R5 история сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции/цикл
+не подтверждены, архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания/изготовление/выпуск
+не разрешены. REJECT/STALE/четыре FAIL/material history=2 и OBS-01 exact-C closure сохранены.
+Срок завершения проекта UNKNOWN; нет новых назначений R2/R3/R4/R5/R6 и обещаний дат.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — принятие claim intake по прямому решению пользователя; PR52
 
 UTC 2026-11-17T00:42:13.477163+00:00; actual R1 session 6afb300b-1540-8191-a5c4-be1a684c20e0. Действующее назначение R1 продолжается.
