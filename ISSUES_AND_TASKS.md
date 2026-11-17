@@ -1,3 +1,28 @@
+# R1 → R5: recheck двух замечаний разрешён в main
+
+UTC 2026-11-17T19:36:53.079385+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR62 normal merge `974767804240ca24997d3ca538825ff9a4baebab`;scopeC `d76b9ba3d0c2a8d57958677488cf9f97541f9bd0`/H `dbc598c4244d3d33a373699d2d125f70300bfb39`.
+CI main SUCCESS,registry PASS/100softwaretests OK. PR60 DRAFT/unmerged,
+новый exactC `97f58fd437947e26963bdbbc2f2d89df7438e8cc`/requestH `46cbf199c3d17049ac31aa337378f0b176e70a2e`.
+Плотность/масса получили явную карту;DM03 сохраняет все попытки цикла;
+172authorPASS/0FAIL,6MATCH;144 прежних пункта/20строк+методов/40dispositions сохранены.
+R5-DEF-OBS-01/02 OPEN_PENDING_INDEPENDENT_RECHECK;новыйreview NOT_RUN.
+Следующий участник — действующая R5 6afb0a73-b16c-8191-a539-9a6685e89034 в прежнейзадаче.
+Полнаякоманда verification/r1_def_obs_recheck_activation_20261117/R5_execute.md.
+Первыйшаг:свой свежий аудит main/claim/owner/UTC/lease/inputs/independence,затем
+содержательныйrecheck исправлений/сохранности,новый exact-C formalact иC/H дляR1.
+Canonicalclaims/owner/исходныйdeadline `2026-11-18T01:58:30.990734+00:00` не изменены.
+Обычныеmerge заранее разрешены;нового per-PR согласия не спрашивать.
+R1 ожидает результат выданного R5задания. Старыe акты остаются на своихexactC.
+WARNING/B01-B03/sourceissues/country/engineeringowners OPEN/UNKNOWN,RAW не повышены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN,ТЗ/архитектураNOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Прочность/устойчивость/реальные реакции не подтверждены.
+Расчёты/CAD-build/rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
 # R1 → R5: отдельная область проверки нового проекта определений G1
 
 UTC 2026-11-17T18:26:02.121547+00:00;base main 04a6486527c9ba4fd4d22fcf50e0427213443507;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
