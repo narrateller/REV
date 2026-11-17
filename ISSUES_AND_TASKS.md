@@ -1,3 +1,26 @@
+# R1 — DOC01/TRACE02 новая документальная ревизия,recheck NOT_RUN
+
+UTC 2026-11-17T11:56:52.033842+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;main e8f1d6bf41c0cfd2dcc4d3a673e642ecfb53588a.
+Пакет verification/r1_g1_observation_revision_20261117/;новые13outputs/17resolver entries,22cards/22metrology rows/20hazards/12channel classes.
+DOCUMENT procedural assurance/field applicability иусловная evidence schema;
+H01→REQ09/VAL09/MET09/FORCE_REACTION иfuture load/reaction provenance.
+Предыдущие26target/25rev8 artifacts иR5journal/evidence неизменны;старый R5акт
+CURRENT лишь exactfe10c0bc7242fe9d2df3e571c80b4e687f731d7c,для новойревизии applicability STALE.
+Оба замечания OPEN_PENDING_INDEPENDENT_RECHECK,new review NOT_RUN;R1 не закрывает их сам.
+R1 task/owner/исходный deadline2026-11-18T01:58:30.990734+00:00 неизменны.
+R5 предыдущий claim ограничен predecessor:новый точный target только после явного
+accepted main scope amendment,с неизменным owner/сроком,без нового task overlap.
+C новой поставки отдельный C новой ревизии;exact SHA в H;следующий H хранит exact C икоманду recheck.
+Author332 PASS/0FAIL,13MATCH;registry/CI фиксируются отдельно.
+B01/B02/B03/source power/pressure/moisture OPEN,UNKNOWN/RAW не повышены.
+44 fullbindings/loads/strokes/CAD/54pins/12trees/52interfaces/84RAW-null/15gaps и42source states сохранены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции не подтверждены.
+ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO;расчёты/CAD-rebuild/испытания запрещены.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — PR55 MERGED,предварительный supplement/WARNING
 
 UTC 2026-11-17T11:31:43.962474+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; task T-r1-requirements-draft-01.

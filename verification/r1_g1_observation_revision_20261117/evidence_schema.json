@@ -1,0 +1,127 @@
+{
+  "task_id": "T-r1-requirements-draft-01",
+  "author_sessions": [
+    "6afb300b-1540-8191-a5c4-be1a684c20e0"
+  ],
+  "input_main": "e8f1d6bf41c0cfd2dcc4d3a673e642ecfb53588a",
+  "working_base": "4bde3134e15b4d7c60ab382883ee6e1c40e7a91b",
+  "scope": "DOC01/TRACE02 documentary correction proposal only; no approved requirements/program or engineering execution",
+  "new_review": "NOT_RUN",
+  "G1": "OPEN",
+  "requirements_approved": false,
+  "source_states_solved": false,
+  "engineering_calculations_run": false,
+  "physical_tests_run": false,
+  "record_type": "FUTURE_CONDITIONAL_EVIDENCE_TEMPLATE_NOT_A_RESULT",
+  "required_fields": [
+    "record_id",
+    "requirement_id",
+    "validation_id",
+    "criterion_revision",
+    "program_revision",
+    "commit",
+    "object_id",
+    "mode",
+    "method_revision",
+    "timestamp",
+    "quality_flag",
+    "unknown_reason",
+    "raw_data_sha256",
+    "operator",
+    "reviewer",
+    "authorization_ref"
+  ],
+  "template": {
+    "measured_value": null,
+    "uncertainty": null,
+    "threshold_ref": null,
+    "quality_flag": "NOT_MEASURED",
+    "unknown_reason": "No physical/numerical stage or test authorized"
+  },
+  "quality_states": [
+    "VALID",
+    "INVALID",
+    "NOT_MEASURED",
+    "SIGNAL_LOSS"
+  ],
+  "cardinality": "many-to-many with explicit splits,merges,refills,residuals,losses and missing fractions",
+  "actual_records": [],
+  "all_VAL_TEST_status": "NOT_RUN",
+  "revision_id": "G1-DOC-TRACE-REVISION-01",
+  "predecessor_target_C": "fe10c0bc7242fe9d2df3e571c80b4e687f731d7c",
+  "predecessor_review_id": "REV-R5-G1-SUPPLEMENT-OUTPUT-01-001",
+  "predecessor_review_applicability_to_this_revision": "STALE_TARGET_CHANGED; historical act remains unchanged for its exact old C",
+  "profiles": {
+    "DOCUMENTARY_AUDIT": {
+      "required_fields": [
+        "document_scope_revision",
+        "enumerated_scope_items",
+        "item_dispositions",
+        "justified_exclusions",
+        "source_authority_basis",
+        "reviewer_competence_record"
+      ],
+      "field_applicability": {
+        "instrument_id": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Pure categorical document audit has no measured numerical quantity; does not waive applicable numeric evidence in mixed records"
+        },
+        "calibration_ref": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Pure categorical document audit has no measured numerical quantity; does not waive applicable numeric evidence in mixed records"
+        },
+        "timebase_ref": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Pure categorical document audit has no measured numerical quantity; does not waive applicable numeric evidence in mixed records"
+        },
+        "quantity": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Pure categorical document audit has no measured numerical quantity; does not waive applicable numeric evidence in mixed records"
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Pure categorical document audit has no measured numerical quantity; does not waive applicable numeric evidence in mixed records"
+        },
+        "measured_value": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Pure categorical document audit has no measured numerical quantity; does not waive applicable numeric evidence in mixed records"
+        },
+        "uncertainty": {
+          "status": "NOT_APPLICABLE",
+          "reason": "Pure categorical document audit has no measured numerical quantity; does not waive applicable numeric evidence in mixed records"
+        }
+      },
+      "scope": "Pure categorical audit only; timestamp remains record metadata,not a metrological time measurement"
+    },
+    "NUMERIC_MEASUREMENT": {
+      "required_fields": [
+        "material_revision",
+        "instrument_id",
+        "calibration_ref",
+        "timebase_ref",
+        "quantity",
+        "unit",
+        "measured_value",
+        "uncertainty"
+      ],
+      "scope": "All applicable actual numeric measurement fields remain required or APPLICABLE_UNKNOWN"
+    },
+    "MIXED": {
+      "required_profiles": [
+        "DOCUMENTARY_AUDIT",
+        "NUMERIC_MEASUREMENT"
+      ],
+      "scope": "Both applicable components retained; DOCUMENT cannot waive calibration/uncertainty of measured subclaims"
+    },
+    "MODEL_PREDICTION": {
+      "required_fields": [
+        "load_evidence_plan_ref",
+        "model_and_input_provenance",
+        "model_error_and_validation_scope"
+      ],
+      "scope": "Refer to force_evidence_plan MODEL_PREDICTION; instrument N_A only for pure computational output,measured inputs retain their own required calibration/uncertainty"
+    }
+  },
+  "profile_selection_rule": "Select by actual evidence kind and applicable subclaims,not just by REQ label; mixed/numerical content cannot masquerade as a pure document audit",
+  "NA_rule": "N_A requires a field/profile-specific reason; an applicable unknown remains null with unknown_reason and blocks dependent PASS"
+}
