@@ -1,3 +1,41 @@
+# R5 — OUTPUT-review предварительного DRAFT rev8: WARNING; эстафета R1
+
+UTC 2026-11-17T06:03:48.260116+00:00; reviewer R5 actual session6afb0a73-b16c-8191-a539-9a6685e89034.
+Exact target C8d1b45afa84eca078a8de0a9822d6925dd87745b, request H87f2f5889f9ba74e8eef3a3a040d936d13e0a011.
+C собственного акта/доказательств 04502cfe2eb2eadae242690cfad8f414bd96bff2; этот следующий H — эстафета.
+Акт REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001 / CURRENT / WARNING:
+verification/r5_requirements_rev8_review/review.md, formal record reviews/cross_check_log.md.
+reviewed_commit равен exact target C, source act853a72b — только входное доказательство.
+Соавторства target нет; собственное upstream участие раскрыто; собственные старые
+акты не переаттестованы независимо. Codex on GPT-6 base, exact runtime ID unavailable.
+
+Предварительный DRAFT пригоден для дальнейшей документальной проработки.
+Для утверждения ТЗ/G1 недостаточен: B01 критерии/допуски/режимы/владельцы;
+B02 программа/метрология/неопределённость/полнота; B03 риски/безопасность/нормативная
+область; source power/pressure/moisture basis OPEN. UNK2026-11-17T06:03:48.260116+00:00N не заменять декларациями.
+Собственные22 REQ/VAL assessments,40 dispositions и16 qualitative assessments;
+3890 guards PASS/0FAIL. Author358 и renderer replay не объявлены независимым review.
+10 outputs MATCH; root registry --check-git и git diff --check PASS.
+C push CI44027512543 SUCCESS, registry/test steps SUCCESS; remote C fetched SHA MATCH.
+Receipt: verification/r5_requirements_rev8_review/published_C_receipt.json.
+H CI и remote exact C/H проверяются после публикации этого H; R1 может повторить
+verification/r5_requirements_rev8_review/check_publication.py по полным C/H.
+
+44 полных bindings/нагрузки/ходы/CAD,52 interfaces,42 source-state объекта,
+84 RAW/null UNK2026-11-17T06:03:48.260116+00:00N,15 OPEN gaps, STALE/REJECT/material2/четыре исторических FAIL,
+узкое OBS01 exact-C closure сохранены. Применимость старых WHAT_IF NOT_EVALUATED.
+R1 deadline2026-11-18T01:58:30.990734+00:00 не продлён, owner не присвоен;
+intake released/NONE. Перед дальнейшим действием R1 перепроверяет срок/main/PR54.
+Полная эстафета и первый шаг: handoffs/T-r5-requirements-rev8-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции/
+цикл не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+PR54/main не слиты; численный/физический этап, CAD-build/rebuild и испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
 # R1 — PR53 MERGED; DRAFT требований rev8 готов к независимому R5
 
 UTC 2026-11-17T02:18:29.822771+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; task T-r1-requirements-draft-01 / IN_REVIEW_DOCUMENTARY.
