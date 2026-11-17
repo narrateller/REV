@@ -1,0 +1,53 @@
+{
+  "observed_at_utc": "2026-11-17T13:01:03.529862+00:00",
+  "observations": [
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "origin",
+        "refs/heads/main"
+      ],
+      "exit_code": 0,
+      "stdout": "b8485a93b7ced741261e7979f9438bad8590d368\trefs/heads/main\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/pulls/57",
+        "--jq",
+        "{state,merged,head:.head.sha,branch:.head.ref,base:.base.sha}"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"base\":\"e8f1d6bf41c0cfd2dcc4d3a673e642ecfb53588a\",\"branch\":\"work-r1/g1-observation-revision/6afb300b-1540-8191-a5c4-be1a684c20e0\",\"head\":\"2b99776187345729f1c3e177d0e5ed83e1239b07\",\"merged\":false,\"state\":\"open\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/pulls/58",
+        "--jq",
+        "{state,merged,merge_commit_sha,head:.head.sha,merged_at}"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"head\":\"09764e9d39a9433e053a601163dca7b71a574414\",\"merge_commit_sha\":\"b8485a93b7ced741261e7979f9438bad8590d368\",\"merged\":true,\"merged_at\":\"2026-11-17T12:18:00Z\",\"state\":\"closed\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/narrateller/REV/pulls?state=open&per_page=100",
+        "--jq",
+        "[.[]|{number,title,branch:.head.ref,sha:.head.sha}]"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"branch\":\"work-r1/g1-observation-revision/6afb300b-1540-8191-a5c4-be1a684c20e0\",\"number\":57,\"sha\":\"2b99776187345729f1c3e177d0e5ed83e1239b07\",\"title\":\"R1: DOC01/TRACE02 — применимость DOCUMENT и трассировка силового evidence\"}]\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Actual remote/accepted scope/competition; no merge or renewal"
+}

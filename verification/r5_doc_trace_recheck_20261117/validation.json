@@ -1,0 +1,167 @@
+{
+  "status": "DOCUMENTARY_RECHECK_COMPLETE_REGISTRY_PASS",
+  "overall_verdict": "WARNING",
+  "target_C": "45d5964786e608cdfcc656819fd6df8c77e495fe",
+  "request_H": "2b99776187345729f1c3e177d0e5ed83e1239b07",
+  "accepted_scope_main": "b8485a93b7ced741261e7979f9438bad8590d368",
+  "actual_session_id": "6afb0a73-b16c-8191-a539-9a6685e89034",
+  "completed_at_utc": "2026-11-17T13:11:31.104851+00:00",
+  "observation_decisions": {
+    "R5-G1-DOC-01": {
+      "status": "CLOSED_DOCUMENTARY_EXACT_C",
+      "exact_C": "45d5964786e608cdfcc656819fd6df8c77e495fe",
+      "basis": "Pure procedural assurance with applicable method/scope retained, mixed/measurement/model-input metrology not waived.",
+      "failing_guards": []
+    },
+    "R5-G1-TRACE-02": {
+      "status": "CLOSED_DOCUMENTARY_EXACT_C",
+      "exact_C": "45d5964786e608cdfcc656819fd6df8c77e495fe",
+      "basis": "Direct H01→REQ09/VAL09/MET09→FORCE_REACTION provenance with unselected measurement/model routes and no actual reaction claim.",
+      "failing_guards": []
+    }
+  },
+  "tools": {
+    "Python": "3.12.14",
+    "PyYAML": "6.0.3",
+    "Git": "git version 2.52.0"
+  },
+  "commands": [
+    {
+      "command": "python3 verification/r5_doc_trace_recheck_20261117/recheck.py",
+      "exit_code": 0,
+      "result": "3804 PASS/0FAIL; own exact-delta/semantic assessments and two documentary closures",
+      "evidence": "independent_results.json"
+    },
+    {
+      "command": "python3 verification/r5_doc_trace_recheck_20261117/recheck.py --output verification/r5_doc_trace_recheck_20261117/independent_after_record.json",
+      "exit_code": 0,
+      "result": "3804 PASS/0FAIL after own journal append",
+      "evidence": "independent_after_record.json"
+    },
+    {
+      "command": "python3 verification/r1_g1_observation_revision_20261117/render_revision.py --output-dir FRESH_TEMP",
+      "exit_code": 0,
+      "result": "13/13 outputs MATCH;reproduction only",
+      "evidence": "renderer_replay.json"
+    },
+    {
+      "command": "python3 scripts/check_registry.py --check-git",
+      "exit_code": 0,
+      "result": "PASS after exact-C recheck record",
+      "evidence": "registry.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "PASS"
+    }
+  ],
+  "coverage": {
+    "new_target_artifacts": 25,
+    "input_pins": 22,
+    "resolver_locators": 17,
+    "new_resolved_outputs": 12,
+    "unchanged_resolved_outputs": 5,
+    "rendered_outputs": 13,
+    "cards": 22,
+    "metrology_rows": 22,
+    "hazards": 20,
+    "channel_classes": 12,
+    "unchanged_cards": 17,
+    "unchanged_no_DOCUMENT_rows": 12,
+    "unchanged_hazards": 19,
+    "unchanged_channels": 10,
+    "assurance_dimensions": 4,
+    "unselected_routes": 2,
+    "semantic_documentary_cases": 8,
+    "preserved_base_files": 3300,
+    "LFS_SHA_matches": 59,
+    "full_bindings": 44,
+    "interfaces": 52,
+    "UNKNOWN_RAW_null": 84,
+    "source_state_objects": 42,
+    "OPEN_gaps": 15,
+    "old_pins": 54,
+    "protected_trees": 12
+  },
+  "independent_counts": {
+    "PASS": 3804
+  },
+  "own_evidence_sha256": [
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/check_publication.py",
+      "sha256": "76196a11071ec89d330f5a406c8d548070e3a77e9b54d7a81ec75b6cee00b976"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/identity.json",
+      "sha256": "c353c7457060f75902235beeaebdb606c14c64088fe9c90365ff0638d6c2e3ee"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/independent_after_record.json",
+      "sha256": "f02ba1c065786b559253f0d535290b0c566509fc38b86c4b554cbb66b5439355"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/independent_results.json",
+      "sha256": "7769848a30b0e2586809c88ee5204db1abdb13337d873ef9d1bad03da7040b00"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/input_audit.json",
+      "sha256": "00a54a8aeca70b51d70477586a3ed3a37b7c76619e7c83712cbcb64d8b9c97e9"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/input_audit.md",
+      "sha256": "fed28dd2cbcfd8c7202aa8265a6a732381bc9ebb730862aad42641dabe34f77e"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/merge_context.json",
+      "sha256": "12da4165aa3db9ec048060d2577a6e4e6d8aa94374f64cea3c742b13f0a9bf52"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/recheck.py",
+      "sha256": "71653b4fa3544a2118e6b010712e27304f3aea08346cbf369f715544a87a7e1f"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/registry.log",
+      "sha256": "f18008b12f04ec977f502d918a3a8b404f3c7e141b6d5becc8515bbc405b2cda"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/remote_context.json",
+      "sha256": "06d87d330898a29041b1f7c87d10572f282dc2c468068686580cc633e707b454"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/renderer_replay.json",
+      "sha256": "1b0bdb984e360345446f4890775c0ad1bc9c50efe3a0e6a2e801d73f3fb646ed"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/review.md",
+      "sha256": "202cab22258202738a40f59e3031c2e861b038cb16acbfc52e5f2b42d17bf0c8"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/target_CI.json",
+      "sha256": "f2cec4215c56770e3462ecfd34f2f1d2737d6cbbb7b5003a15befbbc21a378d5"
+    },
+    {
+      "path": "verification/r5_doc_trace_recheck_20261117/task_before_recheck.json",
+      "sha256": "1d63dbc91a34ad256ae7fba71d6aab618f647b0e0168ce23c645d0e409261498"
+    }
+  ],
+  "review_journal_sha256": "99705bdc934e8167ebb9863c9098cd5fd8fe0f3a057aa201352c745c35c48ea6",
+  "base_claim_and_scope_amendment_unmodified": true,
+  "lease_extension": false,
+  "predecessor_act_recertified": false,
+  "author332_or_old4117_as_new_review": false,
+  "publication": "Own exact C/H and CI checked after publication using check_publication.py; final receipt necessarily later than H. No future success asserted here.",
+  "B01_B02_B03": "OPEN",
+  "source_power_pressure_moisture": "OPEN",
+  "G1": "OPEN",
+  "W02": "NO_GO",
+  "physical_READY": "NO_GO",
+  "physical_sections": {
+    "4": "NOT_RUN",
+    "5": "NOT_RUN",
+    "6": "NOT_RUN"
+  },
+  "source_states_solved": false,
+  "PR57_merged": false,
+  "main_merge_performed": false
+}

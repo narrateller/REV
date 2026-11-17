@@ -1,3 +1,79 @@
+# R1 — DOC01/TRACE02 CLOSED только документально,PR57 готовится
+
+UTC 2026-11-17T13:51:44.504463+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;main b8485a93b7ced741261e7979f9438bad8590d368.
+Target C 45d5964786e608cdfcc656819fd6df8c77e495fe,request H 2b99776187345729f1c3e177d0e5ed83e1239b07. R5 C c1b1688308fdc0ff5e7ac8d363cc0d02acdada0f/H fd5eb9181eaee98a66c0bc3472a85ed88744c710;
+REV-R5-G1-DOC-TRACE-RECHECK-01-001 CURRENT/WARNING,3804 собственныхPASS/0FAIL,13MATCH/17resolver entries.
+Решение decisions/R1-DOC-TRACE-RECHECK-ACCEPTANCE.md принимает только closure
+достаточности документальных исправлений exactC;gate null,requirements_approved false.
+Актуальные closure verification/r1_doc_trace_recheck_acceptance_20261117/closure_status.json. ИсторическиеOPEN/старыеакты/
+reviewed25/newtarget и26predecessor/25rev8 artifacts остаются неизменными.
+DOC01 не утверждает метод/scope/метрологию;TRACE02 не подтверждает actual силы/реакции.
+C результата R1 16f66c5b5daf0eb95f78af60abacaacff2ef76b2;следующийH содержит exactC иэстафету.
+
+В PR57 включаются обе R5 истории,target H исвежаяmain,source merge contexts
+сохранены;новых конфликтов target нет. Canonical claims/scope amendment/owner/
+исходныйdeadline 2026-11-18T01:58:30.990734+00:00 неизменны,новыхroles/leases нет.
+Стараяbase_claim.target_C по-прежнему predecessor,новаяauthority изacceptedamendment main.
+Новый revieweractual6afb0a73-b16c-8191-a539-9a6685e89034 не соавтор target;
+upstreamучастие раскрыто,организационная независимость не аттестована.
+
+Следующий проверяемый шаг — exacthead CI иотдельное разрешение обычногоmergePR57,
+свежийpreflightmain/head/claims/срок/inputs/конкуренции. Этойпоставкойmain/PR57 не сливается.
+Далее R1 документальные определения B01/B02/B03/source issues,план verification/r1_doc_trace_recheck_acceptance_20261117/next_work.md.
+Неизвестные данные/реальные инженерныеowners UNKNOWN;RAW не повышать,параметры не выдумывать.
+BP500 primary,остальные по релевантности,площадка адаптируется.
+44fullbindings/loads/strokes/CAD,54pins/12trees,52interfaces/84RAW-null/15gaps и
+42source-state objects/старыеREJECT/STALE/material2/четыреFAIL/OBS01closure сохранены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-rebuild/испытания не разрешены.
+
+R1 integration checks321 PASS/0FAIL,13outputs MATCH,59LFS SHA/OID MATCH.
+Root registry --check-git PASS/код0;R5 C/H CI SUCCESS/registry PASS/по100tests OK.
+CI новогоhead проверяется после публикации.
+G1 readiness/план иобъяснение текущего прогноза:verification/r1_doc_trace_recheck_acceptance_20261117/g1_readiness.md.
+
+---
+
+## Предыдущие записи — история
+
+# R5 — DOC01/TRACE02 CLOSED документально на exact новой ревизии;общийWARNING
+
+UTC 2026-11-17T13:13:57.729354+00:00;actual R5 session6afb0a73-b16c-8191-a539-9a6685e89034,same taskT-r5-g1-supplement-output-review-01.
+Exact reviewed_commit 45d5964786e608cdfcc656819fd6df8c77e495fe;target request H 2b99776187345729f1c3e177d0e5ed83e1239b07.
+Accepted scope main b8485a93b7ced741261e7979f9438bad8590d368,owner/исходный deadline2026-11-18T01:58:30.990734+00:00
+иbase-claimSHA неизменны. Новыйtarget разрешён explicit main amendment,не подменой
+base_claim.target_C. Canonical claim/amendment не переписаны,продления/новогоclaim нет.
+C нового акта/доказательств c1b1688308fdc0ff5e7ac8d363cc0d02acdada0f;этот следующий H передаёт exact C дляR1.
+Акт REV-R5-G1-DOC-TRACE-RECHECK-01-001:verification/r5_doc_trace_recheck_20261117/review.md
+иreviews/cross_check_log.md. DOC01/TRACE02 CLOSED_DOCUMENTARY_EXACT_C только на указанномC.
+ОбщийWARNING,B01/B02/B03/sourcepower/pressure/moistureOPEN;ТЗ/G1 не утверждены.
+
+DOC01: qualitative assurance/N_A по полям чистого аудита;method/scope applicableUNKNOWN,
+mixed/measurement/model-input calibration иuncertainty не сняты. TRACE02: прямая
+H01/REQ09/VAL09/MET09/FORCE_REACTION provenance;routes/actual inputs UNKNOWN,
+model prediction не actual reactions. Нет новых cases/results/расчётов/исполнения.
+3804 own guards PASS/0FAIL;22cards/22metrology/20hazards/12channels,8semantic cases;
+13outputs MATCH/17resolver entries valid. Author332/old4117 не этотindependentrecheck.
+17cards/12no-DOCUMENT rows/19hazards/10channels exact unchanged;26old/25rev8/
+54pins/12trees/3300files/59LFS/44fullbindings/52interfaces/84RAW-null/42states/
+15gaps ивсястараяистория сохранены. Старыйакт predecessor-only;applicabilitynewtargetSTALE.
+Root registry --check-git PASS/git diff --check PASS;C fetched remote SHA MATCH;
+C/H CI проверяются после публикации,не объявленыSUCCESS заранее. Пакетverification/r5_doc_trace_recheck_20261117/.
+R1 next:fetch C/H,проверитьscope/main/owner/срок/CI,принятьузкое documentaryclosure,
+вести определения/программу без утверждения ТЗ/G1/RAW ибез mergePR57 этим актом.
+Капсула handoffs/T-r5-g1-supplement-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. G1 OPEN,W02/physical READY NO-GO. Расчёты,CAD-build/rebuild,
+испытания не начинались и не разрешены. PR57/main не слиты этой review-веткой.
+
+---
+
+## Предыдущие записи — история
+
+> R5 isolated recheck context: accepted main amendment then exact target H context; both histories preserved below. No PR57/main merge.
+
 # R1 — отдельное scope amendment R5 для DOC01/TRACE02 recheck
 
 UTC 2026-11-17T12:04:17.139635+00:00,coordinator6afb300b-1540-8191-a5c4-be1a684c20e0. Existing taskT-r5-g1-supplement-output-review-01,owner6afb0a73-b16c-8191-a539-9a6685e89034,
@@ -23,6 +99,35 @@ C394a152af5ea6d95638008e6055d249975ebb371/H4bde3134e15b4d7c60ab382883ee6e1c40e7a
 R1 scope/preservation checks110 PASS/0FAIL;root registry --check-git PASS/код0.
 Оба target H CI44079423861/44079350017 SUCCESS,registry PASS/по100tests OK.
 Scope head CI иactual main acceptance проверяются перед разрешением выполнения.
+
+---
+
+## Предыдущие записи — история
+
+
+
+---
+
+## Exact target H context (history)
+
+# R1 — DOC01/TRACE02 новая документальная ревизия,recheck NOT_RUN
+
+UTC 2026-11-17T11:56:52.033842+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;main e8f1d6bf41c0cfd2dcc4d3a673e642ecfb53588a.
+Пакет verification/r1_g1_observation_revision_20261117/;новые13outputs/17resolver entries,22cards/22metrology rows/20hazards/12channel classes.
+DOCUMENT procedural assurance/field applicability иусловная evidence schema;
+H01→REQ09/VAL09/MET09/FORCE_REACTION иfuture load/reaction provenance.
+Предыдущие26target/25rev8 artifacts иR5journal/evidence неизменны;старый R5акт
+CURRENT лишь exactfe10c0bc7242fe9d2df3e571c80b4e687f731d7c,для новойревизии applicability STALE.
+Оба замечания OPEN_PENDING_INDEPENDENT_RECHECK,new review NOT_RUN;R1 не закрывает их сам.
+R1 task/owner/исходный deadline2026-11-18T01:58:30.990734+00:00 неизменны.
+R5 предыдущий claim ограничен predecessor:новый точный target только после явного
+accepted main scope amendment,с неизменным owner/сроком,без нового task overlap.
+C новой поставки 45d5964786e608cdfcc656819fd6df8c77e495fe;следующий H хранит exact C икоманду recheck.
+Author332 PASS/0FAIL,13MATCH;root registry --check-git PASS/код0;CI точногоhead проверяется после публикации.
+B01/B02/B03/source power/pressure/moisture OPEN,UNKNOWN/RAW не повышены.
+44 fullbindings/loads/strokes/CAD/54pins/12trees/52interfaces/84RAW-null/15gaps и42source states сохранены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции не подтверждены.
+ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO;расчёты/CAD-rebuild/испытания запрещены.
 
 ---
 
