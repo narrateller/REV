@@ -1,0 +1,115 @@
+{
+  "task_id": "T-R4-W02-CAD-01",
+  "role": "R4",
+  "owner_session": "01a1efab-01bb-7083-a1bb-7bfc23c5a260",
+  "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "source_main_sha": "8c1fe7677f7b555d471ee3b20e07e3d45ebd8b3c",
+  "started_at_utc": "2026-11-18T20:20:00Z",
+  "completed_at_utc": "2026-11-18T20:45:00Z",
+  "status": "INPUT_AUDIT_COMPLETE",
+  "w02_status": "BLOCKED",
+  "w02_blockers": [
+    "FreeCAD 1.0.0 не найден в PATH",
+    "42 физических состояния имеют статус BLOCKED_INPUTS",
+    "Опоры и эксцентриситеты UNKNOWN",
+    "Свободные длины UNKNOWN",
+    "Сечения и материалы UNKNOWN",
+    "Двусторонние соединения UNKNOWN"
+  ],
+  "input_audit": {
+    "params_registry": {
+      "status": "ASSUMED",
+      "records": 1144,
+      "calculated": 1072,
+      "assumed": 47,
+      "raw_null": 25
+    },
+    "cae_T-R3-CAE-456-01": {
+      "status": "CALCULATED_ASSUMED",
+      "area": "ASSUMED_STATIC_SCREENING",
+      "physical_sections_4_5_6": "NOT_RUN"
+    },
+    "drives": {
+      "status": "CONDITIONAL",
+      "axial_calculations": 8
+    },
+    "interfaces_52": {
+      "status": "DOCUMENTARY",
+      "physical_values": "UNKNOWN"
+    },
+    "cad_files": {
+      "status": "PRESENT",
+      "count": 4,
+      "sha256_verified": true
+    },
+    "freecad_tool": {
+      "status": "BLOCKED_TOOLS",
+      "required_version": "1.0.0"
+    }
+  },
+  "cad_geometry": {
+    "variants": {
+      "A-V1": {
+        "file": "A-V1.FCStd",
+        "sha256": "1e1792fcf83fcf11b61f3dbbb6015e570b3127008cb775403828e10acece5892",
+        "structure": "VALID_ZIP",
+        "freecad_version": "1.0R"
+      },
+      "A-V2": {
+        "file": "A-V2.FCStd",
+        "sha256": "f4fae8d12bdd4862ad74cea27e32146bd1851255210b8955d012785ecde78855",
+        "structure": "VALID_ZIP",
+        "freecad_version": "1.0R"
+      },
+      "B-V1": {
+        "file": "B-V1.FCStd",
+        "sha256": "d64dcd9fdaf10d296b8aa46929bffa98d19640bcba7ccae11b11e955b417fde8",
+        "structure": "VALID_ZIP",
+        "freecad_version": "1.0R"
+      },
+      "B-V2": {
+        "file": "B-V2.FCStd",
+        "sha256": "b63226487ca4492791456d88b70dff3fd5fafa3886e240cb8a57878a3ce9d3b0",
+        "structure": "VALID_ZIP",
+        "freecad_version": "1.0R"
+      }
+    },
+    "manifest": {
+      "task_id": "T-R4-FORCE-GEOMETRY-01",
+      "physical_geometry_status": "BLOCKED_INPUTS",
+      "bindings": 44,
+      "interfaces": 52,
+      "cases": 42
+    }
+  },
+  "drawings_status": "WAITING_ENGINEERING_BASELINE",
+  "physical_states": {
+    "count": 42,
+    "status": "BLOCKED_INPUTS",
+    "sections_4_5_6": "NOT_RUN",
+    "g1": "OPEN",
+    "w02": "NO-GO",
+    "physical_ready": "NO-GO"
+  },
+  "warnings": [
+    "42 физических состояния имеют статус BLOCKED_INPUTS",
+    "Физические sections 4/5/6 NOT_RUN",
+    "G1 OPEN",
+    "W02 NO-GO",
+    "physical READY NO-GO",
+    "Физические испытания не разрешены этим форком",
+    "Не выпускать КД до готовности инженерной базы"
+  ],
+  "outputs": [
+    "coordination/claims/T-R4-W02-CAD-01.json",
+    "coordination/claims/T-R4-W02-CAD-01_input_audit.md",
+    "coordination/completions/T-R4-W02-CAD-01/completion_act.md",
+    "coordination/completions/T-R4-W02-CAD-01/completion.json"
+  ],
+  "next_steps": [
+    "Установить FreeCAD 1.0.0",
+    "Сохранить WARNING в STATE.md",
+    "Работать в scope EDITABLE_CONDITIONAL_REFERENCES",
+    "Не выпускать КД до готовности инженерной базы"
+  ]
+}
