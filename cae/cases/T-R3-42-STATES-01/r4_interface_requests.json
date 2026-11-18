@@ -1,0 +1,3074 @@
+{
+  "task_id": "T-R3-42-STATES-01",
+  "author_session": "6afd08f5-9174-8191-ba01-ebb86011c0d3",
+  "source_main_sha": "3c63e83fee04b71997ebced455a2e0e4535c9bc5",
+  "source_catalog_commit": "93b4aead4983f88919d8e8b4165e29d7f3246600",
+  "source_catalog_sha256": "32d410ebbe41c0d16e817f03a690da56c66d69a5ff9e9efa26e66bde35b42680",
+  "scope": "GEOMETRY_REQUESTS_FOR_R4",
+  "interfaces": [
+    {
+      "interface_id": "A-V1/datum_motion",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Базы и локальные оси, исходная поза, траектория и подписанные e_y(q), e_z(q), включая промежуточные положения.",
+      "source_unknowns": [
+        {
+          "argument": "фактическая привязка O/локальных осей",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "начальная поза x_P0",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "траектории полных/частичных и промежуточных поз",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/cylinder_frame",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Ось цилиндра, монтажные точки и их DOF, способ передачи реакций, геометрия и паспорт выбранного крепления.",
+      "source_unknowns": [
+        {
+          "argument": "паспорт/COTS revision и локальный источник",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия монтажных интерфейсов/портов",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шарнир/жёсткая опора и DOF",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "допустимая боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакт/жёсткость/направление реакции",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/rod_grip",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Геометрия захвата штока, контактные стороны для обоих знаков, люфт и ограничения движения.",
+      "source_unknowns": [
+        {
+          "argument": "резьба/палец/болты/сварка и геометрия группы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M и боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/grip_transfer",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Точки приложения и локальные оси траверсы/портала, плечи, соединение с передачей усилия в обоих направлениях.",
+      "source_unknowns": [
+        {
+          "argument": "оси и точки приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия двусторонних joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные главные оси/сечения и податливости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/transfer_carrier",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Отдельные L_free_rod(q) и L_free_carrier(q), координаты активных опор и закрепления на полном ходе.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные L_free_rod(q) и L_free_carrier(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "координаты/активные участки опор во всех позах",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "тип/DOF joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "промежуточные/частичные позы",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/carrier_punch",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Сечения перехода и материал, геометрия захвата для обоих знаков, контакты и зазоры в камере.",
+      "source_unknowns": [
+        {
+          "argument": "сечение перехода/стыка и допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия захвата обоих знаков",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "активные контакты/зазоры камеры",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/carrier_guides",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Координаты и направление каждой направляющей, расстояния между опорами в обеих плоскостях, контактные стороны, зазоры, преднатяг.",
+      "source_unknowns": [
+        {
+          "argument": "число/координаты/направления опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шаг a и обе плоскости",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "вес/инерция/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "совместность и жёсткости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_GUIDE_SPAN",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_GUIDE_PRELOAD",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/guides_frame",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Координаты и разрезы креплений направляющих, опорные поверхности, материал и DOF в обеих плоскостях.",
+      "source_unknowns": [
+        {
+          "argument": "геометрия групп опор/крепежа",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материалы/контакт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "жёсткость и начальные дефекты",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "опорные условия обеих плоскостей",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/material_reaction",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Геометрия контактных поверхностей и удержания материала. Для A указать путь реакции при пустом пуске, для B контакты упора и замка по фазам.",
+      "source_unknowns": [
+        {
+          "argument": "фазовые F(q,t) и места приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "наличие/стороны активного контакта",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "остаточная сила/пружинение/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия удержания материала",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/reaction_frame",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Координаты, ориентации и контактные стороны реакционных опор, схема замыкания в раму и сечения связей.",
+      "source_unknowns": [
+        {
+          "argument": "координаты/ориентации реакционных опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/направления",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "joints/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "сечения/материал/жёсткость рамы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые связи",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/sections_stability",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Раздельные A, I_y/I_z, W_y/W_z и J штока, носителя и звеньев передачи, материалы и обоснованные закрепления по позам.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные A/I_y/I_z/W_y/W_z/J каждого звена",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/E/дефекты/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "закрепления K и L_free(q) обоих звеньев",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M, стройность, критерии и второй порядок",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_CARRIER_W",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_CARRIER_J",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_ELASTIC_MODULUS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_ALLOWABLE_STRESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/envelopes_service",
+      "case_ids": [
+        "S42-001",
+        "S42-002",
+        "S42-003",
+        "S42-004",
+        "S42-005",
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Габариты и траектории по полному ходу, задние/боковые зазоры, зоны подачи, выдачи и демонтажа.",
+      "source_unknowns": [
+        {
+          "argument": "полные swept volumes и базы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "rear/side clearance",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "подача/камера/выдача/демонтажные траектории",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "люфты/допуски/сервисные пространства",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V1/receiver_cycle",
+      "case_ids": [
+        "S42-006",
+        "S42-007",
+        "S42-008",
+        "S42-009",
+        "S42-010"
+      ],
+      "geometry_request": "Положение границы выдачи и приёмника, геометрия удержания остатков, возврата и открытия/замыкания упора.",
+      "source_unknowns": [
+        {
+          "argument": "реальная выходная граница/приёмник/остатки",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакты возврата и удержания",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые нагрузки/паузы/ресурсы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "массы/ускорения/потери/аварии",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия сброса и повторного старта",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V1_MOVING_MASS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_ACCELERATION",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V1_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/datum_motion",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Базы и локальные оси, исходная поза, траектория и подписанные e_y(q), e_z(q), включая промежуточные положения.",
+      "source_unknowns": [
+        {
+          "argument": "фактическая привязка O/локальных осей",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "начальная поза x_P0",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "траектории полных/частичных и промежуточных поз",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/cylinder_frame",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Ось цилиндра, монтажные точки и их DOF, способ передачи реакций, геометрия и паспорт выбранного крепления.",
+      "source_unknowns": [
+        {
+          "argument": "паспорт/COTS revision и локальный источник",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия монтажных интерфейсов/портов",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шарнир/жёсткая опора и DOF",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "допустимая боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакт/жёсткость/направление реакции",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/rod_grip",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Геометрия захвата штока, контактные стороны для обоих знаков, люфт и ограничения движения.",
+      "source_unknowns": [
+        {
+          "argument": "резьба/палец/болты/сварка и геометрия группы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M и боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/grip_transfer",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Точки приложения и локальные оси траверсы/портала, плечи, соединение с передачей усилия в обоих направлениях.",
+      "source_unknowns": [
+        {
+          "argument": "оси и точки приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия двусторонних joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные главные оси/сечения и податливости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/transfer_carrier",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Отдельные L_free_rod(q) и L_free_carrier(q), координаты активных опор и закрепления на полном ходе.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные L_free_rod(q) и L_free_carrier(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "координаты/активные участки опор во всех позах",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "тип/DOF joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "промежуточные/частичные позы",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/carrier_punch",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Сечения перехода и материал, геометрия захвата для обоих знаков, контакты и зазоры в камере.",
+      "source_unknowns": [
+        {
+          "argument": "сечение перехода/стыка и допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия захвата обоих знаков",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "активные контакты/зазоры камеры",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/carrier_guides",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Координаты и направление каждой направляющей, расстояния между опорами в обеих плоскостях, контактные стороны, зазоры, преднатяг.",
+      "source_unknowns": [
+        {
+          "argument": "число/координаты/направления опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шаг a и обе плоскости",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "вес/инерция/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "совместность и жёсткости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_GUIDE_SPAN",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_GUIDE_PRELOAD",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/guides_frame",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Координаты и разрезы креплений направляющих, опорные поверхности, материал и DOF в обеих плоскостях.",
+      "source_unknowns": [
+        {
+          "argument": "геометрия групп опор/крепежа",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материалы/контакт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "жёсткость и начальные дефекты",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "опорные условия обеих плоскостей",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/material_reaction",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Геометрия контактных поверхностей и удержания материала. Для A указать путь реакции при пустом пуске, для B контакты упора и замка по фазам.",
+      "source_unknowns": [
+        {
+          "argument": "фазовые F(q,t) и места приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "наличие/стороны активного контакта",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "остаточная сила/пружинение/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия удержания материала",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/reaction_frame",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Координаты, ориентации и контактные стороны реакционных опор, схема замыкания в раму и сечения связей.",
+      "source_unknowns": [
+        {
+          "argument": "координаты/ориентации реакционных опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/направления",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "joints/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "сечения/материал/жёсткость рамы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые связи",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/sections_stability",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Раздельные A, I_y/I_z, W_y/W_z и J штока, носителя и звеньев передачи, материалы и обоснованные закрепления по позам.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные A/I_y/I_z/W_y/W_z/J каждого звена",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/E/дефекты/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "закрепления K и L_free(q) обоих звеньев",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M, стройность, критерии и второй порядок",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_CARRIER_W",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_CARRIER_J",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_ELASTIC_MODULUS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_ALLOWABLE_STRESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/envelopes_service",
+      "case_ids": [
+        "S42-011",
+        "S42-012",
+        "S42-013",
+        "S42-014",
+        "S42-015",
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Габариты и траектории по полному ходу, задние/боковые зазоры, зоны подачи, выдачи и демонтажа.",
+      "source_unknowns": [
+        {
+          "argument": "полные swept volumes и базы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "rear/side clearance",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "подача/камера/выдача/демонтажные траектории",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "люфты/допуски/сервисные пространства",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "A-V2/receiver_cycle",
+      "case_ids": [
+        "S42-016",
+        "S42-017",
+        "S42-018",
+        "S42-019",
+        "S42-020"
+      ],
+      "geometry_request": "Положение границы выдачи и приёмника, геометрия удержания остатков, возврата и открытия/замыкания упора.",
+      "source_unknowns": [
+        {
+          "argument": "реальная выходная граница/приёмник/остатки",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакты возврата и удержания",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые нагрузки/паузы/ресурсы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "массы/ускорения/потери/аварии",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия сброса и повторного старта",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_A_V2_MOVING_MASS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_ACCELERATION",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_A_V2_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/datum_motion",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Базы и локальные оси, исходная поза, траектория и подписанные e_y(q), e_z(q), включая промежуточные положения.",
+      "source_unknowns": [
+        {
+          "argument": "фактическая привязка O/локальных осей",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "начальная поза x_P0",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "траектории полных/частичных и промежуточных поз",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/cylinder_frame",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Ось цилиндра, монтажные точки и их DOF, способ передачи реакций, геометрия и паспорт выбранного крепления.",
+      "source_unknowns": [
+        {
+          "argument": "паспорт/COTS revision и локальный источник",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия монтажных интерфейсов/портов",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шарнир/жёсткая опора и DOF",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "допустимая боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакт/жёсткость/направление реакции",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/rod_grip",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Геометрия захвата штока, контактные стороны для обоих знаков, люфт и ограничения движения.",
+      "source_unknowns": [
+        {
+          "argument": "резьба/палец/болты/сварка и геометрия группы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M и боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/grip_transfer",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Точки приложения и локальные оси траверсы/портала, плечи, соединение с передачей усилия в обоих направлениях.",
+      "source_unknowns": [
+        {
+          "argument": "оси и точки приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия двусторонних joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные главные оси/сечения и податливости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/transfer_carrier",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Отдельные L_free_rod(q) и L_free_carrier(q), координаты активных опор и закрепления на полном ходе.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные L_free_rod(q) и L_free_carrier(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "координаты/активные участки опор во всех позах",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "тип/DOF joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "промежуточные/частичные позы",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/carrier_punch",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Сечения перехода и материал, геометрия захвата для обоих знаков, контакты и зазоры в камере.",
+      "source_unknowns": [
+        {
+          "argument": "сечение перехода/стыка и допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия захвата обоих знаков",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "активные контакты/зазоры камеры",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/carrier_guides",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Координаты и направление каждой направляющей, расстояния между опорами в обеих плоскостях, контактные стороны, зазоры, преднатяг.",
+      "source_unknowns": [
+        {
+          "argument": "число/координаты/направления опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шаг a и обе плоскости",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "вес/инерция/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "совместность и жёсткости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_GUIDE_SPAN",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_GUIDE_PRELOAD",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/guides_frame",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Координаты и разрезы креплений направляющих, опорные поверхности, материал и DOF в обеих плоскостях.",
+      "source_unknowns": [
+        {
+          "argument": "геометрия групп опор/крепежа",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материалы/контакт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "жёсткость и начальные дефекты",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "опорные условия обеих плоскостей",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/material_reaction",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Геометрия контактных поверхностей и удержания материала. Для A указать путь реакции при пустом пуске, для B контакты упора и замка по фазам.",
+      "source_unknowns": [
+        {
+          "argument": "фазовые F(q,t) и места приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "наличие/стороны активного контакта",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "остаточная сила/пружинение/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия удержания материала",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/reaction_frame",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Координаты, ориентации и контактные стороны реакционных опор, схема замыкания в раму и сечения связей.",
+      "source_unknowns": [
+        {
+          "argument": "координаты/ориентации реакционных опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/направления",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "joints/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "сечения/материал/жёсткость рамы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые связи",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/sections_stability",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Раздельные A, I_y/I_z, W_y/W_z и J штока, носителя и звеньев передачи, материалы и обоснованные закрепления по позам.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные A/I_y/I_z/W_y/W_z/J каждого звена",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/E/дефекты/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "закрепления K и L_free(q) обоих звеньев",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M, стройность, критерии и второй порядок",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_CARRIER_W",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_CARRIER_J",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_ELASTIC_MODULUS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_ALLOWABLE_STRESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/envelopes_service",
+      "case_ids": [
+        "S42-021",
+        "S42-022",
+        "S42-023",
+        "S42-024",
+        "S42-025",
+        "S42-026",
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Габариты и траектории по полному ходу, задние/боковые зазоры, зоны подачи, выдачи и демонтажа.",
+      "source_unknowns": [
+        {
+          "argument": "полные swept volumes и базы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "rear/side clearance",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "подача/камера/выдача/демонтажные траектории",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "люфты/допуски/сервисные пространства",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V1/receiver_cycle",
+      "case_ids": [
+        "S42-027",
+        "S42-028",
+        "S42-029",
+        "S42-030",
+        "S42-031"
+      ],
+      "geometry_request": "Положение границы выдачи и приёмника, геометрия удержания остатков, возврата и открытия/замыкания упора.",
+      "source_unknowns": [
+        {
+          "argument": "реальная выходная граница/приёмник/остатки",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакты возврата и удержания",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые нагрузки/паузы/ресурсы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "массы/ускорения/потери/аварии",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия сброса и повторного старта",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V1_MOVING_MASS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_ACCELERATION",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V1_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/datum_motion",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Базы и локальные оси, исходная поза, траектория и подписанные e_y(q), e_z(q), включая промежуточные положения.",
+      "source_unknowns": [
+        {
+          "argument": "фактическая привязка O/локальных осей",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "начальная поза x_P0",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "траектории полных/частичных и промежуточных поз",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/cylinder_frame",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Ось цилиндра, монтажные точки и их DOF, способ передачи реакций, геометрия и паспорт выбранного крепления.",
+      "source_unknowns": [
+        {
+          "argument": "паспорт/COTS revision и локальный источник",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия монтажных интерфейсов/портов",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шарнир/жёсткая опора и DOF",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "допустимая боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакт/жёсткость/направление реакции",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/rod_grip",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Геометрия захвата штока, контактные стороны для обоих знаков, люфт и ограничения движения.",
+      "source_unknowns": [
+        {
+          "argument": "резьба/палец/болты/сварка и геометрия группы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M и боковая нагрузка",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/grip_transfer",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Точки приложения и локальные оси траверсы/портала, плечи, соединение с передачей усилия в обоих направлениях.",
+      "source_unknowns": [
+        {
+          "argument": "оси и точки приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "e_y(q), e_z(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия двусторонних joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные главные оси/сечения и податливости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/transfer_carrier",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Отдельные L_free_rod(q) и L_free_carrier(q), координаты активных опор и закрепления на полном ходе.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные L_free_rod(q) и L_free_carrier(q)",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "координаты/активные участки опор во всех позах",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "тип/DOF joints",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "промежуточные/частичные позы",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/carrier_punch",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Сечения перехода и материал, геометрия захвата для обоих знаков, контакты и зазоры в камере.",
+      "source_unknowns": [
+        {
+          "argument": "сечение перехода/стыка и допуски",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "геометрия захвата обоих знаков",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "активные контакты/зазоры камеры",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/carrier_guides",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Координаты и направление каждой направляющей, расстояния между опорами в обеих плоскостях, контактные стороны, зазоры, преднатяг.",
+      "source_unknowns": [
+        {
+          "argument": "число/координаты/направления опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "шаг a и обе плоскости",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "вес/инерция/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "совместность и жёсткости",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_GUIDE_SPAN",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_GUIDE_PRELOAD",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/guides_frame",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Координаты и разрезы креплений направляющих, опорные поверхности, материал и DOF в обеих плоскостях.",
+      "source_unknowns": [
+        {
+          "argument": "геометрия групп опор/крепежа",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материалы/контакт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "жёсткость и начальные дефекты",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "опорные условия обеих плоскостей",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_JOINT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/material_reaction",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Геометрия контактных поверхностей и удержания материала. Для A указать путь реакции при пустом пуске, для B контакты упора и замка по фазам.",
+      "source_unknowns": [
+        {
+          "argument": "фазовые F(q,t) и места приложения",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "наличие/стороны активного контакта",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "остаточная сила/пружинение/трение",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия удержания материала",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/reaction_frame",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Координаты, ориентации и контактные стороны реакционных опор, схема замыкания в раму и сечения связей.",
+      "source_unknowns": [
+        {
+          "argument": "координаты/ориентации реакционных опор",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контактные стороны/направления",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "joints/люфт/преднатяг",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "сечения/материал/жёсткость рамы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые связи",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_SUPPORT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_FRAME_STIFFNESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_JOINT_MOMENT_RESISTANCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/sections_stability",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Раздельные A, I_y/I_z, W_y/W_z и J штока, носителя и звеньев передачи, материалы и обоснованные закрепления по позам.",
+      "source_unknowns": [
+        {
+          "argument": "раздельные A/I_y/I_z/W_y/W_z/J каждого звена",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "материал/E/дефекты/состояние",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "закрепления K и L_free(q) обоих звеньев",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "локальные N/Q/M, стройность, критерии и второй порядок",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_CARRIER_AREA",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_CARRIER_I",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_CARRIER_W",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_CARRIER_J",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_ELASTIC_MODULUS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_ALLOWABLE_STRESS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_END_FACTOR",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/envelopes_service",
+      "case_ids": [
+        "S42-032",
+        "S42-033",
+        "S42-034",
+        "S42-035",
+        "S42-036",
+        "S42-037",
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Габариты и траектории по полному ходу, задние/боковые зазоры, зоны подачи, выдачи и демонтажа.",
+      "source_unknowns": [
+        {
+          "argument": "полные swept volumes и базы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "rear/side clearance",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "подача/камера/выдача/демонтажные траектории",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "люфты/допуски/сервисные пространства",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_E_Y",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_E_Z",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_CARRIER_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_ROD_FREE_LENGTH_MAX",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    },
+    {
+      "interface_id": "B-V2/receiver_cycle",
+      "case_ids": [
+        "S42-038",
+        "S42-039",
+        "S42-040",
+        "S42-041",
+        "S42-042"
+      ],
+      "geometry_request": "Положение границы выдачи и приёмника, геометрия удержания остатков, возврата и открытия/замыкания упора.",
+      "source_unknowns": [
+        {
+          "argument": "реальная выходная граница/приёмник/остатки",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "контакты возврата и удержания",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "фазовые нагрузки/паузы/ресурсы",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "массы/ускорения/потери/аварии",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        {
+          "argument": "условия сброса и повторного старта",
+          "status": "UNKNOWN",
+          "value": null
+        }
+      ],
+      "source_raw_refs": [
+        {
+          "id": "R3F_B_V2_MOVING_MASS",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_ACCELERATION",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_FRICTION_FORCE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        },
+        {
+          "id": "R3F_B_V2_REACTION_AVAILABLE",
+          "revision": 1,
+          "path": "verification/r3_force_path/analysis/params/registry.yaml"
+        }
+      ]
+    }
+  ]
+}
