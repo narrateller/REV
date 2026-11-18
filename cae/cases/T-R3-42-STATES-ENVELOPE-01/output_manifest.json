@@ -1,0 +1,51 @@
+{
+  "task_id": "T-R3-42-STATES-ENVELOPE-01",
+  "author_sessions": [
+    "6afd08f5-9174-8191-ba01-ebb86011c0d3"
+  ],
+  "scope": "ASSUMED_STATIC_SCREENING",
+  "dispatch_main_sha": "4dd5031601cdaf731c84ca1460b4df8e8b33c07e",
+  "r4_geometry_sha": "a56a62e36a1f2a1e7d1d6081d7c9ec7d5e49ab4a",
+  "input_manifest": {
+    "path": "coordination/tasks/T-R3-42-STATES-ENVELOPE-01/input_manifest.json",
+    "sha256": "bab331d9495c1f99e92d81845cd168bac9a19cc4cd8766d3f57b26a5d86b281a"
+  },
+  "upstream_verification": "python cae/cases/design_boundary_phase_load_envelope/verify_output.py --check-git",
+  "reproduction": "python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git",
+  "regeneration": "python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git --write",
+  "tests": [
+    "python -m unittest discover -s cae/cases/T-R3-42-STATES-ENVELOPE-01 -v",
+    "python -m unittest discover -s tests -v"
+  ],
+  "validation": [
+    "python verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git"
+  ],
+  "runtime": "Python 3.12.14, Linux x86_64, standard library for the screening solver",
+  "code": [
+    {
+      "path": "cae/cases/T-R3-42-STATES-ENVELOPE-01/screening.py",
+      "sha256": "68b6434a4ede202f72ed31d9728bb4d9febebb11e765c7c3877c950c2e14db3d"
+    },
+    {
+      "path": "cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py",
+      "sha256": "1aa7dcc9e2507b9c6095e7c8f3583a28596b820593020a3519c5b886ee4718ce"
+    },
+    {
+      "path": "cae/cases/T-R3-42-STATES-ENVELOPE-01/test_screening.py",
+      "sha256": "e7df81f85168bf37420203688029d3bca3b7562439b8e51a115265d68a04bc3e"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "cae/cases/T-R3-42-STATES-ENVELOPE-01/results.jsonl",
+      "sha256": "b38e6f2349ba8ef93fc59666e87f59cfdcf2672eaae7bb4dacb77ab794aa75ba",
+      "bytes": 10983750
+    },
+    {
+      "path": "cae/cases/T-R3-42-STATES-ENVELOPE-01/summary.json",
+      "sha256": "8608d94c1c34f89b21c86e7c1f90ffeb09a5d543867c267891f52803132068c7",
+      "bytes": 190610
+    }
+  ]
+}
