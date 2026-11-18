@@ -12,12 +12,12 @@
 | [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) | R2 | P0 / READY |
 | [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
-| [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / WAITING_CASE_INPUTS |
+| [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / COMPLETED (ASSUMED_STATIC_SCREENING) |
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / READY_INPUT_AUDIT |
 | [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / WAITING_ENGINEERING_BASELINE |
-| [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / WAITING_RESULTS |
+| [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / COMPLETED |
 
-R1 завершил [T-R1-ENGINEERING-PLAN-01](coordination/tasks/T-R1-ENGINEERING-PLAN-01/dispatch_plan.md). Claims принимаются в порядке R3 → R4, результаты включаются в порядке R4 → R3.
+Эстафета текущего цикла задана [T-R1-ENGINEERING-PLAN-02](coordination/tasks/T-R1-ENGINEERING-PLAN-02/dispatch_plan.md).
 
 Входы и критерии находятся в каждой задаче. READY_INPUT_AUDIT разрешает аудит
 и работу по пригодным входам, но не выдумывание недостающих величин.
@@ -25,12 +25,12 @@ R1 завершил [T-R1-ENGINEERING-PLAN-01](coordination/tasks/T-R1-ENGINEERI
 - R1: сериализовать принятие новых claims и интеграцию результатов.
 - R2: подготовить численные входы с единицами, источниками и областью применимости.
   BP500 — основа; другие прессы — по релевантности. Площадка адаптируется под пресс.
-- R3 завершил [условный расчёт 42 состояний и §§4/5/6](cae/cases/T-R3-42-STATES-ENVELOPE-01/README.md). Физический расчёт остаётся заблокирован [по аудиту R3](cae/cases/T-R3-42-STATES-01/README.md).
+- R3 завершил [условный расчёт 42 состояний и §§4/5/6](cae/cases/T-R3-CAE-456-01/README.md). Физический расчёт остаётся заблокирован [по аудиту R3](cae/cases/T-R3-42-STATES-01/README.md).
 - R4: определить опоры, эксцентриситеты, свободные длины, сечения, материалы,
   двусторонние соединения; выполнить W02 и подготовить drawings/ по готовой базе.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
 
-По команде оператора этот цикл выполняют R1 и R3. Самостоятельная проверка R3 относится к своей постановке. R4 и R5 временно на паузе.
+Следующий шаг — [входной аудит W02 ролью R4](coordination/completions/T-R3-CAE-456-01/handoff_R4.md) после нового claim.
 
 Открыты реальные свойства сырья, фазовые нагрузки, геометрия/материалы/BC,
 критерии/допуски, метрология, безопасные состояния и нормативная область/юрисдикция.
@@ -38,5 +38,5 @@ Power/pressure/moisture и девять групп пробелов прежне
 Определяющий UNKNOWN означает BLOCKED_INPUTS/NOT_RUN, а не ноль или PASS.
 Косметика закрывается узким тестом в текущей задаче, без новых scope_amendments.
 
-Статус базы: WARNING; 42 состояния не рассчитаны, §§4/5/6 NOT_RUN,
+Статус базы: WARNING; 42 физических состояния BLOCKED_INPUTS, физические §§4/5/6 NOT_RUN,
 G1 OPEN, W02 и physical READY NO-GO. Физические испытания не разрешены этим форком.

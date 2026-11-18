@@ -1,0 +1,40 @@
+{
+  "task_id": "T-R3-CAE-456-01",
+  "role": "R3",
+  "author_sessions": [
+    "01a1ef89-1e5f-7e12-86f5-1b782182c7b1"
+  ],
+  "codex_session_id": "01a1ef89-1e5f-7e12-86f5-1b782182c7b1",
+  "model_label": "UNAVAILABLE",
+  "operator_requested_model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "runtime_identity": "OpenAI Codex (GPT-6 family); exact runtime model ID unavailable",
+  "claim_commit": "09d5a7de35a872a6d48f443a35f2ee8e5650587b",
+  "result_commit": "a5254456727dd1e6ed7333effb22ae4801e2af10",
+  "completed_at_utc": "2026-11-18T16:56:44.300357+00:00",
+  "status": "COMPLETED",
+  "execution": "CALCULATED_ASSUMED",
+  "result_scope": "ASSUMED_STATIC_SCREENING",
+  "case_count": 42,
+  "held_samples": 3456,
+  "zero_controls": 42,
+  "no_static_equilibrium_samples": 174,
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "result_manifest": "cae/cases/T-R3-CAE-456-01/manifest.json",
+  "result_manifest_sha256": "71771844927182cca239e0d321bc499af1974100adda0b50449dc9d5884e9e4e",
+  "archived_claim": "claim.json",
+  "archived_claim_sha256": "8233a07304706ca6372a59e0fc418e2f361270298877706519e803f20adbf326",
+  "claim_release": "EFFECTIVE_ON_MAIN_INCLUSION",
+  "verification_commands": [
+    "python cae/cases/T-R3-CAE-456-01/verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ],
+  "author_screening_check": "PASS",
+  "handoff": {
+    "task_id": "T-R4-W02-CAD-01",
+    "status": "READY_INPUT_AUDIT",
+    "path": "coordination/completions/T-R3-CAE-456-01/handoff_R4.md"
+  }
+}

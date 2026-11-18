@@ -5,11 +5,11 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-1. [Условный расчёт](cae/cases/T-R3-42-STATES-ENVELOPE-01/README.md) всех 42 состояний
-   и §§4/5/6 завершён. Пакет содержит численные результаты и команду replay.
-2. T-R3-CAE-456-01 ожидает реальных входов. Физические блокеры перечислены
-   [по case ID](cae/cases/design_boundary_phase_load_envelope/blockers.md).
-   По команде оператора текущий цикл выполняют R1/R3, R4/R5 временно на паузе.
+1. [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) завершена
+   в области `ASSUMED_STATIC_SCREENING`. В сводке есть численные результаты
+   и физические блокеры по всем 42 case ID.
+2. R4 принимает новый claim для [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json)
+   и проводит входной аудит по [передаче R3](coordination/completions/T-R3-CAE-456-01/handoff_R4.md).
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. На момент форка 42 состояния не рассчитаны;
