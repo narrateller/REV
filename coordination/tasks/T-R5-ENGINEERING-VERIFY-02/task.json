@@ -1,0 +1,32 @@
+{
+  "task_id": "T-R5-ENGINEERING-VERIFY-02",
+  "role": "R5",
+  "title": "Независимая верификация инженерных результатов R3/R4",
+  "scope": "ENGINEERING_VERIFICATION",
+  "priority": "P0",
+  "status": "COMPLETED",
+  "input_manifest": {
+    "r3_envelope": "cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json",
+    "r4_completion": "coordination/completions/T-R4-W02-CAD-01/completion.json",
+    "r3_r4_reconciliation": "cae/cases/T-R3-42-STATES-01/r4_reconciliation.json",
+    "r4_geometry_manifest": "cad/source/force_geometry/manifest.json"
+  },
+  "verification_criteria": [
+    "Проверить балансы сил/моментов в 42 состояниях",
+    "Проверить размерности всех величин",
+    "Проверить соответствие 52 интерфейсов R4 реакциям R3",
+    "Убедиться, что BLOCKED_INPUTS корректно маркированы",
+    "Проверить, что UNKNOWN не заменён нулём",
+    "Убедиться, что все допущения маркированы как ASSUMED"
+  ],
+  "output_artifacts": [
+    "coordination/claims/T-R5-ENGINEERING-VERIFY-02.json",
+    "coordination/completions/T-R5-ENGINEERING-VERIFY-02/completion.json",
+    "coordination/completions/T-R5-ENGINEERING-VERIFY-02/verification_report.md"
+  ],
+  "checks_required": [
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ]
+}
