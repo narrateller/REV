@@ -1,0 +1,154 @@
+{
+  "task_id": "T-R1-ENGINEERING-COORD-02",
+  "role": "R1",
+  "status": "COMPLETED",
+  "model": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "model_label_source": "OPERATOR_REQUEST",
+  "runtime_model_id": "UNAVAILABLE",
+  "codex_session_id": "01a1eff9-af64-76c3-8801-56aac3c76ebc",
+  "author_sessions": [
+    "01a1eff9-af64-76c3-8801-56aac3c76ebc"
+  ],
+  "source_main_sha": "2de4b0bff8bae9f64ec58d40fb2b8ce4efdc2670",
+  "timestamp": "2026-11-18T19:02:10.260561+00:00",
+  "claim": {
+    "path": "coordination/claims/T-R1-ENGINEERING-COORD-02.json",
+    "acceptance": "EFFECTIVE_ON_MAIN_INCLUSION",
+    "release": "PENDING_MAIN_INTEGRATION"
+  },
+  "r4_w02": {
+    "task_id": "T-R4-W02-CAD-01",
+    "previous_status": "DELIVERED",
+    "status": "CLOSED",
+    "closure_scope": "INPUT_AUDIT",
+    "audit_pr": 69,
+    "audit_state_at_preparation": "OPEN",
+    "audit_evidence": [
+      {
+        "path": "coordination/completions/T-R4-W02-CAD-01/audit_act.md",
+        "commit": "afccfe17516d04a2c71e470834b3ac9cc56a94d3",
+        "sha256": "e8c1dc773788a3e75d96caaae0770bc4282697ca387d73d01a8c993af04f7a72"
+      },
+      {
+        "path": "coordination/completions/T-R4-W02-CAD-01/completion.json",
+        "commit": "afccfe17516d04a2c71e470834b3ac9cc56a94d3",
+        "sha256": "68df65c525e2a7b33cd795f5f40f432c326dd0be32ab05fa55a0f9838bc646a9"
+      }
+    ],
+    "cad_manifest": {
+      "path": "cad/source/force_geometry/manifest.json",
+      "commit": "2de4b0bff8bae9f64ec58d40fb2b8ce4efdc2670",
+      "sha256": "7b7f453935cff1beaf09aa58be60a248b24f07edf32eb851cf4443f2ccb8a843"
+    },
+    "r4_reported_manifest_hash_matches": {
+      "path": "coordination/tasks/T-R4-FORCE-GEOMETRY-01/input_manifest.json",
+      "commit": "2de4b0bff8bae9f64ec58d40fb2b8ce4efdc2670",
+      "sha256": "64650c367c640e86268ad77cbabfea405b9acf013f0261dc1f9f7b8dc3e82a4a"
+    },
+    "fcstd_sha256_check_against_cad_manifest": "PASS",
+    "fcstd_sha256": {
+      "A-V1.FCStd": "1e1792fcf83fcf11b61f3dbbb6015e570b3127008cb775403828e10acece5892",
+      "A-V2.FCStd": "f4fae8d12bdd4862ad74cea27e32146bd1851255210b8955d012785ecde78855",
+      "B-V1.FCStd": "d64dcd9fdaf10d296b8aa46929bffa98d19640bcba7ccae11b11e955b417fde8",
+      "B-V2.FCStd": "b63226487ca4492791456d88b70dff3fd5fafa3886e240cb8a57878a3ce9d3b0"
+    },
+    "r4_expected_fcstd_hash_discrepancies": {
+      "B-V2.FCStd": {
+        "r4_reported_expected_sha256": "b63226487ca4492791456d88b70dff3fd5fa3886e240cb8a57878a3ce9d3b0",
+        "verified_sha256": "b63226487ca4492791456d88b70dff3fd5fafa3886e240cb8a57878a3ce9d3b0"
+      }
+    },
+    "models": 4,
+    "interfaces": 52,
+    "interfaces_by_variant": {
+      "A-V1": 13,
+      "A-V2": 13,
+      "B-V1": 13,
+      "B-V2": 13
+    },
+    "w02_cad_rebuild_status": "NO-GO",
+    "physical_states_blocked": 42
+  },
+  "next_recommendation": {
+    "task_id": "T-R3-42-STATES-01",
+    "role": "R3",
+    "priority": "P0",
+    "action": "REPLAY_AND_REVIEW_EXISTING_DELIVERY",
+    "delivery_pr": 70,
+    "delivery_state_at_preparation": "OPEN",
+    "delivery_evidence": {
+      "path": "coordination/completions/T-R3-42-STATES-01/completion.json",
+      "commit": "621f352eb919477e7a3ef4e6d1f73689a89685d7",
+      "sha256": "049bcfcd0c7a20a1f706758e9d266039a4c16d51ec6cd61fec5e5a6d5ccf9115"
+    },
+    "case_count": 42,
+    "scope": "ASSUMED_STATIC_SCREENING",
+    "source": "ENVELOPE_ASSUMED",
+    "result_label": "CALCULATED_ASSUMED",
+    "fresh_claim_and_input_audit_for_new_run": true
+  },
+  "physical_sections_4_5_6": {
+    "input_status": "BLOCKED_INPUTS",
+    "execution": "NOT_RUN",
+    "blockers": [
+      "F(q,t) and application points",
+      "supports and active contacts",
+      "kinematics and clearances",
+      "e_y(q) and e_z(q)",
+      "L_free(q) for rod and carrier",
+      "actual sections and material properties",
+      "bidirectional joints and reactions"
+    ]
+  },
+  "outputs": [
+    {
+      "path": "coordination/task_index.json",
+      "sha256": "8d7b7431b6537bbe925d81156045d2315b4381b49757e770624150db8e718e7f"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-02/dispatch_plan.md",
+      "sha256": "085740b6e7b0cbef6510902b2915a35d7a7adaef0eed4176d5a6a8f63b24ef21"
+    },
+    {
+      "path": "coordination/claims/T-R1-ENGINEERING-COORD-02.json",
+      "sha256": "2722a0a1245af21346a458c46c9b3ffdf4fd9d1eea70fc66d1849fa02ded436a"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-COORD-02/task.json",
+      "sha256": "441c99f2a645dba2dcc75a933078f87e28eec9fdc93d7469d170dd88d56d4cd3"
+    }
+  ],
+  "local_checks": [
+    {
+      "command": "python scripts/check_registry.py --check-git",
+      "status": "PASS",
+      "exit_code": 0,
+      "summary": "PASS: repository consistency checks; engineering acceptance NOT assessed"
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "status": "PASS",
+      "exit_code": 0,
+      "test_count": 103
+    },
+    {
+      "command": "python verify_output.py --check-git",
+      "status": "PASS",
+      "exit_code": 0,
+      "summary": {
+        "42_states_at_fork": "NOT_RUN",
+        "active_new_claims": 1,
+        "archive_snapshots": 18,
+        "byte_exact_records": 71,
+        "engineering_acceptance": "NOT_EVALUATED",
+        "legacy_owners": 0,
+        "result": "PASS",
+        "scope": "OPERATOR_ROTATION_AND_BASELINE_INTEGRITY_ONLY"
+      }
+    }
+  ],
+  "verification_environment": {
+    "os": "Windows",
+    "python": "3.13.17"
+  }
+}
