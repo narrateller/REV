@@ -1,0 +1,53 @@
+{
+  "task_id": "T-R3-CAE-456-01",
+  "scope": "ASSUMED_STATIC_SCREENING",
+  "execution": "CALCULATED_ASSUMED",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "source_main_sha": "1d3ca4b02346045af5ab162696777aa2f33cd073",
+  "claim_commit": "09d5a7de35a872a6d48f443a35f2ee8e5650587b",
+  "author_sessions": [
+    "01a1ef89-1e5f-7e12-86f5-1b782182c7b1"
+  ],
+  "model_label": "UNAVAILABLE",
+  "execution_environment": {
+    "python": "3.13.17",
+    "os": "Windows",
+    "git": "git version 2.56.1.windows.1"
+  },
+  "task_definition_at_claim": {
+    "path": "coordination/tasks/T-R3-CAE-456-01/task.json",
+    "sha256": "e123cef9fb296a163d7d69004ddae9fa10d3172c5a89e9c7a5ace6bf7103a251"
+  },
+  "inputs_sha256": {
+    "cad/source/force_geometry/manifest.json": "7b7f453935cff1beaf09aa58be60a248b24f07edf32eb851cf4443f2ccb8a843",
+    "cae/cases/T-R3-42-STATES-01/case_audit.json": "3380895bb028993af3614e18a5aac5a4fca0be6c3451a8fba4260f877083db94",
+    "cae/cases/T-R3-42-STATES-01/r4_reconciliation.json": "dc4e24d95a8cfba05502daf3fa763156eda4a60f63ecf6809f92f8b7742d2cc9",
+    "cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json": "24d8b33548e33e22a8cea12e46e67556768b70cea614ddebda941aaad36b7807",
+    "cae/cases/T-R3-42-STATES-ENVELOPE-01/samples.jsonl": "8c563a7386f67beb12331d4319fb5356e3de06d21ec9f3024670ff8d642964d1",
+    "cae/cases/T-R3-42-STATES-ENVELOPE-01/summary.json": "a013195d2473172f8186efd8938e9038586bfca7b3a18cbc8fce9e73fe04818f",
+    "cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py": "5ef0a4286044d4a0014abbd9512ae61a49a3cb66326b7652ae9cc5cb0c3dea23",
+    "cae/cases/design_boundary_phase_load_envelope/README.md": "d136b23a1b21d7ac062f9465c6ce933ed2c66356d0e7bea1e04d3a3a65cf0988",
+    "cae/cases/design_boundary_phase_load_envelope/assumptions.json": "0267954982363a4a1c45d506b2ed16de840e18b4f27a1c6a05065eac5e2bfea9",
+    "cae/cases/design_boundary_phase_load_envelope/blockers.md": "173887a4b6448856531d9695dd4c999880d1aea5ca2a66fc21b1022825075e9b",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json": "6be05b48a2bffef99ffefa46a9ae3b1af5df548f1812d9bab7ad544330c02382",
+    "cae/cases/design_boundary_phase_load_envelope/verify_output.py": "438b10a93fbd2bb7b7b478d9d6768fa8ae03a32d7f909c63309fee1095bbca62",
+    "coordination/verifications/T-R5-ENGINEERING-VERIFY-01.json": "3e058a43593aef7c574f3369642a7dc9f807bd32d0f9958382119a414e950993",
+    "drives/T-R3-42-STATES-01-axial.json": "0336b9a0b068f2b8318857942a2bf3c979080cd0a08b4b926bc84d15b4ab3933",
+    "params/registry.yaml": "f52f6a52cf84831b714c037521bede8ada33e45d93d8b7251aa30b0b8a0d4d44"
+  },
+  "replay_engine": "cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py",
+  "generation_command": "python cae/cases/T-R3-CAE-456-01/verify_output.py --check-git --write",
+  "verification_commands": [
+    "python cae/cases/T-R3-CAE-456-01/verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ],
+  "outputs_sha256": {
+    "samples.jsonl": "8c563a7386f67beb12331d4319fb5356e3de06d21ec9f3024670ff8d642964d1",
+    "summary.json": "8b3d42bed53d7fca61a34f2cefef1e95a2d6f481820a58676a0dd7d718c77921",
+    "README.md": "afe4135bcfdd3e09db38cac01b19fe3783b278cb9ca3efd10f199829795f9606",
+    "verify_output.py": "56b92ad595476aa290458f78fc76299bbc23a7424c00e890106779d62c0b93de"
+  }
+}

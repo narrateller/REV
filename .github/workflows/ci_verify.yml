@@ -29,5 +29,8 @@ jobs:
       - name: Replay R3 load envelope
         if: hashFiles('cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json') != ''
         run: python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git
+      - name: Verify R3 screening and physical blockers
+        if: hashFiles('cae/cases/T-R3-CAE-456-01/manifest.json') != ''
+        run: python cae/cases/T-R3-CAE-456-01/verify_output.py --check-git
       - name: Test validator and initializer in isolated temporary copies
         run: python -m unittest discover -s tests -v
