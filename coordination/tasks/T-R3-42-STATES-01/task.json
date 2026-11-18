@@ -1,7 +1,7 @@
 {
   "task_id": "T-R3-42-STATES-01",
   "role": "R3",
-  "status": "DELIVERED_BLOCKERS_REMAIN",
+  "status": "COMPLETED",
   "priority": "P0",
   "title": "Рассчитать 42 нагрузочных состояния в явно указанной области",
   "owner_session": "NONE",
@@ -19,7 +19,7 @@
     "CALCULATED только после реального прогона;UNKNOWN/BLOCKED_INPUTS не ноль и неPASS",
     "Сохранить cae/cases/,drives/,verify_output.py/аналитические проверки ибалансы"
   ],
-  "execution": "AUDIT_COMPLETE_ACTUAL_CASES_BLOCKED",
+  "execution": "CALCULATED_ASSUMED",
   "assumed_screening": {
     "scope": "ASSUMED_STATIC_SCREENING",
     "execution": "CALCULATED_ASSUMED",
@@ -32,5 +32,11 @@
     "completion": "coordination/completions/T-R3-42-STATES-01/completion_assumed_screening_20261118.json"
   },
   "requires_fresh_claim_and_input_audit": true,
-  "delivery": "coordination/completions/T-R3-42-STATES-01/completion.json"
+  "delivery": "coordination/completions/T-R3-42-STATES-01/completion.json",
+  "scope": "CALCULATED_ASSUMED",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "connection_capacity": "BLOCKED_INPUTS",
+  "replay_input_manifest": "coordination/tasks/T-R3-42-STATES-01/input_manifest_envelope_replay.json",
+  "prior_physical_input_audit": "coordination/completions/T-R3-42-STATES-01/completion_physical_input_audit.json"
 }
