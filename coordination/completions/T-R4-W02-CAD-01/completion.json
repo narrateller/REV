@@ -1,58 +1,66 @@
 {
-  "task_id": "T-R4-W02-CAD-01",
+  "verify_output": {
+    "status": "PASS",
+    "checks": [
+      "python scripts/check_registry.py --check-git: PASS",
+      "python -m unittest discover -s tests -v: PASS",
+      "python verify_output.py --check-git: PASS"
+    ]
+  },
   "role": "R4",
-  "execution_status": "COMPLETED",
-  "completed_at": "2026-11-18T22:52:00Z",
-  "actual_session_id": "01a1f034-b6ae-7710-a548-e7fa0ac6fa32",
-  "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
-  "source_main_sha": "49348add9eb8fce10544cc7ed7a8e7d5733532c0",
+  "completed_at": "2026-11-18T23:53:00Z",
+  "actual_session_id": "01a1f06d-87fe-7e30-807e-34d64c8e49fd",
+  "assumptions": [
+    "Расчётная огибающая нагрузок принята как основа для CAD-rebuild",
+    "Геометрия FCStd файлов соответствует утверждённым размерам из bindings.json",
+    "52 интерфейса R4 сопоставлены с реакциями из 42 состояний",
+    "Соединения имеют статус BLOCKED_INPUTS до получения данных о несущей способности",
+    "Физические входы для §§4/5/6 отсутствуют (NOT_RUN)",
+    "Материал сравнения: E=210 ГПа, σ_ref=235 МПа",
+    "Опоры G-/G+ моделируются как идеальные ограничения в Y/Z",
+    "Двусторонние соединения требуют отдельных входов для capacity check"
+  ],
+  "source_main_sha": "8687352c87426b79194cf06917558d0c6695c1ea",
+  "blockers": [
+    {
+      "description": "Физические входы для 42 состояний отсутствуют",
+      "status": "BLOCKED_INPUTS",
+      "id": "BLOCKED_INPUTS_001",
+      "affected_sections": [
+        "§4",
+        "§5",
+        "§6"
+      ]
+    },
+    {
+      "description": "Несущая способность соединений неизвестна",
+      "status": "BLOCKED_INPUTS",
+      "id": "BLOCKED_INPUTS_002",
+      "affected_sections": [
+        "§6"
+      ]
+    },
+    {
+      "description": "FreeCAD не установлен в PATH",
+      "status": "BLOCKED",
+      "id": "MISSING_TOOL_001",
+      "affected_tasks": [
+        "CAD-rebuild"
+      ]
+    }
+  ],
   "input_audit": {
-    "status": "COMPLETED",
-    "geometry_files": {
-      "count": 4,
-      "files": [
-        {"path": "cad/source/force_geometry/A-V1.FCStd", "sha256": "1e1792fcf83fcf11b61f3dbbb6015e570b3127008cb775403828e10acece5892", "verified": true},
-        {"path": "cad/source/force_geometry/A-V2.FCStd", "sha256": "f4fae8d12bdd4862ad74cea27e32146bd1851255210b8955d012785ecde78855", "verified": true},
-        {"path": "cad/source/force_geometry/B-V1.FCStd", "sha256": "d64dcd9fdaf10d296b8aa46929bffa98d19640bcba7ccae11b11e955b417fde8", "verified": true},
-        {"path": "cad/source/force_geometry/B-V2.FCStd", "sha256": "b63226487ca4492791456d88b70dff3fd5fafa3886e240cb8a57878a3ce9d3b0", "verified": true}
-      ],
-      "hashes_match_manifest": true
-    },
-    "r3_envelope_compatibility": {
-      "status": "COMPATIBLE",
-      "42_states_audited": true,
-      "calculated_assumed_count": 42,
-      "blocked_inputs_count": 42,
-      "no_static_equilibrium_count": 174,
-      "sample_counts": {
-        "CALCULATED_ASSUMED": 3498,
-        "NO_STATIC_EQUILIBRIUM": 174
-      }
-    },
+    "status": "VERIFIED",
     "interfaces_r4": {
-      "total_count": 52,
       "per_variant": {
         "A-V1": 13,
+        "B-V2": 14,
         "A-V2": 12,
-        "B-V1": 13,
-        "B-V2": 14
+        "B-V1": 13
       },
-      "interface_types": [
-        "datum_motion",
-        "cylinder_frame",
-        "rod_grip",
-        "grip_transfer",
-        "transfer_carrier",
-        "carrier_punch",
-        "carrier_guides",
-        "guides_frame",
-        "material_reaction",
-        "reaction_frame",
-        "sections_stability",
-        "envelopes_service",
-        "receiver_cycle"
-      ],
-      "blocked_interfaces": "Все интерфейсы имеют статус BLOCKED_INPUTS для физических §§4/5/6"
+      "status": "BLOCKED_INPUTS",
+      "note": "Все интерфейсы имеют статус BLOCKED_INPUTS для физических §§4/5/6",
+      "total_count": 52
     },
     "findings": [
       "Геометрия FCStd файлов соответствует хэшам из manifest.json",
@@ -60,72 +68,68 @@
       "42 физических состояния имеют статус BLOCKED_INPUTS (NOT_RUN)",
       "174 сочетания не имеют статического равновесия (NO_STATIC_EQUILIBRIUM)",
       "52 интерфейса R4 сопоставлены с реакциями опор из 42 состояний",
-      "Соединения имеют статус BLOCKED_INPUTS - несущая способность неизвестна",
+      "Соединения имеют статус BLOCKED_INPUTS - несущая способность UNKNOWN",
       "Геометрия условная (ASSUMED), требует CAD-rebuild по огибающей нагрузок",
-      "Опоры G-/G+ заданы как жёсткие в Y/Z, свободные в X",
-      "Эксцентриситеты e_y/e_z варяруются в диапазонах [-0.075, 0.075] м и [-0.03, 0.03] м",
-      "Свободные длины L_rod(q) и L_carrier(q) зависят от относительного хода q",
-      "Сечения и материалы приняты по огибающей: шток d=0.15492595685541355 м, carrier 0.15×0.06 м",
-      "Двусторонние соединения требуют отдельных входов - несущая способность UNKNOWN"
-    ]
+      "FreeCAD не установлен в PATH - blocker MISSING_TOOL_001"
+    ],
+    "r3_envelope_compatibility": {
+      "calculated_assumed_count": 42,
+      "status": "COMPATIBLE",
+      "42_states_audited": true,
+      "no_static_equilibrium_count": 174,
+      "blocked_inputs_count": 42
+    },
+    "scope": "REBUILD_READINESS_FOLLOWUP",
+    "geometry_files": {
+      "count": 4,
+      "files": [
+        {
+          "verified": true,
+          "path": "cad/source/force_geometry/A-V1.FCStd",
+          "sha256": "1e1792fcf83fcf11b61f3dbbb6015e570b3127008cb775403828e10acece5892"
+        },
+        {
+          "verified": true,
+          "path": "cad/source/force_geometry/A-V2.FCStd",
+          "sha256": "f4fae8d12bdd4862ad74cea27e32146bd1851255210b8955d012785ecde78855"
+        },
+        {
+          "verified": true,
+          "path": "cad/source/force_geometry/B-V1.FCStd",
+          "sha256": "d64dcd9fdaf10d296b8aa46929bffa98d19640bcba7ccae11b11e955b417fde8"
+        },
+        {
+          "verified": true,
+          "path": "cad/source/force_geometry/B-V2.FCStd",
+          "sha256": "b63226487ca4492791456d88b70dff3fd5fafa3886e240cb8a57878a3ce9d3b0"
+        }
+      ],
+      "hashes_match_manifest": true
+    }
+  },
+  "execution_status": "COMPLETED",
+  "drawings": {
+    "directory": "drawings/W02",
+    "status": "BLOCKED_INPUTS",
+    "catalog_created": true,
+    "blocked_by": "CAD_REBUILD_INCOMPLETE",
+    "reason": "Чертежи требуют завершённого CAD-rebuild и утверждённой геометрии W02"
+  },
+  "output_hashes": {
+    "drawings_catalog": "PENDING",
+    "input_audit_report": "PENDING",
+    "cad_rebuild_directory": "PENDING"
   },
   "cad_rebuild": {
-    "status": "NOT_RUN",
-    "reason": "FreeCAD не установлен в PATH. Требуется установка FreeCAD 1.0.0 для выполнения rebuild.",
-    "blocked_by": "MISSING_TOOL",
-    "required_tool": "FreeCAD 1.0.0 (OpenCASCADE 7.8.1)",
-    "rebuild_script": "cad/force_geometry/rebuild.py",
     "target_directory": "cad/build/w02_rebuild_20261118",
+    "status": "NOT_RUN",
+    "tool_check_result": "FreeCAD not found in PATH",
+    "reason": "FreeCAD не установлен в PATH. Требуется установка FreeCAD 1.0.0 для выполнения rebuild.",
+    "blocked_by": "MISSING_TOOL_001",
+    "rebuild_script": "cad/force_geometry/rebuild.py",
+    "required_tool": "FreeCAD 1.0.0 (OpenCASCADE 7.8.1)",
     "assumptions_documented": true
   },
-  "drawings": {
-    "status": "BLOCKED_INPUTS",
-    "reason": "Чертежи требуют завершённого CAD-rebuild и утверждённой геометрии W02",
-    "catalog_created": true,
-    "directory": "drawings/W02",
-    "blocked_by": "CAD_REBUILD_INCOMPLETE"
-  },
-  "assumptions": [
-    "Расчётная огибающая нагрузок принята как основа для CAD-rebuild",
-    "Геометрия FCStd файлов соответствует утверждённым размерам из bindings.json",
-    "52 интерфейса R4 корректно сопоставлены с реакциями из 42 состояний",
-    "Соединения имеют статус BLOCKED_INPUTS до получения данных о несущей способности",
-    "Физические входы для §§4/5/6 отсутствуют (NOT_RUN)",
-    "Материал сравнения: E=210 ГПа, σ_ref=235 МПа",
-    "Опоры G-/G+ моделируются как идеальные ограничения в Y/Z",
-    "Двусторонние соединения требуют отдельных входов для capacity check"
-  ],
-  "blockers": [
-    {
-      "id": "BLOCKED_INPUTS_001",
-      "description": "Физические входы для 42 состояний отсутствуют",
-      "status": "BLOCKED_INPUTS",
-      "affected_sections": ["§4", "§5", "§6"]
-    },
-    {
-      "id": "BLOCKED_INPUTS_002",
-      "description": "Несущая способность соединений неизвестна",
-      "status": "BLOCKED_INPUTS",
-      "affected_sections": ["§6"]
-    },
-    {
-      "id": "MISSING_TOOL_001",
-      "description": "FreeCAD не установлен в PATH",
-      "status": "BLOCKED",
-      "affected_tasks": ["CAD-rebuild"]
-    }
-  ],
-  "output_hashes": {
-    "input_audit_report": "PENDING",
-    "cad_rebuild_directory": "PENDING",
-    "drawings_catalog": "PENDING"
-  },
-  "verify_output": {
-    "status": "PENDING",
-    "checks": [
-      "python scripts/check_registry.py --check-git",
-      "python -m unittest discover -s tests -v",
-      "python verify_output.py --check-git"
-    ]
-  }
+  "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "task_id": "T-R4-W02-CAD-01"
 }
