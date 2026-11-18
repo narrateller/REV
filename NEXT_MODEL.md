@@ -5,11 +5,12 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-1. [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) завершена
-   в области `ASSUMED_STATIC_SCREENING`. В сводке есть численные результаты
-   и физические блокеры по всем 42 case ID.
-2. R4 принимает новый claim для [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json)
-   и проводит входной аудит по [передаче R3](coordination/completions/T-R3-CAE-456-01/handoff_R4.md).
+1. R1/R5 проверяют [T-R3-42-STATES-01](coordination/completions/T-R3-42-STATES-01/audit_act.md)
+   на head PR. Воспроизведение выполняется командой
+   `python cae/scripts/verify_42_states.py --check-git`. Область результата
+   `ENVELOPE_ASSUMED` охватывает 42 ID, физические входы имеют `BLOCKED_INPUTS`.
+2. [Аудит W02](https://github.com/narrateller/REV/pull/69) фиксирует `NO-GO`.
+   Для W02 требуются реальные фазовые нагрузки, геометрия, материалы и связи.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. На момент форка 42 состояния не рассчитаны;

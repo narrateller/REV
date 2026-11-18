@@ -12,14 +12,22 @@
     "baselines/operator-fork-20261118/state_catalog_index.json",
     "verification/r3_force_path/analysis/params/registry.yaml",
     "verification/r4_force_geometry/symbolic_20261116/interfaces.json",
-    "params/registry.yaml"
+    "params/registry.yaml",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json",
+    "cae/cases/design_boundary_phase_load_envelope/assumptions.json",
+    "cae/cases/T-R3-CAE-456-01/manifest.json"
   ],
   "acceptance": [
     "Все42case IDs имеют inputs/hash/units/frame/BC и статус результата",
     "CALCULATED только после реального прогона;UNKNOWN/BLOCKED_INPUTS не ноль и неPASS",
     "Сохранить cae/cases/,drives/,verify_output.py/аналитические проверки ибалансы"
   ],
-  "execution": "AUDIT_COMPLETE_ACTUAL_CASES_BLOCKED",
+  "execution": "ENVELOPE_CALCULATED_PHYSICAL_BLOCKED",
+  "result_source": "ENVELOPE_ASSUMED",
+  "result_scope": "ASSUMED_STATIC_SCREENING",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "result_manifest": "cae/cases/T-R3-42-STATES-01/envelope_assumed_manifest.json",
   "requires_fresh_claim_and_input_audit": true,
   "delivery": "coordination/completions/T-R3-42-STATES-01/completion.json"
 }
