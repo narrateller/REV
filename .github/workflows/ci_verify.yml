@@ -26,5 +26,8 @@ jobs:
         run: python verify_output.py --check-git
       - name: Check committed evidence without regeneration
         run: python scripts/check_registry.py --check-git
+      - name: Replay R3 load envelope
+        if: hashFiles('cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json') != ''
+        run: python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git
       - name: Test validator and initializer in isolated temporary copies
         run: python -m unittest discover -s tests -v
