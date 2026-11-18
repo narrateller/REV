@@ -1,0 +1,2694 @@
+{
+  "task_id": "T-R3-42-STATES-01",
+  "scope": "ASSUMED_STATIC_SCREENING",
+  "status": "CALCULATED_ASSUMED",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "case_count": 42,
+  "sample_counts": {
+    "CALCULATED_ASSUMED": 3498,
+    "NO_STATIC_EQUILIBRIUM": 174
+  },
+  "zero_control_count": 42,
+  "source_replay_checks": {
+    "status": "PASS",
+    "counts": {
+      "ZERO": 42,
+      "held": 3456,
+      "Euler_K_pairs": 7938,
+      "centered": 128,
+      "released": 174,
+      "tension": 810,
+      "guide_span_pairs": 1728,
+      "Euler_pose_pairs": 96
+    },
+    "max_force_residual_N": 0.0,
+    "max_moment_residual_Nm": 2.3283064365386963e-10,
+    "balance_abs_tol_SI": 1e-08,
+    "sensitivity_rel_tol": 1e-12,
+    "mesh_time_step_convergence": {
+      "status": "NOT_APPLICABLE",
+      "reason": "Algebraic static model"
+    }
+  },
+  "minimum_safety_factors": {
+    "strength/rod": {
+      "case_id": "S42-001",
+      "value": 2.8908731077926353,
+      "row": 2
+    },
+    "strength/carrier": {
+      "case_id": "S42-011",
+      "value": 0.07264064336626042,
+      "row": 591
+    },
+    "stability/rod/PIN_PIN": {
+      "case_id": "S42-027",
+      "value": 60.124135285838655,
+      "row": 2092,
+      "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+    },
+    "stability/rod/FIXED_FREE": {
+      "case_id": "S42-027",
+      "value": 15.031033821459664,
+      "row": 2092,
+      "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+    },
+    "stability/carrier_y/PIN_PIN": {
+      "case_id": "S42-006",
+      "value": 2.4828086759361447,
+      "row": 290,
+      "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+    },
+    "stability/carrier_y/FIXED_FREE": {
+      "case_id": "S42-006",
+      "value": 0.6207021689840362,
+      "row": 290,
+      "interpretation": "IDEAL_ELASTIC_COMPARISON"
+    },
+    "stability/carrier_z/PIN_PIN": {
+      "case_id": "S42-006",
+      "value": 15.517554224600904,
+      "row": 290,
+      "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+    },
+    "stability/carrier_z/FIXED_FREE": {
+      "case_id": "S42-006",
+      "value": 3.879388556150226,
+      "row": 290,
+      "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+    }
+  },
+  "cases": {
+    "S42-001": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-001.jsonl",
+      "variant": "A-V1",
+      "phase": "startup_empty",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        1,
+        58
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 3.637978807091713e-12
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 2
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 2
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 523.8728649581573,
+          "row": 38,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 130.96821623953932,
+          "row": 38,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.633294581879817,
+          "row": 38,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9083236454699541,
+          "row": 38,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 47.708091136748855,
+          "row": 38,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 11.927022784187214,
+          "row": 38,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-002": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-002.jsonl",
+      "variant": "A-V1",
+      "phase": "gather_partial",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        59,
+        116
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.4551915228366852e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 60
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 60
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 99.07980358475268,
+          "row": 96,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.76995089618817,
+          "row": 96,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.3583208092233527,
+          "row": 96,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8395802023058382,
+          "row": 96,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 20.989505057645953,
+          "row": 96,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.247376264411488,
+          "row": 96,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-003": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-003.jsonl",
+      "variant": "A-V1",
+      "phase": "approach",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        117,
+        174
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 3.637978807091713e-12
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 118
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 118
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 523.8728649581573,
+          "row": 154,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 130.96821623953932,
+          "row": 154,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.633294581879817,
+          "row": 154,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9083236454699541,
+          "row": 154,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 47.708091136748855,
+          "row": 154,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 11.927022784187214,
+          "row": 154,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-004": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-004.jsonl",
+      "variant": "A-V1",
+      "phase": "work_peak",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        175,
+        232
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.4551915228366852e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 176
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 176
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 99.07980358475268,
+          "row": 212,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.76995089618817,
+          "row": 212,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.3583208092233527,
+          "row": 212,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8395802023058382,
+          "row": 212,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 20.989505057645953,
+          "row": 212,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.247376264411488,
+          "row": 212,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-005": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-005.jsonl",
+      "variant": "A-V1",
+      "phase": "hold_unload",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 19,
+        "NO_STATIC_EQUILIBRIUM": 1
+      },
+      "row_range_inclusive": [
+        233,
+        252
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 234
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 234
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 99.07980358475268,
+          "row": 234,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.76995089618817,
+          "row": 234,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.3583208092233527,
+          "row": 234,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8395802023058382,
+          "row": 234,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 20.989505057645953,
+          "row": 234,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.247376264411488,
+          "row": 234,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-006": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-006.jsonl",
+      "variant": "A-V1",
+      "phase": "eject",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        253,
+        310
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 5.820766091346741e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 254
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 254
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 61.0815390793725,
+          "row": 290,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.270384769843124,
+          "row": 290,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.4828086759361447,
+          "row": 290,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6207021689840362,
+          "row": 290,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.517554224600904,
+          "row": 290,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.879388556150226,
+          "row": 290,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-007": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "NOT_APPLICABLE",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-007.jsonl",
+      "variant": "A-V1",
+      "phase": "return_full",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        311,
+        368
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 369.16869967643044,
+          "row": 311
+        },
+        "strength/carrier": {
+          "value": 25.178571428571423,
+          "row": 311
+        }
+      }
+    },
+    "S42-008": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-008.jsonl",
+      "variant": "A-V1",
+      "phase": "refill",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        369,
+        426
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 3.637978807091713e-12
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 370
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 370
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 523.8728649581573,
+          "row": 406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 130.96821623953932,
+          "row": 406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.633294581879817,
+          "row": 406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9083236454699541,
+          "row": 406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 47.708091136748855,
+          "row": 406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 11.927022784187214,
+          "row": 406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-009": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-009.jsonl",
+      "variant": "A-V1",
+      "phase": "ready",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 37,
+        "NO_STATIC_EQUILIBRIUM": 2
+      },
+      "row_range_inclusive": [
+        427,
+        465
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 447
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 447
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 1593.5299279278786,
+          "row": 447,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 398.38248198196965,
+          "row": 447,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 10.991944197906937,
+          "row": 447,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 2.7479860494767343,
+          "row": 447,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 68.69965123691836,
+          "row": 447,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 17.17491280922959,
+          "row": 447,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-010": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-010.jsonl",
+      "variant": "A-V1",
+      "phase": "jam_emergency",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        466,
+        580
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 5.820766091346741e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 466
+        },
+        "strength/carrier": {
+          "value": 0.197167460565564,
+          "row": 466
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 61.0815390793725,
+          "row": 560,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.270384769843124,
+          "row": 560,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.4828086759361447,
+          "row": 560,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6207021689840362,
+          "row": 560,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.517554224600904,
+          "row": 560,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.879388556150226,
+          "row": 560,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-011": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-011.jsonl",
+      "variant": "A-V2",
+      "phase": "startup_empty",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        581,
+        695
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 582
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 591
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 523.8728649581573,
+          "row": 654,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 130.96821623953932,
+          "row": 654,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.633294581879817,
+          "row": 654,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9083236454699541,
+          "row": 654,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 47.708091136748855,
+          "row": 654,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 11.927022784187214,
+          "row": 654,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-012": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-012.jsonl",
+      "variant": "A-V2",
+      "phase": "gather_partial",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        696,
+        810
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 2.3283064365386963e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 697
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 706
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 99.07980358475268,
+          "row": 769,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.76995089618817,
+          "row": 769,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.3583208092233527,
+          "row": 769,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8395802023058382,
+          "row": 769,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 20.989505057645953,
+          "row": 769,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.247376264411488,
+          "row": 769,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-013": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-013.jsonl",
+      "variant": "A-V2",
+      "phase": "approach",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        811,
+        925
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 812
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 821
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 523.8728649581573,
+          "row": 884,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 130.96821623953932,
+          "row": 884,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.633294581879817,
+          "row": 884,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9083236454699541,
+          "row": 884,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 47.708091136748855,
+          "row": 884,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 11.927022784187214,
+          "row": 884,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-014": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-014.jsonl",
+      "variant": "A-V2",
+      "phase": "work_peak",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        926,
+        1040
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 2.3283064365386963e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 927
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 936
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 99.07980358475268,
+          "row": 999,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.76995089618817,
+          "row": 999,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.3583208092233527,
+          "row": 999,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8395802023058382,
+          "row": 999,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 20.989505057645953,
+          "row": 999,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.247376264411488,
+          "row": 999,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-015": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-015.jsonl",
+      "variant": "A-V2",
+      "phase": "hold_unload",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 37,
+        "NO_STATIC_EQUILIBRIUM": 2
+      },
+      "row_range_inclusive": [
+        1041,
+        1079
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 2.3283064365386963e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 1042
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 1051
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 99.07980358475268,
+          "row": 1042,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.76995089618817,
+          "row": 1042,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.3583208092233527,
+          "row": 1042,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8395802023058382,
+          "row": 1042,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 20.989505057645953,
+          "row": 1042,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.247376264411488,
+          "row": 1042,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-016": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-016.jsonl",
+      "variant": "A-V2",
+      "phase": "eject",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        1080,
+        1194
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 2.3283064365386963e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 1081
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 1090
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 61.0815390793725,
+          "row": 1153,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.270384769843124,
+          "row": 1153,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.4828086759361447,
+          "row": 1153,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6207021689840362,
+          "row": 1153,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.517554224600904,
+          "row": 1153,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.879388556150226,
+          "row": 1153,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-017": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "NOT_APPLICABLE",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-017.jsonl",
+      "variant": "A-V2",
+      "phase": "return_full",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        1195,
+        1309
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 9.094947017729282e-13
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 369.16869967643044,
+          "row": 1195
+        },
+        "strength/carrier": {
+          "value": 9.276315789473683,
+          "row": 1204
+        }
+      }
+    },
+    "S42-018": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-018.jsonl",
+      "variant": "A-V2",
+      "phase": "refill",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        1310,
+        1424
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 1311
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 1320
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 523.8728649581573,
+          "row": 1383,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 130.96821623953932,
+          "row": 1383,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.633294581879817,
+          "row": 1383,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9083236454699541,
+          "row": 1383,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 47.708091136748855,
+          "row": 1383,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 11.927022784187214,
+          "row": 1383,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-019": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-019.jsonl",
+      "variant": "A-V2",
+      "phase": "ready",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 73,
+        "NO_STATIC_EQUILIBRIUM": 4
+      },
+      "row_range_inclusive": [
+        1425,
+        1501
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 5.820766091346741e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 1464
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 1473
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 1593.5299279278786,
+          "row": 1464,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 398.38248198196965,
+          "row": 1464,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 10.991944197906937,
+          "row": 1464,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 2.7479860494767343,
+          "row": 1464,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 68.69965123691836,
+          "row": 1464,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 17.17491280922959,
+          "row": 1464,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-020": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-020.jsonl",
+      "variant": "A-V2",
+      "phase": "jam_emergency",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 217,
+        "NO_STATIC_EQUILIBRIUM": 12
+      },
+      "row_range_inclusive": [
+        1502,
+        1730
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 2.3283064365386963e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8908731077926353,
+          "row": 1502
+        },
+        "strength/carrier": {
+          "value": 0.07264064336626042,
+          "row": 1511
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 61.0815390793725,
+          "row": 1689,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.270384769843124,
+          "row": 1689,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.4828086759361447,
+          "row": 1689,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6207021689840362,
+          "row": 1689,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.517554224600904,
+          "row": 1689,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.879388556150226,
+          "row": 1689,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-021": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-021.jsonl",
+      "variant": "B-V1",
+      "phase": "gather_partial",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        1731,
+        1788
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.4551915228366852e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 1732
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 1732
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 1768,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 1768,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 1768,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 1768,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 1768,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 1768,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-022": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-022.jsonl",
+      "variant": "B-V1",
+      "phase": "approach",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        1789,
+        1846
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.4551915228366852e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 1790
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 1790
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 519.5083704620088,
+          "row": 1826,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 129.8770926155022,
+          "row": 1826,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.785714827968142,
+          "row": 1826,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9464287069920354,
+          "row": 1826,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 48.66071767480089,
+          "row": 1826,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 12.165179418700223,
+          "row": 1826,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-023": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-023.jsonl",
+      "variant": "B-V1",
+      "phase": "work_peak_closed",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        1847,
+        1958
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.4551915228366852e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 1848
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 1848
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 1920,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 1920,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 1920,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 1920,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 1920,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 1920,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-024": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-024.jsonl",
+      "variant": "B-V1",
+      "phase": "hold_unload",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 37,
+        "NO_STATIC_EQUILIBRIUM": 1
+      },
+      "row_range_inclusive": [
+        1959,
+        1996
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 1960
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 1960
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 1960,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 1960,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 1960,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 1960,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 1960,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 1960,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-025": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-025.jsonl",
+      "variant": "B-V1",
+      "phase": "unlock",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 37,
+        "NO_STATIC_EQUILIBRIUM": 1
+      },
+      "row_range_inclusive": [
+        1997,
+        2034
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 1998
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 1998
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 1998,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 1998,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 1998,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 1998,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 1998,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 1998,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-026": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-026.jsonl",
+      "variant": "B-V1",
+      "phase": "stop_open",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 19,
+        "NO_STATIC_EQUILIBRIUM": 1
+      },
+      "row_range_inclusive": [
+        2035,
+        2054
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2036
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 2036
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 2036,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 2036,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 2036,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 2036,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 2036,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 2036,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-027": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-027.jsonl",
+      "variant": "B-V1",
+      "phase": "eject_open",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        2055,
+        2112
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 5.820766091346741e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2056
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 2056
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 60.124135285838655,
+          "row": 2092,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.031033821459664,
+          "row": 2092,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.5323849506779514,
+          "row": 2092,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6330962376694879,
+          "row": 2092,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.827405941737196,
+          "row": 2092,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.956851485434299,
+          "row": 2092,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-028": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "NOT_APPLICABLE",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-028.jsonl",
+      "variant": "B-V1",
+      "phase": "return_full_open",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 3
+      },
+      "row_range_inclusive": [
+        2113,
+        2170
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 361.9650212023161,
+          "row": 2113
+        },
+        "strength/carrier": {
+          "value": 25.178571428571423,
+          "row": 2113
+        }
+      }
+    },
+    "S42-029": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-029.jsonl",
+      "variant": "B-V1",
+      "phase": "close_relock_reset",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 55,
+        "NO_STATIC_EQUILIBRIUM": 2
+      },
+      "row_range_inclusive": [
+        2171,
+        2227
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2191
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 2191
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 1593.6334109392296,
+          "row": 2191,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 398.4083527348074,
+          "row": 2191,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 11.211429352274127,
+          "row": 2191,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 2.8028573380685318,
+          "row": 2191,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 70.07143345171329,
+          "row": 2191,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 17.517858362928322,
+          "row": 2191,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-030": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-030.jsonl",
+      "variant": "B-V1",
+      "phase": "ready",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 37,
+        "NO_STATIC_EQUILIBRIUM": 2
+      },
+      "row_range_inclusive": [
+        2228,
+        2266
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 0.0
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2248
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 2248
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 1593.6334109392296,
+          "row": 2248,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 398.4083527348074,
+          "row": 2248,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 11.211429352274127,
+          "row": 2248,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 2.8028573380685318,
+          "row": 2248,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 70.07143345171329,
+          "row": 2248,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 17.517858362928322,
+          "row": 2248,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-031": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-031.jsonl",
+      "variant": "B-V1",
+      "phase": "jam_emergency",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        2267,
+        2381
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 5.820766091346741e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2267
+        },
+        "strength/carrier": {
+          "value": 0.20110446476966642,
+          "row": 2267
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 60.124135285838655,
+          "row": 2361,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.031033821459664,
+          "row": 2361,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.5323849506779514,
+          "row": 2361,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6330962376694879,
+          "row": 2361,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.827405941737196,
+          "row": 2361,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.956851485434299,
+          "row": 2361,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-032": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-032.jsonl",
+      "variant": "B-V2",
+      "phase": "gather_partial",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        2382,
+        2496
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2383
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 2392
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 2455,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 2455,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 2455,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 2455,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 2455,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 2455,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-033": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-033.jsonl",
+      "variant": "B-V2",
+      "phase": "approach",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        2497,
+        2611
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2498
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 2507
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 519.5083704620088,
+          "row": 2570,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 129.8770926155022,
+          "row": 2570,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 7.785714827968142,
+          "row": 2570,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 1.9464287069920354,
+          "row": 2570,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 48.66071767480089,
+          "row": 2570,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 12.165179418700223,
+          "row": 2570,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-034": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-034.jsonl",
+      "variant": "B-V2",
+      "phase": "work_peak_closed",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 217,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        2612,
+        2834
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2613
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 2622
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 2757,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 2757,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 2757,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 2757,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 2757,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 2757,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-035": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-035.jsonl",
+      "variant": "B-V2",
+      "phase": "hold_unload",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 73,
+        "NO_STATIC_EQUILIBRIUM": 2
+      },
+      "row_range_inclusive": [
+        2835,
+        2909
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2836
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 2845
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 2836,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 2836,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 2836,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 2836,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 2836,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 2836,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-036": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-036.jsonl",
+      "variant": "B-V2",
+      "phase": "unlock",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 73,
+        "NO_STATIC_EQUILIBRIUM": 2
+      },
+      "row_range_inclusive": [
+        2910,
+        2984
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2911
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 2920
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 2911,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 2911,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 2911,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 2911,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 2911,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 2911,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-037": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-037.jsonl",
+      "variant": "B-V2",
+      "phase": "stop_open",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 37,
+        "NO_STATIC_EQUILIBRIUM": 2
+      },
+      "row_range_inclusive": [
+        2985,
+        3023
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 1.1641532182693481e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 2986
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 2995
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 97.6295329331526,
+          "row": 2986,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 24.40738323328815,
+          "row": 2986,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 3.4253791519474075,
+          "row": 2986,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.8563447879868519,
+          "row": 2986,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 21.4086196996713,
+          "row": 2986,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 5.352154924917825,
+          "row": 2986,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-038": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-038.jsonl",
+      "variant": "B-V2",
+      "phase": "eject_open",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        3024,
+        3138
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 2.3283064365386963e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 3025
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 3034
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 60.124135285838655,
+          "row": 3097,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.031033821459664,
+          "row": 3097,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.5323849506779514,
+          "row": 3097,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6330962376694879,
+          "row": 3097,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.827405941737196,
+          "row": 3097,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.956851485434299,
+          "row": 3097,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-039": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "NOT_APPLICABLE",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-039.jsonl",
+      "variant": "B-V2",
+      "phase": "return_full_open",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 6
+      },
+      "row_range_inclusive": [
+        3139,
+        3253
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 9.094947017729282e-13
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 361.9650212023161,
+          "row": 3139
+        },
+        "strength/carrier": {
+          "value": 9.276315789473683,
+          "row": 3148
+        }
+      }
+    },
+    "S42-040": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-040.jsonl",
+      "variant": "B-V2",
+      "phase": "close_relock_reset",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 109,
+        "NO_STATIC_EQUILIBRIUM": 4
+      },
+      "row_range_inclusive": [
+        3254,
+        3366
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 5.820766091346741e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 3293
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 3302
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 1593.6334109392296,
+          "row": 3293,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 398.4083527348074,
+          "row": 3293,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 11.211429352274127,
+          "row": 3293,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 2.8028573380685318,
+          "row": 3293,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 70.07143345171329,
+          "row": 3293,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 17.517858362928322,
+          "row": 3293,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-041": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-041.jsonl",
+      "variant": "B-V2",
+      "phase": "ready",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 73,
+        "NO_STATIC_EQUILIBRIUM": 4
+      },
+      "row_range_inclusive": [
+        3367,
+        3443
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 5.820766091346741e-11
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 3406
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 3415
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 1593.6334109392296,
+          "row": 3406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 398.4083527348074,
+          "row": 3406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 11.211429352274127,
+          "row": 3406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 2.8028573380685318,
+          "row": 3406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 70.07143345171329,
+          "row": 3406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 17.517858362928322,
+          "row": 3406,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    },
+    "S42-042": {
+      "status": "CALCULATED_ASSUMED",
+      "sections": {
+        "support_reactions": "CALCULATED_ASSUMED",
+        "section_4_strength": "CALCULATED_ASSUMED",
+        "section_5_stability": "CALCULATED_ASSUMED",
+        "section_6_connection_demands": "CALCULATED_ASSUMED",
+        "section_6_connection_capacity": "BLOCKED_INPUTS"
+      },
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-042.jsonl",
+      "variant": "B-V2",
+      "phase": "jam_emergency",
+      "sample_counts": {
+        "CALCULATED_ASSUMED": 217,
+        "NO_STATIC_EQUILIBRIUM": 12
+      },
+      "row_range_inclusive": [
+        3444,
+        3672
+      ],
+      "numerical_balance": {
+        "max_abs_force_component_N": 0.0,
+        "max_abs_moment_component_Nm": 2.3283064365386963e-10
+      },
+      "minimum_safety_factors": {
+        "strength/rod": {
+          "value": 2.8910608396007333,
+          "row": 3444
+        },
+        "strength/carrier": {
+          "value": 0.0740911185993508,
+          "row": 3453
+        },
+        "stability/rod/PIN_PIN": {
+          "value": 60.124135285838655,
+          "row": 3631,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/rod/FIXED_FREE": {
+          "value": 15.031033821459664,
+          "row": 3631,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/PIN_PIN": {
+          "value": 2.5323849506779514,
+          "row": 3631,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_y/FIXED_FREE": {
+          "value": 0.6330962376694879,
+          "row": 3631,
+          "interpretation": "IDEAL_ELASTIC_COMPARISON"
+        },
+        "stability/carrier_z/PIN_PIN": {
+          "value": 15.827405941737196,
+          "row": 3631,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        },
+        "stability/carrier_z/FIXED_FREE": {
+          "value": 3.956851485434299,
+          "row": 3631,
+          "interpretation": "COMPARISON_ONLY_CRITICAL_STRESS_AT_OR_ABOVE_REFERENCE_YIELD"
+        }
+      }
+    }
+  }
+}
