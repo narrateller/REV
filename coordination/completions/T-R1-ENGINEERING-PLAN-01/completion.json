@@ -1,0 +1,60 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-01",
+  "role": "R1",
+  "author_sessions": [
+    "6afd05ce-c548-8191-8743-6db04ec380eb"
+  ],
+  "status": "COMPLETED",
+  "source_main_sha": "cc914b977529e7f160db7fdf478f4e20e51d0765",
+  "accepted_claim_commit": "0766c9117537ac9cf0f2d23b0c41d12fd672d97e",
+  "archived_claim": "coordination/completions/T-R1-ENGINEERING-PLAN-01/accepted_claim.json",
+  "claim_release": "ON_INCLUSION_IN_MAIN",
+  "prepared_at_utc": "2026-11-18T02:36:36+00:00",
+  "input_manifest": "coordination/tasks/T-R1-ENGINEERING-PLAN-01/input_manifest.json",
+  "input_manifest_sha256": "7684be4f7c89b4d6e20725a9f3aa60049b34ed99dad49f37f5fcda86364349b6",
+  "claim_order": [
+    "T-R3-42-STATES-01",
+    "T-R4-FORCE-GEOMETRY-01"
+  ],
+  "result_merge_order": [
+    "T-R4-FORCE-GEOMETRY-01",
+    "T-R3-42-STATES-01"
+  ],
+  "outputs": [
+    {
+      "path": "coordination/completions/T-R1-ENGINEERING-PLAN-01/accepted_claim.json",
+      "sha256": "8c61d74829683eefa5fbb2dd0619bd09b0e5df5b607adb1630cf54053a5bc1e2"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-01/dispatch_plan.md",
+      "sha256": "2718b42cec6ed464735cd094d970baff5e59143a213c1135debf7455ae54d271"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-01/task.json",
+      "sha256": "c6ddcb5d122ea6dc33935748f8b0f0c46242afbbd589ec8d69b0776a2f7ecd39"
+    },
+    {
+      "path": "coordination/task_index.json",
+      "sha256": "4d4f6d53362896ad2db69a14845a3d18d2c8bdc065de0da53151367301e45df5"
+    },
+    {
+      "path": "STATE.md",
+      "sha256": "040916b284705f879a9fd2ec06c970f855f22f63659a24d317e05912a5b165d5"
+    },
+    {
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "ad803fe46a990779c8caf854e971e2f95fda019082dc01091a88d632ed384bc1"
+    },
+    {
+      "path": "NEXT_MODEL.md",
+      "sha256": "fc5b2e36d7fcb3b68559f35a1ada0541a7a2871c9faed61d79edb5b4df727bf0"
+    }
+  ],
+  "verification_commands": [
+    "python verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v"
+  ],
+  "ci_workflow": ".github/workflows/ci_verify.yml",
+  "scope": "R1 coordination and handoff"
+}
