@@ -9,7 +9,7 @@
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
 | [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) | R2 | P0 / READY |
-| [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / READY_INPUT_AUDIT |
+| [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / WAITING_CASE_INPUTS |
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / READY_INPUT_AUDIT |
@@ -24,8 +24,8 @@ R1 завершил [T-R1-ENGINEERING-PLAN-01](coordination/tasks/T-R1-ENGINEERI
 - R1: сериализовать принятие новых claims и интеграцию результатов.
 - R2: подготовить численные входы с единицами, источниками и областью применимости.
   BP500 — основа; другие прессы — по релевантности. Площадка адаптируется под пресс.
-- R3: вести все 42 case ID из `baselines/operator-fork-20261118/state_catalog_index.json`,
-  затем расчёты прочности/устойчивости §§4/5/6, пакеты cae/ и drives/.
+- R3: [аудит 42 случаев и сверка R4](cae/cases/T-R3-42-STATES-01/README.md) поставлены.
+  Фактические расчёты и §§4/5/6 ожидают нагрузок, геометрии и закреплений.
 - R4: определить опоры, эксцентриситеты, свободные длины, сечения, материалы,
   двусторонние соединения; выполнить W02 и подготовить drawings/ по готовой базе.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
