@@ -1,0 +1,24 @@
+{
+  "task_id": "T-R4-W02-CAD-01",
+  "role": "R4",
+  "status": "READY_INPUT_AUDIT",
+  "priority": "P1",
+  "title": "Выполнить W02 CAD-rebuild после подготовки входов",
+  "owner_session": "NONE",
+  "lease_expires_at": null,
+  "operator_pre_authorized": true,
+  "input_paths": [
+    "cad/layout/BUILD_README.md",
+    "cad/layout/",
+    "cad/frame_mount/",
+    "cad/feed_power/",
+    "params/registry.yaml"
+  ],
+  "acceptance": [
+    "Фактический reproducible rebuild редактируемых моделей+export с actual tool versions/hashes",
+    "Геометрия/ходы/зазоры/интерфейсы иverify_output проверены взаданнойобласти",
+    "W02 неPASS по одному наличию FCStd/STEP/картинок"
+  ],
+  "execution": "NOT_STARTED",
+  "requires_fresh_claim_and_input_audit": true
+}

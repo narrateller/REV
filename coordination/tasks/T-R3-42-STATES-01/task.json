@@ -1,0 +1,24 @@
+{
+  "task_id": "T-R3-42-STATES-01",
+  "role": "R3",
+  "status": "READY_INPUT_AUDIT",
+  "priority": "P0",
+  "title": "Рассчитать 42 нагрузочных состояния в явно указанной области",
+  "owner_session": "NONE",
+  "lease_expires_at": null,
+  "operator_pre_authorized": true,
+  "input_paths": [
+    "baselines/operator-fork-20261118/manifest.json",
+    "baselines/operator-fork-20261118/state_catalog_index.json",
+    "verification/r3_force_path/analysis/params/registry.yaml",
+    "verification/r4_force_geometry/symbolic_20261116/interfaces.json",
+    "params/registry.yaml"
+  ],
+  "acceptance": [
+    "Все42case IDs имеют inputs/hash/units/frame/BC и статус результата",
+    "CALCULATED только после реального прогона;UNKNOWN/BLOCKED_INPUTS не ноль и неPASS",
+    "Сохранить cae/cases/,drives/,verify_output.py/аналитические проверки ибалансы"
+  ],
+  "execution": "NOT_STARTED",
+  "requires_fresh_claim_and_input_audit": true
+}

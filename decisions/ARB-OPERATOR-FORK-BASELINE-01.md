@@ -31,7 +31,7 @@ next_authorized_stage: NEW_SESSION_ENGINEERING_TASKS_AFTER_FORK_AND_FRESH_CLAIMS
 
 Оператор принимает точный5b72e18 и закрывает OBS01/02/03 в документальной области без нового R5.
 Прежние независимые акты/FAIL/closures не переписываются; это решение оператора.
-PR60: AUTHORIZED_PENDING_ORDINARY_MERGE; фактический mergeSHA и CI будут добавлены после интеграции.
+PR60: MERGED ordinary merge `5da433af81874640d2e82bbbe408633cfa8b7e73`. Parents/tree/ancestry/CI подтверждены;квитанция coordination/completions/operator-fork-20261118/PR60_integration.json.
 R2 4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50,R3 93b4aead4983f88919d8e8b4165e29d7f3246600(PR48),
 R4 beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe зафиксированы как отправная база.
 Это не LOCKED/VERIFIED инженерных параметров и не расчёт42состояний.
@@ -42,3 +42,7 @@ R4 beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe зафиксированы как о
 Физические испытания/выпуск в производство не разрешены этой операцией.
 
 R2/R3/R4 source commits также сохраняются annotated Git tags operator-fork-20261118/R2,R3,R4,без force и без замены действующего реестра.
+
+## Constitution fork applied
+
+2026-11-18T01:27:06.472992+00:00;actor 6afb300b-1540-8191-a5c4-be1a684c20e0. Compact contexts,roles/R1..R5,newtaskqueue anddeterministicverify_output replace legacycontext recursion. This oldsession finishes administrative migration only,then retires.
