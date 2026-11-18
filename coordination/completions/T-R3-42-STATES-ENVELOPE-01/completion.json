@@ -1,0 +1,28 @@
+{
+  "task_id": "T-R3-42-STATES-ENVELOPE-01",
+  "role": "R3",
+  "author_sessions": [
+    "01a1ef4a-84e8-74d2-bd6f-419e2b74f964"
+  ],
+  "claim_commit": "a6213329834440b6c90f18beaab8df66c63bb40b",
+  "result_commit": "046708b30df234532ae6f4a788eb6d73804d8cdd",
+  "completed_at_utc": "2026-11-18T15:38:19.863580+00:00",
+  "status": "COMPLETED",
+  "execution": "CALCULATED_ASSUMED",
+  "result_scope": "ASSUMED_STATIC_SCREENING",
+  "case_count": 42,
+  "held_samples": 3456,
+  "zero_controls": 42,
+  "no_static_equilibrium_samples": 174,
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "result_manifest": "cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json",
+  "archived_claim": "claim.json",
+  "claim_release": "EFFECTIVE_ON_MAIN_INCLUSION",
+  "verification_commands": [
+    "python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ]
+}
