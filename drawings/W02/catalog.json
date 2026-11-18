@@ -1,0 +1,78 @@
+{
+  "catalog_name": "W02 CAD-rebuild Drawing Catalog",
+  "task_id": "T-R4-W02-CAD-01",
+  "role": "R4",
+  "created_at": "2026-11-18T22:52:00Z",
+  "status": "BLOCKED_INPUTS",
+  "reason": "Требуется завершённый CAD-rebuild для выпуска рабочих чертежей",
+  "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "actual_session_id": "01a1f034-b6ae-7710-a548-e7fa0ac6fa32",
+  "source_main_sha": "49348add9eb8fce10544cc7ed7a8e7d5733532c0",
+  "drawings": [
+    {
+      "drawing_id": "W02-001",
+      "title": "Общий вид W02. Вариант A-V1",
+      "status": "BLOCKED_INPUTS",
+      "blocked_by": "CAD_REBUILD_INCOMPLETE",
+      "references": {
+        "cae_cases": ["S42-001", "S42-002", "S42-003", "S42-004", "S42-005"],
+        "fcstd_source": "cad/source/force_geometry/A-V1.FCStd",
+        "interfaces": ["A-V1/datum_motion", "A-V1/cylinder_frame", "A-V1/rod_grip", "A-V1/grip_transfer", "A-V1/transfer_carrier", "A-V1/carrier_punch", "A-V1/carrier_guides", "A-V1/guides_frame", "A-V1/material_reaction", "A-V1/reaction_frame", "A-V1/sections_stability", "A-V1/envelopes_service"]
+      },
+      "assumptions": ["Геометрия по огибающей нагрузок", "Материал E=210 ГПа, σ_ref=235 МПа", "Опоры G-/G+ жёсткие в Y/Z"]
+    },
+    {
+      "drawing_id": "W02-002",
+      "title": "Общий вид W02. Вариант A-V2",
+      "status": "BLOCKED_INPUTS",
+      "blocked_by": "CAD_REBUILD_INCOMPLETE",
+      "references": {
+        "cae_cases": ["S42-011", "S42-012", "S42-013", "S42-014", "S42-015"],
+        "fcstd_source": "cad/source/force_geometry/A-V2.FCStd",
+        "interfaces": ["A-V2/datum_motion", "A-V2/cylinder_frame", "A-V2/rod_grip", "A-V2/grip_transfer", "A-V2/transfer_carrier", "A-V2/carrier_punch", "A-V2/carrier_guides", "A-V2/guides_frame", "A-V2/material_reaction", "A-V2/reaction_frame", "A-V2/sections_stability", "A-V2/envelopes_service"]
+      },
+      "assumptions": ["Геометрия по огибающей нагрузок", "Портальная траверса", "Боковой цилиндр V2"]
+    },
+    {
+      "drawing_id": "W02-003",
+      "title": "Общий вид W02. Вариант B-V1",
+      "status": "BLOCKED_INPUTS",
+      "blocked_by": "CAD_REBUILD_INCOMPLETE",
+      "references": {
+        "cae_cases": ["S42-021", "S42-022", "S42-023", "S42-024", "S42-025"],
+        "fcstd_source": "cad/source/force_geometry/B-V1.FCStd",
+        "interfaces": ["B-V1/datum_motion", "B-V1/cylinder_frame", "B-V1/rod_grip", "B-V1/grip_transfer", "B-V1/transfer_carrier", "B-V1/carrier_punch", "B-V1/carrier_guides", "B-V1/guides_frame", "B-V1/material_reaction", "B-V1/reaction_frame", "B-V1/sections_stability", "B-V1/envelopes_service", "B-V1/receiver_cycle"]
+      },
+      "assumptions": ["Геометрия по огибающей нагрузок", "Вариант B с замком/упором"]
+    },
+    {
+      "drawing_id": "W02-004",
+      "title": "Общий вид W02. Вариант B-V2",
+      "status": "BLOCKED_INPUTS",
+      "blocked_by": "CAD_REBUILD_INCOMPLETE",
+      "references": {
+        "cae_cases": ["S42-031", "S42-032", "S42-033", "S42-034", "S42-035", "S42-041", "S42-042"],
+        "fcstd_source": "cad/source/force_geometry/B-V2.FCStd",
+        "interfaces": ["B-V2/datum_motion", "B-V2/cylinder_frame", "B-V2/rod_grip", "B-V2/grip_transfer", "B-V2/transfer_carrier", "B-V2/carrier_punch", "B-V2/carrier_guides", "B-V2/guides_frame", "B-V2/material_reaction", "B-V2/reaction_frame", "B-V2/sections_stability", "B-V2/envelopes_service", "B-V2/receiver_cycle"]
+      },
+      "assumptions": ["Геометрия по огибающей нагрузок", "Портальная траверса V2", "Замок/упор B"]
+    }
+  ],
+  "metadata_template": {
+    "drawing_id": "W02-XXX",
+    "title": "",
+    "revision": 1,
+    "created_at": "YYYY-MM-DDTHH:MM:SSZ",
+    "status": "BLOCKED_INPUTS|CALCULATED_ASSUMED|VERIFIED",
+    "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+    "actual_session_id": "",
+    "source_main_sha": "",
+    "references": {
+      "cae_cases": [],
+      "fcstd_source": "",
+      "interfaces": []
+    },
+    "assumptions": [],
+    "blockers": []
+  }
+}
