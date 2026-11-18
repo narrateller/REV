@@ -8,8 +8,9 @@
 1. [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) завершена
    в области `ASSUMED_STATIC_SCREENING`. В сводке есть численные результаты
    и физические блокеры по всем 42 case ID.
-2. R4 принимает новый claim для [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json)
-   и проводит входной аудит по [передаче R3](coordination/completions/T-R3-CAE-456-01/handoff_R4.md).
+2. Документальный аудит W02 завершён и принят в области `DOCUMENTARY_INPUT_AUDIT`.
+   R4 принимает свежий claim для [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json)
+   и проверяет готовность к пересборке по [передаче R1](coordination/completions/T-R4-W02-CAD-01/handoff_R4.md).
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. На момент форка 42 состояния не рассчитаны;

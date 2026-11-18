@@ -64,7 +64,10 @@ R3 завершил `T-R3-42-STATES-ENVELOPE-01` для реакций, проч
 выбранных суррогатов.
 R3 завершил [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) в области
 `ASSUMED_STATIC_SCREENING`. Физические §§4/5/6 ожидают реальных входов.
-Следующий шаг — [входной аудит W02 ролью R4](coordination/completions/T-R3-CAE-456-01/handoff_R4.md).
+R4 завершил [документальный входной аудит W02](coordination/completions/T-R4-W02-CAD-01/completion.json).
+R5 подтвердил его в [области документального аудита](coordination/completions/T-R5-W02-GEOMETRY-VERIFY-01/completion.json).
+Пересборка W02 имеет статус `NOT_RUN`. По [плану цикла 008](coordination/tasks/T-R1-ENGINEERING-PLAN-03/dispatch_plan.md)
+R4 проверяет готовность к пересборке по [новой передаче](coordination/completions/T-R4-W02-CAD-01/handoff_R4.md) после свежего claim.
 UNKNOWN не заменять нулём; данные источников автоматически не повышать.
 
 Проверки: `python verify_output.py --check-git`,

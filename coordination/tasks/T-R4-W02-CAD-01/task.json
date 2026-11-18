@@ -8,10 +8,22 @@
   "lease_expires_at": null,
   "operator_pre_authorized": true,
   "input_paths": [
+    "coordination/completions/T-R4-W02-CAD-01/completion.json",
+    "coordination/completions/T-R4-W02-CAD-01/act.json",
+    "coordination/completions/T-R5-W02-GEOMETRY-VERIFY-01/completion.json",
+    "coordination/completions/T-R5-W02-GEOMETRY-VERIFY-01/verification_report.md",
     "cad/layout/BUILD_README.md",
     "cad/layout/",
     "cad/frame_mount/",
     "cad/feed_power/",
+    "cad/force_geometry/rebuild.py",
+    "cad/source/force_geometry/manifest.json",
+    "drawings/W02/catalog.json",
+    "cae/cases/T-R3-42-STATES-01/results/manifest.json",
+    "cae/cases/T-R3-42-STATES-01/results/index.json",
+    "cae/cases/design_boundary_phase_load_envelope/assumptions.json",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json",
+    "verification/r4_force_geometry/symbolic_20261116/interfaces.json",
     "params/registry.yaml"
   ],
   "acceptance": [
@@ -19,6 +31,21 @@
     "Геометрия/ходы/зазоры/интерфейсы иverify_output проверены взаданнойобласти",
     "W02 неPASS по одному наличию FCStd/STEP/картинок"
   ],
-  "execution": "NOT_STARTED",
+  "execution": "CAD_REBUILD_NOT_RUN",
+  "prior_input_audit": {
+    "status": "COMPLETED",
+    "scope": "DOCUMENTARY_INPUT_AUDIT",
+    "completion_record": "coordination/completions/T-R4-W02-CAD-01/completion.json",
+    "verification": "VERIFICATION_PASS",
+    "verification_record": "coordination/completions/T-R5-W02-GEOMETRY-VERIFY-01/completion.json"
+  },
+  "next_scope": "REBUILD_READINESS_FOLLOWUP",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "connection_capacity_status": "BLOCKED_INPUTS",
+  "cad_rebuild_status": "NOT_RUN",
+  "known_tool_blocker": "MISSING_TOOL_001",
+  "input_manifest": "coordination/tasks/T-R4-W02-CAD-01/input_manifest.json",
+  "claim_template": "coordination/tasks/T-R4-W02-CAD-01/claim_template.json",
+  "handoff": "coordination/completions/T-R4-W02-CAD-01/handoff_R4.md",
   "requires_fresh_claim_and_input_audit": true
 }

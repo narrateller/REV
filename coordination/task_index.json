@@ -27,6 +27,9 @@
       "task_id": "T-R3-42-STATES-01",
       "role": "R3",
       "status": "DELIVERED_BLOCKERS_REMAIN",
+      "assumed_execution": "CALCULATED_ASSUMED",
+      "physical_input_status": "BLOCKED_INPUTS",
+      "physical_execution": "NOT_RUN",
       "priority": "P0",
       "path": "coordination/tasks/T-R3-42-STATES-01/task.json"
     },
@@ -50,7 +53,11 @@
     {
       "task_id": "T-R4-W02-CAD-01",
       "role": "R4",
-      "status": "COMPLETED",
+      "status": "READY_INPUT_AUDIT",
+      "scope": "REBUILD_READINESS_FOLLOWUP",
+      "prior_input_audit": "COMPLETED",
+      "cad_rebuild_status": "NOT_RUN",
+      "physical_input_status": "BLOCKED_INPUTS",
       "priority": "P1",
       "path": "coordination/tasks/T-R4-W02-CAD-01/task.json"
     },
@@ -84,10 +91,19 @@
     },
     {
       "status": "COMPLETED",
+      "scope": "DOCUMENTARY_INPUT_AUDIT",
+      "verification": "VERIFICATION_PASS",
       "priority": "P1",
       "path": "coordination/tasks/T-R5-W02-GEOMETRY-VERIFY-01/task.json",
       "role": "R5",
       "task_id": "T-R5-W02-GEOMETRY-VERIFY-01"
+    },
+    {
+      "task_id": "T-R1-ENGINEERING-PLAN-03",
+      "role": "R1",
+      "status": "COMPLETED",
+      "priority": "P0",
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-03/task.json"
     }
   ]
 }
