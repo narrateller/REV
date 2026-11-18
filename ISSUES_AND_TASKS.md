@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | [T-R3-42-STATES-ENVELOPE-01](coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED) |
 | [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) | R2 | P0 / READY |
-| [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / DELIVERED_BLOCKERS_REMAIN |
+| [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / ENVELOPE_ASSUMED, review R1/R5, физические входы BLOCKED_INPUTS |
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / COMPLETED (ASSUMED_STATIC_SCREENING) |
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / READY_INPUT_AUDIT |
@@ -30,7 +30,7 @@
   двусторонние соединения; выполнить W02 и подготовить drawings/ по готовой базе.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
 
-Следующий шаг — [входной аудит W02 ролью R4](coordination/completions/T-R3-CAE-456-01/handoff_R4.md) после нового claim.
+Следующий шаг — review R1/R5 [пакета T-R3-42-STATES-01](coordination/completions/T-R3-42-STATES-01/audit_act.md).
 
 Открыты реальные свойства сырья, фазовые нагрузки, геометрия/материалы/BC,
 критерии/допуски, метрология, безопасные состояния и нормативная область/юрисдикция.

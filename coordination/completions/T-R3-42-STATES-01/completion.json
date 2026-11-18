@@ -1,37 +1,95 @@
 {
   "task_id": "T-R3-42-STATES-01",
   "role": "R3",
-  "author_sessions": [
-    "6afd08f5-9174-8191-ba01-ebb86011c0d3"
-  ],
   "status": "DELIVERED_BLOCKERS_REMAIN",
-  "accepted_claim_sha": "bc42800c88d9f01b58da4d5f9d29f31e3e994783",
-  "r4_geometry_sha": "a56a62e36a1f2a1e7d1d6081d7c9ec7d5e49ab4a",
-  "r4_accepted_main_sha": "36d0e8a8d21c01c9867120e0dfdbe0772f7db7b6",
-  "r4_manifest": "cad/source/force_geometry/manifest.json",
-  "r4_manifest_sha256": "7b7f453935cff1beaf09aa58be60a248b24f07edf32eb851cf4443f2ccb8a843",
+  "execution": "ENVELOPE_CALCULATED_PHYSICAL_BLOCKED",
+  "source": "ENVELOPE_ASSUMED",
+  "scope": "ASSUMED_STATIC_SCREENING",
+  "source_sha": "8c1fe7677f7b555d471ee3b20e07e3d45ebd8b3c",
+  "model": "UNAVAILABLE",
+  "runtime": "Codex (GPT-6 family)",
+  "requested_model": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "CODEX_SESSION_ID": "01a1efd4-7d0a-70e0-8eab-af0c7d92b8ae",
+  "author_sessions": [
+    "01a1efd4-7d0a-70e0-8eab-af0c7d92b8ae"
+  ],
+  "accepted_claim_sha": "d9a8bbde99323e01a9757834bb306988638fab4e",
+  "execution_environment": {
+    "python": "3.13.17",
+    "os": "Windows",
+    "git": "git version 2.56.1.windows.1"
+  },
+  "r4_context": {
+    "pull_request": "https://github.com/narrateller/REV/pull/69",
+    "reviewed_head_sha": "afccfe17516d04a2c71e470834b3ac9cc56a94d3",
+    "W02_CAD_rebuild": "NO-GO"
+  },
   "counts": {
-    "actual_blocked": 42,
-    "actual_calculated": 0,
-    "conditional_axial_checks": 8
+    "catalog_states": 42,
+    "support_reactions_calculated_assumed": 42,
+    "strength_calculated_assumed": 42,
+    "stability_calculated_assumed": 38,
+    "stability_not_applicable_without_compression": 4,
+    "physical_calculated": 0,
+    "physical_blocked": 42,
+    "envelope_samples": {
+      "CALCULATED_ASSUMED": 3498,
+      "NO_STATIC_EQUILIBRIUM": 174
+    }
+  },
+  "physical_inputs": {
+    "status": "BLOCKED_INPUTS",
+    "execution": "NOT_RUN",
+    "case_count": 42,
+    "fatigue": "BLOCKED_INPUTS",
+    "dynamics": "BLOCKED_INPUTS"
   },
   "artifacts": [
     {
-      "path": "cae/cases/T-R3-42-STATES-01/output_manifest.json",
-      "sha256": "3706cc8c3e4707e8a90e39346beb925c2786f1d462a3642eb2fe8777d1827b35"
+      "path": "cae/cases/T-R3-42-STATES-01/envelope_assumed_manifest.json",
+      "sha256": "05a304e6279bb9d8be262c1364ce56836b7da1770353d6d834dc79abaae42c05"
     },
     {
-      "path": "cae/cases/T-R3-42-STATES-01/verify_r4_handoff.py",
-      "sha256": "1fad2f8a92b16a9559ded65007e8c0aaf1047374f44dd89cca9b29a5514cb7c4"
+      "path": "cae/cases/T-R3-42-STATES-01/envelope_assumed.json",
+      "sha256": "5d55e616dfcdf50d2ea2d431152112e82d5d9c79c10bb1f497e74b3e7462f18b"
     },
     {
-      "path": "cae/cases/T-R3-42-STATES-01/r4_reconciliation.json",
-      "sha256": "dc4e24d95a8cfba05502daf3fa763156eda4a60f63ecf6809f92f8b7742d2cc9"
+      "path": "params/r3_42_states_envelope_status.json",
+      "sha256": "bb7b319d42281514634b6b0e7871eb49c2458890a581d515f37a60ef4f75d9a2"
     },
     {
-      "path": "drives/T-R3-42-STATES-01-axial.json",
-      "sha256": "0336b9a0b068f2b8318857942a2bf3c979080cd0a08b4b926bc84d15b4ab3933"
+      "path": "cae/scripts/verify_42_states.py",
+      "sha256": "c0104a64309df3ba0967563d515c7323330b8fd8faad96582c546312f82b6431"
+    },
+    {
+      "path": "coordination/completions/T-R3-42-STATES-01/audit_act.md",
+      "sha256": "9e1395b9632fae0849c91facafac3f231c93cce99910a67671394938d6b86e63"
     }
   ],
-  "claim_release": "ON_MAIN_INCLUSION"
+  "prior_physical_audit": {
+    "path": "coordination/completions/T-R3-42-STATES-01/prior-audit/completion.json",
+    "sha256": "378a8065fb1a8012f0047ab368a2527a4b660bf8a3356624c2d0fe062c475110",
+    "source_sha": "8c1fe7677f7b555d471ee3b20e07e3d45ebd8b3c",
+    "original_path": "coordination/completions/T-R3-42-STATES-01/completion.json"
+  },
+  "replay": {
+    "command": "python cae/scripts/verify_42_states.py --check-git",
+    "status": "PASS"
+  },
+  "required_checks_ordered": [
+    {
+      "command": "python scripts/check_registry.py --check-git",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "status": "PASS"
+    },
+    {
+      "command": "python verify_output.py --check-git",
+      "status": "PASS"
+    }
+  ],
+  "acceptance_review": "PENDING_R1_R5",
+  "claim_release_record": "coordination/completions/T-R3-42-STATES-01/claim-release-01a1efd4-7d0a-70e0-8eab-af0c7d92b8ae.json"
 }

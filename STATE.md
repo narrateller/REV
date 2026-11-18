@@ -38,9 +38,12 @@
 | drawings/ | Каталог | Выпуск КД после готовности инженерной базы |
 
 **42 физических состояния имеют статус BLOCKED_INPUTS; физические §§4/5/6 NOT_RUN.**
-По расчётной огибающей все 42 состояния и условные §§4/5/6 имеют статус
-CALCULATED_ASSUMED. [Результаты](cae/cases/T-R3-42-STATES-ENVELOPE-01/README.md)
-включают 174 освобождённых сочетания без статического равновесия.
+По огибающей `ENVELOPE_ASSUMED` реакции (§4) и прочность (§5) имеют
+`CALCULATED_ASSUMED` по всем 42 ID. Расчёт устойчивости (§6) применён к
+38 ID со сжатием. Четыре ID без сжатия имеют `NOT_APPLICABLE`.
+[Отчёт](cae/cases/T-R3-42-STATES-01/envelope_assumed.json) включает коэффициенты
+запаса, определяющие сочетания и ссылки на реакции. Сохранены 174 освобождённых
+сочетания без статического равновесия. Усталость и динамика имеют `BLOCKED_INPUTS`.
 [Аудит R3](cae/cases/T-R3-42-STATES-01/README.md) содержит блокер каждого случая.
 Прочность, устойчивость и реальные
 реакции не подтверждены. ТЗ/архитектура NOT_APPROVED, G1 OPEN; W02 и physical READY NO-GO.
@@ -60,7 +63,9 @@ R3 завершил `T-R3-42-STATES-ENVELOPE-01` для реакций, проч
 выбранных суррогатов.
 R3 завершил [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) в области
 `ASSUMED_STATIC_SCREENING`. Физические §§4/5/6 ожидают реальных входов.
-Следующий шаг — [входной аудит W02 ролью R4](coordination/completions/T-R3-CAE-456-01/handoff_R4.md).
+R4 поставил [входной аудит W02](https://github.com/narrateller/REV/pull/69) со
+статусом `NO-GO`. Пакет [T-R3-42-STATES-01](coordination/completions/T-R3-42-STATES-01/audit_act.md)
+передан на review R1/R5.
 UNKNOWN не заменять нулём; данные источников автоматически не повышать.
 
 Проверки: `python verify_output.py --check-git`,
