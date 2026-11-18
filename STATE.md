@@ -1,3 +1,11 @@
+# OPERATOR FORK IN PROGRESS
+
+Прямая директива оператора2026-11-18:OBS01/02/03 приняты документально на5b72e18;PR60 готов к ordinary merge.
+Старыеclaims/tasks/scopes архивированы вcoordination/completions/operator-fork-20261118/.
+Не начинать новые инженерные задачи до компактного контекста/матрицы ролей следующего commit.
+Полная авторизация:coordination/user_authorizations/operator_fork_20261118.json;решение:decisions/ARB-OPERATOR-FORK-BASELINE-01.md.
+Новые инженерныеleases этой старойсессии не выдаются.
+
 # HANDOFF: OBS03 renderer исправлен, recheck NOT_RUN
 
 C `5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a`;source review H `9140a2dec3679934e0b24ece1ff7190db87d0f39`. PR60 DRAFT/unmerged.
@@ -82,6 +90,44 @@ R5 handoff 2026-11-17T17:32:05.539364+00:00: act C `1d4593f93ba0b315379a885ba9fd
 R5 2026-11-17T17:21:05.442459+00:00: independent OUTPUT-review exact C `7e2d5ecff42fe1d09b461e05375924cb644c27c9` (PR60), review `REV-R5-G1-DEFINITION-OUTPUT-01-001`. WARNING: preliminary DRAFT useful;not sufficient for TZ/G1. 22REQ/VAL144items22DM40sources9OPEN groups assessed;4171guards PASS/0FAIL/3NOT_RUN and4renderer MATCH. OBS-01 density/product-mass crosswalk andOBS-02 DM03 failed/incomplete record retention OPEN. Act `verification/r5_g1_definition_review_20261117/review.md`;own C/H pending publication. Same actual session,accepted scope main04a6486,unchanged original lease;no renewal. 42 states unsolved;§4/5/6 NOT_RUN;G1 OPEN;W02/physical READY NO-GO;PR60 unmerged,no CAD/engineering/tests.
 
 > Isolated R5 review context: accepted main scope then exact target H, both histories retained; no PR60/main merge.
+
+# HANDOFF: main acceptance дополнительной области R5
+
+C координационного результата `edea79206f326dcb48d98f37619f41e87dd68a3f`;base main `974767804240ca24997d3ca538825ff9a4baebab`.
+Target C `5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a`,request H `e6d0d0cdf78526b1879ec32fd8db274cc8e875d5`,PR60 DRAFT,independentreview NOT_RUN.
+Scope amendment `coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS03-RENDERER-01.json` становится действующим только после normal merge в main.
+Следующий шаг R1:свежий main/exacthead/CI/claim/owner/originaldeadline/input preflight,
+обычный merge контрольного PR,postmerge parents/tree/claim/CI receipt;дополнительного
+согласия пользователя на merge не спрашивать. Действующая R5 после main activation
+читает verification/r1_r5_obs03_scope_20261117/R5_execute.md ивыполняетсвойаудит/review.
+Срок `2026-11-18T01:58:30.990734+00:00` не продлён,canonical claim неизменён.
+PR60 не сливать до независимойоценки/решения R1;ТЗ/G1/engineering не утверждены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN,G1OPEN,W02/physicalREADY NO-GO.
+
+---
+
+# R1 → R5: отдельная область проверки нового проекта определений G1
+
+UTC 2026-11-17T23:13:01.209187+00:00;base main 974767804240ca24997d3ca538825ff9a4baebab;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR60 DRAFT targetC 5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a,requestH e6d0d0cdf78526b1879ec32fd8db274cc8e875d5,review NOT_RUN.
+Предлагаемое main acceptance: coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS03-RENDERER-01.json;в рабочейветке это candidate.
+Прежняя actual R5 6afb0a73-b16c-8191-a539-9a6685e89034,taskT-r5-g1-supplement-output-review-01,
+canonicalclaim побайтнонеизменён,originaldeadline 2026-11-18T01:58:30.990734+00:00 не продлён.
+Новаяроль/задача/lease/чужойheartbeat не создаются;прежний amendment/акты сохранены.
+R1 контролирует отдельный serial merge scope послеCI/claim/input preflight.
+После активации R5:свежийаудит/независимость,самостоятельнаяоценка22REQ/VAL,146областей,
+22DM/40source dispositions,9open groups и6replay outputs;свойактC затемH.
+Команда verification/r1_r5_obs03_scope_20261117/R5_execute.md.
+PR60 не слит,новый review NOT_RUN;старыеакты не распространены на новыйtarget.
+Обычныйmerge заранее разрешёнпользователем,нового per-PR согласия не спрашивать.
+BP500primary/прочиепо релевантности/адаптируемаяплощадка сохранены.
+B01/B02/B03/source power/pressure/moisture/country/engineeringowners OPEN/UNKNOWN.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,ТЗ/архитектура NOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Расчёты/CAD-rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
 
 # HANDOFF: main acceptance дополнительной области R5
 

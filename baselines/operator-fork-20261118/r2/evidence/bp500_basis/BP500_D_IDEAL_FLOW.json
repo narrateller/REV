@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.1",
+  "scope": "BP500_CONDITIONAL_ARITHMETIC_ONLY",
+  "formula": "ideal power/pressure at simultaneous conditions; NOT actual pump flow",
+  "inputs": [
+    {
+      "id": "REF_BP500_MAIN_POWER",
+      "revision": 1,
+      "engineering_sha256": "69d09471e7f471ba23a7f3626475f5db0d812c6ac72c9acde0fc2d85e8fbabe0",
+      "value": 30000.0,
+      "unit": "W"
+    },
+    {
+      "id": "REF_BP500_OIL_MAX",
+      "revision": 1,
+      "engineering_sha256": "daf920872f5eb82aaafb9f7a8def7b7bf9ff91852c6e506522f2de0a2b8f1f6e",
+      "value": 30000000.0,
+      "unit": "Pa"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "BP500_D_IDEAL_FLOW",
+      "revision": 1,
+      "engineering_sha256": "a32711391989f418105cbd185401486f0a05f0358ea465ccf6be77e1eafc4fc0",
+      "value": 0.001,
+      "unit": "m^3/s"
+    }
+  ],
+  "registry_snapshot": "evidence/snapshots/b2920a4e315f748ea2d19172c6d64a4a89c0c46a3e51deccc39d4419c61cf3bb.yaml",
+  "registry_sha256": "b2920a4e315f748ea2d19172c6d64a4a89c0c46a3e51deccc39d4419c61cf3bb",
+  "script_sha256": "2e902658e17ffa25bc0963cc9ffa073f503d88df62b535b33f07b245fcdb22c3",
+  "code_files": [
+    {
+      "path": "scripts/bp500_basis.py",
+      "sha256": "2e902658e17ffa25bc0963cc9ffa073f503d88df62b535b33f07b245fcdb22c3"
+    },
+    {
+      "path": "scripts/repo_support.py",
+      "sha256": "ca9c504e798a287a9fb1870675dc342c5b69098944e38e4f527679a5d250173c"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "sources/raw/Target_object_BP500.pdf",
+      "sha256": "bf7276191a73b3d9a22ef516316bc59aac5d12fd708a7adc454bd6d9da4bec0c"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "pyyaml": "6.0.3"
+  },
+  "independent_review": false,
+  "physical_validation": false
+}
