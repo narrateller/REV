@@ -1,3 +1,68 @@
+# OPERATOR FORK IN PROGRESS
+
+Прямая директива оператора2026-11-18:OBS01/02/03 приняты документально на5b72e18;PR60 готов к ordinary merge.
+Старыеclaims/tasks/scopes архивированы вcoordination/completions/operator-fork-20261118/.
+Не начинать новые инженерные задачи до компактного контекста/матрицы ролей следующего commit.
+Полная авторизация:coordination/user_authorizations/operator_fork_20261118.json;решение:decisions/ARB-OPERATOR-FORK-BASELINE-01.md.
+Новые инженерныеleases этой старойсессии не выдаются.
+
+# R1: OBS-03 исправлен автором, независимый recheck NOT_RUN
+
+UTC 2026-11-17T23:06:51.239395+00:00; R1 6afb300b-1540-8191-a5c4-be1a684c20e0, task T-r1-requirements-draft-01.
+Main 974767804240ca24997d3ca538825ff9a4baebab; working base R5 H 9140a2dec3679934e0b24ece1ff7190db87d0f39. Входной акт 234ea8a1917899c69e68ec3ef6e7ebcefbe79fae
+закрыл OBS-01/02 только на 97f58fd437947e26963bdbbc2f2d89df7438e8cc, общий WARNING/OBS-03 OPEN.
+Исходный FAIL сводки сохранён. Новый renderer берёт revision_label из method_catalog,
+проверяет method/REQ/VAL identity; в сводке DM02/03 DRAFT-02, остальные DRAFT-01.
+Все исходные JSON/146 пунктов/22 метода/mappings/retention/source dispositions неизменны;
+из 6 выходов только2 строки сводки изменены. Пакет verification/r1_def_obs03_renderer_revision_20261117/.
+Новый OBS03 recheck NOT_RUN; автор не закрывает замечание и не переносит старые closures.
+Действующие R1/R5 claims/owners/исходныйdeadline 2026-11-18T01:58:30.990734+00:00 неизменны.
+Следующий шаг R1:опубликовать C/H в PR60,CI exacthead; отдельно принять main scope
+recheck OBS03 на новыйC/H для прежней R5, затем выдать команду и ждать её новый акт C/H.
+PR60 DRAFT/unmerged. Обычные merge заранее разрешены пользователем,повторно не спрашивать.
+WARNING/B01-B03/source issues/country/engineeringowners OPEN/UNKNOWN;RAW не повышены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,G1OPEN,ТЗ/архитектура NOT_APPROVED,
+W02/physical READY NO-GO;прочность/устойчивость/реальные реакции не подтверждены.
+Расчёты,CAD-rebuild ииспытания запрещены.
+
+---
+
+## Предыдущие записи — история
+
+R5 recheck 2026-11-17T22:25:34.942329+00:00: reviewed exact C `97f58fd437947e26963bdbbc2f2d89df7438e8cc`;act `REV-R5-G1-DEF-OBS-RECHECK-01-001` WARNING. OBS01/02 CLOSED_DOCUMENTARY_EXACT_C;new OBS03 OPEN:DM02/03 JSON DRAFT02 versus rendered DRAFT01. Own4261PASS/1FAIL(OBS03)/3NOT_RUN,22REQ-VAL146scope22DM4mappings40sources9OPEN groups;6rendererMATCH. Act `verification/r5_definition_obs_recheck_20261118/review.md`;own C/H pending publication. Same actual R5/accepted9747678scope/original deadline unchanged. PR60 unmerged,42states unsolved,§4/5/6NOT_RUN,G1OPEN,W02/physical READY NO-GO,no engineering/CAD/tests.
+
+# R1: исправления OBS-01/02 подготовлены, recheck NOT_RUN
+
+UTC 2026-11-17T18:20:02.232593+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0, task T-r1-requirements-draft-01.
+Main 04a6486527c9ba4fd4d22fcf50e0427213443507; working base R5 H ad627d310ee9f49d730b71c84ab4af7c9c1ff0da.
+Входной review R5 C 1d4593f93ba0b315379a885ba9fd955b7ded392c на exact C 7e2d5ecff42fe1d09b461e05375924cb644c27c9: WARNING,
+4171 PASS/0 FAIL,4 MATCH, OBS-01/02 OPEN. История R5 включена в предков поставки.
+Диспозиция R1 decisions/R1-G1-DEFINITION-OBS-DISPOSITION.md принимает только основание
+предварительной документальной доработки. Новая ревизия verification/r1_g1_definition_obs_revision_20261117/:
+146 пунктов (144 старых сохранены),4 quantity mappings,DM02/03 DRAFT-02,
+сохранение записей всех попыток цикла; остальные20 строк/методов и40dispositions неизменны.
+Author172 PASS/0FAIL,6renderer outputs; независимый recheck NOT_RUN,обаOBS OPEN.
+Канонические claims/owners и исходныйdeadline 2026-11-18T01:58:30.990734+00:00 неизменны.
+Следующий шаг R1:опубликовать новый C/H в PR60,проверить CI head; отдельно принять
+в main exact-target scope recheck действующей R5,без новой роли/задачи/lease.
+Затем actual R5 6afb0a73-b16c-8191-a539-9a6685e89034 выполняет свой аудит/recheck,
+возвращает formal act иC/H. Автор не закрывает собственные исправления.
+PR60 DRAFT/unmerged. Прежние target/акты/доказательства/44fullbindings/нагрузки/ходы/CAD
+иUNKNOWN/RAW сохранены. BP500 primary,прочие по релевантности,площадка адаптируется.
+B01/B02/B03/source issues/country/engineering owners OPEN; ТЗ/архитектура NOT_APPROVED.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,G1 OPEN,W02/physical READY NO-GO.
+Прочность/устойчивость/реальные реакции не подтверждены; расчёты/CAD-rebuild/испытания запрещены.
+Обычный merge согласованныхзадач заранее разрешён,повторно согласия не спрашивать.
+Капсула handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+---
+
+## Предыдущие записи — история
+
+R5 2026-11-17T17:21:05.442459+00:00: independent OUTPUT-review exact C `7e2d5ecff42fe1d09b461e05375924cb644c27c9` (PR60), review `REV-R5-G1-DEFINITION-OUTPUT-01-001`. WARNING: preliminary DRAFT useful;not sufficient for TZ/G1. 22REQ/VAL144items22DM40sources9OPEN groups assessed;4171guards PASS/0FAIL/3NOT_RUN and4renderer MATCH. OBS-01 density/product-mass crosswalk andOBS-02 DM03 failed/incomplete record retention OPEN. Act `verification/r5_g1_definition_review_20261117/review.md`;own C/H pending publication. Same actual session,accepted scope main04a6486,unchanged original lease;no renewal. 42 states unsolved;§4/5/6 NOT_RUN;G1 OPEN;W02/physical READY NO-GO;PR60 unmerged,no CAD/engineering/tests.
+
+> Isolated R5 review context: accepted main scope then exact target H, both histories retained; no PR60/main merge.
+
 # R1 → R5: отдельная область проверки нового проекта определений G1
 
 UTC 2026-11-17T23:13:01.209187+00:00;base main 974767804240ca24997d3ca538825ff9a4baebab;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
@@ -62,6 +127,52 @@ BP500primary/прочиепо релевантности/адаптируема�
 B01/B02/B03/source power/pressure/moisture/country/engineeringowners OPEN/UNKNOWN.
 42 состояния не рассчитаны;§4/5/6 NOT_RUN,ТЗ/архитектура NOT_APPROVED,G1OPEN,
 W02/physicalREADY NO-GO. Расчёты/CAD-rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+
+
+---
+
+## Exact target H history
+
+# R1 — новый проект определений G1; независимый OUTPUT-review NOT_RUN
+
+UTC 2026-11-17T16:27:37.384566+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3.
+Task T-r1-requirements-draft-01,owner/claim прежние;исходный deadline
+2026-11-18T01:58:30.990734+00:00 без продления. Назначение R1 продолжается.
+Результат verification/r1_g1_definition_register_20261117/:22 REQ/VAL,
+144 предложенных элемента области,22 документальных DM/DRAFT-01,40 неизменённых
+source dispositions,9 открытых групп решений. Author296 PASS/0FAIL,4render outputs MATCH,
+92 input pins;preflight125 PASS/0FAIL;root registry --check-git PASS/код0.
+Это DRAFT_NOT_APPROVED,не утверждённые критерии/методы и не выполненная программа.
+
+Прежняя rev8/target45d5964/акты/journal/closed DOC01-TRACE02 exact-C остаются неизменными.
+Новый target не покрыт их review. Старое закрытие не переписано;новый independent
+OUTPUT-review NOT_RUN. B01/B02/B03/source power/pressure/moisture/engineeringowners
+и странаэксплуатации OPEN/UNKNOWN. BP500 primary,остальные по релевантности,
+площадка адаптируется;RAW не повышены. Численные пределы/допуски/инженерныевладельцы
+не выдуманы. R1 документальный owner не назначает автоматически владельцев инженерных
+определений. Все44fullbindings/нагрузки/ходы/CAD/54oldpins/52interfaces/84RAW-null сохранены.
+
+Следующий атомарный шаг R1:опубликовать C/H нового DRAFT,проверить CI exacthead;
+отдельной контрольной веткой принять amendment existing R5task на exact новый C/H
+в main,сохраняя owner/baseclaim/исходныйdeadline ивсе старые scope/evidence.
+После main activation — actual assigned R5 6afb0a73-b16c-8191-a539-9a6685e89034
+выполняет новый входной аудит и самостоятельную оценку новой области/методов,
+не только replay. Ветка/предложение/main старыйtarget не разрешают новыйreview.
+Содержательный DRAFT не интегрировать до независимой оценки/решения R1.
+При истечении срока остановиться;автоматического продления нет.
+
+Обычные merge согласованных задач заранее разрешены пользователем,повторно не спрашивать:
+coordination/user_authorizations/ordinary_pr_merges_20261117.json. CI/claim/lease/input checks
+остаются обязательны. Инженерная область этим разрешением не расширена.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. ТЗ/архитектура NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-build/rebuild ифизические испытания не разрешены.
+Полная капсула handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
 
 ---
 

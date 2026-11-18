@@ -1,0 +1,3863 @@
+# HANDOFF: main acceptance дополнительной области R5
+
+C координационного результата `edea79206f326dcb48d98f37619f41e87dd68a3f`;base main `974767804240ca24997d3ca538825ff9a4baebab`.
+Target C `5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a`,request H `e6d0d0cdf78526b1879ec32fd8db274cc8e875d5`,PR60 DRAFT,independentreview NOT_RUN.
+Scope amendment `coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS03-RENDERER-01.json` становится действующим только после normal merge в main.
+Следующий шаг R1:свежий main/exacthead/CI/claim/owner/originaldeadline/input preflight,
+обычный merge контрольного PR,postmerge parents/tree/claim/CI receipt;дополнительного
+согласия пользователя на merge не спрашивать. Действующая R5 после main activation
+читает verification/r1_r5_obs03_scope_20261117/R5_execute.md ивыполняетсвойаудит/review.
+Срок `2026-11-18T01:58:30.990734+00:00` не продлён,canonical claim неизменён.
+PR60 не сливать до независимойоценки/решения R1;ТЗ/G1/engineering не утверждены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN,G1OPEN,W02/physicalREADY NO-GO.
+
+---
+
+# R1 → R5: отдельная область проверки нового проекта определений G1
+
+UTC 2026-11-17T23:13:01.209187+00:00;base main 974767804240ca24997d3ca538825ff9a4baebab;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR60 DRAFT targetC 5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a,requestH e6d0d0cdf78526b1879ec32fd8db274cc8e875d5,review NOT_RUN.
+Предлагаемое main acceptance: coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS03-RENDERER-01.json;в рабочейветке это candidate.
+Прежняя actual R5 6afb0a73-b16c-8191-a539-9a6685e89034,taskT-r5-g1-supplement-output-review-01,
+canonicalclaim побайтнонеизменён,originaldeadline 2026-11-18T01:58:30.990734+00:00 не продлён.
+Новаяроль/задача/lease/чужойheartbeat не создаются;прежний amendment/акты сохранены.
+R1 контролирует отдельный serial merge scope послеCI/claim/input preflight.
+После активации R5:свежийаудит/независимость,самостоятельнаяоценка22REQ/VAL,146областей,
+22DM/40source dispositions,9open groups и6replay outputs;свойактC затемH.
+Команда verification/r1_r5_obs03_scope_20261117/R5_execute.md.
+PR60 не слит,новый review NOT_RUN;старыеакты не распространены на новыйtarget.
+Обычныйmerge заранее разрешёнпользователем,нового per-PR согласия не спрашивать.
+BP500primary/прочиепо релевантности/адаптируемаяплощадка сохранены.
+B01/B02/B03/source power/pressure/moisture/country/engineeringowners OPEN/UNKNOWN.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,ТЗ/архитектура NOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Расчёты/CAD-rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+# HANDOFF: main acceptance дополнительной области R5
+
+C координационного результата `d76b9ba3d0c2a8d57958677488cf9f97541f9bd0`;base main `04a6486527c9ba4fd4d22fcf50e0427213443507`.
+Target C `97f58fd437947e26963bdbbc2f2d89df7438e8cc`,request H `46cbf199c3d17049ac31aa337378f0b176e70a2e`,PR60 DRAFT,independentreview NOT_RUN.
+Scope amendment `coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS01-02-REVISION-01.json` становится действующим только после normal merge в main.
+Следующий шаг R1:свежий main/exacthead/CI/claim/owner/originaldeadline/input preflight,
+обычный merge контрольного PR,postmerge parents/tree/claim/CI receipt;дополнительного
+согласия пользователя на merge не спрашивать. Действующая R5 после main activation
+читает verification/r1_r5_definition_obs_scope_20261117/R5_execute.md ивыполняетсвойаудит/review.
+Срок `2026-11-18T01:58:30.990734+00:00` не продлён,canonical claim неизменён.
+PR60 не сливать до независимойоценки/решения R1;ТЗ/G1/engineering не утверждены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN,G1OPEN,W02/physicalREADY NO-GO.
+
+---
+
+# R1 → R5: отдельная область проверки нового проекта определений G1
+
+UTC 2026-11-17T18:26:02.121547+00:00;base main 04a6486527c9ba4fd4d22fcf50e0427213443507;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR60 DRAFT targetC 97f58fd437947e26963bdbbc2f2d89df7438e8cc,requestH 46cbf199c3d17049ac31aa337378f0b176e70a2e,review NOT_RUN.
+Предлагаемое main acceptance: coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEF-OBS01-02-REVISION-01.json;в рабочейветке это candidate.
+Прежняя actual R5 6afb0a73-b16c-8191-a539-9a6685e89034,taskT-r5-g1-supplement-output-review-01,
+canonicalclaim побайтнонеизменён,originaldeadline 2026-11-18T01:58:30.990734+00:00 не продлён.
+Новаяроль/задача/lease/чужойheartbeat не создаются;прежний amendment/акты сохранены.
+R1 контролирует отдельный serial merge scope послеCI/claim/input preflight.
+После активации R5:свежийаудит/независимость,самостоятельнаяоценка22REQ/VAL,146областей,
+22DM/40source dispositions,9open groups и6replay outputs;свойактC затемH.
+Команда verification/r1_r5_definition_obs_scope_20261117/R5_execute.md.
+PR60 не слит,новый review NOT_RUN;старыеакты не распространены на новыйtarget.
+Обычныйmerge заранее разрешёнпользователем,нового per-PR согласия не спрашивать.
+BP500primary/прочиепо релевантности/адаптируемаяплощадка сохранены.
+B01/B02/B03/source power/pressure/moisture/country/engineeringowners OPEN/UNKNOWN.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,ТЗ/архитектура NOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Расчёты/CAD-rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+# HANDOFF: main acceptance дополнительной области R5
+
+C координационного результата `542e23eae035a4b54ee843a7a54b03503f9a6911`;base main `65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3`.
+Target C `7e2d5ecff42fe1d09b461e05375924cb644c27c9`,request H `7e4ce7aad8396493da6e2284d29441b46b4abb80`,PR60 DRAFT,independentreview NOT_RUN.
+Scope amendment `coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEFINITION-REGISTER-01.json` становится действующим только после normal merge в main.
+Следующий шаг R1:свежий main/exacthead/CI/claim/owner/originaldeadline/input preflight,
+обычный merge контрольного PR,postmerge parents/tree/claim/CI receipt;дополнительного
+согласия пользователя на merge не спрашивать. Действующая R5 после main activation
+читает verification/r1_r5_definition_scope_20261117/R5_execute.md ивыполняетсвойаудит/review.
+Срок `2026-11-18T01:58:30.990734+00:00` не продлён,canonical claim неизменён.
+PR60 не сливать до независимойоценки/решения R1;ТЗ/G1/engineering не утверждены.
+42 состояния не рассчитаны;§4/5/6NOT_RUN,G1OPEN,W02/physicalREADY NO-GO.
+
+---
+
+# R1 → R5: отдельная область проверки нового проекта определений G1
+
+UTC 2026-11-17T16:32:04.139887+00:00;base main 65dcc7b6f861b5d5c5bee1428a8a4da1b6248ff3;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR60 DRAFT targetC 7e2d5ecff42fe1d09b461e05375924cb644c27c9,requestH 7e4ce7aad8396493da6e2284d29441b46b4abb80,review NOT_RUN.
+Предлагаемое main acceptance: coordination/scope_amendments/T-r5-g1-supplement-output-review-01/G1-DEFINITION-REGISTER-01.json;в рабочейветке это candidate.
+Прежняя actual R5 6afb0a73-b16c-8191-a539-9a6685e89034,taskT-r5-g1-supplement-output-review-01,
+canonicalclaim побайтнонеизменён,originaldeadline 2026-11-18T01:58:30.990734+00:00 не продлён.
+Новаяроль/задача/lease/чужойheartbeat не создаются;прежний amendment/акты сохранены.
+R1 контролирует отдельный serial merge scope послеCI/claim/input preflight.
+После активации R5:свежийаудит/независимость,самостоятельнаяоценка22REQ/VAL,144областей,
+22DM/40source dispositions,9open groups и4replay outputs;свойактC затемH.
+Команда verification/r1_r5_definition_scope_20261117/R5_execute.md.
+PR60 не слит,новый review NOT_RUN;старыеакты не распространены на новыйtarget.
+Обычныйmerge заранее разрешёнпользователем,нового per-PR согласия не спрашивать.
+BP500primary/прочиепо релевантности/адаптируемаяплощадка сохранены.
+B01/B02/B03/source power/pressure/moisture/country/engineeringowners OPEN/UNKNOWN.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN,ТЗ/архитектура NOT_APPROVED,G1OPEN,
+W02/physicalREADY NO-GO. Расчёты/CAD-rebuild/испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — PR57 MERGED;обычные merge REV заранее разрешены пользователем
+
+UTC 2026-11-17T15:25:01.424487+00:00;actualR1 6afb300b-1540-8191-a5c4-be1a684c20e0;taskT-r1-requirements-draft-01.
+ПОСТОЯННОЕ РАЗРЕШЕНИЕ: coordination/user_authorizations/ordinary_pr_merges_20261117.json. Пользователь явно указал:
+«Не спрашивай такое априори считай что разрешение мною предоставлено!»
+Контекст — обычный merge PR57. Обычные merge-коммиты current/future PR согласованных
+задач REV разрешены заранее;повторно не запрашивать отдельное per-PR/per-head согласие.
+Старые STATE/NEXT/капсулы с такими вопросами — исторические иперекрыты этим user record.
+Обязательны свежие main/exacthead/CI/inputs/принятыйclaim/owner/живойисходныйlease/
+конкуренция;сохранятьисторию,без force/squash/rebase. Разрешение не продлеваетclaims,
+не назначаетновыероли,само не утверждаетТЗ/G1 ине разрешаетзапрещённыйинженерныйэтап.
+
+PR57 обычный merge 2e4834e6b69cc9b9c8e14aabec309aee27dffd88,merged_at 2026-11-17T15:22:45Z,
+parents b8485a93b7ced741261e7979f9438bad8590d368 / 08f026b9805da69c4a5e0c801c5fcced051b64fe;tree=head.
+Свежийpreflight224 PASS/0FAIL;head CI44098730963/44098714735 SUCCESS,registry PASS/по100tests OK.
+Main PR57 CI44113646809 SUCCESS,registry PASS/100tests OK;завершение подтверждено. Квитанция verification/pr57_merge_authorization_20261117/.
+C этой поставки 4b28941203e00132ca162e99cfe3c2ee5310e7d2;следующийH сохраняет exactC иэстафету.
+
+DOC01/TRACE02 CLOSED_DOCUMENTARY_EXACT_C только на45d5964786e608cdfcc656819fd6df8c77e495fe,
+актR5 REV-R5-G1-DOC-TRACE-RECHECK-01-001 / CURRENT / общийWARNING.
+R5 Cc1b1688308fdc0ff5e7ac8d363cc0d02acdada0f/Hfd5eb9181eaee98a66c0bc3472a85ed88744c710,
+R1 C16f66c5b5daf0eb95f78af60abacaacff2ef76b2/H08f026b9805da69c4a5e0c801c5fcced051b64fe сохраненывmain.
+Gate null,requirements_approved false. Source target25/predecessor26/rev8target25,
+полныйjournal/evidence/44fullbindings/loads/strokes/CAD/54pins/12trees/52interfaces/
+84RAW-null/15gaps/42source-state objects ивсяoldREJECT/STALE/FAILhistory неизменны.
+
+Следующая работаR1 — своднаяредакция G1 по22REQ/VAL:критерии/допуски/режимы/
+методы/владельцы/границы/пробелы,затемполный независимыйreview ипередача пользователю
+наутверждение. B01/B02/B03/source power/pressure/moisture OPEN. Подробныйchecklist
+verification/r1_doc_trace_recheck_acceptance_20261117/g1_readiness.md иnext_work.md.
+ДатаG1 не установлена;не считатьsoftware PASS процентомготовностипресса.
+Странаэксплуатации длянормативнойобласти пока UNKNOWN,пока пользователь не уточнил.
+Новых исходныхчисел/engineeringowners не выдумывать;RAW не повышать.
+CanonicalR1/R5claims иscopeamendment побайтно неизменны,originaldeadline
+2026-11-18T01:58:30.990734+00:00 без продления.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. ТЗ/архитектура NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-build/rebuild ифизические испытания не разрешены.
+
+Policy/receipt checks101 PASS/0FAIL;root registry --check-git PASS/код0.
+Служебный PR постоянного разрешения сливается без повторного вопроса после свежего CI/preflight.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — DOC01/TRACE02 CLOSED только документально,PR57 готовится
+
+UTC 2026-11-17T13:51:44.504463+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;main b8485a93b7ced741261e7979f9438bad8590d368.
+Target C 45d5964786e608cdfcc656819fd6df8c77e495fe,request H 2b99776187345729f1c3e177d0e5ed83e1239b07. R5 C c1b1688308fdc0ff5e7ac8d363cc0d02acdada0f/H fd5eb9181eaee98a66c0bc3472a85ed88744c710;
+REV-R5-G1-DOC-TRACE-RECHECK-01-001 CURRENT/WARNING,3804 собственныхPASS/0FAIL,13MATCH/17resolver entries.
+Решение decisions/R1-DOC-TRACE-RECHECK-ACCEPTANCE.md принимает только closure
+достаточности документальных исправлений exactC;gate null,requirements_approved false.
+Актуальные closure verification/r1_doc_trace_recheck_acceptance_20261117/closure_status.json. ИсторическиеOPEN/старыеакты/
+reviewed25/newtarget и26predecessor/25rev8 artifacts остаются неизменными.
+DOC01 не утверждает метод/scope/метрологию;TRACE02 не подтверждает actual силы/реакции.
+C результата R1 16f66c5b5daf0eb95f78af60abacaacff2ef76b2;следующийH содержит exactC иэстафету.
+
+В PR57 включаются обе R5 истории,target H исвежаяmain,source merge contexts
+сохранены;новых конфликтов target нет. Canonical claims/scope amendment/owner/
+исходныйdeadline 2026-11-18T01:58:30.990734+00:00 неизменны,новыхroles/leases нет.
+Стараяbase_claim.target_C по-прежнему predecessor,новаяauthority изacceptedamendment main.
+Новый revieweractual6afb0a73-b16c-8191-a539-9a6685e89034 не соавтор target;
+upstreamучастие раскрыто,организационная независимость не аттестована.
+
+Следующий проверяемый шаг — exacthead CI иотдельное разрешение обычногоmergePR57,
+свежийpreflightmain/head/claims/срок/inputs/конкуренции. Этойпоставкойmain/PR57 не сливается.
+Далее R1 документальные определения B01/B02/B03/source issues,план verification/r1_doc_trace_recheck_acceptance_20261117/next_work.md.
+Неизвестные данные/реальные инженерныеowners UNKNOWN;RAW не повышать,параметры не выдумывать.
+BP500 primary,остальные по релевантности,площадка адаптируется.
+44fullbindings/loads/strokes/CAD,54pins/12trees,52interfaces/84RAW-null/15gaps и
+42source-state objects/старыеREJECT/STALE/material2/четыреFAIL/OBS01closure сохранены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-rebuild/испытания не разрешены.
+
+R1 integration checks321 PASS/0FAIL,13outputs MATCH,59LFS SHA/OID MATCH.
+Root registry --check-git PASS/код0;R5 C/H CI SUCCESS/registry PASS/по100tests OK.
+CI новогоhead проверяется после публикации.
+G1 readiness/план иобъяснение текущего прогноза:verification/r1_doc_trace_recheck_acceptance_20261117/g1_readiness.md.
+
+---
+
+## Предыдущие записи — история
+
+# R5 — DOC01/TRACE02 CLOSED документально на exact новой ревизии;общийWARNING
+
+UTC 2026-11-17T13:13:57.729354+00:00;actual R5 session6afb0a73-b16c-8191-a539-9a6685e89034,same taskT-r5-g1-supplement-output-review-01.
+Exact reviewed_commit 45d5964786e608cdfcc656819fd6df8c77e495fe;target request H 2b99776187345729f1c3e177d0e5ed83e1239b07.
+Accepted scope main b8485a93b7ced741261e7979f9438bad8590d368,owner/исходный deadline2026-11-18T01:58:30.990734+00:00
+иbase-claimSHA неизменны. Новыйtarget разрешён explicit main amendment,не подменой
+base_claim.target_C. Canonical claim/amendment не переписаны,продления/новогоclaim нет.
+C нового акта/доказательств c1b1688308fdc0ff5e7ac8d363cc0d02acdada0f;этот следующий H передаёт exact C дляR1.
+Акт REV-R5-G1-DOC-TRACE-RECHECK-01-001:verification/r5_doc_trace_recheck_20261117/review.md
+иreviews/cross_check_log.md. DOC01/TRACE02 CLOSED_DOCUMENTARY_EXACT_C только на указанномC.
+ОбщийWARNING,B01/B02/B03/sourcepower/pressure/moistureOPEN;ТЗ/G1 не утверждены.
+
+DOC01: qualitative assurance/N_A по полям чистого аудита;method/scope applicableUNKNOWN,
+mixed/measurement/model-input calibration иuncertainty не сняты. TRACE02: прямая
+H01/REQ09/VAL09/MET09/FORCE_REACTION provenance;routes/actual inputs UNKNOWN,
+model prediction не actual reactions. Нет новых cases/results/расчётов/исполнения.
+3804 own guards PASS/0FAIL;22cards/22metrology/20hazards/12channels,8semantic cases;
+13outputs MATCH/17resolver entries valid. Author332/old4117 не этотindependentrecheck.
+17cards/12no-DOCUMENT rows/19hazards/10channels exact unchanged;26old/25rev8/
+54pins/12trees/3300files/59LFS/44fullbindings/52interfaces/84RAW-null/42states/
+15gaps ивсястараяистория сохранены. Старыйакт predecessor-only;applicabilitynewtargetSTALE.
+Root registry --check-git PASS/git diff --check PASS;C fetched remote SHA MATCH;
+C/H CI проверяются после публикации,не объявленыSUCCESS заранее. Пакетverification/r5_doc_trace_recheck_20261117/.
+R1 next:fetch C/H,проверитьscope/main/owner/срок/CI,принятьузкое documentaryclosure,
+вести определения/программу без утверждения ТЗ/G1/RAW ибез mergePR57 этим актом.
+Капсула handoffs/T-r5-g1-supplement-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. G1 OPEN,W02/physical READY NO-GO. Расчёты,CAD-build/rebuild,
+испытания не начинались и не разрешены. PR57/main не слиты этой review-веткой.
+
+---
+
+## Предыдущие записи — история
+
+> R5 isolated recheck context: accepted main amendment then exact target H context; both histories preserved below. No PR57/main merge.
+
+# R1 — отдельное scope amendment R5 для DOC01/TRACE02 recheck
+
+UTC 2026-11-17T12:04:17.139635+00:00,coordinator6afb300b-1540-8191-a5c4-be1a684c20e0. Existing taskT-r5-g1-supplement-output-review-01,owner6afb0a73-b16c-8191-a539-9a6685e89034,
+исходный deadline2026-11-18T01:58:30.990734+00:00 без продления/переноса.
+Точный добавленный target C45d5964786e608cdfcc656819fd6df8c77e495fe,request H2b99776187345729f1c3e177d0e5ed83e1239b07,PR57.
+Запись coordination/scope_amendments/T-r5-g1-supplement-output-review-01/DOC01-TRACE02-REVISION-01.json,decision decisions/R1-R5-DOC-TRACE-RECHECK-SCOPE.md.
+Полномочия только при включении этой exact записи в remote main плюс живой
+неизменный canonical base claim/owner/lease,target seals иотсутствие конкуренции.
+Нового task/role/lease нет;старый claim не переписан и сам не разрешает новыйtarget.
+C координационного результата c17ac7e04250532892cced0d24eca5cc10bedb65;следующий H сохраняет exact C.
+Команда R5 verification/r1_r5_doc_trace_scope_20261117/R5_execute.md после активации:свежий аудит иindependentrecheck
+новой ревизии. OUTPUT-review NOT_RUN,обаDOC01/TRACE02 OPEN.
+13outputs/17logical artifacts/22cards/22metrology rows/20hazards/12proposedchannels
+находятся только в substantive PR57,не включаются этим контролем в main.
+В историю включена PR55 merge e8f1d6bf41c0cfd2dcc4d3a673e642ecfb53588a иreceipt
+C394a152af5ea6d95638008e6055d249975ebb371/H4bde3134e15b4d7c60ab382883ee6e1c40e7a91b.
+Старый акт CURRENT лишь predecessor fe10c0bc7242fe9d2df3e571c80b4e687f731d7c;
+новыйtarget имеетSTALE applicability старогоакта,не новыйPASS.
+ТЗ NOT_APPROVED,G1 OPEN,B01/B02/B03/sourceissues OPEN,UNKNOWN/RAW сохранены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. W02/physical READY NO-GO;расчёты/CAD-rebuild/испытания запрещены.
+
+R1 scope/preservation checks110 PASS/0FAIL;root registry --check-git PASS/код0.
+Оба target H CI44079423861/44079350017 SUCCESS,registry PASS/по100tests OK.
+Scope head CI иactual main acceptance проверяются перед разрешением выполнения.
+
+---
+
+## Предыдущие записи — история
+
+
+
+---
+
+## Exact target H context (history)
+
+# R1 — DOC01/TRACE02 новая документальная ревизия,recheck NOT_RUN
+
+UTC 2026-11-17T11:56:52.033842+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;main e8f1d6bf41c0cfd2dcc4d3a673e642ecfb53588a.
+Пакет verification/r1_g1_observation_revision_20261117/;новые13outputs/17resolver entries,22cards/22metrology rows/20hazards/12channel classes.
+DOCUMENT procedural assurance/field applicability иусловная evidence schema;
+H01→REQ09/VAL09/MET09/FORCE_REACTION иfuture load/reaction provenance.
+Предыдущие26target/25rev8 artifacts иR5journal/evidence неизменны;старый R5акт
+CURRENT лишь exactfe10c0bc7242fe9d2df3e571c80b4e687f731d7c,для новойревизии applicability STALE.
+Оба замечания OPEN_PENDING_INDEPENDENT_RECHECK,new review NOT_RUN;R1 не закрывает их сам.
+R1 task/owner/исходный deadline2026-11-18T01:58:30.990734+00:00 неизменны.
+R5 предыдущий claim ограничен predecessor:новый точный target только после явного
+accepted main scope amendment,с неизменным owner/сроком,без нового task overlap.
+C новой поставки 45d5964786e608cdfcc656819fd6df8c77e495fe;следующий H хранит exact C икоманду recheck.
+Author332 PASS/0FAIL,13MATCH;root registry --check-git PASS/код0;CI точногоhead проверяется после публикации.
+B01/B02/B03/source power/pressure/moisture OPEN,UNKNOWN/RAW не повышены.
+44 fullbindings/loads/strokes/CAD/54pins/12trees/52interfaces/84RAW-null/15gaps и42source states сохранены.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции не подтверждены.
+ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO;расчёты/CAD-rebuild/испытания запрещены.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — PR55 MERGED,предварительный supplement/WARNING
+
+UTC 2026-11-17T11:31:43.962474+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; task T-r1-requirements-draft-01.
+PR55 обычный merge e8f1d6bf41c0cfd2dcc4d3a673e642ecfb53588a,merged_at 2026-11-17T11:30:39Z;
+parent1 98d1494334ad5161ea8f56226c770dc762fb59d3,parent2/exact head ff688c1d50fa0fb2f2cb6f7343846c551b10d473.
+Tree=head,main SHA проверен. Fresh preflight223 PASS/0FAIL;head CI44066704720/44066694376
+SUCCESS,registry PASS/по100tests OK. Main CI44074659035 SUCCESS,registry PASS/100 tests OK; завершение проверено по GitHub jobs/log.
+R1 C решения ef743d993e3a30f6a414718c7634fb4265b6fe73/H ff688c1d50fa0fb2f2cb6f7343846c551b10d473 в истории main.
+Target exact C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c,request He6ebf7f4df1dbbaa127eaa3c3d00576c1e611658,
+R5 C1f9206312f3429c2c357b836fce11bb3d70ff74c/H32c40d7ab5cc377ecc170aec0fc045b66bcb40f2 сохранены.
+REV-R5-G1-SUPPLEMENT-OUTPUT-01-001 CURRENT/WARNING;4117 собственныхR5 PASS/0FAIL,13MATCH.
+R1 decision decisions/R1-G1-SUPPLEMENT-DOCUMENTARY-ACCEPTANCE.md принимает только
+пригодность предварительного документального предложения,gate null,requirements_approved false.
+Квитанция verification/pr55_merge_20261117/;C этой квитанции 394a152af5ea6d95638008e6055d249975ebb371,следующий H хранит exact C иэстафету.
+
+R5-G1-DOC-01/R5-G1-TRACE-02 OPEN;дальнейшие действия иclosure evidence в
+verification/r1_g1_supplement_acceptance_20261117/observation_disposition.json
+иnext_documentary_step.md. Следующий рабочий шаг R1 в живом claim — отдельная
+документальная ревизия DOCUMENT assurance/applicability иH01/REQ09/MET09 load/reaction
+trace,с сохранением old refs/UNKNOWN,без физического исполнения. Изменённый target
+требует нового exact-C independent review/STALE assessment;старыеакты/target не переписывать.
+B01/B02/B03 иsource power/pressure/moisture остаются OPEN. Численные определения/
+реальные инженерные owners/methods без основания UNKNOWN,новых назначений здесь нет.
+
+Canonical R1/R5 claims побайтно неизменны,исходный deadline2026-11-18T01:58:30.990734+00:00
+не продлён;intake released/NONE. Нового claim/переноса/перекрытия не создаётся.
+Исторические premerge prefix/плановые запреты merge описывали старые checkpoints;
+явное текущее разрешение пользователя на PR55 сохранено в authorization.json,
+actual merge/parents/tree в Git/receipt. До следующего действия проверитьmain/UTC/
+claims/owner/входы;при истечении срока остановиться без автопродления.
+
+26 supplement/25 rev8 target artifacts,R5 full journal/evidence,44 full bindings/
+нагрузки/ходы/CAD,54pins/12trees,52interfaces/84RAW-null/15gaps/42source-state objects
+иoldREJECT/STALE/material2/четыреFAIL/OBS01 exact-C closure сохранены. RAW40 не повышены.
+BP500 primary,остальные по релевантности,площадка адаптируется.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции/
+цикл не подтверждены. Архитектура/ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-build/rebuild ииспытания не разрешены.
+
+Postmerge receipt checks112 PASS/0FAIL,root registry --check-git PASS/код0.
+Исходные exact C/H акта R5,решения R1 ивсеreview target artifacts сохранены.
+Эта H-квитанция публикуется в отдельной R1 ветке,не выполняет ещё один main merge.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — supplement/R5 WARNING принят только в предварительной документальной области
+
+UTC 2026-11-17T10:32:36.256686+00:00;actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0;main 98d1494334ad5161ea8f56226c770dc762fb59d3;PR55 готовится,не слит.
+Target C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c,request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658;R5 C 1f9206312f3429c2c357b836fce11bb3d70ff74c,H 32c40d7ab5cc377ecc170aec0fc045b66bcb40f2.
+REV-R5-G1-SUPPLEMENT-OUTPUT-01-001 CURRENT/WARNING;4117 собственных PASS/0FAIL,13MATCH.
+Решение decisions/R1-G1-SUPPLEMENT-DOCUMENTARY-ACCEPTANCE.md,gate null,requirements_approved false.
+R5-G1-DOC-01 иR5-G1-TRACE-02 OPEN,неблокирующие лишь для предварительного DRAFT.
+План/closure evidence verification/r1_g1_supplement_acceptance_20261117/observation_disposition.json иnext_documentary_step.md.
+C результата R1: ef743d993e3a30f6a414718c7634fb4265b6fe73;следующий H хранит exact C и эстафету.
+
+26 target/25 rev8 artifacts ивсеR5 evidence/journal сохраняются побайтно;старыйreview
+не расширяется на будущие правки. Main/claim принятия PR56 и postmerge-квитанция
+C/Hf130c82acda91a7dbaa84ec2a8a776969ea45d98/c4d511a4fe31d846b5b46f0b816d343d8de6276d
+включаются в историю PR55 вместе с R5 актом. Три общих Markdown конфликта разрешены
+сохранением R1-only добавления и полного R5 H,обе main/target истории сохранены.
+R1/R5 owner/lease оригинальный 2026-11-18T01:58:30.990734+00:00 без продления,старый intake released/NONE.
+Исторические proposal/claim/task pending-поля — snapshots,фактическое владение
+определяется accepted main ancestry/owner/UTC. R5 review complete,новых назначений нет.
+
+Для интеграции PR55 сначала точный head CI,main/claim/срок/входы/конкуренция и
+отдельное разрешение пользователя на обычный merge. Эта поставка только готовит PR.
+Дальнейшая R1 работа — документальная доработка DOC01/TRACE02/B01-B03/source issues
+в пределах действующегоclaim;изменённый target требует нового exact-C review/STALE assessment.
+BP500 primary,остальные прессы по релевантности;площадка адаптируется,RAW не повышать.
+44 full bindings/нагрузки/ходы/CAD,54 pins/12 trees,52interfaces/84RAW-null/15gaps
+и42 исходныхstate-объекта сохранены. СтарыеREJECT/STALE/material2/четыреFAIL/OBS01
+exact-C closure не сбрасываются;WHAT_IF applicability NOT_EVALUATED.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции
+не подтверждены. Архитектура/ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-build/rebuild и испытания не разрешены.
+
+Фактические проверки R1:287 PASS/0FAIL,13renderer outputs MATCH,59LFS SHA/OID MATCH.
+Root registry --check-git PASS,код0;R5 C/H CI SUCCESS/registry PASS/по100 tests OK.
+CI нового итогового head проверяется после публикации;не объявлен будущий SUCCESS.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — PR56 MERGED: отдельный claim R5 принят в main
+
+UTC 2026-11-17T08:46:14.024260+00:00; coordinator R1 6afb300b-1540-8191-a5c4-be1a684c20e0.
+PR56 обычный merge 98d1494334ad5161ea8f56226c770dc762fb59d3; parent1 043271b57aa3d49b6d9b45da03496ea11dad41b1,
+parent2/exact head/C принятия f130c82acda91a7dbaa84ec2a8a776969ea45d98. Tree=head; proposal C91b95034950e7b92eeb021035ff63dbe577c05f2,
+H7ecdb2fefa96c0c72bf2bf009f354d705371aa28/checkpoint1c374da4bb7a67b0106efa82d3f145729bc11bc7
+в ancestry, истории/предложение сохранены. R1179/premerge89/postmerge30 PASS/0FAIL.
+Head CI44048437954/44048431253 SUCCESS: registry PASS/по100 tests OK.
+Main CI44049371735 SUCCESS: registry PASS/100 tests OK; фактическое завершение подтверждено.
+
+Claim T-r5-g1-supplement-output-review-01 ACCEPTED_MAIN; owner actual R5 6afb0a73-b16c-8191-a539-9a6685e89034.
+Canonical ledger coordination/claims/T-r5-g1-supplement-output-review-01.json включён в main.
+Исходный deadline 2026-11-18T01:58:30.990734+00:00 не продлён. R5 heartbeat сохранён из его proposal,
+R1 не имитирует новый heartbeat R5. R1 claim/старый intake ledger неизменны,
+по одному принятому task на каждую сессию; intake released/NONE.
+Исторические proposal/old preflight/task checkpoint остаются подготовительными
+снимками. Текущая активация определяется accepted ledger+фактическим main ancestry/UTC;
+старое слово PENDING_MAIN не отменяет состоявшийся merge. Новое назначение роли не требуется.
+
+Следующая команда actual R5: выполнить verification/r1_r5_g1_claim_acceptance_20261117/R5_execute.md.
+Проверить свежий main/owner/срок/конкуренцию и оформить новый входной аудит, затем
+содержательно проверить exact target C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c, request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+PR55 OPEN/unmerged,его target не включён в этот main. OUTPUT-review/13 replay NOT_RUN,
+verdict null. Старые R1 author395 и R5 rev8 3890 не проверка нового supplement.
+Независимость target/старое upstream участие раскрыты,организационная независимость не аттестована.
+R1 собственную поставку независимо не одобряет; после нового акта разберёт замечания.
+
+Квитанции/проверки verification/r1_r5_g1_claim_acceptance_20261117/; C результата принятия выше,
+этот следующий H сохраняет actual main/эстафету. PR55 merge/утверждение ТЗ не выполняются.
+44 полные bindings/нагрузки/ходы/CAD,54 pins/12 protected trees,25 rev8 artifacts,
+RAW/UNKNOWN и старые review/STALE/REJECT/FAIL сохранены. WARNING только документальная область.
+42 состояния не рассчитаны;§4/5/6 NOT_RUN;прочность/устойчивость/реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+Численный/физический этап,CAD-build/rebuild и физические испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+
+---
+
+## R1: exact R5 handoff and combined histories preserved below
+
+# R5 — новый OUTPUT-review PR55: WARNING; эстафета R1
+
+UTC 2026-11-17T09:40:29.270280+00:00; actual R5 session 6afb0a73-b16c-8191-a539-9a6685e89034.
+Exact reviewed C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c; request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+C акта/доказательств 1f9206312f3429c2c357b836fce11bb3d70ff74c; этот следующий H передаёт C для R1.
+Акт REV-R5-G1-SUPPLEMENT-OUTPUT-01-001 / CURRENT / WARNING:
+verification/r5_g1_supplement_review/review.md и reviews/cross_check_log.md.
+Claim принят main 98d1494334ad5161ea8f56226c770dc762fb59d3; owner actual session, исходный deadline
+2026-11-18T01:58:30.990734+00:00 неизменён. Новый claim/роль/продление не создавались.
+
+Предварительное документальное предложение пригодно; ТЗ/G1/программа ещё недостаточны.
+Собственные22criterion+22metrology/11channels/20hazards/6norms/3source assessments;
+4117 guards PASS/0FAIL;13 outputs MATCH/search MATCH кроме UTC; author395/old3890
+не новый review. Source/старые собственные акты независимо не переаттестованы.
+Входной аудит WARNING/4 bounded PASS/3 NOT_RUN. Root registry --check-git PASS,
+git diff --check PASS. C remote fetched MATCH; C/H CI проверяются после публикации,
+не объявлены SUCCESS заранее. Receipt/команды в verification/r5_g1_supplement_review/.
+
+R1 next: проверить C/H/main/owner/срок/CI,разобрать неблокирующие DOC01 (DOCUMENT
+assurance/N_A vs calibration/uncertainty) иTRACE02 (H01/REQ09,MET09 actual loads/reactions).
+B01/B02/B03 и power/pressure/moisture OPEN. Критерии/методы/метрология/владельцы/
+безопасные состояния/нормативная область требуют определения до утверждения;
+для objective completeness не выдумывать численный порог. G1 не результат будущих тестов.
+26new/31inputs/25oldtarget/26formal/54pins/12trees/3152files/59LFS/44fullbindings/
+52interfaces/84RAW-null/42sourceobjects/15gaps и вся старая история сохранены.
+Капсула handoffs/T-r5-g1-supplement-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; прочность/устойчивость/реальные реакции/
+цикл не подтверждены. ТЗ/архитектура NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO.
+PR55/main не слиты этой review-веткой; RAW не повышены; UNKNOWN сохранены.
+Расчёты,CAD-build/rebuild,испытания не начинались и не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+> R5: объединение сохранённых историй только в изолированной review-ветке.
+> Canonical claim принят в main98d1494; target PR55 остаётся exact fe10c0b.
+> Ниже — принятая координационная история, затем контекст target H и общая история.
+
+# R1 — принятие отдельного claim R5 для PR55: кандидат до main
+
+UTC 2026-11-17T08:32:38.977670+00:00; coordinator 6afb300b-1540-8191-a5c4-be1a684c20e0; owner proposed/accepted candidate R5 6afb0a73-b16c-8191-a539-9a6685e89034.
+Task T-r5-g1-supplement-output-review-01; exact C fe10c0bc7242fe9d2df3e571c80b4e687f731d7c; request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658.
+Canonical ledger coordination/claims/T-r5-g1-supplement-output-review-01.json; исходный срок 2026-11-18T01:58:30.990734+00:00 не продлён.
+Полномочия только после включения ledger в main и проверки фактического UTC/ancestry.
+R5 OUTPUT-review/13 replay NOT_RUN;verdict null. PR56 содержит claim,не target PR55.
+R1 decision decisions/R1-R5-G1-SUPPLEMENT-CLAIM-ACCEPTANCE.md; original proposal
+C91b95034950e7b92eeb021035ff63dbe577c05f2/H7ecdb2fefa96c0c72bf2bf009f354d705371aa28
+/checkpoint1c374da4bb7a67b0106efa82d3f145729bc11bc7 сохранены.
+После main activation R5 проверяет owner/lease/конкуренцию/target pins/input audit,
+затем выполняет независимую документальную оценку и публикует собственные C/H.
+R1/old intake ledgers неизменны; новой роли или продления чужих полномочий нет.
+WARNING/UNKNOWN/RAW сохранены;ТЗ/G1 не утверждены,42 состояния не рассчитаны,
+§4/5/6 NOT_RUN,G1 OPEN,W02/physical READY NO-GO. Расчёты/CAD-rebuild/испытания запрещены.
+
+---
+
+## Предыдущие записи — история
+
+# R5 — PR55 OUTPUT-review ожидает принятия отдельного claim
+
+UTC 2026-11-17T08:19:38.197051+00:00; actual R5 session6afb0a73-b16c-8191-a539-9a6685e89034.
+Назначение R5 действует; принятого claim этой новой задачи в remote main нет.
+Статус T-r5-g1-supplement-output-review-01 PROPOSED_NOT_ACCEPTED / BLOCKED_CLAIM_ACCEPTANCE.
+Это подготовка полномочий, не выполненный OUTPUT-review; target quality verdict отсутствует.
+Exact будущего reviewed_commit fe10c0bc7242fe9d2df3e571c80b4e687f731d7c,
+request H e6ebf7f4df1dbbaa127eaa3c3d00576c1e611658; PR55 OPEN/unmerged.
+Принятая main 043271b57aa3d49b6d9b45da03496ea11dad41b1; ветка предложения от main,
+не содержит авторских изменений PR55. Прежний main STATE с предmerge PR54 — история.
+
+C предложения/identity/preflight/registry 91b95034950e7b92eeb021035ff63dbe577c05f2; этот H содержит C и эстафету R1.
+Предложение coordination/proposals/T-r5-g1-supplement-output-review-01.json:
+owner NONE, proposed_owner actual R5, claim_effective false, actual lease null.
+Запрошенный предел2026-11-18T01:58:30.990734+00:00 — лишь предложение, не новый
+действующий срок/продление/перенос R1/R4. Принятые ledgers не редактировались.
+14 preflight PASS/0FAIL только authority/metadata;3154 прежних файла сохранены,
+root registry --check-git PASS и git diff --check PASS. Remote C fetched SHA MATCH.
+CI C44045653907 и будущий H проверяются после публикации; результаты относятся
+к предложению, не к качеству target. Полный пакет verification/r5_g1_supplement_claim_20261117/.
+
+Первый шаг R1: по AGENT_PROTOCOL §4 перепроверить main/head/owner/конкуренцию/срок
+и оформить последовательное принятие отдельного claim в main с явным ledger.
+Простое наличие/merge предложения не является ACCEPTED_MAIN. PR55 не сливать.
+После activation R5 выполнит отдельный input audit,22cards/22metrology/20hazards/
+6norms/3source issues/13outputs/preservation и НОВЫЙ акт с exact reviewed_commit.
+Сейчас эти содержательные проверки NOT_RUN; author395/старые3890 не используются
+как новый review. Соавторства target нет; прежнее upstream авторство раскрыто.
+Капсула: handoffs/T-r5-g1-supplement-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; прочность/устойчивость/реальные реакции
+не подтверждены. UNKNOWN сохранены, RAW не повышены. ТЗ/архитектура NOT_APPROVED,
+G1 OPEN, W02/physical READY NO-GO. Расчёты,CAD-build/rebuild,испытания не начинались.
+
+---
+
+## Предыдущие записи — история
+
+
+
+---
+
+## Контекст exact target H — сохранённая история
+
+# R1 — координация продолжается: рабочие критерии/метрология/безопасность G1
+
+UTC 2026-11-17T07:28:04.361876+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; existing accepted task T-r1-requirements-draft-01.
+Main043271b57aa3d49b6d9b45da03496ea11dad41b1,исходный PR55 headc50a5eaf8f99b6aacfea7d2d63ca1c049fbdffff.
+Claim/owner подтверждены,deadline2026-11-18T01:58:30.990734+00:00 не продлён.
+Пользователь потребовал активного продолжения координации;R1 исполняет следующий
+документальный шаг в текущем scope,нового руководителя/роли/claim не ждёт.
+
+Пакет verification/r1_g1_criteria_plan_20261117/:
+22 criterion cards с наблюдениями/PASS-предикатами/evidence fields/source refs;
+22 metrology rows/11 channel classes,калибровки/синхронизация/неопределённость;
+H01–H20 hazard→REQ/VAL/evidence;N01–N06 план применимости с историческими limits;
+3 source action cards и фактический bounded text search4PDF;execution_board.
+Документальный владелец R1 actual session,engineering sessions/dates не назначены.
+31 exact inputs,audit WARNING/4 PASS/3 NOT_RUN;author395 PASS/0FAIL,13 renderer MATCH,
+source-search replay MATCH кроме UTC. Root registry --check-git PASS, код0; CI итогового head проверяется после публикации.
+C результата: fe10c0bc7242fe9d2df3e571c80b4e687f731d7c;следующий H сохраняет exact C и запрос независимому R5.
+
+Это новый DRAFT supplement,не изменение reviewed rev8. Все25 target/26 formal
+review artifacts rev8 сохранены,старый R5 CURRENT/WARNING относится только к
+C8d1b45afa84eca078a8de0a9822d6925dd87745b. Новый OUTPUT-review supplement NOT_RUN.
+Никакие критерии/ТЗ/G1 не утверждены. Missing inputs не превращаются в PASS/ноль;
+известные нарушения/неполнота сохраняются. Actual records пусты,VAL/TEST NOT_RUN,
+execution_permission false. Конкретные приборы/методики/пороги/допуски/серии UNKNOWN.
+Source power/pressure/moisture OPEN;вопросы/доказательства и варианты дальнейшего
+решения подготовлены,внешние запросы не отправлены. Нет догадок kgf/влажностной
+базы/нового бюджета мощности. Поиск текста не доказывает отсутствия в сканах;ARS text layer пуст.
+
+Следующий контрольный шаг R5 — независимая проверка exact нового C по команде
+R5_review_command.md в следующем H,не переиспользование3890 review rev8 как нового.
+АвторR1 не является независимым reviewer своего supplement;session/model/upstream
+R5 disclosure и собственные checks обязательны. Назначение/lease R5 здесь не создаются.
+R1 ведёт очередь и последующий разбор замечаний в живом claim;реальные численные
+определения/владельцы требуют основания/назначения,UNKNOWN сохраняются.
+Работа передаётся через C/H/PR55,не через ожидание самопроизвольного вызова модели.
+Капсула handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+История PR54 merge043271b57aa3d49b6d9b45da03496ea11dad41b1 иreceipt Cebc2a252f75808023cfd47c499276df2f38e419f /
+Hc50a5eaf8f99b6aacfea7d2d63ca1c049fbdffff сохранены. PR55 готовится с содержательной
+доработкой и прежней квитанцией,новый PR только ради отчёта не создаётся. Main merge
+не выполняется;при любом следующем действии проверить UTC/main/claim/lease/inputs.
+
+RAW40/84 UNKNOWN/15 gaps,54 old pins/12 protected trees,44 full bindings/нагрузки/
+ходы/CAD,52interfaces/42 source-state объекта истарые REJECT/STALE/material2/четыре FAIL/
+OBS01 exact-C closure сохранены. 42 состояния не рассчитаны;§4/5/6 NOT_RUN;
+прочность/устойчивость/реальные реакции/цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED,G1 OPEN,W02/physical READY NO-GO. Численный/физический этап,
+CAD-build/rebuild и физические испытания не разрешены. Общий срок проекта UNKNOWN.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — PR54 MERGED; только предварительный DRAFT/WARNING, ТЗ/G1 не утверждены
+
+UTC 2026-11-17T06:46:03.629306+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; T-r1-requirements-draft-01.
+PR54 обычный merge 043271b57aa3d49b6d9b45da03496ea11dad41b1, UTC 2026-11-17T06:38:16Z; parent1 bec317a4483e7f69c2af0aa1c52ef091bdef57b4,
+parent2/exact head6ad3c2b2afcb8db4fefa810cf75f2f7c744c31b0. Tree=head,14 исторических C/H ancestors PASS.
+Свежий preflight280 PASS/0FAIL; main/head/owner/lease/конкуренция/target seals перепроверены.
+Оба exact-head CI44031076521/44031066257 и main CI44032688799 SUCCESS:
+registry PASS и по100 тестов. Фактическая квитанция verification/pr54_merge_20261117/.
+C этой postmerge-квитанции: ebc2a252f75808023cfd47c499276df2f38e419f; следующий H содержит exact C и эстафету.
+
+Интегрированы target rev8 C8d1b45afa84eca078a8de0a9822d6925dd87745b,
+R5 C04502cfe2eb2eadae242690cfad8f414bd96bff2 / H64ac3efbffcf77e50f2e867390cf141e580de644,
+R1 C7a508e0638743b8c50fde7bdb251496af9f5f1df / H6ad3c2b2afcb8db4fefa810cf75f2f7c744c31b0.
+REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001 CURRENT/WARNING и решение R1
+R1-REQUIREMENTS-REV8-DRAFT-ACCEPTANCE принимают только пригодность предварительного
+DRAFT к документальной доработке. Gate null, requirements_approved false. Полнота
+проверяемого ТЗ/G1 недостаточна,3890 R5 checks не являются физической валидацией.
+Все25 target/26 formal review artifacts и исходные акты/доказательства сохранены.
+
+Claim R1 ACCEPTED_MAIN, единственный действующий claim этой сессии, deadline
+2026-11-18T01:58:30.990734+00:00 не продлён. Accepted ledger побайтно неизменён;
+intake released/NONE, его старый срок не перенесён. Task metadata получила только
+DOCUMENTARY_DRAFT_INTEGRATED_WARNING/actual merge SHA, original snapshot сохранён.
+Новые роли/сессии/claims/сроки здесь не назначаются; новый этап не начинается.
+
+Следующий плановый шаг — документальные карточки критериев22 REQ, программа/
+метрология/прослеживаемость B02, безопасность/нормативная применимость B03 и
+source clarification/disposition для power/pressure/moisture. План в
+verification/r1_rev8_documentary_acceptance_20261117/next_step_plan.md. Его исходная
+фраза «нет разрешения merge» описывала прошлый checkpoint; новая команда пользователя
+на PR54 сохранена в текущей authorization.json. Реальные владельцы/сроки только
+после назначения; численные определения без доказательства UNKNOWN. Уже заданные
+BP500/сырьё/адаптация площадки повторно не спрашивать; готовые будущие чертежи от
+оператора не требуются. Критерии/план не подменять выполнением физических испытаний.
+Перед следующим действием проверить claim/UTC/deadline/main/inputs; при истечении
+не продлевать автоматически. Для новой ревизии учесть STALE/зависимости, сохранить
+old exact C/evidence, провести независимый exact-C review; ТЗ/G1 утверждает пользователь.
+Текущая поставка сохраняет receipt и handoff, документальную доработку не запускает.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+B01/B02/B03 и SOURCE-POWER/PRESSURE-UNIT/MOISTURE-BASIS OPEN. RAW40 не повышены,
+active registry/44 full bindings/нагрузки/ходы/CAD/54 pins/52 interfaces/42 source-state
+объекта/84 RAW-null/15 gaps сохранены. Старые REJECT/STALE/material2/четыре FAIL,
+OBS01 exact-C closure и WHAT_IF applicability NOT_EVALUATED остаются без изменения.
+BP500 primary, площадка адаптируется, E55/WEIMA/ARS по релевантности, реальные свойства
+и конструкция UNKNOWN; ARS допускает неметаллическое сырьё, его режимы/свойства не REV.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции/
+цикл не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild и физические испытания не разрешены.
+Общий срок завершения проекта UNKNOWN.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — rev8 OUTPUT-review принят с WARNING; PR54 подготовлен к документальной интеграции
+
+UTC 2026-11-17T06:16:36.843399+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0, T-r1-requirements-draft-01.
+Exact target C 8d1b45afa84eca078a8de0a9822d6925dd87745b, request H 87f2f5889f9ba74e8eef3a3a040d936d13e0a011.
+R5 C 04502cfe2eb2eadae242690cfad8f414bd96bff2; H 64ac3efbffcf77e50f2e867390cf141e580de644; новый акт REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001 CURRENT/WARNING.
+3890 собственных PASS/0 FAIL,22 REQ/VAL,40 dispositions,16 qualitative assessments.
+Исходные авторские358/source1250/replay не выданы за новый независимый review.
+Source act853a по f2c остаётся отдельным входом, его область не расширяется.
+
+Решение decisions/R1-REQUIREMENTS-REV8-DRAFT-ACCEPTANCE.md принимает только пригодность
+предварительного DRAFT к дальнейшей документальной проработке. Недостаточность для
+утверждения ТЗ/G1 сохраняется. Gate null, requirements_approved false.
+B01 критерии/допуски/режимы/владельцы, B02 программа/метрология/неопределённость/полнота,
+B03 безопасность/нормативная область и source power/pressure/moisture остаются OPEN.
+Решение и обе истории включаются в PR54 без squash/rebase; target не редактируется.
+C результата R1: 7a508e0638743b8c50fde7bdb251496af9f5f1df; следующий H — эстафета с exact C.
+Evidence: verification/r1_rev8_documentary_acceptance_20261117/.
+
+Main bec317a4483e7f69c2af0aa1c52ef091bdef57b4 не меняется; PR54 OPEN/draft, merge/auto-merge не выполняются.
+Claim R1 ACCEPTED_MAIN, owner 6afb300b-1540-8191-a5c4-be1a684c20e0, исходный deadline
+2026-11-18T01:58:30.990734+00:00 действует и не продлён. Intake released/NONE;
+другие роли/leases/владельцы не назначаются. Фактический preflight сохранён отдельно.
+В R5 H историческом STATE/NEXT есть шаблонные UNK<UTC>N токены; точная история H
+сохранена, authoritative review/source данные корректны, текущая сводка пишет UNKNOWN.
+
+Следующий проверяемый шаг R1 после отдельной команды на merge: повторить main/head/CI,
+точный owner/срок/конкуренцию и target seals, затем обычный merge PR54 с обеими историями.
+После этого — документальный план доработки B01/B02/B03/source conflicts: реальные
+владельцы/сроки только после назначения, численные критерии/методы без доказательства
+UNKNOWN; новую rev проверяет независимый R5, ТЗ утверждает пользователь отдельно.
+Текущий акт не разрешает численный/физический этап или закрытие G1.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+40 поля RAW не повышены;10 target proposals/23 context/7 open issues, active registry
+не меняется. BP500 primary, площадка адаптируется; E55/WEIMA/ARS по релевантности,
+ARS также неметаллический, source уставки/свойства не REV. UNKNOWN остаются UNKNOWN.
+44 bindings/нагрузки/ходы/CAD,54 старых pins,52 interfaces,84 RAW/null и15 OPEN gaps,
+старые R3/R4/R5 evidence/REJECT/STALE/material2/четыре FAIL/OBS01 closure сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции/цикл
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild и физические испытания не начинались.
+
+---
+
+## Предыдущие записи — история
+
+# R5 — OUTPUT-review предварительного DRAFT rev8: WARNING; эстафета R1
+
+UTC 2026-11-17T06:03:48.260116+00:00; reviewer R5 actual session6afb0a73-b16c-8191-a539-9a6685e89034.
+Exact target C8d1b45afa84eca078a8de0a9822d6925dd87745b, request H87f2f5889f9ba74e8eef3a3a040d936d13e0a011.
+C собственного акта/доказательств 04502cfe2eb2eadae242690cfad8f414bd96bff2; этот следующий H — эстафета.
+Акт REV-R5-REQUIREMENTS-REV8-OUTPUT-01-001 / CURRENT / WARNING:
+verification/r5_requirements_rev8_review/review.md, formal record reviews/cross_check_log.md.
+reviewed_commit равен exact target C, source act853a72b — только входное доказательство.
+Соавторства target нет; собственное upstream участие раскрыто; собственные старые
+акты не переаттестованы независимо. Codex on GPT-6 base, exact runtime ID unavailable.
+
+Предварительный DRAFT пригоден для дальнейшей документальной проработки.
+Для утверждения ТЗ/G1 недостаточен: B01 критерии/допуски/режимы/владельцы;
+B02 программа/метрология/неопределённость/полнота; B03 риски/безопасность/нормативная
+область; source power/pressure/moisture basis OPEN. UNK2026-11-17T06:03:48.260116+00:00N не заменять декларациями.
+Собственные22 REQ/VAL assessments,40 dispositions и16 qualitative assessments;
+3890 guards PASS/0FAIL. Author358 и renderer replay не объявлены независимым review.
+10 outputs MATCH; root registry --check-git и git diff --check PASS.
+C push CI44027512543 SUCCESS, registry/test steps SUCCESS; remote C fetched SHA MATCH.
+Receipt: verification/r5_requirements_rev8_review/published_C_receipt.json.
+H CI и remote exact C/H проверяются после публикации этого H; R1 может повторить
+verification/r5_requirements_rev8_review/check_publication.py по полным C/H.
+
+44 полных bindings/нагрузки/ходы/CAD,52 interfaces,42 source-state объекта,
+84 RAW/null UNK2026-11-17T06:03:48.260116+00:00N,15 OPEN gaps, STALE/REJECT/material2/четыре исторических FAIL,
+узкое OBS01 exact-C closure сохранены. Применимость старых WHAT_IF NOT_EVALUATED.
+R1 deadline2026-11-18T01:58:30.990734+00:00 не продлён, owner не присвоен;
+intake released/NONE. Перед дальнейшим действием R1 перепроверяет срок/main/PR54.
+Полная эстафета и первый шаг: handoffs/T-r5-requirements-rev8-output-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции/
+цикл не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+PR54/main не слиты; численный/физический этап, CAD-build/rebuild и испытания не разрешены.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — PR53 MERGED; DRAFT требований rev8 готов к независимому R5
+
+UTC 2026-11-17T02:18:29.822771+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; task T-r1-requirements-draft-01 / IN_REVIEW_DOCUMENTARY.
+PR53 обычный merge bec317a4483e7f69c2af0aa1c52ef091bdef57b4, parent1 a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3,
+parent2/exact head bb78bef9661a95c557db765ed2df1e8df4ffddbc. Tree = head; история R3/R4/R5 сохранена.
+C принятия нового claim 3421bbea081c605100e61c199254f6dcf77d3b54; H bb78bef9661a95c557db765ed2df1e8df4ffddbc.
+Оба head CI и main CI44000928125 SUCCESS, registry PASS и по 100 тестов.
+Receipt и postmerge owner checks: verification/r1_requirements_draft_20261117/.
+
+Intake T-r1-force-inputs-intake-01 DONE_DOCUMENTARY_SCOPE / WARNING, owner NONE/released.
+Его исходный lease 2026-11-17T23:16:47.225017Z не продлён; completion/архив ledger сохранены.
+Новый claim T-r1-requirements-draft-01 ACCEPTED_MAIN, единственный действующий claim
+этой сессии, deadline 2026-11-18T01:58:30.990734+00:00, ровно 24h от подготовки.
+Срок не переносился, перекрытия не было; проверенный historical proposal f2c неизменён.
+Входной аудит exact main: WARNING / 4 PASS / 3 NOT_RUN, независимым review не является;
+§4/5/6 блокируют численные/физические выводы, разрешён только документальный DRAFT.
+
+Результат: requirements/system_requirements.md и verification_matrix.md rev8,
+22 REQ/VAL с будущими критериями/методами/evidence/gaps, все VAL/TEST NOT_RUN.
+Applicability40: 10 TARGET_PROPOSAL по ссылкам на frozen RAW, 23 REFERENCE_CONTEXT,
+7 OPEN_SOURCE_ISSUE; числа в активную базу не переносились, RAW не повышены.
+16 качественных/дополнительных ссылок; many-to-many схема без фактических записей;
+15 открытых source/criteria gaps плюс все 84 исходных UNKNOWN. Rev7 сохранена побайтно.
+Author checks 358 PASS / 0 FAIL, 10 renderer outputs MATCH — целостность/документальная
+трассировка, не независимое подтверждение требований или физики. Root registry/CI
+актуальной поставки сохраняются отдельно. C результата: 8d1b45afa84eca078a8de0a9822d6925dd87745b; следующий H
+содержит эстафету и R5_review_command.md с этим exact C. Сама C не ссылается на себя.
+
+Следующий участник: независимый R5 вне author_sessions [6afb300b-1540-8191-a5c4-be1a684c20e0], actual identity/model
+и upstream authorship disclosure обязательны; назначение/срок R5 здесь не создаются.
+Первый шаг — fetch exact C и следующий H, проверить main/target/claim/lease/источники,
+затем самостоятельно проверить 22 REQ/VAL,40 dispositions,ограничения и сохранившиеся
+блокеры. Авторский replay — лишь воспроизводимость. Source R5 act853a по f2c остаётся
+CURRENT/WARNING, но не заменяет OUTPUT-review этой ревизии. Новый R5 review NOT_RUN.
+ТЗ отдельно утверждает пользователь; G1 не закрывается. Полная команда в папке пакета.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+BP500 primary; площадка адаптируется; сырьевое окно BP500, реальные партии/модель UNKNOWN.
+E55/WEIMA/ARS по релевантности, ARS также неметаллический; его уставки/свойства не REV.
+SOURCE-POWER/PRESSURE-UNIT OPEN, moisture basis/method UNKNOWN, up-to qualifiers сохранены.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 interfaces,42 source-state объекта неизменны.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции/цикл
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания не разрешены.
+REJECT/STALE/четыре FAIL/material history=2, старые R5 TZ блокеры/акты и OBS-01 exact-C closure
+сохранены. Срок завершения проекта UNKNOWN; новых инженерных владельцев/дат не назначено.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — завершение documentary intake и принятие нового claim через PR53
+
+UTC 2026-11-17T01:58:30.990734+00:00; actual R1 6afb300b-1540-8191-a5c4-be1a684c20e0; назначение R1 продолжается.
+Исходная main a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3, exact исходный head 5674ca6a6c4d8d98eaa9fab953691fd2ac61a2e7; оба CI SUCCESS.
+C этой транзакции: 3421bbea081c605100e61c199254f6dcf77d3b54; следующий H содержит эту эстафету.
+
+Пользователь завершает документальный scope T-r1-force-inputs-intake-01 с WARNING.
+Completion: coordination/completions/T-r1-force-inputs-intake-01.json. Старый live ledger
+переведён в COMPLETED_DOCUMENTARY_RELEASED / owner NONE при включении в main;
+его исходный lease 2026-11-17T23:16:47.225017Z не продлён. Оригинал ledger архивирован.
+Проверенный proposal claim.json и R5 evidence не меняются. Открытые gaps/физика не закрыты.
+
+Новый claim T-r1-requirements-draft-01: coordination/claims/T-r1-requirements-draft-01.json,
+owner 6afb300b-1540-8191-a5c4-be1a684c20e0; preparation UTC 2026-11-17T01:58:30.990734+00:00, новый deadline 2026-11-18T01:58:30.990734+00:00, ровно 24 часа.
+Оба изменения действуют только после одной атомарной интеграции в remote main.
+До merge действует прежний intake; после merge он освобождён и действует только новый
+claim этой сессии. Перекрытие владения и перенос/продление старого lease исключены.
+Enforcement PROCEDURAL; конкуренция/27 pins/source28/R5 seals проверены в
+verification/r1_requirements_claim_20261117/preflight.json. Аудит новой задачи NOT_RUN
+до main acceptance; DRAFT требований ещё не начат. Инженерный старт NOT_STARTED.
+
+Следующий R1 после merge проверяет main/ancestry/owner/новый срок/нет конкуренции,
+оформляет входной аудит точных версий, затем DRAFT ревизии требований и матрицы:
+22 REQ/VAL, disposition 40 RAW полей, criteria/gaps, BP500 primary, другие прессы по
+релевантности. Независимый R5 нужен на exact будущий C; ТЗ отдельно утверждает пользователь.
+Капсула: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+SOURCE-POWER/PRESSURE-UNIT OPEN, moisture basis UNKNOWN; RAW40 не повышены.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 interfaces и R3/R4/R5 история сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, прочность/устойчивость/реальные реакции
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания не разрешены.
+REJECT/STALE/четыре FAIL/material history=2 и OBS-01 exact-C closure сохранены.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — PR52 MERGED; claim intake принят; следующая документальная задача подготовлена
+
+UTC 2026-11-17T00:58:48.225095+00:00; actual R1 session 6afb300b-1540-8191-a5c4-be1a684c20e0; existing role assignment continues.
+PR52 обычный merge a63e27cf1e4579bfe8aa7b78f4dfcabbd6ef6dc3, UTC 2026-11-17T00:54:30Z; parent1 3353de6c9fc699fbd565f1ce63cebedad3137a12,
+parent2/exact head 770b05c9f70be83c8e6a2f9f7f91daeab5f0a1ce. Tree = exact head; R3/R4/R5 C/H ancestry сохранена.
+C принятия 01a5fe0512769b8863b4fe3948983e5b1c928285; H 770b05c9f70be83c8e6a2f9f7f91daeab5f0a1ce.
+Оба exact-head CI SUCCESS, registry PASS и по 100 тестов; main CI 43991412075
+SUCCESS, registry PASS и 100 тестов. Postmerge evidence: verification/pr52_claim_merge_receipt_20261117/.
+C этой postmerge-квитанции/постановки: dfa0e4c3469b57b65a02af8eb302a4655bdf61ec; следующий H сохраняет эстафету.
+
+T-r1-force-inputs-intake-01: claim ACCEPTED_MAIN, единственный effective owner 6afb300b-1540-8191-a5c4-be1a684c20e0,
+исходный lease до 2026-11-17T23:16:47.225017Z без продления; новая запись
+coordination/claims/T-r1-force-inputs-intake-01.json присутствует в remote main.
+Проверенный proposal claim.json NONE/null сохранён как исторический exact-C snapshot.
+Это разрешение только на ограниченный документальный intake; инженерный старт NOT_STARTED.
+R4/старые claims не продлены; их сроки нужно оценивать заново при будущем чтении.
+
+T-r1-requirements-draft-01 — отдельная постановка READY_FOR_CLAIM_REVIEW:
+coordination/tasks/T-r1-requirements-draft-01/task.md, task.json и task_input_manifest.json.
+Предложенная функция R1, owner NONE/lease null; новый claim НЕ принят, ревизия требований
+НЕ начата. Следующий шаг — после проверки закрытия/освобождения текущего intake
+последовательно принять отдельный claim нового исполнителя/срока без переноса старого lease.
+Затем проверить main/точные входы/владельца/срок и применимый аудит, подготовить DRAFT
+требований/матрицы: все 22 REQ/VAL, disposition 40 source-полей, критерии и gaps,
+источники/оговорки/UNKNOWN. Независимый R5 на exact будущий C, пользовательское
+утверждение ТЗ и G1 — отдельные шаги. Эта поставка только готовит задачу.
+Капсула новой задачи: handoffs/T-r1-requirements-draft-01/6afb300b-1540-8191-a5c4-be1a684c20e0.md.
+
+BP500 — основная референтная база; E55/WEIMA/ARS по релевантности, ARS допускает
+и неметаллическое сырьё. Площадка адаптируется; реальные свойства партий и свойства
+будущей конструкции UNKNOWN. SOURCE-POWER/PRESSURE-UNIT OPEN, wet/dry база/метод UNKNOWN;
+up-to/material-dependent qualifiers сохранены. RAW40 не повышены, active registry неизменен.
+R5 C/H 853a72b63fd8c89a3fa54ac1f309f24e7104f1c4 / c086c2a497614c193373d58c1b854078cd7accd0:
+1250 PASS / 0 FAIL, WARNING только на preliminary documentary exact source f2cbd96bb78c915dca74cb4eb29daffbb52ee172.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, 52 интерфейса, R3/R4/R5 история сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции/цикл
+не подтверждены, архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания/изготовление/выпуск
+не разрешены. REJECT/STALE/четыре FAIL/material history=2 и OBS-01 exact-C closure сохранены.
+Срок завершения проекта UNKNOWN; нет новых назначений R2/R3/R4/R5/R6 и обещаний дат.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — принятие claim intake по прямому решению пользователя; PR52
+
+UTC 2026-11-17T00:42:13.477163+00:00; actual R1 session 6afb300b-1540-8191-a5c4-be1a684c20e0. Действующее назначение R1 продолжается.
+Пользователь разрешил принять T-r1-force-inputs-intake-01 и выполнить обычный merge PR52.
+Исходный exact head 49f0045e504863b335869748b7f9385c001469ca повторно проверен:
+оба CI SUCCESS. Main до интеграции 3353de6c9fc699fbd565f1ce63cebedad3137a12;
+конкурирующий принятый владелец intake не обнаружен. Исходные входы: 1163 PASS,
+951 baseline-файл сохранён, exact source C f2cbd96bb78c915dca74cb4eb29daffbb52ee172.
+
+Запись владения: coordination/claims/T-r1-force-inputs-intake-01.json; owner 6afb300b-1540-8191-a5c4-be1a684c20e0.
+Статус ACCEPTED_MAIN означает действующее принятие только при включении этой точной
+записи в remote main и живом исходном сроке. В рабочей ветке блокировки не создаёт.
+Lease до 2026-11-17T23:16:47.225017Z, без продления. Проверенный proposal claim.json
+не меняется; его NONE/null — историческое состояние exact reviewed snapshot.
+Фактическое разрешение/конкуренция/preflight — verification/pr52_claim_merge_20261117/.
+C принятия/подготовки: 01a5fe0512769b8863b4fe3948983e5b1c928285; следующий H сохраняет эту эстафету.
+Точный merge SHA и main CI появятся только в фактической postmerge-квитанции.
+
+R5 C/H 853a72b63fd8c89a3fa54ac1f309f24e7104f1c4 / c086c2a497614c193373d58c1b854078cd7accd0,
+1250 PASS / 0 FAIL, WARNING только для предварительного документального входа.
+R1 decision c3ca6728425b59138fa04d72ef26295de1ff207f и все источники/акты сохранены.
+SOURCE-POWER, SOURCE-PRESSURE-UNIT OPEN; влажностная база/метод UNKNOWN; RAW40
+не перенесены в активный registry. BP500 — основной reference, другие прессы по
+релевантности; ARS допускает и неметаллическое сырьё, но его режимы не параметры REV.
+
+Первый шаг после подтверждённого merge — проверить ancestry/единственного owner/срок,
+затем подготовить отдельную документальную задачу T-r1-requirements-draft-01 на
+ревизию требований и критериев. Подготовка задачи не принимает новый claim и не
+утверждает ТЗ. Готовые чертежи будущего пресса не запрашивать у оператора;
+площадка адаптируется под пресс, реальные свойства/параметры остаются UNKNOWN.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, физические испытания не разрешены.
+44 bindings/нагрузки/ходы/CAD, 84 RAW/null, R3/R4/R5 история, REJECT/STALE/четыре FAIL
+сохранены; прежний OBS-01 CLOSED только на exact R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe.
+
+---
+
+## Предыдущие записи — история
+
+# R1 — референтный intake принят предварительно с WARNING; claim не принят
+
+UTC 2026-11-17T00:17:45.118945+00:00; R1 actual session 6afb300b-1540-8191-a5c4-be1a684c20e0,
+coordinator alias r1-pr48-integration-20261116. PR52 OPEN, main не сливается.
+C решения/подготовки PR: c3ca6728425b59138fa04d72ef26295de1ff207f; следующий H — в ветке
+work-r1/T-r1-force-inputs-intake-01/6afb300b-1540-8191-a5c4-be1a684c20e0.
+
+- Exact target R1 C f2cbd96bb78c915dca74cb4eb29daffbb52ee172;
+  исходный H 411bb36f9559d80caec4e2f870e8120148d9c6a9.
+- R5 act C 853a72b63fd8c89a3fa54ac1f309f24e7104f1c4;
+  H c086c2a497614c193373d58c1b854078cd7accd0.
+  REV-R5-REFERENCE-INTAKE-REVIEW-01-001: 1250 PASS / 0 FAIL, 4 PDF/11 страниц,
+  40 деклараций/единицы/квалификаторы, verdict WARNING_DOCUMENTARY_REFERENCE_ONLY.
+- Решение R1 decisions/R1-REFERENCE-INTAKE-PRELIMINARY-ACCEPTANCE.md принимает
+  только предварительный документальный пакет, без новой самопроверки R1.
+  История акта/эстафеты R5 включается в PR обычным merge без squash/rebase.
+  Проверенные source-файлы и original proposed claim не изменены.
+- BP500 первичен по указанию пользователя; площадка адаптируется под пресс,
+  другие руководства применяются по релевантности. SOURCE-POWER/UNIT OPEN,
+  wet/dry база/метод UNKNOWN, up-to/material-dependent оговорки сохранены.
+- ARS не исключительно металлический: PDF4 §4.6 включает plastic chips/sawdust;
+  физические свойства/уставки BP500/REV из этого не следуют. Eject на PDF17 также
+  возвращается в retract/reset. Эти квалификаторы закреплены в решении R1,
+  40 RAW-кандидатов не редактировались и не перенесены в active registry/CAD.
+- Claim intake PROPOSED_PENDING_MAIN; owner NONE, effective lease null.
+  Proposed owner 6afb300b-1540-8191-a5c4-be1a684c20e0, исходный proposed deadline
+  2026-11-17T23:16:47.225017Z без продления. Review не назначает owner и не
+  принимает claim. Назначение R1 в текущей беседе повторно не запрашивается.
+  План последующего разрешённого принятия без изменения reviewed claim.json:
+  verification/r1_reference_intake_acceptance/integration_and_claim_plan.md.
+- Source/CI/preservation evidence: verification/r1_reference_intake_acceptance/.
+  Main 3353de6c9fc699fbd565f1ce63cebedad3137a12 сохраняется; claim R4 не менялся.
+  Функции/сроки будущих задач по-прежнему не являются назначенными сессиями.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Реальные геометрия/материалы/
+контакты/реакции/прочность/устойчивость/цикл UNKNOWN/не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, испытания/изготовление/выпуск не разрешены.
+44 bindings/нагрузки/ходы/CAD и старые C/H сохранены; OBS-01 CLOSED только на
+R4 exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe; прежний акт STALE/четыре FAIL,
+семь REJECT/material history=2 сохранены, не сброшены. Инженерный DoD не закрыт.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R5 — референтный intake: WARNING, exact C проверен по первичным PDF
+
+UTC 2026-11-17T00:01:09.781057+00:00; task T-r5-reference-intake-review-01.
+R5 / Codex на базе GPT-6, exact runtime model ID unavailable. Actual session
+`6afb0a73-b16c-8191-a539-9a6685e89034`. Прямое назначение пользователя.
+Авторства intake R1 нет; прежнее upstream R5 авторство раскрыто в identity.json
+и не переоценивается независимо.
+
+**C акта `853a72b63fd8c89a3fa54ac1f309f24e7104f1c4` REMOTE_VERIFIED** до создания этого H.
+Ветка `work-r5/T-r5-reference-intake-review-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+Этот H — следующий commit с точной ссылкой на C; SHA самого H получать из Git/remote.
+
+## Exact вход и результат
+
+Target/команда R1 C **f2cbd96bb78c915dca74cb4eb29daffbb52ee172**.
+Observed source head 411bb36f9559d80caec4e2f870e8120148d9c6a9 прочитан для актуальной
+эстафеты, не подменял target. Main при проверке3353de6c9fc699fbd565f1ce63cebedad3137a12;
+PR52 OPEN. Intake на exact C PROPOSED_PENDING_MAIN, owner NONE/effective lease null;
+предложенный срок2026-11-17T23:16:47.225017Z не считается действующим lease.
+Reviewer не принимает claim в main и не продлевает R1/R4 сроки.
+
+Акт **REV-R5-REFERENCE-INTAKE-REVIEW-01-001**,
+verification/r5_reference_intake_review/review.md. Там же identity, PDF hashes,
+render manifests/11 rendered images, visual_transcription/qualitative_assessments,
+inspect_reference/independent_final, builder replay/remote context/target CI/validation.
+
+**WARNING / пригоден только как предварительный документальный референтный пакет.**
+- 4 PDF SHA256/LFS OID совпали. Независимо просмотрены BP500 PDF3/4, E55 PDF5/14,
+ WEIMA PDF7/18, ARS PDF17, дополнительно ARS1–4. Полного перечитывания всех PDF не заявлено.
+- 40/40 source fields совпали:39 SI-представлений проверены по точным определениям,
+ ambiguous1700kg/cm² осталось null;16 qualitative/supplemental записей проверены визуально.
+- Final independent **1250 PASS /0 FAIL**.8 builder outputs MATCH в temporary HERE,
+ 28 author files unchanged; R1-only verifier не запускался, session spoofing не было.
+- 84 RAW/null /21 групп /52 интерфейса /42 исходных состояния прослеживаются,
+ состояния не рассчитаны.26 intake pins/54 прежних pins/961 old files сохранены,
+ active registry/44 bindings/нагрузки/ходы/CAD/R3/R4/R5 и REJECT history не изменены.
+- Root registry --check-git с новым актом PASS, diff --check PASS. Target C CI success;
+ CI новых reviewer C/H проверяется отдельно после push и не подменяется source CI.
+
+## Обязательные квалификаторы
+
+SOURCE-POWER OPEN: total34.2kW и строки30/2.6/1.5kW не исправлены и не превращены
+в новый электрический бюджет. SOURCE-PRESSURE-UNIT OPEN:1700kg/cm² не истолковано
+как kgf/cm², силу из него не получать.300bar — гидравлический максимум источника,
+не давление материала. Влажностная wet/dry база и метод UNKNOWN.
+BP5006–14%, E558–14%, WEIMA8–20% material-dependent не объединены/не усреднены.
+Up to600units/h of0.83kg, material/settings dependent — не гарантированный минимум
+и не новая массовая производительность REV; преобразована только единица.
+
+E55 удержание при возврате, WEIMA level/K3T, ARS branch/door/reset — только
+документированные принципы, без переноса геометрии/уставок/PLC/READY. ARS PDF4
+§4.6 не исключительно металлический: также plastic chips/sawdust/grinding swarf.
+На диаграмме ARS путь eject присоединяется к retract/reset;0.15sec не доказывает
+разгрузку REV. Сохранять этот контекст при дальнейшем использовании источников.
+
+## Передача R1
+
+Следующий R1: fetch эти C/H, прочитать акт/primary render notes, сохранить
+источниковые квалификаторы в дальнейшей документальной ревизии требований.
+Первый проверяемый шаг — рассмотреть открытые SOURCE-POWER/UNIT/MOISTURE и
+явно отделить заявленную характеристику от физического входа REV. Критерий
+успеха — прослеживаемая ревизия требований/входов без тихого устранения пробелов
+или повышения RAW/принятия claim по одному файлу. Принятие нового claim/ТЗ и
+дальнейшая инженерная область оформляются отдельно в пределах полномочий.
+Функции в intake — предложения; owner/session не назначены, даты UNKNOWN.
+Готовые чертежи будущего пресса не требуются от оператора этой проверкой.
+
+## Сохранённые границы
+
+Candidate40 остаётся RAW/scoped; переноса в active registry/CAD нет. OBS-01
+CLOSED только на прежнем R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe; старый
+акт STALE и исторические четыре FAIL сохранены. Новая reference policy не
+проверяет применимость старых WHAT_IF расчётов к новым целям автоматически.
+**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Реальные геометрия/материалы/
+контакты/реакции/прочность/устойчивость/цикл/ресурс UNKNOWN/не подтверждены.
+G1 OPEN; architecture/TZ NOT_APPROVED; W02/physical READY NO-GO.
+CAD-build/rebuild, новые инженерные расчёты/испытания/изготовление/выпуск
+не выполнялись и не разрешаются. Семь REJECT/material history=2 и блокеры
+не закрыты/не сброшены. Main не сливалась.
+
+Капсула: handoffs/T-r5-reference-intake-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
+# R1 — intake начат: референтный пакет BP500 и дополнительных источников
+
+UTC 2026-11-16T23:19:49.897566+00:00; task T-r1-force-inputs-intake-01 / PRECLAIM_DOCUMENTARY_DRAFT.
+Фактическая сессия R1 6afb300b-1540-8191-a5c4-be1a684c20e0; действующее назначение
+R1 продолжается, прежний coordinator alias r1-pr48-integration-20261116.
+C предварительного пакета: f2cbd96bb78c915dca74cb4eb29daffbb52ee172. PR: #52 — https://github.com/narrateller/REV/pull/52.
+Ветка work-r1/T-r1-force-inputs-intake-01/6afb300b-1540-8191-a5c4-be1a684c20e0.
+
+Новые прямые указания пользователя: характеристики/сырьё как у BP500,
+площадка адаптируется под пресс; другие имеющиеся руководства использовать
+по релевантности. Точные сообщения — verification/r1_force_inputs_intake/user_direction.json.
+Повторный запрос уже определённых целей/сырья/площадочных ограничений не нужен.
+Основные цели берутся из BP500, E55/WEIMA/ARS дополняют с явными ограничениями.
+Нет разрешения автоматически выбирать архитектуру или считать REV испытанным.
+
+Пакет verification/r1_force_inputs_intake/: 40 полей отдельного scoped RAW
+registry candidate, 8 дополнительных референтных наблюдений, 8 качественных
+описаний BP500, связь 84 RAW/null с 21 группой будущих входов/решений.
+Сверены первичные страницы и SHA256 четырёх PDF. SOURCE-POWER и
+SOURCE-PRESSURE-UNIT остаются открытыми; диапазоны влажности не усредняются.
+Ввод реальных e(q)/L_free(q)/материалов/контактов не выполнялся. Отсутствующая
+геометрия будущей конструкции — задача разработки, не запрос готовых чертежей
+от оператора. SI-значения — перепись/точные единицы, не инженерные расчёты.
+
+Новый claim только PROPOSED_PENDING_MAIN: owner NONE, lease null;
+proposed owner actual R1, исходный proposed lease 2026-11-17T23:16:47.225017Z.
+По §4 протокола claim вступает в силу после последовательного принятия main;
+локальная подготовка/публикация не являются блокировкой. Role R1 заново не
+запрашивается; прежние leases/claim R4 не изменены. Инженерное исполнение NOT_STARTED.
+Независимый source review NOT_RUN; команда R5_review_command.md на exact C.
+Функции будущих поставщиков — предложения, их owner/session не назначены,
+согласованные сроки UNKNOWN; дата завершения всего проекта UNKNOWN.
+
+Main 3353de6c9fc699fbd565f1ce63cebedad3137a12 (PR51 MERGED) сохраняется.
+Активный реестр/44 bindings/нагрузки/ходы/CAD и прежние R3/R4/R5 пакеты неизменны;
+52 интерфейса/42 source states/84 RAW-null сохранены. OBS-01 CLOSED только на
+R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe, старый акт STALE/четыре FAIL сохранены.
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Прочность/устойчивость/реальные реакции
+не подтверждены; ТЗ/архитектура NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO.
+Численный/физический этап, CAD-build/rebuild, испытания/изготовление/выпуск не разрешены.
+Прежние блокеры, семь REJECT и material history=2 не закрыты/не сброшены.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R1 — PR51 MERGED; только документальная интеграция с WARNING
+
+UTC 2026-11-16T22:46:34.483323+00:00; координатор R1 / r1-pr48-integration-20261116.
+PR https://github.com/narrateller/REV/pull/51 слит по прямому разрешению пользователя
+обычным merge 3353de6c9fc699fbd565f1ce63cebedad3137a12, UTC 2026-11-16T22:44:16Z.
+Прежняя main f731910273b47f46c6d45114cecd76de6fa8adf9; второй parent и точный head
+7fac152d7b16e2ebb871386eba0831f50ad18ddb. Дерево merge = дерево head, история сохранена.
+
+C квитанции: 237252a8813c6ae89785e3c8e36d2d63609ba4ab. Следующий H — в отдельной ветке
+work-r1/pr51-merge-receipt/r1-pr48-integration-20261116; полного H внутри самого H нет.
+Это сохранение факта после merge, без второго merge/дополнительной записи в main.
+Main на момент квитанции — 3353de6c9fc699fbd565f1ce63cebedad3137a12.
+Evidence: verification/pr51_merge_20261116/authorization.json, premerge.json,
+premerge_preservation.json, merge_request.json, merge_result.json, postmerge.json, main_CI.json,
+registry_status.json. Свежие premerge 844 PASS, два CI exact head SUCCESS,
+один принятый owner; подтверждены 54 inputs/44 полные bindings/84 RAW-null и CAD.
+
+OBS-01 CLOSED только на R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+независимый R5 recheck C 3784efa32ca26547f2581101474d6188f000c348,
+H fe156cb3fbbb11d86a2716db9adcc7f44057a042: 388 PASS / 0 FAIL; общий WARNING.
+Старый акт STALE/четыре FAIL/архив/первоначальный registry FAIL сохранены.
+Owner R4 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+исходный lease 2026-11-17T17:44:00Z и фактический heartbeat не изменены.
+Нового claim/назначения/инженерного старта эта операция не создаёт.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN; отсутствующие реальные данные UNKNOWN.
+Прочность, устойчивость, реальные реакции и цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED, G1 OPEN, W02/PLC/physical READY NO-GO. Численный/физический этап,
+CAD-build/rebuild, испытания/изготовление/выпуск не начаты и не разрешены.
+SHORT_STROKE/A clamp/B reset-product collision/legacy UP/physical L/B opening,
+семь REJECT/material history=2 сохранены; задача R4 не DONE/VERIFIED/LOCKED/PASSED.
+Предложенный intake T-r1-force-inputs-intake-01 остаётся PROPOSED, owner NONE,
+lease null, engineering NOT_STARTED; дальнейший план — verification/r1_r4_symbolic_integration/next_step.md.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R1 — символическая поставка принята с WARNING; OBS-01 CLOSED exact C
+
+UTC 2026-11-16T22:23:55.198818+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и подготовки PR: a603bea2878eaf78d418b5a750293970728d0da5.
+PR документальной поставки: #51 — https://github.com/narrateller/REV/pull/51 (без слияния).
+H получать из Git/remote ветки
+work-r1/r4-symbolic-integration/r1-pr48-integration-20261116.
+
+- Проверенный R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Независимый R5 recheck C 3784efa32ca26547f2581101474d6188f000c348;
+  H fe156cb3fbbb11d86a2716db9adcc7f44057a042. Акт
+  REV-R5-R4-SYM-OBS01-RECHECK-01-001: 388 PASS / 0 FAIL, OBS-01 CLOSED /
+  PASS_DOCUMENTARY_EXACT_C только на указанном R4 C; общий вердикт WARNING.
+- R1 принимает закрытие по этому независимому акту, не выполняя самоприёмку.
+  Решение decisions/R1-R4-SYMBOLIC-PACKAGE-ACCEPTANCE.md; инженерный DoD не закрыт.
+- Старый акт R5 остаётся STALE, исторические WARNING/2422 PASS/4 FAIL/OBS OPEN
+  и verbatim archive сохранены. Новая CURRENT запись закрывает только OBS-01.
+- Owner R4 6afb4750-7918-8191-8569-77b5b0c41050, claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления. Claim/heartbeat автора не менялись;
+  pending-строка в claim — авторский снимок до нового review, не текущий акт.
+- Подготовить отдельный PR в main без слияния, сохранить ancestry обычного merge.
+  Main f731910273b47f46c6d45114cecd76de6fa8adf9 остаётся неизменной. Точный head
+  и CI брать из GitHub. При последующей разрешённой интеграции повторить
+  main/head/CI/owner/lease/inputs/конкуренцию; автоматического merge нет.
+- Checks/registry/source CI/preservation — verification/r1_r4_symbolic_integration/.
+  Исходные 54 inputs/12 tree identities/44 полные bindings/84 RAW-null сохранены;
+  reviews отличается только уже оформленными актами и требуемой меткой STALE.
+- Далее предложен отдельный intake T-r1-force-inputs-intake-01: PROPOSED,
+  owner NONE, lease null, инженерное исполнение NOT_STARTED. Это запрос реальных
+  источников/владельцев входов, не разрешение расчёта. План next_step.md там же.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Прочность, устойчивость, реальные реакции и цикл не подтверждены. Архитектура/ТЗ
+NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO. CAD-build/rebuild,
+численные/физические расчёты, испытания/изготовление/выпуск запрещены.
+Прежние SHORT_STROKE/A clamp/B reset-product collision/legacy UP/physical L/B
+opening, семь REJECT и material history=2 сохранены; задача R4 не DONE/VERIFIED/LOCKED/PASSED.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R5 targeted recheck OBS-01 — CLOSED exact C; общая поставка WARNING
+
+UTC 2026-11-16T22:12:42.503154+00:00; task T-r5-r4-symbolic-obs01-recheck-01.
+R5 / Codex на базе GPT-6, runtime deployment ID unavailable; фактическая сессия
+`6afb0a73-b16c-8191-a539-9a6685e89034`. Прямое поручение пользователя продолжить R5.
+Коррекция R4/координация R1 не авторские для reviewer; прежнее upstream R5
+авторство раскрыто в identity.json и не переоценивается независимо.
+
+**C акта `3784efa32ca26547f2581101474d6188f000c348` — REMOTE_VERIFIED** до создания этого H.
+Ветка `work-r5/T-r5-r4-symbolic-obs01-recheck-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+Этот H — следующий commit со ссылкой на C; его SHA получать из Git/remote.
+База ветки — coordination H `1d5e2a8ed3c9be340897d6485c7a4383edf62152`.
+
+## Проверенный exact результат
+
+- Target R4 C `beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe`,
+  request H `47db9013c3cf3756987cdb480850cc0487c59b1e`.
+- Команда R1 C `57e6cd452e3567f837bb95af041b3514e0ce437e`, correction authority
+  `e380f6d05fe58fe5125c940ac90a151c5bba546b`.
+- Исходные R4 C/H `b840dfd5444da2bf62483b7f4a6069d2bb255b71` /
+  `9433ef749df14a3bbf8ea32331e2f895fd5bf7aa`; R5 C/H
+  `4aa23509b45efc2c2c166935102ca5caa76f55e2` /
+  `92230cef87b71aa7e2d51fe6f21c11360331dd37`.
+- Акт REV-R5-R4-SYM-OBS01-RECHECK-01-001:
+  verification/r5_r4_symbolic_obs01_recheck/review.md; identity/checker/independent_final/
+  document_replay/remote_context/source CI/validation в той же папке.
+
+**R5-SYM-OBS-01 CLOSED / PASS_DOCUMENTARY_EXACT_C.** Общий WARNING сохраняется.
+Все четыре datum_motion исправления PASS: A-V1/A-V2 удалили CI-X_B_GATHER,
+сохранили CI-X_COLUMN_GATHER; B-V1/B-V2 — наоборот. По одному удалению в строке,
+остальной порядок/значения refs/поля и 48 полных строк прежние. JSON/MD/генератор
+согласованы; оба CI ID остаются в неизменном master catalog.
+
+Финальные собственные проверки: **388 PASS / 0 FAIL**. На старом C те же четыре
+FAIL_EXPECTED, исходные 2422 PASS/4 FAIL не ретушировались. Авторские 8 FAIL —
+две проверки каждой из тех же четырёх строк; supplemental повтор 1337 PASS/8 FAIL
+(exit1 ожидаем), исправленный авторский verifier 1341 PASS; renderer 7 MATCH.
+54 inputs/12 исходных trees/44 полные bindings/84 RAW-null/42 полных source-state
+objects, нагрузки/ходы/fixed-budget/registry/CAD и 8 архивов сохранены.
+Claims меняют только раскрытые служебные поля; owner/lease/scope не расширены.
+
+Старый R5 record остаётся **STALE** с историческими WARNING/checks/OBS OPEN.
+Его verbatim archive и старый journal prefix сохранены, единственная старая
+метка CURRENT→STALE не возвращается. Первый исторический registry FAIL с кодом1
+и причиной сохранён. Новое закрытие — отдельная запись этого exact recheck.
+Root registry --check-git после нового акта PASS; diff --check PASS. CI exact
+source R4 C/H success, registry PASS/100 tests OK каждый. Новые reviewer C/H
+CI проверяются после push и не подменяются результатами source C/H.
+
+## Передача R1
+
+Следующий участник R1: fetch эти C/H, подтвердить exact target/OBS closure,
+сохранить общую WARNING-область и обе истории в последующей координации.
+Первый проверяемый шаг — прочитать новый акт/4 row_results, убедиться, что
+старый акт STALE и новая запись относится к beb4cf4, а не старому b840dfd.
+Критерий успеха — согласованное документальное закрытие только OBS-01 без
+возвращения старого акта в CURRENT и без расширения инженерных полномочий.
+Main не сливалась; PR не сливался. Owner R4 прежний, lease **2026-11-17T17:44:00Z**
+не продлевался и reviewer его не присваивал. Дальнейшая численная/физическая
+работа требует отдельной разрешённой области и надлежащих входов/проверок.
+
+## Ограничения
+
+**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Реальные отсутствующие данные
+UNKNOWN; прочность/устойчивость/реакции/capacity/margins/цикл не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO.
+CAD-build/rebuild, численные/физические расчёты, испытания/выпуск запрещены.
+Старые блокеры, семь REJECT и material history=2 не закрыты/не сброшены.
+Задача R4 не объявлена DONE/VERIFIED/LOCKED/PASSED.
+
+Капсула: handoffs/T-r5-r4-symbolic-obs01-recheck-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
+# R1 — коррекция OBS-01 получена; независимый R5 recheck NOT_RUN
+
+UTC 2026-11-16T21:37:27.577390+00:00; координатор R1 / r1-pr48-integration-20261116.
+C передачи: 57e6cd452e3567f837bb95af041b3514e0ce437e. H получать из Git/remote ветки
+work-r1/r5-obs01-recheck/r1-pr48-integration-20261116.
+
+- Новый target R4 C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe;
+  request H 47db9013c3cf3756987cdb480850cc0487c59b1e.
+- Исходный R4 C b840dfd5444da2bf62483b7f4a6069d2bb255b71;
+  акт R5 C 4aa23509b45efc2c2c166935102ca5caa76f55e2,
+  H 92230cef87b71aa7e2d51fe6f21c11360331dd37;
+  R1 correction authority e380f6d05fe58fe5125c940ac90a151c5bba546b.
+- OBS-01 OPEN/P2; новый targeted independent recheck NOT_RUN. Автор исправил
+  ровно четыре чужие gather refs, сохранил собственные и остальные 48 строк.
+  R1 не закрывает OBS-01; старый акт относится только к старому C.
+- Команда для исходного независимого R5: verification/r1_r5_obs01_recheck/R5_recheck_command.md.
+  Task T-r5-r4-symbolic-obs01-recheck-01. Preferred previous actual reviewer
+  6afb0a73-b16c-8191-a539-9a6685e89034, с повторной проверкой независимости и
+  раскрытием upstream-авторства. Файл не создаёт автоматического назначения.
+- R4 owner 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease до 2026-11-17T17:44:00Z, без продления и без новой инженерной стадии.
+- Авторский verifier воспроизведён R1: 1341 PASS; renderer 7 MATCH в tmp.
+  Это supplemental evidence, не независимый review. Свои routing/preservation
+  checks и root registry result — verification/r1_r5_obs01_recheck/.
+- Координационная ветка сохраняет ancestry обеих поставок: предыдущий R1 H
+  aaaaf5285b8066722e81cf0127d5a2572369d068 и новый R4 H. Конфликты трёх сводок
+  разрешены сохранением обоих новых префиксов и общей истории один раз;
+  исходные пакеты сохранены. Исторический акт R5 архивирован дословно;
+  в активном журнале изменено только validity CURRENT -> STALE по §4 протокола,
+  поскольку исправлены reviewed interfaces. WARNING/четыре FAIL/OBS OPEN сохранены.
+  Первый registry выявил эту stale-связь; лог/код 1 сохранены отдельно.
+  Новый exact C всё ещё требует независимого recheck.
+  Это сборка эстафеты в отдельной ветке; main f731910273b47f46c6d45114cecd76de6fa8adf9
+  не изменена. PR не сливался.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN.
+Реальные реакции, прочность, устойчивость и цикл не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN, W02/PLC/physical READY NO-GO.
+CAD-build/rebuild, численные/физические расчёты, испытания и выпуск не разрешены.
+54 inputs/12 исходных деревьев/44 полные bindings/84 RAW-null/нагрузки/ходы/CAD,
+прежние блокеры, семь REJECT/material history=2 сохранены; задача R4 не DONE.
+
+---
+
+## Предыдущие записи — сохранённая история
+
+# R4 — OBS-01: авторская коррекция передана на targeted R5 recheck
+
+HANDOFF / IN_REVIEW, UTC 2026-11-16T21:26:46.902037+00:00; R4/Codex/session 6afb4750-7918-8191-8569-77b5b0c41050.
+T-r4-force-geometry-01; OBS01_AUTHOR_CORRECTION_PENDING_INDEPENDENT_RECHECK.
+**R5-SYM-OBS-01 остаётся OPEN/P2.** Эта запись не закрывает замечание.
+
+**Новый C `beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe` — REMOTE_VERIFIED.**
+Ветка `work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050`.
+https://github.com/narrateller/REV/tree/work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050
+Этот следующий H добавляет только STATE/NEXT/капсулу, targeted request и receipt CI C.
+
+## Полномочия и точные входы
+
+- Audited/current main `f731910273b47f46c6d45114cecd76de6fa8adf9`. Принятие claim PR49
+  cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9 в ancestry; owner/session 6afb4750-7918-8191-8569-77b5b0c41050.
+  Lease до **2026-11-17T17:44:00Z**, без продления. Фактический precommit heartbeat
+  R4 **2026-11-16T21:21:46.876876+00:00**; source — obs01_correction/heartbeat_precommit.json.
+- Команда/решение R1 прочитаны на e380f6d05fe58fe5125c940ac90a151c5bba546b.
+  Исходный R4 C/H b840dfd5444da2bf62483b7f4a6069d2bb255b71 /
+  9433ef749df14a3bbf8ea32331e2f895fd5bf7aa; R5 C/H
+  4aa23509b45efc2c2c166935102ca5caa76f55e2 / 92230cef87b71aa7e2d51fe6f21c11360331dd37.
+- R1/R5 ветки не слиты ради чтения; reviews рабочего checkout неизменны. Новый
+  R5 акт в его C сохранён как добавление к старому prefix, scope checker не менялся.
+  Дополнительный provenance не переписывает broad authority 80f1028 или source catalog.
+
+## Исправление и проверки
+
+Только A-V1/A-V2 datum_motion: удалить CI-X_B_GATHER, оставить CI-X_COLUMN_GATHER.
+Только B-V1/B-V2 datum_motion: удалить CI-X_COLUMN_GATHER, оставить CI-X_B_GATHER.
+Renderer и interfaces.json/md согласованы. Остальные refs/поля четырёх строк и
+остальные 48 строк неизменны; row-level provenance не менялся. Source catalog
+и master unknown_inputs.json побайтно прежние, оба gather ID в мастер-каталоге.
+
+- Авторская проверка: **1341 PASS**. Новые assertions проверяют отсутствие чужого,
+  сохранение собственного, ровно одно исключение и неизменность остального.
+- Negative control старых таблиц: ожидаемые 1337 PASS / 8 авторских FAIL по
+  новым predicates; это не переименование четырёх historical reviewer FAIL.
+- Исходный независимый R5 WARNING / **2422 PASS / 4 FAIL** сохранён без ретуши.
+  Архив прежних документов/код/evidence — obs01_correction/archive_b840dfd/;
+  source Git C/H, hashes и четыре original FAIL закреплены отдельно.
+- Два fresh actual-session preflight по 138 PASS; 54 inputs/12 trees/44 full
+  bindings, 52 интерфейса/42 полных source states/84 RAW-null сохранены.
+  706 materialized files/48 LFS проверены; source нагрузки/ходы/fixed-budget/CAD неизменны.
+- Детерминированный повтор PASS; semantic JSON delta ровно четыре удаления,
+  Markdown delta четыре строки. Остальные renderer outputs неизменны.
+- Локальный registry --check-git PASS, прямой returncode 0; git diff --check PASS.
+- **CI exact C SUCCESS:** https://github.com/narrateller/REV/actions/runs/43959353148. Receipt ci_C.json и фактическое исполнение
+  тестов — ci_C_test_summary.txt в obs01_correction/. CI следующего H проверяется
+  отдельно после push; прежний CI к нему не переносится и инженерный PASS не означает.
+
+## Передача независимому R5
+
+REQ-R5-R4-SYM-OBS01-TARGETED-RECHECK-01 на exact C beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe:
+verification/r4_force_geometry/obs01_correction/recheck_request.md/json в этом H.
+Reviewer — вне author_sessions; назначение/claim/lease R5 этим не создаются.
+Targeted recheck нового C **NOT_RUN**. Автор и R1 не закрывают OBS-01 сами.
+
+Первый шаг назначенного R5: fetch exact C/H, R1 authority и original R5 C/H;
+проверить четыре active source_references против original C, обе каталожные
+записи и сохранность остальных зависимостей/источников, отсутствие новых FAIL
+или ограничений. Критерий — отдельный независимый акт на exact новый C с
+отдельными исходами по четырём строкам и сохранности. Старый oracle/акт не ретушировать.
+При изменении полномочий/истечении срока — stop новой работе R4, без продления.
+
+## Сохранённые ограничения
+
+§4/5/6 NOT_RUN, отсутствующие реальные данные UNKNOWN; 42 состояния не рассчитаны.
+Геометрия/опоры/e_y/e_z(q)/L_free(q)/сечения/материалы/контакты/фазовые нагрузки,
+реакции/прочность/устойчивость/capacity/margins и реальный цикл не подтверждены.
+Новых размеров/ASSUMED-сценариев/подстановок/CAD-build/rebuild/физических расчётов/
+испытаний нет. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/PLC/physical READY NO-GO.
+SHORT_STROKE, A clamp, B reset/product collision, legacy UP, physical L/B opening,
+семь REJECT/material history=2 не закрыты. Полный инженерный объём не DONE/VERIFIED/
+LOCKED/PASSED. Enforcement PROCEDURAL, неопубликованная чужая работа не наблюдаема.
+
+Капсула: handoffs/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R1 — WARNING принят в документальной области; R4 исправляет OBS-01
+
+UTC 2026-11-16T20:59:21.699648+00:00; координатор R1 / r1-pr48-integration-20261116.
+C решения и команды: e380f6d05fe58fe5125c940ac90a151c5bba546b. Полный H получать из Git/remote этой ветки:
+work-r1/r5-symbolic-observation/r1-pr48-integration-20261116.
+Main f731910273b47f46c6d45114cecd76de6fa8adf9 не изменяется; PR не сливается.
+
+- R4 target C b840dfd5444da2bf62483b7f4a6069d2bb255b71, H 9433ef749df14a3bbf8ea32331e2f895fd5bf7aa.
+- R5 act C 4aa23509b45efc2c2c166935102ca5caa76f55e2, H 92230cef87b71aa7e2d51fe6f21c11360331dd37.
+  CI exact R5 H: success, run 43953112276. Акт: 2422 PASS / 4 advisory FAIL,
+  WARNING / SUFFICIENT_DOCUMENTARY_SYMBOLIC_ONLY; исходные результаты сохранены.
+- R5-SYM-OBS-01 OPEN/P2. Выбран минимальный вариант: удалить из datum_motion
+  A-V1/A-V2 только CI-X_B_GATHER, B-V1/B-V2 только CI-X_COLUMN_GATHER;
+  собственные gather refs и общий исходный каталог сохранить. До исправления
+  и targeted independent recheck безусловная машинная интерпретация запрещена.
+- Владелец R4 6afb4750-7918-8191-8569-77b5b0c41050; claim ACCEPTED_MAIN,
+  lease 2026-11-17T17:44:00Z без продления. Перед продолжением нужен fresh
+  actual-session preflight/main/owner/lease/inputs/конкуренция. Просрочка — STOP.
+- Команда: verification/r1_r5_symbolic_observation/R4_correction_command.md.
+  Решение: decisions/R1-R5-SYMBOLIC-OBS-01-DISPOSITION.md.
+  Новый результат R4 требует нового exact C/H и независимого R5 recheck;
+  автор и координатор не закрывают замечание сами. Старый акт не переносится.
+- Раскрыто прежнее upstream-авторство R5; его собственная физическая правильность
+  заново независимо не проверялась. R1 не исполняет сессионные проверки за R4/R5.
+- Проверки R1: verification/r1_r5_symbolic_observation/checks.json;
+  registry.log/registry_status.json — фактический отдельный результат validator.
+  Старый журнал сохранён префиксом, новый акт R5 точен; исходные 12 tree hashes
+  проверяются на pinned main, reviews на рабочей ветке отличается добавлением акта.
+
+42 состояния не рассчитаны; §4/5/6 NOT_RUN. Все отсутствующие реальные данные
+UNKNOWN; прочность, устойчивость и реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED; G1 OPEN; W02/PLC/physical READY NO-GO.
+54 inputs, 44 полные привязки, 84 RAW/null, нагрузки/ходы/CAD и прежние
+блокеры/семь REJECT/material history=2 сохраняются. CAD-build/rebuild,
+численные/физические расчёты, испытания и выпуск не разрешены. R4 не DONE.
+
+---
+
+## Предыдущая запись — сохранённая история
+
+# R5 — OUTPUT-review символической поставки R4: WARNING / OBS-01 OPEN
+
+UTC 2026-11-16T20:45:42.984774+00:00; task T-r5-r4-force-geometry-symbolic-review-01.
+Фактический session ID `6afb0a73-b16c-8191-a539-9a6685e89034`; R5 / Codex на базе GPT-6,
+точный runtime deployment ID недоступен. Назначение — прямое поручение пользователя.
+Авторства target R4/координации R1 нет; прежнее upstream R5 авторство раскрыто
+в identity.json, его собственная правильность здесь не переоценивается независимо.
+
+**C акта `4aa23509b45efc2c2c166935102ca5caa76f55e2`**. Этот H — следующий коммит с точной ссылкой на C;
+его полный SHA получать из Git/remote. Ветка публикации:
+`work-r5/T-r5-r4-force-geometry-symbolic-review-01/6afb0a73-b16c-8191-a539-9a6685e89034`.
+
+## Exact inputs и результат
+
+- Target R4 C `b840dfd5444da2bf62483b7f4a6069d2bb255b71`; request H
+  `9433ef749df14a3bbf8ea32331e2f895fd5bf7aa`, отдельно от target.
+- Command C `c2c16d1ac4f5a4da44f407872733eba90d08a4a2`; authority
+  `80f1028c25d1c4344c0115b7908e02346d895701`; observed main
+  `f731910273b47f46c6d45114cecd76de6fa8adf9`, PR49 acceptance
+  `cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9`. R4 owner/claim/lease не менялись.
+- Акт REV-R5-R4-FORCE-GEOMETRY-SYMBOLIC-OUTPUT-01-001,
+  verification/r5_r4_force_geometry_symbolic_review/review.md.
+  identity/independent/renderer replay/author replay/readonly/validation там же.
+- **WARNING / SUFFICIENT_DOCUMENTARY_SYMBOLIC_ONLY**: 52/52 строки осмысленно
+  сопоставлены с источниками, 2422 PASS / 4 advisory FAIL одного P2 замечания.
+- R5-SYM-OBS-01 OPEN: A-V1/A-V2 datum_motion содержат CI-X_B_GATHER,
+  B-V1/B-V2 datum_motion содержат CI-X_COLUMN_GATHER без квалификации применимости.
+  Это не четыре физических отказа. Общая символическая постановка пригодна,
+  но source_references нельзя использовать как безусловный машинный граф предпосылок.
+- 54 inputs / 12 trees / 44 полные bindings / 84 RAW/null / 42 полных source states
+  сохранены; 706 materialized protected files, 161 R4/R3/upstream R5 files unchanged.
+  Source нагрузки/ходы/fixed-budget/registry/CAD не изменены.
+- Renderer 7/7 MATCH дважды, 37 author symbolic files unchanged; supplemental
+  author verifier 1274 PASS не заменяет review. Новый R4-only preflight/подмена
+  CODEX_SESSION_ID не выполнялись. Registry --check-git после акта PASS, diff --check PASS.
+
+## Следующий участник и критерий
+
+R1 получает этот exact акт/C/H для координации без самостоятельного закрытия
+физических пробелов. R4 — квалифицировать 4 CI-ссылки как comparison-only/N_A
+либо исключить чужую ветвь. Первый проверяемый шаг: прочитать OBS-01 по row_key
+и исходный unknown_inputs.json; до автоматической интерпретации зависимостей
+снять неоднозначность. Критерий успеха — новый exact C с явной применимостью
+и точечный независимый recheck; reviewer автора не исправлял.
+
+Новые численные/физические стадии требуют отдельных надлежащих входов или
+зарегистрированных ASSUMED и применимых повторных проверок: geometry/опоры,
+e_y/e_z(q), L_free_rod/carrier(q), раздельные сечения/материалы/E/COTS/joints,
+фазовые нагрузки/контакты A startup/retention, B unload/unlock/open/reset,
+массы/потери/критерии и ресурсы. Сейчас это не разрешено и не выполнялось.
+
+## Сохранённые границы
+
+§4/5/6 входного аудита **NOT_RUN**. **42 состояния не рассчитаны**. Реальные
+геометрия/реакции/прочность/устойчивость/capacity/margins/цикл/COTS/материалы
+не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/PLC/physical READY
+NO-GO. CAD-build/rebuild, физические/численные расчёты в этой review-задаче,
+испытания и выпуск не разрешены. R4 не объявлена DONE/VERIFIED/LOCKED/PASSED.
+SHORT_STROKE/A clamp contacts/B reset-product collision/legacy UP/physical L/B opening,
+семь REJECT и material history=2 не закрыты и не сброшены. PR не сливался.
+
+Капсула: handoffs/T-r5-r4-force-geometry-symbolic-review-01/6afb0a73-b16c-8191-a539-9a6685e89034.md.
+
+---
+
+## Предыдущая сводка — история
+
+# R4 — символические интерфейсы готовы к независимому OUTPUT-review
+
+HANDOFF / IN_REVIEW, UTC 2026-11-16T20:05:39.708525+00:00; narrateller/REV; R4 / Codex on GPT-6 base
+(exact runtime model identifier unavailable) / session 6afb4750-7918-8191-8569-77b5b0c41050.
+Task T-r4-force-geometry-01, статус SYMBOLIC_SPECIFICATION_IN_REVIEW; полный
+инженерный объём не DONE/VERIFIED/LOCKED/PASSED.
+
+**C результата `b840dfd5444da2bf62483b7f4a6069d2bb255b71` — REMOTE_VERIFIED.**
+Ветка `work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050`.
+https://github.com/narrateller/REV/tree/work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050
+Следующий H меняет только эту эстафету/STATE/капсулу и запрос R5 на exact C.
+
+## Входы и действующий claim
+
+- Fetched main `f731910273b47f46c6d45114cecd76de6fa8adf9`; PR49 acceptance
+  cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9 / head 70ab9a1926235170e449b85d558f135ddae90add
+  в ancestry, owner/session 6afb4750-7918-8191-8569-77b5b0c41050, R4 USER_CONFIRMED/ACCEPTED_MAIN.
+  Lease до **2026-11-17T17:44:00Z** без продления; фактический heartbeat R4
+  **2026-11-16T20:03:23.460489+00:00** в symbolic_20261116/heartbeat_precommit.json.
+- Команда/решение R1 прочитаны на exact C
+  80f1028c25d1c4344c0115b7908e02346d895701; ветка R1 не сливалась.
+  Предыдущие R4 C/H: 45caac78f00ab1535387bb5ed8d7f17caf9afc1f /
+  d94096faa3ce9904c9a86b6d38ad1d5863e0f6e9. Diff к audited main — прежняя R4
+  документация; baseline/54 inputs/12 trees/44 bindings сохранены.
+- Manifest SHA256 6268bfbd94adc293ff27071f960e49c81558016c9b5d14be2207dba52546fe36.
+  Source ID/revision/commit строк интерфейсов — source_catalog/interfaces.json;
+  все 54 pinned inputs отдельно закреплены исходным input_manifest.json.
+  R3 C/H 93b4aead4983f88919d8e8b4165e29d7f3246600 / aadc08a70fbaee16b7ba4c16463bab97275926bb;
+  R5 C/H db6b9774649f99ad1b157cba2a9c7cdeec570302 / 6ef3afc123004c43e007dc477241edfed8efabbb.
+
+## Проверенный документальный результат
+
+Пакет verification/r4_force_geometry/symbolic_20261116/: interfaces.md/json —
+52 строки интерфейсов (по 13 для A-V1/A-V2/B-V1/B-V2); узлы/оси, связи/DOF/стороны,
+work/return, существующие source ID/revision/commit, известное/UNKNOWN, условия/
+недостающие аргументы/функциональные адресаты и next checks.
+Symbolic_dependencies — только исходные формулы с ограничениями, без вычисления.
+State_dependencies — все 42 source строки и зависимости, без решения состояний;
+unknown_index — указатель 84 исходных scoped RAW/null, не новый registry.
+
+- Два fresh preflight по 138 PASS: start/final/commands/competition/preservation;
+  54 inputs/12 trees/44 full bindings MATCH, 706 materialized files/48 LFS.
+  Наблюдаемых competing accepted owners нет; open PRs пусты на моменты проверки.
+  Неопубликованная работа не наблюдаема; enforcement PROCEDURAL.
+- Table release checks 1274 PASS только источников/покрытия/UNKNOWN; текущие
+  SHA256 в table_checks_release.json и validation.json. Renderer repeatability PASS.
+- Текущий registry --check-git PASS, прямой returncode 0; git diff --check PASS.
+  Старые audit/evidence не редактировались; historical CI не переносится на C/H.
+  CI нового C/H не удостоверен этой записью; это не физическая проверка.
+
+## Передача и следующий шаг
+
+Запрос REQ-R5-R4-FORCE-GEOMETRY-SYMBOLIC-01 на exact C:
+verification/r4_force_geometry/symbolic_20261116/review_request.md/json
+в этом H; критерии review_scope.md на C. Независимый R5 — вне author_sessions,
+REQUESTED_AWAITING_SEPARATE_ASSIGNMENT, review **NOT_RUN**. Запрос не создаёт
+claim/lease другого исполнителя. Координатору передаются C/H и ограничения;
+собственная проверка R4 и R1 заключение не независимый OUTPUT-review.
+
+Первый шаг будущего назначенного R5: fetch exact C/H/authority C, сверить scope,
+claimed owner/исходный срок/inputs и immutable source IDs; независимо проверить
+трассировку/полноту и отсутствие новых значений. Критерий успеха — отдельный
+акт достаточности только документальной/символической постановки с evidence и
+конкретными замечаниями, без численного/физического расчёта. При отсутствии
+назначения — только чтение/передача координатору, не присвоение чужого claim.
+
+## Оставшиеся ограничения
+
+Аудит AUD-R4-FORCE-GEOMETRY-INPUT-01 неизменён: WARNING, четыре PASS только
+документальной согласованности, §4/5/6 NOT_RUN. Нет новых численных размеров,
+материалов/E/допусков/диапазонов/сил/сечений, ASSUMED-сценариев или подстановок.
+Numerical/native geometry NOT_STARTED; физические расчёты/CAD/CAE/испытания NOT_RUN.
+Функции e_y/e_z(q), L_free_rod/carrier(q), опоры/сечения/материалы/joints, контакты
+и фазовые F(q,t), реакции/прочность/устойчивость/capacity/margins остаются UNKNOWN.
+V1 не получает нулевую несоосность; V2 не делит силу. Полный ход/частичные и
+промежуточные позы и обе плоскости остаются требованиями, не проверенным sweep.
+
+42 состояния не рассчитаны, 84 RAW/null сохранены. SHORT_STROKE, A clamp contacts,
+B reset/product collision, legacy UP, physical L/B opening, семь REJECT и
+material history=2 не закрыты. Архитектура/ТЗ NOT_APPROVED, W02/PLC/physical
+READY NO-GO, G1 OPEN; CAD-build/rebuild, изменение baseline, испытания и выпуск
+не разрешены. Численная стадия требует новых надлежащих входов/проверок и отдельной
+области; этот H её не разрешает.
+
+Капсула: handoffs/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R4 — preflight и входной аудит WARNING; передача координатору
+
+HANDOFF, UTC 2026-11-16T19:13:24.657655+00:00; проект narrateller/REV, R4 / Codex on GPT-6 base
+(exact runtime model identifier unavailable) / session 6afb4750-7918-8191-8569-77b5b0c41050.
+Задача T-r4-force-geometry-01: INPUT_AUDIT_RECORDED_WARNING, инженерный объём не DONE.
+
+**C результата `45caac78f00ab1535387bb5ed8d7f17caf9afc1f` — REMOTE_VERIFIED.**
+Ветка `work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050`;
+https://github.com/narrateller/REV/tree/work-r4/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050
+Этот следующий H содержит только STATE/NEXT_MODEL/капсулу, без изменений пакета C.
+
+## Принятое назначение и входы
+
+- Проверенная fetched main `f731910273b47f46c6d45114cecd76de6fa8adf9`. PR49 acceptance merge
+  `cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9` — предок main, reviewed head
+  `70ab9a1926235170e449b85d558f135ddae90add`; receipt/два родителя/равенство деревьев PASS.
+- Owner/session `6afb4750-7918-8191-8569-77b5b0c41050`, R4 USER_CONFIRMED/ACCEPTED_MAIN.
+  Lease **2026-11-17T17:44:00Z**, без продления. Фактический heartbeat R4
+  **2026-11-16T19:08:03.489858+00:00**, start/end JSON в preflight_20261116/.
+- Точный manifest SHA256 6268bfbd94adc293ff27071f960e49c81558016c9b5d14be2207dba52546fe36.
+  54 pinned файла (commit/blob/SHA256), 12 protected trees, 44 full bindings MATCH;
+  706 materialized files, 48 LFS SHA256/size сверены. Конкурирующего accepted
+  owner в актуальных main records и открытых PR не найдено на момент preflight.
+  Неопубликованные работы не наблюдаемы; enforcement PROCEDURAL.
+- R3 C/H 93b4aead4983f88919d8e8b4165e29d7f3246600 / aadc08a70fbaee16b7ba4c16463bab97275926bb;
+  R5 C/H db6b9774649f99ad1b157cba2a9c7cdeec570302 / 6ef3afc123004c43e007dc477241edfed8efabbb;
+  R1 decision C 732998ceff472492421fb97478b3b160f89eeaa0. Все ancestry/hashes сверены.
+
+## Выполнено и граница доказательств
+
+- Два текущих preflight по 138 PASS; команды/exit codes/UTC и отдельные
+  результаты в verification/r4_force_geometry/preflight_20261116/checks/ и final_checks/.
+- Входной акт AUD-R4-FORCE-GEOMETRY-INPUT-01 в input_audit.md/json: **WARNING**,
+  семь пунктов рассмотрены; §1/2/3/7 — 4 PASS только документальной согласованности;
+  §4/5/6 — 3 NOT_RUN. FAIL 0, NOT_APPLICABLE 0 (все семь пунктов применимы).
+  Запись аудита завершена; полного инженерного PASS нет.
+- Текущий active registry --check-git PASS, прямой returncode 0; проверка перед C
+  без --check-git также returncode 0. git diff --check PASS. Исторический CI/акт
+  не выдаются за эти запуски; CI нового C/H не удостоверен этой записью.
+- Фактические .venv Python 3.12.14/PyYAML 6.0.3, pip check PASS, system
+  FreeCAD 1.0.0/Part import PASS. Импорт не проверка модели/геометрии.
+- Геометрия и инженерные расчёты **NOT_STARTED**. Native CAD/CAE/physical trials NOT_RUN.
+  Source нагрузки/ходы/fixed-budget/active registry/CAD/R3/R5 packages не изменены.
+
+## Незакрытое и следующий шаг
+
+Координатору R1 передаются точные C/H и ограничения, без нового назначения/продления.
+В действующем claim R4 допустима только документальная/символическая условная
+постановка A-V1/A-V2/B-V1/B-V2 и явных пробелов по task.md; в этой поставке она
+не выполнялась. NOT_RUN не разрешают зависимые физические/численные выводы.
+Перед продолжением: fetch main, сверить owner/lease/accepted ancestry/конкуренцию,
+C и manifest/44 bindings; при расхождении или истечении — stop координатору.
+Первый следующий атомарный результат — таблица известных/UNKNOWN интерфейсов
+с точными source ID@revision/owner получения, без назначения размеров.
+Критерий успеха — прослеживаемость и сохранность, а не расчёт реализуемости.
+
+Для численной оценки недостающие e_y/e_z(q), L_free(q), опоры/сечения/материалы/E,
+двусторонние joints/COTS и фазовые F(q,t), контакты, массы/трение/инерция и критерии
+прочности/устойчивости должны быть получены от соответствующих R2/R3/R4/R5/R6/R1
+либо явно зарегистрированы как отдельные количественные ASSUMED сценарии с
+ID/revision/основанием/областью; затем повтор применимых пунктов аудита.
+Входные акты R5/R1 имеют WARNING scope; независимый OUTPUT-review этого аудита/
+будущего инженерного C NOT_RUN. Будущий инженерный C передать независимому R5
+вне author_sessions; текущая самопроверка R4 его не заменяет.
+
+42 состояния не рассчитаны, 84 RAW/null сохранены. Реальные реакции/прочность/
+устойчивость/capacity/margins UNKNOWN. SHORT_STROKE, A clamp contacts, B reset/product
+collision, legacy UP, physical L/B opening, семь REJECT/material history=2 не закрыты.
+Архитектура/ТЗ NOT_APPROVED, общий CAD-rebuild запрещён, W02/PLC/physical READY NO-GO,
+G1 OPEN; испытания/изготовление/выпуск не разрешены. Вопросов для повторного
+подтверждения UUID/роли нет.
+
+Капсула: handoffs/T-r4-force-geometry-01/6afb4750-7918-8191-8569-77b5b0c41050.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R1 — R4 назначен; claim принят PR49, входной аудит НЕ ВЫПОЛНЕН
+
+UTC 2026-11-16T18:45:36.975663+00:00; координатор R1/Codex/r1-pr48-integration-20261116.
+C документальной фиксации: bdef6434525727bec67aea8546c1224d27d2e0cc.
+PR49 MERGED обычным merge **cd1c08efc4bcd3f50ceeb132a3e8747e9c8c38b9**,
+UTC 2026-11-16T18:40:12Z; reviewed head 70ab9a1926235170e449b85d558f135ddae90add.
+Оба исходных CI, 85 input checks, main/head/owner/deadline проверены перед merge.
+Пользователь прямо назначил R4 реальной сессии и разрешил это принятие.
+
+- Task T-r4-force-geometry-01 / CLAIM_ACCEPTED_PENDING_INPUT_AUDIT.
+  Owner/session **6afb4750-7918-8191-8569-77b5b0c41050**, R4 USER_CONFIRMED,
+  claim ACCEPTED_MAIN; acceptance commit/PR — фактический merge выше / 49.
+- Lease до **2026-11-17T17:44:00Z** — исходный срок, без продления и без сдвига
+  от merge/нормализации. Прежние R1/R3/R4 leases не продлены.
+- Канонические claim.json/md нормализованы по уже состоявшемуся принятию.
+  Pending/NONE/null и role-unconfirmed прежних редакций/отчёта — история;
+  обе редакции сохранены в claim_history/ и Git, отчёт R4 не переписывается.
+  Это документальная запись фактов, не новое назначение/lease или расширение scope.
+- Executor heartbeat пока отсутствует: координатор не имитирует heartbeat R4.
+  **Start gate BLOCKED_PENDING_INPUT_AUDIT**, audit NOT_RUN_PENDING_ACTUAL_R4_PREFLIGHT,
+  инженерная геометрия NOT_STARTED; CAD/CAE/physical trials NOT_RUN.
+- Проверки текущего состояния, immutable inputs и неизменности срока —
+  verification/r4_force_geometry/acceptance_20261116/validation.json.
+  Фактические receipt/authorization/premerge находятся в той же папке.
+  CI документальной записи проверять на точном опубликованном head;
+  успешный CI исходного PR49 не заменяет проверку изменённых документов.
+
+Назначение/UUID/сообщённые модель и инструменты повторно запрашивать не нужно.
+Следующая команда назначенному R4: verification/r4_force_geometry/R4_command.md.
+Первый атомарный шаг — fetch main, проверить ancestry фактического принятия,
+текущие owner/session/непросроченный lease/конкуренцию, 54 pinned files/12 trees/
+44 full bindings; затем входной аудит §6 с точными версиями и семью пунктами
+PASS/FAIL/NOT_APPLICABLE/NOT_RUN. Критерий старта инженерии — принятое назначение,
+действующий срок и завершённый пригодный аудит в разрешённой WARNING области.
+До аудита геометрию и расчёты не начинать; на FAIL/смене inputs/owner/истечении
+срока остановить зависимую работу и сообщить точное расхождение координатору.
+
+После надлежащего аудита — только условная геометрическая постановка четырёх
+вариантов по task.md: опоры, эксцентриситеты, свободные длины, сечения, материалы,
+двусторонние соединения. Реальные пробелы UNKNOWN, новые численные гипотезы —
+отдельные ASSUMED ID/revision/основания. Baseline/44 bindings/loads/strokes/CAD
+не менять. Будущий результат требует C/H и независимого R5 вне author_sessions.
+42 состояния не рассчитаны; прочность/устойчивость/реальные реакции не подтверждены.
+Архитектура/ТЗ NOT_APPROVED, общий CAD-rebuild не разрешён, W02/physical READY
+NO-GO, G1 OPEN, испытания не проводить, старые дефекты/REJECT не закрывать.
+Капсула: handoffs/T-r4-force-geometry-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R1 — PR49 revision 2: фактическая сессия R4 уточнена, назначение не подтверждено
+
+UTC 2026-11-16T18:26:58.976275+00:00; R1 / Codex / r1-pr48-integration-20261116.
+C результата: 54f57a3ce492658765960f75f492b7e5b24ecff4; ветка PR49
+`work-r1/claim-r4-force-geometry/r1-pr48-integration-20261116`.
+Отчёт кандидата передан пользователем после чтения exact head
+`d84adaab398ffee4fe15ab87c9899ffa8beb22e8`. В этой поставке PR49 не сливается.
+
+- Фактическая существующая сессия кандидата: **6afb4750-7918-8191-8569-77b5b0c41050**.
+  proposed_owner_session и session_id уточнены на этот UUID; placeholder
+  r4-force-geometry-20261116 сохранён в revision 1 / claim_history/20261116T174400Z/.
+  Название существующей сессии не подменяется новым псевдонимом.
+- Модель по отчёту R4: Codex на базе GPT-6; exact runtime model ID недоступен.
+  Сообщены Bash, Git/LFS, gh read PR, Python 3.12.14/dependencies,
+  import FreeCAD 1.0.0/Part, file read/write. Координатор записал этот отчёт,
+  не выдавая его за независимый повтор. CAE не проверены; ccx/gmsh отсутствуют
+  в PATH по отчёту той сессии. Импорт модулей не означает CAD-build/CAE.
+- Роль R4 предложена, **назначение пользователем не подтверждено**.
+  Claim PROPOSED_PENDING_MAIN; owner NONE, lease null, heartbeat null,
+  acceptance commit/PR null. Execution NOT_STARTED; gate
+  BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_R4_ROLE_CONFIRMATION.
+- Исходные proposed_at 2026-11-16T17:44:00Z и expiry **2026-11-17T17:44:00Z**
+  сохранены. Уточнение UUID не продлевает никакие leases и не меняет scope.
+- 85 claim/input checks PASS, 754 preservation checks PASS; 8 файлов старой
+  редакции архивированы побайтно. 54 pinned files/12 trees/44 bindings,
+  нагрузки/ходы/fixed-budget/active registry/CAD/R3/R5 packages неизменны.
+  Итоги проверки registry и команд —
+  verification/r4_force_geometry/identity_update_validation.json;
+  новые CI привязывать к финальному H после push, а не к старому d84adaab.
+
+PR48 остаётся MERGED обычным merge-коммитом
+`381d67d428faacf05f7d076249cf220fb4b94e98`; main и история R3/R5 не изменяются
+этим proposal update. 42 состояния не рассчитаны, прочность/устойчивость/реальные
+реакции не подтверждены; 84 RAW/null и UNKNOWN сохранены. Архитектура/ТЗ
+NOT_APPROVED, общий CAD-rebuild не разрешён, W02/physical READY NO-GO,
+G1 OPEN; инженерная геометрия NOT_STARTED, physical trials NOT_RUN.
+
+Следующее отдельное решение пользователя — назначить R4 фактической сессии и
+разрешить принятие уточнённого PR49 после сверки main/head/CI/inputs/конкуренции
+и срока. Отчёт об инструментах, файл, PR или CI сами по себе не являются такими решениями.
+После принятия R4 проверяет accepted ancestry/owner/lease/44 bindings/manifest,
+оформляет входной аудит §6, затем действует только в ограниченном WARNING scope.
+Уже сообщённый UUID/модель/инструменты повторно запрашивать не нужно; необходимые
+для конкретной будущей операции способности проверять при её запуске.
+Команда обновлена: verification/r4_force_geometry/R4_command.md.
+Капсула: handoffs/T-r4-force-geometry-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R1 — PR48 интегрирован; отдельный claim R4 подготовлен, НЕ ПРИНЯТ
+
+UTC 2026-11-16T17:57:36.206143+00:00; R1 / Codex / r1-pr48-integration-20261116.
+Проект narrateller/REV. C proposal **f364f576e79e185b441c61c44339198c48e46c65**;
+ветка `work-r1/claim-r4-force-geometry/r1-pr48-integration-20261116`.
+Публикация C/H проверяется по remote после push; следующий H меняет только эту
+сводку, NEXT_MODEL.md и новую капсулу, пакет C остаётся неизменным.
+
+## Фактическая интеграция
+
+По прямому разрешению пользователя PR48 **MERGED** обычным merge-коммитом
+`381d67d428faacf05f7d076249cf220fb4b94e98`, UTC 2026-11-16T17:41:55Z.
+Родители: прежняя main `1dce280bf4c6a790ef0ace10a757fe0a72148b5f` и head
+`e51cc669e60444d07a29083c77a93aab9940939b`; деревья merge/head совпадают.
+Истории R3 C/H `93b4aead4983f88919d8e8b4165e29d7f3246600` /
+`aadc08a70fbaee16b7ba4c16463bab97275926bb`, R5 C/H
+`db6b9774649f99ad1b157cba2a9c7cdeec570302` /
+`6ef3afc123004c43e007dc477241edfed8efabbb`, R1 C/H сохранены в ancestry.
+CI merge main SUCCESS: https://github.com/narrateller/REV/actions/runs/43921097524.
+Решение R1 WARNING только для ограниченной условной параметрической проработки R4.
+Полный инженерный объём R3 не объявлен DONE; действующие исходные вопросы не закрыты.
+
+## Новый claim и запрет старта
+
+T-r4-force-geometry-01 / P1 / READY_FOR_CLAIM_REVIEW; claim PROPOSED_PENDING_MAIN.
+**Owner NONE, действующий lease null, acceptance commit/PR null.**
+Предлагаемая новая сессия `r4-force-geometry-20261116`; фактический исполнитель,
+модель и возможности UNKNOWN, назначение ещё не подтверждено. Старые T-INIT/R3/R4
+claims не продлены. Это подготовка R1 по прямому поручению, не исполнение роли R4.
+
+Новый предложенный интервал: 2026-11-16T17:44:00Z — **2026-11-17T17:44:00Z**,
+24 часа; срок не сдвигается автоматически от merge. При истечении нужно новое
+согласованное предложение. Задача NOT_STARTED /
+BLOCKED_PENDING_MAIN_ACCEPTANCE_AND_EXECUTOR_CONFIRMATION.
+Документы: verification/r4_force_geometry/claim.json, claim.md, task.md,
+input_manifest.json и готовая R4_command.md. 54 pinned files и 12 protected trees
+закреплены на принятой main; все 44 полные bindings/нагрузки/ходы/fixed-budget/
+active registry/CAD и исходные R3/R5 пакеты сохранены.
+
+## Проверки и ограничения
+
+82 claim/input checks PASS, 754 preservation checks PASS, active registry
+--check-git PASS с прямым returncode 0, diff check PASS. Первый запуск с PASS в
+логе и кодом оболочки 1 не засчитан; исходный лог сохранён, проверка повторена
+с непосредственной фиксацией кода Python. Доказательства/команды:
+verification/r4_force_geometry/validation.json. CI нового proposal H проверять
+после публикации отдельно от успешного CI main.
+
+Геометрия/расчёты R4 NOT_STARTED; native CAD/CAE/physical trials NOT_RUN.
+42 состояния **не рассчитаны**; 84 RAW/null и реальные UNKNOWN сохранены.
+Прочность/устойчивость/реальные реакции не подтверждены. Архитектура/ТЗ
+NOT_APPROVED, общий CAD-rebuild не разрешён; W02/PLC/physical READY NO-GO,
+G1 OPEN. SHORT_STROKE, A clamp contacts, B reset/product collision, legacy UP,
+physical L/B opening и прежняя REJECT/material history не закрываются.
+
+## Следующий атомарный шаг и критерий старта
+
+Следующая подходящая роль R4 сначала подтверждает фактическую новую сессию,
+модель и инструменты, прочитав R4_command.md; **без инженерной работы**.
+Если session отличается, координатор уточняет proposal до принятия. Затем
+координатор/оператор отдельно проверяет актуальные main/PR head/CI, конкуренцию,
+срок, входы и принимает claim в main последовательным отдельным действием.
+Этот claim PR автором не сливается как самопринятие; разрешение PR48 на него
+не распространяется. Успех этой стадии — точное принятое назначение/owner/lease,
+подтверждённый исполнитель и неизменные inputs; PR/push/CI сами по себе недостаточны.
+
+После принятия R4 повторяет fetch/ancestry/owner/lease/конкуренцию/manifest/
+44 bindings и входной аудит §6. Только затем — ограниченная условная постановка
+четырёх вариантов: опоры, e_y/e_z(q), свободные длины, сечения, материалы,
+двусторонние соединения/контакты. Реальные пробелы UNKNOWN; новые численные
+гипотезы требуют отдельных ASSUMED ID/revision/оснований. Будущий результат —
+C/H и независимый OUTPUT-review R5 вне author_sessions, без утверждения архитектуры.
+Капсула: handoffs/T-r4-force-geometry-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R1 — PR #48 подготовлен к ограниченной интеграции, без слияния
+
+UTC 2026-11-16T16:48:47.497517+00:00; session `r1-pr48-integration-20261116` / Codex / R1.
+C **732998ceff472492421fb97478b3b160f89eeaa0**: решение R1 + merge истории R5, родителями сохранены
+R3 H `aadc08a70fbaee16b7ba4c16463bab97275926bb` и R5 H
+`6ef3afc123004c43e007dc477241edfed8efabbb`. PR48 остаётся OPEN; main
+`1dce280bf4c6a790ef0ace10a757fe0a72148b5f` не изменена.
+
+Решение `decisions/R1-FORCE-PATH-CONDITIONAL-ACCEPTANCE.md` — **WARNING только
+для ограниченной условной параметрической проработки R4**. Точный результат R3
+`93b4aead4983f88919d8e8b4165e29d7f3246600`; независимый акт R5
+`db6b9774649f99ad1b157cba2a9c7cdeec570302`,
+REV-R5-R3-FORCE-PATH-OUTPUT-01-001. Авторские/R5 пакеты и история побайтно сохранены.
+T-r3-force-path-01 IN_REVIEW, не DONE; активные параметры не повышены.
+
+- 754 preservation checks PASS, 44 полных bindings/20 pinned inputs сохранены;
+  старые файлы 12 source trees сохранены (review journal дополнен актом R5).
+  Нагрузки/ходы/fixed-budget/CAD и прежние REJECT/material history неизменны.
+- 100 общих + 15 авторских tests PASS, 0 fail/skip; повтор oracle R5 — 204 PASS,
+  26/26 величин, байты исходного evidence MATCH. Шесть artifacts MATCH;
+  scoped и active registry --check-git PASS; LFS fsck/diff checks PASS.
+  Логи и exit statuses: verification/pr48_integration/validation.json.
+- **42 строки — условия, не рассчитанные состояния.** 84 RAW/null сохранены.
+  Прочность, устойчивость, реальные реакции, capacities/margins и full sweep
+  не подтверждены. Архитектура/ТЗ NOT_APPROVED; общий CAD-rebuild не разрешён.
+  W02/PLC/physical READY NO-GO, G1 OPEN; physical trials NOT_RUN, не проводить.
+- Подготовка R1 выполнена по прямому поручению пользователя; истёкший T-INIT
+  claim codex-01 (2026-11-13T22:14:32Z) не продлён. Lease R3 исходный до
+  2026-11-16T18:56:30Z, не продлён. Read-only review не даёт нового инженерного старта.
+
+Следующее предложенное действие — **отдельная T-r4-force-geometry-01**:
+`verification/pr48_integration/R4_task_proposal.md`. Owner NONE, lease null,
+PROPOSED / BLOCKED_PENDING_SEPARATE_CLAIM. Опоры, e_y/e_z(q), L_free(q) по полным
+ходам/промежуточным позам, сечения, материалы и двусторонние joints четырёх
+вариантов; реальные недостающие значения UNKNOWN. Первый проверяемый шаг после
+отдельного назначения/принятия claim — fetch main, ancestry/owner/lease/конкуренция,
+exact C/H и hashes/44 bindings, затем таблица геометрических интерфейсов и пробелов.
+Успех — прослеживаемая условная постановка с независимым review request,
+без выбора архитектуры, source-подмены и общего CAD-rebuild.
+
+Перед отдельным решением о слиянии оператору сверить текущие main/head, exact
+inputs и **CI именно финального H** через PR48; успешный CI исходного R3 H
+не переносится на новый head. Публикация этой эстафеты не является merge.
+Капсула: handoffs/T-r1-pr48-integration-01/r1-pr48-integration-20261116.md.
+
+---
+
+## Предыдущие эстафеты и сводки — сохранённая история
+
+# R5 OUTPUT-review T-r3-force-path-01 — WARNING, условная проработка R4
+
+UTC 2026-11-16T14:44:01.093962+00:00; reviewer R5/Codex/session `r5-force-path-output-20261116`.
+C акта `db6b9774649f99ad1b157cba2a9c7cdeec570302`; публикация проверяется по remote после создания H.
+Проверенный авторский C `93b4aead4983f88919d8e8b4165e29d7f3246600`,
+входной H `aadc08a70fbaee16b7ba4c16463bab97275926bb`.
+Акт REV-R5-R3-FORCE-PATH-OUTPUT-01-001:
+verification/r5_force_path_output_review/review.md; независимый oracle/results/validation там же.
+
+- Условная арифметика PASS 26/26, независимые проверки 204 PASS; авторские tests 15/15;
+  шесть артефактов MATCH, scoped и активный registry --check-git PASS.
+- 44 binding rows, 20 pinned inputs, 12 source trees BASE/C/H сохранены, 19 analysis files unchanged.
+  Source нагрузки/ходы/CAD/fixed-budget не менялись. 84 RAW/null, 42 UNKNOWN states сохранены.
+- Общий WARNING. Достаточно для следующей ограниченной условной параметрической постановки R4;
+  реальные реакции, прочность, устойчивость и sweep не доказаны. T-r3-force-path-01 не объявлена DONE,
+  исходные вопросы/дефекты не закрыты, параметры не повышались до VERIFIED/LOCKED.
+- Следующий участник R1/R4 по отдельной задаче/claim: exact reviewed C/H + акт R5, task.md,
+  analysis/free_bodies/report/state_matrix, input_gaps и неизменные baseline_bindings.
+  Первый проверяемый шаг: определить геометрию/опоры/e(q)/L_free(q)/сечения и перечень
+  недостающих фазовых контактов/нагрузок; зарегистрировать новые количественные ASSUMED
+  входы отдельно. Успех — прослеживаемая условная постановка без подмены UNKNOWN или source.
+- Обязательны двусторонние joints/COTS, материалы/жёсткости, A startup/retention, B unload/reset,
+  фазовые силы/потери и критерии устойчивости; подробные владельцы/ограничения — акт.
+- G1 OPEN; W02/PLC/physical READY NO-GO. Архитектура не выбрана, общий CAD-rebuild не разрешён.
+  Native CAD/CAE и physical trials NOT_RUN. Семь REJECT/material history не сбрасываются.
+
+Капсула: handoffs/T-r5-force-path-output-review/r5-force-path-output-20261116.md.
+
+---
+
+## Предыдущая сводка — история
+
+# Независимый R5 — OUTPUT-review условного сравнения T-r3-force-path-01
+
+Состояние HANDOFF / IN_REVIEW, UTC 2026-11-16T06:59:21Z; автор R3 / Codex /
+r3-force-path-20261114. C **93b4aead4983f88919d8e8b4165e29d7f3246600** REMOTE_VERIFIED;
+ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114-result`. Следующий H меняет только эстафету.
+
+- Claim R3 принят PR #47/main 1dce280bf4c6a790ef0ace10a757fe0a72148b5f;
+  owner r3-force-path-20261114, lease до 2026-11-16T18:56:30Z без продления.
+  Предварительные поля нормализованы после merge, предыдущий proposal сохранён.
+- Результаты exact C: verification/r3_force_path/analysis/report.md,
+  free_bodies.md, results_A/B.json, calculated.md, state_matrix.json,
+  params/registry.yaml (отдельный case snapshot), baseline_snapshot.json.
+  Preflight/input_audit/checks/preservation и логи находятся там же.
+- Новые 26 CALCULATED case IDs и 84 RAW/null не перенесены в активный реестр.
+  Source ID/revision/value/unit/hash/mode/status всех 44 bindings сохранены;
+  список точных source blobs/hashes — analysis/preflight.json и preservation.json.
+  Нагрузки/ходы/расчёты/CAD и active root registry unchanged.
+- Проверки автора: 15 tests PASS (0 fail/skip), MATCH 6 artifacts,
+  scoped validator и active registry --check-git PASS; это не независимый review.
+- Следующая подходящая роль — независимый R5 вне author_sessions текущего C.
+  Это предложение передачи, не назначение reviewer этой сессией; запрос и критерии
+  analysis/review_request.md. Первый шаг: проверить remote exact C, main/ancestry,
+  input hashes/44 bindings и смысл S_WORK/S_RETURN, затем README команды без записи.
+  Не использовать авторский --write для review: readonly воспроизведение работает
+  и после истечения author lease, новые инженерные изменения требуют своего claim.
+- Затем независимо вывести F/N, r×F, R0/R1/баланс рамы, nominal rod stress,
+  область/границу Эйлера; проверить UNKNOWN против известного нуля, no load split,
+  полные состояния A startup/retention и B unload/open/reset. Критерий результата —
+  отдельный акт на exact C с собственной методикой и явными PASS/FAIL/NOT_RUN;
+  отсутствие размеров/материалов не маскируется номинальными коэффициентами.
+- Реальные e/L/E/I/критерии/опоры/спектры/новая потребность привода UNKNOWN;
+  архитектура не выбрана, G1 OPEN, W02/physical READY NO-GO. SHORT_STROKE,
+  clamp/reset/legacy UP и семь REJECT/material history сохранены. Испытания NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Входной аудит R3 WARNING: analysis/input_audit.md. Независимый OUTPUT нового C NOT_RUN.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
+# T-r3-force-path-01 — обновлённый proposal в PR #47 ожидает принятия
+
+UTC эстафеты 2026-11-15T19:00:13Z; R3 / Codex / session_id r3-force-path-20261114.
+C `8d54c0defeffbbc44d8b61496148f5c21173a994` REMOTE_VERIFIED; ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`.
+Status PROPOSED_PENDING_MAIN, owner NONE, lease_expires_at null; расчёт NOT_STARTED.
+
+- Updated/proposed/heartbeat UTC `2026-11-15T18:56:30Z`; proposed expiry UTC
+  `2026-11-16T18:56:30Z` — 24 часа. Это предложенный срок,
+  действующий claim до main acceptance не возникает.
+- Main `e35086f2e87611faa7013095d110092198b912dc` и отсутствие конкурирующего владельца проверены;
+  scope/evidence: verification/r3_force_path/claim_renewal_20261115/checks.json.
+  Текущий proposal — claim.json/claim.md; исходная постановка task.md неизменна.
+- Истёкший claim и акт блокировки сохранены: claim_history/20261114T121155Z/,
+  resume_preflight_20261115/ (в verification/r3_force_path/). Они описывают
+  прошлую редакцию, а не срок обновлённого предложения. Старые общие файлы сохранены.
+- Следующая роль R1/оператор: последовательно принять обновлённое предложение
+  в main до истечения proposed lease. Затем R3 повторяет fetch/ancestry/фактического
+  owner/lease/конкуренцию/manifest/44 bindings и входной аудит §6; только после этого
+  отдельное продолжение расчёта по task.md. Эта поставка расчёт не начинает.
+- Если срок истёк до принятия, нужно новое согласованное обновление; автоматически
+  не продлевать. До принятия owner NONE и PROPOSED_PENDING_MAIN сохраняются.
+- Inputs, нагрузки/ходы, расчёты/CAD и 44 BASE_A/B fixed-budget bindings неизменны.
+  W02/physical READY NO-GO, G1 OPEN, architecture/TZ NOT_APPROVED; physical trials NOT_RUN.
+  Будущий расчётный C требует независимого R5 вне author_sessions; OUTPUT ещё нет.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
+# T-r3-force-path-01 — BLOCKED, нужны принятие claim и актуальный lease
+
+UTC 2026-11-15T18:48:28Z; R3 / Codex / r3-force-path-20261114, проверка по прямому поручению
+продолжить только при действующем claim. C `44dcbc8120e9fb174096518e8abb0d148190d3fe` REMOTE_VERIFIED;
+ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`. Это checkpoint проверки старта, не расчёт силовых вариантов.
+
+- Main `e35086f2e87611faa7013095d110092198b912dc` не содержит proposal C
+  d5c1afd74a152f9e04596b296df0e6812a3b2d18 и записи задачи/claim. PR #47 OPEN.
+  Owner NONE, действующий lease отсутствует; предложенный срок
+  2026-11-15T12:11:55Z истёк. Старый proposal не переписан/не продлён.
+- Проверены 20 точных inputs и 12 protected trees; 44 BASE_A/B fixed-budget
+  bindings неизменны. Evidence: verification/r3_force_path/resume_preflight_20261115/.
+  Реестр --check-git PASS; расчёт/инженерный аудит/независимый R5 OUTPUT NOT_RUN.
+- Следующий участник R1/оператор должен последовательно принять постановку/claim
+  в main с согласованным действующим владельцем и новым сроком. Merge старого
+  истёкшего предложения без lease не является разрешением расчёта.
+- Первое действие R3 после этого: fetch, claim ancestry/owner/lease/конкуренция,
+  сравнение input_manifest.json/44 bindings и diff, входной аудит §6; только затем
+  свободные тела и матрица состояний A-V1/A-V2/B-V1/B-V2 по task.md.
+- Будущий reviewer R5 должен быть вне author_sessions будущего расчёта; текущая
+  поставка не содержит численных сценариев/вывода о конструкции. W02 и physical
+  READY NO-GO; G1 OPEN; архитектура/ТЗ NOT_APPROVED; испытания NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Постановка/UNKNOWN/manifest: verification/r3_force_path/task.md, input_gaps.md,
+input_manifest.json. Задача BLOCKED до действующего claim; вопросами данных
+и независимыми вычислениями условие старта не обходится.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# T-r3-force-path-01 — принять новый claim до расчёта
+
+Состояние HANDOFF / AWAITING_MAIN_CLAIM_ACCEPTANCE, UTC 2026-11-14T12:19:16Z.
+Проект narrateller/REV; автор R3 / Codex / r3-force-path-20261114 по прямому
+поручению пользователя подготовить постановку и claim.
+Ветка `work-r3/T-r3-force-path-01/r3-force-path-20261114`; C `d5c1afd74a152f9e04596b296df0e6812a3b2d18` REMOTE_VERIFIED.
+База main `e35086f2e87611faa7013095d110092198b912dc` (PR #46).
+
+- Задача READY, claim PROPOSED_PENDING_MAIN, owner_session NONE.
+  Предложенный исполнитель r3-force-path-20261114; предложенный срок до
+  2026-11-15T12:11:55Z, действующий lease отсутствует.
+- Результат: verification/r3_force_path/task.md, claim.md/json, input_manifest.json,
+  input_gaps.md, checks.json/validation_C.log; запись ISSUES_AND_TASKS.md.
+  Подготовлены цель/четыре варианта/состояния/зависимости/UNKNOWN/DoD.
+  Ни инженерный аудит, ни расчёт не начаты.
+- Точные входы: C/base и 20 blobs/SHA-256 в input_manifest.json, в том числе
+  verification/r4_cycle_interfaces/proposal/force_variants.md/json,
+  baseline_bindings.json (44 строки с прежними ID@revision и hashes),
+  R2_R3_requests/unknown_inputs, BASE_A/B sizing и fixed-budget power results,
+  registry, R1 documentary decision и независимый R5 акт. Не подменять их current
+  значениями без diff/проверки; новая гипотеза требует отдельного ID/основания.
+- Следующий участник R1/оператор рассматривает и последовательно принимает
+  постановку и новый claim в main; это предложение координации, не назначение R1
+  этой сессией. Не сливать собственный PR как самопринятие. Если proposed lease
+  истёк до принятия, нужна новая согласованная запись, без автоматического продления.
+- Первый инженерный шаг R3 только после принятия: fetch main, проверить ancestry
+  claim-коммита/фактического owner/срок/конкуренцию и inputs по manifest, разобрать
+  diff, оформить аудит §6. Критерий старта: принятый действующий claim и явная
+  разрешённая область WARNING; затем свободные тела/матрица состояний из task.md.
+  При недостающем входе сохранить UNKNOWN и продолжать только независимые зависимости.
+- Прочность/устойчивость/реальные реакции и COTS не подтверждены; независимый
+  OUTPUT-review будущего расчёта NOT_RUN, нужен R5 вне author_sessions.
+  Нет новых численных плеч/материалов/сечений. CAD и baseline не меняются.
+  W02 OPEN; PLC/physical READY NO-GO; G1 OPEN; architecture/TZ NOT_APPROVED;
+  SHORT_STROKE/clamp/reset/legacy UP и семь REJECT сохранены; physical trials NOT_RUN.
+
+Капсула: handoffs/T-r3-force-path-01/r3-force-path-20261114.md.
+Входной review источника: verification/r5_ci_open_journal_recheck/review.md
+(C 6ec51742fea1be36a989dfa691ddfccf1cb20675; только bounded documentary WARNING).
+Эта постановка не является его расширением на физику/прочность.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# R1 — интеграция проверенного документального CYC-02/03
+
+C `8b72716021b0c3a64972033d09fe5e80945eb98e`, R5 `6ec51742fea1be36a989dfa691ddfccf1cb20675` (B03 CLOSED bounded documentary; GO/WARNING), H `fdb03dc48f509ee88badcfaa7a7e9fc160ddbaff`. R1 решение `decisions/R1-CYC0203-DOCUMENTARY-ACCEPTANCE.md`; до merge IN_REVIEW. Семь отказов/арбитражи/проверки сохранены, code/payload/frozen helper не меняются.
+
+Следующее действие: последовательно интегрировать ветку после повторной сверки main/claim/lease/inputs; затем отдельная задача R3 по силовым путям A-V1/A-V2/B-V1/B-V2 с прежними нагрузками/ходами, эксцентриситетами, направляющими и устойчивостью. Общий CAD-rebuild не разрешён этим актом. W02/PLC/physical READY NO-GO, G1 OPEN; физические испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# R5 — независимый RECHECK B03 завершён документально
+
+Акт **REV-R5-CI-OPEN-JOURNAL-RECHECK-01-001**, R5/Codex/session `r5-ci-open-journal-20261113`.
+**C акта `6ec51742fea1be36a989dfa691ddfccf1cb20675` — REMOTE_VERIFIED**, ветка `work-r5/T-r5-ci-open-journal-recheck/r5-ci-open-journal-20261113`.
+[Акт](verification/r5_ci_open_journal_recheck/review.md),
+[независимые cases](verification/r5_ci_open_journal_recheck/independent_results.json),
+[36same-input](verification/r5_ci_open_journal_recheck/thirtysix.json),
+[проверки](verification/r5_ci_open_journal_recheck/final_checks.json).
+
+Проверены exact C **8b72716021b0c3a64972033d09fe5e80945eb98e**,
+входная H **fa4c59702e338e6b6d1e322b0698137a233ad011**,
+R1 **a85e69f3a495176c614202a518be6784be8f3b31**.
+**B03 CLOSED/PASS только bounded documentary exact-C scope.**
+**Стабильная документальная передача CYC-02/03 — GO на exact C; общий WARNING.**
+Не означает приёмку полного журнала/материального движка/native CAD/оборудования.
+
+Все36 прежних false TRUE с прежними digests исправлены; matrix732/732, minimal3/3.
+Собственные5368/5368:40fixedguards,4212schema/domain controls,120orders×9rawpairs,
+known-FEED/positive addressed recovery, known FALSE dominance, readonly.
+Авторские58methods и прежние independent654/765/7/295/231 прошли, package3277/export8.
+Первый type-suite failure из-за отсутствовавшего pinned Git object устранён fetch;
+новая YAML запись акта потребовала scope; оба исходных лога сохранены, финальные
+registry plain/--check-git PASS. Это ошибки prerequisites/оформления, не кандидата.
+612protected inputs/1329oldtreefiles/23payloadexports/205C-Hinterfacefiles совпадают;
+helper/norm53/84/18/44bindings/4forcevariants/calculations/CAD и7REJECT сохранены.
+interface rejection history7/material2 не сброшены. Caller/proof/history readonly.
+
+**W02/PLC/physical READY NO-GO;G1 OPEN;architecture/TZ NOT_APPROVED.**
+Strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN;geometricpairs0.
+R4 main/owner/lease не менялись:3a9258c57e4bc15d6de98f1d17e8412ad6e8899a,
+owner r4-linked-20261111/PR45, lease2026-11-14T00:13:12.404899+00:00 без продления.
+Review-ветка не влита в main; этот акт не закрывает parent CYC/G1 от имени R1.
+
+Следующий участник **R1/оператор**: проверить remote C и входные SHA/актуальность,
+затем рассмотреть ограниченную интеграцию акта и documentary handoff; выбрать
+следующую работу только с собственным действующим claim и exact inputs.
+Не повторять старые исправления и не выводить physical READY из документального GO.
+Капсула: handoffs/T-r5-ci-open-journal-recheck/r5-ci-open-journal-20261113.md.
+UTC 2026-11-13T19:17:31.071461+00:00. Следующий H меняет только STATE/NEXT/капсулу.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# R4 — bounded OPEN journal admission, независимый R5 PENDING
+
+**Exact C `8b72716021b0c3a64972033d09fe5e80945eb98e`, REMOTE_VERIFIED**,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-journal-20261113`.
+https://github.com/narrateller/REV/commit/8b72716021b0c3a64972033d09fe5e80945eb98e
+H меняет только STATE/NEXT/капсулу; package H byte-identical C.
+[Капсула](handoffs/T-r4-cycle-interfaces-01/r4-b03-journal-20261113.md).
+
+R1 ARB-R1-CI-SEMANTICS-06 `a85e69f3a495176c614202a518be6784be8f3b31`
+записан до кода; checkpoint `f7aa9d10ccb32117361c90959ca6af085fd4fe34`.
+Main `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, accepted PR45 owner `r4-linked-20261111` и исходный lease
+`2026-11-14T00:13:12.404899+00:00` сверены при публикации. Owner/lease/main
+не менялись, срок не продлевался. Седьмой акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85`
+и шесть прежних актов сохранены; interface counter7/material2 не сброшены.
+
+Все OPEN проходят bounded schema/scope/revision/history/causal classification по
+всем fixed guards до положительного journal/recovery. Unknown/malformed guard
+не объявляется посторонним. UNCLASSIFIABLE → UNKNOWN/OUT_OF_DOMAIN без TRUE;
+raw TRUE не заменяет журнал. Доказанные обязательные raw/own/state/causal FALSE
+сохраняют BLOCKED, unknown сам не создаёт FALSE. Known unrelated FEED positive и
+адресный recovery сохранены. Scan полный; target и revisions не подставляются,
+историческое физическое evidence не переоценивается в current scope. Compatibility
+boundaries, old-operation scope и RESOLVED history policy — в admission table.
+
+Авторский повтор: R5 732/732 вместо696/732,36same-input подмен исправлены;
+18ordered inputs/6canonical maps/одна причина, minimal3/3 включая known-FEED.
+Новые8methods/417controls PASS; прежние raw966/gate220/snapshot118/type244+36/
+semantic411/B01-B02 7methods и independent654/765/7/295/231 PASS;19+8input hashes
+совпадают, все8exits проходят общий finish. Fresh export:3277semantic+8export
+checks PASS; registry --check-git и diff PASS. Readonly сохранён.
+[Схема/команды](verification/r4_cycle_interfaces/journal_correction/README.md),
+[admission table](verification/r4_cycle_interfaces/journal_correction/ADMISSION.md),
+[coverage](verification/r4_cycle_interfaces/journal_correction/coverage.json),
+[checks](verification/r4_cycle_interfaces/journal_correction/checks.json).
+
+612protected inputs,15полных прежних деревьев/1329files, norm53/84/18/helper,
+44bindings/4force variants/loads/calculations/CAD и payload/data exports byte-identical.
+Latest review index меняет только validity/stale_reason, REJECT/findings/hashes
+сохранены. B03 OPEN / acceptance BLOCKED, stable documentary/CAD handoff NO-GO
+до нового независимого R5 на exact C. W02/PLC/physical READY NO-GO,G1 OPEN;
+архитектура/ТЗ не утверждены; strength/geometry/CADrebuild/physical trials NOT_RUN.
+
+Следующее действие: независимый R5 проверяет exact C, main/owner/lease/входы и
+план решения06/[review request](verification/r4_cycle_interfaces/proposal/review_request.md).
+Критерий: все36 прежних false TRUE и новые admission controls без false allow,
+known-FEED/positive recovery и доказанный FALSE сохранены; прежние регрессии и
+защищённые входы совпадают. Авторский repeat не является независимым актом.
+Не применять старые исправления повторно; B03 без нового акта не закрывать.
+Проверено UTC `2026-11-13T18:46:11.442569+00:00`.
+
+---
+
+## Предыдущие эстафеты — сохранённая история
+
+# R1 — positive admission всех OPEN journal records
+
+Акт R5 `4e52c3953c989c1077107d1d4f4da6d39d923d85` на C `b89854ad709bcb5c2991376bed41bf2f73acef82`, седьмой REJECT. R1 воспроизвёл 732/696/36 и minimal missing/null/known-FEED; решение `decisions/ARB-R1-CI-SEMANTICS-06.md`, evidence `verification/r1_ci_open_journal_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, сверить claim/входы и исправить bounded semantic admission/classification всех OPEN записей перед положительным journal/recovery выводом. Неизвестный tag не foreign; raw TRUE не обходит unknown journal, known FALSE сохраняет BLOCKED. Затем независимый R5 RECHECK. Helper/норматив/расчёты/CAD unchanged; counter7 и material2 сохраняются, stable handoff/physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 raw-source RECHECK act C **4e52c3953c989c1077107d1d4f4da6d39d923d85**;capsule handoffs/T-r5-ci-raw-recheck/r5-ci-raw-sources-20261113.md. Oldjournal/8variants fixed;unsupported OPEN guard still admits TRUE (36records/1cause). B03 OPEN,stable documentary handoff NO-GO;6historic rejections preserved,current seventh. W02/physicalREADY NO-GO,G1OPEN.
+
+# R5 RECHECK B03 raw sources — OPEN/REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-raw-sources-20261113**,reviewed C **b89854ad709bcb5c2991376bed41bf2f73acef82**,
+H **ce1ad73aae7a5700203103c14290375cc519662b**,R1 **3aa5ee100f57aa75315d429afef38f8a982b1afc**.
+Акт REV-R5-CI-RAW-SOURCES-RECHECK-01-001:
+[review.md](verification/r5_ci_raw_sources_recheck/review.md),[minimal comparator](verification/r5_ci_raw_sources_recheck/minimal_guard_tag_witness.json),
+[results](verification/r5_ci_raw_sources_recheck/independent_results.json),[commands](verification/r5_ci_raw_sources_recheck/commands.json).
+
+Journal-witness/8oldvariants исправлены,231/231,typedinputdigests8совпадают.
+Independent732case records696matches36falseTRUErecords:unsupported/null/wrongtype
+OPEN journal guard silently skipped,IN_DOMAIN/TRUE/ALLOWED_ASSUMED при allrawTRUE.
+One semantic-admission cause,18orderedinputs/6canonicalmaps;missingguard control
+UNKNOWN,knownFEED control ALLOWED. Это не regression исправленногоrawFALSEfallback.
+450reader errors,56invalidraw,75sourceexceptions,27two-own и state/causal controls
+pass;rawFALSE сохраняетBLOCKED,invalidFALSE не blanketdenial,detectedunknownjournal
+не допускаетrawTRUE. Positive/minimal/unuseddomains/foreignfault/WORK и readonly
+сохранены. Author3277/8,9raw966,11gate220,11snapshot118,6type244/36,6semantic411,
+7B01/B02methods и prior654/765/7/295/231 PASS;19+8oldinputdigests неизменны.
+
+**B03 OPEN;stable documentary CYC-02/03 handoff/newCAD iteration NO-GO.**
+R3 только прежниеWARNINGforce-pathstudies/currentclaim/exactinputs. Norm53/84/18,
+helper,44bindings,4variants,612protected,calculations/CAD и6oldreviewpackages
+сохранены. Текущий7REJECT,interfacecounter7/material2. Q-R1-CI-SEMANTICS-ARBITRATION-01
+REOPENED/P1,next correctionBLOCKED по§6.1 до записанногоR1решения/плана:
+[R1followup](verification/r5_ci_raw_sources_recheck/R1_followup.md). Main3a9258c/PR45owner r4-linked-20261111/
+lease2026-11-14T00:13:12.404899+00:00 не менялись,merge/claimtakeover нет.
+**W02 OPEN/NO-GO,physicalREADY NO-GO,G1OPEN**;architecture/TZ notapproved;
+strength/nativegeometry/CADrebuild/physicaltrials NOT_RUN,geometricpairs0.
+UTC 2026-11-13T16:05:32.565988+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Следующее действие — независимый R5 RECHECK B03 exact C
+
+C **b89854ad709bcb5c2991376bed41bf2f73acef82**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/b89854ad709bcb5c2991376bed41bf2f73acef82
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-raw-20261113;
+капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-raw-20261113.md.
+R1 ARB-R1-CI-SEMANTICS-05 `3aa5ee100f57aa75315d429afef38f8a982b1afc`.
+
+R5: сверить main/owner/lease/входы,checkout exact C; исполнить план решения и
+proposal/review_request.md. Проверить same-input minimal journal witness и8
+вариаций,raw TRUE/FALSE/UNKNOWN и stale/foreign/action/phase/revision/interval/
+provenance/method controls. Подтверждённый raw FALSE сохраняет BLOCKED при
+journal exception; invalid literal FALSE не принимается. Raw TRUE не заменяет
+журнал и не доказывает READY; без достоверного FALSE gate INDETERMINATE.
+Проверить raw exceptions,другие own/state/адресные causal запреты,все8 finish
+exits,positive addressed recovery/foreign fault/WORK запрет/readonly.
+Повторить prior gate295,incomplete7,source/type/norm/B01/B02 и author regressions.
+Raw historical C/session literals не являются identity нового review;
+source hashes в checks.json и эта capsule задают actual C. Author replay не акт.
+
+B03 OPEN,шесть REJECT/interface6 и material2 сохранены; stable handoff/CAD NO-GO
+до независимого exact-C акта. Accepted owner PR45 r4-linked-20261111 и lease
+2026-11-14T00:13:12.404899+00:00 без продления; main3a9258c не менялась.
+Helper/norm53/84/18/44bindings/4variants/calculations/CAD не менять; W02/physical
+READY NO-GO,PLC/CAD/rebuild вне scope,G1 OPEN; архитектура/ТЗ не утверждены.
+Не повторять завершённую R4 итерацию и не repair/удалять foreign journal faults.
+
+---
+
+## Предыдущая эстафета — история
+
+# R1 — независимый current FALSE при ошибке journal-reader
+
+R5 `18e5af1dae177cdfcb24951d3b36c2fd43395421` на C `3060dbf561f95e4384fbfd13a9cc5569690515e5`, шестой интерфейсный REJECT. R1 воспроизвёл минимальный свидетель и matrix231/223/8. Решение `decisions/ARB-R1-CI-SEMANTICS-05.md`, evidence `verification/r1_ci_journal_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, сверить claim/входы и обеспечить независимое validated raw current FALSE при exception journal reader без raw TRUE authorization или blanket BLOCKED на malformed журнал. Затем новый независимый R5 RECHECK. Helper/норматив/расчёты/CAD unchanged; stable handoff и physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 all-exit RECHECK act C **18e5af1dae177cdfcb24951d3b36c2fd43395421**;capsule handoffs/T-r5-ci-gate-recheck/r5-ci-gate-exits-20261113.md. Old2minimal/19variants fixed,8/8exits exercised;new current-FALSE loss on journal exception remains (8variants/1cause). B03 OPEN,stable documentary handoff NO-GO;fiveoldrejections preserved,current sixth. W02/physicalREADY NO-GO,G1OPEN.
+
+# R5 RECHECK B03 all exits — OPEN / REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-gate-exits-20261113**, reviewed C **3060dbf561f95e4384fbfd13a9cc5569690515e5**,
+H **98861219f0adda96af0aca0a3a35078aec022eb9**, R1 **60eeddce71c9440a2fa08f7acbe6f1121c974b29**.
+Акт REV-R5-CI-GATE-EXITS-RECHECK-01-001:
+[review.md](verification/r5_ci_gate_exits_recheck/review.md),[witness](verification/r5_ci_gate_exits_recheck/minimal_journal_witness.json),
+[coverage](verification/r5_ci_gate_exits_recheck/exit_coverage.json),[commands](verification/r5_ci_gate_exits_recheck/commands.json).
+
+2oldminimal/19oldvariants исправлены,295/295;input digests19 неизменны,scopedUNKNOWN.
+8/8returns исполняются черезfinish. Но real malformed unrelated journal record
+(missing origin.guard,canonicalF-ID,history_valid=True) вызывает reader exception,
+теряющий independently valid current raw FALSE. Own231cases223matches8FAIL,
+2guards×4exits,1cause;16TRUE/UNKNOWN controls остаютсяINDETERMINATE.
+Новых falseTRUE/physical permissions не найдено;caller/proof/history неизменны.
+Positive recovery/minimal/unused domains/causal and unknown-target controls,
+ordinaryWORK/foreignfault retention сохранены. Author3277/8,11gate220,
+11snapshot118,6type244/36,6semantic411,7retainedmethods и prior654/765/7/295 PASS.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+R3 только прежниеWARNINGforce-pathstudies/currentclaim/exactinputs,без strength/
+native acceptance. Norm53/84/18,frozenhelper,44bindings,4variants,calcs/CAD,
+612protected inputs и пять старых актов сохранены. Текущий шестой REJECT,
+interface counter6/material counter2. Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1;
+next correction BLOCKED по §6.1 до решения/плана R1:[карточка](verification/r5_ci_gate_exits_recheck/R1_followup.md).
+Main3a9258c/PR45owner r4-linked-20261111/lease2026-11-14T00:13:12.404899+00:00
+не изменены,merge/claimtakeover нет. **W02 OPEN/NO-GO,physical READY NO-GO,G1 OPEN**.
+Архитектура/ТЗ не утверждены;strength/nativegeometry/CADrebuild/physicaltrials
+NOT_RUN,geometricpairs0. UTC 2026-11-13T13:27:54.690354+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Следующее действие — независимый RECHECK B03 exact C
+
+R4 C **3060dbf561f95e4384fbfd13a9cc5569690515e5**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/3060dbf561f95e4384fbfd13a9cc5569690515e5
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-gates-20261113;
+капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-gates-20261113.md.
+R1 ARB-R1-CI-SEMANTICS-04 `60eeddce71c9440a2fa08f7acbe6f1121c974b29`.
+
+R5: проверить main/owner/lease/входы, checkout exact C, исполнить план решения
+и proposal/review_request.md. Проверить обе immutable minimal JSON witnesses,
+19 variants и весь matrix295, все8 exit/schema/exception paths, own truth matrix,
+known vs unknown addressed causal history, отсутствие target и отсутствие
+достоверного FALSE. Scoped UNKNOWN не скрывает BLOCKED, malformed proof без
+known denial не становится blanket BLOCKED. Target/домены не подставлять.
+Повторить положительный адресный recovery/minimal/unused domains, чужой fault и
+обычные WORK запреты; readonly, type/semantic/source/B01/B02/snapshot regressions.
+Frozen compatibility только IN_DOMAIN; old raw C/session literals в outputs
+не identity нового review. Author replay/results не являются независимым актом.
+
+Пять REJECT сохранены, interface counter5/material2; B03 OPEN, stable handoff/
+CAD NO-GO до нового независимого exact-C акта. Owner PR45 r4-linked-20261111 и
+lease 2026-11-14T00:13:12.404899+00:00 без продления; main3a9258c не менялась.
+Frozen helper/minimum53/84/18/44bindings/4variants/calculations/CAD не менять.
+W02/physical READY NO-GO, PLC/CAD/rebuild вне scope, G1 OPEN; архитектура/ТЗ
+не утверждены. Не повторять завершённую R4 итерацию как новую задачу.
+
+---
+
+## Предыдущая эстафета — история
+
+# R1 — композиция gate после пятого интерфейсного REJECT
+
+Акт `88a34f8b7d2d6dbf236101f207e206efb0e3c747` на C `e30b4b7caf3040905cc23c79ca696af2871c958a`: B03 OPEN, прежние false TRUE исправлены, 19 нарушений BLOCKED dominance. R1 воспроизвёл 295/276/19 и два минимальных witnesses, решение `decisions/ARB-R1-CI-SEMANTICS-04.md`, evidence `verification/r1_ci_gate_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, проверить claim/входы и исправить независимую own/causal оценку и единую композицию на всех ветвях proof/schema rejection; затем независимый R5 RECHECK. Не менять helper, нормы или расчёты/CAD. interface counter5/material counter2 сохраняются; стабильный handoff и physical READY NO-GO, W02/G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 RECHECK act C **88a34f8b7d2d6dbf236101f207e206efb0e3c747**;capsule handoffs/T-r5-ci-snapshots-recheck/r5-ci-snapshots-20261113.md. B03 OPEN:known BLOCKED masked by2early proof returns (19variants),no new FALSE-acceptance;stable documentary handoff NO-GO. Four old rejections preserved,current fifth;W02/physical READY NO-GO,G1 OPEN.
+
+# R5 RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
+
+R5/Codex/session **r5-ci-snapshots-20261113**, reviewed C **e30b4b7caf3040905cc23c79ca696af2871c958a**,
+H **ff050572f88f108c2092827e98cd4d98bd874737**, R1 **39826eb2f5dbd1f83d81882022e6f59313ebe5d5**.
+Акт REV-R5-CI-SNAPSHOTS-RECHECK-01-001:
+[review.md](verification/r5_ci_snapshots_recheck/review.md),[inputs/evidence](verification/r5_ci_snapshots_recheck/minimal_witnesses.json),
+[commands](verification/r5_ci_snapshots_recheck/commands.json),[policy table](verification/r5_ci_snapshots_recheck/policy_comparison.md).
+
+Четыре прежних incomplete-snapshot false TRUE устранены; unchanged incomplete7/7,
+old probes654/654+765/765. Own295cases276matches19FAIL: malformed whole proof
+подавляет известный resource/state BLOCKED; missing/foreign proof action/guard
+с известным OPEN causal ancestor возвращает INDETERMINATE до causal assessment.
+Это19вариаций2раннихвозвратов, без новых ложных TRUE/physical permission.
+46/46IN_DOMAIN comparison PASS;249OUT_OF_DOMAIN с явными reasons, без обещания
+unconditional legacy equality. Valid integers/advances/minimal maps/unused
+FEED/RETENTION и B01/B02 сохранены. Author3277/8,11snapshot methods118cases,
+6type244/36,6semantic411,7retainedmethods PASS.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+R3 только прежние WARNING force-path studies с действующим claim и exact inputs.
+Норматив53/84/18,frozen helper,44bindings,4variants,расчёты/CAD и четыре старых
+акта сохранены. Текущий пятый REJECT;interface counter5,material counter2.
+Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED/P1;следующая коррекция BLOCKED по §6.1
+до R1 решения/плана: [карточка](verification/r5_ci_snapshots_recheck/R1_followup.md).
+Main3a9258c/PR45owner r4-linked-20261111/lease2026-11-14T00:13:12.404899+00:00
+не изменены,merge/claim takeover нет. **W02 OPEN/NO-GO,physical READY NO-GO,G1 OPEN**.
+Архитектура/ТЗ не утверждены;strength/native geometry/CADrebuild/physical trials
+NOT_RUN,геометрических пар0. UTC 2026-11-13T11:06:19.210005+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Следующее действие — независимый R5 RECHECK B03 exact C
+
+R4 correction C **e30b4b7caf3040905cc23c79ca696af2871c958a**, REMOTE_VERIFIED:
+https://github.com/narrateller/REV/commit/e30b4b7caf3040905cc23c79ca696af2871c958a
+Ветка work-r4/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-snapshots-20261113.md;
+R1 ARB-R1-CI-SEMANTICS-03 `39826eb2f5dbd1f83d81882022e6f59313ebe5d5`.
+
+Проверить main/owner/lease/входы, checkout exact C; использовать независимый
+fixed guard/action domain oracle, DOMAIN_SCHEMA.md и review_request.md.
+Воспроизвести 7 incomplete cases и новые map/type/history/extra/domain/gate
+варианты, положительный адресный recovery, used/unused domains, readonly и
+retained normative/type/B01/B02 checks. Сравнивать frozen policy в объявленной
+допустимой области; OUT_OF_DOMAIN с legacy TRUE/exception объяснить схемой.
+Не повторять выполненную R4 коррекцию как новую задачу и не применять helper
+returned copy к caller. Author tests/replay не являются независимым актом.
+
+B03 OPEN; четыре REJECT сохранены (interface4/material2), stable handoff/CAD
+NO-GO до нового независимого акта exact C. Owner PR45 r4-linked-20261111 и
+lease 2026-11-14T00:13:12.404899+00:00 без переназначения/продления; main3a9258c
+не менялась. Frozen helper/норматив/44bindings/4variants/calculations/CAD
+не менять. W02/PLC/CAD вне итерации, physical READY NO-GO, G1 OPEN.
+Архитектура/ТЗ не утверждены. Пакет H идентичен C.
+
+---
+
+## Предыдущая эстафета — история
+
+# R1 — полнота recovery snapshots и граница frozen compatibility
+
+Входной акт `0ff3c8f4502ea29c712bf1f41e223f172c5a21c7` на C `fa0626372c03d11655624bb454458f82c30117f7`: B03 OPEN, четвёртый REJECT. R1 воспроизвёл четыре ложных TRUE; решение `decisions/ARB-R1-CI-SEMANTICS-03.md`, evidence `verification/r1_ci_snapshot_arbitration/`.
+
+Следующее действие: R4 записать точный SHA решения, проверить claim/входы и выполнить узкую domain/completeness prevalidation перед frozen delegation; сравнение policy только на объявленных допустимых входах. Не менять frozen helper, норматив, loads, расчёты или CAD. Затем независимый R5 RECHECK по плану решения. W02/physical READY NO-GO, stable handoff/CAD NO-GO, G1 OPEN; численные/физические испытания не выполнялись.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 RECHECK act C **0ff3c8f4502ea29c712bf1f41e223f172c5a21c7**; capsule handoffs/T-r5-ci-types-recheck/r5-ci-strict-types-20261113.md. B03 OPEN/REJECT_WITH_BLOCKER:4 incomplete-snapshot false TRUE witnesses. Stable documentary handoff NO-GO;R1 follow-up. Counter4 preserves all3 prior REJECT;W02/physical READY NO-GO,G1 OPEN.
+
+# Независимый RECHECK B03 — OPEN / REJECT_WITH_BLOCKER
+
+R5 / Codex / session **r5-ci-strict-types-20261113**, reviewed C
+**fa0626372c03d11655624bb454458f82c30117f7**, H **ab0fb1900a2bbdfa81e284112b318320f3c5b480**, R1 **e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3**.
+Акт REV-R5-CI-STRICT-TYPES-RECHECK-01-001:
+[review.md](verification/r5_ci_strict_types_recheck/review.md),
+[доказательства](verification/r5_ci_strict_types_recheck/incomplete_results.json),
+[команды](verification/r5_ci_strict_types_recheck/commands.json).
+
+Шесть прежних type escapes исправлены, norm53/84/18 и source типы подтверждены.
+Author3277/8;6type methods244cases/36comparisons;6semantic methods411cases;7retained
+methods PASS. Неизменённые независимые probes654/654 и765/765, собственные
+215 согласованных re-export cases198reject/17MATCH. Но четыре runtime witnesses
+дают ложный TRUE при пустом expected, согласованно пустом/FEED-only origin/proof
+или пустых origin+expected. Required B_CLOSURE domain теряется; типы значений и
+валидный F-digest не доказывают полноту. Caller OPEN, frozen returned copy RESOLVED;
+state нигде не применялся. Полная policy equivalence не подтверждена.
+
+**B03 OPEN; stable documentary CYC-02/03 handoff и новая CAD-итерация NO-GO.**
+B01/B02 прежнее документальное закрытие сохранено, регрессии PASS. R3 force-path
+study только в прежней WARNING области с действующим claim, без приёмки силового
+пути. Norm/helper/44bindings/4variants/calculations/CAD и три старых акта неизменны.
+Текущий четвёртый REJECT, interface_consecutive_rejections=4, отдельный material
+counter=2; история не обнулена. Q-R1-CI-SEMANTICS-ARBITRATION-01 REOPENED,
+следующая коррекция BLOCKED по §6.1 до R1 решения/плана:
+[R1_followup.md](verification/r5_ci_strict_types_recheck/R1_followup.md).
+Main3a9258c/accepted PR45 owner r4-linked-20261111/lease
+2026-11-14T00:13:12.404899+00:00 не изменены; merge не выполнялся.
+**W02 OPEN/NO-GO, physical READY NO-GO, G1 OPEN**. Архитектура/ТЗ не утверждены;
+strength/native geometry/rebuild/physical trials NOT_RUN, геометрических пар0.
+UTC 2026-11-13T09:00:34.211433+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# R4 — B03 strict types по ARB-R1-CI-SEMANTICS-02, независимый RECHECK PENDING
+
+**Рабочий C `fa0626372c03d11655624bb454458f82c30117f7`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-types-20261113`.
+https://github.com/narrateller/REV/commit/fa0626372c03d11655624bb454458f82c30117f7
+Следующий H — только STATE/NEXT/капсула; payload/checker в exact C не меняется.
+R1 **e0fea7bbf3bd32fda601bca2f7567f8e2c3342b3** прочитан и записан в капсуле до кода,
+merge/audit checkpoint 64154d8. Исходный третий R5 REJECT 3d317b3 на Cbd7ce8a,
+H 480cc59ac76638802dcb96e231e5598c26594d37 сохранены полными предками.
+
+Исправлен общий type validation перед equality во всех nested source/ref/AST/
+phase/provenance; bool/float не integer. Metadata flags сравниваются по точным
+типам. Recovery predicate валидирует snapshots и использует frozen policy на
+том же proof/context/fault без применения возвращённого state. Невалидные
+origin false/0.0 дают UNKNOWN/INDETERMINATE, fault остаётся OPEN.
+[Контракт/аудит/команды](verification/r4_cycle_interfaces/type_correction/README.md),
+[результаты](verification/r4_cycle_interfaces/type_correction/checks.json),
+[типы и differential cases](verification/r4_cycle_interfaces/type_correction/type_cases.json).
+
+Фактически: 3277 document MATCH, 8 export MATCH; 244 fresh re-export type cases,
+36 same-input recovery comparisons PASS. Неизменённый R5 probe в изолированной
+копии: 765/765, против исходных 759/765 с 6 FAIL. 6 новых, 6 прежних semantic
+и 7 B01/B02 unittest methods PASS; registry --check-git PASS. Это авторская
+проверка, не новый независимый акт R5. Положительные integer/zero counters,
+корректное recovery и допустимая нормализация/арифметика сохранены.
+
+Норматив и весь semantics_v1, frozen helper, payload, 44 bindings, четыре
+силовых варианта, нагрузки/расчёты/CAD побайтно сохранены; 612 protected files
+MATCH. minimum.json SHA b1c13c18c408120ae66d4995eac706e8dbf5842f35976494efb682c74e64d3df.
+Обновлены только source hashes manifest; остальные exports побайтно прежние.
+Все три REJECT/исходные findings/SHA/hashes/evidence сохранены; только validity
+индекса последнего акта STALE для новой версии. interface_consecutive_rejections=3,
+отдельная material-contract history=2 не обнулены. **B03 OPEN / RECHECK_PENDING**,
+стабильная передача интерфейса и новая CAD-итерация NO-GO.
+
+Main 3a9258c57e4bc15d6de98f1d17e8412ad6e8899a, accepted PR45 owner
+r4-linked-20261111 и lease 2026-11-14T00:13:12.404899+00:00 (14 ноября
+03:13 МСК) неизменны, без переназначения/продления/merge. Исполнитель R4/Codex/
+r4-b03-types-20261113 выполнял только разрешённый type follow-up. Старая ветка
+норматива не перезаписана. Следующий участник — независимый R5, exact C + R1
+решение + proposal/review_request.md, собственные positive/negative fixtures.
+W02/PLC/CAD/rebuild/physical trials вне scope; physical READY NO-GO,
+архитектура/ТЗ не утверждены, **G1 OPEN**, геометрических пар проверено 0.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-types-20261113.md;
+UTC 2026-11-13T08:35:26.150894+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Follow-up R1 по строгим типам интерфейсного checker
+
+Входной R5 акт `3d317b32596884cc60d9d42675924b88fcb29bf0` на C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`: B03 OPEN, 765=759+6. R1 воспроизвёл новые подмены, решение `decisions/ARB-R1-CI-SEMANTICS-02.md`, evidence `verification/r1_ci_types_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения и после проверки claim/входов исправить типы revisions/provenance и recovery predicate по frozen policy; не менять норму, нагрузки, CAD или helper. Затем независимый R5 RECHECK нового C по плану решения. История rejections=3 сохранена, приёмка BLOCKED и стабильная CAD-передача NO-GO; R3 force studies WARNING допускаются отдельно. W02/physical READY NO-GO, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+
+---
+
+## Сохранённая история другой ветки
+
+B03 RECHECK C **3d317b32596884cc60d9d42675924b88fcb29bf0**; капсула handoffs/T-r5-ci-minimum-recheck/r5-ci-minimum-20261113.md. B03 OPEN: typed revision false MATCH/TRUE; normative53/84 и old-six подтверждены. Stable documentary handoff NO-GO; R1 follow-up. W02/G1 OPEN, physical READY NO-GO.
+
+# B03 RECHECK норматива v1 — OPEN, REJECT_WITH_BLOCKER
+
+R5 / Codex / session **r5-ci-minimum-20261113**, reviewed C
+**bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f**, H
+0e519720d55b5b7b19d66b5a90c699b5d6697338; R1
+5fe510bbc55a052c360ab39a2491a061584b8fb7.
+Акт REV-R5-CI-MINIMUM-RECHECK-01-001: verification/r5_ci_semantic_minimum_recheck/review.md.
+
+Норматив 53 действий/84 режимов/18 поз воспроизведён из фиксированных inputs,
+его правила проверены отдельно от mutable payload. Шесть прежних escapes
+отклоняются; старый независимый probe 654/654 на новых входах. B01/B02
+документальные регрессии пройдены. Но **B03 OPEN**: bool/float revision
+принимается Python equality за int в source refs/AST/phase bindings; новый
+recovery_value возвращает TRUE при origin False/0.0, frozen recover даёт
+INDETERMINATE и сохраняет fault. Реального снятия/движения не было.
+
+Author 3277 document, 8 export, 6 новых methods/411 cases и 7 retained methods PASS.
+Собственные 765 checks: 759 MATCH /6 FAIL (4 full checker +2 concrete predicate).
+122 свежих mutations: 117 корректных отказов, 1 equivalent MATCH, 4 false MATCH.
+
+Стабильная документальная передача CYC-02/03 **NO-GO** до B03 RECHECK; точный
+кандидат и четыре force variants допускают лишь условный анализ/R3 с WARNING.
+Прочность/геометрия/physical READY не принимаются, новых CAD/build не запускать.
+44 bindings, четыре варианта, frozen helper, расчёты/CAD/старые R5/R1 сохранены.
+W02 OPEN/NOT_IMPLEMENTED, physical READY NO-GO, **G1 OPEN**, архитектура/ТЗ не утверждены.
+
+История двух интерфейсных отказов сохранена; текущий отрицательный RECHECK —
+третий: interface_consecutive_rejections=3, прежние два не переписаны. Отдельный
+material_contract_consecutive_rejections=2 сохранён. Q-R1-CI-SEMANTICS-ARBITRATION-01
+REOPENED по типам ревизий, follow-up verification/r5_ci_semantic_minimum_recheck/R1_followup.md.
+По §6.1 следующая корректирующая итерация BLOCKED до записанного R1 решения/плана.
+Owner/lease R4 не изменены; main не меняется, parent не DONE.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+# R4 — B03 по ARB-R1-CI-SEMANTICS-01: кандидат независимого RECHECK
+
+**Рабочий C `bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-b03-semantics-20261113`.
+https://github.com/narrateller/REV/commit/bd7ce8a623d6a4ecdff1f106868a4c7086a8a27f
+Следующий H изменяет только STATE/NEXT/капсулу; package/code в C сохраняется.
+R1 **5fe510bbc55a052c360ab39a2491a061584b8fb7** прочитан и записан в капсуле до изменения checker;
+предварительный merge/audit e8cb278, исходный R5 RECHECK 5fb7311 на C144941c.
+
+Нормативный минимум v1 независим от проверяемого payload/renderer/свежих hashes:
+53 действия, 84 режима, typed formula/source/base связи для 18 поз, все ENTRY/
+COMMIT/outputs, parent lifecycle, выбранные удерживаемые позы и конкретные
+recovery bindings по frozen helper. Неподдерживаемые конструкции не дают gate.
+[Область/проверки](verification/r4_cycle_interfaces/semantic_iteration/README.md),
+[результаты](verification/r4_cycle_interfaces/semantic_iteration/checks.json),
+[матрица](verification/r4_cycle_interfaces/semantics_v1/coverage.csv),
+[RECHECK request](verification/r4_cycle_interfaces/proposal/review_request.md).
+
+Фактически: 3277 document MATCH, 8 export MATCH, 6 новых и 7 прежних unittest
+methods PASS; 411 переэкспортированных cases (410 negatives rejected, 1 equivalent
+MATCH). Неизменённый probe R5 воспроизведён автором в отдельной копии: 654/654,
+включая 17 прежних замечаний и шесть новых подмен. Это не независимый новый акт.
+Registry --check-git PASS. Все 612 protected files, 44 bindings, четыре силовых
+варианта, frozen helper, расчёты/CAD сохранены. Геометрических пар проверено 0.
+
+**B03 OPEN / RECHECK_PENDING; interface acceptance BLOCKED, CYC-to-CAD NO-GO.**
+B01/B02 CLOSED только документально на C144941c по прежнему R5; их регрессии
+прошли, новая независимая область не присвоена. interface_consecutive_rejections=2
+и отдельные material_contract_consecutive_rejections=2 не сброшены. Старый R5
+вердикт/findings/SHA/hashes сохранены; индекс validity STALE для новой редакции.
+
+Main **3a9258c57e4bc15d6de98f1d17e8412ad6e8899a**, accepted PR45 owner
+r4-linked-20261111, lease **2026-11-14T00:13:12.404899+00:00** (14 ноября
+03:13 МСК) неизменны. Исполнитель R4/Codex/r4-b03-semantics-20261113 продолжает
+назначенную корректирующую B03 итерацию; не выполнял переназначение, продление
+или merge в main. Ветка прежнего исправления не перезаписана.
+
+Следующий участник — независимый R5: exact C + решение R1 + review_request;
+собственные мутации других стадий/режимов, outputs, формул/источников и recovery
+после re-export, проверка сохранности и отдельный неизменяемый RECHECK B03.
+W02/PLC/CAD/rebuild/physical trials вне итерации; actual условия UNKNOWN,
+physical READY NO-GO. Архитектура/ТЗ не утверждены; **G1 OPEN**.
+Капсула handoffs/T-r4-cycle-interfaces-01/r4-b03-semantics-20261113.md;
+UTC 2026-11-13T07:18:16.737663+00:00.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# Арбитраж интерфейсного checker — ARB-R1-CI-SEMANTICS-01
+
+R1 воспроизвёл шесть semantic-пропусков из R5 `5fb731182a2bdf6b11246558eca58962e48568d9` на C `144941cbfc67002cbe81765e38c80e237473deff`: 654 проверки, 648 совпадений, 6 FAIL с теми же ID. Решение `decisions/ARB-R1-CI-SEMANTICS-01.md`; evidence `verification/r1_ci_arbitration/`.
+
+Следующее действие: R4 прочитать точный SHA решения, записать в капсуле, сверить main/owner/lease и входы; реализовать только версионированный semantic minimum и typed pose/source/recovery checks с планом независимого RECHECK. B03 OPEN, приёмка интерфейса BLOCKED; стабильная CAD-передача NO-GO. B01/B02 — документальное закрытие на предыдущем C, регрессию проверить в новом. R3 допускается условная силовая работа отдельно от CAD. W02/physical READY NO-GO; архитектура/ТЗ не утверждены, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+---
+
+## Сохранённая история другой ветки
+
+RECHECK review C **5fb731182a2bdf6b11246558eca58962e48568d9**; капсула handoffs/T-r5-ci-recheck/r5-ci-recheck-20261113.md. B01/B02 CLOSED документально, B03 OPEN; Q-R1-CI-SEMANTICS-ARBITRATION-01, второй возврат, B03 итерация BLOCKED до R1. W02/G1 OPEN, physical READY NO-GO.
+
+# RECHECK интерфейсов — B01/B02 CLOSED, B03 OPEN
+
+R5 / Codex / session **r5-ci-recheck-20261113**; reviewed C
+**144941cbfc67002cbe81765e38c80e237473deff**, H
+7ee1c8f16eca515a3e21f64177152b4e7b93ce92; prior OUTPUT
+13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2.
+Акт REV-R5-CYC0203-RECHECK-01-001: verification/r5_cycle_interfaces_recheck/review.md.
+
+**REJECT_WITH_BLOCKER**, только B03 остаётся OPEN. B01/B02 CLOSED на точном C
+в документальной области. Старые 17 критериев исправлены; исторический probe
+на старом C точно повторил 1345/1328/17. Новые author 2376/8/7 methods PASS;
+независимые 654: 648 MATCH /6 FAIL новых semantic mutations после fresh re-export.
+Это нарушения проверки документов, не 6 физических дефектов/испытаний.
+
+По второму возврату B03 и AGENT_PROTOCOL §6.1 корректирующая итерация **BLOCKED**
+до решения R1/плана новой проверки. Вопрос Q-R1-CI-SEMANTICS-ARBITRATION-01:
+verification/r5_cycle_interfaces_recheck/arbitration_request.md.
+interface_consecutive_rejections=2; прежние material-contract два отказа и их
+закрытие сохраняются отдельно. Никакого назначения reviewer в R1 нет.
+
+44 bindings, четыре force-варианта, расчёты/CAD/registry/старые helpers и акты
+не изменены. Каждый A-V1/A-V2/B-V1/B-V2 — только WARNING для силовой постановки R3.
+R4 может опираться на принятые документальные B01/B02 в ограниченном анализе;
+объединённый package/checker и следующая CAD приёмка NO-GO, rebuild не разрешён.
+W02 OPEN/NOT_IMPLEMENTED; physical READY NO-GO; **G1 OPEN**. Архитектура/ТЗ
+не утверждены, прочность/геометрическая согласованность не проверены.
+CAD/solver/rebuild/physical trials NOT_RUN, geometry pairs checked 0.
+
+Следующий шаг — рассмотрение точного review SHA и вопроса R1; после решения
+ограниченное исправление B03 и независимый RECHECK нового C. Owner/lease R4
+не переназначены и не продлены; main не меняется, parent не DONE.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+# R4 — исправлены документальные B01/B02/B03, независимый RECHECK PENDING
+
+**Рабочий C `144941cbfc67002cbe81765e38c80e237473deff`, REMOTE**, ветка `work-r4/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113`.
+https://github.com/narrateller/REV/commit/144941cbfc67002cbe81765e38c80e237473deff
+Следующий H — только STATE/NEXT/капсула; проверять код/пакет на точном C.
+Исходный C `ed8272ce6ebc2047bb0d896db5951d02c42d5208`, акт R5
+`13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2` сохранены предками.
+Исполнитель R4 / Codex / r4-cyc-fix-20261113, прямое корректирующее поручение.
+
+- B01: D0→D1→FILL-CONFIRM→D0→parent commit→отсечение. Адресная доза/материал/
+  операция/ревизии, явный MATERIAL/FEED successor, mode/parent и endpoints;
+  команда/таймер/чужая квитанция не заменяют подтверждение.
+- B02: собственные guards closure recovery без generic DEPENDENCY_VALID;
+  closure result, targeted fault recovery, history reconciliation и новый NEXT
+  раздельны; материальные/сервисные отказы и rejected IDs сохраняются.
+- B03: readonly семантика поз/guards/parent/mode/источников и полного CSV/MD/SVG
+  после re-export; 28 мутаций отклонены.
+
+Фактически: исходный R5 воспроизведён 1345/1328 PASS/17 FAIL; новая редакция
+2376 document MATCH, 8 export MATCH, 7 unittest methods PASS, registry --check-git
+PASS; 612 protected files, 44 bindings, все четыре силовых варианта побайтно сохранены.
+Расчёты/CAD/registry/checked helpers/исходный R5 probe не менялись.
+[Исправление/команды](verification/r4_cycle_interfaces/correction/README.md),
+[результаты](verification/r4_cycle_interfaces/correction/checks.json),
+[запрос RECHECK](verification/r4_cycle_interfaces/proposal/review_request.md).
+
+**R5-CI-B01/B02/B03 OPEN до независимого RECHECK**, parent IN_REVIEW, не DONE.
+Старый REJECT остаётся на исходном C; только validity индекса STALE для новой
+редакции. Старый B01 C0c4eb5d и consecutive_rejections=2 не изменены.
+Main `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, accepted PR45 owner
+r4-linked-20261111 и lease до 2026-11-14T00:13:12.404899+00:00 (14 ноября
+03:13 МСК) сохранены, без переназначения/продления/merge. C опубликован в новой
+ветке; исходная ветка R4/main не перезаписана.
+
+Следующий участник — независимый R5: получить точный C, проверить parent/input
+SHA и команды review_request, выполнить собственные позитивные/негативные
+семантические пробы и дать отдельный неизменяемый RECHECK. Успех авторских
+проверок не закрывает замечания. Допуск силовых постановок R3 только WARNING.
+W02 OPEN/NOT_IMPLEMENTED; executable material/physical READY NO-GO. G1 OPEN,
+архитектура/ТЗ не утверждены. Native CAD/solver/rebuild/physical trials NOT_RUN,
+реальные R2/R3 условия UNKNOWN, проверенных геометрических пар 0.
+Капсула: handoffs/T-r4-cycle-interfaces-01/r4-cyc-fix-20261113.md; UTC 2026-11-13T06:08:53.745806+00:00.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+OUTPUT review C **13b0fc30248167d7a3a73d1c47b89b58b1a3b7c2**; капсула handoffs/T-r5-cyc0203-output/r5-cyc0203-20261113.md. REJECT_WITH_BLOCKER для интерфейса/CAD; каждый силовой вариант WARNING только в R3. W02/physical READY NO-GO, G1 OPEN.
+
+# OUTPUT CYC-02/03 — независимый R5, REJECT_WITH_BLOCKER
+
+Проверенный C **ed8272ce6ebc2047bb0d896db5951d02c42d5208**, H
+c18cb1e28a6358a2a7836809f461a3d594853796. Session r5-cyc0203-20261113 / Codex / R5.
+Акт **REV-R5-CYC0203-OUTPUT-01-001**, verification/r5_cycle_interfaces_output/review.md.
+
+R5-CI-B01/B02/B03 OPEN: parent completion/возврат D и адресный FILL_COMPLETE,
+mode/parent, B recovery dependency и semantic checker. 147 document +8 export
+MATCH; независимые 1345 checks: 1328 PASS / 17 FAIL (12 исходных проверок полноты
+и согласованности, 5 пропущенных checker мутаций). Exit 0 сборщика не приёмка.
+**Все 44 привязки сохранены, d/D/F/ходы не уменьшены.** Расчёты/CAD не изменены.
+
+Для каждого A-V1/A-V2/B-V1/B-V2 допустима только силовая постановка R3 с WARNING.
+Перед следующей CAD-итерацией нужны документальные исправления/RECHECK и R3/R2
+входы по носителю/опорам/эксцентриситету/монтажу/материалу. Нет выбора архитектуры.
+Схемы NTS не доказывают отсутствие native penetrations. Проверенных geometry пар 0.
+W02 OPEN/NOT_IMPLEMENTED, physical READY NO-GO, **G1 OPEN**; ТЗ/архитектура не
+утверждены, native CAD/rebuild/физические испытания NOT_RUN.
+
+История двух отказов контракта и consecutive_rejections=2 сохранены. Старый B01
+C0c4eb5d закрыт в своей документальной области и не переоткрывается новыми IDs.
+R4 owner/lease не менялись; main не меняется, parent не DONE. Следующий шаг —
+отдельное рассмотрение точного review SHA; R4 исправляет новый OUTPUT по акту,
+затем независимый RECHECK. Ограниченное R3 исследование силового пути независимо.
+
+---
+
+## Предыдущая эстафета — история сохранена
+
+# R4 — CYC-02/03 передано на независимый OUTPUT review
+
+**Рабочий C `ed8272ce6ebc2047bb0d896db5951d02c42d5208`, REMOTE** в
+`work-r4/T-r4-cycle-interfaces-01/r4-linked-20261111`,
+https://github.com/narrateller/REV/commit/ed8272ce6ebc2047bb0d896db5951d02c42d5208.
+Следующий H меняет только STATE/NEXT/капсулу; review относится к точному C.
+Main сверена после fetch: `3a9258c57e4bc15d6de98f1d17e8412ad6e8899a`, merge PR45.
+Claim ACCEPTED_MAIN; **owner_session: r4-linked-20261111**, task IN_REVIEW,
+lease **2026-11-14T00:13:12.404899+00:00** (14 ноября 03:13:12 МСК), без продления.
+Предварительные поля уточнены по merge и прямому подтверждению пользователя;
+история сохранена. Другого принятого owner не найдено. Heartbeat/аудит в C;
+время передачи UTC 2026-11-13T00:55:58.978138+00:00. Прежняя инструкция о создании PR45 через API устарела:
+PR45 уже слит; повторный PR интеграции прежнего контракта не создавать.
+
+[Результат и команды](verification/r4_cycle_interfaces/proposal/README.md),
+[запрос независимого review](verification/r4_cycle_interfaces/proposal/review_request.md),
+[полные проверки](verification/r4_cycle_interfaces/proposal/checks.json).
+6 SVG с редактируемым exporter/JSON, 51 строка поз/условий (31 inherited +20
+механических), A/B×V1/V2 без выбора архитектуры, 44 точных source bindings,
+6 вопросов R2/R3 без применения новых чисел. START, инварианты, preliminary
+motions и completion различены; восстановление без общего READY.
+
+147 checks документов MATCH; 8 повторных/export/mutation checks MATCH;
+registry --check-git PASS и staged diff --check PASS. 612 защищённых рабочих
+файлов/7 frozen packages/11 trees/17 source blobs сохранены. Обе истории отказов,
+R1 и subsequent R5/independent probe не менялись; consecutive_rejections=2 сохранён.
+Это сохранность и воспроизводимость документов, **не физическая или CAD приёмка**.
+16 фаз/2933 записи пар — только future check plan; фактически проверенных
+геометрических пар этой итерации 0, geometry NOT_RUN. Checked helper/tools unchanged.
+
+**W02 OPEN/NOT_IMPLEMENTED; executable material и physical READY NO-GO.**
+Новые силовые звенья/направляющие/крепления не рассчитаны; B opening и physical
+L INDETERMINATE. Старые short-stroke A/B, lost A clamp contacts, B reset/product
+collision, rod/chamber/feed witnesses и шесть legacy UP BLOCKED остаются видимыми.
+Native CAD/STEP, расчёты, общий rebuild, физические испытания NOT_RUN.
+Реальные параметры REV UNKNOWN; топология ASSUMED, SVG NTS не конструкция.
+Архитектура/ТЗ не утверждены; G1 OPEN. Новая задача не DONE.
+
+**Следующий шаг:** независимый R5 проверяет точный C по review_request.md и
+воспроизводит документальные команды; затем отдельное решение R1 о продолжении.
+Не начинать CAD/rebuild/W02/physical cycle и не закрывать CYC/G1 на основании этих
+схем. При возврате R4 сначала повторяет fetch/owner/lease/inputs; истечение
+срока не продлевать автоматически. Капсула:
+handoffs/T-r4-cycle-interfaces-01/r4-linked-20261111.md.
+
+---
+
+## История до результата CYC-02/03 — не текущие инструкции
+
+# R4 — подготовлен единый PR-пакет документальной интеграции и CYC-02/03
+
+**C подготовки `e6735141aef69c87e8a67708330c56b982ca3ac4`, REMOTE**, https://github.com/narrateller/REV,
+ветка `work-r4/T-r4-cycle-interfaces-01/r4-linked-20261111`. Этот следующий H
+только учёт/эстафета. **PR ещё НЕ создан**, merge NOT_PERFORMED: API GitHub
+блокируется активной сетевой политикой (api.github.com отсутствует в allowlist,
+GET/GraphQL Forbidden). Git read/push работают. Сетевой draft с добавлением
+api.github.com и сохранением прежних доменов сохранён, но requires_publish=true,
+активная observed revision 5 не изменилась. Не подменять compare URL номером PR.
+
+[Готовый PR payload/описание](verification/cc_documentary_integration/pr_request.json),
+[ссылка сравнения для создания PR](verification/cc_documentary_integration/compare_url.txt),
+[предложение интеграции](decisions/CC-DOCUMENTARY-INTEGRATION-PROPOSAL.md),
+[полные проверки/сохранность](verification/cc_documentary_integration/README.md).
+При появлении API-доступа R4 сначала проверяет существующие open PR и создаёт
+**один** PR из готового payload (либо обновляет релевантный существующий), не merge.
+Через gh REST: `gh api --method POST repos/narrateller/REV/pulls --input verification/cc_documentary_integration/pr_request.json`.
+Не повторять запросы на заблокированный endpoint без изменения конфигурации.
+
+В одном пакете полными предками: проверенный контракт
+**0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed**, решение R1
+**616135755d1b6cbaa09ae9800bad5af8bbc28aed**, акт R5
+**e3c0d7d828aab7b6a7e14dd230c5c3a01fea9d40**. Оба REJECT
+(d99afb4c3231d641d4a4921f39987264ce5ffc23 / c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b)
+и subsequent исправления/RECHECK сохранены, consecutive_rejections=2 не сброшен.
+B01 CLOSED **документально на точном C** по R5, общий WARNING; W01 только
+документально. Родитель T-r4-cycle-contract-01 IN_REVIEW до решения/интеграции,
+не DONE и не принятый весь пресс. Роль R1 автором не присвоена.
+
+**Сверенная main** 8a82b30d185a10c71dbedbb8b581cf6b5162b1b7. Старый owner
+r4-linked-20261111 / R4, принятый claim PR43, lease до 2026-11-13T18:16:39Z
+(13 ноября 21:16:39 МСК) без продления. Он не расширен на CYC-02/03.
+Новая задача **T-r4-cycle-interfaces-01 READY**, **owner_session NONE**,
+claim **PROPOSED_PENDING_MAIN**, proposed owner r4-linked-20261111, proposed
+lease_expires_at **2026-11-14T00:13:12.404899+00:00** (14 ноября 03:13:12 МСК).
+Если принятие позднее срока — новая явная запись, не автоматическое продление.
+[Task](verification/r4_cycle_interfaces/task.md), [claim](verification/r4_cycle_interfaces/claim.md),
+input_manifest.json: все 44 исходных bindings. **Реализация NOT_STARTED**,
+новых схем/поз/геометрических вариантов нет. Принятие claim только последовательно
+в main с actual owner/heartbeat/valid lease и проверкой конкурента/входов.
+
+Будущий scope после принятия: CYC-02 — дозатор/затвор/пуансон, предельные позы,
+полные движения/возвраты и разрешения; CYC-03 — варианты силовой компоновки со
+штоком вне недопустимой области камеры/подачи. Результат: редактируемые схемы/SVG,
+таблица поз/условий/source, варианты геометрии и критерии следующей независимой
+проверки. D/d, нагрузки/ходы не уменьшаются; при необходимости изменения отдельное
+расчётное предложение R3 до применения. BASE_A/B fixed-budget исходные входы,
+не утверждённая конструкция; новые условные inputs ASSUMED отдельно от реальных
+UNKNOWN. Ни архитектура, ни ТЗ не выбираются/не утверждаются.
+
+**W02 OPEN/NOT_IMPLEMENTED; executable material logic и физический READY NO-GO.**
+Контракт принят R5 только как условный документальный интерфейс. Нет entity-level
+массового/материального движка, реального сырья/удержания/разгрузки/приёма/
+безопасности. CAD3591 остаётся declared coordinates / author native context,
+independent native NOT_AVAILABLE; B opening/L-путь/полный физический цикл
+INDETERMINATE. Калькуляции/CAD/registry/tools и их результаты не менялись;
+solver/CAD/rebuild/physical tests NOT_RUN. CYC/W02/G1 OPEN.
+
+**Фактическая проверка подготовки:** 7 frozen packages / 129 files побайтно
+соответствуют C/R5; 17 source blobs/11 protected trees сохранены. check_documents
+MATCH; 205 и 587 readonly outputs совпали с сохранёнными JSON; registry --check-git
+PASS, diff --check PASS. Это сохранность/воспроизводимость, не новая физическая
+приёмка. checks.json/preservation.json хранят фактические команды/хэши/границы.
+
+Первый атомарный следующий шаг сейчас — применить сохранённое сетевое изменение
+через настройки среды, обновить status и проверить API; затем создать один PR
+без merge. Следующий участник после PR — оператор/R1 для ограниченной интеграции
+и последовательного принятия отдельного claim. Только после принятия R4 повторяет
+fetch/main/owner/lease/input hashes и входной акт, затем начинает task.md.
+Ни ожидание, ни готовый PR-пакет не означают принятие claim. Капсула:
+handoffs/T-r4-cycle-interfaces-01/r4-linked-20261111.md; UTC 2026-11-13T00:23:22.559324+00:00.
+
+---
+
+## История до подготовки интеграции
+
+# Независимый RECHECK B01 — R5
+
+Проверен C `0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed`, H
+`4c00bd1603e7ebb6afad80ca3c17b38f4b472670`, решение ARB-R1-CC-01
+на `616135755d1b6cbaa09ae9800bad5af8bbc28aed`.
+R5 / Codex / session `r5-cc-b01-20261112`, прямое поручение пользователя.
+Акт `REV-R5-CC-B01-RECHECK-02-001`: verification/r5_cc_b01_recheck/review.md.
+
+**B01 CLOSED только на точном C в документальной области; общий WARNING.**
+205/205 авторских и 587/587 собственных checks, оба historical baseline с
+прежними ошибками воспроизведены. 17 blobs/11 protected trees/отдельный CAD и
+1117 прежних tracked files сохранены во время проверки; расчёты/CAD не менялись.
+Два REJECT_WITH_BLOCKER d99afb4…/c56e494… и consecutive_rejections=2 сохранены.
+W01 CLOSED только документально; **W02 OPEN/NOT_IMPLEMENTED**.
+
+Для CYC-02/03 допускаются условные документальные интерфейсы с WARNING,
+ASSUMED/UNKNOWN и явным планом W02. Исполняемый material contract, физический
+READY, приёмка геометрии и закрытие CYC — NO-GO. Parent не объявлен DONE;
+owner/lease R4 не менялись, main claim/merge review не выполнены.
+**G1 OPEN**, архитектура/ТЗ не утверждены, physical tests/solver/rebuild NOT_RUN.
+Следующий шаг — рассмотрение опубликованного точного review SHA и отдельное
+решение об интеграции; далее W02 и профильные входы R2/R3/CYC, без общего rebuild.
+
+---
+
+## Предыдущая эстафета — сохранённая история
+
+# R4 — B01 по ARB-R1-CC-01: кандидат независимого RECHECK
+
+**Неизменяемый C `0c4eb5d9362b9ad89c61c1a85af96a5d7d3235ed`, REMOTE**, https://github.com/narrateller/REV,
+ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`. Точное решение R1
+**616135755d1b6cbaa09ae9800bad5af8bbc28aed**, decisions/ARB-R1-CC-01.md, прочитано
+и записано в капсулу до правки. **Parent T-r4-cycle-contract-01 BLOCKED** до
+независимого R5; разрешённая корректирующая итерация B01 **IN_REVIEW**.
+Owner **r4-linked-20261111** / Codex / R4, claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff
+принят PR43. Срок без продления: **13 ноября 2026, 21:16:39 МСК** /
+2026-11-13T18:16:39Z. Актуальная main при входе/публикации
+**8a82b30d185a10c71dbedbb8b581cf6b5162b1b7**, PR44; другого owner нет.
+Этот H только учёт/эстафета, содержимое C не меняется, main автором не менялась.
+
+**Два отказа сохранены, consecutive_rejections=2:** исходный d99afb4c3231d641d4a4921f39987264ce5ffc23
+на 3cf32daef67a91f393b808adb0dc07ba4c73cac2; RECHECK c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b
+на 4f31ed624336e1101b0ba04857f4316c73e4d375. Оба акта/probe/results и R1 decision/evidence
+включены полными Git-предками, не переписаны. В индексе последнего review лишь
+validity/stale_reason помечают новую редакцию STALE; verdict/findings/reviewed
+SHA/artifact hashes сохранены. **R5-CC-B01 OPEN**, W01 CLOSED только в старой
+документальной области 4f31ed6, W02 OPEN/вне итерации. Не объявлять приёмку или
+обнуление отказов из-за новой редакции/сессии.
+
+[Пакет/команды](verification/r4_cc_identity/README.md),
+[семантика fault/ID](verification/r4_cycle_contract/fault_identity.md),
+[таблица действий](verification/r4_cycle_contract/action_conditions.md),
+[история двух отказов](verification/r4_cc_identity/history.md),
+[входной акт](verification/r4_cc_identity/input_audit.json).
+Fault records хранят устойчивые ID и исходные области/evidence; recover принимает
+только явный fault_id. Чужая сущность/база/эпоха/ревизия не снимают fault.
+DEPENDENCY ссылается на причинные IDs, не очищается общей командой. Rejected IDs
+накапливаются и переживают A→B→C→A, смену view/эпохи, чужое восстановление и
+export/restore; недоверенная история не считается чистой. Новый уникальный
+ID допускает адресный аудит по собственным условиям без общего READY. Отдельное
+подтверждение обработки rejected request не разрешает старый ID повторно.
+Наблюдённые факты/UNKNOWN массы/refs сохраняются, W02 engine не добавлен.
+
+**Фактические авторские результаты:** 26/26 исходных + 45/45 RECHECK ожиданий,
+**3 старых расхождения → 0**, 134 проверки плана R1, всего **205**. Обе очередности
+двух material faults и их восстановления, адреса/база/версия/causes, положительный
+путь, rejected ID cycles и доверенное восстановление контекста охвачены.
+Baseline: неизменённый probe c56e494 на старом C4f31ed6 воспроизводит старые
+45/3, JSON совпадает с R5 и R1; его exit 0 не приёмка. Новые fixtures ABI
+явно адаптированы к fault IDs, все правильные ожидания R5 сохранены.
+Документальный checker: 59/59 примеров, две state traces; старые required guards
+не удалены. Оба checker ×2 readonly: одинаковый stdout, **572** файлов без изменения
+SHA/size/mtime. Registry --check-git PASS; diff --check PASS. Полные results.json,
+integrity_checks.json, publication_checks.json в verification/r4_cc_identity/.
+Это воспроизводимость/логика документа, не независимый review/физическая модель.
+
+**Входы следующего участника:** точный новый C; решение 6161357; оба R5 акта;
+verification/r4_cycle_contract/task.md/preflight.json и новый input_audit.json;
+карта 43f03359fabe2b664935b17f9ac7851504093ece / upstream R5 e69a8afbe4df3d53c4cc8b5883319e00eb8130af.
+17 input blobs и 11 protected trees неизменны на актуальной main. ledger_examples.md,
+resources.json и CAD candidate 3591a5f92f78b1edea07d3fc5354fd0a99090798 сохранены;
+declared coordinates / author witnesses / independent native NOT_RUN различаются.
+При отсутствии закреплённого Git объекта получить его точный SHA из preflight,
+не заменять вход или считать его проверенным. Расчётные/CAD tools/артефакты и
+численный слой не менялись. Diff documentary helper/checkers/fixture adapter
+входит в новый review.
+
+**Следующая подходящая роль — независимый R5**, с отдельным назначением/claim,
+не автор r4-linked-20261111. Первый атомарный шаг: fetch нового C, сверка входов,
+[recheck_request.md](verification/r4_cc_identity/recheck_request.md) и полный план
+R1. Проверить самостоятельно subject-addressed recovery и причинность,
+сохранение всех rejected IDs/обоих fault, отсутствие тупика нового уникального
+аудита, READY/ENTRY/COMMIT/facts и сохранность старых условий. Критерий — новый
+независимый акт на **этот C** с ограниченной областью; B01 закрывает R5, не автор
+и не арбитраж R1. При недоступных данных UNKNOWN/NOT_RUN без выдуманного PASS.
+
+**G1 OPEN**, CYC-01…09/R5-CYCLE-W01/W02 OPEN, стабильный вход CYC-02/03 NO-GO
+до независимого RECHECK. Реальные параметры/физика UNKNOWN, B opening/L-путь/
+полный физический цикл INDETERMINATE. W02 не реализован. Solver/CAD/rebuild/
+physical tests NOT_RUN; архитектура/ТЗ/COTS/весь пресс не утверждены. Общий
+rebuild по этой эстафете не выполнять. Капсула:
+handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md; UTC 2026-11-12T23:14:56.453901+00:00.
+
+---
+
+## История до B01 итерации по R1
+
+# Арбитраж R1 по контракту цикла — ARB-R1-CC-01
+
+PR #44 принят, claim R1 codex-01 до 2026-11-13T22:14:32Z. R1 воспроизвёл все три новых расхождения из R5 `c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b`, результат совпал с сохранённым независимым JSON. Решение `decisions/ARB-R1-CC-01.md`, evidence `verification/r1_cc_arbitration/`.
+
+Следующее действие: R4 прочитать решение на точном SHA, зафиксировать в капсуле, проверить main/owner/lease/входы и выполнить только корректирующую итерацию B01 с адресными fault records и накопительными rejected operation IDs. Независимый R5 затем проверяет старые и новые последовательные контрпримеры по плану решения. Contract BLOCKED до RECHECK, CYC-02/03 NO-GO; W02 OPEN, G1 OPEN. Расчёты/CAD/rebuild и физические испытания не выполнялись.
+
+## Предыдущая эстафета (история)
+
+# Предложение восстановления R1 и арбитража контракта цикла
+
+Два последовательных REJECT_WITH_BLOCKER по R5-CC-B01: акты `d99afb4c3231d641d4a4921f39987264ce5ffc23` и `c56e494a2e89ffa65b5876bfce6a4d6b4ae62f1b`. По §6.1 новая итерация исправлений остановлена до решения R1; стабильный вход CYC-02/03 NO-GO. В трекере предложен Q-R1-CC-ARBITRATION-01.
+
+Lease R1 истёк, предложено восстановление `codex-01` до 2026-11-13T22:14:32Z; до принятия в main PROPOSED/PENDING_MAIN. После принятия: проверить базу/owner/lease, воспроизвести три расхождения R5 и опубликовать арбитраж с критериями независимого RECHECK. Расчёты/CAD не менять, G1 OPEN; физических испытаний нет.
+
+## Предыдущая эстафета (история)
+
+## История R4 до второго RECHECK
+
+# R4 — корректировка CYC-01/08/09 передана на независимый RECHECK
+
+**Неизменяемый C `4f31ed624336e1101b0ba04857f4316c73e4d375`, REMOTE**, https://github.com/narrateller/REV,
+ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`. T-r4-cycle-contract-01
+**IN_REVIEW**, owner_session **r4-linked-20261111** / Codex / R4. Main сверена:
+`d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9`. Claim принят PR #43,
+`9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff`; lease до **13 ноября 2026, 21:16:39 МСК**
+/ 2026-11-13T18:16:39Z, без продления. Входной акт проверки owner/lease/входов:
+verification/r4_cycle_contract_fix/input_audit.json/md. Этот H только учёт и
+эстафета; содержимое C не меняется, main автором не изменялась.
+
+Основание: исправление исходного C `3cf32daef67a91f393b808adb0dc07ba4c73cac2`
+по **REV-R5-R4-CYCLE-CONTRACT-01-001 / d99afb4c3231d641d4a4921f39987264ce5ffc23**.
+Акт/probe/результаты R5 включены полным Git-предком без изменения. Только индекс
+validity прежнего review помечен STALE для новых файлов по протоколу; его
+REJECT_WITH_BLOCKER, reviewed C, findings и artifact hashes неизменны.
+**R5-CC-B01/W01/W02 остаются OPEN** до независимого решения, не самозакрыты.
+
+[Пакет и команды](verification/r4_cycle_contract_fix/README.md),
+[причины каждого расхождения](verification/r4_cycle_contract_fix/causes.md),
+[разрешения/актуальность/распространение/восстановление](verification/r4_cycle_contract/permissions.md),
+[таблица каждого действия](verification/r4_cycle_contract/action_conditions.md).
+Entry атомарно включает обязательные READY-target conditions; completion и
+наблюдённый факт отделены. Ни один исходный required guard не удалён. Возврат
+первого столба A требует удержания/реакции; потеря основания даёт UNCONFIRMED
+без исчезновения inventory. Известный отказ сохраняется, UNKNOWN не разрешает
+зависимое действие. Recovery имеет собственные условия, не требует общего READY
+или своей достигнутой цели на старте. Unready intake не теряется из учёта фактов.
+
+**Фактические авторские проверки:** старые 26 случаев R5/10 расхождений
+воспроизведены точным probe на старых Git blobs, baseline совпал побайтно.
+На новом C **26/26 ожидаемых исходов, 10 → 0 расхождений**, всего **154** checks
+(26 R5 + 45 сочетаний + 83 evidence/propagation/recovery/fact cases).
+59 прежних примеров/две state traces соответствуют расширенным ASSUMED условиям;
+это не entity-level ledger, W02 OPEN. Оба document checkers ×2 readonly, одинаковый
+stdout, 537 файлов без изменения SHA/size/mtime. Registry --check-git PASS,
+diff --check PASS. Полные results.json/integrity_checks.json/publication_checks.json
+в verification/r4_cycle_contract_fix/. Первоначальный registry FAIL и обязательная
+правка актуальности старого review сохранены в publication_checks.json.
+
+Входы следующего участника: новый C, task.md, input_audit.json и preflight.json;
+карта `43f03359fabe2b664935b17f9ac7851504093ece`, upstream R5
+`e69a8afbe4df3d53c4cc8b5883319e00eb8130af`, решение PR42, старый контракт и акт d99afb4.
+17 input blobs и 11 защищённых деревьев неизменны; ledger_examples.md/resources.json
+сохранены. CAD-кандидат `3591a5f92f78b1edea07d3fc5354fd0a99090798` по-прежнему
+отдельный документальный контекст: declared coordinates / author native witnesses /
+independent native NOT_RUN. Старые геометрические блокировки/unknown не закрыты.
+Проверенные CAD/численные modules не менялись; diff documentary helpers
+check_documents.py, permission_examples.py и check_fix.py входит в новый review.
+
+**Следующая подходящая роль — независимый R5** с отдельным подтверждённым
+назначением/claim; автор r4-linked-20261111 не проверяет себя. Первый атомарный
+шаг — получить точный C, сверить входы и выполнить
+[recheck_request.md](verification/r4_cycle_contract_fix/recheck_request.md): независимо
+проверить 26 случаев, mandatory bindings, entry/completion/facts, scope/epoch/
+invalidation, отказ+UNKNOWN и отсутствие логического тупика recovery. Успех
+команды/совпадение отрицательного теста не разрешение реального действия.
+Критерий — отдельный акт на этот C; при недоступном входе прекратить зависимый
+вывод и сохранить UNKNOWN. Статус stable входа CYC-02/03 NO-GO до RECHECK;
+документальные вопросы/исследование по upstream scope допускаются с WARNING.
+
+**G1 OPEN**, CYC-01…09/R5-CYCLE-W01/W02 OPEN. Независимый RECHECK NOT_RUN.
+Реальные guards/параметры/физика UNKNOWN; открытие B, физический L-путь и полный
+реальный цикл INDETERMINATE. Расчёты/CAD/registry и их evidence не менялись;
+solver/CAD/rebuild/physical tests NOT_RUN. Архитектура/ТЗ/COTS/весь пресс не
+утверждены. Не выполнять общий rebuild по этой эстафете. Капсула:
+handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md; UTC 2026-11-12T21:49:35.686445+00:00.
+
+---
+
+## История перед корректировкой
+
+# R4 — CYC-01 и ранние CYC-08/09 переданы на независимый review
+
+**Неизменяемый C результата `3cf32daef67a91f393b808adb0dc07ba4c73cac2` — REMOTE.** Проект REV,
+https://github.com/narrateller/REV, ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`.
+T-r4-cycle-contract-01 **IN_REVIEW**, owner_session **r4-linked-20261111** / Codex / R4.
+Claim 9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff принят PR #43/main
+**d22542f1fb9c3ac932fadd12dceeed5b1f9c8ad9**; срок до **2026-11-13T18:16:39Z
+(13 ноября, 21:16:39 МСК)** без продления. Предварительные NONE/PENDING нормализованы
+по merge и прямому подтверждению пользователя, исходная история сохранена в Git.
+Этот следующий H меняет только учёт/эстафету, не контракт C; main автором не меняется.
+
+[Контракт и команды](verification/r4_cycle_contract/README.md),
+[материальный журнал/состояния A/B](verification/r4_cycle_contract/material_contract.md),
+[символические балансы](verification/r4_cycle_contract/ledger_examples.md),
+[ранние ресурсы CYC-08](verification/r4_cycle_contract/resources_draft.md),
+[ранний READY CYC-09](verification/r4_cycle_contract/ready_draft.md).
+В C зафиксированы 42 перехода, 35 guards, 59 примеров (32 ALLOWED_ASSUMED /
+19 BLOCKED / 8 INDETERMINATE), две связанные ASSUMED трассы, все 20 source rows,
+10 вопросов R2/R3 AWAITING_RESPONSE. Готовый продукт не появляется из пустоты/
+raw; повторный набор B не выдача; pending receipt остаётся в PRESS_ACCOUNT;
+REMOVE не удаляет массу/остаток и не используется для получения clear/READY.
+
+**Входы следующего участника:** карта C 43f03359fabe2b664935b17f9ac7851504093ece,
+акт REV-R5-R3-CYCLE-TRACE-01-001 e69a8afbe4df3d53c4cc8b5883319e00eb8130af,
+решение PR42 и task.md/input_acceptance.json/preflight.json внутри C результата.
+17 закреплённых blobs MATCH; 11 защищённых деревьев/отдельный CAD-кандидат
+3591a5f92f78b1edea07d3fc5354fd0a99090798 неизменны. Declared coordinates /
+author native witnesses / independent native NOT_RUN по-прежнему различаются.
+Никакие прежние penetration/output/retention/reset/service findings не закрыты.
+
+**Авторские проверки:** check_documents.py MATCH (DOCUMENT_CONSISTENCY_ONLY),
+два одинаковых read-only запуска, 508 наблюдаемых файлов без изменения hash/size/mtime;
+registry --check-git PASS; diff --check PASS. Полные результаты в
+verification/r4_cycle_contract/document_checks.json, integrity_checks.json,
+publication_checks.json. Нет новых численных входов/уставок, все реальные guards
+и stage t/p/Q/P/E UNKNOWN/null. Это проверка документа, не расчёт физики/модель
+контроллера/проверка CAD. Расчёты, CAD, их код/registry/evidence неизменны;
+numerical solvers/CAD/rebuild/physical tests **NOT_RUN**.
+
+**Следующая подходящая роль — независимый R5**, не автор r4-linked-20261111;
+назначение/claim оформляются отдельно по протоколу. Первый атомарный шаг —
+получить точный C, сверить task.md/входы и выполнить документальный OUTPUT review
+по [review_request.md](verification/r4_cycle_contract/review_request.md), включая
+собственные контрпримеры ledger/phase/receipt/READY/resources и проверку сохранности.
+Повтор checker — лишь воспроизводимость. Критерий — независимый акт на **этот C**
+с явно ограниченной областью и открытыми unknown; при недоступном входе остановить
+зависимый вывод, не заменять источник предположением. Не выполнять solver/CAD/
+общий rebuild по этой эстафете. После review — ответы R2/R3 и дальнейшие scope
+CYC-02…07/окончательная сверка 08/09, а не автоматическое утверждение цикла.
+
+**CYC-01…09, R5-CYCLE-W01/W02 и G1 OPEN.** Межролевое одобрение и новый независимый
+review NOT_RUN. Реальные параметры/физика UNKNOWN; открытие B, физическая
+выполнимость L-пути и полный физический цикл INDETERMINATE. Архитектура, ТЗ,
+COTS, конструкция/безопасность и весь пресс не принимаются. Капсула:
+handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md. Обновлено 2026-11-12T19:19:04.799073+00:00.
+
+---
+
+## История до публикации контракта
+
+# R4 — отдельная документальная задача CYC-01 + ранние CYC-08/09
+
+**C предложения `9fdbcd05c863b93c0ddb84f4fe40ac80a2bfe1ff`**, REMOTE, ветка `work-r4/T-r4-cycle-contract-01/r4-linked-20261111`. T-r4-cycle-contract-01 **READY / owner_session NONE / PROPOSED_PENDING_MAIN**. Предлагаемый исполнитель r4-linked-20261111 / Codex / R4, отдельный proposed lease до **2026-11-13T18:16:39Z (13 ноября 2026, 21:16:39 МСК)**. H только учёт/эстафета, claim не принимает.
+
+Main `b1a4e398741b84d482c96f00a605e98b720ff929` содержит принятые PR #42/карту C 43f03359fabe2b664935b17f9ac7851504093ece и акт R5 e69a8afbe4df3d53c4cc8b5883319e00eb8130af. R4 роль подтверждена пользователем, прежний CAD-claim PR #40 до 2026-11-13T13:17:33Z действует, но новый материальный/resource/READY контракт за его пределами; срок/область старого claim не изменены. Решение PR42 требует отдельного принятого назначения R4.
+
+Подготовлены только конкретная постановка/claim и preflight: verification/r4_cycle_contract/task.md, claim.md, preflight.json, checks.json. Закреплены 17 input blobs и 11 защищённых деревьев main плюс точные CAD candidate trees на 3591a5f92f78b1edea07d3fc5354fd0a99090798. Этот CAD не интегрирован/не принят новой документальной работой; declared coordinates/author native/independent native NOT_RUN сохраняются раздельно.
+
+**Сам контракт/черновики/примеры NOT_STARTED**, numerical solvers/CAD/rebuild/physical tests NOT_RUN. Установлена область будущего результата: материальный журнал пуска/столба/остатка A и batch/repeated gather B на одной массовой базе; нет заранее готового продукта/REMOVE без приёма; ранний граф стадий/перекрытий/ресурсов без скрытых нулей и подмены полного цикла временем оси; READY по узлам и материалу; конкретные условные/запрещённые/UNKNOWN переходы и вопросы R2/R3. Ответы/межролевую приёмку не выдумывать, отсутствие физических данных не блокирует саму условную постановку после claim.
+
+Проверки подготовки: registry --check-git PASS, diff --check PASS, защищённые dirs unchanged. Первый check остановился на нематериализованном local LFS источнике Target_object_BP500.pdf из принятого R5; четыре sources/raw PDF материализованы без изменения committed contents, затем check PASS. Это доступ к источникам, не расчёт/CAD или повторный содержательный review PDF.
+
+Следующий шаг координатора/оператора — последовательное принятие **C предложения** в main с owner_session r4-linked-20261111 и ещё действующим явным lease, проверкой конкурирующего owner/входов. Затем R4 fetch/ancestry/main/owner/lease/source hashes, входной акт и выполнение task.md. До принятия содержательная работа не начинается по AGENT_PROTOCOL §4. Не исполнять старую эстафету CAD rebuild и не считать назначение роли принятой блокировкой новой задачи.
+
+CYC-01…09, R5-CYCLE-W01/W02 **OPEN**. Пакет внутренне согласованных draft interfaces не означает принятия физического цикла/контроллера/архитектуры/ТЗ. **G1 OPEN**, B opening/полный физический цикл INDETERMINATE, physical tests NOT_RUN. Main автором не менялась. Капсула handoffs/T-r4-cycle-contract-01/r4-linked-20261111.md; обновлено 2026-11-12T18:26:32Z.
+
+---
+
+## История прежних состояний
+
+# PR #42 подготовлен к отдельной интеграции — ACCEPT_WITH_WARNING
+
+**Code/results подготовки C `8194e3a81de48480391e18d61a9c10073e733536`**, REMOTE. Проверенный инженерно-документальный результат **43f03359fabe2b664935b17f9ac7851504093ece** неизменён. История независимого R5 **e69a8afbe4df3d53c4cc8b5883319e00eb8130af** включена полным предком ветки; файлы/индекс WARNING/CURRENT сохранены. Вердикт акта **ACCEPT_WITH_WARNING** только для документальной карты и условных интерфейсных/исследовательских предложений R4. Отдельный H меняет только эстафету/статус. PR #42 OPEN, слияние автором не выполняется.
+
+[Решение и последовательность CYC](decisions/PR42-CYCLE-TRACE-INTEGRATION.md), [контроль сохранности/проверки](verification/pr42_integration/README.md), [акт R5](verification/r5_r3_cycle_trace_review/review.md). T-r3-cycle-trace-01 IN_REVIEW до отдельного решения оператора об интеграции; owner_session r3-sizing-20261112 / R3 / Codex. Принятый claim PR #41, 7ec621cb8aa306192536df8598e390daf8726b1d — предок актуальной main 65dca013833b64b446157c6faf4042643d909451. Lease до 13 ноября 2026 19:08:52 МСК / 2026-11-13T16:08:52Z без продления; heartbeat 2026-11-12T17:48:14.280536+00:00. Исторические NONE/PROPOSED main нормализованы по факту merge и подтверждению пользователя, нового owner/входов нет. Роль R1 не присвоена.
+
+Разрешённая последовательность будущей условной работы: CYC-01 **вместе с ранними черновиками CYC-08/09** → совместные CYC-02/03 → A:CYC-04 (можно параллельно 03) либо B:CYC-05 → соответствующий CYC-06 после материального/выходного контракта → B:CYC-07 совместно с 05/06 → **окончательная сверка CYC-08/09**. Между ветвями A/B нет обязательного ожидания. Изменённые ходы/нагрузки/передача требуют новой ревизии R3 и review; сейчас расчёт/CAD не меняются.
+
+CYC-01…09, R5-CYCLE-W01/W02 **OPEN**. W01: ранние контракты должны быть согласованы до общего rebuild; ответ/план записан, работа R4 ещё не выполнена. W02: CYC-03/04/07 различают declared coordinates, author native witnesses и independent native NOT_RUN; закрытие CAD-замечания требует отдельной проверки actual FCStd/STEP/solids/ходов/границ. Условная постановка не девять доказанных нативных дефектов.
+
+**CAD-review NOT_AVAILABLE; общий rebuild NOT_READY; полный цикл и открытие B INDETERMINATE.** Fixed-budget — условная база с caps/увеличенными временами, fixed-times — отдельный неутверждённый ресурс. Неизвестные насос/утечки/удержание/aux/одновременность не ноль. Оборудование/архитектура/ТЗ не утверждены, физических испытаний нет, G1 OPEN.
+
+Проверки подготовки: preservation PASS (27 файлов результата, 23 файла нового R5, исходный индекс и все reviewed artifacts, 88 расчётных/45 прежних R5), checksum 26 записей C PASS, trace/render PASS, registry --check-git PASS, diff --check PASS. Программные/геометрические исходники и источники не изменены. CI смотреть для точного опубликованного HEAD; локальный PASS не независимая инженерная приёмка. Старые NOT_RUN/CYC-порядок ниже описывают историю до нового R5; актуальные ограничения/план выше и в решении.
+
+Следующий атомарный шаг: оператор сверяет опубликованный HEAD PR #42/CI и сохранность C/акта, затем отдельно решает о слиянии. После интеграции завершается только документальная область; R4 продолжает в отдельном принятом назначении по последовательности R5. Полная капсула handoffs/T-r3-cycle-trace-01/r3-sizing-20261112.md. Не исполнять прежний запрос повторного OUTPUT-review неизменного C как новое поручение; не повторять расчёты/CAD-исправления из истории.
+
+---
+
+## История до подготовки PR #42
+
+# Сквозная проверка цикла A/B — результат на независимый review
+
+**Code/results C `43f03359fabe2b664935b17f9ac7851504093ece`**, опубликован в ветке `work-r3/T-r3-cycle-trace-01/r3-sizing-20261112`. T-r3-cycle-trace-01 IN_REVIEW; owner_session r3-sizing-20261112 / Codex / R3, claim ACCEPTED_MAIN: C 7ec621cb8aa306192536df8598e390daf8726b1d принят PR #41 в main 65dca013833b64b446157c6faf4042643d909451. Lease до 2026-11-13T16:08:52Z (13 ноября 19:08:52 МСК) не продлён; heartbeat 2026-11-12T16:49:05.882240+00:00. Main повторно получена явно с удалённого refs/heads/main; входы не изменились. H — только статус/эстафета, без изменения результата C.
+
+Готовы [единая таблица 20 цепочек A/B](verification/r3_cycle_trace/cycle_table.md), [девять приоритетных OPEN исправлений R4](verification/r3_cycle_trace/r4_priorities.md), [17 source claims/страницы/схемы/условия](verification/r3_cycle_trace/source_ledger.md). Расчёт c115f75fd900525d9ddc89d85e097ac5a0f00bc1 и CAD 3591a5f92f78b1edea07d3fc5354fd0a99090798 сопоставлены по exact Git blobs; CAD-кандидат остаётся отдельным входом, не принят/не интегрирован этим результатом. Материальные ограничения аналогов сохранены; гипотезы ASSUMED, неизвестное UNKNOWN/null.
+
+До перестройки: материальный контракт/пуск A и повторный набор B → интерфейсы дозатора/затвора/пуансона и силовой путь → удержание A либо разгрузка/отпирание/открытие B → фактическая выдача/приём/ход → RESET B → общий ресурсный граф/READY. Для A SHORT_STROKE текущего surrogate не обосновывает автоматическое удлинение хода на весь канал: сначала определить retained column/выходящий сегмент. Сохранённые penetration/interface/reset отрицательные данные не скрыты; независимый native/BRep replay NOT_RUN.
+
+Проверки C: trace links/14 обязательных ячеек/параметры/координаты/DAG PASS, rendered tables PASS, оба R3 readonly replay PASS, registry --check-git PASS, diff --check PASS. 88 расчётных и 45 review-файлов R5 неизменны; четыре PDF hashes match, CAD/генераторы/registry не изменены. Логи/границы — result_checks.json/result_preservation.json и artifacts.sha256 в verification/r3_cycle_trace/. Новый независимый OUTPUT review **NOT_RUN**; [запрос](verification/r3_cycle_trace/review_request.md). Это авторская документальная проверка, не приёмка физического цикла.
+
+Fixed-budget — условная база с caps и увеличенными временами; fixed-times — отдельный неутверждённый ресурс. Полный цикл и B opening INDETERMINATE, схема/утечки/насос/aux UNKNOWN, не ноль. Архитектура/ТЗ/оборудование не утверждены, физические испытания NOT_RUN, G1 OPEN. Новых исправлений расчёта/геометрии нет; их реализация требует следующего согласования/задачи.
+
+Следующий атомарный шаг: независимый R5 проверяет точный C по review_request.md, самостоятельно сверяет первичные страницы и координатные/материальные/ресурсные выводы; затем координатор согласует входы/интерфейсные предложения R4. Не исполнять старое ожидание claim ниже — это история до принятия. Полная капсула: handoffs/T-r3-cycle-trace-01/r3-sizing-20261112.md. Merge автором не выполняется.
+
+---
+
+## История предыдущих состояний и предложений
+
+# Сквозная проверка цикла — новая задача/claim ожидает принятия
+
+Предложение **C `7ec621cb8aa306192536df8598e390daf8726b1d`**, T-r3-cycle-trace-01; role R3 / Codex, proposed owner r3-sizing-20261112, owner_session NONE, READY / PROPOSED_PENDING_MAIN. Полная конкретная постановка — verification/r3_cycle_trace/task.md, состояние/хэши входов — preflight.json. Предложенный отдельный lease указан в задаче; старые claims R3/R4 не расширены и не продлены.
+
+Main 0353414369e8cffdd7b4289eafd665cc35c0ee36 содержит PR #39 и принятие claim R4 PR #40. Прежнее PENDING в R4 сводках — история до merge, не фактическое состояние принятия. CAD 3591a5f92f78b1edea07d3fc5354fd0a99090798 доступен в отдельной ветке и не включён в main. Сопоставление должно использовать именно этот C, а расчёт — c115f75fd900525d9ddc89d85e097ac5a0f00bc1 и акты R5 PR #39.
+
+Следующий шаг — последовательное принятие нового claim в main оператором/координатором; затем fetch/owner/lease/input audit и выполнение задачи. До этого содержательное чтение первичных инструкций/схем и единая инженерная таблица стадий A/B NOT_STARTED. PDF materialized/hash checked не означает прочтение.
+
+Будущий результат: source page/scheme → решение/условия → REV A/B → параметр → CAD position/stroke → transition proof → gap для всех стадий, плюс приоритеты/конкретные изменения R4 до перестройки и точный C/H для независимого review. Нельзя изменять проверенные расчёты/CAD/registry или объявлять неподтверждённое решение принятым. Контроль: четыре PDF hashes matched, 88 protected files unchanged, registry --check-git/diff --check PASS. Архитектура/ТЗ/оборудование не утверждены, physical tests NOT_RUN, G1 OPEN.
+
+---
+
+## История прежних задач
+
+# R4 после PR #39 — новая задача/claim ожидает принятия
+
+**C предложения `e8ab3272d0fe4b1425779b7d2faac9832562d85d`**, REMOTE, ветка `work-r4/T-r4-calculated-layout-01/r4-linked-20261111`. T-r4-calculated-layout-01 READY / owner_session NONE / PROPOSED_PENDING_MAIN; предлагаемый исполнитель r4-linked-20261111 / Codex / R4, proposed lease до 2026-11-13T13:17:33Z (13 ноября 2026, 16:17:33 МСК). H только учёт/эстафета, не принимает claim и не меняет пакет C.
+
+main `c0053ff7f22fbc10e93efff2691ca6aa1ef90a06` содержит merge PR #39 и прежний исследовательский CAD. Старый claim T-r4-layout-build-01 принят/действовал до 2026-11-12T18:06:24Z; область/срок не расширены. Новые размерные/power входы и новый результат вынесены в отдельную задачу по прямому поручению пользователя. Исторические сводки ниже сохраняются, их слова «PR #39 не merged» не описывают текущую main.
+
+44 строки источников BASE_A/BASE_B fixed-budget в verification/r4_calculated_layout/source_bindings.md/json — **NOT_APPLIED**, не готовый CAD. Точные 30 input blobs/snapshots/code/review refs в input_manifest.json. Оба R3 readonly solver повторены, исходные 80 публикационных файлов CAD/инструмента/доказательств unchanged, registry --check-git и diff --check PASS. Проверенные акты распространяются только на свои входы; новые CAD/геометрические проверки/OUTPUT review NOT_STARTED/NOT_RUN.
+
+Следующий шаг координатора: последовательно принять предложение claim C в main, записать owner_session r4-linked-20261111 и ещё неистёкший срок, проверить отсутствие конкурирующего owner/новых входов; отдельно нормализовать статус принятия. Затем R4 fetch, ancestry/owner/lease/input hashes, входной акт §6 и реализация строго по verification/r4_calculated_layout/task.md. До этого инженерные изменения не начинаются по AGENT_PROTOCOL §4. Капсула handoffs/T-r4-calculated-layout-01/r4-linked-20261111.md.
+
+Будущий результат: отдельные редактируемые A/B, STEP/виды/сечения, фактическая параметрическая таблица до/после с ID@revision/source/status/узлами, полный ход/выдача/возврат/сервисы, новые raw outcomes и независимый R5. Камера/цилиндр/ходы из sizing C 8a1ad4199fea09d1157972d7aa28eaad1e8e0337; t/v только fixed-budget power C c115f75fd900525d9ddc89d85e097ac5a0f00bc1. Не подбирать COTS/крепления/станцию по мощности, не менять размеры ради энергетики; прежние блокировки/UNKNOWN видимы. B opening/L physical INDETERMINATE, реальные REV UNKNOWN, архитектура/ТЗ/COTS не утверждены, испытания NOT_RUN, G1 OPEN.
+
+Git push проверен. gh GraphQL/REST дают Forbidden: PR через API не создан; опубликованная ветка доступна для последовательного принятия предложения. Main не изменялась. Обновлено 2026-11-12T13:22:39Z.
+
+---
+
+## История предыдущих эстафет
+
+# Итог подготовки PR #39
+
+Commit подготовки с обеими историями R5: **bcb2ab470bca87534a5b96c795649e89a083ddc7**. Проверенный расчётный C **c115f75fd900525d9ddc89d85e097ac5a0f00bc1** и исходные сценарии неизменны; оба акта d92cebd5a539d6845fe114515154e79c639bcb7e и 54c918bc82612a38f74056ff8ff5b62632d3a210 входят в историю ветки. Локальные проверки: 100 tests OK, оба readonly replay OK, итоговый registry --check-git PASS, diff --check PASS. Контроль: 88 расчётных и 45 review-файлов идентичны. Подробности verification/pr39_integration/checks.json.
+
+Fixed-budget — условная база с caps/увеличенными временами; fixed-times — отдельный неутверждённый ресурс. Полный цикл/B open INDETERMINATE; оборудование/архитектура/ТЗ не утверждены, G1 OPEN. Задача IN_REVIEW; слияние PR в main не выполнено. Следующее действие — отдельное рассмотрение подготовленного PR оператором/координатором после проверок опубликованного HEAD. Эта H-запись только сообщает commit подготовки; проверенный расчёт не меняет.
+
+---
+
+# PR #39 подготовлен к интеграции — только ограниченная расчётная область
+
+Расчётный C **c115f75fd900525d9ddc89d85e097ac5a0f00bc1** сохранён без изменения проверенных файлов; исходные восемь несовместимых сценариев сохранены. Ветка включает оба независимых акта и историю: OUTPUT d92cebd5a539d6845fe114515154e79c639bcb7e и RECHECK 54c918bc82612a38f74056ff8ff5b62632d3a210. Вердикт RECHECK ACCEPT_WITH_WARNING; W01 CLOSED_IN_LIMITED_NEW_API_SCOPE, W02 CLOSED_FOR_CONDITIONAL_CALCULATION_HANDOFF_ONLY, без подтверждения реальных условий до полного цикла/подбора. Исторические OPEN/исходные verdict не переписаны.
+
+**Fixed-budget** — условная база с явно выбранными непроверенными caps и увеличенными временами. **Fixed-times** — альтернативный расчёт с отдельным **неутверждённым ресурсом питания**, не совместимый со старым бюджетом при этих временах. **Полный цикл и открытие упора B — INDETERMINATE**. Оборудование, архитектура и ТЗ не утверждены, G1 OPEN, физические испытания NOT_RUN.
+
+T-r3-parametric-sizing-01 IN_REVIEW до отдельного решения об интеграции; owner r3-sizing-20261112 / Codex / R3, heartbeat 2026-11-12T12:11:39.421389+00:00. Main 8867521a83bd4608886d81678683ea89cce7e4a3; claim PR #38, lease до 2026-11-13T08:50:42Z без продления. Подготовка по прямому поручению пользователя, полномочия R1/приёмка изделия не заявлены. Контроль сохранности/актов и границы — verification/pr39_integration/README.md, preservation.json; окончательные результаты проверок — checks.json после завершения. Слияние PR #39 в main не выполнялось.
+
+---
+
+## История предыдущих состояний
+
+# Окончательная передача R3: RECHECK W01/W02
+
+**Финальный code/results C `c115f75fd900525d9ddc89d85e097ac5a0f00bc1`**, исходный расчёт 8a1ad4199fea09d1157972d7aa28eaad1e8e0337, акт R5 d92cebd5a539d6845fe114515154e79c639bcb7e. Промежуточный C cca7333618ba587505f7e5b8ffbb64eab3ddee32 дополнен защитой прямого API-вызова с ненулевой утечкой без модели выдержки; численные значения восьми пар согласования не менялись. Для нового RECHECK использовать только финальный C выше.
+
+T-r3-parametric-sizing-01 IN_REVIEW, owner r3-sizing-20261112 / Codex / R3; heartbeat 2026-11-12T09:55:39.184956+00:00. Принятый claim PR #38/main 8867521a83bd4608886d81678683ea89cce7e4a3 и lease до 2026-11-13T08:50:42Z действуют без продления. Исходные восемь несовместимых сценариев сохранены. Новый слой отдельно показывает fixed-budget Q/v/t/T/rate и fixed-times resource/peak/average/energy bounds, с явными непроверенными caps и actual UNKNOWN. Известный дефицит выдержки или неустановленная модель ненулевой утечки блокируют допустимый цикл (null), а не скрываются длительностью движения/cap.
+
+Окончательно: 100 tests OK (14 новых), registry --check-git PASS, четыре readonly пересчёта, 74 файла SHA/size/mtime unchanged. Данные/ответ reviewer/R4 — verification/r3_power_reconcile/, запрос recheck_request.md. W01/W02 OPEN до независимого ограниченного RECHECK; автором не закрыты. B open INDETERMINATE, G1 OPEN; оборудование/архитектура/ТЗ не утверждены, физические испытания NOT_RUN. H — только эстафета/точный запрос, численный C не изменяет.
+
+---
+
+## История промежуточной передачи
+
+# R3: согласование мощности/времени — ограниченный RECHECK W01/W02
+
+T-r3-parametric-sizing-01 IN_REVIEW; owner r3-sizing-20261112 / Codex / R3, heartbeat 2026-11-12T09:49:41.426354+00:00. **Новый code/results C `cca7333618ba587505f7e5b8ffbb64eab3ddee32`**. Исходный C 8a1ad4199fea09d1157972d7aa28eaad1e8e0337 и восемь несовместимых режимов сохранены. Входной R5 d92cebd5a539d6845fe114515154e79c639bcb7e принял исходную арифметику с WARNING; новый слой не принят автоматически. Claim PR #38/main 8867521a83bd4608886d81678683ea89cce7e4a3, lease до 2026-11-13T08:50:42Z действует без продления.
+
+Новый пакет verification/r3_power_reconcile/: два явных варианта fixed-budget/fixed-times, отдельные фазовые Q/v/t и power–duration, T/условная производительность, энергия/средняя/пиковая мощность и UNKNOWN. Три power envelopes — явно выбранные ASSUMED границы, не реальные мощности. Actual hold/full energy/average остаются null без схемы/компонентов; при дефиците выдержки новый API даёт BLOCKED и null допустимый цикл. Старое Tlower заморожено для воспроизведения, не для планирования.
+
+99 tests OK (13 новых), реестр --check-git PASS, git diff --check PASS. По два readonly пересчёта старого/нового слоя идентичны; 68 файлов без изменения SHA/mtime/size. 376 новых CALCULATED scalar outputs, прежние определения/численные результаты сохранены. Новые VERIFIED/LOCKED отсутствуют.
+
+Следующий шаг — независимый ограниченный R5 RECHECK **C** по verification/r3_power_reconcile/recheck_request.md: W01 budget deficit/UNKNOWN/насос на выдержке, W02 оба согласования/ресурс/условные caps, таблицы/R4. Автор W01/W02 не закрывает. После независимого акта — отдельное решение координатора об интеграции. B open INDETERMINATE, реальная whole-machine feasibility UNKNOWN; оборудование/архитектура/ТЗ не утверждены, physical tests NOT_RUN, G1 OPEN. Капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md.
+
+---
+
+# Условный расчёт REV — R3, результат на независимой проверке
+
+T-r3-parametric-sizing-01 IN_REVIEW, owner r3-sizing-20261112 / Codex / R3; 2026-11-12T09:08:47.900489+00:00. **Code/results C `8a1ad4199fea09d1157972d7aa28eaad1e8e0337`**; этот последующий H содержит только эстафету/статус/запрос review. Claim `5fdc50bbc8e83241ad2f8754860a503f5de9f418` принят PR #38 на main `8867521a83bd4608886d81678683ea89cce7e4a3`, lease до 2026-11-13T08:50:42Z, не продлён. Исторические NONE/PENDING/NOT_STARTED ниже относятся к состоянию до принятия.
+
+Вход R2 `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50`, R5 `81e5dba4bb47cf8a552b3eb55733454ac4f9742d` ACCEPT_WITH_WARNING только для исходной базы. Отдельные копии/хэши входов сохранены. Восемь выбранных ASSUMED-сценариев, 696 CALCULATED scalar outputs; реальные UNKNOWN null, новых VERIFIED/LOCKED нет. Камера/доза/ходы, нагрузка, обе полости/направления цилиндра, Q/v/t/P/E, A удержание и B разгрузка/выдача разобраны в verification/r3_parametric_sizing/.
+
+При исходных временах все наборы превышают выбранный электрический бюджет; более длительный бюджет вычислен условно. D/d — нижняя геометрия из заданного отношения штока, не подбор/прочность. B opening и whole-cycle feasibility INDETERMINATE. Полная проверка ПО 86 tests OK, реестр --check-git PASS, два readonly пересчёта идентичны, 34 проверенных файла без изменения SHA/mtime/size. Это не независимый инженерный review.
+
+Следующий шаг: независимый R5 проверяет **C**, не переносит старый акт на новый код; запрос verification/r3_parametric_sizing/review_request.md, результаты/таблицы report.md, formulas model.md, R4 входы r4_inputs.md; капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md. После R5 — отдельное решение координатора об интеграции, без самоприёмки. G1 и прежние блокеры OPEN, конкретные цилиндр/насос и архитектура/ТЗ не утверждены, physical tests NOT_RUN.
+
+---
+
+# Ожидает принятия: отдельный claim условного расчёта R3
+
+T-r3-parametric-sizing-01 READY / PROPOSED_PENDING_MAIN; owner_session NONE, proposed owner r3-sizing-20261112 / R3 / Codex. Постановка и claim C `5fdc50bbc8e83241ad2f8754860a503f5de9f418`; main при сверке `680946b8abba9d921c5723b523be573554c15eca`. Входы R2 `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50`, R5 `81e5dba4bb47cf8a552b3eb55733454ac4f9742d` (ACCEPT_WITH_WARNING) доступны в Git, в main ещё не интегрированы.
+
+Следующий шаг — последовательное принятие claim оператором/координатором в main; затем fetch, проверка вхождения C/owner/lease/конкуренции/входов, входной аудит и расчёт по полной постановке в ISSUES_AND_TASKS.md. Модель/сценарии NOT_STARTED; это не результат для инженерной приёмки. Чужие назначения и сроки не изменены. Подробности: verification/r3_parametric_sizing/claim.md, хэши preflight.json; капсула handoffs/T-r3-parametric-sizing-01/r3-sizing-20261112.md.
+
+G1 OPEN; архитектура/ТЗ и конкретное оборудование не утверждены; физические испытания NOT_RUN. Предыдущие инженерные сводки и handoffs сохранены ниже, текущая запись не отменяет их ограничений.
+
+---
+
+# Сводная интеграция исследовательских компоновок — R1
+
+Финальный C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`, H `4bde1194a07244445364a1358678d1d07bd99a0c`, RECHECK `05f149332bc173eaa008250e1a5ab21e4d7611cf`. R1 оформил `decisions/R1-RESEARCH-LAYOUT-ACCEPTANCE.md`: предложение принять исследовательский пакет с WARNING после интеграции, не весь пресс. Истории всех исправлений/отказов/проверок сохранены, CAD и отчёты не перегенерированы.
+
+Следующее действие: последовательно интегрировать ветку после проверки актуальной main/owner/lease/входов; затем поставить конкретную задачу реализуемого сервиса дозатора с креплениями, коммуникациями, поддержкой и подъёмом. 6 прямых UP-пар BLOCKED, физический L-путь INDETERMINATE; не скрывать их успешным verifier. G1 OPEN, архитектура/ТЗ не утверждены, физические испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Актуальная эстафета — R5-FP-NEW-B01 semantic RECHECK
+
+- HANDOFF / IN_REVIEW; 2026-11-12T03:05:59Z; R4 r4-linked-20261111. **Code/results C `7d1bd1c92c7cedc4282e3a903463e88205b86fa3`**, REMOTE в work-r4/build-layout/r4-linked-20261111. H только учёт/эстафета, проверять неизменяемый C.
+- Вход 2592b470940cea886e033a999c889c15a92889f6 по исходному 8fbbef00023e146e32cb6ff290a0c19408ca13b5. Геометрические 14 fixes/L-path остаются ACCEPT_WITH_WARNING в конечной области, новый semantic adapter был REJECT_WITH_BLOCKER. Исправление на независимый RECHECK NOT_RUN, R5-FP-NEW-B01 OPEN, автор не закрывает.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 повторно проверена; accepted claim 79e9c3aa9aaca33778814957fafecd93a4adc392/PR #35/пользователь, owner r4-linked-20261111, lease до 2026-11-12T18:06:24Z (21:06 МСК) без расширения. Исторический NONE/PENDING main координатор сверяет/нормализует перед интеграцией.
+- Пять false PASS воспроизведены до изменений; причины каждого в verification/r4_fp_fix/causes.md. Теперь fresh current state/time/participants/plan/whole interval/all-pairs/method/continuity/return связаны с сохранёнными matrices/interval results/classifications/assessment/report. Registered metadata не даёт скрыть solid collision; mandatory sets выводятся из inputs/current scene, все пары сервисов включены.
+- Результаты раздельны: execution, test expectation, interval geometry, whole geometric path, overall/physical service. Known collision/confirmed discontinuity/plan-return defect блокируют whole path; unknown method/mandatory condition не дают успех. Исходный L остаётся limited geometry success, физическая пригодность INDETERMINATE. Expected legacy negative PASS не делает путь успешным.
+- 110 tests PASS. Тот же independent R5 probe после правки: все 5 verifier exits1, первые 4 BLOCKED/rotation INDETERMINATE, без записи. 25 цепочечных command records и 4 compound/unknown случая; calculation/report/reanalysis CLI тоже отвергают неверные пути. Восстановленные baseline verifier exit0/0, идентичный stdout/stderr, SHA/size/mtime unchanged.
+- Все 638919 pair matrices и classifications пересчитаны, 593931 mandatory interval rows сверены по значениям. Исходный набор: 20 CONFIRMED_NO_POSITIVE_VOLUME/2 legacy BLOCKED, общий физический сервис 20 INDETERMINATE/2 BLOCKED. 34 frozen модуля и 46 native/input/scene/classification files byte-identical, 14 static fixes/6 legacy native conflicts сохранены; CAD/STEP не пересохранялись.
+- Файлы/команды verification/r4_fp_fix/README.md/final_checks.json, before_counterexamples.json, after/, запрос recheck_request.md. Новые service_semantics/service_evidence/fixtures/tests плюс common/generate/present/verify diff — отдельная область review. Metadata/cached stages не заменяют fresh calculation. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Следующий независимый R5: checkout C, materialize LFS, сохранить оригинал, verifier дважды до generation; затем в отдельной копии пять native/unsupported случаев, compounds/time gaps/missing phase/scene/pair/group/return и вся calculation→aggregation→report→verifier→CLI цепочка. Критерий — независимый RECHECK B01 по C; интеграция координатором отдельно, merge не выполнен.
+- R4-FP-SERVICE-01 и реальные UNKNOWN сохраняются; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN, весь пресс READY INDETERMINATE. C REMOTE.
+
+---
+
+История прежних эстафет ниже:
+
+# Актуальная эстафета — дозатор и гидростанция A/B
+
+- HANDOFF / IN_REVIEW; 2026-11-12T01:34:06Z; R4 r4-linked-20261111. **Code/results C `8fbbef00023e146e32cb6ff290a0c19408ca13b5`**, REMOTE в work-r4/build-layout/r4-linked-20261111. H только учёт/эстафета, проверять неизменяемый C.
+- Входы a5d5bad6dd8928045512bca16836fd1d2544b7ca и независимый RECHECK c2e96a58d7efd64ea3364b2bcbfb3f0642bbc430. Старый R5-FRAME-NEW-B01 CLOSED в его области; новый FP результат не принят автоматически, OUTPUT review NOT_RUN.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, owner_session r4-linked-20261111; claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/пользователем, lease до 2026-11-12T18:06:24Z (21:06 МСК) без продления. Scope прежней all-press задачи достаточен; исторический учёт NONE/PENDING main координатор сверяет до интеграции.
+- ASSUMED rev8 заморожен до построения на 450e869. 14 статических native penetration пар устранены (collar/doser/hopper mounts и tank/motor A/B); 6 legacy straight-UP doser/hopper пар остаются доказанными BLOCKED и видимыми. Новый side→UP→DOWN→return проверен геометрически, реальный actuator extra stroke/отсоединение/подъём UNKNOWN, actual feasibility INDETERMINATE. Не заявлять устранение всех 20 или принятие legacy UP.
+- Дозаторные боковины/лотки/направляющие сохраняют cap UP corridor; motor end-face mounts и tank brackets связаны номинальными faces с frame. Все old ID сохранены, A91/B89. Рабочие doser/punch/rod/cylinder/gate/lock/stop и прежние config/strokes не менялись. 62 новых +58 прежних conditional native interfaces не подтверждают прочность/реальный крепёж/радиальную фиксацию.
+- Все 34 прежних checked Python-модуля/old CAD/reviews/probes неизменны. Новые cad/feed_power adapters — отдельный объект review. Actual CAD/STEP/all canonical queries/repeat/edit/reopen/PNG/eight strict cycle expectations PASS; canonical DoserRemoval намеренно остаётся старым BLOCKED UP, новый L-route проверен posed bodies/full intervals, не новым native query.
+- 638919 all-pair строк; 507043 critical rows: 506934 no-positive, 97 INDETERMINATE controls, 12 positive legacy UP/DOWN. 878 старых target rows без регрессии; 22 continuous/restored сервиса, 8 новых без positive moving overlap. 102 tests и 18 package-regression случаев/20 команд PASS, 16 faults rejected without auto repair, включая updated-hash сокрытие остатка/evidence. Два readonly verifier идентичны и не изменяют пакет.
+- Конечный inventory: 557 non-CLEAR пар, 6 native BLOCKED legacy UP, 2 envelope controls, 15 old-policy synthetic contacts, 534 INDETERMINATE. Условные новые nominal contacts объяснены в interfaces.json без новой разрешающей policy. Весь пресс READY INDETERMINATE, задача не DONE. R4-FP-SERVICE-01 OPEN до реальных service/actuator данных; положительные collision не переименованы в uncertainty.
+- Файлы/команды: cad/feed_power/README.md, cad/build/feed_power/assessment.md и A/B, verification/r4_feed_power/README.md/final_checks.json; запрос review_request.md. Полные причины, bounds/ID@revision, native before/after всех 20 пар, виды/FCStd/STEP, classifications/matrices/intervals сохранены. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Следующий независимый R5: checkout C, materialize LFS, сохранить оригинал, verifier дважды до генерации; затем separate clone/gen/verify и независимая проверка новых services, стыков, всех шести remaining и regressed groups. Критерий — новый OUTPUT акт в ограниченной области и оценка новых wrappers; интеграция координатором отдельно. Merge не выполнен.
+- Реальные параметры/сырьё/физика/безопасность UNKNOWN, условные размеры ASSUMED; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN. C REMOTE, 12 новых LFS объектов загружены.
+
+---
+
+История прежних эстафет ниже:
+
+# Актуальная эстафета — RECHECK readonly verifier
+
+- HANDOFF / IN_REVIEW; 2026-11-12T00:36:54Z; R4 r4-linked-20261111. **Code/results C `a5d5bad6dd8928045512bca16836fd1d2544b7ca`**, REMOTE, ветка work-r4/build-layout/r4-linked-20261111. H только эстафета/учёт, проверять неизменяемый C.
+- Входной R5 акт `0b4788dd36f811e4acb202b96d6a76a6a06b63ad` принял геометрическую группу C 5198e01 с WARNING, но отклонил новый процесс выпуска: R5-FRAME-NEW-B01 OPEN. Новый независимый RECHECK NOT_RUN, автор не закрывает B01.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 повторно проверена 12 ноября; claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/пользователем, owner_session r4-linked-20261111, lease до 2026-11-12T18:06:24Z (21:06 МСК), без продления. Исторический предварительный NONE/PENDING main координатор сверяет до интеграции; scope прежней задачи достаточен для исправления.
+- Verifier теперь только читает сохранённые manifest/input/CAD/evidence и выдаёт JSON stdout/exit, без обновления файлов на успехе/отказе. Явный generate.py выполняет полный выпуск/manifest; run.artifacts не захватывает предыдущий manifest или поздние стадии. 23 frozen модуля и геометрический код неизменны, необходимый diff release-кода выделен для RECHECK.
+- 95 tests PASS; 18 regression случаев/23 команды: две explicit generation поверх существующего пакета, по два одинаковых readonly verifier и ещё два после восстановления fixtures; 15 missing/corrupt/stale отказов без auto repair. На текущем пакете также два одинаковых verifier PASS с неизменностью всех 92 файлов по байтам/mtime.
+- 35 исходных geometry/evidence хэшей и native manifest.objects A79/B77 сохранены. Все 18 устранённых и 20 оставшихся native пар без изменения области; все прочие контакты/неизвестности видимы. Metadata FCStd/STEP/PDF при явном rebuild могут меняться, геометрия и semantic/native repeat неизменны. Whole press READY INDETERMINATE, сборка/задача не приняты.
+- Полные команды/результаты verification/r4_frame_fix/README.md, final_checks.json, read_only_repeat.json, unit_tests.json, regressions/. Запрос verification/r4_frame_fix/recheck_request.md; SHA-256 evidence_sha256.json. Артефакты cad/build/frame_mount/, publication_manifest.json версии 2. Исторический final_checks.json в r4_frame_mount сохранён, verifier его не переписывает.
+- Следующий независимый R5: checkout C, materialize LFS, сохранить оригинал, проверить опубликованный пакет дважды ДО генерации. Затем в отдельной копии explicit generate/двойной verifier/fault cases, сверить DAG, CAD/все QueryVolumes, сохранность исходного evidence. Критерий — независимый RECHECK B01, затем отдельное решение координатора об интеграции. Merge не выполнялся.
+- Размеры ASSUMED, реальные параметры/физика/безопасность UNKNOWN; архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 OPEN. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+
+---
+
+История прежних эстафет ниже:
+
+# Актуальная эстафета — рамная/монтажная геометрия A/B
+
+- HANDOFF / IN_REVIEW; 2026-11-11T22:56:14Z; R4 r4-linked-20261111. **Code/results C: 5198e0184b35978701ed1ce762d9e4fcd44997b3**, ветка work-r4/build-layout/r4-linked-20261111, REMOTE. H — только эстафета, проверять неизменяемый C.
+- Входы: базовый C 66924aed1cb2d193b9883d2140d85560b1e4b0cb, независимый акт 04efe5703e339112b7d007665b9f3672f0572d37 (R5-LAYOUT-NEW-B01/B02 CLOSED в прежней проверенной области). Новый геометрический результат/дополнительный код НЕ принят, независимый OUTPUT review NOT_RUN.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 проверена fetch до работы и публикации; claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35 и подтверждён пользователем, owner_session r4-linked-20261111, lease до 2026-11-12T18:06:24Z без продления. Новая коррекция внутри исходного scope. Историческое предварительное NONE/PENDING main координатор сверяет/устраняет перед интеграцией, история сохранена.
+- ASSUMED input rev7 зафиксирован на 17501de до построения. Исправлена связная группа поперечин/рельсов/опор цилиндра/выходной опоры, открытый U-коридор, добавлены верхние стойки. Все прежние ID сохранены, A79/B77. 18 прежде положительных native пар стали zero volume; 58 условных сопряжений с положительной площадью native граней. Крепёж/силовая способность/радиальная фиксация UNKNOWN, не принимать геометрический граф за расчёт силы.
+- Все 23 прежних reviewed Python-модуля неизменны; новые cad/frame_mount scripts/reporting требуют отдельного review. Сохранены прежние CAD/input/results/акты/probes. Actual FCStd/STEP/все QueryVolumes, повтор/edit/reopen/recompute, 83 прежних+5 новых тестов и 8 strict limited outcomes PASS. Восемь сцен не доказывают готовность пресса.
+- 346709 all-pair строк с полным покрытием. Новая группа 114156 строк без положительного объёма и 28 INDETERMINATE unknown-control. 658 прежних target строк без регрессии; старые R5 native witnesses и 187 secondary control строк повторены. Цилиндровый сервис 3672 строки без положительного перекрытия; 14 сервисных последовательностей continuous/restored. Дозаторный сервис остаётся BLOCKED.
+- Конечный реестр после: 463 непустых пары, включая 20 native penetration пар OPEN, 73 условных сопряжения, 2 оболочечных пересечения и 368 INDETERMINATE. Остались монтаж дозатора/кармана/бункера, извлечение дозатора, бак/мотор и неизвестные сопряжения/крепления/доступы. Весь пресс BLOCKED остаточными проникновениями, READY INDETERMINATE.
+- Файлы/команды: cad/frame_mount/README.md; cad/build/frame_mount/assessment.md и inventory/, FCStd/STEP/PNG/SVG/PDF A/B, четыре before/after вида; verification/r4_frame_mount/final_checks.json. Хэши publication_manifest.json, обзор входа input_audit.md. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Следующая роль — независимый R5, не автор. Checkout C/materialize LFS/сохранить исходную копию/сверить hashes, затем cad/frame_mount/review_request.md: самостоятельная проверка полного хода/возврата/сервиса, native face interfaces, остатка и новых supplementary scripts. Критерий — новый независимый OUTPUT акт; задача не DONE. Интеграция координатором отдельно, merge не выполнялся.
+- Размеры ASSUMED, реальные параметры REV/физическая работоспособность/безопасность UNKNOWN. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. C REMOTE, 12 новых LFS объектов загружены.
+
+---
+
+История прежних эстафет ниже, не текущий статус:
+
+# Актуальная эстафета — RECHECK новой аналитики
+
+- HANDOFF / IN_REVIEW; 2026-11-11T21:37:52Z, R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.
+- **Code/results C: 66924aed1cb2d193b9883d2140d85560b1e4b0cb**. Входной акт REV-R5-LAYOUT-CORRECTION-01-001 на 04b9f2950a34492b15e1d7c893f680b82f9183b9; исходный C 120a9582f4835e81cdf324605a14f632ce7db2cb. H содержит только эстафету/учёт/запрос review, не заменяет C.
+- Исправления R5-LAYOUT-NEW-B01/B02 представлены, **оба OPEN** до независимого RECHECK. Новый classifier проверяет motion/точные входы/полное SUPPORTED evidence до CLEAR; unsupported/unknown дают INDETERMINATE с причиной/NOT_ESTABLISHED coverage. Доказанный дефект другой пары сохраняется при UNKNOWN.
+- Sufficient требует actual/reported LINK_CONFIRMED, разрешённый переход, непрерывность/lifecycle/обязательные RETURN/RESET/READY-RETURNED и восстановленный limited READY; criterion не ослаблен. verify_output имеет отдельные raw-scene assertions без вызова oracle outcomes.py. Командное execution, test_evaluation и geometric_scene_outcome раздельны; отрицательный test PASS не означает READY.
+- Штатные команды `/usr/bin/python3 cad/layout_correction/run_revision.py` и затем `/usr/bin/python3 cad/layout_correction/verify_output.py`: exit 0, 10 subprocess commands exit 0, 83 unit tests, 15 classifier и 40 cycle regressions PASS. Sufficient success только для A/B, short/collision/unknown остаются BLOCKED/INDETERMINATE.
+- Полный unlinked CAD контрпример исходного R5 повторён с его evidence/unlinked_inputs.json через --inputs и отдельный --out: CAD builds/checker exit 0, обе новые CLI exit 1, sufficient A/B LINK_ABSENT/BLOCKED/limited_cycle_success=false. Это PASS ожидания отказа, не sufficient. Полные отрицательные команды/run/verify/outcomes/logs — verification/r4_analysis_fix/negative_full_*.
+- Геометрия, ASSUMED inputs rev6 и 15 checked-tool файлов de377f0 неизменны. Все native manifest.objects и 8 PNG совпали с C 120a958; raw operating/service geometry evidence и before_after_native совпали по hash. Повтор R5 geometry_probe: 251923 строк без пропусков/дубликатов, 618 target rows/58 native checks без положительных проникновений, 12 сервисов непрерывны/восстановлены. Остальные frame/mount/powerpack/service проникновения и UNKNOWN сохранены, весь пресс READY INDETERMINATE.
+- Результаты cad/build/layout_correction/run.json, assessment.json/md, regressions/*.json, classifications.jsonl.gz и raw_checked_tool/. Read-only final checks verification/r4_layout_correction/final_checks.json; geometry/negative preservation evidence verification/r4_analysis_fix/. Навигация cad/layout_correction/README.md, запрос review_request.md. Старые R5 probes с ошибочными assertions сохранены; не использовать их исходный PASS как критерий исправления.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53/claim/owner/lease проверены перед C. owner r4-linked-20261111, claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/подтверждён пользователем; lease до 2026-11-12T18:06:24Z не продлён. Исторические NONE/PENDING main и рабочая нормализация требуют последовательной сверки координатором перед интеграцией, не меняют поручение текущей коррекции.
+- Следующая подходящая роль — независимый R5 (не автор). Первый шаг: checkout C, materialize LFS, сохранить исходную копию/сверить hashes; прочитать входной акт verification/r4_analysis_fix/input_audit.md, R5 review и README/assessment. Воспроизвести штатные команды, полный unlinked контрпример с ожидаемыми nonzero и собственные составные случаи unsupported/unknown + definite defect, link/return/lifecycle.
+- Критерий — независимый RECHECK B01/B02 на новом C; новый акт NOT_RUN. Положительная целевая геометрическая проверка C 120a958 сохраняется, весь пресс не принят. Роль/профильная квалификация/физическая применимость не подтверждаются самопроверкой. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md.
+- Реальные параметры/работоспособность/безопасность UNKNOWN, условные числа ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. C/H публикуются в рабочей ветке без слияния, C REMOTE, запрос независимого RECHECK опубликован в рабочей ветке, merge не выполнялся.
+
+---
+
+История предыдущих эстафет (не текущий статус review):
+
+# Актуальная эстафета — исправление геометрии A/B
+
+- HANDOFF / IN_REVIEW; 2026-11-11T20:34:47Z; R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.
+- **Code/results C: 120a9582f4835e81cdf324605a14f632ce7db2cb**. Входной акт REV-R5-QUERY-VOLUMES-01-001 на 214b055f04d5b061a68dfd744afb6c956ac9a9d1, checked tool de377f012da08f34796b2e59aee663ba0b2b3d2b. Следующий H — только эстафета/учёт; проверять C.
+- Принятый claim T-r4-layout-build-01 охватывает корректировку ещё не принятой компоновки, новая задача не требуется: исходный scope — все узлы, геометрия, движения/сервисы A/B. Main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 сверена до C; owner r4-linked-20261111, claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/пользователем, lease до 2026-11-12T18:06:24Z не расширен. Перед интеграцией координатору устранить известный исторический NONE/PENDING main по принятому основанию.
+- Устранены целевые positive-volume inlet_gate/pocket_R A/B и lock/end_stop/guard/support B: явный слот и закрытый retract-карман, две опорные стойки с выходным окном/перемычкой, расширенный lock, перенос полной панели guard за ход/гидроагрегат. Исходные ID не удалялись, тела 65→70 A и 61→68 B. Новый отдельный ASSUMED input rev6; реальные параметры UNKNOWN.
+- **Все 15 checked-tool файлов неизменны**; старые входы/CAD/results/reviews сохранены. Новые run_revision/assess/verify_output и политика face-touch — отдельный объект независимого review, не наследуют акт инструмента. Raw COLLISION не удалены/не ослаблены; source_commit_inputs/known_native_penetrations/tool_blockers строки frozen checker исторические, новая provenance в run.json.
+- Запуск: `/usr/bin/python3 cad/layout_correction/run_revision.py`, затем `/usr/bin/python3 cad/layout_correction/verify_output.py`. 73 прежних + 6 новых tests, 8 limited outcomes, native CAD/STEP/query/repeat PASS. Все 10 subprocess commands exit 0. 130453 рабочих и 121470 сервисных строк; 618 целевых строк без strict penetration и все 6 прежних native witnesses стали zero volume. 12 сервисных последовательностей непрерывны и возвращают позиции; новые gate/lock/end_stop/portal не пересекают движущимися телами препятствия.
+- Дополнительная самопроверка: 216 строк двух введённых design-контрпримеров (guard/pump_motor и bridge/output_support) дают CLEAR/обоснованное exact zero-volume face touch; положительных/envelope пересечений с добавленными телами нет. Два пробных размещения и ранняя ошибка нового анализатора сохранены в history. Подающее окно открыто/перекрыто по нужной фазе, условная реакционная цепь B до рамы имеет positive-area face-contact; силы/прочность/реальная подача/выдача/безопасность UNKNOWN.
+- Остальные контакты классифицированы явно: conditional synthetic touch, penetration, native penetration witness, envelope intersection или INDETERMINATE; ничто не исключается из raw матрицы. Рамные/mount/powerpack и старые сервисные дефекты сохранены. **Весь пресс не принят, READY INDETERMINATE**. Геометрические результаты limited path не заменяют всю сборку.
+- Результаты: cad/build/layout_correction/A,B (FCStd/STEP/PNG/SVG/PDF), gate_before_after.svg, stop_before_after.svg, assessment.md/json, classifications.jsonl.gz, service_scenes.json.gz, raw_checked_tool/. Команды/hashes run.json, последующие проверки verification/r4_layout_correction/final_checks.json. Навигация cad/layout_correction/README.md, причины/параметры change_inputs.json и changes.json.
+- Следующая подходящая роль — независимый R5, не автор; профильные входы R2/R3/R6 по реальным силам/подаче/обслуживанию UNKNOWN, не приписывать их проверку. Первое действие: checkout C, materialize LFS, сохранить исходную копию/сверить hashes, прочитать input_audit/frozen_tool, новый README/assessment и R5 акт; воспроизвести обе команды, независимо проверить весь ход/return/services, отсутствие новых вторичных проникновений, обоснование face-touch и новый анализатор.
+- Критерий — независимый OUTPUT review геометрии и отдельная оценка нового кода/политики. Review NOT_RUN, задача не DONE. Инструментальные B01/B02 CLOSED лишь в прежних областях; не переоткрываются без основания. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md, запрос cad/layout_correction/review_request.md.
+- Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. C/H публикуются в рабочей ветке без слияния; C REMOTE, запрос независимого review cad/layout_correction/review_request.md опубликован в рабочей ветке; merge не выполнялся.
+
+---
+
+История предыдущих передач ниже, не текущее поручение.
+
+# Актуальная эстафета — B02 QueryVolumes
+
+- HANDOFF / IN_REVIEW; 2026-11-11T19:31:43Z; R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.
+- **Code/results C: de377f012da08f34796b2e59aee663ba0b2b3d2b**. Предыдущий C 5449fb9bc4c20fcbc40fdec932876dcecc90ef4d; входной независимый акт REV-R5-CAD-TOOL-FIX-01-001 на 8f381c4b080d902cb023429c54d518bfd6fab681. Последующий H — эстафета/учёт, не замена C.
+- B01 CLOSED независимым R5 в проверенной области на 5449fb9; его код не изменён, оснований переоткрытия нет. **B02 OPEN** до независимого RECHECK нового C. Исправление не означает приёмку инструмента или компоновок.
+- Исправлены canonical registry и нативная проверка всех QueryVolumes A/B: CylinderRemoval/DoserRemoval, размеры/форма, локальное и глобальное положение, Role. Manifest не определяет ожидания. Подменённые/удалённые/пустые/неописанные зоны запрещают CAD PASS даже после обновления hash; CLI даёт FAILED/NOT_RUN и ненулевой код. Результат каждой зоны с source IDs — cad/build/research_layout/checks/report.json.
+- Команда `/usr/bin/python3 cad/layout/run_all.py`: все 14 дочерних команд exit 0. 73 unit tests, 64 QueryVolumes-negative (60 обновлённых hashes), прежние 14 CAD-negative и 33 lifecycle, 20 независимых lifecycle-regressions R5, 8 limited outcomes PASS. Полные результаты/source/artifact hashes — validation.json и checks/*.json, оценка assessment.md; описание/отдельные команды cad/layout/BUILD_README.md.
+- Геометрия всех четырёх зон сверена с actual-файлами C 5449fb9 и не изменена. build_model/ASSUMED input/manifest.objects, PNG, все 107486 записей фаз/пар и 556 сервисных результатов сохранены. Нативные проникновения R5 повторились: статически 17 положительных A и 18 B, прежние промежуточные случаи совпали. Полная сборка BLOCKED_ASSUMED_INTERFERENCES, READY INDETERMINATE; ограниченный путь не разрешает весь пресс.
+- Перед работой и C свежая main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53, claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35/подтверждён пользователем, owner r4-linked-20261111, lease до 2026-11-12T18:06:24Z. Известное расхождение предварительных NONE/PENDING main и нормализации рабочей ветки сохранено с основанием; координатор сверяет его перед интеграцией, срок не расширяется.
+- Следующая подходящая роль — независимый R5, не автор. Первый атомарный шаг: checkout точного C, git lfs pull, сверить hashes/сохранить исходную копию; прочитать входной акт verification/r4_query_volume_fix/input_audit.md, R5 акт, README и assessment; воспроизвести run_all, независимо повторить Q01 и остальные подмены зон. Старый cad_probe.py на 8f381c4 содержит Q01 assertion ошибочного PASS; его успешный запуск до правки сохранён как baseline_cad_probe.json, это не критерий исправления.
+- Критерий — независимый RECHECK B02 на C; B01 не переоткрывать без нового основания. Новый акт NOT_RUN, замечания компоновок/безопасности не закрыты. Все независимые review/probes/evidence сохранены. Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md; запрос cad/layout/output_review_request.md.
+- Реальные параметры REV UNKNOWN, условные ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Рабочая ветка C/H публикуется без слияния; C REMOTE, запрос независимого RECHECK B02 сохранён в cad/layout/output_review_request.md, слияние не выполнялось.
+
+---
+
+История предыдущих эстафет, не текущее поручение:
+
+# Актуальная эстафета — RECHECK инструмента компоновки
+
+- HANDOFF / IN_REVIEW; 2026-11-11T19:07:56Z; автор R4 r4-linked-20261111. REV, https://github.com/narrateller/REV, ветка work-r4/build-layout/r4-linked-20261111.
+- **Новый code/results C: 5449fb9bc4c20fcbc40fdec932876dcecc90ef4d**. Исходный C 6bb66a566719593a59935e341b1b5c80a1cbc9a7, входной R5 акт REV-R5-LAYOUT-BUILD-01-001 e939b41d0139b0a3a08a5950eeeec6e92324cf9b сохранены. Последующий H — только эстафета, не заменяет C.
+- main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 повторно сверена перед C. Владелец r4-linked-20261111, claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35 и пользователем, lease до 2026-11-12T18:06:24Z, не продлён. Предварительные NONE/PENDING в main остаются расхождением учёта, нормализованным в рабочей ветке по принятому основанию; координатор должен сверить/устранить его перед интеграцией.
+- Исправлено: каждое событие lifecycle проверяется, преждевременный REMOVE удерживает изделие и блокирует переход; CREATE/SPLIT не применяются и не дают успеха. CAD PASS теперь требует actual FCStd/STEP, совпадающих hashes и нативной сверки состава/форм; manifest-only, повреждённый/изменённый CAD или native failure дают явный FAILED. R5-CAD-TOOL-B01/B02 остаются OPEN до независимого RECHECK, автор не объявляет закрытие.
+- Команда: `/usr/bin/python3 cad/layout/run_all.py`. Все 12 дочерних команд exit 0; 69 unit tests, 33 lifecycle-контрпримера и 14 CAD-negative случаев, 8 ограниченных исходов A/B PASS. Команды/exit codes/hashes в cad/build/research_layout/validation.json, фактическая оценка assessment.md, новые regressions/geometry/native evidence в checks/. Навигация: cad/layout/BUILD_README.md.
+- Геометрия не исправлялась: build_model.py/ASSUMED JSON/manifest.objects и 8 PNG неизменны; все 107486 записей фаз/пар идентичны исходному C. 556 сервисных результатов сохранены. Нативные пробы R5 повторены и подтвердили прежние проникновения: статически 17 положительных common volumes A, 18 B, все прежние промежуточные свидетельства. Полная сборка имеет BLOCKED_ASSUMED_INTERFERENCES, READY=INDETERMINATE. 8 ограниченных исходов не означают готовность пресса.
+- Следующая подходящая роль — независимый R5 (не автор R4), при необходимости профильные входы R2/R3/R6. Первое действие: checkout C, материализовать LFS, сверить исходные hashes и сохранить копию результатов до перезапуска. Прочитать входной акт verification/r4_layout_tool_fix/input_audit.md, R5 review, README/assessment; воспроизвести run_all и независимо повторить B01/B02 и отрицательные случаи. Оригинальный adapter_probe.py фиксирует ошибочное поведение: его прежние assertions не являются критерием исправления. Исходные review/probes/evidence сохранены без редактирования.
+- Критерий следующего шага — собственный независимый RECHECK на точный C. Новый review NOT_RUN, задача не принята; геометрические пересечения требуют отдельной последующей задачи/решения, не разрешаются исправлением инструмента.
+- Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md. Реальные параметры REV UNKNOWN, условные значения ASSUMED отдельно. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN, G1 открыт. Публикация C/H в рабочей ветке без слияния; C REMOTE, 12 новых LFS-объектов загружены; запрос RECHECK в cad/layout/output_review_request.md, merge не выполнялся.
+
+---
+
+История предыдущей передачи ниже, не текущее поручение.
+
+# Актуальная эстафета — исследовательские компоновки A/B
+
+- Состояние HANDOFF / IN_REVIEW; UTC 2026-11-11T18:33:56Z; автор R4 / r4-linked-20261111.
+- Проект REV, https://github.com/narrateller/REV; ветка `work-r4/build-layout/r4-linked-20261111`. **Code/results C: 6bb66a566719593a59935e341b1b5c80a1cbc9a7**. H содержит только эстафету/учёт, не заменяет этот C для проверки.
+- T-r4-layout-build-01: claim 79e9c3aa9aaca33778814957fafecd93a4adc392 принят PR #35 на main 06d68b0ce9c7d0c0ec3b6a66b917098ec9730b53 и подтверждён пользователем. owner_session r4-linked-20261111, lease до 2026-11-12T18:06:24Z; срок не продлён. Предварительные NONE/PENDING в принятом тексте main исправлены в рабочем трекере по основанию принятия; история предложений сохранена.
+- Построены отдельные редактируемые FreeCAD A/B, STEP, общие виды PNG/SVG/PDF, сечение, фазовые схемы и схема силового пути. Команда: `/usr/bin/python3 cad/layout/run_all.py`. Навигация/инструменты: cad/layout/BUILD_README.md; фактическая оценка: cad/build/research_layout/assessment.md; воспроизводимость/команды: validation.json; полный JSON всех пар с gzip в checks/.
+- Самопроверка: 60 тестов, 8 ограниченных исходов A/B, reopen/recompute/edit probe, STEP и чистый семантический повтор PASS. 107486 полных записей пар и 556 сервисных. **Полная установка имеет условные пересечения и whole_assembly_ready=INDETERMINATE**; ограниченный путь не доказывает работоспособность всего пресса. Реальная физика/безопасность UNKNOWN.
+- Входы: неизменённый model_build_task.md/шаблон из пакета 2c6743d39b59e38d85d21684059b4f4afd1ca248; review предыдущей постановки REV-R5-LAYOUT-01-001 на a621f466aac7c31e7812b91ab84c327157411fbc (WARNING). ASSUMED-числа зафиксированы до применения на 4865fbfabf861a7c856a2f61300e2a9fc4ab0872 и 6db54ea4168e83118de70144e2fd08c8750b5d6c; метаданные без изменения чисел на 0d587fa (полный SHA в отчёте). Реальный registry/COTS и проверенные models/ неизменны.
+- Следующая подходящая роль — независимый R5 с входами R2/R3/R6; это предложение review, не назначение и не самоприёмка. Прежний акт не проверял новые CAD/адаптер. W01–W03 автором не закрыты, новый OUTPUT review NOT_RUN.
+- Первый атомарный шаг reviewer: checkout точного C, `git lfs pull`, прочитать аудит/задание/README/assessment, сверить hashes, выполнить команду воспроизведения и проверить полноту матриц, границы метода и отображение непроверенных условий. Критерий — собственный независимый акт на C; при отсутствии данных сохранять INDETERMINATE. Архитектура/ТЗ не утверждены, физические пробы/испытания NOT_RUN, G1 открыт.
+- Капсула: handoffs/T-r4-layout-build-01/r4-linked-20261111.md. Публикация C/H — рабочая ветка для review, без слияния; доступность C REMOTE, все 12 новых LFS-объектов загружены. Draft PR не создан: GitHub GraphQL API Forbidden; текст cad/layout/output_review_request.md, ссылка создания https://github.com/narrateller/REV/pull/new/work-r4/build-layout/r4-linked-20261111 .
+
+---
+
+Исторические эстафеты ниже сохранены; не выполнять их как текущее поручение.
+
+# Подготовительный PR W01/W02/W03 и claim построения
+
+- C подготовительного пакета/предложения claim: 79e9c3aa9aaca33778814957fafecd93a4adc392; ветка work-r4/prepare-layout-build/r4-linked-20261111; база main c00c75dda08889c3e19169476051b3e6980be721.
+- История WARNING review REV-R5-LAYOUT-01-001 a621f466aac7c31e7812b91ab84c327157411fbc включена fast-forward. Новая редакция постановки помечает старый review STALE для изменённого текста, исходный проверенный SHA/вердикт сохранены. Ответы — cad/layout/preparation_review_response.md; manifest рядом.
+- W01: передача предварительно после дробления/просева, проверка включений и возможная допподготовка — существующая линия, выход — выход пресса. Неподтверждённые характеристики, транспорт/буфер UNKNOWN. W02: учёт принятого claim постановки PR #34 исправляется этим PR, история и основание сохранены. W03: cad/layout/model_build_task.md задаёт FreeCAD, .FCStd/STEP/виды, состав/базы, отдельный template conditional inputs и будущие команды/проверки.
+- Новая задача T-r4-layout-build-01 READY; claim PROPOSED/PENDING_MAIN, proposed_owner r4-linked-20261111. Срок в трекере и капсуле. До принятия отдельного claim в main построение и код build/check NOT_STARTED. Условные значения назначать после принятия, до применения фиксировать отдельный ASSUMED-реестр; реальные параметры REV UNKNOWN.
+- Ветка опубликована БЕЗ слияния; gh pr create получил GitHub API Forbidden, PR НЕ СОЗДАН. Текст для одного подготовительного PR сохранён в cad/layout/preparatory_pr.md. После review/принятия PR повторно проверить main/owner/lease/входы и оформить входной акт. Прежний принятый claim постановки сам по себе не разрешает построение.
+- Проверки: check_registry.py --check-git и git diff --check PASS; импорт FreeCAD 1.0.0/Part через системный Python 3.13.5 проверен без документов/геометрии; native freecadcmd падает, выбран путь через Python. Сам build/reopen/export ещё не проверен и выполняется только после принятия claim.
+- Капсула handoffs/T-r4-layout-build-01/r4-linked-20261111.md. Архитектура/ТЗ не утверждены, физические испытания NOT_RUN; G1 открыт.
+
+## Предыдущая эстафета (история)
+
+# OUTPUT-review постановки компоновки всего пресса
+
+R5 / Codex / session `01a1c552-4e0c-75cf-86ba-2922ccdb30f3` проверил `cad/layout/whole_press_layout_brief.md` на `32481da99f436d260e9af6f0bcc9b0979b952cff`; акт `verification/r5_whole_press_layout_review/review.md`, вердикт WARNING. Текущая сессия не автор документа, но ранее как R1 участвовала в разработке части его входов; организационная независимость и квалификация не удостоверены.
+
+Условную исследовательскую компоновку A/B можно передать R4 после фиксации её отдельной задачи, условий и claim; реальные параметры, безопасность и архитектура не подтверждены. W01 — уточнить предварительные ориентиры оператора; W02 — сверить и последовательно исправить учёт принятого claim; W03 — определить воспроизводимый условный набор до новой модели. Сверить актуальную main, входы, владельца и срок; G1 OPEN, CAD и физические испытания этим review NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Независимая проверка постановки всего пресса — T-r4-layout-01
+
+- Документальный результат C: 32481da99f436d260e9af6f0bcc9b0979b952cff; ветка work-r4/whole-press-layout/r4-linked-20261111; автор R4 / r4-linked-20261111. Файл cad/layout/whole_press_layout_brief.md, SHA-256 30175b4865bfe977436f2dbe888b466bfc090d14af1d632c39b3aede87d8a0c4; входной manifest, аудит и self-check в той же папке.
+- Claim 1683e24d3be2dfcf8ac91eda102e4d376c834d80 принят PR #34 на main c00c75dda08889c3e19169476051b3e6980be721; пользователь подтвердил принятие, owner r4-linked-20261111, lease до 2026-11-12T17:43:20Z. В принятом предложении остались предварительные PENDING/NONE; в рабочей записи они исправлены с явным основанием, без расширения срока/области.
+- Область результата: постановка будущей параметрической компоновки всего пресса A (канал/зажим) и B (закрытая камера/выталкивание). Узлы/интерфейсы, необходимые размеры/ходы/положения/нагрузки, силовые цепи и проверки всего диапазона; источники существующих сведений отделены от данных оператора/будущих опытов.
+- Независимый OUTPUT-review NOT_RUN. Передать R5 и профильным R1/R2/R3/R6 по протоколу; reviewer не автор документа. Проверить каждую таблицу и ограничения, достаточность входов и происхождение, отсутствие переноса synthetic значений, открытые интерфейсы затвора/зажима/упора/замка/цилиндра/рамы и сервисные зоны.
+- Повторяемые документальные проверки: python3 scripts/check_registry.py --check-git; git diff --check; input_manifest.json сверять с Git blobs указанной базы. Эти команды PASS, но не являются независимым инженерным review. Код/registry/COTS и прежние synthetic результаты не изменены.
+- Никакой CAD/физический расчёт/пробы/испытания не выполнялись. Все реальные размеры, ходы, нагрузки и свойства сырья UNKNOWN. Архитектура/ТЗ не утверждены; G1 открыт. Капсула handoffs/T-r4-layout-01/r4-linked-20261111.md; задача IN_REVIEW, не DONE.
+
+## Предыдущая эстафета (история)
+
+# Предложение отдельного claim R4 — постановка всего пресса A/B
+
+- T-r4-layout-01 READY; claim PROPOSED / PENDING_MAIN; proposed_owner r4-linked-20261111 / R4. Принятый owner новой задачи NONE, проектная работа NOT_STARTED.
+- C предложения 1683e24d3be2dfcf8ac91eda102e4d376c834d80; база main b2d13541225ceb092559747443ec351ecfd0ef84 после PR #33; ветка work-r4/claim-whole-press-layout/r4-linked-20261111. Срок предложения и точные входы — в ISSUES_AND_TASKS.md, T-r4-layout-01.
+- Прежний claim T-r4-linked-01 касается только synthetic AABB и не покрывает компоновку всего пресса. Новая задача не переоткрывает и не продлевает прежнюю.
+- Следующий шаг: последовательное принятие отдельного claim в main, проверка owner/lease/конкуренции/входов, входной акт R4; только затем документальная постановка обоих вариантов с узлами, интерфейсами, необходимыми размерами/ходами/положениями/нагрузками и источниками данных для будущей компоновки.
+- Численные значения и реальные свойства сырья UNKNOWN; synthetic-геометрия не является конструкцией REV. Архитектура не выбрана, ТЗ не утверждено, пробы/испытания NOT_RUN, G1 открыт. Капсула handoffs/T-r4-layout-01/r4-linked-20261111.md.
+
+## Предыдущая эстафета (история)
+
+# T-r4-linked-01 — предложение ограниченной приёмки
+
+R1 оформил `verification/r4_linked_scene_r1_disposition.md` по коду/результатам `8896d70983648ccd33c0f861c9bc9d28327ff9eb`, RECHECK `82d60717ed9621af7f9fee4e57135d12f22cfc32` и документальной правке README `4ebf47a5f6f96708a65653acaf0cebeee1b84c26`. Предлагается принять после интеграции только в проверенной synthetic-области с WARNING; до слияния IN_REVIEW. R5-LINKED-FIX-W01 OPEN до независимой сверки README.
+
+Следующее действие: последовательно интегрировать результат и обе истории проверок после сверки main, владельца, срока и входов. После слияния зафиксировать статус задачи в ограниченной области и выбрать следующий инженерный шаг, не принимая архитектуру. G1 OPEN, физические испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Передача R1 — документальное исправление R5-LINKED-FIX-W01
+
+- Документальный C: 4ebf47a5f6f96708a65653acaf0cebeee1b84c26; ветка work-r4/linked-scene/r4-linked-20261111. Изменена одна строка README: 27 отрицательных примеров и ссылка на проверенный code/results 8896d70983648ccd33c0f861c9bc9d28327ff9eb. Остальные файлы models/ побайтно неизменны; отчёты не перегенерировались.
+- Исходный OUTPUT-review 2f3c318813474d9c0ff850e83e15b659fc0e3f14 и независимый RECHECK 82d60717ed9621af7f9fee4e57135d12f22cfc32 сохранены с probe/результатами и включены в ancestry через merge a48aee1be35d8217cc96e1764feac76ba24ca21d. Оба probe имеют разное назначение: первый фиксирует старые ошибки, второй — исправленные исходы.
+- RECHECK WARNING закрыл имплементационные B01…B03/W01 только для указанной synthetic-области проверенного C; задача не объявлена принятой. Следующий шаг R1: самостоятельно оформить решение об ограниченной приёмке и интеграции, повторно проверить актуальную main/owner/lease перед merge.
+- Main при проверке 116b280ffbe579e7545de51282ccfa96aa6cdefd; owner r4-linked-20261111, lease до 2026-11-12T16:05:29Z. В main принят учёт claim PR #32. Изменения этой рабочей ветки в main не интегрированы.
+- Проверки git ancestry/байтов, git diff --check и check_registry.py --check-git PASS. JSON SHA-256 c65665332583dfc65b37958321927544a20bd73ee32939eb7876e53c2da52c7f. Физика/безопасность UNKNOWN, G1 открыт.
+
+## Предыдущая эстафета (история)
+
+# Независимый R5 RECHECK — T-r4-linked-01
+
+- Проверить точный code/results commit 8896d70983648ccd33c0f861c9bc9d28327ff9eb, ветка work-r4/linked-scene/r4-linked-20261111; автор r4-linked-20261111, независимый reviewer не автор. Входной акт 2f3c318813474d9c0ff850e83e15b659fc0e3f14, копия verification/r5_linked_scene_output_review/review.md.
+- R5-LINKED-IMPL-B01…B03 и R5-LINKED-IMPL-W01 OPEN до независимого акта. Проверить отдельно доказанное исчезновение вместе с UNKNOWN CREATE/SPLIT, ошибки времени/ID/типа и лишние/дублированные события, точные рациональные времена, рёберный/точечный и малый положительный контакт; проверить приоритеты и раздельные доказательства.
+- Команды из корня: python3 models/rev_linked_scene/run.py; python3 -m unittest discover -s models/rev_linked_scene -p 'test_*.py'; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 scripts/check_registry.py --check-git. Отчёт models/rev_linked_scene/results/report.json, хэши файлов внутри; реестр снимка рядом.
+- Результат автора: 8/8 сцен, 27/27 негативных примеров, 33 новых и 20 прежних тестов, registry PASS, JSON воспроизводим и хэши сверены. Проверить свежий вывод и фактические доказательства, а не только счётчики.
+- verification/r5_linked_scene_output_review/probe.py — исторический probe, assertions намеренно требуют СТАРОГО ошибочного результата; exit 0 на старом SHA не означает исправления и на исправленном SHA не является passing регрессией.
+- Claim: PR #31 в main 76666e8eb1d11d51be144c59980587e4ffa6a1f1 содержит предложение a90927a; старые поля PENDING/NONE в main ещё противоречивы. Сверка R1 ea4fe28af7e4771977928d2262bcf32357744abb опубликована отдельно, её принятие не подтверждено; R5-LINKED-CLAIM-W01 OPEN до интеграции. Lease до 2026-11-12T16:05:29Z.
+- Только synthetic линейные AABB; реальная физика, удержание, разгрузка, безопасность UNKNOWN, испытания NOT_RUN, G1 открыт. Капсула handoffs/T-r4-linked-01/r4-linked-20261111.md.
+
+## Предыдущая эстафета (история)
+
+# Эстафета независимому R5 — T-r4-linked-01
+
+- Автор реализации r4-linked-20261111 / R4; точный code/results C: d11c3e0505d455cfdcf15847aea5b06180659e1b, ветка work-r4/linked-scene/r4-linked-20261111. Claim принят PR #31 на 76666e8eb1d11d51be144c59980587e4ffa6a1f1; срок до 2026-11-12T16:05:29Z. Новый независимый OUTPUT review NOT_RUN.
+- Вход: контракт 7b5192382b06d4f148a6c98ffecc8e4d50ec4e66. R5 d2ab72f24028f1cc5d8e9cb3a11d14744e46273f проверял предыдущую редакцию bb31d82b4aacebd6ccff8b6b343837d4443f8150 с WARNING. Уточнение схемы ALLOWED_CONTACT/LINK_* и R5-LINKED-W01 остаются OPEN до независимого review нового текста и реализации.
+- Код и полные результаты: models/rev_linked_scene/; JSON results/report.json и снимок реестра. Команды: python3 models/rev_linked_scene/run.py; python3 -m unittest discover -s models/rev_linked_scene -p 'test_*.py'; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 scripts/check_registry.py --check-git.
+- Авторские результаты: 8/8 сценариев A/B, 19/19 негативных примеров, 23 новых и 20 прежних tests OK. 48 фаз, 3 784 парные строки и 11 458 временных записей. JSON повторно воспроизведён и хэши всех входов совпали. Эти счётчики не подтверждают полноту метода и не заменяют review.
+- R5: независимо проверить полноту разбиения времени по корням и границам контакта, контактную политику/покрытие обязательной связи и W01, непрерывность и REMOVE/неподдерживаемые CREATE/SPLIT, полные множества пар, негативные примеры и приоритет COLLISION+UNKNOWN, READY и точный C. Оформить независимый акт отдельным commit; не автором проверяемой версии.
+- Реальные параметры, удержание, разгрузка, выдача и безопасность REV UNKNOWN; условная геометрия не является изделием; испытания NOT_RUN, G1 открыт. Капсула handoffs/T-r4-linked-01/r4-linked-20261111.md.
+
+## Предыдущая эстафета (история)
+
+# Эстафета R4 — отдельный claim T-r4-linked-01
+
+- Пользователь поручил R4 ограниченную реализацию связанных synthetic-сцен A/B. Claim PROPOSED / PENDING_MAIN; engineering NOT_STARTED. Прежняя T-codex-01-01 завершена в ранее проверенной области; её claim не переиспользуется.
+- C предложения claim: a90927a09d12e988e4bcfb6583cfd6c9a1d8866c; база 0b54471e9e5a7f148558804c93d3302f19907ce4; ветка work-r4/claim-linked-scene/r4-linked-20261111; owner_session в принятой main NONE.
+- Источник: models/rev_linked_scene_contract.md на 7b5192382b06d4f148a6c98ffecc8e4d50ec4e66; R5 WARNING d2ab72f24028f1cc5d8e9cb3a11d14744e46273f на предыдущую редакцию bb31d82b4aacebd6ccff8b6b343837d4443f8150. Уточнение W01 ещё не проходило независимую проверку; не подменять вывод акта.
+- Следующее действие: принять claim последовательно в main по протоколу, предварительно проверив owner, отсутствие конкурирующих claims, срок и входы; после этого R4 fetch main, проверяет принятие/lease и оформляет входной акт. Проверка исходов и кода требует независимого R5.
+- Реальные параметры REV и физические удержание, разгрузка, выдача и безопасность UNKNOWN; пробы и испытания NOT_RUN; G1 открыт. Капсула handoffs/T-r4-linked-01/r4-linked-20261111.md. Проверка registry --check-git PASS после штатной загрузки LFS-объектов.
+
+## Предыдущая эстафета (история)
+
+# Восстановление claim R1 по T-INIT — предложение
+
+PR #29 принят в main `4c11d879f0f59b15fcc0ed75781e30b30a588fd0`; документальные постановки W01–W05 и акты доступны, сами замечания остаются OPEN до применимой методики. Прежний lease R1 `codex-01` истёк. Предложение восстановления оформлено в ISSUES_AND_TASKS.md: PROPOSED / PENDING_MAIN, до последовательного принятия не действует.
+
+После принятия проверить main, владельца, срок и входы; подготовить конкретный инженерный план получения необходимых исходных данных на основе результатов PR #23, #25, #27 и #29. Пробы/испытания NOT_RUN, неизвестные значения UNKNOWN, B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Сверка claim R4 и блокеры synthetic-реализации
+
+PR #31 принят в `76666e8eb1d11d51be144c59980587e4ffa6a1f1`; в принятом трекере оставались противоречивые поля PENDING_MAIN/NONE. В этой ветке R1 приводит их в соответствие с принятым claim `a90927a09d12e988e4bcfb6583cfd6c9a1d8866c`, owner `r4-linked-20261111`, lease до 2026-11-12T16:05:29Z; до интеграции этой записи R5-LINKED-CLAIM-W01 OPEN.
+
+OUTPUT-review R5 `2f3c318813474d9c0ff850e83e15b659fc0e3f14` на `d11c3e0505d455cfdcf15847aea5b06180659e1b` — REJECT_WITH_BLOCKER. R4 следует исправить R5-LINKED-IMPL-B01…B03 и W01 по акту и опубликовать точный SHA для независимого RECHECK. До приёмки исправлений задача BLOCKED; G1 OPEN, физические испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Интеграция документальной постановки R3 W03/W04 — проект
+
+Постановка `026bd890d7957526bfbee5ffb2745e9fe7b0c43e` и независимый акт R5 `644d74178fefb4cb40150276532b08c6a8381b98` сохранены в истории интеграционной ветки. По verification/r3_compaction_observability/disposition.md предложено принятие только как документального черновика с WARNING; до принятия PR задача IN_REVIEW. R5-COMP-W03/W04 OPEN до разработки и проверки применимой методики. Перед слиянием сверить main, owner, lease и входы. B01–B03 и G1 OPEN; пробы и испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# R3 — постановка W03/W04 на независимый review
+
+Claim `5f046982b59376eb26d89541adb81955b27e6ffb` принят PR #26 на `adaf5593edb7c374c112bbcc58c802d35bd4ccd3`; owner r3-safety-01, lease до 2026-11-12T12:29:35Z. Входной акт и постановка verification/r3_compaction_observability/ подготовлены, IN_REVIEW. Передать опубликованный точный SHA независимому R5 и профильным участникам; до интеграции проверить main, owner, lease и входы. R5-COMP-W03/W04, B01–B03 и G1 OPEN; физические работы NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# R3 — отдельный claim для W03/W04 после PR #25
+
+На main `461a9abcc4bb0011291f6f7a1747524713b371ec` принят документальный черновик R2 с WARNING. Пользователь поручил R3 постановку измерительной модели и наблюдаемости R5-COMP-W03/W04. T-r3-compaction-measure-01 READY; claim r3-safety-01 PROPOSED / PENDING_MAIN, lease предложен до `2026-11-12T12:29:35Z`. Исследование NOT_STARTED: сначала принять claim последовательно в main, проверить owner/lease/входы и оформить входной акт. T-INIT R1 не перехватывать, его lease истёк. См. трекер и handoffs/T-r3-compaction-measure-01/r3-safety-01.md. B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — документальная интеграция проекта программы
+
+- R1 оформил verification/compaction_program_r1_disposition.md по программе `48b339263d7ab9991cc5384d0b05d22e6dbaa879` и актам R2, R3 и R5; приёмка только как документального черновика с WARNING. R5-COMP-W01–W05 OPEN для будущей методики.
+- Ветка интеграции восстанавливает запись и эстафету R2, утраченные в объединённом дереве review, сохраняя истории. Следующий шаг: последовательно интегрировать эту ветку в main после повторной сверки базы и claim; затем разработать постановку получения недостающих данных и методики без запуска испытаний.
+- Методы и значения UNKNOWN, пробы и испытания NOT_RUN, B01–B03 и G1 OPEN; ТЗ и архитектура не утверждены.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — уточнения программы по R3
+
+- R2 RECHECK `15663157ad1bafc610d17be69f57b1ea5c2f883e` закрыл W01–W05 документально на `03290fe5e5392697303dd5eac552996e61df01ff`, WARNING; claim принят PR #22. Это не подтверждение новой редакции.
+- R3 OUTPUT `097d1ce34e7f8c3ff53a62a1f69933c258339dec` проверил ту же редакцию, WARNING. R1 уточнил программу по R3-COMP-W01–W04; замечания OPEN до RECHECK. Акты относятся к прежней редакции и сохраняют исторические выводы.
+- Следующее действие: передать точный SHA этой редакции R3 на независимый документальный RECHECK границ измерений, наблюдаемости фаз, времени и сравнения A/B; затем передать актуальную редакцию на независимую проверку R5. Claims и базу сверять по протоколу.
+- Методы, приборы и значения UNKNOWN; пробы и испытания NOT_RUN; B01–B03, R5-OBS-01…04 и G1 OPEN. ТЗ и архитектура не утверждены.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — предварительные замечания R2 к программе формования
+
+- R2 `e98b8ef8-7302-453a-ac8d-1edbb7d8860c` подготовил акт `e939c146f51d4a40daba75b1bb21bd694e12bccc` по `89eded1ae0b6307052e89ea35a837967bb54ce7f`. Claim PROPOSED/PENDING_MAIN, акт не зарегистрирован и не принят; предлагаемая запись не содержит явных heartbeat/lease.
+- R1 документально уточнил verification/compaction_measurement_program_draft.md по W01–W05 без объявления их закрытыми. Следующий шаг: R2 на актуальной main оформить полноценный отдельный claim с основанием, сроком, heartbeat и конкурентной сверкой, затем после принятия проверить актуальную редакцию и зарегистрировать review/RECHECK по протоколу; передать профильные вопросы R3/R5.
+- Эта ветка и исправленный проект не интегрированы в main. Методы/значения UNKNOWN, пробы и испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — проект программы измерений формования
+
+- PR #21 принят в main `d03ebe790af22f65bae7d10110a9c92062dbf1fe`; инженерная карта и акты интегрированы, результат принят только документально с WARNING.
+- R1 подготовил verification/compaction_measurement_program_draft.md: будущие измерительные границы, качество каналов, связь партий/доз/изделий и проект исследовательских блоков A/B. Параметры и критерии UNKNOWN; пробы и испытания NOT_RUN.
+- Следующий шаг: независимый документальный review R2/R3 и R5 по полному SHA программы, затем исправить замечания и отдельно подготовить согласуемую методику/безопасные условия. Назначения/claims по протоколу; этот документ не разрешает физические работы.
+- B01–B03, R5-OBS-01…04 и G1 OPEN; ТЗ/архитектура и оборудование не утверждены.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — документальная приёмка карты инженерных входов
+
+- RECHECK R3 `b14d1b2344396d08df81393d97e7198861e3fcd5`: W01–W04 CLOSED только документально на `0aeedf369f4a5e9953bbbe26334552271cc73484`, WARNING. R1 принял карту в ограниченной области по verification/engineering_input_map_acceptance.md.
+- Следующий шаг: интегрировать карту, акты и решение R1 в main после повторной сверки базы и claim. Затем разработать отдельную программу/методику получения реальных исходных данных с профильной независимой проверкой; не запускать отложенные пробы и испытания.
+- Выбор привода/архитектуры и ТЗ не утверждён; параметры/пригодность UNKNOWN, B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — уточнения инженерных входов после review R3
+
+- Акт `59bdfeb0992645d4382070fa09c613c6de65901f` проверил `53a864de6fd9836f90ba10a04bc44b4edf5ecc22`, WARNING. Карта verification/engineering_input_map.md уточнена по R3-INPUT-W01…04; они OPEN до независимого RECHECK. Прежний акт STALE к изменённому файлу, история сохранена.
+- Следующий шаг: опубликовать точный SHA новой редакции и передать reviewer R3/R5 на независимую сверку уточнений силы, потоков, баланса, измерений и сопоставимости A/B. Затем оформить документальную приёмку и интеграцию; до проверки не использовать формулы для подбора привода.
+- Данные, размеры и пределы UNKNOWN; пробы/испытания NOT_RUN; B01–B03 и G1 OPEN. Архитектура/ТЗ не утверждены.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — инженерные входы формования и гидропривода
+
+- PR #20 принят в main `4b898c14338083deebc27d9d4ec45ba691b62808`. T-r3-norms-01 DONE только как документальная карта после принятия этой записи; нормативная применимость и актуальные редакции UNKNOWN/NOT_RUN.
+- R1 подготовил verification/engineering_input_map.md: что нужно измерить для подачи, уплотнения, разгрузки и выдачи; условные зависимости цилиндра, расхода и мощности; сравнимые вопросы A/B. Значения UNKNOWN, испытания и пробы NOT_RUN.
+- Следующий шаг: независимая документальная проверка R2/R3 с акцентом на физические зависимости, знаки, измерительные границы и неполноту данных; оформить назначение/claim по протоколу, если создаётся отдельная задача. После проверки конкретизировать будущую программу, не запускать испытания.
+- B01–B03, R5-OBS-01…04 и G1 OPEN. Архитектура, ТЗ, параметры и средства защиты не утверждены.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — документальный реестр нормативных источников R3
+
+- Результат `77e78ee9e910132116e9f1e1e21bc4a3fa8b6e16` принят R1 как документальная карта с WARNING; см. verification/r3_normative_scope/r1_acceptance.md. OUTPUT-review `c96db4b456cad29d00da091a5c1fe3bb022e1fd6`, RECHECK `1531823ba62173d6fdd4173bed05811aff58b840`; R5-NORMS-B01 CLOSED только в проверенной области.
+- Следующий шаг: интегрировать результат, акты и решение в main после повторной сверки актуальной базы и claim. T-r3-norms-01 IN_REVIEW до интеграции.
+- Полные актуальные редакции, N05 регламент, N06 стандарт, юрисдикция и применимость UNKNOWN/NOT_RUN. Нужны профильные специалисты; B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# T-r3-norms-01 — на независимую проверку
+
+Claim `3345b050966fc4e52b317e64381c0dd7bc087b2a` принят PR #19 в `d499216856b3bdbd65f7f23584be80ab6108576a`; owner r3-safety-01, lease до 2026-11-12T08:12:00Z. Входной акт и реестр кандидатов официальных источников — verification/r3_normative_scope/. Результат IN_REVIEW, независимая проверка фактической доступности, прочитанных частей, статусов и ограничений NOT_RUN; передать точный SHA R5 и профильным специалистам. Перед интеграцией сверить main, owner, lease и входы. Место эксплуатации UNKNOWN; B01–B03 и G1 OPEN, пробы/испытания NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Предложение отдельного claim R3 — нормативная область
+
+На main `2b26e56f0d35119631bba959da50b32cccaac621` PR #18 интегрировал документальную карту T-r3-safety-01-01 с WARNING; она DONE только в документальной области. Пользователь поручил отдельную задачу T-r3-norms-01 / r3-safety-01: реестр кандидатов официальных первоисточников. Claim PROPOSED / PENDING_MAIN, исследование NOT_STARTED. Сначала принять claim последовательно в main, сверить owner/lease и входы, оформить входной акт. Изготовление в РФ — подтверждённая цель; место эксплуатации UNKNOWN. Применимость и защитные решения не утверждать; B01–B03 и G1 OPEN, пробы/испытания NOT_RUN. См. ISSUES_AND_TASKS.md и handoffs/T-r3-norms-01/r3-safety-01.md.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — приёмка предварительной карты опасностей R3
+
+- R1 принимает результат `2d4791f83ac1f67b2b35c2971b0380301803f344` как ограниченную документальную карту с WARNING, см. verification/r3_press_safety/r1_acceptance.md. Независимый OUTPUT-review `ec5662a386aabbe894c94cb8b97897d182d55580` и RECHECK `94d50fb185286d2b258e005a8be5233682cac9bf`.
+- Следующий шаг: последовательно интегрировать результат, оба акта с сохранением их коммитов и решение R1 в main после повторной сверки базы/claim. До интеграции задача IN_REVIEW.
+- Это не законченный анализ риска, не утверждение защит и нормативной применимости. B01–B03 проекта, R5-OBS-01…04 и G1 OPEN; испытания/пробы NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# R3 — исправления на независимый RECHECK
+
+Акт REV-R5-R3-SAFETY-01-001 из `ec5662a386aabbe894c94cb8b97897d182d55580` проверил `43c5a0f0e89b386fdf07600cc6ccf27c7e6fa63c`, REJECT_WITH_BLOCKER. R3 исправил B01 и дополнил W01–W05; независимая проверка нового опубликованного SHA NOT_RUN. R5-SAFETY-B01 и W01–W05 остаются OPEN до независимого RECHECK; проектные B01–B03, R5-OBS-01…04 и G1 OPEN. Пробы и испытания NOT_RUN. См. verification/r3_press_safety/ и verification/r5_r3_safety_output/review.md.
+
+# Результат R3 — независимый review
+
+Claim T-r3-safety-01-01 принят PR #17 в main `b28a99594e31bc6a34c35646e4717a2ccea5943a`; owner r3-safety-01, lease до 2026-11-12T04:14:00Z. После входного акта подготовлены документы verification/r3_press_safety/. Задача IN_REVIEW; независимый reviewer проверяет опубликованный SHA, область и пробелы; перед интеграцией сверить main, owner и срок. B01–B03, R5-OBS-01…04 и G1 OPEN; пробы и испытания NOT_RUN.
+
+# Эстафета — после PR #15: проект анализа опасностей
+
+- `main` `78f9d33061b55ea66e91e91f6f384b9e820a58bf` содержит результат исследования металла, акты R5 и решение R1; T-r2-metal-01 DONE в документальной области после принятия этой записи. R5-SRC-W01 по применимости и программе OPEN.
+- Подготовлен проект задания `verification/press_risk_analysis_brief.md` по B03. Следующий шаг: после интеграции документа оформить отдельное назначение/claim R3 для документального реестра опасностей и нормативных вопросов с участием R1/R5/R6; до принятия claim работа не начинается. Роли предложены, не назначены.
+- Числа и защитные решения UNKNOWN; физические проверки/пробы NOT_RUN; B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — документальная приёмка исследования металла
+
+- Результат `39f54598e3ab9997ea60d34fd2b203a28bc44822` принят R1 только как документальное сравнение: verification/r2_metal_detection/r1_acceptance.md. Независимый акт и манифест — `973603eef49f553ea94681305eafbefc460935f3`; reviewer runtime `6af3e1ba-0700-8191-a54b-0e6076cdc076`.
+- Следующий шаг: последовательно интегрировать результат R2, акты, регистрации review и решение R1 в main, перепроверив базу/claim. T-r2-metal-01 IN_REVIEW до интеграции.
+- R5-SRC-W01 применимость/программа OPEN; прибор/метод не выбраны, реальные данные UNKNOWN, пробы/испытания/калибровки NOT_RUN. B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — уточнение M01/M02 по независимому акту R5
+
+R2 объединил историю акта R5 `2a8d43b3b7ef181fadc768363e36f4f04de21559` с рабочей веткой и уточнил verification/r2_metal_detection/research.md. Передать точный commit R5 для сверки новой редакции. Документальная часть R5-SRC-W01 закрыта с WARNING по акту; применимость/программа/охват остаются OPEN. Прибор и метод не выбраны, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — исходные HTML M01–M06
+
+R2 подготовил verification/r2_metal_detection/source_access.md: все первоначальные ответы локально сохранены, хэши совпадают с исследованием. Из-за неподтверждённых прав на распространение полные страницы не включены в Git; доступ R5 к локальным копиям или сайтам остаётся проверить. Передать точный commit R5; R5-METAL-B01 и R5-SRC-W01 OPEN до независимой сверки. Прибор и метод не выбраны; пробы/испытания/калибровки NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — исследование кандидатов контроля металла R2
+
+T-r2-metal-01 / r2-material-01 IN_REVIEW. Входной акт, исследование источников и выдержки в verification/r2_metal_detection/. Передать точный commit независимому R5 на OUTPUT-review: проверить источники, границы заявлений, физическую область, редкие события и пробелы. Полные HTML-копии не сохранены, доступность R5 NOT_RUN. Прибор/метод не выбран, R5-SRC-W01, B01–B03 и G1 OPEN; пробы, испытания и калибровки NOT_RUN.
+
+# Эстафета — после интеграции реестра первоисточников
+
+- PR #12 принят в main `6055d85196ff1224837a6302f53315cd8dadfc3a`; T-r2-sources-01 DONE только как документальная карта с WARNING после интеграции этой записи. Методы и применимость не утверждены; спорные сведения UNKNOWN и исключены из использования.
+- Следующий шаг: рассмотреть проект отдельной документальной задачи по физическим металлическим включениям `verification/metal_detection_research_brief.md`; оформить назначение и последовательный claim до выполнения. R5-SRC-W01 OPEN.
+- Пробы и испытания NOT_RUN, B01–B03 и G1 OPEN; не выбирать средство/метод, не утверждать архитектуру или ТЗ.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — приёмка документального реестра источников R2
+
+- R1 принял реестр как документальную карту копий/пробелов с WARNING: verification/r2_primary_sources/r1_acceptance.md. R5 `r5-implementation-02` закрыл R5-SRC-B01 и R5-LAP-01/02 только в ограниченной области, R5-VERSION-B01 — по доступным Git-байтам.
+- Следующий шаг: последовательно интегрировать документы R2, LFS-копии, независимые акты и решение R1 в main после проверки актуальных main/claim. T-r2-sources-01 IN_REVIEW до интеграции.
+- Исходный временный файл R2 недоступен R5 (cmp NOT_RUN); внешнее происхождение и подлинность не удостоверены. Спорные даты/версии и правильное aspect ratio UNKNOWN, исключены из использования. Актуальность, применимость, лабораторная проверка и физический металл R5-SRC-W01 открыты; B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — исправление R5-VERSION-B01
+
+R2 исправил полный SHA-256 openalex-src02.json в verification/r2_primary_sources/version_inquiry/report.md, сохранив прежнюю строку, Git blob и локальное подтверждение. Передать точный commit независимому R5 на сверку; прежний акт STALE относительно нового отчёта, R5-VERSION-B01 OPEN до RECHECK. Спорные даты, версия PDF и корректное значение aspect ratio UNKNOWN и исключены из проектного использования; пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — исследование R5-LAP-01/02
+
+R2 подготовил verification/r2_primary_sources/version_inquiry/report.md и сохранил ответы каталогов. Передать точный commit R5 для независимой проверки причин расхождений, доказательств и предложенного исключения неподтверждённых утверждений. Причина различия дат и связь карточки SRC-02 с конкретной версией PDF UNKNOWN; R5-SRC-B01 OPEN. Методы не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — LAP NREL и карточка OSTI для R5
+
+R2 передал три копии LAP и ответ OSTI для SRC-02 в verification/r2_primary_sources/lap_evidence/. Передать точный commit независимому R5: проверить LFS, хэши, титулы и нужные разделы; отдельно оценить атрибуты карточки и не предполагать связь с конкретной PDF-версией. R5-SRC-B01 OPEN до решения R5. Актуальность и применимость к REV NOT_RUN; методы не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — уточнение реестра SRC-02…04
+
+R2 уточнил verification/r2_primary_sources/registry.md по акту R5 `5bc8db4ba1aff28a62a41edcbbf5e950d0c5cb4f`. Передать commit результата независимому R5 на RECHECK прочитанных мест и происхождения метаданных; R5-SRC-B01 OPEN. Три LAP NREL повторно недоступны (CONNECT 403), тексты/редакции NOT_RUN; методы не утверждены, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — копии SRC-01…04 для R5
+
+R2 передал первоначальные копии и манифест verification/r2_primary_sources/copies/ для независимого RECHECK акта b6841d90370b2746ef0dd70bb424e94a25ec6337. Проверить получение LFS-объектов, SHA-256 и указанные разделы реестра на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9; до решения R5-SRC-B01 OPEN. LAP NREL 42620/42621/42622 не получены и NOT_RUN; пригодность методов не утверждена, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — реестр первоисточников R2
+
+T-r2-sources-01 IN_REVIEW. Входной акт и реестр: verification/r2_primary_sources/. Передать точный commit независимому reviewer для проверки фактически прочитанных разделов, ссылок, полноты пяти групп и ограничений. Документы NREL 42621/42620 остаются недоступными после CONNECT 403; подходящий первоисточник по физическому остатку металла не установлен. Полная проверка текстов, редакций и применимости с лабораторией NOT_RUN; пределы UNKNOWN, пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+# Эстафета — принят claim R2 по источникам
+
+- PR #10 принят в main `123240e20604eec9f497ad8eb3bc29d46539905a`; claim `295ec1e3549a597a76619465eaa58b1746bcefb1`, owner `r2-material-01`, lease до 2026-11-12T00:36:14Z. Запись об этом подготовлена в ветке координатора и ещё требует интеграции.
+- После сверки main, owner, срока и входов R2 оформляет входной акт и составляет реестр доступных первоисточников. Недоступное — NOT_RUN; методы не утверждать, пробы/испытания не проводить, B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — после интеграции сравнения R2
+
+- PR #8 принят в main `3a725f82ae93c82c39ed7bb554d6f2449f47d92e`; сравнение R2, ответ на W01–04 и независимые акты сохранены в истории. T-r2-material-01 DONE только для документального сравнения после интеграции этой записи.
+- Следующий шаг: подготовить отдельную задачу проверки доступных первичных источников, их редакций и области применения и сопоставления вариантов с компетентной лабораторией; задача, назначение и claim — отдельно по протоколу. Не объявлять недоступный NREL прочитанным и не выбирать метод без доказательств.
+- Отложенные пробы и журналы не запрашивать; фактические испытания, квалификация и калибровка NOT_RUN, параметры UNKNOWN. B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — приёмка документального сравнения R2
+
+- R1 принял документальное сравнение R2 с WARNING: verification/r2_material_methods/r1_acceptance.md. Акт R5 `921d17a46dcc2583ab1d8f84ac79209e0fe910a3` закрыл W01…04 только для документального ответа `fcbeefae46b4fd999c194bd214b5dda7c476b0ec`.
+- Следующий шаг: последовательно интегрировать результат R2, акты R5 и решение R1 в main, повторно проверив owner и lease. До интеграции T-r2-material-01 IN_REVIEW.
+- Методы/редакции/пригодность и лаборатория не проверены, NREL NOT_RUN; до выбора метода требуются первоисточники, компетентная лаборатория и независимая проверка программы. Пробы/испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — ответ R2 на R5-MAT-W01…04
+
+R2 r2-material-01 подготовил verification/r2_material_methods/response_r5_material_01.md к акту R5 `08d75ec9bc86afae14663a6037958e384b1965e0`. Передать точный SHA содержащего этот пакет коммита независимому R5 на RECHECK W01–W04; замечания остаются OPEN. Первоисточники и применимость NOT_RUN, численные пределы UNKNOWN; пробы/испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+# Эстафета — документальное сравнение методов R2
+
+T-r2-material-01 IN_REVIEW; R2 r2-material-01, входной акт и сравнение пяти групп — verification/r2_material_methods/. Передать commit этого комплекта независимому R5/R1, не автору, для OUTPUT review физических оснований, формул, применимости, репрезентативности и пробелов. Внешние нормативные источники и редакции не подтверждены; попытка NREL вернула CONNECT 403. До принятия сравнение не становится выбранной методикой. Методы и пределы UNKNOWN, пробы и испытания NOT_RUN; B01–B03 и G1 OPEN.
+
+# Эстафета — принятие claim R2 по PR #6
+
+- `main` `6ccc31bef5a49a600d162cb7ab99fd0aed40d457` содержит claim `dd57126ae68fccddcfaeeef087efe07e995d0e60` для `T-r2-material-01`, owner `r2-material-01`, lease до `2026-11-11T23:45:21Z` без продления. Запись об этом подготовлена в ветке координатора; статус общей ветки перепроверять.
+- R2 перед работой проверяет актуальные main/owner/lease/входы, оформляет входной акт и выполняет документальное сравнение пяти групп методов. Данные, нормы и критерии не утверждать; пробы и испытания NOT_RUN. B01–B03 и G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — после независимого RECHECK проекта ТЗ
+
+- Акт `f1edde47c580308aed7c1308281fc3069e25ccd7` проверил `a02420fd3b100447550740a417d75c8608206cd7`: W01…04 CLOSED документально; B01…03 OPEN, REJECT_WITH_BLOCKER для ТЗ/G1. Исправлены только исторические ссылки rev1/rev2 на схему; акт STALE относительно редакционно изменённых файлов, без переоткрытия W01…04.
+- OP-REV-07: оператор предварительно ориентируется на передачу после существующих дробления и просева; см. process/supply_boundary_options.md. Пригодность и окончательная граница UNKNOWN. OP-REV-08: оператор оставил транспорт и буфер UNKNOWN. OP-REV-09: оператор предварительно относит проверку остаточного металла и иных включений к существующей линии; методы, пределы и эффективность UNKNOWN. OP-REV-10: возможную доподготовку предварительно рассматривать на существующей линии, если она понадобится; необходимость и средства UNKNOWN. OP-REV-11: предварительный конец поставки — выход пресса; параметры и дальнейшее обращение UNKNOWN. R1 подготовил проект паспорта групп измерений process/input_material_measurement_passport.md, без отбора. Следующий шаг: передать точный SHA паспорта и исходных планов R2 с R1/R5 для документальной оценки возможных методов, оснований, ограничений и пробелов; назначение R2 и claim предварительно оформить по протоколу. Пробы и журналы отложены, B01…03 OPEN.
+- Функции R2/R3/R5/R6 из плана предложены, отдельные назначения и claims не предполагаются. G1 OPEN, архитектура/ТЗ не утверждены; испытания и пробы NOT_RUN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — доработка после R5-TZ-REVIEW-01
+
+- Основание: `b527c62ba9f1f37a5176dc9ed45b4b245bcdb49d`, акт проверяет `bff66903c4588321faf3b86bf0abb501c8a7c881`, R5 `r5-implementation-02`. B01/B02/B03 OPEN; W01…04 доработаны документально и ожидают независимого RECHECK. Старые акты помечены STALE только относительно изменённых файлов; блокеры и R5-OBS-01…04 сохраняются.
+- Промежуточный план criteria и опасностей: verification/requirement_criteria_development.md; изменения в требованиях, матрице, плане функций и схеме F. Значения UNKNOWN, испытания/пробы NOT_RUN, G1 OPEN.
+- Следующее действие: опубликовать точный commit изменений и передать R5 его SHA вместе с актом b527c62 для повторной проверки W01…04 и оценкой остаточных B01…03; до пользовательского утверждения ТЗ G1 не закрывать.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — после принятия PR #2
+
+- База main `672c835e201766a943927917f12875a9204b0b34` содержит модель `debfd085842ccae079cfd6faea1c41bca20f335d`, акт/probe R5 `b4d4af9325c5d24e093ec2d4dce5797581ebf6e1` и решение R1. T-codex-01-01 DONE только в synthetic AABB области, после принятия записи об интеграции в общую ветку.
+- R1 выполнил документальную сверку и оформил `verification/g1_readiness_inventory.md`. Следующий шаг — передать точный опубликованный SHA проекта требований, матрицы и перечня независимому reviewer, не автору, для OUTPUT-review; затем устранить замечания и подготовить ТЗ к утверждению пользователем. Не объявлять виртуальные результаты испытаниями сырья или подтверждением VAL.
+- Независимый review проекта требований/плана и утверждение ТЗ пользователем ещё нужны; G1 открыт, архитектура и реальные численные параметры не утверждены. Испытания не запускать без отдельной готовности. Перед продолжением сверить main и действующий claim.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — решение R1 по T-codex-01-01
+
+- R1 принял результат `debfd085842ccae079cfd6faea1c41bca20f335d` для ограниченной synthetic AABB области. Основание и ограничения: verification/t_codex_01_01_acceptance/r1_assessment.md; опубликованный акт R5 и probe — verification/r5_recheck_05.
+- Рецензент `r5-implementation-02`; источник акта/probe `b4d4af9325c5d24e093ec2d4dce5797581ebf6e1`; SHA-256 probe `e7c2e004ced7bf7a25f62aa92904291e47bbf027111e7e1cb089fcf193b0aa80`. R1 повторил 8 мутаций, 20 тестов, benchmark 3000 и сверку отчётов.
+- Следующий шаг: подготовить последовательную интеграцию model commit, акта и решения в общую ветку с повторной сверкой main и claim. Трекер IN_REVIEW до интеграции; архитектура не утверждена, G1 OPEN.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — оценка R1 модели T-codex-01-01
+
+- Оценка: verification/t_codex_01_01_acceptance/r1_assessment.md. Модель — кандидат на приёмку в synthetic AABB области, формально задача остаётся IN_REVIEW и не DONE; G1 OPEN.
+- Следующий шаг: получить идентификатор независимой сессии R5 и исходный `probe.py` с неизменяемым commit/SHA-256 и результатами; сверить независимость и мутации, зарегистрировать review, повторно проверить main/claim и оформить решение о приёмке.
+- На 2026-11-10 22:37 UTC main `2f463babdc84382a0ab2502f4acfa7a2047087df`, R4 `r4-model-01`, lease до 2026-11-11 16:52:25 UTC. Состояние необходимо перепроверить перед интеграцией.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — дополнение RECHECK-05 с результатами
+
+- На основании предоставленного пользователем verification/r5_recheck_05/execution_addendum.md: R5-IMPL-01 CLOSED только для synthetic AABB на `debfd085842ccae079cfd6faea1c41bca20f335d`, регрессия R5-IMPL-02 PASS в той же области. T-codex-01-01 IN_REVIEW, не DONE; G1 OPEN.
+- R5 сообщает 20 тестов, 3000 сравнений и 8 независимых мутаций; R1 не воспроизводил эти дополнительные мутации. Скрипт probe.py и точный ID сессии не предоставлены, запрашивать при следующем удобном контакте для воспроизводимости; пользовательский commit b4d4af9325c5d24e093ec2d4dce5797581ebf6e1 не найден. См. verification/r5_recheck_05/disposition.md.
+- Следующее действие R1: сверить актуальные main и task owner/lease, оценить комплект результата модели относительно исходных критериев T-codex-01-01 и оформить решение о приёмке или перечень недостающих доказательств; не утверждать архитектуру или G1.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — предоставленный REV-R5-RECHECK-05-001
+
+- Акт пользователя: verification/r5_recheck_05/submitted_review.md; code/results `debfd085842ccae079cfd6faea1c41bca20f335d`, эстафета `73541d22377fb2b97df0964762b5cdeca9711532`.
+- Акт заявляет PASS/CLOSED IMPL-01 и PASS регрессии IMPL-02; подтверждение достаточности независимого RECHECK ожидает дополнения из-за усечённого пакета и отсутствия в акте команд и отдельных результатов обязательных негативных мутаций. IMPL-01 OPEN/HOLD, задача BLOCKED; прежнее закрытие IMPL-02 только для проверенного synthetic SHA. G1 OPEN.
+- Дополнение R5, переданное пользователем, повторяет PASS, но не устраняет противоречие об усечённом пакете и не приводит команды и отдельные результаты мутаций. Следующее действие: обеспечить независимому R5 доступ к полным файлам в среде с Git или работающей передачей файлов и запросить воспроизводимые результаты и идентификатор сессии. Подробно: verification/r5_recheck_05/disposition.md.
+- Обновлённый акт сохранён в verification/r5_recheck_05/submitted_review_updated.md: R5 прочитал дополнительные тексты, но все команды помечены NOT_RUN; идентификатор сессии отсутствует. См. решение R1 в disposition.md.
+- R1 отдельно запустил 20 существующих тестов из изолированного git archive: OK; это не независимый RECHECK.
+
+## Предыдущая эстафета (история)
+
+# Эстафета — решение по REV-R5-RECHECK-04-001
+
+- R1 / codex-01; 2026-11-10T18:33:28Z. Репозиторий narrateller/REV, ветка work/T-INIT/codex-01. C решения: 791d0ce8ccb31373b221d0b69063e2f835b442c0, опубликован.
+- Предоставленный пользователем акт: verification/r5_recheck_04/submitted_review.md; проверяемый commit 576a17fc0b127cb7d377992c01d645a77bed42d4, ветка work/T-codex-01-01/r4-model-01; handoff 66fb9bd1d454d05eb7f32b77b9f442917de9b95c. Reviewer session/подпись в тексте акта UNKNOWN; новый независимый review в текущей сессии не проводился.
+- На основании акта R5-IMPL-02 CLOSED только для проверенной synthetic AABB области указанного commit; R5-IMPL-01 OPEN, общий результат REJECT_WITH_BLOCKER. T-codex-01-01 BLOCKED для приёмки; G1 открыт, архитектура/ТЗ не утверждены.
+- Решение для R4 и критерии независимого recheck: verification/r5_recheck_04/disposition.md. Три изменения: начальная позиция output_obstacle до baseline/стадий; учёт continuity в transition/READY с BLOCKED и INDETERMINATE; проверка непрерывности всех четырёх исходов в runner/tests и свежий linked_report.
+- Первый шаг R4: получить C решения 791d0ce8ccb31373b221d0b69063e2f835b442c0, сверить main и claim/lease, зафиксировать C как вход. Далее внести исправления в своей ветке; R1 не менял код/fixtures R4.
+- После исправления: новый неизменяемый code/results SHA, свежие отчёты, все 4 исхода A/B, мутации разрыва позиции/времени/lifecycle, UNKNOWN и регрессии закрытого R5-IMPL-02; независимый R5 не автор исправления. Только положительный новый RECHECK может закрыть R5-IMPL-01.
+- Самопроверка R1: 5 SHA256 совпали с Git blobs 576a17fc; в сохранённом отчёте B/collision mismatches output_obstacle при matches_expected true; 8 существующих test_linked проходят во временной копии. Это не новый независимый review.
+- Прежний claim R4 owner r4-model-01 до 2026-11-11T16:52:25Z, проверять заново; R1 codex-01 до 2026-11-11T12:06:09Z. Реальные данные/физика/безопасность REV UNKNOWN; параметры не менялись.
+
+## Эстафета R4/R5 (историческая)
+
+# Повторная проверка R5 — SYN-LINKED-EJECTION
+
+- Задача T-codex-01-01; автор исправления r4-model-01 / R4. Точный code/results C: 576a17fc0b127cb7d377992c01d645a77bed42d4; ветка work/T-codex-01-01/r4-model-01. Следующий участник — независимый R5, не соавтор C; review NOT_RUN.
+- Р1 решение ARB-R1-RECHECK-03 на 1283c9e6f3b14dbbe820dd06798399c611d34ce8; входной REJECT_WITH_BLOCKER REV-R5-RECHECK-03-001 на 9e12e8bd4f2325ae0e887d3f2e28eaa85c55205f; R5-IMPL-01/02 OPEN, consecutive_rejections=2. Изменённые артефакты делают акт STALE для новой версии, блокеры сохраняются.
+- Перед началом проверить SHA ветки/C и хэши входов отчёта. Выполнить python3 models/kinematic_press/model.py; python3 models/kinematic_press/run_linked.py; python3 -m unittest discover -s models/kinematic_press -p 'test_*.py'; python3 verification/r5_model_02/independent_check.py; python3 scripts/check_registry.py --check-git.
+- Отчёт models/kinematic_press/results/linked_report.json: четыре исхода на каждом из A/B (8/8 ожиданий), матрицы по стадиям, интерфейсы, непрерывность, жизненный цикл и READY. Отчёт results/report.json сохраняет старые 28 cases и полные пары для исходной сцены.
+- CE-01 scalar против неподвижного продукта INVALID_INPUT, неподвижный A-OUT не CONSISTENT; CE-02 матрица B-EJECT находит punch/channel_wall [0,1] и блокирует переход. Авторские результаты: 17 unittest OK, benchmark R5 3000/3000, registry PASS, повторный запуск JSON воспроизводим.
+- R5 должен независимо оценить метод контактной поверхности, парную полноту и мутации, геометрию и временные границы всех стадий, доказательство реального synthetic READY и ограничения, а также все критерии решения R1. Число совпадений само по себе не закрывает блокеры.
+- Синтетические допущения о разгрузке/удержании/замке не являются данными REV; параметры и силы UNKNOWN, G1 открыт. Капсула handoffs/T-codex-01-01/r4-model-01.md.
+
+## Выход независимого review ТЗ
+
+REV-R5-TZ-REVIEW-01-001, reviewer `r5-implementation-02`, reviewed SHA `bff66903c4588321faf3b86bf0abb501c8a7c881`: REJECT_WITH_BLOCKER для утверждения ТЗ и G1. R1 обрабатывает R5-TZ-B01…03 и W01…04 согласно verification/r5_requirements_review/review.md, после проверки действующих claim/lease; затем передаёт новый SHA на независимый recheck. Пробы/журналы отложены, реальные неизвестные не назначать. G1 открыт, архитектура не утверждена.
+
+## Результат ограниченного RECHECK ТЗ
+
+REV-R5-TZ-RECHECK-01-001: W01…04 CLOSED в документальной области, B01…03 OPEN; reviewed commit a02420fd3b100447550740a417d75c8608206cd7. Результаты и условия дальнейшей проверки: verification/r5_tz_recheck_01/review.md. R1 проверяет действующие claim/lease и продолжает B01…03 без выдумывания UNKNOWN; G1 OPEN.
+
+## Независимый OUTPUT-review R2
+
+REV-R5-R2-MATERIAL-01-001, reviewer `r5-implementation-02`, проверенный SHA c78a745fb431b459bf6272b585d17a7fad977845: WARNING в пределах документального сравнения; R2/R1 рассматривают R5-MAT-W01…04 до выбора методики и программы, см. verification/r5_r2_material_review/review.md. Первоисточники/пригодность не подтверждены, пробы отложены. B01–B03 и G1 OPEN.
+
+## Результат RECHECK ответа R2
+
+REV-R5-R2-MATERIAL-RECHECK-01-001: W01–W04 CLOSED в области документального ответа на fcbeefae46b4fd999c194bd214b5dda7c476b0ec; WARNING. Перед выбором методик и утверждением программы необходимо проверить первоисточники, компетентность и применимость с лабораторией, обосновать охват/обнаруживаемость и потери; см. verification/r5_r2_material_recheck_01/review.md. Пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## Независимый review реестра источников R2
+
+REV-R5-R2-SOURCES-01-001: REJECT_WITH_BLOCKER для независимой сверки заявленных разделов на 25745de1c69d2f0dd6adf8a6f10e8f7af59305a9; OSTI и NREL в этой среде дали CONNECT 403. R5-SRC-B01 OPEN до получения проверяемых копий/доступа и независимого чтения; R5-SRC-W01/02 — дальнейшая работа. См. verification/r5_r2_sources_review/review.md. Пробы и испытания NOT_RUN, B01–B03 и G1 OPEN.
+
+## RECHECK четырёх копий источников
+
+REV-R5-R2-SOURCES-RECHECK-01-001: проверены четыре LFS PDF d9bc2f101ca001de763b5418dbe7cb2ad2ca5ab2 по реестру 25745de1; R5-SRC-B01 OPEN по отсутствующим трём LAP и неподтверждённым атрибутам. R2 уточняет SRC-03 и SRC-04 и проверяет библиографические атрибуты SRC-02, см. verification/r5_r2_sources_recheck_01/review.md. Актуальность и применимость REV NOT_RUN, B01–B03 и G1 OPEN.
+
+## RECHECK исправленного реестра
+
+REV-R5-R2-SOURCES-RECHECK-02-001 на c0a101a3471942e169599086365941bbaa67ce94: исправления SRC-03/04 приняты в документальной области; атрибуты SRC-02 разделены, карточка независимо NOT_RUN. R5-SRC-B01 OPEN: LAP 42620/42621/42622 не прочитаны, остаются библиографические атрибуты. verification/r5_r2_sources_recheck_02/review.md; B01–B03 и G1 OPEN.
+
+## RECHECK LAP и карточки
+
+REV-R5-R2-LAP-RECHECK-01-001: три копии и JSON пакета 3bc59174fb850e9cf818df23ec55f9bc9c8a23f6 получены, сверены и прочитаны в заявленной области. R5-SRC-B01 OPEN: R5-LAP-01 — 42620 2008/2010; R5-LAP-02 — связь версии SRC-02 и расхождение аннотаций. Подробнее verification/r5_r2_lap_recheck/review.md. Пробы/испытания NOT_RUN, актуальность и пригодность не утверждены; B01–B03 и G1 OPEN.
+
+## Review исследования версий
+
+REV-R5-R2-VERSION-REVIEW-01-001: R5-SRC-B01 CLOSED только в документальной области при исключении неподтверждённых данных; R5-VERSION-B01 OPEN из-за ошибочного SHA `openalex-src02.json` в отчёте R2. R2 сверяет происхождение и готовит исправление, затем независимый recheck; см. verification/r5_r2_version_recheck/review.md. История версий/правильное AR UNKNOWN; B01–B03 и G1 OPEN.
+
+## RECHECK исправления SHA
+
+REV-R5-VERSION-HASH-RECHECK-01-001: R5-VERSION-B01 CLOSED для проверенных Git-байтов на 4605f3435c5882550d540ff797e7322613723769; исходная временная копия недоступна R5 и внешнее происхождение не удостоверено. Подробности verification/r5_version_hash_recheck/review.md. История версий и правильное AR UNKNOWN, B01–B03 и G1 OPEN.
+
+## OUTPUT-review исследования металла
+
+REV-R5-R2-METAL-01-001: M01–M06 недоступны R5 (CONNECT 403), независимая сверка NOT_RUN; R5-METAL-B01 и R5-SRC-W01 OPEN, REJECT_WITH_BLOCKER для приёмки. R2 обеспечивает проверяемый доступ/полные копии с учётом условий распространения, далее R5 проверяет по verification/r5_r2_metal_review/review.md. Прибор не выбран, пробы и испытания NOT_RUN; B01–B03 и G1 OPEN.
