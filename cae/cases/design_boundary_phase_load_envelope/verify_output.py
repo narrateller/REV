@@ -61,7 +61,7 @@ def compile_variant(variant, geometry, references, factors):
     spans = [length * scale for scale in factors["guide_span_over_chamber_length"]]
     require(all(map(positive, spans)), f"Nonpositive guide span: {variant}")
     return {
-        "fcstd": str(Path(GEOMETRY).parent / geometry["variants"][variant]["path"]),
+        "fcstd": (Path(GEOMETRY).parent / geometry["variants"][variant]["path"]).as_posix(),
         "fcstd_sha256": geometry["variants"][variant]["sha256"],
         "source_reference_case_ids": {"WORK": work["case_id"], "RETURN": back["case_id"]},
         "reference_force_N": {"WORK": fw, "RETURN": fr},
