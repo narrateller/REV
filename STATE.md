@@ -66,8 +66,14 @@ R3 завершил [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) в о
 `ASSUMED_STATIC_SCREENING`. Физические §§4/5/6 ожидают реальных входов.
 R4 завершил [документальный входной аудит W02](coordination/completions/T-R4-W02-CAD-01/completion.json).
 R5 подтвердил его в [области документального аудита](coordination/completions/T-R5-W02-GEOMETRY-VERIFY-01/completion.json).
-Пересборка W02 имеет статус `NOT_RUN`. По [плану цикла 008](coordination/tasks/T-R1-ENGINEERING-PLAN-03/dispatch_plan.md)
-R4 проверяет готовность к пересборке по [новой передаче](coordination/completions/T-R4-W02-CAD-01/handoff_R4.md) после свежего claim.
+R4 завершил проверку готовности. Пересборка W02 `NOT_RUN`, блокер попытки
+`MISSING_TOOL_001`. R1 подтвердил запуск FreeCAD вне `PATH` на своём компьютере.
+Для пересборки R4 нужны новый claim и актуальный аудит инструментов и входов.
+R5 завершил [T-R5-ENGINEERING-VERIFY-02](coordination/completions/T-R5-ENGINEERING-VERIFY-02/completion.json)
+в области условного расчёта и документального аудита W02. Расхождение идентификаторов
+зафиксировано при [закрытии claim](coordination/completions/T-R5-ENGINEERING-VERIFY-02/claim_release.json).
+По [плану цикла 009](coordination/tasks/T-R1-ENGINEERING-PLAN-04/dispatch_plan.md)
+следующая задача — `T-R2-INPUTS-01` (P0 / READY) после нового claim R2.
 UNKNOWN не заменять нулём; данные источников автоматически не повышать.
 
 Проверки: `python verify_output.py --check-git`,

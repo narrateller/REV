@@ -1,0 +1,142 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-04",
+  "role": "R1",
+  "execution_status": "COMPLETED",
+  "cycle": "009",
+  "author_sessions": [
+    "01a1f0d8-d07c-77d1-a9bd-1317ad32651c"
+  ],
+  "actual_session_id": "01a1f0d8-d07c-77d1-a9bd-1317ad32651c",
+  "runtime_model_id": "gpt-6.2-sol",
+  "codex_cli_version": "0.169.0",
+  "model_metadata_source": "Current Codex session turn_context and session_meta",
+  "python_version": "3.13.17",
+  "source_main_sha": "d6897e0c0b0e1b7525b77f1f194607a1ec489b4b",
+  "coordination_claim_main_sha": "ecb635a716257a010cd43330f34894cc900ecb91",
+  "input_manifest": "coordination/tasks/T-R1-ENGINEERING-PLAN-04/input_manifest.json",
+  "claim_release_status": "CLOSED",
+  "effective_owner_session": null,
+  "effective_lease_expires_at": null,
+  "accepted_claim": "coordination/completions/T-R1-ENGINEERING-PLAN-04/accepted_claim.json",
+  "closed_claims": [
+    "coordination/completions/T-R5-ENGINEERING-VERIFY-02/claim_release.json",
+    "coordination/completions/T-R4-W02-CAD-01/claim_release.json"
+  ],
+  "next_dispatch": {
+    "task_id": "T-R2-INPUTS-01",
+    "role": "R2",
+    "status": "READY",
+    "priority": "P0",
+    "requires_fresh_claim": true,
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-04/dispatch_plan.md"
+  },
+  "w02": {
+    "cad_rebuild_status": "NOT_RUN",
+    "previous_attempt_blocker": "MISSING_TOOL_001",
+    "blocker_class": "TECHNICAL",
+    "operator_decision_required_for_tool_setup_in_existing_scope": false,
+    "rebuild_requires_fresh_claim_and_input_audit": true,
+    "tool_preflight": {
+      "scope": "R1 Windows host, headless imports only",
+      "status": "AVAILABLE_ON_R1_HOST_COMPATIBILITY_PENDING",
+      "path_lookup": "FreeCAD and FreeCADCmd not found in PATH",
+      "freecad_install_root": "%LOCALAPPDATA%\\Programs\\FreeCAD 1.1",
+      "freecad_version": "1.1.4",
+      "freecad_build_git_sha": "4fd3bf320d9566a27e60069fc8387448aaa3a094",
+      "opencascade_version": "7.8.1",
+      "bundled_python_version": "3.11.14",
+      "command_powershell": "$freeCadRoot = Join-Path $env:LOCALAPPDATA 'Programs\\FreeCAD 1.1'\n& (Join-Path $freeCadRoot 'bin\\python.exe') -c 'import os,sys; root=sys.argv[1]; bindir=os.path.join(root,\"bin\"); libdir=os.path.join(root,\"lib\"); dll_dir=os.add_dll_directory(bindir); sys.path[:0]=[bindir,libdir]; import FreeCAD,Part; print(\"Python:\",sys.version.split()[0]); print(\"FreeCAD:\",FreeCAD.Version()); print(\"OpenCASCADE:\",Part.OCC_VERSION); print(\"Part:\",Part.__file__)' $freeCadRoot",
+      "compatibility_baseline_freecad_version": "1.0.0",
+      "w02_rebuild_compatibility_check": "NOT_RUN"
+    }
+  },
+  "engineering_status": {
+    "r3_assumed_case_count": 42,
+    "r3_assumed_execution": "CALCULATED_ASSUMED",
+    "physical_input_status": "BLOCKED_INPUTS",
+    "physical_sections_4_5_6": "NOT_RUN",
+    "connection_capacity_status": "BLOCKED_INPUTS"
+  },
+  "local_checks": {
+    "python scripts/check_registry.py --check-git": "PASS",
+    "python -m unittest discover -s tests -v": "PASS",
+    "unit_test_count": 103,
+    "python verify_output.py --check-git": "PASS"
+  },
+  "outputs": [
+    {
+      "path": "STATE.md",
+      "sha256": "d0f1b307b60aa7a126aac5e564621aa1402e682e690da91175a120be7ac73db3"
+    },
+    {
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "ae713dad6653e7ceaa10b4b9b68362fe1eaaeeddd8554e0f18a94bfe222e2dba"
+    },
+    {
+      "path": "NEXT_MODEL.md",
+      "sha256": "0fb92046f83f3c767758389fbcfb1f309f145543063a582ea16cac674f62222b"
+    },
+    {
+      "path": "coordination/task_index.json",
+      "sha256": "15ea1be0519ab0d54e329c27cbd36a5eeb3c7ebdd5046a9ffff755e1555e1c19"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-04/task.json",
+      "sha256": "a8fe283f3fdb6c3878bf28fafebfc23be942dc5474d703ea16802f0f91084e91"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-04/input_manifest.json",
+      "sha256": "1572cdee0e66cf825af4a5f155476ab7aad6435c4d792f176b3715a81b251959"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-04/dispatch_plan.md",
+      "sha256": "2e38dbcd3668b9a1fdbf3749ebeb26bb50059bdea8baa82f74dec3f0cf87f235"
+    },
+    {
+      "path": "coordination/tasks/T-R4-W02-CAD-01/task.json",
+      "sha256": "7b068a021556e37aa1a1286404b7067e9a9e4d4562632c3ab0bdd0edc7bb94fa"
+    },
+    {
+      "path": "coordination/tasks/T-R5-ENGINEERING-VERIFY-02/task.json",
+      "sha256": "69ab763fe24600755ea76ec141d86ec9701d4cb47ae8dbee7885744513d87ec1"
+    },
+    {
+      "path": "coordination/completions/T-R4-W02-CAD-01/claim_release.json",
+      "sha256": "bcaca5b7e5053c7c2904e1aab3152c755b401e5c7d89cc1f7c06378151132bdd"
+    },
+    {
+      "path": "coordination/completions/T-R5-ENGINEERING-VERIFY-02/claim_release.json",
+      "sha256": "1c6a0027d0663b8272b15e2117780846918df08a0fd7e218f09ae39bf9015928"
+    },
+    {
+      "path": "cae/cases/T-R3-42-STATES-01/case_audit.json",
+      "sha256": "3380895bb028993af3614e18a5aac5a4fca0be6c3451a8fba4260f877083db94"
+    },
+    {
+      "path": "cae/cases/T-R3-42-STATES-01/output_manifest.json",
+      "sha256": "3706cc8c3e4707e8a90e39346beb925c2786f1d462a3642eb2fe8777d1827b35"
+    },
+    {
+      "path": "cae/cases/T-R3-42-STATES-01/verify_output.py",
+      "sha256": "12a19e1c091371d66ae004aa66600886f9fdabd1856e0c29e1681b7af0a64d06"
+    }
+  ],
+  "ci_repair": {
+    "source_main_run": 44413219467,
+    "source_main_result": "FAIL",
+    "failed_step": "Replay R3 load envelope",
+    "cause": "R5 updated the generator checksum inside case_audit.json. Three replay paths require the frozen audit bytes.",
+    "repair": "Restore the pinned audit and its output manifest. Keep portable POSIX path handling and get the original generator's provenance hash from the pinned Git blob.",
+    "scope": "REPLAY_PROVENANCE",
+    "pinned_audit_commit": "b1f0243f86fef672902bd462b8567a3ec7066f59",
+    "engineering_input_values_changed": false,
+    "engineering_algorithm_changed": false,
+    "local_replay_checks": {
+      "python cae/cases/T-R3-42-STATES-01/verify_output.py": "PASS",
+      "python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git": "PASS",
+      "python cae/cases/T-R3-CAE-456-01/verify_output.py --check-git": "PASS",
+      "python cae/scripts/screen_42_states.py --check-git": "PASS"
+    }
+  },
+  "completed_at_utc": "2026-11-18T23:02:39Z"
+}

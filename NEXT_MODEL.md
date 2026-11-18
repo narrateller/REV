@@ -5,16 +5,17 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-1. [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) завершена
-   в области `ASSUMED_STATIC_SCREENING`. В сводке есть численные результаты
-   и физические блокеры по всем 42 case ID.
-2. Документальный аудит W02 завершён и принят в области `DOCUMENTARY_INPUT_AUDIT`.
-   R4 принимает свежий claim для [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json)
-   и проверяет готовность к пересборке по [передаче R1](coordination/completions/T-R4-W02-CAD-01/handoff_R4.md).
+1. R2 принимает свежий claim для [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json),
+   `P0 / READY`. Подготовь значения с единицами, источниками и неопределённостью,
+   либо `UNKNOWN` с `null` и причиной. [План цикла 009](coordination/tasks/T-R1-ENGINEERING-PLAN-04/dispatch_plan.md)
+2. Проверка готовности W02 завершена. Пересборка `NOT_RUN` после `MISSING_TOOL_001`.
+   R4 сможет начать следующую итерацию после свежего claim, проверки CAD-среды
+   и актуального аудита входов.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
-Общий WARNING сохранён. На момент форка 42 состояния не рассчитаны;
-§§4/5/6 NOT_RUN, G1 OPEN, ТЗ/архитектура NOT_APPROVED, W02/physical READY NO-GO.
+Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические
+состояния `BLOCKED_INPUTS`, физические §§4/5/6 `NOT_RUN`. G1 OPEN,
+ТЗ/архитектура NOT_APPROVED, W02/physical READY NO-GO.
 Прочность, устойчивость и реальные реакции не подтверждены.
 Следующая инженерная работа разрешена после нового claim и аудита;
 физические испытания и выпуск в производство — отдельное решение человека.

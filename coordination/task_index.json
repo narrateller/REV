@@ -7,7 +7,8 @@
       "role": "R3",
       "status": "COMPLETED",
       "priority": "P0",
-      "path": "coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json"
+      "path": "coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json",
+      "scope": "CALCULATED_ASSUMED"
     },
     {
       "task_id": "T-R1-ENGINEERING-PLAN-01",
@@ -61,7 +62,11 @@
       "priority": "P1",
       "path": "coordination/tasks/T-R4-W02-CAD-01/task.json",
       "cad_rebuild_status": "NOT_RUN",
-      "blocked_by": "MISSING_TOOL_001"
+      "blocked_by": "MISSING_TOOL_001",
+      "claim_release_status": "CLOSED",
+      "rebuild_dispatch_status": "AWAITING_FRESH_CLAIM_AND_INPUT_AUDIT",
+      "tool_preflight": "AVAILABLE_ON_R1_HOST_COMPATIBILITY_PENDING",
+      "claim_release": "coordination/completions/T-R4-W02-CAD-01/claim_release.json"
     },
     {
       "task_id": "T-R4-DRAWINGS-01",
@@ -112,14 +117,27 @@
       "status": "COMPLETED",
       "priority": "P0",
       "role": "R5",
-      "task_id": "T-R5-ENGINEERING-VERIFY-02"
+      "task_id": "T-R5-ENGINEERING-VERIFY-02",
+      "scope": "ENGINEERING_VERIFICATION",
+      "claim_status_at_acceptance": "ACCEPTED_MAIN",
+      "claim_release_status": "CLOSED",
+      "completion": "coordination/completions/T-R5-ENGINEERING-VERIFY-02/completion.json",
+      "claim_release": "coordination/completions/T-R5-ENGINEERING-VERIFY-02/claim_release.json"
     },
     {
       "task_id": "T-R1-ENGINEERING-PLAN-04",
       "role": "R1",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "priority": "P0",
       "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-04/task.json"
     }
-  ]
+  ],
+  "next_dispatch": {
+    "task_id": "T-R2-INPUTS-01",
+    "role": "R2",
+    "status": "READY",
+    "priority": "P0",
+    "requires_fresh_claim": true,
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-04/dispatch_plan.md"
+  }
 }

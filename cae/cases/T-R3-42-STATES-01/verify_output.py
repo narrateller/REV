@@ -18,6 +18,7 @@ import yaml
 TASK = HERE.name
 TASK_PATH = f"coordination/tasks/{TASK}"
 BASELINE = "baselines/operator-fork-20261118/state_catalog_index.json"
+AUDIT_SOURCE_COMMIT = "b1f0243f86fef672902bd462b8567a3ec7066f59"
 GEOMETRY = "verification/r4_force_geometry/symbolic_20261116"
 DRIVE = ROOT / "drives" / f"{TASK}-axial.json"
 
@@ -216,14 +217,20 @@ def build_outputs():
         })
     require(all(handoff.values()), "Every R4 interface must be used")
     require(len(drive_checks) == 8, "Eight named work/return conditional checks required")
+    generator_path = posix_path((HERE / "verify_output.py").relative_to(ROOT))
     input_paths = (
         f"{TASK_PATH}/input_manifest.json", BASELINE, f"{GEOMETRY}/state_dependencies.json",
         f"{GEOMETRY}/interfaces.json", f"{GEOMETRY}/symbolic_dependencies.json",
         "verification/r3_force_path/analysis/params/registry.yaml",
-        posix_path((HERE / "verify_output.py").relative_to(ROOT)),
+        generator_path,
         *calc_paths,
     )
-    inputs = [input_hash(path) for path in dict.fromkeys(input_paths)]
+    # The frozen audit records the original generator's provenance during replay.
+    inputs = [
+        {"path": path, "sha256": sha256(git("show", f"{AUDIT_SOURCE_COMMIT}:{path}"))}
+        if path == generator_path else input_hash(path)
+        for path in dict.fromkeys(input_paths)
+    ]
     context = {"task_id": TASK, "author_session": claim_input["author_session"],
                "source_main_sha": base, "source_catalog_commit": catalog["source_commit"],
                "source_catalog_sha256": catalog["source_sha256"]}

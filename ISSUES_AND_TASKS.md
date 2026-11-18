@@ -13,12 +13,13 @@
 | [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED) |
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / COMPLETED (ASSUMED_STATIC_SCREENING) |
-| [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / READY_INPUT_AUDIT (проверка готовности к rebuild, предыдущий аудит завершён) |
+| [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / COMPLETED (проверка готовности). Пересборка NOT_RUN, нужен новый claim |
 | [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / WAITING_ENGINEERING_BASELINE |
 | [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / COMPLETED |
 | [T-R5-W02-GEOMETRY-VERIFY-01](coordination/tasks/T-R5-W02-GEOMETRY-VERIFY-01/task.json) | R5 | P1 / COMPLETED (VERIFICATION_PASS в области документального аудита) |
+| [T-R5-ENGINEERING-VERIFY-02](coordination/tasks/T-R5-ENGINEERING-VERIFY-02/task.json) | R5 | P0 / COMPLETED (условный расчёт и документальный аудит). Claim закрыт |
 
-Эстафета текущего цикла задана [T-R1-ENGINEERING-PLAN-03](coordination/tasks/T-R1-ENGINEERING-PLAN-03/dispatch_plan.md).
+Эстафета текущего цикла задана [T-R1-ENGINEERING-PLAN-04](coordination/tasks/T-R1-ENGINEERING-PLAN-04/dispatch_plan.md).
 
 Входы и критерии находятся в каждой задаче. READY_INPUT_AUDIT разрешает аудит
 и работу по пригодным входам, но не выдумывание недостающих величин.
@@ -31,7 +32,9 @@
   двусторонние соединения; выполнить W02 и подготовить drawings/ по готовой базе.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
 
-Следующий шаг из порученных вариантов R3/R4 — [проверка готовности к пересборке W02 ролью R4](coordination/completions/T-R4-W02-CAD-01/handoff_R4.md) после нового claim. В общей очереди `T-R2-INPUTS-01` остаётся P0 / READY.
+Следующий шаг — `T-R2-INPUTS-01` (P0 / READY) после нового claim R2.
+Для пересборки W02 R4 проверяет совместимость CAD-среды и обновляет аудит входов
+после отдельного свежего claim.
 
 Открыты реальные свойства сырья, фазовые нагрузки, геометрия/материалы/BC,
 критерии/допуски, метрология, безопасные состояния и нормативная область/юрисдикция.
