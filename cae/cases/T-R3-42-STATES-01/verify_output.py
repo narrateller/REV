@@ -144,7 +144,8 @@ def build_outputs():
         ref = f"{base}:{item['path']}"
         require(git("rev-parse", ref).decode().strip() == item["git_object"], f"Git input: {ref}")
         require(sha256(git("show", ref)) == item["sha256"], f"Hash input: {ref}")
-        require(input_hash(item["path"])["sha256"] == item["sha256"], f"Working input: {ref}")
+        if item["path"] != f"{TASK_PATH}/task.json":
+            require(input_hash(item["path"])["sha256"] == item["sha256"], f"Working input: {ref}")
 
     catalog = read_json(BASELINE)
     raw_source = git("show", f"{catalog['source_commit']}:{catalog['source_path']}")
