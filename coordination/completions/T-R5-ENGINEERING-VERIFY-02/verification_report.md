@@ -2,7 +2,7 @@
 
 ## Метаданные сессии
 
-- **Session ID**: `01a1f096-bf9a-74f1-a972-84d79f54ed7a`
+- **Session ID**: `01a1f0bb-4881-7a20-9e36-87432de4c90e`
 - **Model**: `qwen/qwen3.5-397b-a17b (OpenRouter)`
 - **Role**: R5 (Независимая верификация)
 - **Source main SHA**: `21349937d45863df18bab7a079b08c9822d83b3b`
@@ -194,7 +194,7 @@ python verify_output.py --check-git
 
 - **Автор R3**: session `01a1ef4a-84e8-74d2-bd6f-419e2b74f964`
 - **Автор R4**: session `01a1f06d-87fe-7e30-807e-34d64c8e49fd`
-- **Верификатор R5**: session `01a1f096-bf9a-74f1-a972-84d79f54ed7a`
+- **Верификатор R5**: session `01a1f0bb-4881-7a20-9e36-87432de4c90e`
 
 ✅ Верификация выполнена независимой сессией
 

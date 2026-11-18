@@ -70,12 +70,17 @@ def sha256(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def posix_path(path):
+    """Convert Path to POSIX-style string with forward slashes."""
+    return path.as_posix()
+
+
 def git(*args):
     return subprocess.check_output(["git", *args], cwd=ROOT)
 
 
 def input_hash(path):
-    return {"path": path, "sha256": sha256((ROOT / path).read_bytes())}
+    return {"path": posix_path(path) if hasattr(path, "as_posix") else path, "sha256": sha256((ROOT / path).read_bytes())}
 
 
 def load_calculation_inputs(source_commit):
@@ -202,7 +207,7 @@ def build_outputs():
                 "phase_requirement": dependency["contact_and_load_requirement"],
                 "missing_inputs": dependency["missing_arguments"],
             },
-            "conditional_check": str(DRIVE.relative_to(ROOT)) if conditional else None,
+            "conditional_check": posix_path(DRIVE.relative_to(ROOT)) if conditional else None,
             "status": "BLOCKED_INPUTS",
             "actual_result": {
                 "axial_force_N": None, "moment_Nm": None, "support_reactions_N": None,
@@ -215,7 +220,7 @@ def build_outputs():
         f"{TASK_PATH}/input_manifest.json", BASELINE, f"{GEOMETRY}/state_dependencies.json",
         f"{GEOMETRY}/interfaces.json", f"{GEOMETRY}/symbolic_dependencies.json",
         "verification/r3_force_path/analysis/params/registry.yaml",
-        str((HERE / "verify_output.py").relative_to(ROOT)),
+        posix_path((HERE / "verify_output.py").relative_to(ROOT)),
         *calc_paths,
     )
     inputs = [input_hash(path) for path in dict.fromkeys(input_paths)]
@@ -258,8 +263,8 @@ def main():
                for path, payload in build_outputs().items()}
     outputs[HERE / "output_manifest.json"] = (json.dumps({
         "task_id": TASK,
-        "command": f"python {HERE.relative_to(ROOT)}/verify_output.py",
-        "outputs": [{"path": str(path.relative_to(ROOT)), "sha256": sha256(raw)}
+        "command": f"python {posix_path(HERE.relative_to(ROOT))}/verify_output.py",
+        "outputs": [{"path": posix_path(path.relative_to(ROOT)), "sha256": sha256(raw)}
                     for path, raw in outputs.items()],
     }, indent=2) + "\n").encode()
     for path, raw in outputs.items():
