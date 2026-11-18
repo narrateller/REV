@@ -2,7 +2,7 @@
 
 Режим: Stateless Agents / Stateful Repo. На момент ротации все старые claims сняты,
 новых владельцев нет. Административный переход выполнен R1, сессия
-`6afb300b-1540-8191-a5c4-be1a684c20e0`, по прямой директиве оператора.
+\6afb300b-1540-8191-a5c4-be1a684c20e0\, по прямой директиве оператора.
 
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md),
 [авторизация](coordination/user_authorizations/operator_fork_20261118.json).
@@ -11,16 +11,16 @@
 
 ## Принятая отправная база
 
-- PR60 — обычный merge `5da433af81874640d2e82bbbe408633cfa8b7e73`. Exact C
-  `5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a` принят оператором.
+- PR60 — обычный merge \5da433af81874640d2e82bbbe408633cfa8b7e73\. Exact C
+  \5b72e18d83cb0b10cf0a1c2c50fbe0d72fd8ae1a\ принят оператором.
   OBS-01/02/03: CLOSED_DOCUMENTARY_BY_OPERATOR_AUTHORIZATION.
   Дополнительный R5 на этом C: NOT_RUN / WAIVED. Прежние акты и FAIL сохранены.
-- R2: `4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50` — отдельный набор из 55 записей,
-  сохранён в `baselines/operator-fork-20261118/r2/`; активный реестр не заменён.
-- R3: `93b4aead4983f88919d8e8b4165e29d7f3246600` / PR48 — условная постановка,
-  каталог 42 состояний, `verification/r3_force_path/analysis/`.
-- R4: `beb4cf4ebcf6a99d3271a1560bdbd19caee8adfe` — 52 символических интерфейса,
-  четыре варианта, `verification/r4_force_geometry/symbolic_20261116/`.
+- R2: \4fd6f32b4df3186a805ac7e654be6c4c9e1c6a50\ — отдельный набор из 55 записей,
+  сохранён в \aselines/operator-fork-20261118/r2/\; активный реестр не заменён.
+- R3: \93b4aead4983f88919d8e8b4165e29d7f3246600\ / PR48 — условная постановка,
+  каталог 42 состояний, \erification/r3_force_path/analysis/\.
+- R4: \eb4cf4ebcf6a99d3271a1560bdbd19caee8adfe\ — 52 символических интерфейса,
+  четыре варианта, \erification/r4_force_geometry/symbolic_20261116/\.
 
 Точные источники, хэши и теги: [baseline manifest](baselines/operator-fork-20261118/manifest.json).
 Фиксация базы не повышает RAW/ASSUMED и не означает VERIFIED/LOCKED физики.
@@ -50,19 +50,26 @@ CALCULATED_ASSUMED. [Результаты](cae/cases/T-R3-42-STATES-ENVELOPE-01/
 claim. Физические испытания и выпуск в производство требуют отдельного
 решения человека.
 
+## Текущий статус
+
+- **T-R3-CAE-456-01**: завершено R3, handoff передан R4
+- **T-R4-W02-CAD-01**: входной аудит завершён, 52 интерфейса проверены, 42 состояния BLOCKED_INPUTS, W02 CAD-rebuild NO-GO
+
 ## Следующий шаг
 
-[Очередь](ISSUES_AND_TASKS.md), машинный индекс `coordination/task_index.json`.
+[Очередь](ISSUES_AND_TASKS.md), машинный индекс \coordination/task_index.json\.
 R1 завершил [план эстафеты](coordination/tasks/T-R1-ENGINEERING-PLAN-01/dispatch_plan.md).
 По эстафете поставлены условная геометрия R4 и аудит R3.
 R1 поставил [расчётную огибающую](cae/cases/design_boundary_phase_load_envelope/README.md).
-R3 завершил `T-R3-42-STATES-ENVELOPE-01` для реакций, прочности и устойчивости
+R3 завершил \T-R3-42-STATES-ENVELOPE-01\ для реакций, прочности и устойчивости
 выбранных суррогатов.
 R3 завершил [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) в области
-`ASSUMED_STATIC_SCREENING`. Физические §§4/5/6 ожидают реальных входов.
-Следующий шаг — [входной аудит W02 ролью R4](coordination/completions/T-R3-CAE-456-01/handoff_R4.md).
+\ASSUMED_STATIC_SCREENING\. Физические §§4/5/6 ожидают реальных входов.
+R4 завершил [входной аудит W02](coordination/completions/T-R4-W02-CAD-01/audit_act.md).
+**Рекомендация**: R3_CAE_INPUTS_REQUIRED для разблокировки физических входов.
+
 UNKNOWN не заменять нулём; данные источников автоматически не повышать.
 
-Проверки: `python verify_output.py --check-git`,
-`python scripts/check_registry.py --check-git`,
-`python -m unittest discover -s tests -v`. PASS относится только к проверенной области.
+Проверки: \python verify_output.py --check-git\,
+\python scripts/check_registry.py --check-git\,
+\python -m unittest discover -s tests -v\. PASS относится только к проверенной области.

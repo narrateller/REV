@@ -3,7 +3,7 @@
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Старые claims/tasks/scopes закрыты; исходные файлы сохранены в
-`coordination/completions/operator-fork-20261118/`. На момент ротации владельцев нет.
+\coordination/completions/operator-fork-20261118/\. На момент ротации владельцев нет.
 Каждая новая сессия использует собственный ID и новый claim по AGENT_PROTOCOL.md.
 
 | Задача | Роль | Приоритет / состояние |
@@ -13,7 +13,7 @@
 | [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / COMPLETED (ASSUMED_STATIC_SCREENING) |
-| [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / READY_INPUT_AUDIT |
+| [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / INPUT_AUDIT_COMPLETE |
 | [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / WAITING_ENGINEERING_BASELINE |
 | [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / COMPLETED |
 
@@ -28,9 +28,10 @@
 - R3 завершил [условный расчёт 42 состояний и §§4/5/6](cae/cases/T-R3-CAE-456-01/README.md). Физический расчёт остаётся заблокирован [по аудиту R3](cae/cases/T-R3-42-STATES-01/README.md).
 - R4: определить опоры, эксцентриситеты, свободные длины, сечения, материалы,
   двусторонние соединения; выполнить W02 и подготовить drawings/ по готовой базе.
+  **T-R4-W02-CAD-01 завершён**: 52 интерфейса проверены, 42 состояния BLOCKED_INPUTS.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
 
-Следующий шаг — [входной аудит W02 ролью R4](coordination/completions/T-R3-CAE-456-01/handoff_R4.md) после нового claim.
+Следующий шаг — [R3_CAE_INPUTS_REQUIRED](coordination/completions/T-R4-W02-CAD-01/audit_act.md) для разблокировки физических входов.
 
 Открыты реальные свойства сырья, фазовые нагрузки, геометрия/материалы/BC,
 критерии/допуски, метрология, безопасные состояния и нормативная область/юрисдикция.
