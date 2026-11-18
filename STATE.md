@@ -81,3 +81,4 @@ R5 завершил [T-R5-ENGINEERING-VERIFY-02](coordination/completions/T-R5-E
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
 `python -m unittest discover -s tests -v`. PASS относится только к проверенной области.
+

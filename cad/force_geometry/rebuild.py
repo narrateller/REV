@@ -7,12 +7,12 @@ import math
 import sys
 from pathlib import Path
 
-sys.path.insert(0, "/usr/lib/freecad-python3/lib")
+sys.path.insert(0, r"C:\Users\user\AppData\Local\Programs\FreeCAD 1.1\bin")
 import FreeCAD as App
 import Part  # Initialize the native Part types.
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "cad/source/force_geometry"
+SOURCE = ROOT / "cad/force_geometry"
 SYMBOLIC = Path("verification/r4_force_geometry/symbolic_20261116")
 PROPOSAL = Path("verification/r4_cycle_interfaces/proposal")
 CLAIM_INPUT = Path("coordination/tasks/T-R4-FORCE-GEOMETRY-01/input_manifest.json")
@@ -255,3 +255,4 @@ if __name__ == "__main__":
     parser.add_argument("--out", type=Path, required=True, help="New output directory")
     args = parser.parse_args()
     build(args.out.resolve())
+
