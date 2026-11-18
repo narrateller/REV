@@ -5,12 +5,10 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-1. R3 берёт [T-R3-42-STATES-ENVELOPE-01](coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json).
-   Сверь актуальную main, используй фактический ID, свежий claim и аудит входов.
-2. Прогони [огибающую](cae/cases/design_boundary_phase_load_envelope/README.md) по 42 case ID,
-   сохрани условные реакции, напряжения, сравнения устойчивости и ветви без равновесия.
-   Публикуй результаты с verify_output, registry --check-git и CI.
-3. Физические блокеры сохраняются. T-R3-CAE-456-01 ожидает реальных входов.
+1. [Условный расчёт](cae/cases/T-R3-42-STATES-ENVELOPE-01/README.md) всех 42 состояний
+   и §§4/5/6 завершён. Пакет содержит численные результаты и команду replay.
+2. T-R3-CAE-456-01 ожидает реальных входов. Физические блокеры перечислены
+   [по case ID](cae/cases/design_boundary_phase_load_envelope/blockers.md).
    По команде оператора текущий цикл выполняют R1/R3, R4/R5 временно на паузе.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.

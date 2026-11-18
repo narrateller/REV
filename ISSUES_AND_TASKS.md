@@ -8,7 +8,7 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R3-42-STATES-ENVELOPE-01](coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json) | R3 | P0 / READY |
+| [T-R3-42-STATES-ENVELOPE-01](coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED) |
 | [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) | R2 | P0 / READY |
 | [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
@@ -25,7 +25,7 @@ R1 завершил [T-R1-ENGINEERING-PLAN-01](coordination/tasks/T-R1-ENGINEERI
 - R1: сериализовать принятие новых claims и интеграцию результатов.
 - R2: подготовить численные входы с единицами, источниками и областью применимости.
   BP500 — основа; другие прессы — по релевантности. Площадка адаптируется под пресс.
-- R3: после свежего claim выполнить условный расчёт 42 состояний и §§4/5/6 по [огибающей R1](cae/cases/design_boundary_phase_load_envelope/README.md). Физический расчёт остаётся заблокирован [по аудиту R3](cae/cases/T-R3-42-STATES-01/README.md).
+- R3 завершил [условный расчёт 42 состояний и §§4/5/6](cae/cases/T-R3-42-STATES-ENVELOPE-01/README.md). Физический расчёт остаётся заблокирован [по аудиту R3](cae/cases/T-R3-42-STATES-01/README.md).
 - R4: определить опоры, эксцентриситеты, свободные длины, сечения, материалы,
   двусторонние соединения; выполнить W02 и подготовить drawings/ по готовой базе.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
