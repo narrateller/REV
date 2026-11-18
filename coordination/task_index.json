@@ -1,6 +1,16 @@
 {
   "protocol": "OPERATOR_FORK_2.0",
   "authority": "decisions/ARB-OPERATOR-FORK-BASELINE-01.md",
+  "next_recommendation": {
+    "task_id": "T-R3-42-STATES-01",
+    "priority": "P0",
+    "role": "R3",
+    "scope": "ASSUMED_STATIC_SCREENING",
+    "source": "ENVELOPE_ASSUMED",
+    "action": "REPLAY_AND_REVIEW_EXISTING_DELIVERY",
+    "delivery_pr": 70,
+    "delivery_head_sha": "621f352eb919477e7a3ef4e6d1f73689a89685d7"
+  },
   "tasks": [
     {
       "task_id": "T-R3-42-STATES-ENVELOPE-01",
@@ -50,7 +60,12 @@
     {
       "task_id": "T-R4-W02-CAD-01",
       "role": "R4",
-      "status": "DELIVERED",
+      "status": "CLOSED",
+      "scope": "INPUT_AUDIT",
+      "w02_cad_rebuild_status": "NO-GO",
+      "physical_input_status": "BLOCKED_INPUTS",
+      "audit_pr": 69,
+      "audit_head_sha": "afccfe17516d04a2c71e470834b3ac9cc56a94d3",
       "priority": "P1",
       "path": "coordination/tasks/T-R4-W02-CAD-01/task.json"
     },
@@ -81,6 +96,13 @@
       "status": "COMPLETED",
       "priority": "P0",
       "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-02/task.json"
+    },
+    {
+      "task_id": "T-R1-ENGINEERING-COORD-02",
+      "role": "R1",
+      "status": "COMPLETED",
+      "priority": "P0",
+      "path": "coordination/tasks/T-R1-ENGINEERING-COORD-02/task.json"
     }
   ]
 }
