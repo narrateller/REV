@@ -1,22 +1,42 @@
 {
   "task_id": "T-R3-CAE-456-01",
   "role": "R3",
-  "status": "WAITING_CASE_INPUTS",
+  "status": "READY",
   "priority": "P1",
   "title": "Проверить прочность, устойчивость и связи — §§4/5/6",
   "owner_session": "NONE",
   "lease_expires_at": null,
   "operator_pre_authorized": true,
+  "ready_scope": "ASSUMED_STATIC_SCREENING",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "design_load_envelope": {
+    "name": "Design Boundary & Phase Load Envelope v1",
+    "operator_pre_authorized": true,
+    "authority": "Прямое поручение оператора для цикла 007",
+    "scope": "ASSUMED_STATIC_SCREENING",
+    "input_status": "READY_ASSUMED",
+    "source_main_sha": "e1922dec5f6eaa4f563193f7ea993ede9b4c7cf4",
+    "dataset": "cae/cases/design_boundary_phase_load_envelope/envelope.json",
+    "assumptions": "cae/cases/design_boundary_phase_load_envelope/assumptions.json",
+    "physical_blockers": "cae/cases/design_boundary_phase_load_envelope/blockers.md"
+  },
+  "reference_verification": "coordination/verifications/T-R5-ENGINEERING-VERIFY-01.json",
   "input_paths": [
-    "cae/",
-    "drives/",
-    "params/registry.yaml",
-    "cad/"
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json",
+    "cae/cases/design_boundary_phase_load_envelope/assumptions.json",
+    "cae/cases/design_boundary_phase_load_envelope/blockers.md",
+    "cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json",
+    "cae/cases/T-R3-42-STATES-01/case_audit.json",
+    "cae/cases/T-R3-42-STATES-01/r4_reconciliation.json",
+    "drives/T-R3-42-STATES-01-axial.json",
+    "cad/source/force_geometry/manifest.json",
+    "params/registry.yaml"
   ],
   "acceptance": [
-    "Реальные расчёты по готовым входам:материалы/геометрия/нагрузки/BC",
-    "Балансы/предельные случаи/сходимость/чувствительность по применимости",
-    "Недостающие входы/результаты явноNOT_RUN/BLOCKED;не выдавать арифметику зафизическую достаточность"
+    "Воспроизводимый расчёт §§4/5/6 по пригодным входам в ASSUMED_STATIC_SCREENING с явными допущениями и точным манифестом",
+    "Проверка размерностей, балансов, предельных случаев, сходимости и чувствительности по применимости",
+    "Для физического расчёта требуются фактические материалы, геометрия, фазовые нагрузки и граничные условия. Определяющие пробелы сохраняются как BLOCKED_INPUTS, UNKNOWN с null и причиной. Физическое выполнение остаётся NOT_RUN до получения входов"
   ],
   "execution": "NOT_STARTED",
   "requires_fresh_claim_and_input_audit": true
