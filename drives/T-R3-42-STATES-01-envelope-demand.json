@@ -1,0 +1,713 @@
+{
+  "task_id": "T-R3-42-STATES-01",
+  "scope": "ASSUMED_STATIC_SCREENING",
+  "status": "CALCULATED_ASSUMED",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "units": {
+    "force": "N"
+  },
+  "sign": "Forces on the frame at the chosen path and actuator mount. Positive Fx denotes rod compression.",
+  "capacity_check_status": "BLOCKED_INPUTS",
+  "joint_capacity": {
+    "status": "UNKNOWN",
+    "value": null,
+    "reason": "The envelope and COTS catalog specify no joint capacity. Actual joint load distribution, fastener/weld/contact geometry, materials, engagement, preload and applicable allowables are unknown."
+  },
+  "cases": {
+    "S42-001": {
+      "variant": "A-V1",
+      "phase": "startup_empty",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-001.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-002": {
+      "variant": "A-V1",
+      "phase": "gather_partial",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-002.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 60,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-003": {
+      "variant": "A-V1",
+      "phase": "approach",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-003.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 118,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-004": {
+      "variant": "A-V1",
+      "phase": "work_peak",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-004.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "A_MATERIAL_CHANNEL_SURROGATE": {
+          "compression_Fx": {
+            "row": 176,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-005": {
+      "variant": "A-V1",
+      "phase": "hold_unload",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-005.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "A_MATERIAL_CHANNEL_SURROGATE": {
+          "compression_Fx": {
+            "row": 234,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-006": {
+      "variant": "A-V1",
+      "phase": "eject",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-006.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 254,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-007": {
+      "variant": "A-V1",
+      "phase": "return_full",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-007.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "CAPTURED_RETENTION_FIXTURE": {
+          "tension_Fx": {
+            "row": 311,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          }
+        }
+      }
+    },
+    "S42-008": {
+      "variant": "A-V1",
+      "phase": "refill",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-008.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 370,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-009": {
+      "variant": "A-V1",
+      "phase": "ready",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-009.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 427,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          },
+          "compression_Fx": {
+            "row": 447,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-010": {
+      "variant": "A-V1",
+      "phase": "jam_emergency",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-010.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 466,
+            "axial_path_force_N": -1532417.45,
+            "cylinder_frame_axial_N": 1532417.45
+          },
+          "compression_Fx": {
+            "row": 524,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-011": {
+      "variant": "A-V2",
+      "phase": "startup_empty",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-011.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 582,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-012": {
+      "variant": "A-V2",
+      "phase": "gather_partial",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-012.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 697,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-013": {
+      "variant": "A-V2",
+      "phase": "approach",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-013.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 812,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-014": {
+      "variant": "A-V2",
+      "phase": "work_peak",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-014.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "A_MATERIAL_CHANNEL_SURROGATE": {
+          "compression_Fx": {
+            "row": 927,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-015": {
+      "variant": "A-V2",
+      "phase": "hold_unload",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-015.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "A_MATERIAL_CHANNEL_SURROGATE": {
+          "compression_Fx": {
+            "row": 1042,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-016": {
+      "variant": "A-V2",
+      "phase": "eject",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-016.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 1081,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-017": {
+      "variant": "A-V2",
+      "phase": "return_full",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-017.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "CAPTURED_RETENTION_FIXTURE": {
+          "tension_Fx": {
+            "row": 1195,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          }
+        }
+      }
+    },
+    "S42-018": {
+      "variant": "A-V2",
+      "phase": "refill",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-018.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 1311,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-019": {
+      "variant": "A-V2",
+      "phase": "ready",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-019.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 1425,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          },
+          "compression_Fx": {
+            "row": 1464,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-020": {
+      "variant": "A-V2",
+      "phase": "jam_emergency",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-020.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 1502,
+            "axial_path_force_N": -1532417.45,
+            "cylinder_frame_axial_N": 1532417.45
+          },
+          "compression_Fx": {
+            "row": 1617,
+            "axial_path_force_N": 1532417.45,
+            "cylinder_frame_axial_N": -1532417.45
+          }
+        }
+      }
+    },
+    "S42-021": {
+      "variant": "B-V1",
+      "phase": "gather_partial",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-021.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 1732,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-022": {
+      "variant": "B-V1",
+      "phase": "approach",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-022.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 1790,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-023": {
+      "variant": "B-V1",
+      "phase": "work_peak_closed",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-023.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_CLOSED_STOP_SEAT": {
+          "compression_Fx": {
+            "row": 1848,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 1866,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-024": {
+      "variant": "B-V1",
+      "phase": "hold_unload",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-024.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_CLOSED_STOP_SEAT": {
+          "compression_Fx": {
+            "row": 1960,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 1978,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-025": {
+      "variant": "B-V1",
+      "phase": "unlock",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-025.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 1998,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_OPEN_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2016,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-026": {
+      "variant": "B-V1",
+      "phase": "stop_open",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-026.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2036,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-027": {
+      "variant": "B-V1",
+      "phase": "eject_open",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-027.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2056,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-028": {
+      "variant": "B-V1",
+      "phase": "return_full_open",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-028.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 2113,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          }
+        }
+      }
+    },
+    "S42-029": {
+      "variant": "B-V1",
+      "phase": "close_relock_reset",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-029.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 2171,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          },
+          "compression_Fx": {
+            "row": 2191,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 2209,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-030": {
+      "variant": "B-V1",
+      "phase": "ready",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-030.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 2228,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          },
+          "compression_Fx": {
+            "row": 2248,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-031": {
+      "variant": "B-V1",
+      "phase": "jam_emergency",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-031.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 2267,
+            "axial_path_force_N": -1502417.45,
+            "cylinder_frame_axial_N": 1502417.45
+          },
+          "compression_Fx": {
+            "row": 2325,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-032": {
+      "variant": "B-V2",
+      "phase": "gather_partial",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-032.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2383,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-033": {
+      "variant": "B-V2",
+      "phase": "approach",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-033.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2498,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-034": {
+      "variant": "B-V2",
+      "phase": "work_peak_closed",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-034.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_CLOSED_STOP_SEAT": {
+          "compression_Fx": {
+            "row": 2613,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 2649,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-035": {
+      "variant": "B-V2",
+      "phase": "hold_unload",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-035.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_CLOSED_STOP_SEAT": {
+          "compression_Fx": {
+            "row": 2836,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 2872,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-036": {
+      "variant": "B-V2",
+      "phase": "unlock",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-036.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 2911,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_OPEN_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2947,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-037": {
+      "variant": "B-V2",
+      "phase": "stop_open",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-037.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 2986,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-038": {
+      "variant": "B-V2",
+      "phase": "eject_open",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-038.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "compression_Fx": {
+            "row": 3025,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-039": {
+      "variant": "B-V2",
+      "phase": "return_full_open",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-039.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 3139,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          }
+        }
+      }
+    },
+    "S42-040": {
+      "variant": "B-V2",
+      "phase": "close_relock_reset",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-040.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "B_OPEN_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 3254,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          },
+          "compression_Fx": {
+            "row": 3293,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        },
+        "B_CLOSED_LOCK_BACKED_STOP": {
+          "compression_Fx": {
+            "row": 3329,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-041": {
+      "variant": "B-V2",
+      "phase": "ready",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-041.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 3367,
+            "axial_path_force_N": -12000.0,
+            "cylinder_frame_axial_N": 12000.0
+          },
+          "compression_Fx": {
+            "row": 3406,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    },
+    "S42-042": {
+      "variant": "B-V2",
+      "phase": "jam_emergency",
+      "result": "cae/cases/T-R3-42-STATES-01/results/S42-042.jsonl",
+      "peak_held_axial_demands_by_path": {
+        "INDEPENDENT_BENCH_FIXTURE": {
+          "tension_Fx": {
+            "row": 3444,
+            "axial_path_force_N": -1502417.45,
+            "cylinder_frame_axial_N": 1502417.45
+          },
+          "compression_Fx": {
+            "row": 3559,
+            "axial_path_force_N": 1502417.45,
+            "cylinder_frame_axial_N": -1502417.45
+          }
+        }
+      }
+    }
+  }
+}
