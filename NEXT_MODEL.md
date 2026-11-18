@@ -5,10 +5,9 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-1. Новая R1 берёт T-R1-ENGINEERING-PLAN-01 из coordination/task_index.json.
-   Роли READY-задач предварительно разрешены. Используй actual session ID,
-   подготовь новый claim, проверь свежую main, срок и отсутствие конкуренции,
-   включи claim в main обычным push/merge. Старые UUID и lease не наследуются.
+1. R1 завершил [T-R1-ENGINEERING-PLAN-01](coordination/tasks/T-R1-ENGINEERING-PLAN-01/dispatch_plan.md).
+   Включи claims последовательно, сначала R3, затем R4 от свежей main с claim R3.
+   Используй свой actual session ID и новый lease. Результаты включай в порядке R4 → R3.
 2. R2 берёт T-R2-INPUTS-01. R3 — T-R3-42-STATES-01, затем T-R3-CAE-456-01.
    R4 — T-R4-FORCE-GEOMETRY-01 и T-R4-W02-CAD-01, затем T-R4-DRAWINGS-01.
    R5 проверяет фактическую поставку в T-R5-ENGINEERING-VERIFY-01.

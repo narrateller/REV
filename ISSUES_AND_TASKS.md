@@ -8,7 +8,6 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R1-ENGINEERING-PLAN-01](coordination/tasks/T-R1-ENGINEERING-PLAN-01/task.json) | R1 | P0 / READY |
 | [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) | R2 | P0 / READY |
 | [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / READY_INPUT_AUDIT |
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / READY_INPUT_AUDIT |
@@ -16,6 +15,8 @@
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / READY_INPUT_AUDIT |
 | [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / WAITING_ENGINEERING_BASELINE |
 | [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / WAITING_RESULTS |
+
+R1 завершил [T-R1-ENGINEERING-PLAN-01](coordination/tasks/T-R1-ENGINEERING-PLAN-01/dispatch_plan.md). Claims принимаются в порядке R3 → R4, результаты включаются в порядке R4 → R3.
 
 Входы и критерии находятся в каждой задаче. READY_INPUT_AUDIT разрешает аудит
 и работу по пригодным входам, но не выдумывание недостающих величин.
