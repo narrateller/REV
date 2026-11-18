@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "lifecycle": "ASSUMED",
+  "pose_fraction_samples": [0, 0.5, 1],
+  "geometry_factors": {
+    "guide_span_over_chamber_length": [0.5, 1],
+    "actuator_y_over_chamber_width": {"V1": [0], "V2": [1, 2]},
+    "reaction_y_over_chamber_width": [-0.5, 0, 0.5],
+    "reaction_z_over_chamber_height": [-0.5, 0, 0.5],
+    "rod_free_length": "rod_diameter + q",
+    "carrier_free_length": "chamber_length + q",
+    "carrier_section": "solid rectangle of chamber_width by chamber_height"
+  },
+  "comparison_material": {
+    "young_modulus_Pa": 210000000000,
+    "reference_yield_Pa": 235000000,
+    "lifecycle": "ASSUMED",
+    "scope": "Generic elastic comparison material for rod and carrier; no grade, joint allowable or design acceptance"
+  },
+  "buckling_comparisons": {"PIN_PIN": 1, "FIXED_FREE": 2},
+  "held_axial_paths": {
+    "INDEPENDENT_BENCH_FIXTURE": {"sign": "EITHER", "description": "External numerical fixture at P; no material column presumed"},
+    "A_MATERIAL_CHANNEL_SURROGATE": {"sign": "COMPRESSION", "description": "Conditional representation of an engaged material/channel reaction"},
+    "CAPTURED_RETENTION_FIXTURE": {"sign": "TENSION", "description": "Conditional captured return path with an external retention fixture"},
+    "B_CLOSED_STOP_SEAT": {"sign": "COMPRESSION", "description": "Closed stop, full imposed thrust attributed to the hypothetical seat load path"},
+    "B_CLOSED_LOCK_BACKED_STOP": {"sign": "COMPRESSION", "description": "Closed stop, full imposed thrust attributed to the alternative hypothetical lock-backed path"},
+    "B_OPEN_BENCH_FIXTURE": {"sign": "EITHER", "description": "External numerical fixture at P while the B stop and lock are released; stop and lock carry no load in this branch"}
+  },
+  "phase_profiles": {
+    "startup_empty":    {"pose": ["origin", "approach_end"], "force": ["ZERO", "WORK"], "positive_paths": ["INDEPENDENT_BENCH_FIXTURE"]},
+    "gather_partial":   {"pose": ["origin", "work_end"], "force": ["ZERO", "WORK"], "positive_paths": ["INDEPENDENT_BENCH_FIXTURE"]},
+    "approach":         {"pose": ["origin", "approach_end"], "force": ["ZERO", "WORK"], "positive_paths": ["INDEPENDENT_BENCH_FIXTURE"]},
+    "work_peak":        {"pose": ["approach_end", "work_end"], "force": ["ZERO", "WORK"], "positive_paths": ["A_MATERIAL_CHANNEL_SURROGATE"]},
+    "work_peak_closed": {"pose": ["approach_end", "work_end"], "force": ["ZERO", "WORK"], "positive_paths": ["B_CLOSED_STOP_SEAT", "B_CLOSED_LOCK_BACKED_STOP"]},
+    "hold_unload":      {"pose": ["work_end", "work_end"], "force": ["ZERO", "WORK"], "positive_paths_by_family": {"A": ["A_MATERIAL_CHANNEL_SURROGATE"], "B": ["B_CLOSED_STOP_SEAT", "B_CLOSED_LOCK_BACKED_STOP"]}},
+    "eject":            {"pose": ["work_end", "forward_end"], "force": ["ZERO", "WORK"], "positive_paths": ["INDEPENDENT_BENCH_FIXTURE"]},
+    "eject_open":       {"pose": ["work_end", "forward_end"], "force": ["ZERO", "WORK"], "positive_paths": ["B_OPEN_BENCH_FIXTURE"]},
+    "return_full":      {"pose": ["origin", "forward_end"], "force": ["RETURN", "ZERO"], "negative_paths": ["CAPTURED_RETENTION_FIXTURE"]},
+    "return_full_open": {"pose": ["origin", "forward_end"], "force": ["RETURN", "ZERO"], "negative_paths": ["B_OPEN_BENCH_FIXTURE"]},
+    "refill":           {"pose": ["origin", "approach_end"], "force": ["ZERO", "WORK"], "positive_paths": ["INDEPENDENT_BENCH_FIXTURE"]},
+    "ready":            {"pose": ["origin", "origin"], "force": ["RETURN", "ZERO", "WORK"], "paths": ["INDEPENDENT_BENCH_FIXTURE"]},
+    "jam_emergency":    {"pose": ["origin", "forward_end"], "force": ["REVERSE_WORK", "ZERO", "WORK"], "paths": ["INDEPENDENT_BENCH_FIXTURE"]},
+    "unlock":           {"pose": ["work_end", "work_end"], "force": ["ZERO", "WORK"], "positive_paths": ["B_CLOSED_LOCK_BACKED_STOP", "B_OPEN_BENCH_FIXTURE"]},
+    "stop_open":        {"pose": ["work_end", "work_end"], "force": ["ZERO", "WORK"], "positive_paths": ["B_OPEN_BENCH_FIXTURE"]},
+    "close_relock_reset":{"pose": ["origin", "origin"], "force": ["RETURN", "ZERO", "WORK"], "positive_paths": ["B_OPEN_BENCH_FIXTURE", "B_CLOSED_LOCK_BACKED_STOP"], "negative_paths": ["B_OPEN_BENCH_FIXTURE"]}
+  }
+}

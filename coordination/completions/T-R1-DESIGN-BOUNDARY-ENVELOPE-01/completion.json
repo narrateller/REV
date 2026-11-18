@@ -1,0 +1,79 @@
+{
+  "task_id": "T-R1-DESIGN-BOUNDARY-ENVELOPE-01",
+  "role": "R1",
+  "author_sessions": [
+    "6afd05ce-c548-8191-8743-6db04ec380eb"
+  ],
+  "status": "COMPLETED",
+  "prepared_at_utc": "2026-11-18T08:50:20+00:00",
+  "source_main_sha": "b1f0243f86fef672902bd462b8567a3ec7066f59",
+  "accepted_claim_commit": "1afa32dc6245d21461c6c0b11f761d13c7621547",
+  "archived_claim": "coordination/completions/T-R1-DESIGN-BOUNDARY-ENVELOPE-01/accepted_claim.json",
+  "claim_release": "ON_INCLUSION_IN_MAIN",
+  "input_manifest": "coordination/tasks/T-R1-DESIGN-BOUNDARY-ENVELOPE-01/input_manifest.json",
+  "input_manifest_sha256": "9a2545843ae85b1bac40e01479741d9aa5abcecd43ccf8f10b508cca018aabb6",
+  "output_manifest": [
+    {
+      "path": "cae/cases/design_boundary_phase_load_envelope/README.md",
+      "sha256": "d136b23a1b21d7ac062f9465c6ce933ed2c66356d0e7bea1e04d3a3a65cf0988"
+    },
+    {
+      "path": "cae/cases/design_boundary_phase_load_envelope/blockers.md",
+      "sha256": "173887a4b6448856531d9695dd4c999880d1aea5ca2a66fc21b1022825075e9b"
+    },
+    {
+      "path": "cae/cases/design_boundary_phase_load_envelope/assumptions.json",
+      "sha256": "0267954982363a4a1c45d506b2ed16de840e18b4f27a1c6a05065eac5e2bfea9"
+    },
+    {
+      "path": "cae/cases/design_boundary_phase_load_envelope/envelope.json",
+      "sha256": "6be05b48a2bffef99ffefa46a9ae3b1af5df548f1812d9bab7ad544330c02382"
+    },
+    {
+      "path": "cae/cases/design_boundary_phase_load_envelope/verify_output.py",
+      "sha256": "63a579d05848ed1c4a4874be5bf8e4fc52b58c9d527f656dca9f407c0bf78209"
+    },
+    {
+      "path": "coordination/tasks/T-R1-DESIGN-BOUNDARY-ENVELOPE-01/task.json",
+      "sha256": "2e2159d6b3562aba9c9b4ae32bd52aeb3cbb0b51f19a4441fec8485f36104fd1"
+    },
+    {
+      "path": "coordination/completions/T-R1-DESIGN-BOUNDARY-ENVELOPE-01/accepted_claim.json",
+      "sha256": "165a4e5249a361651f26906abd53af783ae9377d3f5e9f43b44cbd3429305b6e"
+    },
+    {
+      "path": "coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json",
+      "sha256": "e546b4d8df0197d6ecc3faeb3cc804a514ec8319d15fd663d7fd50a9e5b08a56"
+    },
+    {
+      "path": "coordination/task_index.json",
+      "sha256": "fb52e140730cc87ea196be69962632169429203a0597c92c99f04956e339768e"
+    },
+    {
+      "path": "STATE.md",
+      "sha256": "6acbefde055daf83259825a158ac64982a8efae87d989bd96a502298cd0df560"
+    },
+    {
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "7592c2dc616fe790bb3832d2e43599f340d9614c33d9009e9d15d29f41b76cd8"
+    },
+    {
+      "path": "NEXT_MODEL.md",
+      "sha256": "0cf7d6f6ac85736199bb438199e08c5d2f71ad335c1f6fdb6deedf22030e76df"
+    }
+  ],
+  "queued_task": "T-R3-42-STATES-ENVELOPE-01",
+  "case_count": 42,
+  "physical_inputs": "BLOCKED_INPUTS",
+  "numerical_envelope_inputs": "READY_ASSUMED",
+  "numerical_execution": "NOT_RUN",
+  "verification_commands": [
+    "python cae/cases/design_boundary_phase_load_envelope/verify_output.py --check-git",
+    "python cae/cases/T-R3-42-STATES-01/verify_r4_handoff.py",
+    "/usr/bin/python3 -B cad/force_geometry/verify_output.py --check-git",
+    "python verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v"
+  ],
+  "ci_workflow": ".github/workflows/ci_verify.yml"
+}
