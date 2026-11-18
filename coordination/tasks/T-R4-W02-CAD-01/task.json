@@ -1,7 +1,7 @@
 {
   "task_id": "T-R4-W02-CAD-01",
   "role": "R4",
-  "status": "COMPLETED",
+  "status": "READY_INPUT_AUDIT",
   "priority": "P1",
   "title": "Выполнить W02 CAD-rebuild после подготовки входов",
   "owner_session": "NONE",
@@ -31,7 +31,7 @@
     "Геометрия/ходы/зазоры/интерфейсы иverify_output проверены взаданнойобласти",
     "W02 неPASS по одному наличию FCStd/STEP/картинок"
   ],
-  "execution": "CAD_REBUILD_BLOCKED_MISSING_TOOL",
+  "execution": "NOT_STARTED",
   "prior_input_audit": {
     "status": "COMPLETED",
     "scope": "DOCUMENTARY_INPUT_AUDIT",
@@ -40,13 +40,17 @@
     "verification_record": "coordination/completions/T-R5-W02-GEOMETRY-VERIFY-01/completion.json"
   },
   "next_scope": "CAD_REBUILD",
-  "rebuild_dispatch_status": "AWAITING_FRESH_CLAIM_AND_INPUT_AUDIT",
+  "rebuild_dispatch_status": "READY_INPUT_AUDIT",
   "physical_input_status": "BLOCKED_INPUTS",
   "connection_capacity_status": "BLOCKED_INPUTS",
   "cad_rebuild_status": "NOT_RUN",
-  "known_tool_blocker": "MISSING_TOOL_001",
   "input_manifest": "coordination/tasks/T-R4-W02-CAD-01/input_manifest.json",
   "claim_template": "coordination/tasks/T-R4-W02-CAD-01/claim_template.json",
   "handoff": "coordination/completions/T-R4-W02-CAD-01/handoff_R4.md",
-  "requires_fresh_claim_and_input_audit": true
+  "requires_fresh_claim_and_input_audit": true,
+  "previous_rebuild_attempt_blocker": "MISSING_TOOL_001",
+  "tool_preflight": "AVAILABLE_ON_R1_HOST_COMPATIBILITY_PENDING",
+  "freecad_compatibility_audit": "PENDING",
+  "input_manifest_refresh_required": true,
+  "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-05/dispatch_plan.md"
 }
