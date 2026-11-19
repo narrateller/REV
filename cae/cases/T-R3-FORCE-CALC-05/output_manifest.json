@@ -1,0 +1,26 @@
+{
+  "task_id": "T-R3-FORCE-CALC-05",
+  "input_manifest": {
+    "path": "coordination/tasks/T-R3-FORCE-CALC-05/task.json",
+    "sha256": "2532d3964c724f138492b6b9228dcfbc703c1fe62ca316855322880993ed4309"
+  },
+  "source_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
+  "runtime": {
+    "python": "3.13.17",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.28000-SP0",
+    "architecture": "AMD64"
+  },
+  "commands": [
+    "python cae/cases/T-R3-FORCE-CALC-05/verify_output.py --source ../REV-r3-05-input --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ],
+  "sha256": {
+    "README.md": "6394cc747692b11484aa252ecbfa5f1dbde7c9c80955dde331b53a8373dce2ff",
+    "verify_output.py": "837b0c2c741707fcb462e281a27d924339f53672b98cf53400f253c05fca7c6f",
+    "results/index.json": "99ffd55fa27f917ef462e0bcc39d67e58d64af0040ecfa49a058ac87d015eb7c",
+    "engineering_verdict.json": "8fa8e21ba7d7659b1ba40032bfc0a60498a1f547eff2a93d74ad90d9682bb96a"
+  }
+}
