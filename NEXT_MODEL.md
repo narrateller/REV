@@ -5,12 +5,12 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-1. R4 принимает свежий claim для [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json),
-   `P1 / READY_INPUT_AUDIT`. Проверь совместимость с базой FreeCAD 1.0.0 и
-   актуальные входы перед пересборкой. [План R1](coordination/tasks/T-R1-ENGINEERING-PLAN-05/dispatch_plan.md)
-2. [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) в `HUMAN_GATE`
-   до восстановления маршрута R2 или явного решения оператора о новой роли
-   и области. `UNKNOWN` хранится как `null` с причиной.
+1. R2 принимает свежий claim для [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json),
+   `P0 / READY`, проверяет входы и формализует их для проекта ТЗ.
+   `UNKNOWN` хранится как `null` с причиной.
+2. После передачи R2 и готовности инженерной базы R4 выполняет
+   [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) на FreeCAD 1.1.4.
+3. R5 проверяет комплект чертежей на точном SHA. [План R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md)
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические

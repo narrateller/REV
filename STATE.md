@@ -30,7 +30,7 @@
 
 | Область | Сохранено | Что предстоит |
 | --- | --- | --- |
-| cad/ | Четыре редактируемые условные модели R4 в cad/source/force_geometry и прежние артефакты компоновки | Фактическая силовая геометрия, инженерная сборка и W02 |
+| cad/ | Четыре редактируемые модели W02 пересобраны на FreeCAD 1.1.4. Исходники в `cad/source/force_geometry`, артефакты компоновки сохранены | Фактическая силовая геометрия и инженерная сборка |
 | params/ | 1144 записи: 1072 CALCULATED, 47 ASSUMED, 25 RAW/null; исходные 44 привязки, нагрузки и ходы | Проверить пригодность входов для инженерных расчётов; арифметические статусы не подтверждают прочность |
 | controls/ | press_variant_state_tables.md — функциональный DRAFT | Численные режимы, реализация управления и безопасных состояний |
 | cae/ | Аудит 42 случаев и сверка 52 интерфейсов R4 | Фактические нагрузки, реакции, прочность и устойчивость |
@@ -64,19 +64,15 @@ R3 завершил `T-R3-42-STATES-ENVELOPE-01` для реакций, проч
 выбранных суррогатов.
 R3 завершил [T-R3-CAE-456-01](cae/cases/T-R3-CAE-456-01/README.md) в области
 `ASSUMED_STATIC_SCREENING`. Физические §§4/5/6 ожидают реальных входов.
-R4 завершил [документальный входной аудит W02](coordination/completions/T-R4-W02-CAD-01/completion.json).
-R5 подтвердил его в [области документального аудита](coordination/completions/T-R5-W02-GEOMETRY-VERIFY-01/completion.json).
-R4 завершил проверку готовности. Пересборка W02 `NOT_RUN`, блокер предыдущей
-попытки `MISSING_TOOL_001`. R1 подтвердил запуск FreeCAD 1.1.4 вне `PATH`
-на своём компьютере.
+R4 завершил [CAD-пересборку W02](coordination/completions/T-R4-W02-CAD-01/completion.json) на FreeCAD 1.1.4.
+[Claim освобождён](coordination/completions/T-R4-W02-CAD-01/claim_release.json). [Верификация R5](coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json)
+дала `PASS` для артефактов, метаданных и CI.
 R5 завершил [T-R5-ENGINEERING-VERIFY-02](coordination/completions/T-R5-ENGINEERING-VERIFY-02/completion.json)
 в области условного расчёта и документального аудита W02. Расхождение идентификаторов
 зафиксировано при [закрытии claim](coordination/completions/T-R5-ENGINEERING-VERIFY-02/claim_release.json).
-По [решению R1](coordination/tasks/T-R1-ENGINEERING-PLAN-05/dispatch_plan.md)
-следующая задача — `T-R4-W02-CAD-01` (R4, P1 / READY_INPUT_AUDIT). R4 принимает
-свежий claim, проверяет совместимость с базой FreeCAD 1.0.0 и актуальные входы.
-`T-R2-INPUTS-01` (R2, P0 / HUMAN_GATE) ожидает восстановления маршрута R2
-или явного решения оператора о новой роли и области. UNKNOWN хранится как null с причиной.
+По [плану R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md) следующая задача — `T-R2-INPUTS-01` (R2, P0 / READY).
+После передачи R2 и готовности инженерной базы следует `T-R4-DRAWINGS-01`
+на FreeCAD 1.1.4, затем независимая проверка R5. UNKNOWN хранится как null с причиной.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,

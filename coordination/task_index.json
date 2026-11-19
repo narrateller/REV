@@ -20,10 +20,9 @@
     {
       "task_id": "T-R2-INPUTS-01",
       "role": "R2",
-      "status": "HUMAN_GATE",
+      "status": "READY",
       "priority": "P0",
-      "path": "coordination/tasks/T-R2-INPUTS-01/task.json",
-      "routing_blocker": "ROLE_UNAVAILABLE"
+      "path": "coordination/tasks/T-R2-INPUTS-01/task.json"
     },
     {
       "task_id": "T-R3-42-STATES-01",
@@ -63,13 +62,19 @@
       "priority": "P1",
       "path": "coordination/tasks/T-R4-W02-CAD-01/task.json",
       "cad_rebuild_status": "COMPLETED",
-      "rebuild_dispatch_status": "READY_INPUT_AUDIT",
-      "tool_preflight": "AVAILABLE_ON_R1_HOST_COMPATIBILITY_PENDING",
+      "rebuild_dispatch_status": "COMPLETED",
+      "tool_preflight": "AVAILABLE_AND_USED",
       "claim_release": "coordination/completions/T-R4-W02-CAD-01/claim_release.json",
       "prior_completed_scope": "REBUILD_READINESS_FOLLOWUP",
       "freecad_compatibility_audit": "COMPATIBLE_WITH_FREECAD_1.1.4",
       "previous_rebuild_attempt_blocker": "MISSING_TOOL_001",
-      "previous_claim_release_status": "CLOSED"
+      "previous_claim_release_status": "CLOSED",
+      "freecad_version": "1.1.4",
+      "completion_record": "coordination/completions/T-R4-W02-CAD-01/completion.json",
+      "claim_release_status": "RELEASED",
+      "rebuild_commit_sha": "224242f918b05640ffa679fac468deb41290f444",
+      "verification": "PASS",
+      "verification_record": "coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json"
     },
     {
       "task_id": "T-R4-DRAWINGS-01",
@@ -144,19 +149,19 @@
     {
       "task_id": "T-R1-ENGINEERING-PLAN-06",
       "role": "R1",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "priority": "P0",
-      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/task.json"
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/task.json",
+      "completion": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/completion.json"
     }
   ],
   "next_dispatch": {
-    "task_id": "T-R4-W02-CAD-01",
-    "role": "R4",
-    "status": "READY_INPUT_AUDIT",
-    "priority": "P1",
+    "task_id": "T-R2-INPUTS-01",
+    "role": "R2",
+    "status": "READY",
+    "priority": "P0",
     "requires_fresh_claim": true,
     "requires_input_audit": true,
-    "requires_freecad_compatibility_audit": true,
-    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-05/dispatch_plan.md"
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md"
   }
 }
