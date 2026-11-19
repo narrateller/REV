@@ -1,0 +1,114 @@
+{
+  "task_id": "T-R4-REDESIGN-1.5MN-02",
+  "role": "R4",
+  "status": "COMPLETED",
+  "scope": "CALCULATED_ASSUMED",
+  "source_main_sha": "3a6335e277aafc6da469dfc1bbf417d5b24eb227",
+  "claim_main_sha": "b8668e3b54b05b7c2e9309fa876d30addccc8967",
+  "result_commit_sha": "a79ec08daba0d440553d9ac5e0378253aa4c4e4f",
+  "completed_at_utc": "2026-11-19T10:25:11Z",
+  "author_sessions": [
+    {
+      "CODEX_SESSION_ID": "01a1f342-348e-7c33-a630-d9bc12204ccf",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "runtime": {
+    "FreeCAD": "1.1.4",
+    "FreeCAD_build": [
+      "1",
+      "1",
+      "4",
+      "20260928 (Git shallow)",
+      "Unknown",
+      "2026/09/28 13:46:34",
+      "(HEAD detached at 4fd3bf320)",
+      "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+    ],
+    "OpenCASCADE": "7.8.1",
+    "python": "3.11.14"
+  },
+  "input_manifest": "coordination/tasks/T-R4-REDESIGN-1.5MN-02/input_manifest.json",
+  "output_manifest": {
+    "path": "coordination/tasks/T-R4-REDESIGN-1.5MN-02/output_manifest.json",
+    "sha256": "ab6d04777222071bc3e83455308fb2c4ef604c9a21f2d5354af66bcfe5690597"
+  },
+  "verification": {
+    "scope": "AUTHOR_CHECKS_AND_CI",
+    "local": [
+      {
+        "command": "python scripts/check_registry.py --check-git",
+        "result": "PASS"
+      },
+      {
+        "command": "python -m unittest discover -s tests -v",
+        "result": "PASS",
+        "tests": 104
+      },
+      {
+        "command": "python verify_output.py --check-git",
+        "result": "PASS"
+      },
+      {
+        "command": "python cad/force_geometry/redesign_1p5mn_02/verify_output.py --check-git --replay <rebuild output>",
+        "result": "PASS"
+      }
+    ],
+    "github_actions": {
+      "head_sha": "a79ec08daba0d440553d9ac5e0378253aa4c4e4f",
+      "run": "https://github.com/narrateller/REV/actions/runs/44504869136",
+      "result": "PASS"
+    },
+    "independent_R5": "NOT_RUN"
+  },
+  "acceptance": {
+    "status": "PASS",
+    "cap_chamber_pressure_bar": 315,
+    "return_chamber_pressure_bar": 0,
+    "applied_compression_N": 3092505.268377452,
+    "conditional_contact_comparison_limit_MPa": 250,
+    "required_contact_factor": 1.5,
+    "baseline_key_peak_MPa": 224.93976860850609,
+    "baseline_key_contact_factor": 1.1114086297257189,
+    "revised_nominal_key_peak_MPa": 111.75344463968209,
+    "revised_nominal_key_contact_factor": 2.2370675088007848,
+    "revised_worst_sampled_key_peak_MPa": 132.91848783572016,
+    "minimum_sampled_key_and_backing_factor": 1.8808519722928692,
+    "minimum_sampled_seat_factor": 2.3548226456115025,
+    "sample_count_per_path": 5184,
+    "minimum_sampled_seat_clearance_with_keys_loaded_mm": 0.6099865923902605,
+    "gross_reaction_head_factor": 1.9428629119750378,
+    "native_variants": [
+      "B-V1",
+      "B-V2"
+    ],
+    "native_contact_and_motion_evidence": "cad/source/force_geometry/redesign_1p5mn_02/manifest.json",
+    "load_screen_evidence": "cad/source/force_geometry/redesign_1p5mn_02/screening.json"
+  },
+  "design_changes": {
+    "keys": "Two 72 x 380 x 70 mm keys with chamfered contact lands at Y = ±200 mm.",
+    "reaction_head": "Two integral 60 mm outlet-side bosses, with 12 mm root radius.",
+    "receiver": "400 mm gate height, 430 mm key drop, independent axial seat and key take-up.",
+    "die": "B inlet moved downstream 5 mm to clear the gate during take-up.",
+    "material": "Geometry carries the improvement at the 250 MPa conditional limit of the supporting steel.",
+    "cots": "NO_NEW_COMPONENTS_REQUIRED"
+  },
+  "handoff": {
+    "recipient_role": "R1",
+    "next_calculation_role": "R3",
+    "result_commit_sha": "a79ec08daba0d440553d9ac5e0378253aa4c4e4f",
+    "interfaces": "cad/force_geometry/redesign_1p5mn_02/interfaces.json",
+    "scoped_registry": "params/r4_b_receiver_02.json",
+    "pending": [
+      "Repeat the 42 states and pressure bounds using the B revision 02 overlay.",
+      "Evaluate guide clearance under cylinder mismatch and single-branch emergency reversal.",
+      "Independent verification of the revised engineering calculation by R5."
+    ]
+  },
+  "physical_state_evaluation": "BLOCKED_INPUTS",
+  "physical_sections_4_5_6": "NOT_RUN",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}
