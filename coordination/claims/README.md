@@ -6,6 +6,10 @@ Old UUIDs/scope amendments do not grant authority. New sessions use the new prot
 
 ## Fresh claim
 
+An `OPEN` record points to a `READY` task awaiting a claimant. Its `owner_session`,
+`model_label`, `proposed_at_utc` and `lease_expires_at` are null. The incoming session
+replaces it with a fresh claim after checking current main and the task inputs.
+
 File: `<task_id>.json`. Use these exact field names:
 
 ```json

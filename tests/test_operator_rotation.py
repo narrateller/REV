@@ -27,7 +27,21 @@ class OperatorRotationTests(unittest.TestCase):
             "proposed_at_utc": "2026-11-18T00:00:00Z", "lease_expires_at": "2026-11-19T00:00:00Z"}))
         task = root / "coordination/tasks" / task_id
         task.mkdir(parents=True)
-        (task / "task.json").write_text(json.dumps({"role": "R3"}))
+        (task / "task.json").write_text(json.dumps({"role": "R3", "status": "READY"}))
+        return directory / f"{task_id}.json"
+
+    def test_open_claim_does_not_grant_ownership(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            path = self.fixture(root, "TASK-A", None)
+            claim = json.loads(path.read_text())
+            claim.update(status="OPEN", model_label=None, proposed_at_utc=None, lease_expires_at=None)
+            path.write_text(json.dumps(claim))
+            self.assertEqual(claims(root, set()), 0)
+            claim["owner_session"] = "new-session"
+            path.write_text(json.dumps(claim))
+            with self.assertRaisesRegex(ValueError, "must be unowned"):
+                claims(root, set())
 
     def test_retired_owner_cannot_reappear(self):
         with tempfile.TemporaryDirectory() as folder:

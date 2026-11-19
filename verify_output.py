@@ -46,24 +46,32 @@ def claims(root, retired_ids, require_empty=False):
     files = sorted((root / "coordination/claims").rglob("*.json"))
     require(not require_empty or not files, "Rotation must leave no active claim files")
     tasks, owners = set(), set()
+    active = 0
     for path in files:
         claim = json.loads(path.read_text(encoding="utf-8"))
         status = claim["status"]
         owner = claim["owner_session"]
+        require(claim["role"] in {"R1", "R2", "R3", "R4", "R5"}, f"Invalid role: {path}")
+        task = load(root, f"coordination/tasks/{claim['task_id']}/task.json")
+        require(task["role"] == claim["role"], f"Task role mismatch: {path}")
+        if status == "OPEN":
+            require(task["status"] == "READY", f"Open claim requires a READY task: {path}")
+            require(all(claim[field] is None for field in (
+                "owner_session", "model_label", "proposed_at_utc", "lease_expires_at",
+            )), f"Open claim must be unowned and have no lease: {path}")
+            continue
         require(owner not in retired_ids, f"Retired session claim: {path}")
         require(status in {"PROPOSED", "ACCEPTED_MAIN"}, f"Archive completed claim: {path}")
         require(owner and owner != "NONE", f"Missing actual owner: {path}")
-        require(claim["role"] in {"R1", "R2", "R3", "R4", "R5"}, f"Invalid role: {path}")
         require(utc(claim["lease_expires_at"]) > utc(claim["proposed_at_utc"]),
                 f"Invalid proposed lease: {path}")
-        task = load(root, f"coordination/tasks/{claim['task_id']}/task.json")
-        require(task["role"] == claim["role"], f"Task role mismatch: {path}")
+        active += 1
         if status == "ACCEPTED_MAIN":
             require(claim["task_id"] not in tasks, f"Concurrent task owner: {path}")
             require(owner not in owners, f"One session holds multiple tasks: {path}")
             tasks.add(claim["task_id"])
             owners.add(owner)
-    return len(files)
+    return active
 
 
 def verify(root, check_git=False, require_empty=False):

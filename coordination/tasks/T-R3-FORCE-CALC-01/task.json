@@ -1,0 +1,67 @@
+{
+  "task_id": "T-R3-FORCE-CALC-01",
+  "role": "R3",
+  "status": "READY",
+  "priority": "P0",
+  "title": "Рассчитать 42 состояния и §§4/5/6 по силовой геометрии T-R4-FORCE-GEOMETRY-01",
+  "scope": "CALCULATED_ASSUMED",
+  "operator_pre_authorized": true,
+  "owner_session": null,
+  "lease_expires_at": null,
+  "claim": "coordination/claims/T-R3-FORCE-CALC-01.json",
+  "requires_fresh_claim_and_input_audit": true,
+  "source_main_sha": "f1101bfe69292c5f10256bfdc5fc7bc398ddeff9",
+  "depends_on": [
+    "T-R4-FORCE-GEOMETRY-01",
+    "T-R2-DESIGN-BASIS-02"
+  ],
+  "geometry_delivery": {
+    "task_id": "T-R4-FORCE-GEOMETRY-01",
+    "commit": "5e7837e47c4fc9b5327066fe236f02eb50c37273",
+    "manifest": "cad/source/force_geometry/manifest.json",
+    "completion_record": "coordination/completions/T-R4-FORCE-GEOMETRY-01/completion.json",
+    "claim_release": "coordination/completions/T-R4-FORCE-GEOMETRY-01/claim_release.json"
+  },
+  "load_basis": {
+    "id": "REV_DESIGN_BASIS",
+    "revision": 1,
+    "registry": "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json",
+    "entry_ids": [
+      "DB-ENVELOPE-V1",
+      "DB-FACE-F"
+    ],
+    "description": "Огибающая порядка 1,5 МН. Брать точные нагрузки по семействам и фазам из DB-ENVELOPE-V1. Сверить знаки, ветви и положения по каталогу состояний и огибающей."
+  },
+  "input_paths": [
+    "cad/source/force_geometry/",
+    "drives/cots_catalog.yaml",
+    "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json",
+    "baselines/operator-fork-20261118/state_catalog_index.json",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json"
+  ],
+  "input_sha256": {
+    "cad/source/force_geometry/manifest.json": "3c284b1a76f0e7ad9f30928628315bd80855c082b52ca6287b0d971c893ff2fb",
+    "drives/cots_catalog.yaml": "112a2adb48071e7a88bd63facafdb8c4f8ad837ce12ce03fb562c00257f57606",
+    "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json": "ddaa4d376a679537a210756ad52e96f96a6ac537d6d2e99ab4d79fbee2bd466d",
+    "baselines/operator-fork-20261118/state_catalog_index.json": "4eefc5fb0cdc797717535cac3c4338bdc7d7154d9d99588a724f7c0b94110426",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json": "6be05b48a2bffef99ffefa46a9ae3b1af5df548f1812d9bab7ad544330c02382",
+    "coordination/completions/T-R4-FORCE-GEOMETRY-01/completion.json": "8a3924719960664d25e897c6451c9ffc32624a52e0efb8915334d8b5bde94bb2",
+    "coordination/completions/T-R4-FORCE-GEOMETRY-01/claim_release.json": "f787b513a2c397609cc1b5407b0657043682628516f5515497af40ea762d43e6",
+    "cad/source/force_geometry/A-V1.FCStd": "aab90cd6472b23fa9e5fbed15f85198f462939be93672d5a354bd6469499571f",
+    "cad/source/force_geometry/A-V2.FCStd": "4a11e309be638ac954c2ec9256188ad18cf5c55c829a9e0f6fab2d5a0a74969f",
+    "cad/source/force_geometry/B-V1.FCStd": "66b91848fce88143065b791472a5551a27f781281e2b858dcdff11ea58aa2a9d",
+    "cad/source/force_geometry/B-V2.FCStd": "6bc934964a39df0be79adbbacbbff1dcd0e9ceb0d440d16b2724592fa92c9073"
+  },
+  "expected_case_count": 42,
+  "assumed_execution": "NOT_RUN",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "acceptance": [
+    "Принять свежий claim в main и зафиксировать аудит входов: SHA, единицы, знаки, опоры, связи, контакты, свободные длины, сечения, материалы и применимость COTS. Для геометрии, опор и материалов использовать поставку R4. Перепроверить применимость старых фазовых предпосылок к этой геометрии.",
+    "Сохранить отдельный воспроизводимый результат для каждого из 42 case ID. Зафиксировать нагрузки, реакции, балансы сил и моментов, прочность (§4), устойчивость (§5), нагрузки и несущую способность соединений (§6) по применимости.",
+    "Сверить кандидатов COTS с требованиями по усилию, давлению, ходу и времени цикла для рассматриваемых фаз. Зафиксировать ограничения данных поставщика и несоответствия.",
+    "При отсутствии определяющего входа указать UNKNOWN с value: null и причиной либо BLOCKED_INPUTS. Для ненулевой осевой нагрузки без удерживающей ветви зафиксировать отсутствие статического равновесия.",
+    "Сохранить исходники, манифесты входов и выходов с хэшами, команды воспроизведения и проверки в расчётном пакете. Присваивать CALCULATED_ASSUMED только выполненным условным расчётам."
+  ],
+  "result_path": "cae/cases/T-R3-FORCE-CALC-01/"
+}
