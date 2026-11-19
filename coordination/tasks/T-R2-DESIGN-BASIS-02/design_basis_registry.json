@@ -1,0 +1,1452 @@
+{
+  "dataset_id": "REV_DESIGN_BASIS",
+  "revision": 1,
+  "task_id": "T-R2-DESIGN-BASIS-02",
+  "scope": "DESIGN_BASIS",
+  "sources_manifest": "input_manifest.json",
+  "lifecycle": "ASSUMED",
+  "tolerance_policy": "Поля tolerance:null требуют назначения допуска. Границы диапазона и номинал проекта не являются погрешностью измерения. Для численных интервалов и максимумов действуют заданные включительные пределы.",
+  "physical_state_count": 42,
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_sections_4_5_6": "NOT_RUN",
+  "reference_extracts": {
+    "BP-MOISTURE": {
+      "value": [
+        0.06,
+        0.14
+      ],
+      "unit": "1",
+      "as_printed": "6–14% humidity",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 3, Basic information"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-ENVIRONMENT": {
+      "value": [
+        278.15,
+        313.15
+      ],
+      "unit": "K",
+      "as_printed": "5–40 °C",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 3, Basic information"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-SUPPLY": {
+      "value": {
+        "line_voltage_V": 380,
+        "frequency_Hz": 50,
+        "connection_A": 100,
+        "phases": 3
+      },
+      "unit": "mixed SI",
+      "as_printed": "380 V / 50 Hz / 100 A, 3 phases",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 3, Electricals и Hydraulics"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-MOTORS": {
+      "value": {
+        "published_total_W": 34200,
+        "main_W": 30000,
+        "feed_W": 2600,
+        "cooling_W": 1500
+      },
+      "unit": "W",
+      "as_printed": "34.2 kW; 30, 2.6, 1.5 kW",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 3, Electricals"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-HYDRAULIC": {
+      "value": 30000000,
+      "unit": "Pa",
+      "as_printed": "300 bar max",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 3, Hydraulics"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-COMPACTION": {
+      "value": 1700,
+      "unit": "kg/cm² as printed",
+      "as_printed": "1700 kg/cm²",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 4, Main compaction"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-BRIQUETTE": {
+      "value": {
+        "transverse_Y_Z_m": [
+          0.15,
+          0.06
+        ],
+        "X_range_m": [
+          0.04,
+          0.11
+        ]
+      },
+      "unit": "m",
+      "as_printed": "150 × 60 × 40~110 mm",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 4, Main compaction"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-RATE": {
+      "value": {
+        "pieces_per_s": 0.16666666666666666,
+        "mass_each_kg": 0.83
+      },
+      "unit": "mixed SI",
+      "as_printed": "up to 600 units/h, 0.83 kg",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 4, Throughput"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-HOPPER": {
+      "value": {
+        "opening_m": [
+          0.972,
+          0.463
+        ],
+        "listed_height_m": 1.22,
+        "volume_m3": 0.127
+      },
+      "unit": "mixed SI",
+      "as_printed": "972×463 mm, 1220 mm, 127 litres",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 4, Material infeed"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "BP-SIZE": {
+      "value": {
+        "bare_m": [
+          2.1,
+          1.9,
+          2.2
+        ],
+        "with_packaging_m": [
+          4.86,
+          1.9,
+          2.2
+        ],
+        "listed_mass_kg": 3050
+      },
+      "unit": "mixed SI",
+      "as_printed": "2100×1900×2200 mm; 4860×1900×2200 mm; 3050 kg",
+      "source": {
+        "id": "BP500",
+        "locator": "PDF с. 4, Dimensions"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "ARS-HYDRAULIC": {
+      "value": {
+        "main_Pa": 27579029.172672,
+        "gather_Pa": [
+          10342135.939752,
+          12065825.263044
+        ],
+        "relief_Pa": 28268504.9019888
+      },
+      "unit": "Pa",
+      "as_printed": "4000 / 1500–1750 / 4100 psi",
+      "source": {
+        "id": "ARS",
+        "locator": "PDF с. 18–19, §§9.2.1–9.2.3"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "E55-MOISTURE": {
+      "value": [
+        0.08,
+        0.14
+      ],
+      "unit": "1",
+      "as_printed": "8–14% moisture",
+      "source": {
+        "id": "E55",
+        "locator": "PDF с. 14, §9.1"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "E55-HYDRAULIC": {
+      "value": {
+        "pump_pressing_Pa": [
+          13000000,
+          15000000
+        ],
+        "tongs_Pa": [
+          9000000,
+          13000000
+        ]
+      },
+      "unit": "Pa",
+      "as_printed": "130–150 bar pump; 90–130 bar tongs",
+      "source": {
+        "id": "E55",
+        "locator": "PDF с. 33, §12.6"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "TH-MOISTURE": {
+      "value": [
+        0.08,
+        0.2
+      ],
+      "unit": "1",
+      "as_printed": "8–20% Materialfeuchte",
+      "source": {
+        "id": "TH200",
+        "locator": "PDF с. 7, Bestimmungsgemäße Verwendung"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "TH-HYDRAULIC": {
+      "value": {
+        "p_max_Pa": 15000000,
+        "press_switch_Pa": 6000000,
+        "fill_switch_Pa": 9000000,
+        "pump_flow_m3_s": 0.0005
+      },
+      "unit": "mixed SI",
+      "as_printed": "150/60/90 bar; 30 l/min",
+      "source": {
+        "id": "TH200",
+        "locator": "PDF с. 33, Hydraulikplan"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "GOST-A1-QUALITY": {
+      "value": {
+        "moisture_max": 0.12,
+        "ash_dry_max": 0.01,
+        "density_min_kg_m3": 1000,
+        "LHV_min_J_kg": 15500000,
+        "additives_max": 0.02
+      },
+      "unit": "mixed SI",
+      "as_printed": "M12, A1.0, DE1.0, Q15.5, добавки ≤2%",
+      "source": {
+        "id": "GOST",
+        "locator": "§5, табл. 1, печ. с. 5"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "GOST-A1-CHEMISTRY": {
+      "value": {
+        "N": 0.003,
+        "S": 0.0004,
+        "Cl": 0.0002,
+        "As": 1e-06,
+        "Cd": 5e-07,
+        "Cr": 1e-05,
+        "Cu": 1e-05,
+        "Pb": 1e-05,
+        "Hg": 1e-07,
+        "Ni": 1e-05,
+        "Zn": 0.0001
+      },
+      "unit": "kg/kg dry",
+      "as_printed": "N 0,3%, S 0,04%, Cl 0,02%; As/Cd/Cr/Cu/Pb/Hg/Ni/Zn 1/0,5/10/10/10/0,1/10/100 мг/кг",
+      "source": {
+        "id": "GOST",
+        "locator": "§5, табл. 1, печ. с. 5–6"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "DIN-DU": {
+      "value": 0.95,
+      "unit": "kg/kg",
+      "as_printed": "mechanical durability ≥95 w-%",
+      "source": {
+        "id": "DINCERTCO",
+        "locator": "§3.3, таблица 1"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    },
+    "STUDY-BULK": {
+      "value": {
+        "spruce": {
+          "centre": 92,
+          "spread": 1
+        },
+        "pine": {
+          "centre": 152,
+          "spread": 4
+        }
+      },
+      "unit": "kg/m³",
+      "as_printed": "92 ±1 spruce; 152 ±4 unmodified pine",
+      "source": {
+        "id": "SAWDUST_STUDY",
+        "locator": "§3.1.2, немодифицированная древесина"
+      },
+      "revision": 1,
+      "status": "RAW",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Точность исходной выписки не установлена. Опубликованный разброс исследования сохранён в value."
+    }
+  },
+  "parameters": {
+    "DB-T-ORIGIN": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": [
+        "1.1.3",
+        "1.2.1"
+      ],
+      "unit": "origin codes",
+      "depends_on": [],
+      "basis": "Пересечение областей A1 для предусмотренного маршрута. Исключить обработанную бывшую в употреблении древесину и видимые посторонние включения.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN.",
+      "source": [
+        {
+          "id": "GOST",
+          "locator": "§1, §5 и таблица 1"
+        },
+        {
+          "id": "ISO2021",
+          "locator": "§§1, 5 и рис. 1"
+        },
+        {
+          "id": "FEEDSTOCK",
+          "locator": "OP-REV-01, 04, 05"
+        }
+      ]
+    },
+    "DB-T-MOISTURE": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "min": 0.08,
+        "nominal": 0.1,
+        "max": 0.12
+      },
+      "unit": "kg water/kg as received",
+      "depends_on": [
+        "BP-MOISTURE",
+        "E55-MOISTURE",
+        "TH-MOISTURE",
+        "GOST-A1-QUALITY"
+      ],
+      "basis": "Выбранное условное окно по опилочным режимам и цели продукта M12. База референсов UNKNOWN.",
+      "tolerance": {
+        "from_nominal_fraction": 0.02,
+        "limits_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-T-SIEVE": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 0.00315,
+      "unit": "m",
+      "depends_on": [
+        "DB-T-ORIGIN"
+      ],
+      "basis": "Уставка отверстия сита для дробления и рециркуляции верхней фракции, с отдельным контролем формы.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN.",
+      "source": [
+        {
+          "id": "BP500",
+          "locator": "PDF с. 3, Basic information"
+        },
+        {
+          "id": "E55",
+          "locator": "PDF с. 14, §9.1"
+        },
+        {
+          "id": "SAWDUST_STUDY",
+          "locator": "§3.1.2, распределение размеров"
+        },
+        {
+          "id": "ISO_METHODS",
+          "locator": "ISO 17827-1/-2:2024"
+        }
+      ]
+    },
+    "DB-T-BULK": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": [
+        90,
+        160
+      ],
+      "unit": "kg/m³ as received",
+      "depends_on": [
+        "STUDY-BULK"
+      ],
+      "basis": "Округлённая огибающая чистых хвойных опилок. Оба края для дозатора, ISO 17828:2025 для стандартизованного состояния.",
+      "tolerance": {
+        "limits_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-T-ASH": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 0.01,
+      "unit": "kg ash/kg dry",
+      "depends_on": [
+        "DB-U-ASH"
+      ],
+      "basis": "Входной верхний предел при сохранении отношения зола/сухое вещество.",
+      "tolerance": {
+        "max_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-CLASS": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": "A1",
+      "unit": "class",
+      "depends_on": [
+        "DB-T-ORIGIN",
+        "GOST-A1-QUALITY"
+      ],
+      "basis": "Проектная цель для подтверждённого происхождения и всех требований к готовому продукту.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN.",
+      "source": [
+        {
+          "id": "ISO2021",
+          "locator": "§5"
+        },
+        {
+          "id": "GOST",
+          "locator": "§5 и табл. 1"
+        }
+      ]
+    },
+    "DB-U-SIZE": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "transverse_Y_Z_m": [
+          0.15,
+          0.06
+        ],
+        "X_range_m": [
+          0.04,
+          0.11
+        ]
+      },
+      "unit": "m",
+      "depends_on": [
+        "BP-BRIQUETTE"
+      ],
+      "basis": "Ориентация принята для концептуальной геометрии и проверки прохода. Продольный диапазон регулирования.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-DENSITY": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 1000,
+      "unit": "kg/m³ as received",
+      "depends_on": [
+        "GOST-A1-QUALITY"
+      ],
+      "basis": "Нижняя граница REV по ISO 18847, выбранная по ГОСТ A1.",
+      "tolerance": {
+        "min_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-MOISTURE": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 0.12,
+      "unit": "kg water/kg as received",
+      "depends_on": [
+        "GOST-A1-QUALITY"
+      ],
+      "basis": "Верхняя цель по ГОСТ A1 и DIN CERTCO.",
+      "tolerance": {
+        "max_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-ASH": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 0.01,
+      "unit": "kg ash/kg dry",
+      "depends_on": [
+        "GOST-A1-QUALITY"
+      ],
+      "basis": "Верхняя цель A1.",
+      "tolerance": {
+        "max_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-LHV": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 15500000,
+      "unit": "J/kg as received",
+      "depends_on": [
+        "GOST-A1-QUALITY"
+      ],
+      "basis": "Нижняя цель A1 на рабочее состояние.",
+      "tolerance": {
+        "min_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-ADDITIVES": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 0,
+      "unit": "kg intentional additive/kg as received",
+      "depends_on": [
+        "BP-BRIQUETTE",
+        "GOST-A1-QUALITY"
+      ],
+      "basis": "Проектная рецептура без намеренно внесённых добавок. Остаточные примеси подлежат отдельной оценке.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN.",
+      "source": [
+        {
+          "id": "BP500",
+          "locator": "PDF с. 2, About the technology, briquettes without additives"
+        }
+      ]
+    },
+    "DB-U-CHEMISTRY": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "N": 0.003,
+        "S": 0.0004,
+        "Cl": 0.0002,
+        "As": 1e-06,
+        "Cd": 5e-07,
+        "Cr": 1e-05,
+        "Cu": 1e-05,
+        "Pb": 1e-05,
+        "Hg": 1e-07,
+        "Ni": 1e-05,
+        "Zn": 0.0001
+      },
+      "unit": "kg/kg dry",
+      "depends_on": [
+        "GOST-A1-CHEMISTRY"
+      ],
+      "basis": "Индивидуальные предельные массовые доли по ГОСТ A1.",
+      "tolerance": {
+        "all_max_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-DURABILITY": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 0.95,
+      "unit": "kg retained/kg tested",
+      "depends_on": [
+        "DIN-DU"
+      ],
+      "basis": "Проектная механическая стойкость при обращении. Метод ISO 17831-2:2025.",
+      "tolerance": {
+        "min_inclusive": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-FRAME": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "origin": "projection of die outlet centre on support plane",
+        "X": "toward U",
+        "Y": "Z × X",
+        "Z": "up",
+        "support_Z_m": 0
+      },
+      "unit": "m; right-handed frame",
+      "depends_on": [],
+      "basis": "База компоновки от пресса с переходом к локальным шкалам хода R4.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN.",
+      "source": [
+        {
+          "id": "OPERATOR",
+          "locator": "п. 3"
+        },
+        {
+          "id": "ENVELOPE_V1",
+          "locator": "README, Нагрузки и позиции"
+        }
+      ]
+    },
+    "DB-T-OPENING": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": [
+        0.972,
+        0.463
+      ],
+      "unit": "m",
+      "depends_on": [
+        "BP-HOPPER",
+        "DB-FRAME"
+      ],
+      "basis": "Номинальный внутренний прямоугольник X × Y. Интерфейс адаптера открытый.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-T-HEIGHT": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 1.22,
+      "unit": "m",
+      "depends_on": [
+        "BP-HOPPER",
+        "DB-FRAME"
+      ],
+      "basis": "Номинальная отметка стыка T от установочной плоскости.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-T-HOPPER": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 0.127,
+      "unit": "m³",
+      "depends_on": [
+        "BP-HOPPER"
+      ],
+      "basis": "Геометрический целевой объём. Полезный объём и регулируемые уровни открыты.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-U-PLANE": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "flow_axis": "+X",
+        "location": "after integral guide, before external receiver"
+      },
+      "unit": "interface definition",
+      "depends_on": [
+        "DB-FRAME",
+        "DB-U-SIZE"
+      ],
+      "basis": "Положение и просвет определяются с геометрией и проверкой допусков.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-PRESS-ENVELOPE": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": [
+        2.1,
+        1.9,
+        2.2
+      ],
+      "unit": "m",
+      "depends_on": [
+        "BP-SIZE",
+        "DB-FRAME"
+      ],
+      "basis": "Компоновочная цель X × Y × Z с закрытыми ограждениями и бункером, без внешней периферии.",
+      "tolerance": {
+        "target_max_by_axis": true
+      },
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-AMBIENT": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": [
+        278.15,
+        313.15
+      ],
+      "unit": "K",
+      "depends_on": [
+        "BP-ENVIRONMENT"
+      ],
+      "basis": "Сухое защищённое помещение, проектный диапазон для сравнения.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-ELECTRICAL": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "line_voltage_V": 380,
+        "frequency_Hz": 50,
+        "connection_A": 100,
+        "phases": 3
+      },
+      "unit": "mixed SI",
+      "depends_on": [
+        "BP-SUPPLY"
+      ],
+      "basis": "Планировочный ориентир трёхфазного ввода с PE. Резерв по току, пуск и защиту определить на схеме.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-HYD-REF": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 30000000,
+      "unit": "Pa",
+      "depends_on": [
+        "BP-HYDRAULIC",
+        "ARS-HYDRAULIC",
+        "E55-HYDRAULIC",
+        "TH-HYDRAULIC"
+      ],
+      "basis": "Верхний масштаб давления для сравнения архитектур. Применять только как расчётную точку.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-MAIN-POWER": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 30000,
+      "unit": "W",
+      "depends_on": [
+        "BP-MOTORS"
+      ],
+      "basis": "Номинальный масштаб мощности на валу главного привода.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-INSTALLED-POWER": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": 34200,
+      "unit": "W",
+      "depends_on": [
+        "BP-MOTORS"
+      ],
+      "basis": "Выбран паспортный общий масштаб, арифметический итог перечисленных строк — 34100 Вт.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN."
+    },
+    "DB-ENVELOPE-V1": {
+      "revision": 1,
+      "status": "ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "A_work_N": 1532417.45,
+        "B_work_N": 1502417.45,
+        "return_N": -12000,
+        "zero_N": 0,
+        "reverse_work": "negative of WORK",
+        "F_x_positive": "rod compression"
+      },
+      "unit": "N",
+      "depends_on": [],
+      "basis": "Статическая огибающая по q и ветвям. При освобождённой осевой ветви с ненулевым F_x отсутствует статическое равновесие.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Проектная величина или правило. Метрологический бюджет и фактическая изменчивость пока UNKNOWN.",
+      "source": [
+        {
+          "id": "ENVELOPE_V1",
+          "locator": "envelope.json variants, assumptions.json phase_profiles"
+        }
+      ]
+    },
+    "DB-FACE-P": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 166713050,
+      "unit": "Pa",
+      "depends_on": [
+        "BP-COMPACTION"
+      ],
+      "formula": "p = printed_compaction * 98066.5",
+      "basis": "kg условно прочитано как кгс, давление на торце материала.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-FACE-F": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 1500417.45,
+      "unit": "N",
+      "depends_on": [
+        "DB-FACE-P",
+        "DB-U-SIZE"
+      ],
+      "formula": "F = p * (W * H)",
+      "basis": "Полное прямоугольное пятно; осевое давление без явной модели трения и уплотнения.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-HYD-BORE-IDEAL": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 0.25234835914866405,
+      "unit": "m",
+      "depends_on": [
+        "DB-FACE-F",
+        "DB-HYD-REF"
+      ],
+      "formula": "D = sqrt(4 F/(pi p))",
+      "basis": "Прямой поршень без противодавления и потерь.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-THROUGHPUT": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 0.13833333333333334,
+      "unit": "kg/s",
+      "depends_on": [
+        "BP-RATE"
+      ],
+      "formula": "throughput = mass * rate",
+      "basis": "Точка сравнения 498 кг/ч, пиковая паспортная сочетанная точка BP500.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-CYCLE-TIME": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 6,
+      "unit": "s",
+      "depends_on": [
+        "BP-RATE"
+      ],
+      "formula": "t = 1 / pieces_per_s",
+      "basis": "Одно годное изделие за цикл.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-T-DOSE": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": [
+        0.005187499999999999,
+        0.009222222222222222
+      ],
+      "unit": "m³",
+      "depends_on": [
+        "BP-RATE",
+        "DB-T-BULK"
+      ],
+      "formula": "V = m/rho",
+      "basis": "Равная влажность, отсутствуют потери, масса дозы 0,83 кг.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-T-FLOW": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": [
+        0.0008645833333333333,
+        0.001537037037037037
+      ],
+      "unit": "m³/s",
+      "depends_on": [
+        "DB-THROUGHPUT",
+        "DB-T-BULK"
+      ],
+      "formula": "Q = throughput/rho",
+      "basis": "Средний рыхлый поток. Нет потерь и изменения влажности.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-T-HOPPER-MASS": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": [
+        11.43,
+        20.32
+      ],
+      "unit": "kg",
+      "depends_on": [
+        "DB-T-HOPPER",
+        "DB-T-BULK"
+      ],
+      "formula": "m = volume*rho",
+      "basis": "Полный геометрический объём, состояние насыпной плотности как по ISO 17828:2025.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-U-SIZE-CHECK": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": {
+        "X_at_density_m": 0.09222222222222222,
+        "density_at_max_X_kg_m3": 838.3838383838383,
+        "mass_at_max_X_kg": 0.99
+      },
+      "unit": "mixed SI",
+      "depends_on": [
+        "BP-RATE",
+        "DB-U-DENSITY",
+        "DB-U-SIZE"
+      ],
+      "formula": "V=W*H*X, rho=m/V",
+      "basis": "Формально полная прямоугольная призма.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-HYD-IDEAL-FLOW": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 0.001,
+      "unit": "m³/s",
+      "depends_on": [
+        "DB-MAIN-POWER",
+        "DB-HYD-REF"
+      ],
+      "formula": "Q=P/p",
+      "basis": "Идеальная одновременно доступная гидравлическая мощность равна мощности на валу.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-HYD-IDEAL-SPEED": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 0.01999443554858683,
+      "unit": "m/s",
+      "depends_on": [
+        "DB-MAIN-POWER",
+        "DB-FACE-F"
+      ],
+      "formula": "v=P/F",
+      "basis": "Идеальный стационарный режим с одним потребителем.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-APPARENT-POWER": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 65817.93068761734,
+      "unit": "VA",
+      "depends_on": [
+        "DB-ELECTRICAL"
+      ],
+      "formula": "S=sqrt(3)*U_LL*I_L",
+      "basis": "Сбалансированная трёхфазная сеть, паспортный ввод.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-ENERGY-QUOTIENT": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 247228.9156626506,
+      "unit": "J/kg",
+      "depends_on": [
+        "DB-INSTALLED-POWER",
+        "DB-THROUGHPUT"
+      ],
+      "formula": "e=P_inst/throughput",
+      "basis": "Номинальное частное, около 68,7 кВт·ч/т. Фактическая энергия открыта.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    },
+    "DB-T-LOT": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "mixed SI",
+      "reason": "Партийное происхождение и физико-химические характеристики строительного потока не подтверждены. Пробы исключены из плана.",
+      "depends_on": [
+        "DB-T-ORIGIN",
+        "DB-T-MOISTURE",
+        "DB-T-ASH",
+        "DB-T-BULK"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-T-CONTAMINATION": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "kg/kg; m",
+      "reason": "Нет численных ограничений по остаточным включениям, чувствительности сортировки и металлосепарации, типу покрытий или допустимому абразиву.",
+      "depends_on": [
+        "DB-T-ORIGIN"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-T-PSD": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "kg/kg; m",
+      "reason": "Пределы мелочи и надрешётного остатка, длины и формы частиц не установлены для шнека/дозатора REV.",
+      "depends_on": [
+        "DB-T-SIEVE"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-T-HOPPER-FLOW": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "m³/s; kg/m³; m³",
+      "reason": "Отсутствуют параметры сводообразования, заполнения, уровня, рабочего запаса, пиковой подачи и плотности после обработки дозатором.",
+      "depends_on": [
+        "DB-T-BULK",
+        "DB-T-FLOW",
+        "DB-T-HOPPER"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-U-TOLERANCE": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "m",
+      "reason": "Нет бюджета пружинения, термических изменений, скруглений, допусков готового продукта/камеры и методики измерения по фактической форме.",
+      "depends_on": [
+        "DB-U-SIZE"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-U-STATIC-STRENGTH": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "N; Pa",
+      "reason": "Нет выбранного критерия статического разрушения и кондиционирования. DU задаёт отдельную характеристику.",
+      "depends_on": [
+        "DB-U-DURABILITY"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-U-ACTUAL-CLASS": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "class",
+      "reason": "Фактическое происхождение, параметры готового продукта и полная итоговая табл. 1 ISO 2021 не проверены.",
+      "depends_on": [
+        "DB-T-LOT",
+        "DB-U-CLASS",
+        "DB-ISO-FINAL-TABLE"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-ISO-FINAL-TABLE": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "table",
+      "reason": "§5 и рис. 1 редакции 2021 доступны в окончательном виде. Таблица 1 сверена через FDIS и A1-схему DIN CERTCO, требуется полная окончательная таблица для проверки всех колонок.",
+      "depends_on": [],
+      "tolerance": null,
+      "uncertainty": null,
+      "source": [
+        {
+          "id": "ISO2021",
+          "locator": "§5"
+        },
+        {
+          "id": "FDIS2020",
+          "locator": "Table 1"
+        },
+        {
+          "id": "DINCERTCO",
+          "locator": "§3.3"
+        }
+      ]
+    },
+    "DB-TU-FIT": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "m; rad",
+      "reason": "Нет 3D положения стыков, фланцев и допусков, рабочих и монтажных просветов, траекторий дверей, инструмента и замены цилиндров.",
+      "depends_on": [
+        "DB-T-OPENING",
+        "DB-T-HEIGHT",
+        "DB-U-PLANE",
+        "DB-U-TOLERANCE",
+        "DB-PRESS-ENVELOPE"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-FOUNDATION": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "m; kg; N; N·m",
+      "reason": "Нет массы и центра тяжести REV, опорной схемы, реакций, допустимых нагрузок, площадок и крепежа.",
+      "depends_on": [
+        "DB-FRAME",
+        "DB-LOAD-PHYSICAL"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-SAFETY": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "mixed SI",
+      "reason": "Не определены анализ риска и юрисдикция, классы защит, сигналы и безопасные состояния T/U, останов/reset, аспирация и пылевые зоны.",
+      "depends_on": [
+        "DB-TU-FIT",
+        "DB-PHASE-HYD"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-COMPACTION-LAW": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "mixed SI",
+      "reason": "Открыты материал/влажность/фракция → уплотнение, трение, упругое восстановление, сопротивление удержанию и выталкиванию.",
+      "depends_on": [
+        "DB-T-LOT",
+        "DB-T-PSD",
+        "DB-U-DENSITY"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-PHASE-HYD": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "Pa; m³/s; s",
+      "reason": "Нет выбора схемы, p обеих полостей и клапанных уставок, фазовых местных нагрузок, расхода, времени, пиков и одновременности.",
+      "depends_on": [
+        "DB-HYD-REF",
+        "DB-COMPACTION-LAW"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-ACTUATOR": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "m; m²; Pa",
+      "reason": "Нет выбранных диаметров поршня/штока, ходов и посадок, свободных длин, материалов, жёсткости и соединений по actual R4.",
+      "depends_on": [
+        "DB-HYD-BORE-IDEAL",
+        "DB-PHASE-HYD"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-LOAD-PHYSICAL": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "N; N·m",
+      "reason": "Нет фазовых реальных сил/инерции, контактов, опор, материалов, жёсткости и допускаемых нагрузок соединений. Огибающая готова только для статического скрининга.",
+      "depends_on": [
+        "DB-ENVELOPE-V1",
+        "DB-ACTUATOR"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-ENERGY-ACTUAL": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "W; J/kg",
+      "reason": "Нет балансов уставок/потерь, потребления, cos φ, КПД/пуска, теплового режима, расхода и рабочего графика. Внешняя подготовка и конвейеры отдельные.",
+      "depends_on": [
+        "DB-PHASE-HYD",
+        "DB-ENERGY-QUOTIENT"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-THROUGHPUT-GUARANTEED": {
+      "revision": 1,
+      "status": "UNKNOWN",
+      "readiness": "BLOCKED_INPUTS",
+      "value": null,
+      "unit": "kg/s",
+      "reason": "Нет фактических времён фаз, производительности дозатора, скважности, выходов годных и валидированного рецепта.",
+      "depends_on": [
+        "DB-CYCLE-TIME",
+        "DB-T-HOPPER-FLOW",
+        "DB-COMPACTION-LAW",
+        "DB-PHASE-HYD"
+      ],
+      "tolerance": null,
+      "uncertainty": null
+    },
+    "DB-PEAK-TRAVEL": {
+      "revision": 1,
+      "status": "CALCULATED_ASSUMED",
+      "readiness": "READY",
+      "value": 0.11996661329152097,
+      "unit": "m",
+      "depends_on": [
+        "DB-HYD-IDEAL-SPEED",
+        "DB-CYCLE-TIME"
+      ],
+      "formula": "s_max = v_ideal * t_cycle",
+      "basis": "Условная верхняя граница пути на постоянном полном усилии при идеальной передаче 30 кВт за все 6 с цикла.",
+      "tolerance": null,
+      "uncertainty": null,
+      "uncertainty_reason": "Условная производная. Расчётная точность не отражает неопределённость предпосылок."
+    }
+  },
+  "handoff": {
+    "R3": {
+      "ready": [
+        "DB-T-MOISTURE",
+        "DB-T-SIEVE",
+        "DB-T-BULK",
+        "DB-T-ASH",
+        "DB-T-DOSE",
+        "DB-T-FLOW",
+        "DB-U-SIZE",
+        "DB-U-DENSITY",
+        "DB-THROUGHPUT",
+        "DB-FACE-P",
+        "DB-FACE-F",
+        "DB-HYD-REF",
+        "DB-HYD-BORE-IDEAL",
+        "DB-MAIN-POWER",
+        "DB-ENERGY-QUOTIENT",
+        "DB-ENVELOPE-V1",
+        "DB-PEAK-TRAVEL"
+      ],
+      "blocked_inputs": [
+        "DB-T-LOT",
+        "DB-T-PSD",
+        "DB-T-HOPPER-FLOW",
+        "DB-COMPACTION-LAW",
+        "DB-PHASE-HYD",
+        "DB-ACTUATOR",
+        "DB-LOAD-PHYSICAL",
+        "DB-ENERGY-ACTUAL",
+        "DB-THROUGHPUT-GUARANTEED"
+      ],
+      "requires_R4": [
+        "DB-TU-FIT",
+        "DB-FOUNDATION",
+        "DB-ACTUATOR",
+        "DB-LOAD-PHYSICAL"
+      ],
+      "scope": "Огибающая и условная оценка узлов и цикла после свежего claim. Физические §§4/5/6 NOT_RUN."
+    },
+    "R4": {
+      "ready": [
+        "DB-FRAME",
+        "DB-PRESS-ENVELOPE",
+        "DB-T-OPENING",
+        "DB-T-HEIGHT",
+        "DB-T-HOPPER",
+        "DB-U-SIZE",
+        "DB-U-PLANE",
+        "DB-ELECTRICAL",
+        "DB-ENVELOPE-V1"
+      ],
+      "blocked_inputs": [
+        "DB-TU-FIT",
+        "DB-FOUNDATION",
+        "DB-SAFETY",
+        "DB-U-TOLERANCE",
+        "DB-ACTUATOR",
+        "DB-LOAD-PHYSICAL"
+      ],
+      "scope": "Компоновка, интерфейсная геометрия и условная КД после свежего claim. W02 physical NO-GO."
+    }
+  }
+}

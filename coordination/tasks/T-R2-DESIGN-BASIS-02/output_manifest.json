@@ -1,0 +1,45 @@
+{
+  "task_id": "T-R2-DESIGN-BASIS-02",
+  "scope": "DESIGN_BASIS",
+  "design_basis_id": "REV_DESIGN_BASIS",
+  "design_basis_revision": 1,
+  "source_main_sha": "173d847a647fbb0f609ed8046a13076238e4ae22",
+  "claim_main_sha": "ca7eac33898bfdb7231bbd233ff3157bbc9aa8a7",
+  "commit_binding": "Git result commit is pinned in the completion record. sha256 values cover exact package bytes.",
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.17",
+    "source_extraction": "pypdf 6.21.2",
+    "visual_review": "PyMuPDF 2.1",
+    "PyYAML": "6.0.3",
+    "git_lfs": "3.8.1"
+  },
+  "checks": [
+    "python coordination/tasks/T-R2-DESIGN-BASIS-02/verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ],
+  "outputs": [
+    {
+      "path": "coordination/tasks/T-R2-DESIGN-BASIS-02/README.md",
+      "sha256": "f8c61be55ad800f5d3d583f44a83e05087095beb4bf527f15928840261509566"
+    },
+    {
+      "path": "coordination/tasks/T-R2-DESIGN-BASIS-02/reference_matrix.md",
+      "sha256": "1046277c89af20542b31400f4df95acf5d41f3f30fcba9855eb012fb6f656994"
+    },
+    {
+      "path": "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json",
+      "sha256": "ddaa4d376a679537a210756ad52e96f96a6ac537d6d2e99ab4d79fbee2bd466d"
+    },
+    {
+      "path": "coordination/tasks/T-R2-DESIGN-BASIS-02/input_manifest.json",
+      "sha256": "c7398f8b8f650a6ac80cb127594774c1bb9e1fdf19caf080c6026a1ae516a907"
+    },
+    {
+      "path": "coordination/tasks/T-R2-DESIGN-BASIS-02/verify_output.py",
+      "sha256": "77d22567e4ee8b0afb4f2d9da8fd656a93a846f33e5486c7ea2a777c1e574b7b"
+    }
+  ]
+}

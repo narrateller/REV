@@ -29,6 +29,9 @@ jobs:
       - name: Verify R2 input audit and BP500 site reference
         if: hashFiles('coordination/tasks/T-R2-INPUTS-01/output_manifest.json') != ''
         run: python coordination/tasks/T-R2-INPUTS-01/verify_output.py --check-git
+      - name: Verify R2 design basis and scoped registry
+        if: hashFiles('coordination/tasks/T-R2-DESIGN-BASIS-02/output_manifest.json') != ''
+        run: python coordination/tasks/T-R2-DESIGN-BASIS-02/verify_output.py --check-git
       - name: Replay R3 load envelope
         if: hashFiles('cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json') != ''
         run: python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git
