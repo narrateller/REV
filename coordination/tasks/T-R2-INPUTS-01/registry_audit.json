@@ -1,0 +1,4528 @@
+{
+  "task_id": "T-R2-INPUTS-01",
+  "source_main_sha": "053f6e3d475df5875ce38bfce6579dac46ddf553",
+  "active_registry": {
+    "path": "params/registry.yaml",
+    "git_blob_sha256": "f52f6a52cf84831b714c037521bede8ada33e45d93d8b7251aa30b0b8a0d4d44",
+    "units_policy": "SI",
+    "counts": {
+      "ASSUMED": 47,
+      "RAW": 25,
+      "CALCULATED": 1072,
+      "total": 1144
+    },
+    "domain_counts": {
+      "brochure_boundary": 0,
+      "process_medium": 0,
+      "kinematics_and_drive": 1144,
+      "aero_thermo_fluid": 0,
+      "geometry_mass": 0,
+      "strength_safety_factors": 0
+    },
+    "scope_counts": {
+      "REV_R3_CONDITIONAL_ARITHMETIC_ONLY": 696,
+      "REV_R3_POWER_CONDITIONAL_ARITHMETIC_ONLY": 376,
+      "REV_R3_POWER_ENVELOPE_WHAT_IF_ONLY": 3,
+      "REV_R3_POWER_UNKNOWN": 12,
+      "REV_R3_UNKNOWN_REAL_INPUT": 13,
+      "REV_R3_WHAT_IF_ONLY": 44
+    },
+    "unit_counts": {
+      "1": 6,
+      "J": 298,
+      "N": 66,
+      "N/m": 1,
+      "Pa": 45,
+      "V": 1,
+      "VA": 1,
+      "W": 218,
+      "kg": 11,
+      "kg/m^3": 11,
+      "kg/s": 24,
+      "m": 87,
+      "m/s": 64,
+      "m^2": 24,
+      "m^3": 8,
+      "m^3/s": 171,
+      "s": 108
+    },
+    "unknown_count": 25,
+    "null_tolerance_and_uncertainty_count": 1144,
+    "null_tolerance_and_uncertainty_reason": "В источнике отсутствует численная оценка допуска/неопределённости.",
+    "provenance_sources": {
+      "verification/r3_power_reconcile/input_audit.md": {
+        "path_at_source_main": "verification/r3_power_reconcile/input_audit.md",
+        "git_blob_sha256": "044ab59401805df0cbf5aba36f1debac57bd918afa2cca0374829ead11351580"
+      },
+      "verification/r3_parametric_sizing/input_audit.md": {
+        "path_at_source_main": "verification/r3_parametric_sizing/input_audit.md",
+        "git_blob_sha256": "79996d1c04dc668a664ee75add3f77cb3ddfbaeefaa4521913a2303cd3a07cac"
+      }
+    },
+    "parameters": {
+      "R3P_IN_HOLD_TOTAL_CAP": {
+        "revision": 1,
+        "value": 5000.0,
+        "unit": "W",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_POWER_ENVELOPE_WHAT_IF_ONLY",
+        "meaning": "явно выбранная верхняя граница hold_total_cap; не реалистичность и не измеренная мощность; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "явно выбранная верхняя граница hold_total_cap; не реалистичность и не измеренная мощность"
+        },
+        "depends_on": []
+      },
+      "R3P_IN_MOTION_EXTRA_CAP": {
+        "revision": 1,
+        "value": 3000.0,
+        "unit": "W",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_POWER_ENVELOPE_WHAT_IF_ONLY",
+        "meaning": "явно выбранная верхняя граница motion_extra_cap; не реалистичность и не измеренная мощность; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "явно выбранная верхняя граница motion_extra_cap; не реалистичность и не измеренная мощность"
+        },
+        "depends_on": []
+      },
+      "R3P_IN_PAUSE_TOTAL_CAP": {
+        "revision": 1,
+        "value": 3000.0,
+        "unit": "W",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_POWER_ENVELOPE_WHAT_IF_ONLY",
+        "meaning": "явно выбранная верхняя граница pause_total_cap; не реалистичность и не измеренная мощность; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "явно выбранная верхняя граница pause_total_cap; не реалистичность и не измеренная мощность"
+        },
+        "depends_on": []
+      },
+      "R3P_REAL_APPARENT_POWER": {
+        "revision": 1,
+        "value": null,
+        "unit": "VA",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN APPARENT_POWER; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN APPARENT_POWER"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_CYCLE_ENERGY": {
+        "revision": 1,
+        "value": null,
+        "unit": "J",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN CYCLE_ENERGY; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN CYCLE_ENERGY"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_HOLD_AUX": {
+        "revision": 1,
+        "value": null,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN HOLD_AUX; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN HOLD_AUX"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_HOLD_LEAKAGE": {
+        "revision": 1,
+        "value": null,
+        "unit": "m^3/s",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN HOLD_LEAKAGE; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN HOLD_LEAKAGE"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_HOLD_POWER": {
+        "revision": 1,
+        "value": null,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN HOLD_POWER; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN HOLD_POWER"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_HOLD_PUMP_FLOW": {
+        "revision": 1,
+        "value": null,
+        "unit": "m^3/s",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN HOLD_PUMP_FLOW; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN HOLD_PUMP_FLOW"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_HOLD_STANDBY": {
+        "revision": 1,
+        "value": null,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN HOLD_STANDBY; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN HOLD_STANDBY"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_MOTION_EXTRA": {
+        "revision": 1,
+        "value": null,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN MOTION_EXTRA; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN MOTION_EXTRA"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_PAUSE_POWER": {
+        "revision": 1,
+        "value": null,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN PAUSE_POWER; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN PAUSE_POWER"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_POWER_FACTOR": {
+        "revision": 1,
+        "value": null,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN POWER_FACTOR; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN POWER_FACTOR"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_TOTAL_PEAK": {
+        "revision": 1,
+        "value": null,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN TOTAL_PEAK; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN TOTAL_PEAK"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3P_REAL_VOLTAGE": {
+        "revision": 1,
+        "value": null,
+        "unit": "V",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_POWER_UNKNOWN",
+        "meaning": "UNKNOWN VOLTAGE; не подтверждённый режим оборудования",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Фактическая схема/потребление и характеристики неизвестны",
+        "provenance": {
+          "kind": "CONDITIONAL_RECONCILIATION",
+          "source_ref": "verification/r3_power_reconcile/input_audit.md",
+          "locator": "UNKNOWN VOLTAGE"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_BACK_HIGH_A_IN_BACK_FORWARD": {
+        "revision": 1,
+        "value": 5000000.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if BACK_HIGH_A back_forward; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if BACK_HIGH_A back_forward"
+        },
+        "depends_on": []
+      },
+      "R3_EJECT_DOUBLE_B_IN_EJECT_TRAVEL": {
+        "revision": 1,
+        "value": 0.34,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if EJECT_DOUBLE_B eject_travel; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if EJECT_DOUBLE_B eject_travel"
+        },
+        "depends_on": []
+      },
+      "R3_IN_BACK_FORWARD": {
+        "revision": 1,
+        "value": 1000000.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "противодавление штоковой полости при прямом ходе gauge; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "противодавление штоковой полости при прямом ходе gauge"
+        },
+        "depends_on": []
+      },
+      "R3_IN_BACK_RETURN": {
+        "revision": 1,
+        "value": 1000000.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "противодавление поршневой полости при возврате gauge; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "противодавление поршневой полости при возврате gauge"
+        },
+        "depends_on": []
+      },
+      "R3_IN_CHANNEL_HOLD": {
+        "revision": 1,
+        "value": 40000.0,
+        "unit": "N",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "независимая гипотеза удерживающей способности A; не приравнена трению скольжения; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "независимая гипотеза удерживающей способности A; не приравнена трению скольжения"
+        },
+        "depends_on": []
+      },
+      "R3_IN_CHANNEL_SLIDE": {
+        "revision": 1,
+        "value": 30000.0,
+        "unit": "N",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "произвольное постоянное сопротивление канала A при движении; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "произвольное постоянное сопротивление канала A при движении"
+        },
+        "depends_on": []
+      },
+      "R3_IN_CLEARANCE": {
+        "revision": 1,
+        "value": 0.03,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условный зазор до свободной выходной плоскости; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условный зазор до свободной выходной плоскости"
+        },
+        "depends_on": []
+      },
+      "R3_IN_EJECT_LOAD_B": {
+        "revision": 1,
+        "value": 20000.0,
+        "unit": "N",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "выбранное сопротивление выдачи B после предполагаемого освобождения; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "выбранное сопротивление выдачи B после предполагаемого освобождения"
+        },
+        "depends_on": []
+      },
+      "R3_IN_EJECT_TRAVEL": {
+        "revision": 1,
+        "value": 0.17,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "выбранный ход выдачи от положения окончания прессования; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "выбранный ход выдачи от положения окончания прессования"
+        },
+        "depends_on": []
+      },
+      "R3_IN_ELECTRIC_LIMIT": {
+        "revision": 1,
+        "value": 30000.0,
+        "unit": "W",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условный электрический бюджет; не перенос паспортного motor power BP500 в допустимую мощность REV; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условный электрический бюджет; не перенос паспортного motor power BP500 в допустимую мощность REV"
+        },
+        "depends_on": []
+      },
+      "R3_IN_ETA_MOTOR": {
+        "revision": 1,
+        "value": 0.9,
+        "unit": "1",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "выбранный КПД электропривода; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "выбранный КПД электропривода"
+        },
+        "depends_on": []
+      },
+      "R3_IN_ETA_PUMP": {
+        "revision": 1,
+        "value": 0.85,
+        "unit": "1",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "выбранный полный КПД насосного преобразования; не характеристика COTS; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "выбранный полный КПД насосного преобразования; не характеристика COTS"
+        },
+        "depends_on": []
+      },
+      "R3_IN_GUIDE": {
+        "revision": 1,
+        "value": 2000.0,
+        "unit": "N",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "постоянное направляющее сопротивление условной оси; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "постоянное направляющее сопротивление условной оси"
+        },
+        "depends_on": []
+      },
+      "R3_IN_HEIGHT": {
+        "revision": 1,
+        "value": 0.06,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условная нагруженная высота R2; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условная нагруженная высота R2"
+        },
+        "depends_on": []
+      },
+      "R3_IN_KAPPA": {
+        "revision": 1,
+        "value": 0.6,
+        "unit": "1",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "выбранное d/D; не результат устойчивости/прочности; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "выбранное d/D; не результат устойчивости/прочности"
+        },
+        "depends_on": []
+      },
+      "R3_IN_LEAK_HOLD": {
+        "revision": 1,
+        "value": 0.0,
+        "unit": "m^3/s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "идеальная нулевая утечка выдержки; не прогноз потребления реальной установки; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "идеальная нулевая утечка выдержки; не прогноз потребления реальной установки"
+        },
+        "depends_on": []
+      },
+      "R3_IN_MASS": {
+        "revision": 1,
+        "value": 0.83,
+        "unit": "kg",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "одна доза/изделие; масса взята как гипотеза из рекламного reference, связь с длиной не доказана; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "одна доза/изделие; масса взята как гипотеза из рекламного reference, связь с длиной не доказана"
+        },
+        "depends_on": []
+      },
+      "R3_IN_PHI": {
+        "revision": 1,
+        "value": 0.8,
+        "unit": "1",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "занятая доля свободной камеры; не повторный коэффициент для уже усреднённой плотности; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "занятая доля свободной камеры; не повторный коэффициент для уже усреднённой плотности"
+        },
+        "depends_on": []
+      },
+      "R3_IN_PRODUCT_LENGTH": {
+        "revision": 1,
+        "value": 0.11,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "выбранная длина условного изделия; не ход; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "выбранная длина условного изделия; не ход"
+        },
+        "depends_on": []
+      },
+      "R3_IN_REBOUND": {
+        "revision": 1,
+        "value": 10000.0,
+        "unit": "N",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "гипотеза отжимной силы A, не измерена; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "гипотеза отжимной силы A, не измерена"
+        },
+        "depends_on": []
+      },
+      "R3_IN_RETURN_LOAD": {
+        "revision": 1,
+        "value": 10000.0,
+        "unit": "N",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "постоянное внешнее сопротивление возврата; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "постоянное внешнее сопротивление возврата"
+        },
+        "depends_on": []
+      },
+      "R3_IN_RHO": {
+        "revision": 1,
+        "value": 200.0,
+        "unit": "kg/m^3",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "произвольная плотность занятого объёма после подачи; не измерена; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "произвольная плотность занятого объёма после подачи; не измерена"
+        },
+        "depends_on": []
+      },
+      "R3_IN_SEAL": {
+        "revision": 1,
+        "value": 5000.0,
+        "unit": "N",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "постоянная сила трения уплотнений обоих направлений; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "постоянная сила трения уплотнений обоих направлений"
+        },
+        "depends_on": []
+      },
+      "R3_IN_SIGMA_END": {
+        "revision": 1,
+        "value": 166713050.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "пик условного воздействия R2; наследует прочтение kgf/cm2 и нагруженную грань; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "пик условного воздействия R2; наследует прочтение kgf/cm2 и нагруженную грань"
+        },
+        "depends_on": []
+      },
+      "R3_IN_SIGMA_START": {
+        "revision": 1,
+        "value": 0.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "начало линейного по ходу условного среднего нормального воздействия; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "начало линейного по ходу условного среднего нормального воздействия"
+        },
+        "depends_on": []
+      },
+      "R3_IN_SUPPLY_EJECT": {
+        "revision": 1,
+        "value": 10000000.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условное давление supply выдачи; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условное давление supply выдачи"
+        },
+        "depends_on": []
+      },
+      "R3_IN_SUPPLY_RETURN": {
+        "revision": 1,
+        "value": 12000000.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условное давление supply возврата в штоковую полость; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условное давление supply возврата в штоковую полость"
+        },
+        "depends_on": []
+      },
+      "R3_IN_SUPPLY_WORK": {
+        "revision": 1,
+        "value": 30000000.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условный доступный inlet supply; равен reference max лишь как выбранная точка, не рабочий перепад REV; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условный доступный inlet supply; равен reference max лишь как выбранная точка, не рабочий перепад REV"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_APPROACH": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условное время подхода; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условное время подхода"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_AUX_A": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "бюджет прочих действий A, без мощности прочих осей; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "бюджет прочих действий A, без мощности прочих осей"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_EJECT": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условное время выдачи; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условное время выдачи"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_HOLD": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условная выдержка без изменения объёма/упругой энергии; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условная выдержка без изменения объёма/упругой энергии"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_OPEN_B": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "гипотетический бюджет открытия B, разрешение UNKNOWN; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "гипотетический бюджет открытия B, разрешение UNKNOWN"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_RETURN": {
+        "revision": 1,
+        "value": 2.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условное время возврата; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условное время возврата"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_UNLOAD_B": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "гипотетический бюджет разгрузки B; не доказательство разгрузки; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "гипотетический бюджет разгрузки B; не доказательство разгрузки"
+        },
+        "depends_on": []
+      },
+      "R3_IN_T_WORK": {
+        "revision": 1,
+        "value": 2.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условное время прессования; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условное время прессования"
+        },
+        "depends_on": []
+      },
+      "R3_IN_WIDTH": {
+        "revision": 1,
+        "value": 0.15,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "условная нагруженная ширина R2; ориентация не подтверждена; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "условная нагруженная ширина R2; ориентация не подтверждена"
+        },
+        "depends_on": []
+      },
+      "R3_LOAD_DOUBLE_A_IN_SIGMA_END": {
+        "revision": 1,
+        "value": 333426100.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if LOAD_DOUBLE_A sigma_end; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if LOAD_DOUBLE_A sigma_end"
+        },
+        "depends_on": []
+      },
+      "R3_LOAD_HALF_A_IN_SIGMA_END": {
+        "revision": 1,
+        "value": 83356525.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if LOAD_HALF_A sigma_end; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if LOAD_HALF_A sigma_end"
+        },
+        "depends_on": []
+      },
+      "R3_REAL_CHANNEL_HOLD": {
+        "revision": 1,
+        "value": null,
+        "unit": "N",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real CHANNEL_HOLD; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real CHANNEL_HOLD"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_COTS_PRESSURE_RATING": {
+        "revision": 1,
+        "value": null,
+        "unit": "Pa",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real COTS_PRESSURE_RATING; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real COTS_PRESSURE_RATING"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_FRAME_STIFFNESS": {
+        "revision": 1,
+        "value": null,
+        "unit": "N/m",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real FRAME_STIFFNESS; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real FRAME_STIFFNESS"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_MATERIAL_LOSS": {
+        "revision": 1,
+        "value": null,
+        "unit": "kg",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real MATERIAL_LOSS; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real MATERIAL_LOSS"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_OTHER_ACTUATORS_ENERGY": {
+        "revision": 1,
+        "value": null,
+        "unit": "J",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real OTHER_ACTUATORS_ENERGY; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real OTHER_ACTUATORS_ENERGY"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_PRODUCT_CLEARANCE": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real PRODUCT_CLEARANCE; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real PRODUCT_CLEARANCE"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_RESIDUAL_CHANGE": {
+        "revision": 1,
+        "value": null,
+        "unit": "kg",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real RESIDUAL_CHANGE; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real RESIDUAL_CHANGE"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_RHO_LOAD": {
+        "revision": 1,
+        "value": null,
+        "unit": "kg/m^3",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real RHO_LOAD; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real RHO_LOAD"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_ROD_ALLOWABLE_STRESS": {
+        "revision": 1,
+        "value": null,
+        "unit": "Pa",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real ROD_ALLOWABLE_STRESS; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real ROD_ALLOWABLE_STRESS"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_ROD_END_FIXITY": {
+        "revision": 1,
+        "value": null,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real ROD_END_FIXITY; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real ROD_END_FIXITY"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_SIGMA_LAW": {
+        "revision": 1,
+        "value": null,
+        "unit": "Pa",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real SIGMA_LAW; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real SIGMA_LAW"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_STOP_OPEN_LIMIT": {
+        "revision": 1,
+        "value": null,
+        "unit": "N",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real STOP_OPEN_LIMIT; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real STOP_OPEN_LIMIT"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_REAL_STOP_RESIDUAL": {
+        "revision": 1,
+        "value": null,
+        "unit": "N",
+        "lifecycle": "RAW",
+        "scope": "REV_R3_UNKNOWN_REAL_INPUT",
+        "meaning": "UNKNOWN real STOP_RESIDUAL; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Реальные исходные данные отсутствуют; требуется измерение/согласование",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "UNKNOWN real STOP_RESIDUAL"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "R3_RHO_HALF_A_IN_RHO": {
+        "revision": 1,
+        "value": 100.0,
+        "unit": "kg/m^3",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if RHO_HALF_A rho; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if RHO_HALF_A rho"
+        },
+        "depends_on": []
+      },
+      "R3_TIME_HALF_A_IN_T_APPROACH": {
+        "revision": 1,
+        "value": 0.5,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if TIME_HALF_A t_approach; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if TIME_HALF_A t_approach"
+        },
+        "depends_on": []
+      },
+      "R3_TIME_HALF_A_IN_T_EJECT": {
+        "revision": 1,
+        "value": 0.5,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if TIME_HALF_A t_eject; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if TIME_HALF_A t_eject"
+        },
+        "depends_on": []
+      },
+      "R3_TIME_HALF_A_IN_T_RETURN": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if TIME_HALF_A t_return; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if TIME_HALF_A t_return"
+        },
+        "depends_on": []
+      },
+      "R3_TIME_HALF_A_IN_T_WORK": {
+        "revision": 1,
+        "value": 1.0,
+        "unit": "s",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_R3_WHAT_IF_ONLY",
+        "meaning": "isolated chosen what-if TIME_HALF_A t_work; реальные свойства/реалистичность не подтверждены",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "USER_AUTHORIZED_WHAT_IF",
+          "source_ref": "verification/r3_parametric_sizing/input_audit.md",
+          "locator": "isolated chosen what-if TIME_HALF_A t_work"
+        },
+        "depends_on": []
+      }
+    }
+  },
+  "scoped_r2_registry": {
+    "path": "baselines/operator-fork-20261118/r2/params/registry.yaml",
+    "git_blob_sha256": "b2920a4e315f748ea2d19172c6d64a4a89c0c46a3e51deccc39d4419c61cf3bb",
+    "units_policy": "SI",
+    "counts": {
+      "RAW": 41,
+      "ASSUMED": 5,
+      "CALCULATED": 9,
+      "total": 55
+    },
+    "domain_counts": {
+      "brochure_boundary": 27,
+      "process_medium": 6,
+      "kinematics_and_drive": 13,
+      "aero_thermo_fluid": 0,
+      "geometry_mass": 9,
+      "strength_safety_factors": 0
+    },
+    "scope_counts": {
+      "BP500_CONDITIONAL_ARITHMETIC_ONLY": 6,
+      "BP500_REFERENCE_ONLY": 23,
+      "PRODECO_REFERENCE_ONLY": 2,
+      "REV_CONDITIONAL_ARITHMETIC_ONLY": 3,
+      "REV_REQUIRED_INPUT": 14,
+      "REV_RESEARCH_SCENARIO_ONLY": 5,
+      "WEIMA_REFERENCE_ONLY": 2
+    },
+    "unit_counts": {
+      "1": 11,
+      "1/s": 1,
+      "N": 2,
+      "Pa": 5,
+      "W": 4,
+      "kg": 2,
+      "kg/m^2": 1,
+      "kg/m^3": 2,
+      "kg/s": 2,
+      "m": 15,
+      "m^2": 2,
+      "m^3": 4,
+      "m^3/s": 1,
+      "s": 3
+    },
+    "unknown_count": 19,
+    "null_tolerance_and_uncertainty_count": 55,
+    "null_tolerance_and_uncertainty_reason": "В источнике отсутствует численная оценка допуска/неопределённости.",
+    "provenance_sources": {
+      "scripts/bp500_basis.py": {
+        "path_at_source_main": "baselines/operator-fork-20261118/r2/scripts/bp500_basis.py",
+        "git_blob_sha256": "2e902658e17ffa25bc0963cc9ffa073f503d88df62b535b33f07b245fcdb22c3"
+      },
+      "sources/raw/Target_object_BP500.pdf": {
+        "path_at_source_main": "sources/raw/Target_object_BP500.pdf",
+        "git_blob_sha256": "edb9c4354e497432e66fd91dfb11766fc860628ad1e57a61a3f94384da22cbac"
+      },
+      "sources/raw/additional_Prodeco_E55.pdf": {
+        "path_at_source_main": "sources/raw/additional_Prodeco_E55.pdf",
+        "git_blob_sha256": "7e14db19f964c666d2c2e6c0c293b3bfefff2696246c4aa16747e8f43cf3ed5e"
+      },
+      "sources/raw/additional_Weima200.pdf": {
+        "path_at_source_main": "sources/raw/additional_Weima200.pdf",
+        "git_blob_sha256": "0e382e1e355a031176d577cf57b0612bfc7e2893c7a2008b7da48c592469127e"
+      },
+      "verification/r2_bp500_design_basis/design_basis.md": {
+        "path_at_source_main": "baselines/operator-fork-20261118/r2/verification/r2_bp500_design_basis/design_basis.md.source.txt",
+        "git_blob_sha256": "fcf3627b5512c66860769222784a9198dfa5ad1590089405cf0a7563e4c2c87d"
+      }
+    },
+    "parameters": {
+      "BP500_D_AREA": {
+        "revision": 1,
+        "value": 0.009,
+        "unit": "m^2",
+        "lifecycle": "CALCULATED",
+        "scope": "BP500_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "reference width * height; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "BP500_D_AREA"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_WIDTH",
+            "revision": 1
+          },
+          {
+            "id": "REF_BP500_HEIGHT",
+            "revision": 1
+          }
+        ]
+      },
+      "BP500_D_IDEAL_FLOW": {
+        "revision": 1,
+        "value": 0.001,
+        "unit": "m^3/s",
+        "lifecycle": "CALCULATED",
+        "scope": "BP500_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "ideal power/pressure at simultaneous conditions; NOT actual pump flow; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "BP500_D_IDEAL_FLOW"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_MAIN_POWER",
+            "revision": 1
+          },
+          {
+            "id": "REF_BP500_OIL_MAX",
+            "revision": 1
+          }
+        ]
+      },
+      "BP500_D_INTERVAL": {
+        "revision": 1,
+        "value": 6.0,
+        "unit": "s",
+        "lifecycle": "CALCULATED",
+        "scope": "BP500_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "inverse advertised product rate; NOT a cylinder cycle time; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "BP500_D_INTERVAL"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_RATE",
+            "revision": 1
+          }
+        ]
+      },
+      "BP500_D_MASS_RATE": {
+        "revision": 1,
+        "value": 0.1383333333333333,
+        "unit": "kg/s",
+        "lifecycle": "CALCULATED",
+        "scope": "BP500_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "stated product rate * stated product mass, same advertised condition assumed; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "BP500_D_MASS_RATE"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_RATE",
+            "revision": 1
+          },
+          {
+            "id": "REF_BP500_MASS",
+            "revision": 1
+          }
+        ]
+      },
+      "BP500_D_VOL_MAX": {
+        "revision": 1,
+        "value": 0.00099,
+        "unit": "m^3",
+        "lifecycle": "CALCULATED",
+        "scope": "BP500_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "reference area * maximum product length; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "BP500_D_VOL_MAX"
+        },
+        "depends_on": [
+          {
+            "id": "BP500_D_AREA",
+            "revision": 1
+          },
+          {
+            "id": "REF_BP500_LENGTH_MAX",
+            "revision": 1
+          }
+        ]
+      },
+      "BP500_D_VOL_MIN": {
+        "revision": 1,
+        "value": 0.00035999999999999997,
+        "unit": "m^3",
+        "lifecycle": "CALCULATED",
+        "scope": "BP500_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "reference area * minimum product length; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "BP500_D_VOL_MIN"
+        },
+        "depends_on": [
+          {
+            "id": "BP500_D_AREA",
+            "revision": 1
+          },
+          {
+            "id": "REF_BP500_LENGTH_MIN",
+            "revision": 1
+          }
+        ]
+      },
+      "REF_BP500_BORE": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Чертёж и внутренние размеры цилиндра в буклете отсутствуют.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Чертёж и внутренние размеры цилиндра в буклете отсутствуют.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF pp.1–5"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REF_BP500_COOLING_POWER": {
+        "revision": 1,
+        "value": 1500.0,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_CYCLE": {
+        "revision": 1,
+        "value": null,
+        "unit": "s",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Не раскрыты число изделий/цикл, фазовый состав и совмещение фаз.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Не раскрыты число изделий/цикл, фазовый состав и совмещение фаз.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF pp.1–5"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REF_BP500_CYLINDER_COUNT": {
+        "revision": 1,
+        "value": 3,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_FORCE": {
+        "revision": 1,
+        "value": null,
+        "unit": "N",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Прямое усилие не раскрыто в имеющемся буклете, условный пересчёт не является раскрытым усилием.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Прямое усилие не раскрыто в имеющемся буклете, условный пересчёт не является раскрытым усилием.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF pp.1–5"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REF_BP500_HEIGHT": {
+        "revision": 1,
+        "value": 0.06,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_HOPPER_VOLUME": {
+        "revision": 1,
+        "value": 0.127,
+        "unit": "m^3",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_HUMIDITY_MAX": {
+        "revision": 1,
+        "value": 0.14,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_HUMIDITY_MIN": {
+        "revision": 1,
+        "value": 0.06,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_INFEED_POWER": {
+        "revision": 1,
+        "value": 2600.0,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_LENGTH_MAX": {
+        "revision": 1,
+        "value": 0.11,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_LENGTH_MIN": {
+        "revision": 1,
+        "value": 0.04,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_MAIN_POWER": {
+        "revision": 1,
+        "value": 30000.0,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_MASS": {
+        "revision": 1,
+        "value": 0.83,
+        "unit": "kg",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_OIL_MAX": {
+        "revision": 1,
+        "value": 30000000.0,
+        "unit": "Pa",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_PRESSURE_LABEL": {
+        "revision": 1,
+        "value": 17000000.0,
+        "unit": "kg/m^2",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_PUMP_COUNT": {
+        "revision": 1,
+        "value": 2,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_RATE": {
+        "revision": 1,
+        "value": 0.16666666666666666,
+        "unit": "1/s",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_ROD": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Не раскрыт.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Не раскрыт.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF pp.1–5"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REF_BP500_STROKE": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Рабочий, возвратный и выдающий участки хода не раскрыты; длина продукта не равна ходу.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Рабочий, возвратный и выдающий участки хода не раскрыты; длина продукта не равна ходу.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF pp.1–5"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REF_BP500_TOTAL_POWER": {
+        "revision": 1,
+        "value": 34200.0,
+        "unit": "W",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_VOLUME_RATIO": {
+        "revision": 1,
+        "value": 7.0,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.2"
+        },
+        "depends_on": []
+      },
+      "REF_BP500_WIDTH": {
+        "revision": 1,
+        "value": 0.15,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "BP500_REFERENCE_ONLY",
+        "meaning": "Заявление буклета; условия/неопределённость не раскрыты; не параметр REV. Для humidity база неизвестна; для PRESSURE_LABEL физический смысл и kgf-интерпретация не подтверждены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": []
+      },
+      "REF_PRODECO_HUMIDITY_MAX": {
+        "revision": 1,
+        "value": 0.14,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "PRODECO_REFERENCE_ONLY",
+        "meaning": "Древесное сырьё; база влажности и перенос на строительную смесь REV не установлены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/additional_Prodeco_E55.pdf",
+          "locator": "PDF p.14"
+        },
+        "depends_on": []
+      },
+      "REF_PRODECO_HUMIDITY_MIN": {
+        "revision": 1,
+        "value": 0.08,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "PRODECO_REFERENCE_ONLY",
+        "meaning": "Древесное сырьё; база влажности и перенос на строительную смесь REV не установлены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/additional_Prodeco_E55.pdf",
+          "locator": "PDF p.14"
+        },
+        "depends_on": []
+      },
+      "REF_WEIMA_HUMIDITY_MAX": {
+        "revision": 1,
+        "value": 0.2,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "WEIMA_REFERENCE_ONLY",
+        "meaning": "Древесное сырьё; база влажности и перенос на строительную смесь REV не установлены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/additional_Weima200.pdf",
+          "locator": "PDF p.7"
+        },
+        "depends_on": []
+      },
+      "REF_WEIMA_HUMIDITY_MIN": {
+        "revision": 1,
+        "value": 0.08,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "WEIMA_REFERENCE_ONLY",
+        "meaning": "Древесное сырьё; база влажности и перенос на строительную смесь REV не установлены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "REFERENCE_DOCUMENT",
+          "source_ref": "sources/raw/additional_Weima200.pdf",
+          "locator": "PDF p.7"
+        },
+        "depends_on": []
+      },
+      "REV_ASSUMED_HEIGHT": {
+        "revision": 1,
+        "value": 0.06,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_RESEARCH_SCENARIO_ONLY",
+        "meaning": "ASSUMED для первичного геометрического сценария по BP500; не размер камеры, не допуск и не утверждённое требование.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "RESEARCH_ASSUMPTION",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_HEIGHT",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_ASSUMED_LENGTH": {
+        "revision": 1,
+        "value": 0.11,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_RESEARCH_SCENARIO_ONLY",
+        "meaning": "ASSUMED для первичного геометрического сценария по BP500; не размер камеры, не допуск и не утверждённое требование.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "RESEARCH_ASSUMPTION",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_LENGTH_MAX",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_ASSUMED_OIL_PRESSURE": {
+        "revision": 1,
+        "value": 30000000.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_RESEARCH_SCENARIO_ONLY",
+        "meaning": "ASSUMED единичная расчётная точка по максимуму BP500; не рабочая уставка, не допустимое давление оборудования и не известный перепад REV.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "RESEARCH_ASSUMPTION",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.3"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_OIL_MAX",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_ASSUMED_SIGMA": {
+        "revision": 1,
+        "value": 166713050.0,
+        "unit": "Pa",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_RESEARCH_SCENARIO_ONLY",
+        "meaning": "Только если kg/cm² означает kgf/cm² и среднее нормальное воздействие на всё предполагаемое сечение. Не подтверждённая модель сопротивления древесины, не давление масла, не рабочий диапазон REV.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "RESEARCH_ASSUMPTION",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4, ambiguous Main compaction"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_PRESSURE_LABEL",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_ASSUMED_WIDTH": {
+        "revision": 1,
+        "value": 0.15,
+        "unit": "m",
+        "lifecycle": "ASSUMED",
+        "scope": "REV_RESEARCH_SCENARIO_ONLY",
+        "meaning": "ASSUMED для первичного геометрического сценария по BP500; не размер камеры, не допуск и не утверждённое требование.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "RESEARCH_ASSUMPTION",
+          "source_ref": "sources/raw/Target_object_BP500.pdf",
+          "locator": "PDF p.4"
+        },
+        "depends_on": [
+          {
+            "id": "REF_BP500_WIDTH",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_BULK_DENSITY": {
+        "revision": 1,
+        "value": null,
+        "unit": "kg/m^3",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Нет значения для заданной процедуры заполнения и кондиции партии.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Нет значения для заданной процедуры заполнения и кондиции партии.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_CHAMBER_VOLUME": {
+        "revision": 1,
+        "value": null,
+        "unit": "m^3",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Нет массы дозы, насыпной/предуплотнённой плотности и коэффициента заполнения.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Нет массы дозы, насыпной/предуплотнённой плотности и коэффициента заполнения.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_CYCLE_TIME": {
+        "revision": 1,
+        "value": null,
+        "unit": "s",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Целевая производительность, единица результата и фазы не определены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Целевая производительность, единица результата и фазы не определены.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_DOSE": {
+        "revision": 1,
+        "value": null,
+        "unit": "kg",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Не доказано соответствие дозы изделию; остаток/потери и подготовка неизвестны.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Не доказано соответствие дозы изделию; остаток/потери и подготовка неизвестны.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_D_FACE_AREA": {
+        "revision": 1,
+        "value": 0.009,
+        "unit": "m^2",
+        "lifecycle": "CALCULATED",
+        "scope": "REV_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "scenario rectangular projected face; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "REV_D_FACE_AREA"
+        },
+        "depends_on": [
+          {
+            "id": "REV_ASSUMED_WIDTH",
+            "revision": 1
+          },
+          {
+            "id": "REV_ASSUMED_HEIGHT",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_D_FACE_FORCE": {
+        "revision": 1,
+        "value": 1500417.45,
+        "unit": "N",
+        "lifecycle": "CALCULATED",
+        "scope": "REV_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "uniform scenario face stress * area; NOT measured force; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "REV_D_FACE_FORCE"
+        },
+        "depends_on": [
+          {
+            "id": "REV_ASSUMED_SIGMA",
+            "revision": 1
+          },
+          {
+            "id": "REV_D_FACE_AREA",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_D_IDEAL_BORE": {
+        "revision": 1,
+        "value": 0.25234835914866405,
+        "unit": "m",
+        "lifecycle": "CALCULATED",
+        "scope": "REV_CONDITIONAL_ARITHMETIC_ONLY",
+        "meaning": "ideal full bore, rod-side pressure zero, no friction/inertia/margin; гипотезы и ограничения см. design_basis.md",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": null,
+        "provenance": {
+          "kind": "CONDITIONAL_DERIVATION",
+          "source_ref": "scripts/bp500_basis.py",
+          "locator": "REV_D_IDEAL_BORE"
+        },
+        "depends_on": [
+          {
+            "id": "REV_D_FACE_FORCE",
+            "revision": 1
+          },
+          {
+            "id": "REV_ASSUMED_OIL_PRESSURE",
+            "revision": 1
+          }
+        ]
+      },
+      "REV_EFFICIENCY": {
+        "revision": 1,
+        "value": null,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Не выбраны компоненты и режимы; нельзя считать идеальный КПД свойством установки.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Не выбраны компоненты и режимы; нельзя считать идеальный КПД свойством установки.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_EJECT_STROKE": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Вариант A/B и границы отделения/выхода не приняты.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Вариант A/B и границы отделения/выхода не приняты.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_LOAD_LAW": {
+        "revision": 1,
+        "value": null,
+        "unit": "Pa",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Кривая сопротивления, контакт, трение и восстановление не установлены; сценарная sigma не заменяет закон.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Кривая сопротивления, контакт, трение и восстановление не установлены; сценарная sigma не заменяет закон.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_MOISTURE": {
+        "revision": 1,
+        "value": null,
+        "unit": "1",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "База влажности референсов и состояние строительной партии после буфера не установлены.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "База влажности референсов и состояние строительной партии после буфера не установлены.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_PARTICLE_MAX": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Численное распределение/форма и допустимая крупность в BP500 не раскрыты, нет данных REV.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Численное распределение/форма и допустимая крупность в BP500 не раскрыты, нет данных REV.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_PRODUCT_DENSITY": {
+        "revision": 1,
+        "value": null,
+        "unit": "kg/m^3",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Масса BP500 не привязана к конкретной длине, условия состояния продукта не раскрыты.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Масса BP500 не привязана к конкретной длине, условия состояния продукта не раскрыты.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_ROD_DIAMETER": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Не определены устойчивость, длина, крепления и нагрузки.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Не определены устойчивость, длина, крепления и нагрузки.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_ROD_PRESSURE": {
+        "revision": 1,
+        "value": null,
+        "unit": "Pa",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Нет схемы и динамического режима.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Нет схемы и динамического режима.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_TARGET_RATE": {
+        "revision": 1,
+        "value": null,
+        "unit": "kg/s",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Буклетный максимум не утверждён как требование и не привязан к кондиции REV.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Буклетный максимум не утверждён как требование и не привязан к кондиции REV.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      },
+      "REV_WORK_STROKE": {
+        "revision": 1,
+        "value": null,
+        "unit": "m",
+        "lifecycle": "RAW",
+        "scope": "REV_REQUIRED_INPUT",
+        "meaning": "Нет начальной геометрии заполнения и конечных состояний.",
+        "tolerance": null,
+        "uncertainty": null,
+        "unknown_reason": "Нет начальной геометрии заполнения и конечных состояний.",
+        "provenance": {
+          "kind": "MISSING_INPUT",
+          "source_ref": "verification/r2_bp500_design_basis/design_basis.md",
+          "locator": "Минимальные входы"
+        },
+        "depends_on": [],
+        "status": "UNKNOWN"
+      }
+    }
+  },
+  "physical_states": {
+    "source": "cae/cases/T-R3-42-STATES-01/case_audit.json",
+    "conditional_status_source": "params/T-R3-42-STATES-01-status.json",
+    "physical_status_counts": {
+      "BLOCKED_INPUTS": 42
+    },
+    "cases": {
+      "S42-001": {
+        "variant": "A-V1",
+        "phase": "startup_empty",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Начальная реакция при отсутствии сформированного столба, давление и ускорение при запуске.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A startup/partial/refill: сначала источник реакции и сохранение/удержание материала; нельзя предположить существующий столб.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-002": {
+        "variant": "A-V1",
+        "phase": "gather_partial",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Профиль поджатия, фактическая масса порции и удержание при частичном ходе.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A startup/partial/refill: сначала источник реакции и сохранение/удержание материала; нельзя предположить существующий столб.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-003": {
+        "variant": "A-V1",
+        "phase": "approach",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузка по траектории до первого контакта, момент контакта, трение и ускорение.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-004": {
+        "variant": "A-V1",
+        "phase": "work_peak",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фактический профиль и точка приложения рабочей нагрузки, реакция и удержание материала A.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-005": {
+        "variant": "A-V1",
+        "phase": "hold_unload",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточная сила и пружинение во времени, порядок разгрузки и удержание.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A hold/unload/retention: фазовые контакты/нагрузки/пружинение UNKNOWN; порядок ослабления зажима не задан.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-006": {
+        "variant": "A-V1",
+        "phase": "eject",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service",
+          "A-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Сопротивление выдаче, фактическое перемещение до приёмника и сопротивление остатков.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-007": {
+        "variant": "A-V1",
+        "phase": "return_full",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service",
+          "A-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фазовое сопротивление возврату, удержание столба и передача растяжения по захваченной цепи.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-008": {
+        "variant": "A-V1",
+        "phase": "refill",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service",
+          "A-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Масса и свойства новой порции, реакция и сохранение остатков при повторном заполнении.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A startup/partial/refill: сначала источник реакции и сохранение/удержание материала; нельзя предположить существующий столб.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-009": {
+        "variant": "A-V1",
+        "phase": "ready",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service",
+          "A-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточные нагрузки и условия удержания при текущем состоянии материала, приёмника и ресурсов.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "READY не следует из позы оси/таймера: текущие material/receiver/geometry/resource и сохранённые отказы; physical READY NO-GO.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-010": {
+        "variant": "A-V1",
+        "phase": "jam_emergency",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V1/datum_motion",
+          "A-V1/cylinder_frame",
+          "A-V1/rod_grip",
+          "A-V1/grip_transfer",
+          "A-V1/transfer_carrier",
+          "A-V1/carrier_punch",
+          "A-V1/carrier_guides",
+          "A-V1/guides_frame",
+          "A-V1/material_reaction",
+          "A-V1/reaction_frame",
+          "A-V1/sections_stability",
+          "A-V1/envelopes_service",
+          "A-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки при заклинивании и торможении, остаточное усилие и условия безопасного удержания.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Заедание/авария: свои контакты, торможение, удержание/остаточные нагрузки и адресное восстановление; source peak не аварийный спектр.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-011": {
+        "variant": "A-V2",
+        "phase": "startup_empty",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Начальная реакция при отсутствии сформированного столба, давление и ускорение при запуске.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A startup/partial/refill: сначала источник реакции и сохранение/удержание материала; нельзя предположить существующий столб.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-012": {
+        "variant": "A-V2",
+        "phase": "gather_partial",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Профиль поджатия, фактическая масса порции и удержание при частичном ходе.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A startup/partial/refill: сначала источник реакции и сохранение/удержание материала; нельзя предположить существующий столб.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-013": {
+        "variant": "A-V2",
+        "phase": "approach",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузка по траектории до первого контакта, момент контакта, трение и ускорение.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-014": {
+        "variant": "A-V2",
+        "phase": "work_peak",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фактический профиль и точка приложения рабочей нагрузки, реакция и удержание материала A.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-015": {
+        "variant": "A-V2",
+        "phase": "hold_unload",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточная сила и пружинение во времени, порядок разгрузки и удержание.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A hold/unload/retention: фазовые контакты/нагрузки/пружинение UNKNOWN; порядок ослабления зажима не задан.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-016": {
+        "variant": "A-V2",
+        "phase": "eject",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service",
+          "A-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Сопротивление выдаче, фактическое перемещение до приёмника и сопротивление остатков.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-017": {
+        "variant": "A-V2",
+        "phase": "return_full",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service",
+          "A-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фазовое сопротивление возврату, удержание столба и передача растяжения по захваченной цепи.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-018": {
+        "variant": "A-V2",
+        "phase": "refill",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service",
+          "A-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Масса и свойства новой порции, реакция и сохранение остатков при повторном заполнении.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "A startup/partial/refill: сначала источник реакции и сохранение/удержание материала; нельзя предположить существующий столб.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-019": {
+        "variant": "A-V2",
+        "phase": "ready",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service",
+          "A-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточные нагрузки и условия удержания при текущем состоянии материала, приёмника и ресурсов.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "READY не следует из позы оси/таймера: текущие material/receiver/geometry/resource и сохранённые отказы; physical READY NO-GO.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-020": {
+        "variant": "A-V2",
+        "phase": "jam_emergency",
+        "scenario": "BASE_A",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "A-V2/datum_motion",
+          "A-V2/cylinder_frame",
+          "A-V2/rod_grip",
+          "A-V2/grip_transfer",
+          "A-V2/transfer_carrier",
+          "A-V2/carrier_punch",
+          "A-V2/carrier_guides",
+          "A-V2/guides_frame",
+          "A-V2/material_reaction",
+          "A-V2/reaction_frame",
+          "A-V2/sections_stability",
+          "A-V2/envelopes_service",
+          "A-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки при заклинивании и торможении, остаточное усилие и условия безопасного удержания.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Заедание/авария: свои контакты, торможение, удержание/остаточные нагрузки и адресное восстановление; source peak не аварийный спектр.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-021": {
+        "variant": "B-V1",
+        "phase": "gather_partial",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Профиль поджатия, фактическая масса порции и удержание при частичном ходе.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B gather: закрытый упор/замок и сохранение partial inventory; частичный возврат не полный исходный stroke.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-022": {
+        "variant": "B-V1",
+        "phase": "approach",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузка по траектории до первого контакта, момент контакта, трение и ускорение.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-023": {
+        "variant": "B-V1",
+        "phase": "work_peak_closed",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фактический рабочий профиль, контакт закрытого упора и распределение нагрузки по замку B.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-024": {
+        "variant": "B-V1",
+        "phase": "hold_unload",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточная сила и пружинение во времени, порядок разгрузки и удержание.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B unload → unlock → open: остаточная нагрузка и разгрузка/контакт/удержание отдельно UNKNOWN; низкое давление/положение не разрешение.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-025": {
+        "variant": "B-V1",
+        "phase": "unlock",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточная сила на замке, его нагрузка по траектории и условия удержания.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B unload → unlock → open: остаточная нагрузка и разгрузка/контакт/удержание отдельно UNKNOWN; низкое давление/положение не разрешение.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-026": {
+        "variant": "B-V1",
+        "phase": "stop_open",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки движущегося упора, раскрытие контакта и остаточное удержание.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B unload → unlock → open: остаточная нагрузка и разгрузка/контакт/удержание отдельно UNKNOWN; низкое давление/положение не разрешение.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-027": {
+        "variant": "B-V1",
+        "phase": "eject_open",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service",
+          "B-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Сопротивление выдаче с открытым упором, фактическое перемещение и приём остатков.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-028": {
+        "variant": "B-V1",
+        "phase": "return_full_open",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service",
+          "B-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фазовое сопротивление возврату при открытом упоре, контакты удержания и передача растяжения.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-029": {
+        "variant": "B-V1",
+        "phase": "close_relock_reset",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service",
+          "B-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки на закрывающийся упор и замок, подтверждение освобождения траекторий и сброса.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B close/relock/reset: приём/остатки, collision, механическое замыкание и отдельное свидетельство RESET_CURRENT; команда reset не результат.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-030": {
+        "variant": "B-V1",
+        "phase": "ready",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service",
+          "B-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточные нагрузки и условия удержания при текущем состоянии материала, приёмника и ресурсов.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "READY не следует из позы оси/таймера: текущие material/receiver/geometry/resource и сохранённые отказы; physical READY NO-GO.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-031": {
+        "variant": "B-V1",
+        "phase": "jam_emergency",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V1/datum_motion",
+          "B-V1/cylinder_frame",
+          "B-V1/rod_grip",
+          "B-V1/grip_transfer",
+          "B-V1/transfer_carrier",
+          "B-V1/carrier_punch",
+          "B-V1/carrier_guides",
+          "B-V1/guides_frame",
+          "B-V1/material_reaction",
+          "B-V1/reaction_frame",
+          "B-V1/sections_stability",
+          "B-V1/envelopes_service",
+          "B-V1/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки при заклинивании и торможении, остаточное усилие и условия безопасного удержания.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Заедание/авария: свои контакты, торможение, удержание/остаточные нагрузки и адресное восстановление; source peak не аварийный спектр.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-032": {
+        "variant": "B-V2",
+        "phase": "gather_partial",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Профиль поджатия, фактическая масса порции и удержание при частичном ходе.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B gather: закрытый упор/замок и сохранение partial inventory; частичный возврат не полный исходный stroke.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-033": {
+        "variant": "B-V2",
+        "phase": "approach",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузка по траектории до первого контакта, момент контакта, трение и ускорение.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-034": {
+        "variant": "B-V2",
+        "phase": "work_peak_closed",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фактический рабочий профиль, контакт закрытого упора и распределение нагрузки по замку B.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Подход/рабочая фаза: собственные F(q,t), активные контакты и L_free(q)/e(q) во всех внутренних позах; source WORK_PEAK лишь именованный тест спроса.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-035": {
+        "variant": "B-V2",
+        "phase": "hold_unload",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточная сила и пружинение во времени, порядок разгрузки и удержание.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B unload → unlock → open: остаточная нагрузка и разгрузка/контакт/удержание отдельно UNKNOWN; низкое давление/положение не разрешение.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-036": {
+        "variant": "B-V2",
+        "phase": "unlock",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточная сила на замке, его нагрузка по траектории и условия удержания.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B unload → unlock → open: остаточная нагрузка и разгрузка/контакт/удержание отдельно UNKNOWN; низкое давление/положение не разрешение.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-037": {
+        "variant": "B-V2",
+        "phase": "stop_open",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки движущегося упора, раскрытие контакта и остаточное удержание.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B unload → unlock → open: остаточная нагрузка и разгрузка/контакт/удержание отдельно UNKNOWN; низкое давление/положение не разрешение.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-038": {
+        "variant": "B-V2",
+        "phase": "eject_open",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service",
+          "B-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Сопротивление выдаче с открытым упором, фактическое перемещение и приём остатков.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-039": {
+        "variant": "B-V2",
+        "phase": "return_full_open",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service",
+          "B-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Фазовое сопротивление возврату при открытом упоре, контакты удержания и передача растяжения.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Выдача/возврат: контакт/сопротивление/удержание, приёмник/остатки и двусторонняя цепь отдельно; возврат не рабочая реакция с обратным знаком.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-040": {
+        "variant": "B-V2",
+        "phase": "close_relock_reset",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service",
+          "B-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки на закрывающийся упор и замок, подтверждение освобождения траекторий и сброса.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "B close/relock/reset: приём/остатки, collision, механическое замыкание и отдельное свидетельство RESET_CURRENT; команда reset не результат.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-041": {
+        "variant": "B-V2",
+        "phase": "ready",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service",
+          "B-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Остаточные нагрузки и условия удержания при текущем состоянии материала, приёмника и ресурсов.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "READY не следует из позы оси/таймера: текущие material/receiver/geometry/resource и сохранённые отказы; physical READY NO-GO.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      },
+      "S42-042": {
+        "variant": "B-V2",
+        "phase": "jam_emergency",
+        "scenario": "BASE_B",
+        "mode": "fixed-budget",
+        "units": {
+          "force": "N",
+          "moment": "N*m",
+          "length": "m",
+          "time": "s"
+        },
+        "source_frame": "O на задней плоскости камеры и оси пуансона, +x к выходу, +y к стороне цилиндра V2, +z вверх.",
+        "sign": "F_x положительна по +x, моменты по правилу правой руки, внутренний N положителен при растяжении.",
+        "pose_domain": "Full source travel and interior poses; L_free(q)/e(q)/contacts UNKNOWN",
+        "interface_ids": [
+          "B-V2/datum_motion",
+          "B-V2/cylinder_frame",
+          "B-V2/rod_grip",
+          "B-V2/grip_transfer",
+          "B-V2/transfer_carrier",
+          "B-V2/carrier_punch",
+          "B-V2/carrier_guides",
+          "B-V2/guides_frame",
+          "B-V2/material_reaction",
+          "B-V2/reaction_frame",
+          "B-V2/sections_stability",
+          "B-V2/envelopes_service",
+          "B-V2/receiver_cycle"
+        ],
+        "physical_input_status": "BLOCKED_INPUTS",
+        "physical_execution": "NOT_RUN",
+        "conditional_screening_status": "CALCULATED_ASSUMED",
+        "phase_load": {
+          "status": "UNKNOWN",
+          "value": null,
+          "missing_input": "Нагрузки при заклинивании и торможении, остаточное усилие и условия безопасного удержания.",
+          "required": "F(q,t), место приложения и оси, включая поперечные и переходные нагрузки."
+        },
+        "boundary_conditions": {
+          "status": "UNKNOWN",
+          "value": null,
+          "phase_requirement": "Заедание/авария: свои контакты, торможение, удержание/остаточные нагрузки и адресное восстановление; source peak не аварийный спектр.",
+          "missing_inputs": [
+            "фазовые F(q,t) и приложения",
+            "активные контактные стороны/опоры",
+            "e_y/e_z(q), L_free_rod/carrier(q), частичные и промежуточные позы",
+            "масса/ускорение/трение/остаточная нагрузка/ресурсы"
+          ]
+        }
+      }
+    }
+  }
+}

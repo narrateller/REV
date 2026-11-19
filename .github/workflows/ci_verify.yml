@@ -26,6 +26,9 @@ jobs:
         run: python verify_output.py --check-git
       - name: Check committed evidence without regeneration
         run: python scripts/check_registry.py --check-git
+      - name: Verify R2 input audit and BP500 site reference
+        if: hashFiles('coordination/tasks/T-R2-INPUTS-01/output_manifest.json') != ''
+        run: python coordination/tasks/T-R2-INPUTS-01/verify_output.py --check-git
       - name: Replay R3 load envelope
         if: hashFiles('cae/cases/T-R3-42-STATES-ENVELOPE-01/manifest.json') != ''
         run: python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git
