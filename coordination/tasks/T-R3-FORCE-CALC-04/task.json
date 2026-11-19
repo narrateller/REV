@@ -1,0 +1,76 @@
+{
+  "task_id": "T-R3-FORCE-CALC-04",
+  "role": "R3",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "W02_1P5MN_FORCE_PATH_ITERATION_03",
+  "path": "coordination/tasks/T-R3-FORCE-CALC-04/task.json",
+  "requires_fresh_claim_and_input_audit": true,
+  "title": "Пересчитать 42 состояния и §§4/5/6 W02 в итерации 03",
+  "depends_on": [
+    "T-R4-REDESIGN-1.5MN-02",
+    "T-R3-FORCE-CALC-03"
+  ],
+  "source_main_sha": "456757f28632b848db5f731ea3f6c66a54e69d88",
+  "r4_result_commit_sha": "a79ec08daba0d440553d9ac5e0378253aa4c4e4f",
+  "geometry_manifest": "cad/source/force_geometry/redesign_1p5mn_02/manifest.json",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f5da-00a2-7651-a8e4-4071c437d81c",
+      "model_label": "gpt-6.2-sol",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "inputs": {
+    "coordination/completions/T-R4-REDESIGN-1.5MN-02/completion.json": "f13c158182c03ea1199f24a5092afc95de8f8b3e9c1cb7dc6a1490dfb70c69c7",
+    "coordination/completions/T-R4-REDESIGN-1.5MN-02/claim_release.json": "a17c3108e345ae3fc24f1b0b6d63bdfc29de80092f32b411b8268cd14a97f6dc",
+    "coordination/tasks/T-R4-REDESIGN-1.5MN-02/output_manifest.json": "ab6d04777222071bc3e83455308fb2c4ef604c9a21f2d5354af66bcfe5690597",
+    "cad/source/force_geometry/redesign_1p5mn_02/manifest.json": "52088cebe746b6f26a16ed06eda86a24215aadd5dfe226d878e32428f649acbc",
+    "cad/source/force_geometry/redesign_1p5mn_02/screening.json": "865f806fa0e2c7fb89fa6e98c2ac27811ab87d2396d80e3dd7634695bc4946b5",
+    "cad/force_geometry/redesign_1p5mn_02/interfaces.json": "5fb8df4c30451a63182d5bd43a3929ef2ef1964e7437b2a5c70ab811b56d145d",
+    "params/r4_b_receiver_02.json": "9475af29b47459c84e83212c12557e7666cf6bebee8f67421589021c1480019f",
+    "cad/source/force_geometry/redesign_1p5mn/manifest.json": "d2c32f2ccb05ce68f90064efafc7d3f48ef7dd407c9a08ebc90c3df9e30d2b4e",
+    "cad/force_geometry/redesign_1p5mn/design.json": "666fd9c0bcf6917357b85d52306eb0d82d8e48afb7f0c826db746d90609cfe0b",
+    "cad/force_geometry/redesign_1p5mn/interfaces.json": "f8226ac28f1fde8513a9ee343e203dc2f5a17ab7900c821e9ae692240aec25c2",
+    "baselines/operator-fork-20261118/state_catalog_index.json": "4eefc5fb0cdc797717535cac3c4338bdc7d7154d9d99588a724f7c0b94110426",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json": "6be05b48a2bffef99ffefa46a9ae3b1af5df548f1812d9bab7ad544330c02382",
+    "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json": "ddaa4d376a679537a210756ad52e96f96a6ac537d6d2e99ab4d79fbee2bd466d",
+    "drives/cots_catalog.yaml": "4210a972eb8b1901fe167ab93a733aabeb94660c68f6819808ab6e54ec1f0f85",
+    "coordination/completions/T-R3-FORCE-CALC-02/completion.json": "0d93ab6947305a3388a8f7366827db4cde6f5d823650de915306bf2fabc70574",
+    "coordination/tasks/T-R3-FORCE-CALC-03/task.json": "68b2501bd5ca55a63346a94595a7e7ea706db86896afabd4b197abe6863eeccf",
+    "coordination/completions/T-R3-FORCE-CALC-03/completion.json": "cbb894676474e2c9f63991bf579b096e8cbecfe8934f9abe1b0c68db31028b39",
+    "cae/cases/T-R3-FORCE-CALC-03/engineering_failure_note.md": "9de1ee03c17ccd28eb66e6ca24c174e894b31c83ec67025bcb60bc9fb68963c0"
+  },
+  "prior_iteration_result": {
+    "engineering_status": "FAILED",
+    "scope": "CALCULATED_ASSUMED",
+    "failure_note": "cae/cases/T-R3-FORCE-CALC-03/engineering_failure_note.md",
+    "guide_clearance": "В A-V2 и B-V2 при противоположных давлениях 315 бар остаток зазора с шарнирными опорами составляет −2,141874 мм. Результат чувствителен к жёсткости опор.",
+    "single_branch_reversal": "Для полного реверса расчётное давление в кольцевой полости доходит до 503,524 бар в A и 493,814 бар в B.",
+    "b_key_contact": "Минимальный условный запас ключей и опор B при 315 бар составил 1,880852."
+  },
+  "acceptance_thresholds": {
+    "nominal_cylinder_pressure_max_bar": 315,
+    "maximum_cylinder_pressure_bar": 350,
+    "out_of_stroke_points_max": 0,
+    "rod_strength_factor_min": 1.5,
+    "traverse_strength_factor_min": 1.5,
+    "compression_over_euler_exclusive_max": 0.5,
+    "b_receiver_key_contact_pressure_bar": 315,
+    "b_receiver_key_contact_factor_min": 1.5,
+    "residual_guide_clearance_exclusive_min_mm": 0
+  },
+  "acceptance": [
+    "После свежего claim проверить хэши, граничные условия и применимость ревизии 02 к B-V1/B-V2. Для A-V1/A-V2 использовать указанную R4 базовую геометрию.",
+    "Пересчитать все 42 исходных ID и §§4/5/6. По каждому ID записать статус, нагрузки, реакции, баланс, прочность и устойчивость.",
+    "Проверить давления в полостях цилиндров в рабочих и аварийных сценариях, включая реверс одной ветвью. Для номинального режима предел 315 бар. Для максимума действует предел 350 бар с учётом применимого рейтинга цилиндра и условий режима.",
+    "Подтвердить 0 точек вне хода, запасы штока и траверсы не менее 1,5 и compression_over_euler строго меньше 0,5.",
+    "Подтвердить контактный запас ключей упора камеры B не менее 1,5 при 315 бар в B-V1/B-V2. Проверить пути нагрузок через седло и ключи.",
+    "Подтвердить положительный остаточный зазор при рассогласовании ветвей, включая предельные сочетания и реверс одной ветвью. Проверить чувствительность к жёсткости опор и обосновать диапазон рассогласования по гидравлическому контуру.",
+    "Для отсутствующих определяющих входов записать UNKNOWN с null и причиной, а для затронутых результатов сохранить BLOCKED_INPUTS либо явно условную расчётную область с зарегистрированными предпосылками. Изменения требований, геометрии или обязательных сценариев требуют обновления задачи.",
+    "Передать воспроизводимый пакет с хэшами, командами, результатами по каждому критерию и точным SHA для независимой проверки R5."
+  ],
+  "physical_status_until_inputs_confirmed": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}

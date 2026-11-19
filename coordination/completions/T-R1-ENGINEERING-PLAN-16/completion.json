@@ -1,0 +1,64 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-16",
+  "role": "R1",
+  "status": "COMPLETED",
+  "scope": "ADMINISTRATIVE_DISPATCH",
+  "completed_at_utc": "2026-11-19T22:09:42Z",
+  "source_main_sha": "456757f28632b848db5f731ea3f6c66a54e69d88",
+  "claim_main_sha": "f0053177fc33d7946c959822c7946d5ecde004ad",
+  "CODEX_SESSION_ID": "01a1f5da-00a2-7651-a8e4-4071c437d81c",
+  "model_label": "gpt-6.2-sol",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f5da-00a2-7651-a8e4-4071c437d81c",
+      "model_label": "gpt-6.2-sol",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "input_manifest": "coordination/tasks/T-R1-ENGINEERING-PLAN-16/task.json",
+  "input_sha256": {
+    "coordination/task_index.json": "2d014b4804a906b1e49eba5c23bc88ab441c2ae52c3cb2409cb142f667c54e88",
+    "coordination/tasks/T-R1-ENGINEERING-PLAN-16/task.json": "1e4e658041b5339f232a6af2af3fa2a896e452eaea5f36fb65d8862544ca8b16",
+    "coordination/completions/T-R3-FORCE-CALC-03/completion.json": "cbb894676474e2c9f63991bf579b096e8cbecfe8934f9abe1b0c68db31028b39",
+    "cae/cases/T-R3-FORCE-CALC-03/engineering_failure_note.md": "9de1ee03c17ccd28eb66e6ca24c174e894b31c83ec67025bcb60bc9fb68963c0",
+    "coordination/completions/T-R4-REDESIGN-1.5MN-02/completion.json": "f13c158182c03ea1199f24a5092afc95de8f8b3e9c1cb7dc6a1490dfb70c69c7",
+    "coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-01/task.json": "47f448a8c8ce23592bf886c903bda8da33dbb8955d7b8809271f0be439b24480"
+  },
+  "output_sha256": {
+    "coordination/tasks/T-R3-FORCE-CALC-04/task.json": "b320524516e38da4423bca7682c21c2fa28b0f2506a8aa8a3992411f9e563e53",
+    "coordination/task_index.json": "9469121ca958ac32c8cde4b1aa66fdd890876ddb256035524bbd682a614a8656",
+    "ISSUES_AND_TASKS.md": "5340d8242f5f92b6d0d3ce83931c86e7c14afd5408400bd14d6a33d23e32874a"
+  },
+  "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-16/claim_release.json",
+  "next_dispatch": [
+    {
+      "task_id": "T-R3-FORCE-CALC-04",
+      "role": "R3",
+      "status": "READY",
+      "priority": "P0",
+      "scope": "W02_1P5MN_FORCE_PATH_ITERATION_03",
+      "path": "coordination/tasks/T-R3-FORCE-CALC-04/task.json",
+      "requires_fresh_claim_and_input_audit": true
+    }
+  ],
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_sections_4_5_6": "NOT_RUN",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION",
+  "local_checks": [
+    {
+      "command": "python scripts/check_registry.py --check-git",
+      "result": "PASS"
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "result": "PASS",
+      "tests": 104
+    },
+    {
+      "command": "python verify_output.py --check-git",
+      "result": "PASS",
+      "scope": "OPERATOR_ROTATION_AND_BASELINE_INTEGRITY_ONLY"
+    }
+  ]
+}
