@@ -1,18 +1,18 @@
 schema_version: '1.1'
 project_id: REV
-task_id: T-R4-REDESIGN-1.5MN-01
+task_id: T-R4-REDESIGN-1.5MN-03
 selection_basis:
-  scoped_design: cad/force_geometry/redesign_1p5mn/design.json
-  calculated_screening: cad/source/force_geometry/redesign_1p5mn/screening.json
+  scoped_design: params/r4_w02_iteration_04.json
+  calculated_screening: cad/source/force_geometry/redesign_1p5mn_04/screening.json
   nominal_force_N: 1500000
   envelope_peak_in_either_direction_N: 1532417.45
   design_envelope_supply_bar: [250, 315]
   architecture: Two equal, double-acting differential cylinders in parallel
-  per_cylinder_bore_mm: 250
-  per_cylinder_rod_mm: 140
-  cylinder_stroke_mm: 700
-  paired_effective_areas_mm2: {cap: 98174.77042468103, annulus: 67387.16241950105}
-  cylinder_center_distance_mm: 660
+  per_cylinder_bore_mm: 320
+  per_cylinder_rod_mm: 160
+  cylinder_stroke_mm: 740
+  paired_effective_areas_mm2: {cap: 160849.54386379741, annulus: 120637.15789784805}
+  cylinder_center_distance_mm: 840
   guided_carriage_station_distance_mm: 600
   design_status: CALCULATED_ASSUMED
 
@@ -28,22 +28,22 @@ components:
       published_series_nominal_bar: 350
       applicability: Family reference; obtain quote and certified drawings for each required size, eye, and mounting configuration.
     quantity: 2
-    bore_diameter: 250 mm
-    rod_diameter: 140 mm
-    stroke: 700 mm
+    bore_diameter: 320 mm
+    rod_diameter: 160 mm
+    stroke: 740 mm
     max_pressure: 315 bar
     max_pressure_scope: System design limit at both ports, including transients and pressure intensification.
     requested_vendor_nominal_pressure_bar: 350
-    volumes_L_per_cylinder_full_stroke: {cap: 34.36116964863836, annulus: 23.58550684682537}
-    per_cylinder_areas_mm2: {cap: 49087.385212340516, rod: 15393.804002589986, annulus: 33693.581209750526}
+    volumes_L_per_cylinder_full_stroke: {cap: 59.51433122960504, annulus: 44.63574842220378}
+    per_cylinder_areas_mm2: {cap: 80424.77193189871, rod: 20106.192982974677, annulus: 60318.57894892403}
     mounting: Base eye and rod eye in frame-mounted double-shear clevises, both pins on Z.
     mounting_target_mm:
-      retracted_pin_centers: 1110
-      extended_pin_centers: 1810
-      pin_diameter: 150
-      eye_width: 140
-      clevis_inner_width: 144
-      barrel_od_envelope: 360
+      retracted_pin_centers: 1160
+      extended_pin_centers: 1900
+      pin_diameter: 195
+      eye_width: 160
+      clevis_inner_width: 164
+      barrel_od_envelope: 435
     pressure_and_loss_targets:
       supply_line_drop_max_bar: 5
       opposing_port_max_bar: 5
@@ -89,8 +89,8 @@ components:
   linear_guides:
     category: GUIDANCE
     type: Four fitted box ways with two moving guide stations
-    guide_beam_section_mm: [425, 450]
-    guide_beam_length_mm: 3280
+    guide_beam_section_mm: [520, 700]
+    guide_beam_length_mm: 3505
     quantity: 4
     position: CALCULATED_ASSUMED
     status: CANDIDATE
@@ -102,7 +102,7 @@ components:
   guide_pads:
     category: BEARING
     type: Replaceable bronze/steel lined pads, fitted seat
-    dimensions_mm: [155, 245, 25]
+    dimensions_mm: [225, 340, 25]
     quantity: 8
     required_contact_limit_MPa: 90
     sliding_friction_coefficient_max: 0.045
@@ -115,10 +115,10 @@ components:
 
   load_path_connections:
     category: FASTENER
-    axial_frame_ties: Four square 180 mm ties, M160-equivalent captive end studs with minimum 140 mm root.
-    cylindrical_clevis_pins: Four pins, diameter 150 mm, double shear.
-    guide_beam_ends: Four fitted diameter 60 mm dowels per beam end, 100 mm nominal engagement on both sides.
-    punch_retention: Four nominal M64 collar ties with minimum 55 mm root and 80 mm thread engagement.
+    axial_frame_ties: Four square 220 mm ties, nominal 190 mm captive end studs with minimum 165 mm root.
+    cylindrical_clevis_pins: Four pins, diameter 195 mm, double shear.
+    guide_beam_ends: Four fitted diameter 85 mm dowels per beam end, 125 mm nominal engagement on both sides.
+    punch_retention: Four nominal diameter 85 mm collar ties with minimum 75 mm root and 170 mm thread engagement.
     pad_location: Four fitted retainers per pad with minimum 30 mm root.
     position: CALCULATED_ASSUMED
     status: CANDIDATE
@@ -130,7 +130,7 @@ components:
   structural_steel_frame:
     category: STRUCTURAL
     material: Section-specific minimum yield properties in the W02 scoped design.
-    forms: 280 mm end heads and moving primary crosshead, four 180 mm square ties, continuous machined guide beams.
+    forms: 340 mm end heads and moving primary crosshead, four 220 mm square ties, continuous machined guide beams.
     position: CALCULATED_ASSUMED
     status: CANDIDATE
     r4_status: SPECIFIED
