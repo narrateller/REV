@@ -1,0 +1,28 @@
+{
+  "dataset_id": "R3-W02-1P5MN-SCREENING",
+  "revision": 1,
+  "task_id": "T-R3-FORCE-CALC-02",
+  "scope": "CALCULATED_ASSUMED",
+  "design_basis": "REV_DESIGN_BASIS r1 / ARB-OPERATOR-DESIGN-BASIS-02",
+  "boundary_conditions": {
+    "lifecycle": "ASSUMED",
+    "drive": "Equal quasi-static branch force in normal operation. Single branch and opposed ports are sensitivities. Axial clevis forces, no separate lateral or rotational clevis stiffness credited.",
+    "guides": "Rigid carriage in the Y/Z planes, no roll. Compression-only pads at both stations, with R4 gap and 50 kN downward load per station. Sliding friction acts at the pad face. Guide beams have the R4 gross section, laterally immovable ends and pin-pin or fixed-fixed rotational end conditions. Head, pad and arm flexibility are not credited in the clearance screen.",
+    "frame": "Model the four ties as equal-stiffness axial connections. Resolve balanced residual head resultants using the symmetric bolt-group formula; rail end radial loads, end couples, and rail axial drag are explicit. Split rail axial drag between ends in proportion to opposite span under equal axial restraint.",
+    "receiver": "Test seat-only and keys-only restraining surfaces independently. Rigid gate with an affine compression-only pressure field on equal-stiffness rectangular supports. Compare peak nominal pressure to the R4 parent-material yield screen; local Hertz, edge and assembly tolerance effects remain open.",
+    "tooling": "Punch/body centered within the native chamber gap before guide displacement. Predict first interference from rigid-carriage motion and gross beam compliance. No redistribution through chamber contact is claimed after closure of this gap.",
+    "load_coverage": "Use every q and axial path of DB-ENVELOPE-V1, with R4 eccentricity magnitudes on a three-by-three grid. In test of a released path keep the applied load as a net residual. For a stationary held case, compare incipient sliding friction to zero sliding friction. Cover each R4 pressure-port bound at mechanical and in-service end poses, including the B closed-state limit.",
+    "cycle_comparison": "40 L/min only as the earlier R3 comparison point, 30 kW and 6 s only as R2 design-basis references. No HPU capacity is assumed. Displacement, constant-force mechanical work and supply hydraulic work are scenarios, with no claim of phase timing or throughput."
+  },
+  "comparison_values": {
+    "reference_flow_L_min": 40,
+    "balance_force_tolerance_N": 0.00001,
+    "balance_moment_tolerance_Nmm": 0.01,
+    "nonlinear_force_tolerance_N": 0.00000001
+  },
+  "physical_values": {
+    "lifecycle": "UNKNOWN",
+    "value": null,
+    "reason": "Supplier ratings and effective section, validated material loads and retention, manufacturing tolerances, local contact stiffnesses, cylinder synchronization and circuit, foundation, and verified material/joint properties are unavailable."
+  }
+}
