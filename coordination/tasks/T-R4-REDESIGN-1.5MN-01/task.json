@@ -1,21 +1,32 @@
 {
   "task_id": "T-R4-REDESIGN-1.5MN-01",
   "role": "R4",
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "priority": "P0",
   "scope": "REDESIGN_FORCE_GEOMETRY_1.5MN",
   "title": "Перепроектировать силовую геометрию W02 под 1,5 МН",
   "operator_pre_authorized": true,
   "requires_fresh_claim_and_input_audit": true,
-  "input_audit_status": "PENDING_R4",
-  "owner_session": "01a1f2be-e326-79c3-9586-83500cdb09ea",
-  "lease_expires_at": "2026-11-20T07:42:54Z",
-  "claim": "coordination/claims/T-R4-REDESIGN-1.5MN-01.json",
-  "source_main_sha": "82b994682749ccf79f0a1d9d5949bb1a6f0a2ef9",
+  "input_audit_status": "PASS_FOR_CALCULATED_ASSUMED",
+  "input_audit": "coordination/tasks/T-R4-REDESIGN-1.5MN-01/input_audit.md",
+  "claim_main_sha": "3b9ef2ece6904c4fa86ae59477640869362c34f0",
+  "claim": "coordination/completions/T-R4-REDESIGN-1.5MN-01/claim.json",
+  "source_main_sha": "dc717639816bf16cf2ecf1c7c9a9bc5bfd2f50ce",
   "author_sessions": [
     {
       "role": "R1",
       "CODEX_SESSION_ID": "01a1f2be-e326-79c3-9586-83500cdb09ea",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "runtime_identity": {
+        "session": "CODEX_SESSION_ID and Codex session_meta.id",
+        "model": "Codex turn_context.model"
+      }
+    },
+    {
+      "role": "R4",
+      "CODEX_SESSION_ID": "01a1f2e1-ac96-7e41-8b89-ec739207cb5a",
       "model_label": "gpt-6.2-sol",
       "runtime_model_provider": "openai",
       "codex_cli_version": "0.169.0",
@@ -128,6 +139,13 @@
   },
   "design_targets": {
     "nominal_press_force_N": 1500000,
+    "maximum_abs_envelope_force_N": 1532417.45,
+    "approved_candidates": [
+      "single 320/160",
+      "paired cylinders"
+    ],
+    "selected_arrangement": "2 x 250/140, symmetric, each with 700 mm stroke",
+    "minimum_stroke_mm": 700,
     "cylinder_bore_mm": {
       "min": 250,
       "max": 280
@@ -148,14 +166,15 @@
   },
   "outputs": {
     "force_geometry": {
-      "directory": "cad/source/force_geometry/",
+      "directory": "cad/source/force_geometry/redesign_1p5mn/",
       "description": "Редактируемая силовая геометрия W02 с усиленными траверсой, рамой и направляющими. Зафиксировать силовые ветви, опоры, крепления, интерфейсы, монтажные зазоры и полный ход."
     },
     "cots_catalog": {
       "path": "drives/cots_catalog.yaml",
-      "description": "Кандидат COTS Ø250–280 мм со штоком Ø140–160 мм. Указать исполнение, обе активные площади, допустимые давления, ход, крепления и происхождение данных."
+      "description": "Два цилиндра Ø250/140 × 700 мм. Указать обе активные площади, давление, потери, целевые крепления и подтверждаемость данных поставщиком."
     },
-    "verification_evidence": "Пакет по критериям с манифестом входов и выходов, хэшами, командами и verify_output.py либо точной эквивалентной командой."
+    "drawing_basis": "drawings/W02/redesign_1p5mn/README.md",
+    "verification_evidence": "coordination/tasks/T-R4-REDESIGN-1.5MN-01/output_manifest.json"
   },
   "acceptance_criteria": {
     "max_operating_pressure_bar": {
@@ -183,5 +202,7 @@
   ],
   "physical_input_status": "BLOCKED_INPUTS",
   "physical_execution": "NOT_RUN",
-  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION",
+  "completion_record": "coordination/completions/T-R4-REDESIGN-1.5MN-01/completion.json",
+  "claim_release": "coordination/completions/T-R4-REDESIGN-1.5MN-01/claim_release.json"
 }

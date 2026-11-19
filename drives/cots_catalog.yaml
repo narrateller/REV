@@ -1,186 +1,72 @@
-# COTS Catalog for REV Briquetting Press
-# Selected components based on 1.5 MN force envelope and FreeCAD 1.1.4 geometry
-
 schema_version: '1.1'
 project_id: REV
-task_id: T-R4-FORCE-GEOMETRY-01
+task_id: T-R4-REDESIGN-1.5MN-01
 selection_basis:
-  force_envelope: 1.5 MN
-  cylinder_bore: 80 mm
-  rod_diameter: 45 mm
-  stroke: 400 mm
-  guide_spacing: 200 mm
-  guide_diameter: 25 mm
+  scoped_design: cad/force_geometry/redesign_1p5mn/design.json
+  calculated_screening: cad/source/force_geometry/redesign_1p5mn/screening.json
+  nominal_force_N: 1500000
+  envelope_peak_in_either_direction_N: 1532417.45
+  design_envelope_supply_bar: [250, 315]
+  architecture: Two equal, double-acting differential cylinders in parallel
+  per_cylinder_bore_mm: 250
+  per_cylinder_rod_mm: 140
+  cylinder_stroke_mm: 700
+  paired_effective_areas_mm2: {cap: 98174.77042468103, annulus: 67387.16241950105}
+  cylinder_center_distance_mm: 660
+  guided_carriage_station_distance_mm: 600
+  design_status: CALCULATED_ASSUMED
 
 components:
   hydraulic_cylinder:
     category: ACTUATOR
-    manufacturer: Bosch Rexroth / Parker Hannifin / Hydac
-    series: CDT3 / 2H / HSG series
-    bore_diameter: 80 mm
-    rod_diameter: 45 mm
-    stroke: 400 mm
-    max_pressure: 250 bar
-    mounting: Rear flange + front trunnion
+    manufacturer: null
+    model: null
+    sourcing_lead:
+      manufacturer: Bosch Rexroth
+      series: CDH3
+      source: https://www.boschrexroth.com/es/es/p/cilindro-hidraulico-r900999031/
+      published_series_nominal_bar: 350
+      applicability: Family reference; obtain quote and certified drawings for each required size, eye, and mounting configuration.
+    quantity: 2
+    bore_diameter: 250 mm
+    rod_diameter: 140 mm
+    stroke: 700 mm
+    max_pressure: 315 bar
+    max_pressure_scope: System design limit at both ports, including transients and pressure intensification.
+    requested_vendor_nominal_pressure_bar: 350
+    volumes_L_per_cylinder_full_stroke: {cap: 34.36116964863836, annulus: 23.58550684682537}
+    per_cylinder_areas_mm2: {cap: 49087.385212340516, rod: 15393.804002589986, annulus: 33693.581209750526}
+    mounting: Base eye and rod eye in frame-mounted double-shear clevises, both pins on Z.
+    mounting_target_mm:
+      retracted_pin_centers: 1110
+      extended_pin_centers: 1810
+      pin_diameter: 150
+      eye_width: 140
+      clevis_inner_width: 144
+      barrel_od_envelope: 360
+    pressure_and_loss_targets:
+      supply_line_drop_max_bar: 5
+      opposing_port_max_bar: 5
+      cylinder_loss_fraction_max: 0.02
+      guide_sliding_coefficient_max: 0.045
     position: CALCULATED_ASSUMED
     status: CANDIDATE
-    r4_status: SELECTED_CANDIDATE
+    r4_status: REQUIREMENT_DEFINED
     owner_role: R3
     interface_parameters: {}
     rating_parameters: {}
-    
+    unresolved_items:
+      - Exact model, available bore/rod combination, closed length, mounting dimensions, supplier buckling and eye fatigue ratings.
+      - Port positions, end-stop and cushioning limits, rod finish, fluid compatibility and actual friction.
+      - Pressure/flow-time curves, dual-cylinder force sharing and synchronization, branch isolation and port relief.
+
   hydraulic_power_unit:
     category: POWER_SUPPLY
-    flow_rate: 20-40 L/min
-    max_pressure: 250 bar
-    motor_power: 15-22 kW
-    tank_capacity: 50-100 L
-    voltage: 380V 3-phase 50Hz
-    position: ASSUMED
-    status: CANDIDATE
-    r4_status: REQUIREMENT_DEFINED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  linear_guides:
-    category: GUIDANCE
-    manufacturer: THK / HIWIN / Bosch Rexroth
-    type: Round rail guides
-    diameter: 25 mm
-    length: 400 mm
-    material: C45 hardened steel
-    quantity: 2
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SELECTED_CANDIDATE
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  mounting_bolts_frame:
-    category: FASTENER
-    standard: ISO 4014 / DIN 931
-    grade: 10.9
-    size: M20
-    material: Alloy steel
-    quantity: 16
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SPECIFIED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  mounting_bolts_chamber:
-    category: FASTENER
-    standard: ISO 4014 / DIN 931
-    grade: 8.8
-    size: M16
-    material: Carbon steel
-    quantity: 8
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SPECIFIED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  mounting_bolts_guides:
-    category: FASTENER
-    standard: ISO 4014 / DIN 931
-    grade: 8.8
-    size: M12
-    material: Carbon steel
-    quantity: 8
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SPECIFIED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  structural_steel_frame:
-    category: STRUCTURAL
-    material: S355J2
-    standard: EN 10025-2
-    forms: Columns 100x80mm RHS, Beams 120mm height
-    surface_treatment: Shot blasted, primed
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SPECIFIED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  punch_plate:
-    category: WEAR_COMPONENT
-    material: 42CrMo4
-    standard: EN 10083-1
-    hardness: 35-40 HRC
-    dimensions: 150x60x40 mm
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SPECIFIED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  chamber_liner:
-    category: WEAR_COMPONENT
-    material: Hardox 450
-    hardness: 450 HBW
-    thickness: 10-15 mm
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SPECIFIED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  guide_bushings:
-    category: BEARING
-    type: Linear ball bushings
-    inner_diameter: 25 mm
-    outer_diameter: 40 mm
-    length: 60-80 mm
-    material: Hardened steel
-    quantity: 4
-    position: CALCULATED_ASSUMED
-    status: CANDIDATE
-    r4_status: SELECTED_CANDIDATE
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  pressure_relief_valve:
-    category: SAFETY
-    max_pressure: 250 bar
-    flow_capacity: 40 L/min
-    position: ASSUMED
-    status: CANDIDATE
-    r4_status: REQUIREMENT_DEFINED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  limit_switches:
-    category: CONTROL
-    type: Industrial limit switches
-    rating: IP65 minimum
-    quantity: 4
-    position: ASSUMED
-    status: CANDIDATE
-    r4_status: REQUIREMENT_DEFINED
-    owner_role: R3
-    interface_parameters: {}
-    rating_parameters: {}
-    
-  emergency_stop_button:
-    category: SAFETY
-    standard: ISO 13850
-    type: Mushroom head, latching
-    quantity: 2
+    max_pressure: 315 bar operating system limit
+    flow_rate: null
+    motor_power: null
+    tank_capacity: null
+    reason: Throughput, cycle profile and power calculation must use two-cylinder volumes and the revised die.
     position: ASSUMED
     status: CANDIDATE
     r4_status: REQUIREMENT_DEFINED
@@ -188,26 +74,117 @@ components:
     interface_parameters: {}
     rating_parameters: {}
 
-welding:
-  standard: ISO 5817-B
-  materials:
-    S355J2: MAG welding, filler AWS ER70S-6
-    Hardox_450: Special procedure, low hydrogen consumables
-    
-tolerances:
-  cylinder_mounting: H7/js6
-  guide_alignment: 0.02 mm per 100 mm
-  chamber_bore: H8
-  punch_fit: H7/g6
-  
+  pressure_relief_valve:
+    category: SAFETY
+    system_port_limit_bar: 315
+    flow_capacity: null
+    reason: Include opening tolerance, relieving flow, transients and trapped-pressure relief when selecting both port protection paths.
+    position: ASSUMED
+    status: CANDIDATE
+    r4_status: REQUIREMENT_DEFINED
+    owner_role: R3
+    interface_parameters: {}
+    rating_parameters: {}
+
+  linear_guides:
+    category: GUIDANCE
+    type: Four fitted box ways with two moving guide stations
+    guide_beam_section_mm: [425, 450]
+    guide_beam_length_mm: 3280
+    quantity: 4
+    position: CALCULATED_ASSUMED
+    status: CANDIDATE
+    r4_status: SPECIFIED
+    owner_role: R4
+    interface_parameters: {}
+    rating_parameters: {}
+
+  guide_pads:
+    category: BEARING
+    type: Replaceable bronze/steel lined pads, fitted seat
+    dimensions_mm: [155, 245, 25]
+    quantity: 8
+    required_contact_limit_MPa: 90
+    sliding_friction_coefficient_max: 0.045
+    position: ASSUMED
+    status: CANDIDATE
+    r4_status: REQUIREMENT_DEFINED
+    owner_role: R4
+    interface_parameters: {}
+    rating_parameters: {}
+
+  load_path_connections:
+    category: FASTENER
+    axial_frame_ties: Four square 180 mm ties, M160-equivalent captive end studs with minimum 140 mm root.
+    cylindrical_clevis_pins: Four pins, diameter 150 mm, double shear.
+    guide_beam_ends: Four fitted diameter 60 mm dowels per beam end, 100 mm nominal engagement on both sides.
+    punch_retention: Four nominal M64 collar ties with minimum 55 mm root and 80 mm thread engagement.
+    pad_location: Four fitted retainers per pad with minimum 30 mm root.
+    position: CALCULATED_ASSUMED
+    status: CANDIDATE
+    r4_status: SPECIFIED
+    owner_role: R4
+    interface_parameters: {}
+    rating_parameters: {}
+
+  structural_steel_frame:
+    category: STRUCTURAL
+    material: Section-specific minimum yield properties in the W02 scoped design.
+    forms: 280 mm end heads and moving primary crosshead, four 180 mm square ties, continuous machined guide beams.
+    position: CALCULATED_ASSUMED
+    status: CANDIDATE
+    r4_status: SPECIFIED
+    owner_role: R4
+    interface_parameters: {}
+    rating_parameters: {}
+
+  punch_plate:
+    category: WEAR_COMPONENT
+    material: 42CrMo4+QT or qualified equivalent, section properties subject to certification.
+    working_cross_section_mm: [300, 220]
+    target_product_transverse_section_mm: [150, 60]
+    position: CALCULATED_ASSUMED
+    status: CANDIDATE
+    r4_status: SPECIFIED
+    owner_role: R4
+    interface_parameters: {}
+    rating_parameters: {}
+
+  chamber_liner:
+    category: WEAR_COMPONENT
+    material: null
+    reason: Verify radial compaction pressure, wear pair, liner geometry and retention after forming calculation.
+    chamber_passage_mm: [304, 224]
+    position: ASSUMED
+    status: CANDIDATE
+    r4_status: REQUIREMENT_DEFINED
+    owner_role: R4
+    interface_parameters: {}
+    rating_parameters: {}
+
+  limit_switches:
+    category: CONTROL
+    type: Position sensing for both cylinders, plus gate and key states on family B.
+    quantity: null
+    position: ASSUMED
+    status: CANDIDATE
+    r4_status: REQUIREMENT_DEFINED
+    owner_role: R3
+    interface_parameters: {}
+    rating_parameters: {}
+
+  emergency_stop_button:
+    category: SAFETY
+    type: Mushroom head, latching
+    quantity: null
+    position: ASSUMED
+    status: CANDIDATE
+    r4_status: REQUIREMENT_DEFINED
+    owner_role: R3
+    interface_parameters: {}
+    rating_parameters: {}
+
 selection_notes:
-  - All components sized for 1.5 MN design envelope
-  - Cylinder bore 80mm from DB-HYD-BORE-IDEAL
-  - Guide spacing 200mm accommodates chamber width 150mm + clearance
-  - Actual supplier models TBD based on availability and cost
-  
-status_definitions:
-  SPECIFIED: Requirements defined, multiple suppliers available
-  SELECTED_CANDIDATE: Specific type/size selected, supplier TBD
-  REQUIREMENT_DEFINED: Functional requirements defined, detailed sizing pending
-  CALCULATED_ASSUMED: Based on design envelope, not physically verified
+  - Candidate records specify design targets. No exact supplier configuration has been accepted.
+  - Single 320/160 mm reaches the peak reverse demand from 275.89 bar with the same assumed losses.
+  - The rejected 80/45 mm cylinder remains documented in the pinned R3 result.

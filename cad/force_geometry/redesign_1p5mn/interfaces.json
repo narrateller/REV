@@ -1,0 +1,76 @@
+{
+  "design_id": "W02-R4-1P5MN",
+  "revision": 1,
+  "status": "CALCULATED_ASSUMED",
+  "units": {"length": "mm", "force": "N", "moment": "N mm", "pressure": "bar"},
+  "design_registry": "cad/force_geometry/redesign_1p5mn/design.json",
+  "source_envelope": "cae/cases/design_boundary_phase_load_envelope/envelope.json",
+  "assets": "cad/source/force_geometry/redesign_1p5mn/manifest.json",
+  "layout": {
+    "V1": {"cylinder_axis_yz_mm": [[0, -330], [0, 330]]},
+    "V2": {"cylinder_axis_yz_mm": [[-330, 0], [330, 0]]},
+    "A": {"receiver": "Continuous guide sleeve and tapered die, captured fixture for negative axial load per source state."},
+    "B": {"receiver": "Closed gate may react on seat or lock keys. Lifted and keys dropped for open cases."}
+  },
+  "interface_index": {
+    "datum_motion": {
+      "objects": ["Design", "PistonRod1", "PistonRod2"],
+      "relation": "StrokePosition = 35 + 1000*q for q supplied in m. X translation is positive for advance. All geometry uses mm. Physical hard stops at stroke 0/700."
+    },
+    "cylinder_frame": {
+      "objects": ["RearFrameHead", "RearPin1", "RearPin2", "RearClevis1_1", "RearClevis1_2", "RearClevis2_1", "RearClevis2_2"],
+      "relation": "Fixed pin centers x=430. Each pin runs along Z in two bearing planes. Rear head receives a signed axial reaction."
+    },
+    "rod_grip": {
+      "objects": ["PistonRod1", "PistonRod2", "MovingPin1", "MovingPin2"],
+      "relation": "Moving pin centers x=1540+stroke. Double-shear pins carry tension and compression through captured eyes."
+    },
+    "grip_transfer": {
+      "objects": ["MovingClevis1_1", "MovingClevis1_2", "MovingClevis2_1", "MovingClevis2_2"],
+      "relation": "Two clevises located at variant cylinder axes. Use signed per-branch force and arm about Y or Z."
+    },
+    "transfer_carrier": {
+      "objects": ["MovingCrosshead"],
+      "relation": "Primary plate at x=1660..1940+stroke with 280 mm axial thickness and 850 mm effective strip width in the screening. Guide arms and front spider travel with it."
+    },
+    "carrier_punch": {
+      "objects": ["Punch", "PunchRearCollar", "PunchCollarTie1", "PunchCollarTie2", "PunchCollarTie3", "PunchCollarTie4"],
+      "relation": "Compression via front shoulder at x=1940+stroke. Tension via captured rear collar at x=1660+stroke and four ties. Punch face x=2680+stroke."
+    },
+    "carrier_guides": {
+      "objects": ["GuidePad1_1", "GuidePad1_2", "GuidePad2_1", "GuidePad2_2", "GuidePad3_1", "GuidePad3_2", "GuidePad4_1", "GuidePad4_2"],
+      "relation": "Opposed pads support ±Y and ±Z via compression at x=1745+stroke and x=2345+stroke. 0.5 mm radial gap at zero load. Evaluate nonlinear contact, gravity, side load and sliding friction."
+    },
+    "guides_frame": {
+      "objects": ["GuideBeam1", "GuideBeam2", "GuideBeam3", "GuideBeam4", "RearFrameHead", "ReactionFrameHead"],
+      "relation": "Guide face at coordinate ±650 on the relevant axis. Continuous beam supported by both heads x=280 and 3560 with fitted end dowels."
+    },
+    "material_reaction": {
+      "objects": ["Punch", "Chamber", "OutletDie"],
+      "relation": "Reapply source path restrictions, eccentricities y=−75/0/+75 and z=−30/0/+30 mm. Use new 300x220 mm punch with 304x224 chamber and taper to the 150x60 product. Material pressures and negative holding by the product remain unknown."
+    },
+    "reaction_frame": {
+      "objects": ["ReactionFrameHead", "TieBar1", "TieBar2", "TieBar3", "TieBar4", "ChamberSupport1", "ChamberSupport2"],
+      "relation": "Closed axial force loop through reaction head, four signed frame ties at y/z=±850, and rear head. External fixture attaches as specified by the case; ground/anchor stiffness remains open."
+    },
+    "sections_stability": {
+      "objects": ["PistonRod1", "PistonRod2", "MovingCrosshead", "Punch"],
+      "relation": "Use cylinder gland x=1400 and rod pin x=1540+stroke (maximum 840 mm). Frame ties span 3280 mm. Free punch length 740 mm. K and material minima are explicit in design/screening."
+    },
+    "envelopes_service": {
+      "objects": ["Design", "RearFrameHead", "ReactionFrameHead", "Chamber", "OutletDie"],
+      "relation": "Native hard and operating poses plus running clearances are in the assembly manifest. Rear extraction allowance is a design requirement pending full service study."
+    },
+    "receiver_cycle": {
+      "applies_to": ["B-V1", "B-V2"],
+      "objects": ["ReceiverGate", "ReceiverSeat1", "ReceiverSeat2", "GateGuide1", "GateGuide2", "ReceiverLock1", "ReceiverLock2", "LockBacking1", "LockBacking2"],
+      "relation": "Gate face x=3240 closed, stop back x=3450. Seat and two keys considered as separate full compression branches. Unload before either moves. Drop keys 400 mm, then raise gate 370 mm before eject. Keep closed only at stroke ≤501.388889 mm. Reverse retention in the source envelope remains external."
+    }
+  },
+  "known_changes_for_r3": [
+    "Read signed force split about the centerline and exceptional imbalance instead of the old single-cylinder arm.",
+    "Use actual FreeCAD mm geometry and native stroke placement. Reconstruct all guide contact locations and endpoint restraints before solving.",
+    "Retain source phase IDs and released combinations. Carry each B compression branch separately and preserve cases without an engaged external reaction as unbalanced.",
+    "Recompute flow, volume, powers, §4/5/6 assumptions, contacts and capacity. Separate static screening from physical states pending missing inputs."
+  ]
+}

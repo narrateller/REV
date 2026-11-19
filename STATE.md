@@ -35,7 +35,7 @@
 
 | Область | Сохранено | Что предстоит |
 | --- | --- | --- |
-| cad/ | Четыре редактируемые модели W02 пересобраны на FreeCAD 1.1.4. Исходники в `cad/source/force_geometry`, артефакты компоновки сохранены | Фактическая силовая геометрия и инженерная сборка |
+| cad/ | Четыре редактируемые сборки W02 под 1,5 МН на FreeCAD 1.1.4, исходники и база TechDraw | Реакции и контактный расчёт R3, подтверждение интерфейсов и рейтингов поставщиков |
 | params/ | 1144 записи: 1072 CALCULATED, 47 ASSUMED, 25 RAW/null; исходные 44 привязки, нагрузки и ходы | Проверить пригодность входов для инженерных расчётов; арифметические статусы не подтверждают прочность |
 | controls/ | press_variant_state_tables.md — функциональный DRAFT | Численные режимы, реализация управления и безопасных состояний |
 | cae/ | Аудит 42 случаев и сверка 52 интерфейсов R4 | Фактические нагрузки, реакции, прочность и устойчивость |
@@ -102,9 +102,12 @@ R4 завершил [T-R4-FINAL-DRAWINGS-01](coordination/completions/T-R4-FINAL
 R5 провёл [независимую верификацию](coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-01/completion.json) на коммите 994f0e9c: все критерии PASS (4 FCStd модели, 53 DXF, 53 SVG, 50 PDF, масштаб 1:1 мм, PistonRod во всех вариантах, ReceiverLock в B-V1/B-V2, BOM привязан к cots_catalog.yaml, CI зелёный).
 [Claim T-R4-FINAL-DRAWINGS-01 освобождён](coordination/completions/T-R4-FINAL-DRAWINGS-01/claim_release.json).
 
-[Инженерный отказ Ø80/45](coordination/completions/T-R3-FORCE-CALC-01/engineering_failure_note.md) зафиксирован в области
-`CALCULATED_ASSUMED`. В очереди P0 — [перепроектирование W02 под 1,5 МН](coordination/tasks/T-R4-REDESIGN-1.5MN-01/task.json).
-[Claim R4](coordination/claims/T-R4-REDESIGN-1.5MN-01.json) принят по поручению оператора. Входной аудит R4 ожидается.
+R4 завершил [перепроектирование W02 под 1,5 МН](coordination/completions/T-R4-REDESIGN-1.5MN-01/completion.json) в области `CALCULATED_ASSUMED`.
+Два Ø250/140 × 700 мм дают расчётные 2,295 МН выдвижения и 1,540 МН втягивания при 250 бар.
+[CAD и TechDraw](cad/source/force_geometry/redesign_1p5mn/manifest.json) пересобраны на FreeCAD 1.1.4 / OCCT 7.8.1.
+[Claim освобождён](coordination/completions/T-R4-REDESIGN-1.5MN-01/claim_release.json).
+Следующая задача — [R3 по 42 состояниям и §§4/5/6](coordination/tasks/T-R3-FORCE-CALC-02/task.json).
+Физические входы остаются `BLOCKED_INPUTS`, целевой этап выпуска КД использует новую геометрию.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
