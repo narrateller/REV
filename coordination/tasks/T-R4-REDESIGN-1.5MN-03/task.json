@@ -1,0 +1,62 @@
+{
+  "task_id": "T-R4-REDESIGN-1.5MN-03",
+  "role": "R4",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "REDESIGN_FORCE_GEOMETRY_1.5MN_ITERATION_03",
+  "path": "coordination/tasks/T-R4-REDESIGN-1.5MN-03/task.json",
+  "requires_fresh_claim_and_input_audit": true,
+  "title": "Перепроектировать силовую геометрию W02, итерация 03",
+  "operator_pre_authorized": true,
+  "source_main_sha": "ec62779825160a834bfaa75dc83b0923d44360ed",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f5ef-d12c-78c2-8de7-2867fc5ebd43",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "depends_on": [
+    "T-R3-FORCE-CALC-04"
+  ],
+  "basis": {
+    "engineering_status": "FAILED",
+    "r3_result_commit_sha": "b3784ae1ea3520b85573b911aac71b98d37a124c",
+    "engineering_failure_note": "cae/cases/T-R3-FORCE-CALC-04/engineering_failure_note.md"
+  },
+  "input_git_blob_sha256": {
+    "coordination/completions/T-R3-FORCE-CALC-04/completion.json": "f445cf0b7c086637a99a4c25a8e93cdc1092afcd2aad13626afc85fed128dc2c",
+    "cae/cases/T-R3-FORCE-CALC-04/engineering_failure_note.md": "9bfc954e6e512726f6e318a5a6731155904497ed3fd949d92cf98c8f631b4c6a",
+    "cae/cases/T-R3-FORCE-CALC-04/input_manifest.json": "dbd335dd2d3d9afa129458c45671e813d5f46898b566197c01ac607c1adefbda",
+    "cae/cases/T-R3-FORCE-CALC-04/output_manifest.json": "dd011376fb23aac00aaf831192215840768214073ae44f4bd26dc6f331792ab2",
+    "cae/cases/T-R3-FORCE-CALC-04/results/index.json": "c10babf1780055eb689e8da5a8edabcb64cfb4668d599beecd72619e007fbfc7"
+  },
+  "acceptance_criteria": {
+    "minimum_residual_clearance_mm": 0.5,
+    "maximum_single_branch_reverse_pressure_bar": 315,
+    "minimum_forward_force_mn": 1.5,
+    "maximum_forward_working_pressure_bar": 250,
+    "minimum_mechanical_stroke_mm": 700,
+    "stroke_envelope_mm": 636.4,
+    "reinforced_components": [
+      "Траверса",
+      "Рама",
+      "Направляющие",
+      "Соединения"
+    ]
+  },
+  "acceptance": [
+    "Принять свежий claim и провести аудит входов. Воспроизвести определяющие сочетания R3 с сопоставимыми граничными условиями.",
+    "Обеспечить остаточный зазор ≥ 0,5 мм при рассогласовании цилиндров, включая A-V2 и B-V2 с шарнирными опорами. Учесть допуски, деформации и диапазон рассогласования.",
+    "Подтвердить удержание и полный реверс одной ветвью при давлении ≤ 315 бар в определяющих случаях A и B. Указать давления в полости и на подаче.",
+    "Сохранить усилие прямого хода ≥ 1,5 МН при рабочем давлении на подаче ≤ 250 бар. Подтвердить механический ход ≥ 700 мм и размещение огибающей 636,4 мм с резервами.",
+    "Усилить траверсу, раму, направляющие и соединения. Обосновать несущую способность и сохранить ранее пройденные критерии R3, включая контакт ключей и опор B.",
+    "Поставить редактируемые сборки CAD W02, обновлённые интерфейсы, исходники, манифесты с SHA-256, команду воспроизведения и результаты по критериям. Передать точный коммит для повторного расчёта R3 и независимой проверки R5."
+  ],
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}
