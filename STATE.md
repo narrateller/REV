@@ -86,9 +86,12 @@ R5 записал [PASS](coordination/completions/T-R5-DRAWINGS-VERIFY-01/comple
 на `dcb8ff5`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
 Предшествующий [аудит источников W02](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json)
 сохраняет причины по 42 физическим состояниям. По решению оператора ожидание
-обмеров и проб снято для проектной работы. Следующая задача [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/task.json)
-имеет статус P0 / `READY`. После свежего claim и аудита R2 готовит входы для R4
-и R3 с границами применимости и списком остаточных пробелов.
+обмеров и проб снято для проектной работы. R2 завершил [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/README.md).
+Базис `REV_DESIGN_BASIS` r1 задаёт условные входы R3/R4, остаточные `UNKNOWN`
+и границы для потока A1. [Акт](coordination/completions/T-R2-DESIGN-BASIS-02/completion.json) ·
+[Освобождение claim](coordination/completions/T-R2-DESIGN-BASIS-02/claim_release.json).
+R4 задаёт геометрию стыков и допуски от пресса. R3 сверяет фазовые входы и
+совместимость усилия, хода и времени цикла с энергобюджетом.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
