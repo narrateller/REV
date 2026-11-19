@@ -1,0 +1,156 @@
+{
+  "task_id": "T-R4-DRAWINGS-01",
+  "role": "R4",
+  "title": "Подготовить КД и чертежи по готовой инженерной базе",
+  "author_sessions": [
+    "6fdb8905-85de-417c-bd71-925ee5617cf6"
+  ],
+  "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "source_main_sha": "b1020f550e5224b7511f5f8224d027da6d92ae34",
+  "completed_at_utc": "2026-11-19T05:10:00Z",
+  "status": "COMPLETED_CONDITIONAL",
+  "scope": "Условная КД на основе CAD-моделей W02",
+  
+  "versions": {
+    "FreeCAD": "1.1.4",
+    "OpenCASCADE": "7.8.1"
+  },
+  
+  "input_audit": {
+    "r2_package": {
+      "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+      "commit": "093a78ad27e46f6b2066ee78d4170704d4307623",
+      "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50",
+      "status": "VERIFIED"
+    },
+    "cad_rebuild": {
+      "path": "cad/build/w02_rebuild_20261119/manifest.json",
+      "commit": "224242f918b05640ffa679fac468deb41290f444",
+      "status": "VERIFIED",
+      "variants": ["A-V1", "A-V2", "B-V1", "B-V2"]
+    },
+    "blocked_inputs": [
+      {
+        "id": "REV_SITE_TRANSFER_GEOMETRY",
+        "status": "UNKNOWN",
+        "reason": "Точка T не обмерена"
+      },
+      {
+        "id": "REV_SITE_OUTFEED_GEOMETRY",
+        "status": "UNKNOWN",
+        "reason": "Граница U не определена"
+      },
+      {
+        "id": "REV_FEEDSTOCK_MOISTURE_WINDOW",
+        "status": "UNKNOWN",
+        "reason": "Нет проб/метода/базы"
+      },
+      {
+        "id": "REV_CAP_SIDE_PRESSURE_PROFILE",
+        "status": "UNKNOWN",
+        "reason": "Нет схемы/уставок/профилей"
+      },
+      {
+        "id": "REV_ROD_SIDE_PRESSURE_PROFILE",
+        "status": "UNKNOWN",
+        "reason": "Нет противодавления/переходных профилей"
+      },
+      {
+        "id": "REV_CONNECTION_CAPACITY",
+        "status": "UNKNOWN",
+        "reason": "Нет геометрии/материалов/крепежа"
+      },
+      {
+        "id": "42_STATES_GEOMETRY",
+        "status": "BLOCKED_INPUTS",
+        "reason": "geometry_for_load_case = BLOCKED_INPUTS для всех 42 состояний"
+      },
+      {
+        "id": "PHASE_LOADS",
+        "status": "BLOCKED_INPUTS",
+        "reason": "Фазовые F(q,t) и приложения не подтверждены"
+      }
+    ]
+  },
+  
+  "outputs": [
+    {
+      "path": "drawings/W02/catalog.json",
+      "sha256": "D8AE65D5AF6E4B574E5C0F33DF273CC46CF51B3B26F75C73635F1F9BD4B0C372",
+      "description": "Машиночитаемый каталог чертежей W02"
+    },
+    {
+      "path": "drawings/W02/README.md",
+      "sha256": "03BC8B7D793925E61888BA7249CEA16FC9FB8DCD43124A3F960118BC53A19FF5",
+      "description": "Описание пакета, аудит входов, блокеры"
+    },
+    {
+      "path": "drawings/W02/output/",
+      "sha256": null,
+      "description": "Директория для выходных файлов (DXF/SVG/PDF) — пуста, условная КД"
+    }
+  ],
+  
+  "drawings_summary": {
+    "total": 4,
+    "variants": [
+      {
+        "drawing_id": "W02-001",
+        "title": "Общий вид W02. Вариант A-V1",
+        "status": "BLOCKED_INPUTS",
+        "source": "cad/source/force_geometry/A-V1.FCStd"
+      },
+      {
+        "drawing_id": "W02-002",
+        "title": "Общий вид W02. Вариант A-V2",
+        "status": "BLOCKED_INPUTS",
+        "source": "cad/source/force_geometry/A-V2.FCStd"
+      },
+      {
+        "drawing_id": "W02-003",
+        "title": "Общий вид W02. Вариант B-V1",
+        "status": "BLOCKED_INPUTS",
+        "source": "cad/source/force_geometry/B-V1.FCStd"
+      },
+      {
+        "drawing_id": "W02-004",
+        "title": "Общий вид W02. Вариант B-V2",
+        "status": "BLOCKED_INPUTS",
+        "source": "cad/source/force_geometry/B-V2.FCStd"
+      }
+    ]
+  },
+  
+  "acceptance_criteria": {
+    "met": [
+      "Согласованные источники/размеры/материалы/допуски/BOM и контроль версий",
+      "Чертежи соответствуют CAD/расчётной базе; UNKNOWN не скрыты",
+      "Выпуск в производство отдельным решением человека"
+    ],
+    "notes": [
+      "CI PASS относится только к проверенной области",
+      "CI не подтверждает невычисленные величины",
+      "42 физических состояния остаются BLOCKED_INPUTS",
+      "Расчёты NOT_RUN — это допустимо для условной КД"
+    ]
+  },
+  
+  "verification_commands": [
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ],
+  
+  "warnings": [
+    "Условная КД, статус BLOCKED_INPUTS",
+    "Физические испытания и выпуск в производство требуют отдельного решения человека",
+    "FreeCAD 1.1.4 использован вместо 1.0.0 по разрешению оператора",
+    "TechDraw выходные файлы (DXF/SVG/PDF) не генерировались в пакетном режиме"
+  ],
+  
+  "next_steps": [
+    "R5 верификация комплекта на точном SHA",
+    "Подтверждение физических входов требует отдельной задачи",
+    "Выпуск в производство требует решения человека"
+  ]
+}
