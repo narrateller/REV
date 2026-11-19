@@ -1,0 +1,52 @@
+{
+  "dataset_id": "R4-W02-B-RECEIVER",
+  "revision": 2,
+  "task_id": "T-R4-REDESIGN-1.5MN-02",
+  "lifecycle": "ASSUMED",
+  "units": {"length": "mm", "pressure": "MPa", "stiffness_per_area": "MPa/mm"},
+  "geometry": {
+    "gate_height": 400,
+    "key_inner_y": 164,
+    "key_width": 72,
+    "key_height": 380,
+    "key_retract_down": 430,
+    "key_edge_chamfer": 1,
+    "gate_to_key_axial_gap": 0.25,
+    "key_to_backing_axial_gap": 0.25,
+    "gate_to_seat_axial_gap": 2,
+    "reaction_head_boss_projection": 60,
+    "reaction_head_boss_inner_y": 120,
+    "reaction_head_boss_outer_y": 335,
+    "reaction_head_boss_height": 440,
+    "reaction_head_boss_root_radius": 12
+  },
+  "structure_overrides": {
+    "die_entry_B_x": 3455
+  },
+  "fit": {
+    "per_edge_contact_exclusion": 2,
+    "installed_key_registration_yz": 0.5,
+    "running_gap_stack_per_interface": 0.10,
+    "minimum_keys_only_seat_gap_after_take_up": 1.20,
+    "plane_center_gap_deviation": 0.025,
+    "plane_tilt_gap_at_each_edge": 0.015,
+    "stiffness_scale_samples": [0.75, 1.0, 1.25]
+  },
+  "material_refs": {
+    "ReceiverGate": "quenched_alloy",
+    "ReceiverLock": "quenched_alloy",
+    "LockBacking": "head",
+    "ReceiverSeat": "head",
+    "ReactionFrameHead": "head"
+  },
+  "basis": {
+    "parent_design": "cad/force_geometry/redesign_1p5mn/design.json",
+    "comparison_boundary": "cae/cases/T-R3-FORCE-CALC-02/engineering_failure_note.md",
+    "contact_limit": "Use the minimum parent-material yield screen applying to either side of each contact pair. Retain the R3 250 MPa bound.",
+    "fit_assumptions": "Project allocation for machined, matched faces and guide registration. Use independent effective axial stiffness samples about E divided by the gross axial stack; no measured stiffness or manufacturing capability is implied."
+  },
+  "physical_unknowns": {
+    "local_contact_and_material": {"value": null, "reason": "Certified through-section properties, hardness, edge stress, roughness, fatigue, impact, local backing and reaction-head compliance require qualification."},
+    "installed_fit_and_actuation": {"value": null, "reason": "Installed guide and actuator design, measured axial take-up, local flatness, preload, and loaded seat-to-key clearance need verification."}
+  }
+}

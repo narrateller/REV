@@ -1,0 +1,35 @@
+{
+  "dataset_id": "R4-W02-B-RECEIVER",
+  "revision": 2,
+  "scope": "CALCULATED_ASSUMED",
+  "applies_to": ["B-V1", "B-V2"],
+  "base_interfaces": "cad/force_geometry/redesign_1p5mn/interfaces.json",
+  "parent_design": "cad/force_geometry/redesign_1p5mn/design.json",
+  "design_overrides": "params/r4_b_receiver_02.json",
+  "native_assets": "cad/source/force_geometry/redesign_1p5mn_02/manifest.json",
+  "contact_evidence": "cad/source/force_geometry/redesign_1p5mn_02/screening.json",
+  "interface_overrides": {
+    "receiver_cycle": {
+      "objects": ["Design", "ReceiverGate", "ReceiverSeat1", "ReceiverSeat2", "GateGuide1", "GateGuide2", "ReceiverLock1", "ReceiverLock2", "LockBacking1", "LockBacking2"],
+      "frame": "+X toward die, +Y transverse, +Z up. Subscripts 1 and 2 denote negative and positive Y.",
+      "loaded_pose": {
+        "B_CLOSED_LOCK_BACKED_STOP": "GateLift = LockDrop = 0. GateAxialTakeup 0.50 mm, LockAxialTakeup 0.25 mm. Load passes directly from gate through the two keys and their backing blocks into the reaction head. Use the effective pad rectangles and fit model from contact_evidence.",
+        "B_CLOSED_STOP_SEAT": "GateLift = 0, LockDrop = 430 mm. GateAxialTakeup 2.00 mm, LockAxialTakeup 0. Seat-only compression passes into the reaction head. Use the independent seat rectangles from contact_evidence."
+      },
+      "motion": "Unload and set both axial take-ups to zero. Drop keys 430 mm, then raise gate 370 mm before ejecting. Close the gate before raising the keys. Closed gate at mechanical stroke up to 501.388889 mm."
+    },
+    "material_reaction": {
+      "objects": ["Punch", "Chamber", "OutletDie"],
+      "relation": "B die inlet at X = 3455 mm, 304 x 224 mm. The outlet and X position of the reaction head inlet face remain at the parent design values. The B die envelope in Y stays within ±160 mm and clears the gate in both seated poses."
+    },
+    "reaction_frame": {
+      "objects": ["ReactionFrameHead", "LockBacking1", "LockBacking2", "ReceiverSeat1", "ReceiverSeat2", "TieBar1", "TieBar2", "TieBar3", "TieBar4"],
+      "relation": "Reaction head remains 280 mm at the frame and tie interfaces. Two integral 60 mm outlet-side bosses lie behind the contacts. Use the original tie reaction points and outlet opening. For the gross strip screening use the base 280 mm section. The installed stiffness of the head and fitted support faces remains UNKNOWN."
+    }
+  },
+  "r3_handoff": {
+    "load_case": "Repeat the 42 IDs and pressure bounds using the updated receiver geometry for both B variants. Recheck guide clearance and emergency reversal separately.",
+    "contact_boundary": "Pressure bound is 315 bar in both Ø250 mm cap chambers at zero return pressure. Compare separate compressive paths and verify seat clearance before treating the keys as the sole support.",
+    "materials_and_fit": "Use material_refs and fit from design_overrides. Use the projected pad dimensions in contact_evidence. Reassess local compliance, edge loading and seat/key engagement if their resolved inputs become available."
+  }
+}
