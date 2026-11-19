@@ -125,6 +125,12 @@ R3 завершил [итерацию 03 W02](coordination/completions/T-R3-FORC
 зазор −2,142 мм, реверс одной ветвью требует до 503,524 бар в полости.
 Claim освобождён для следующей итерации R4. Физические статусы сохраняются.
 
+R4 завершил условную итерацию 04 W02 на коммите `83407d0`.
+Сборки и расчётные границы переданы на интеграцию через [PR 76](https://github.com/narrateller/REV/pull/76).
+CI ветки и PR прошёл. [Акт поставки](coordination/completions/T-R4-REDESIGN-1.5MN-03/completion.json)
+и [освобождение claim](coordination/completions/T-R4-REDESIGN-1.5MN-03/claim_release.json) записаны в main.
+Следующий шаг по задаче — проверка R3/R5 поставленного коммита и интеграция PR.
+
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
 `python -m unittest discover -s tests -v`. PASS относится только к проверенной области.
