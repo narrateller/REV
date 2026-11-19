@@ -1,0 +1,48 @@
+{
+  "task_id": "T-R4-FINAL-DRAWINGS-01",
+  "role": "R4",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "DESIGN_BASIS_R1_W02_DRAWINGS",
+  "title": "Подготовить комплект КД W02 с экспортом DXF/SVG/PDF из FreeCAD 1.1.4",
+  "operator_pre_authorized": true,
+  "requires_fresh_claim_and_input_audit": true,
+  "owner_session": null,
+  "lease_expires_at": null,
+  "claim": "coordination/claims/T-R4-FINAL-DRAWINGS-01.json",
+  "depends_on": [
+    "T-R2-DESIGN-BASIS-02",
+    "T-R4-FORCE-GEOMETRY-01",
+    "T-R3-FORCE-CALC-01",
+    "T-R4-DRAWINGS-01",
+    "T-R5-FORCE-CALC-VERIFY-01"
+  ],
+  "source_main_sha": "0f2021d1a531f450a8dc2e6f7318c4d4b5d252fe",
+  "input_git_blob_sha256": {
+    "decisions/ARB-OPERATOR-DESIGN-BASIS-02.md": "5dc97e880168a586b88aad2447e041d4b537e569f664420d8fcf581039a7224b",
+    "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json": "ddaa4d376a679537a210756ad52e96f96a6ac537d6d2e99ab4d79fbee2bd466d",
+    "cad/source/force_geometry/manifest.json": "3c284b1a76f0e7ad9f30928628315bd80855c082b52ca6287b0d971c893ff2fb",
+    "cad/source/force_geometry/A-V1.FCStd": "10c119782a823eba1372c59567e3dcc269fcb4551071ea70d3a2d004ccfa33c2",
+    "cad/source/force_geometry/A-V2.FCStd": "7d8341f5b4b44a5935256451a6b37cc42da9632365d4b5535f836f22cfc603c9",
+    "cad/source/force_geometry/B-V1.FCStd": "30a798b235bbf7c41bf3d75fe619004b91e0d9aa7bd2d86e3987bc0d67b2f51d",
+    "cad/source/force_geometry/B-V2.FCStd": "aa2bfb34632ff0e1770af06c0512dc08b5faaee1f52d8b26c5c7dd69cd02e36f",
+    "drives/cots_catalog.yaml": "112a2adb48071e7a88bd63facafdb8c4f8ad837ce12ce03fb562c00257f57606",
+    "cae/cases/T-R3-FORCE-CALC-01/input_audit.md": "db99ce5222ef58a87f5335c1ca7b40efba7193990db1db2b927cd29d2d1afbcd",
+    "cae/cases/T-R3-FORCE-CALC-01/output_manifest.json": "ced5fdb9a34de64bcd04637935514cf90cc444679282d5b4610fe4dd8139a025",
+    "coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json": "aa5f8eed76c76e0df9402777c1b707ceee84df057f878d16c6e4810d21ca3e93",
+    "drawings/W02/catalog.json": "d8ae65d5af6e4b574e5c0f33df273cc46cf51b3b26f75c73635f1f9bd4b0c372"
+  },
+  "prior_drawings_verification": "coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json",
+  "freecad_version": "1.1.4",
+  "output_directory": "drawings/W02/",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION",
+  "acceptance": [
+    "После принятия claim сверить DESIGN_BASIS r1, версию FreeCAD и LFS-исходники CAD. Проверить масштаб 1:1000, ориентацию осей, отсутствующие элементы вариантов и ограничения усилия и хода привода по аудиту R3 и акту R5.",
+    "Привязать КД к проверенной ревизии редактируемой геометрии и согласованным расчётным входам. Зафиксировать влияние правок на условия расчёта. Если затронуты инженерные входы или границы, передать R1 конкретное несоответствие для согласования обновления расчёта R3 и проверки R5.",
+    "Сгенерировать в FreeCAD 1.1.4 (TechDraw) открываемые DXF, SVG и PDF для комплекта W02. Включить общие виды четырёх вариантов и листы узлов и деталей, необходимые для задания геометрии, допусков и интерфейсов в области DESIGN_BASIS r1. Сверить виды, размеры, материалы, допуски, BOM и интерфейсы с исходниками. Указать оставшиеся UNKNOWN с причинами.",
+    "Сохранить исходники TechDraw, команды генерации, версии, каталог с ревизиями и хэшами, результаты проверки форматов и ссылок на CAD. Подготовить воспроизводимую проверку и передать результат R5 с точным SHA для интеграции R1 после зелёного CI.",
+    "Если определяющие противоречия геометрии или привода препятствуют комплекту в DESIGN_BASIS r1, вернуть точный блокер и его влияние на листы. Ограничения физических расчётов и отдельное решение оператора о физической реализации сохраняются. Полевые обмеры и лабораторные пробы исключены."
+  ]
+}

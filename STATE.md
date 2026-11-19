@@ -84,6 +84,7 @@ R2 завершил [аудит входов и проект ТЗ](coordination/
 R4 завершил [условную КД W02](coordination/completions/T-R4-DRAWINGS-01/completion.json).
 R5 записал [PASS](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json)
 на `dcb8ff5`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
+Экспорт TechDraw в DXF/SVG/PDF имеет статус `NOT_RUN`.
 Предшествующий [аудит источников W02](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json)
 сохраняет причины по 42 физическим состояниям. По решению оператора ожидание
 обмеров и проб снято для проектной работы. R2 завершил [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/README.md).
@@ -94,8 +95,10 @@ R3 завершил [T-R3-FORCE-CALC-01](cae/cases/T-R3-FORCE-CALC-01/README.md)
 номиналам поставки R4. Из 2 462 сочетаний 2 346 имеют статус CALCULATED_ASSUMED,
 116 не имеют статического равновесия. Все физические состояния и запасы
 соединений остаются BLOCKED_INPUTS. Зафиксированы проблемы масштаба и осей FCStd,
-нехватка усилия и хода гидроцилиндра Ø80/45. Следующий шаг —
-[независимая проверка R5](coordination/tasks/T-R5-FORCE-CALC-VERIFY-01/task.json).
+нехватка усилия и хода гидроцилиндра Ø80/45. [Независимая проверка R5](coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json)
+дала `PASS` в области `CALCULATED_ASSUMED`. Результат интегрирован в main с зелёным CI.
+Цикл DESIGN_BASIS r1 открыт до выпуска проверяемых файлов КД W02.
+Следующий шаг — [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json).
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,

@@ -8,16 +8,17 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R5-FORCE-CALC-VERIFY-01](coordination/tasks/T-R5-FORCE-CALC-VERIFY-01/task.json) | R5 | P0 / READY. Независимая проверка условных результатов R3 |
+| [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json) | R4 | P0 / READY. Входной аудит CAD и экспорт КД W02 в DXF/SVG/PDF из FreeCAD 1.1.4 |
+| [T-R5-FORCE-CALC-VERIFY-01](coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json) | R5 | P0 / COMPLETED (PASS в области CALCULATED_ASSUMED). Claim освобождён |
 | [T-R3-FORCE-CALC-01](coordination/tasks/T-R3-FORCE-CALC-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED). Claim освобождён |
 | [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/README.md) | R2 | P0 / COMPLETED (DESIGN_BASIS r1). Claim освобождён |
 | [T-R3-42-STATES-ENVELOPE-01](coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED) |
 | [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) | R2 | P0 / COMPLETED (аудит входов и проект ТЗ) |
 | [T-R3-42-STATES-01](coordination/tasks/T-R3-42-STATES-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED) |
-| [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
+| [T-R4-FORCE-GEOMETRY-01](coordination/completions/T-R4-FORCE-GEOMETRY-01/completion.json) | R4 | P0 / COMPLETED (условная силовая геометрия и кандидаты COTS) |
 | [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / COMPLETED (ASSUMED_STATIC_SCREENING) |
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / COMPLETED (CAD-rebuild, FreeCAD 1.1.4) |
-| [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / COMPLETED (условная КД) |
+| [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / COMPLETED (каталог условной КД, экспорт NOT_RUN) |
 | [T-R5-DRAWINGS-VERIFY-01](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json) | R5 | P1 / COMPLETED (PASS в области условной КД) |
 | [T-R1-ENGINEERING-PLAN-09](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json) | R1 | P0 / COMPLETED (аудит физических входов W02) |
 | [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / COMPLETED |
