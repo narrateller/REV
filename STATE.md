@@ -77,8 +77,9 @@ R2 завершил [аудит входов и проект ТЗ](coordination/
 R4 завершил [условную КД W02](coordination/completions/T-R4-DRAWINGS-01/completion.json).
 R5 записал [PASS](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json)
 на `dcb8ff5`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
-Следующий шаг — [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md)
-со свежим claim R1 для проверки источников физических входов.
+R1 завершил [аудит источников W02](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json).
+Все 42 физических состояния остаются BLOCKED_INPUTS. Очередь ожидает новый
+применимый к REV источник для аудита R2.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,

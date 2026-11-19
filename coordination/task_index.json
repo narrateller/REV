@@ -213,20 +213,25 @@
     {
       "task_id": "T-R1-ENGINEERING-PLAN-09",
       "role": "R1",
-      "status": "READY",
+      "status": "COMPLETED",
       "priority": "P0",
       "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json",
-      "scope": "PHYSICAL_INPUT_EVIDENCE_ROUTING"
+      "scope": "PHYSICAL_INPUT_EVIDENCE_ROUTING",
+      "completion_record": "coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json",
+      "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-09/claim_release.json",
+      "claim_release_status": "RELEASED",
+      "physical_input_status": "BLOCKED_INPUTS",
+      "physical_execution": "NOT_RUN"
     }
   ],
   "next_dispatch": {
-    "task_id": "T-R1-ENGINEERING-PLAN-09",
-    "role": "R1",
-    "status": "READY",
+    "task_id": null,
+    "role": "R2",
+    "status": "BLOCKED_INPUTS",
     "priority": "P0",
-    "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json",
-    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md",
-    "requires_fresh_claim": true,
+    "reason": "В актуальном main отсутствует новый применимый источник физических входов REV. Завершённый аудит R2 закрыт и его claim освобождён.",
+    "unblock_condition": "После поступления применимого источника по T/U, сырью, давлению или фазовым нагрузкам R1 назначает новый ограниченный аудит R2 с новым ID и свежим claim. Далее R4 сверяет силовую геометрию и допуски, R3 проверяет допуск каждого случая, R5 верифицирует новый результат на точном SHA.",
+    "input_audit": "coordination/completions/T-R1-ENGINEERING-PLAN-09/physical_input_audit.json",
     "physical_input_status": "BLOCKED_INPUTS",
     "physical_execution": "NOT_RUN"
   }

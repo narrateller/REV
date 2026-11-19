@@ -1,0 +1,153 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-09",
+  "role": "R1",
+  "execution_status": "COMPLETED",
+  "scope": "PHYSICAL_INPUT_EVIDENCE_ROUTING",
+  "completed_at_utc": "2026-11-19T03:17:47Z",
+  "author_sessions": [
+    "01a1f1b9-691b-7e90-959a-a2c72e395a92"
+  ],
+  "CODEX_SESSION_ID": "01a1f1b9-691b-7e90-959a-a2c72e395a92",
+  "session_id_source": "CODEX_SESSION_ID",
+  "model_label": "gpt-6.2-sol",
+  "runtime_model_id": "gpt-6.2-sol",
+  "runtime_model_provider": "openai",
+  "runtime_model_source": "Codex turn_context.model и session_meta.model_provider",
+  "operator_provided_model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "requested_model_label_matches_runtime": false,
+  "source_main_sha": "2ca81ca2403a82f0b8b58586a8ae7f75416ca5a4",
+  "claim_main_sha": "1392368b1ab592ca4307764f163cd0c9c6ddf230",
+  "accepted_claim": {
+    "path": "coordination/completions/T-R1-ENGINEERING-PLAN-09/accepted_claim.json",
+    "sha256": "cd95f13f70bd420dc8422aa488e11b1d5f10f863a2c3e952ee5fa8d2060e421a"
+  },
+  "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-09/claim_release.json",
+  "claim_release_status": "RELEASED",
+  "input_manifest": {
+    "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json",
+    "commit": "2ca81ca2403a82f0b8b58586a8ae7f75416ca5a4",
+    "sha256": "513679e51e3d4f1cd625f0f1669a3afe6abd5ffd938ead6563480dee29e136c7"
+  },
+  "case_audit": {
+    "path": "coordination/completions/T-R1-ENGINEERING-PLAN-09/physical_input_audit.json",
+    "sha256": "ae3ec86e9bb94f38d1b7583dff79251edae993119f4d12476e7ad0ceb4dfd024"
+  },
+  "physical_state_count": 42,
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "physical_sections_4_5_6": "NOT_RUN",
+  "acceptance": {
+    "open_inputs_mapped": "PASS",
+    "case_ids_reconciled": "PASS",
+    "dispatch_audit": "PASS",
+    "dispatch_outcome": "NO_ELIGIBLE_NEW_TASK"
+  },
+  "closed_tasks_excluded": [
+    {
+      "task_id": "T-R2-INPUTS-01",
+      "status": "COMPLETED",
+      "claim_release_status": "RELEASED",
+      "claim_release": {
+        "path": "coordination/completions/T-R2-INPUTS-01/claim_release.json",
+        "commit": "2ca81ca2403a82f0b8b58586a8ae7f75416ca5a4",
+        "sha256": "c01379e24c88d22b8dad7d6f79a5a488476a90e5abec48faac8824ee51d208cd"
+      }
+    },
+    {
+      "task_id": "T-R4-W02-CAD-01",
+      "status": "COMPLETED",
+      "claim_release_status": "RELEASED",
+      "claim_release": {
+        "path": "coordination/completions/T-R4-W02-CAD-01/claim_release.json",
+        "commit": "2ca81ca2403a82f0b8b58586a8ae7f75416ca5a4",
+        "sha256": "d9ebd3c6d0430858138b93ad4565d3d62e7f4fe4e97acf845ca9d2d4d2ce6b46"
+      }
+    },
+    {
+      "task_id": "T-R4-DRAWINGS-01",
+      "status": "COMPLETED",
+      "claim_release_status": "RELEASED",
+      "claim_release": {
+        "path": "coordination/completions/T-R4-DRAWINGS-01/claim_release.json",
+        "commit": "2ca81ca2403a82f0b8b58586a8ae7f75416ca5a4",
+        "sha256": "604c132deba380a62ad5c13186f1aee21ca648ea4ccaeb5151cb3dfb0fd457c9"
+      }
+    }
+  ],
+  "routing_blocker_audit": {
+    "active_fields_removed_from": [],
+    "r2_historical_resolution": {
+      "blocker": "ROLE_UNAVAILABLE",
+      "status": "RESOLVED",
+      "reason": "Оператор разрешил участие R2 в автопилоте.",
+      "resolution_record": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/completion.json"
+    }
+  },
+  "next_dispatch": {
+    "task_id": null,
+    "role": "R2",
+    "status": "BLOCKED_INPUTS",
+    "priority": "P0",
+    "reason": "В актуальном main отсутствует новый применимый источник физических входов REV. Завершённый аудит R2 закрыт и его claim освобождён.",
+    "unblock_condition": "После поступления применимого источника по T/U, сырью, давлению или фазовым нагрузкам R1 назначает новый ограниченный аудит R2 с новым ID и свежим claim. Далее R4 сверяет силовую геометрию и допуски, R3 проверяет допуск каждого случая, R5 верифицирует новый результат на точном SHA.",
+    "input_audit": "coordination/completions/T-R1-ENGINEERING-PLAN-09/physical_input_audit.json",
+    "physical_input_status": "BLOCKED_INPUTS",
+    "physical_execution": "NOT_RUN"
+  },
+  "outputs": [
+    {
+      "path": "coordination/task_index.json",
+      "sha256": "3edfd6597c85da198405dc7f28ae421eb47b24a9febb8da118c58764aa22a7ee"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json",
+      "sha256": "ef233a6bb84e51c0fadc8d253c2609a598507e5a6ca7808e385c62aa86b4e242"
+    },
+    {
+      "path": "STATE.md",
+      "sha256": "4d91cd1cd3069dda66145999a227e140da236723b8516ef11704fd2632948e8d"
+    },
+    {
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "6d3a38b0ea3926ef667e6da348f5a90b2e22456ef0002f307ea501275e9cf6ca"
+    },
+    {
+      "path": "NEXT_MODEL.md",
+      "sha256": "c3a163d4fdbc3639b98f54ffdabefb17712d2d101376636b10ed973446a93a2f"
+    },
+    {
+      "path": "coordination/completions/T-R1-ENGINEERING-PLAN-09/verify_output.py",
+      "sha256": "8867f872abfd1ced006cdd1fa620db45afa8ddce6ea8c085b731177a121f78a4"
+    }
+  ],
+  "verification_commands": [
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git",
+    "python coordination/completions/T-R1-ENGINEERING-PLAN-09/verify_output.py",
+    "git diff --check HEAD"
+  ],
+  "github_actions": {
+    "workflow": "ci_verify.yml",
+    "branch": "main",
+    "event": "push",
+    "target": "Коммит публикации этого акта в main. Вердикт привязан к его SHA в GitHub Actions."
+  },
+  "local_checks": {
+    "python scripts/check_registry.py --check-git": "PASS",
+    "python -m unittest discover -s tests -v": "PASS",
+    "python verify_output.py --check-git": "PASS",
+    "python coordination/completions/T-R1-ENGINEERING-PLAN-09/verify_output.py": "PASS",
+    "git diff --check HEAD": "PASS"
+  },
+  "local_check_details": {
+    "python": "3.13.17",
+    "unit_test_count": 103,
+    "active_claims_after_release": 0
+  },
+  "claim_ci": {
+    "head_sha": "1392368b1ab592ca4307764f163cd0c9c6ddf230",
+    "run_id": 44448969630,
+    "conclusion": "success"
+  }
+}

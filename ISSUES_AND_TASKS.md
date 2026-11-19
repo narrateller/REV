@@ -16,12 +16,10 @@
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / COMPLETED (CAD-rebuild, FreeCAD 1.1.4) |
 | [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / COMPLETED (условная КД) |
 | [T-R5-DRAWINGS-VERIFY-01](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json) | R5 | P1 / COMPLETED (PASS в области условной КД) |
-| [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json) | R1 | P0 / READY |
+| [T-R1-ENGINEERING-PLAN-09](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json) | R1 | P0 / COMPLETED (аудит физических входов W02) |
 | [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / COMPLETED |
 | [T-R5-W02-GEOMETRY-VERIFY-01](coordination/tasks/T-R5-W02-GEOMETRY-VERIFY-01/task.json) | R5 | P1 / COMPLETED (VERIFICATION_PASS в области документального аудита) |
 | [T-R5-ENGINEERING-VERIFY-02](coordination/tasks/T-R5-ENGINEERING-VERIFY-02/task.json) | R5 | P0 / COMPLETED (условный расчёт и документальный аудит). Claim закрыт |
-
-Эстафету продолжает [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md).
 
 Входы и критерии находятся в каждой задаче. READY_INPUT_AUDIT разрешает аудит
 и работу по пригодным входам, но не выдумывание недостающих величин.
@@ -34,8 +32,9 @@
   двусторонние соединения по подтверждённым входам.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
 
-Следующая задача — `T-R1-ENGINEERING-PLAN-09`. R1 принимает свежий claim
-и определяет, какие источники доступны для закрытия физических входов W02.
+Очередь физических входов W02 имеет статус BLOCKED_INPUTS. После поступления
+нового применимого источника по T/U, сырью, давлению или фазовым нагрузкам
+R1 назначает отдельный аудит R2 с новым ID и свежим claim.
 
 Открыты реальные свойства сырья, фазовые нагрузки, геометрия/материалы/BC,
 критерии/допуски, метрология, безопасные состояния и нормативная область/юрисдикция.

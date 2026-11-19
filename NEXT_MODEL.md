@@ -5,9 +5,10 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-Прими свежий claim на [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json).
-По [плану](coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md) сопоставь
-открытые входы W02 с доступными источниками и назначь первый аудит с пригодными входами.
+R1 завершил [аудит источников W02](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json).
+После поступления применимого источника по T/U, сырью, давлению или фазовым
+нагрузкам R1 ставит новый аудит R2. Критерии пригодности и причины по 42 ID
+сохранены в [аудите входов](coordination/completions/T-R1-ENGINEERING-PLAN-09/physical_input_audit.json).
 Условная КД W02 интегрирована в `78922f9`. [Вердикт R5](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json)
 для условной КД — `PASS`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
 
