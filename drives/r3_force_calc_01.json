@@ -1,0 +1,1946 @@
+{
+  "task_id": "T-R3-FORCE-CALC-01",
+  "scope": "CALCULATED_ASSUMED",
+  "source": "drives/cots_catalog.yaml",
+  "candidate_inputs": {
+    "bore_m": 0.08,
+    "rod_m": 0.045,
+    "stroke_m": 0.4,
+    "pressure_limited_by_each_component_Pa": {
+      "cylinder": 25000000.0,
+      "power_unit": 25000000.0,
+      "relief": 25000000.0
+    },
+    "flow_m3_s": [
+      0.000333333333333,
+      0.000666666666667
+    ],
+    "relief_flow_limit_m3_s": 0.000666666666667,
+    "nominal_motor_range_W": [
+      15000.0,
+      22000.0
+    ]
+  },
+  "ideal_cylinder": {
+    "cap_area_m2": 0.00502654824574,
+    "annulus_area_m2": 0.00343611696486,
+    "pressure_limit_Pa": 25000000.0,
+    "screening_max_pump_flow_m3_s": 0.000666666666667,
+    "max_extension_N": 125663.706144,
+    "max_retraction_N_abs": 85902.9241216,
+    "ideal_hydraulic_power_at_limit_for_catalog_flow_W": [
+      8333.33333333,
+      16666.6666667
+    ]
+  },
+  "cycle_comparison": {
+    "status": "CALCULATED_ASSUMED",
+    "reference_cycle_s": 6,
+    "reference_main_motor_W": 30000,
+    "reference_installed_W": 34200,
+    "reference_max_shaft_energy_per_cycle_J": 180000,
+    "ideal_full_return_plus_extension_catalog_stroke_s": 5.07759912636,
+    "ideal_full_return_plus_extension_at_v1_demand_s": 8.07831916563,
+    "ideal_flow_for_v1_round_trip_in_reference_time_m3_s": 0.000897591018403,
+    "v1_demand_travel_m": 0.636388888889,
+    "stroke_deficit_m": 0.236388888889,
+    "ideal_peak_travel_if_entire_reference_cycle_available_m_by_family": {
+      "A": 0.117461465869,
+      "B": 0.119806915182
+    },
+    "ideal_extension_bore_for_work_at_DB_ref_pressure_m_by_family": {
+      "A": 0.255025129244,
+      "B": 0.252516488573
+    },
+    "actual_cycle": {
+      "status": "BLOCKED_INPUTS",
+      "value": null,
+      "reason": "Missing F(q), motion/hold durations, opposing port pressures, pump curve, simultaneous consumers, losses and control schedule."
+    }
+  },
+  "face_load_reference": {
+    "DB_FACE_F_N": 1500417.45,
+    "DB_FACE_P_Pa": 166713050,
+    "DB_HYD_REF_Pa": 30000000,
+    "DB_HYD_BORE_IDEAL_m": 0.252348359149
+  },
+  "phase_comparisons": {
+    "S42-001": {
+      "phase": "startup_empty",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 176653.678264,
+            "ideal_motion_power_if_full_cycle_available_W": 29442.2797106,
+            "ideal_motion_time_at_30kW_s": 5.88845594213,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.5992206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.981409323688
+          }
+        }
+      ]
+    },
+    "S42-002": {
+      "phase": "gather_partial",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.466388888889,
+            "ideal_hydraulic_volume_m3": 0.00234432625128,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.51648937692,
+            "constant_force_work_J": 714702.471819,
+            "ideal_motion_power_if_full_cycle_available_W": 119117.078637,
+            "ideal_motion_time_at_30kW_s": 23.8234157273,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 42.8821483092,
+            "ratio_to_full_6s_reference_energy_at_30kW": 3.97056928789
+          }
+        }
+      ]
+    },
+    "S42-003": {
+      "phase": "approach",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 176653.678264,
+            "ideal_motion_power_if_full_cycle_available_W": 29442.2797106,
+            "ideal_motion_time_at_30kW_s": 5.88845594213,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.5992206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.981409323688
+          }
+        }
+      ]
+    },
+    "S42-004": {
+      "phase": "work_peak",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.351111111111,
+            "ideal_hydraulic_volume_m3": 0.00176487693962,
+            "ideal_motion_time_at_max_catalog_flow_s": 2.64731540942,
+            "constant_force_work_J": 538048.793556,
+            "ideal_motion_power_if_full_cycle_available_W": 89674.7989259,
+            "ideal_motion_time_at_30kW_s": 17.9349597852,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 32.2829276133,
+            "ratio_to_full_6s_reference_energy_at_30kW": 2.9891599642
+          }
+        }
+      ]
+    },
+    "S42-005": {
+      "phase": "hold_unload",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-006": {
+      "phase": "eject",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.17,
+            "ideal_hydraulic_volume_m3": 0.000854513201776,
+            "ideal_motion_time_at_max_catalog_flow_s": 1.28176980266,
+            "constant_force_work_J": 260510.9665,
+            "ideal_motion_power_if_full_cycle_available_W": 43418.4944167,
+            "ideal_motion_time_at_30kW_s": 8.68369888333,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 15.63065799,
+            "ratio_to_full_6s_reference_energy_at_30kW": 1.44728314722
+          }
+        }
+      ]
+    },
+    "S42-007": {
+      "phase": "return_full",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.636388888889,
+            "ideal_hydraulic_volume_m3": 0.00218670665736,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.28005998604,
+            "constant_force_work_J": 7636.66666667,
+            "ideal_motion_power_if_full_cycle_available_W": 1272.77777778,
+            "ideal_motion_time_at_30kW_s": 0.254555555556,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 0.4582,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.0424259259259
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    },
+    "S42-008": {
+      "phase": "refill",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 176653.678264,
+            "ideal_motion_power_if_full_cycle_available_W": 29442.2797106,
+            "ideal_motion_time_at_30kW_s": 5.88845594213,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.5992206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.981409323688
+          }
+        }
+      ]
+    },
+    "S42-009": {
+      "phase": "ready",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-010": {
+      "phase": "jam_emergency",
+      "variant": "A-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "REVERSE_WORK",
+          "F_x_N": -1532417.45,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 445973599.173,
+          "required_pressure_over_candidate_limit": 17.8389439669,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 297315.732782,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    },
+    "S42-011": {
+      "phase": "startup_empty",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 176653.678264,
+            "ideal_motion_power_if_full_cycle_available_W": 29442.2797106,
+            "ideal_motion_time_at_30kW_s": 5.88845594213,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.5992206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.981409323688
+          }
+        }
+      ]
+    },
+    "S42-012": {
+      "phase": "gather_partial",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.466388888889,
+            "ideal_hydraulic_volume_m3": 0.00234432625128,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.51648937692,
+            "constant_force_work_J": 714702.471819,
+            "ideal_motion_power_if_full_cycle_available_W": 119117.078637,
+            "ideal_motion_time_at_30kW_s": 23.8234157273,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 42.8821483092,
+            "ratio_to_full_6s_reference_energy_at_30kW": 3.97056928789
+          }
+        }
+      ]
+    },
+    "S42-013": {
+      "phase": "approach",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 176653.678264,
+            "ideal_motion_power_if_full_cycle_available_W": 29442.2797106,
+            "ideal_motion_time_at_30kW_s": 5.88845594213,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.5992206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.981409323688
+          }
+        }
+      ]
+    },
+    "S42-014": {
+      "phase": "work_peak",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.351111111111,
+            "ideal_hydraulic_volume_m3": 0.00176487693962,
+            "ideal_motion_time_at_max_catalog_flow_s": 2.64731540942,
+            "constant_force_work_J": 538048.793556,
+            "ideal_motion_power_if_full_cycle_available_W": 89674.7989259,
+            "ideal_motion_time_at_30kW_s": 17.9349597852,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 32.2829276133,
+            "ratio_to_full_6s_reference_energy_at_30kW": 2.9891599642
+          }
+        }
+      ]
+    },
+    "S42-015": {
+      "phase": "hold_unload",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-016": {
+      "phase": "eject",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.17,
+            "ideal_hydraulic_volume_m3": 0.000854513201776,
+            "ideal_motion_time_at_max_catalog_flow_s": 1.28176980266,
+            "constant_force_work_J": 260510.9665,
+            "ideal_motion_power_if_full_cycle_available_W": 43418.4944167,
+            "ideal_motion_time_at_30kW_s": 8.68369888333,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 15.63065799,
+            "ratio_to_full_6s_reference_energy_at_30kW": 1.44728314722
+          }
+        }
+      ]
+    },
+    "S42-017": {
+      "phase": "return_full",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.636388888889,
+            "ideal_hydraulic_volume_m3": 0.00218670665736,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.28005998604,
+            "constant_force_work_J": 7636.66666667,
+            "ideal_motion_power_if_full_cycle_available_W": 1272.77777778,
+            "ideal_motion_time_at_30kW_s": 0.254555555556,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 0.4582,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.0424259259259
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    },
+    "S42-018": {
+      "phase": "refill",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 176653.678264,
+            "ideal_motion_power_if_full_cycle_available_W": 29442.2797106,
+            "ideal_motion_time_at_30kW_s": 5.88845594213,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.5992206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.981409323688
+          }
+        }
+      ]
+    },
+    "S42-019": {
+      "phase": "ready",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-020": {
+      "phase": "jam_emergency",
+      "variant": "A-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "REVERSE_WORK",
+          "F_x_N": -1532417.45,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 445973599.173,
+          "required_pressure_over_candidate_limit": 17.8389439669,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 297315.732782,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1532417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 304864765.06,
+          "required_pressure_over_candidate_limit": 12.1945906024,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 203243.176706,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    },
+    "S42-021": {
+      "phase": "gather_partial",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.466388888889,
+            "ideal_hydraulic_volume_m3": 0.00234432625128,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.51648937692,
+            "constant_force_work_J": 700710.805153,
+            "ideal_motion_power_if_full_cycle_available_W": 116785.134192,
+            "ideal_motion_time_at_30kW_s": 23.3570268384,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 42.0426483092,
+            "ratio_to_full_6s_reference_energy_at_30kW": 3.8928378064
+          }
+        }
+      ]
+    },
+    "S42-022": {
+      "phase": "approach",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 173195.344931,
+            "ideal_motion_power_if_full_cycle_available_W": 28865.8908218,
+            "ideal_motion_time_at_30kW_s": 5.77317816435,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.3917206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.962196360725
+          }
+        }
+      ]
+    },
+    "S42-023": {
+      "phase": "work_peak_closed",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.351111111111,
+            "ideal_hydraulic_volume_m3": 0.00176487693962,
+            "ideal_motion_time_at_max_catalog_flow_s": 2.64731540942,
+            "constant_force_work_J": 527515.460222,
+            "ideal_motion_power_if_full_cycle_available_W": 87919.2433704,
+            "ideal_motion_time_at_30kW_s": 17.5838486741,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 31.6509276133,
+            "ratio_to_full_6s_reference_energy_at_30kW": 2.93064144568
+          }
+        }
+      ]
+    },
+    "S42-024": {
+      "phase": "hold_unload",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-025": {
+      "phase": "unlock",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-026": {
+      "phase": "stop_open",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-027": {
+      "phase": "eject_open",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.17,
+            "ideal_hydraulic_volume_m3": 0.000854513201776,
+            "ideal_motion_time_at_max_catalog_flow_s": 1.28176980266,
+            "constant_force_work_J": 255410.9665,
+            "ideal_motion_power_if_full_cycle_available_W": 42568.4944167,
+            "ideal_motion_time_at_30kW_s": 8.51369888333,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 15.32465799,
+            "ratio_to_full_6s_reference_energy_at_30kW": 1.41894981389
+          }
+        }
+      ]
+    },
+    "S42-028": {
+      "phase": "return_full_open",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.636388888889,
+            "ideal_hydraulic_volume_m3": 0.00218670665736,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.28005998604,
+            "constant_force_work_J": 7636.66666667,
+            "ideal_motion_power_if_full_cycle_available_W": 1272.77777778,
+            "ideal_motion_time_at_30kW_s": 0.254555555556,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 0.4582,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.0424259259259
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    },
+    "S42-029": {
+      "phase": "close_relock_reset",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-030": {
+      "phase": "ready",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-031": {
+      "phase": "jam_emergency",
+      "variant": "B-V1",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "REVERSE_WORK",
+          "F_x_N": -1502417.45,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 437242813.723,
+          "required_pressure_over_candidate_limit": 17.4897125489,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 291495.209149,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    },
+    "S42-032": {
+      "phase": "gather_partial",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.466388888889,
+            "ideal_hydraulic_volume_m3": 0.00234432625128,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.51648937692,
+            "constant_force_work_J": 700710.805153,
+            "ideal_motion_power_if_full_cycle_available_W": 116785.134192,
+            "ideal_motion_time_at_30kW_s": 23.3570268384,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 42.0426483092,
+            "ratio_to_full_6s_reference_energy_at_30kW": 3.8928378064
+          }
+        }
+      ]
+    },
+    "S42-033": {
+      "phase": "approach",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.115277777778,
+            "ideal_hydraulic_volume_m3": 0.000579449311662,
+            "ideal_motion_time_at_max_catalog_flow_s": 0.869173967493,
+            "constant_force_work_J": 173195.344931,
+            "ideal_motion_power_if_full_cycle_available_W": 28865.8908218,
+            "ideal_motion_time_at_30kW_s": 5.77317816435,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 10.3917206958,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.962196360725
+          }
+        }
+      ]
+    },
+    "S42-034": {
+      "phase": "work_peak_closed",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.351111111111,
+            "ideal_hydraulic_volume_m3": 0.00176487693962,
+            "ideal_motion_time_at_max_catalog_flow_s": 2.64731540942,
+            "constant_force_work_J": 527515.460222,
+            "ideal_motion_power_if_full_cycle_available_W": 87919.2433704,
+            "ideal_motion_time_at_30kW_s": 17.5838486741,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 31.6509276133,
+            "ratio_to_full_6s_reference_energy_at_30kW": 2.93064144568
+          }
+        }
+      ]
+    },
+    "S42-035": {
+      "phase": "hold_unload",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-036": {
+      "phase": "unlock",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-037": {
+      "phase": "stop_open",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-038": {
+      "phase": "eject_open",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.17,
+            "ideal_hydraulic_volume_m3": 0.000854513201776,
+            "ideal_motion_time_at_max_catalog_flow_s": 1.28176980266,
+            "constant_force_work_J": 255410.9665,
+            "ideal_motion_power_if_full_cycle_available_W": 42568.4944167,
+            "ideal_motion_time_at_30kW_s": 8.51369888333,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 15.32465799,
+            "ratio_to_full_6s_reference_energy_at_30kW": 1.41894981389
+          }
+        }
+      ]
+    },
+    "S42-039": {
+      "phase": "return_full_open",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "CALCULATED_ASSUMED",
+            "constant_force_excursion_m": 0.636388888889,
+            "ideal_hydraulic_volume_m3": 0.00218670665736,
+            "ideal_motion_time_at_max_catalog_flow_s": 3.28005998604,
+            "constant_force_work_J": 7636.66666667,
+            "ideal_motion_power_if_full_cycle_available_W": 1272.77777778,
+            "ideal_motion_time_at_30kW_s": 0.254555555556,
+            "hypothetical_minimum_time_at_candidate_hydraulic_power_ceiling_s": 0.4582,
+            "ratio_to_full_6s_reference_energy_at_30kW": 0.0424259259259
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    },
+    "S42-040": {
+      "phase": "close_relock_reset",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-041": {
+      "phase": "ready",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "RETURN",
+          "F_x_N": -12000.0,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 3492314.17985,
+          "required_pressure_over_candidate_limit": 0.139692567194,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 2328.20945323,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "WITHIN_NOMINAL_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "Fixed punch pose. Dwell, leakage and auxiliary actuation are unknown."
+          }
+        }
+      ]
+    },
+    "S42-042": {
+      "phase": "jam_emergency",
+      "variant": "B-V2",
+      "status": "CALCULATED_ASSUMED",
+      "samples": [
+        {
+          "sample": "REVERSE_WORK",
+          "F_x_N": -1502417.45,
+          "ideal_active_port": "ROD",
+          "ideal_required_pressure_Pa": 437242813.723,
+          "required_pressure_over_candidate_limit": 17.4897125489,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 291495.209149,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "ZERO",
+          "F_x_N": 0,
+          "ideal_active_port": null,
+          "ideal_required_pressure_Pa": 0.0,
+          "required_pressure_over_candidate_limit": 0.0,
+          "force_comparison": "WITHIN_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 0.0,
+          "flow_power_point": "PRESSURE_BOUND_ONLY_PUMP_CURVE_UNAVAILABLE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        },
+        {
+          "sample": "WORK",
+          "F_x_N": 1502417.45,
+          "ideal_active_port": "CAP",
+          "ideal_required_pressure_Pa": 298896454.694,
+          "required_pressure_over_candidate_limit": 11.9558581878,
+          "force_comparison": "EXCEEDS_IDEAL_LIMIT",
+          "ideal_hydraulic_power_at_max_catalog_flow_W": 199264.303129,
+          "flow_power_point": "OUTSIDE_CANDIDATE_PRESSURE_RANGE",
+          "stroke_if_direct_drive": "EXCEEDS_CANDIDATE_STROKE",
+          "traversal_comparison": {
+            "status": "NOT_APPLICABLE",
+            "reason": "ZERO is a diagnostic point. Jam positions are possible stall locations."
+          }
+        }
+      ]
+    }
+  },
+  "vendor_selection": {
+    "status": "BLOCKED_INPUTS",
+    "value": null,
+    "reason": "No exact order numbers, load charts, pump curve, duty limits, mounting ratings or component compatibility dossier."
+  }
+}

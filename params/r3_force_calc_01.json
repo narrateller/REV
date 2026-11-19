@@ -1,0 +1,60 @@
+{
+  "dataset_id": "REV_R3_FORCE_CALC_01",
+  "revision": 1,
+  "task_id": "T-R3-FORCE-CALC-01",
+  "scope": "CALCULATED_ASSUMED",
+  "parameters": {
+    "FC01-R4-NOMINAL": {
+      "lifecycle": "ASSUMED",
+      "value": "Use the numerical dimensions and offsets from the R4 rebuild script as SI design intent, using the COTS bore, rod and stroke. Project the cylinder base relative to the chamber centre in Y/Z and assume axial force along +X. The FCStd shapes themselves are underscaled and the cylinder/rail axes are +Z.",
+      "sources": ["cad/force_geometry/rebuild.py", "cad/source/force_geometry/manifest.json", "drives/cots_catalog.yaml"]
+    },
+    "FC01-GUIDE-SPANS": {
+      "lifecycle": "ASSUMED",
+      "value": [0.5, 1.0],
+      "unit": "longitudinal span divided by nominal chamber length",
+      "source": "cae/cases/design_boundary_phase_load_envelope/assumptions.json",
+      "reason": "Retain v1 span factors on the new chamber length as sensitivity only. The 0.2 m rail spacing is transverse and supplies no axial support stations."
+    },
+    "FC01-REACTION-OFFSETS": {
+      "lifecycle": "ASSUMED",
+      "value": [-0.5, 0.0, 0.5],
+      "unit": "fraction of full nominal face dimension along Y or Z",
+      "source": "cae/cases/design_boundary_phase_load_envelope/assumptions.json"
+    },
+    "FC01-CARRIER-SECTION": {
+      "lifecycle": "ASSUMED",
+      "value": "Compare a solid rectangular section normal to +X with the nominal Carrier.Width along Y and Carrier.Height along Z, carrying the complete axial and eccentric transfer resultant. This is a gross-section sensitivity model.",
+      "source": "cad/force_geometry/rebuild.py"
+    },
+    "FC01-ELASTIC-REFERENCE": {
+      "lifecycle": "ASSUMED",
+      "value": "Use v1 E = 210 GPa, reference stress 235 MPa and Euler K = 1 and 2. R4 free lengths are fixed comparison lengths. The 235 MPa comparator is generic and supplies no material allowable.",
+      "sources": ["cae/cases/design_boundary_phase_load_envelope/assumptions.json", "cad/source/force_geometry/manifest.json"]
+    },
+    "FC01-IDEAL-DRIVE": {
+      "lifecycle": "ASSUMED",
+      "value": "One direct double-acting cylinder, zero opposing gauge pressure and loss, no parallel consumers, no dwell or acceleration in flow timing bounds. q is equated to cylinder stroke only for demand comparison. Peak-work scenarios assume constant peak over the full sampled phase excursion, excluding undefined transitions.",
+      "sources": ["drives/cots_catalog.yaml", "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json"]
+    },
+    "FC01-PHYSICAL-GEOMETRY": {
+      "lifecycle": "UNKNOWN",
+      "value": null,
+      "reason": "Consistent oriented assembly, die and support datum, rod/carrier contact, guide and anchor layout, RHS thicknesses and q-to-CAD transform are missing."
+    },
+    "FC01-PHYSICAL-JOINT-CAPACITY": {
+      "lifecycle": "UNKNOWN",
+      "value": null,
+      "reason": "Locations, engagement, effective areas, edge distances, weld throats and lengths, fit, preload, base materials, design allowables and supplier ratings for actual joints are missing."
+    },
+    "FC01-PHYSICAL-LOAD-CYCLE": {
+      "lifecycle": "UNKNOWN",
+      "value": null,
+      "reason": "Validated phase forces, material compaction law, actual contact state, motion profile, both port pressures and flows, pump curve, efficiency and dwell are missing."
+    }
+  },
+  "maturity_review": {
+    "promoted_to_VERIFIED": [],
+    "reason": "Author replay checks numerical consistency in the CALCULATED_ASSUMED scope. The independent evidence required for a registry promotion is pending R5."
+  }
+}
