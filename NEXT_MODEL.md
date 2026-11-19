@@ -5,12 +5,12 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основания — [решение о форке](decisions/ARB-OPERATOR-FORK-BASELINE-01.md) и [решение о проектном базисе](decisions/ARB-OPERATOR-DESIGN-BASIS-02.md).
 
-Следующая задача — [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json).
-После свежего claim R4 сверяет масштаб и оси CAD, состав вариантов и ограничения
-привода по [аудиту R3](cae/cases/T-R3-FORCE-CALC-01/input_audit.md). Критерий
-завершения — проверяемые DXF/SVG/PDF из FreeCAD 1.1.4 в `drawings/W02/` с
-привязкой к ревизии CAD и DESIGN_BASIS r1. Обмеры площадки и лабораторные пробы
-исключены из плана. [Проверка четырёх пунктов цели](coordination/completions/T-R1-ENGINEERING-PLAN-13/completion.json).
+Следующая задача — [T-R4-REDESIGN-1.5MN-01](coordination/tasks/T-R4-REDESIGN-1.5MN-01/task.json).
+[Claim](coordination/claims/T-R4-REDESIGN-1.5MN-01.json) принят по поручению оператора. Перед инженерным
+стартом R4 проверяет действующего владельца и выполняет входной аудит.
+Основание — [отказ Ø80/45](coordination/completions/T-R3-FORCE-CALC-01/engineering_failure_note.md).
+Критерии для W02 под 1,5 МН — давление ≤ 315 бар, 0 точек вне хода,
+запас прочности ≥ 1,5 и `compression_over_euler` < 0,5.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические

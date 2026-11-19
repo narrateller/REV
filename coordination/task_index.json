@@ -329,7 +329,8 @@
       "physical_input_status": "BLOCKED_INPUTS",
       "physical_execution": "NOT_RUN",
       "verification": "PASS",
-      "verification_record": "coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json"
+      "verification_record": "coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json",
+      "engineering_failure_note": "coordination/completions/T-R3-FORCE-CALC-01/engineering_failure_note.md"
     },
     {
       "task_id": "T-R1-ENGINEERING-PLAN-12",
@@ -375,7 +376,7 @@
       "status": "COMPLETED",
       "priority": "P0",
       "scope": "DESIGN_BASIS_R1_W02_DRAWINGS",
-      "claim": "coordination/claims/T-R4-FINAL-DRAWINGS-01.json",
+      "claim": "coordination/completions/T-R4-FINAL-DRAWINGS-01/claim.json",
       "requires_fresh_claim_and_input_audit": true,
       "path": "coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json",
       "completion_record": "coordination/completions/T-R4-FINAL-DRAWINGS-01/completion.json",
@@ -396,8 +397,24 @@
       "claim_release": "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-01/claim_release.json",
       "claim_release_status": "RELEASED",
       "verification": "PASS"
+    },
+    {
+      "task_id": "T-R4-REDESIGN-1.5MN-01",
+      "role": "R4",
+      "status": "IN_PROGRESS",
+      "priority": "P0",
+      "scope": "REDESIGN_FORCE_GEOMETRY_1.5MN",
+      "path": "coordination/tasks/T-R4-REDESIGN-1.5MN-01/task.json",
+      "claim": "coordination/claims/T-R4-REDESIGN-1.5MN-01.json",
+      "requires_fresh_claim_and_input_audit": true
     }
   ],
-  "next_dispatch": [],
+  "next_dispatch": [
+    {
+      "task_id": "T-R4-REDESIGN-1.5MN-01",
+      "role": "R4",
+      "priority": "P0"
+    }
+  ],
   "completion_record": "coordination/completions/T-R1-ENGINEERING-PLAN-13/completion.json"
 }

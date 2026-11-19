@@ -8,7 +8,8 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json) | R4 | P0 / READY. Входной аудит CAD и экспорт КД W02 в DXF/SVG/PDF из FreeCAD 1.1.4 |
+| [T-R4-REDESIGN-1.5MN-01](coordination/tasks/T-R4-REDESIGN-1.5MN-01/task.json) | R4 | P0 / IN_PROGRESS. Перепроектирование W02 под 1,5 МН. Claim принят, входной аудит ожидается |
+| [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json) | R4 | P0 / COMPLETED. Экспорт КД W02 выполнен, claim освобождён |
 | [T-R5-FORCE-CALC-VERIFY-01](coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json) | R5 | P0 / COMPLETED (PASS в области CALCULATED_ASSUMED). Claim освобождён |
 | [T-R3-FORCE-CALC-01](coordination/tasks/T-R3-FORCE-CALC-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED). Claim освобождён |
 | [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/README.md) | R2 | P0 / COMPLETED (DESIGN_BASIS r1). Claim освобождён |

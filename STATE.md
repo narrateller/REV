@@ -102,6 +102,10 @@ R4 завершил [T-R4-FINAL-DRAWINGS-01](coordination/completions/T-R4-FINAL
 R5 провёл [независимую верификацию](coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-01/completion.json) на коммите 994f0e9c: все критерии PASS (4 FCStd модели, 53 DXF, 53 SVG, 50 PDF, масштаб 1:1 мм, PistonRod во всех вариантах, ReceiverLock в B-V1/B-V2, BOM привязан к cots_catalog.yaml, CI зелёный).
 [Claim T-R4-FINAL-DRAWINGS-01 освобождён](coordination/completions/T-R4-FINAL-DRAWINGS-01/claim_release.json).
 
+[Инженерный отказ Ø80/45](coordination/completions/T-R3-FORCE-CALC-01/engineering_failure_note.md) зафиксирован в области
+`CALCULATED_ASSUMED`. В очереди P0 — [перепроектирование W02 под 1,5 МН](coordination/tasks/T-R4-REDESIGN-1.5MN-01/task.json).
+[Claim R4](coordination/claims/T-R4-REDESIGN-1.5MN-01.json) принят по поручению оператора. Входной аудит R4 ожидается.
+
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
 `python -m unittest discover -s tests -v`. PASS относится только к проверенной области.
