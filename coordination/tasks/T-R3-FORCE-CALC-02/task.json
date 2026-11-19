@@ -1,0 +1,41 @@
+{
+  "task_id": "T-R3-FORCE-CALC-02",
+  "role": "R3",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "W02_1P5MN_FORCE_PATH_AND_CAE_456",
+  "title": "Пересчитать 42 состояния и §§4/5/6 для новой силовой геометрии W02",
+  "requires_fresh_claim_and_input_audit": true,
+  "depends_on": [
+    "T-R4-REDESIGN-1.5MN-01"
+  ],
+  "r4_result_commit_sha": "a93ddc51aa293b6dc6a7c7f4e4c3d770e6bb118e",
+  "author_sessions": [
+    {
+      "role": "R4",
+      "CODEX_SESSION_ID": "01a1f2e1-ac96-7e41-8b89-ec739207cb5a",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "inputs": {
+    "coordination/tasks/T-R4-REDESIGN-1.5MN-01/output_manifest.json": "8aa7fc8e8d233ad75e27eba87f212ddeb7ab8d265b01b20f30d12b1457343394",
+    "coordination/completions/T-R4-REDESIGN-1.5MN-01/completion.json": "6b084e96ec4c23a7e2a69480c7d05540e8721b24e87032f6fa49e63a9c5d9736",
+    "cad/force_geometry/redesign_1p5mn/design.json": "666fd9c0bcf6917357b85d52306eb0d82d8e48afb7f0c826db746d90609cfe0b",
+    "cad/force_geometry/redesign_1p5mn/interfaces.json": "f8226ac28f1fde8513a9ee343e203dc2f5a17ab7900c821e9ae692240aec25c2",
+    "cad/source/force_geometry/redesign_1p5mn/manifest.json": "d2c32f2ccb05ce68f90064efafc7d3f48ef7dd407c9a08ebc90c3df9e30d2b4e",
+    "cad/source/force_geometry/redesign_1p5mn/screening.json": "d05a72746771a47d3445876b889d8fe2aa0988b55823ee2153a97bd1334c856e",
+    "drives/cots_catalog.yaml": "4210a972eb8b1901fe167ab93a733aabeb94660c68f6819808ab6e54ec1f0f85",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json": "6be05b48a2bffef99ffefa46a9ae3b1af5df548f1812d9bab7ad544330c02382"
+  },
+  "acceptance": [
+    "Сохранить все 42 исходных ID и проверить равновесие, реакции, усилия обеих ветвей привода и запасы для новой геометрии. Зафиксировать отпущенные сочетания без статического равновесия.",
+    "Пересчитать §§4/5/6 с контактами направляющих, эксцентриситетами, жёсткостью креплений и раздельными путями седла/ключей B. Указать граничные условия, проверки и остаточные UNKNOWN.",
+    "Обновить фазовые оценки расхода, энергии и времени для двух цилиндров и переходной матрицы. Отдельно проверить обратное осевое удержание и поведение при рассогласовании.",
+    "Поставить воспроизводимый пакет с исходниками, хэшами, результатами и verifier. Передать точный commit R5 для независимой проверки."
+  ],
+  "physical_status_until_inputs_confirmed": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}
