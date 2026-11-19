@@ -27,7 +27,13 @@
       "completion_record": "coordination/completions/T-R2-INPUTS-01/completion.json",
       "claim_release": "coordination/completions/T-R2-INPUTS-01/claim_release.json",
       "claim_release_status": "RELEASED",
-      "result_commit_sha": "093a78ad27e46f6b2066ee78d4170704d4307623"
+      "result_commit_sha": "093a78ad27e46f6b2066ee78d4170704d4307623",
+      "routing_blocker_resolution": {
+        "blocker": "ROLE_UNAVAILABLE",
+        "status": "RESOLVED",
+        "reason": "Оператор разрешил участие R2 в автопилоте.",
+        "resolution_record": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/completion.json"
+      }
     },
     {
       "task_id": "T-R3-42-STATES-01",
@@ -79,14 +85,17 @@
       "claim_release_status": "RELEASED",
       "rebuild_commit_sha": "224242f918b05640ffa679fac468deb41290f444",
       "verification": "PASS",
-      "verification_record": "coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json"
+      "verification_record": "coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json",
+      "verification_scope": "Артефакты CAD-пересборки, метаданные и CI по акту R5.",
+      "verification_evidence_reconciliation": "coordination/completions/T-R1-ENGINEERING-PLAN-07/completion.json"
     },
     {
       "task_id": "T-R4-DRAWINGS-01",
       "role": "R4",
-      "status": "WAITING_ENGINEERING_BASELINE",
+      "status": "READY",
       "priority": "P1",
-      "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json"
+      "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json",
+      "readiness_scope": "Условная КД"
     },
     {
       "task_id": "T-R5-ENGINEERING-VERIFY-01",
@@ -162,15 +171,18 @@
     {
       "task_id": "T-R1-ENGINEERING-PLAN-07",
       "role": "R1",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "priority": "P0",
-      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/task.json"
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/task.json",
+      "completion": "coordination/completions/T-R1-ENGINEERING-PLAN-07/completion.json",
+      "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-07/claim_release.json",
+      "claim_release_status": "RELEASED"
     }
   ],
   "next_dispatch": {
     "task_id": "T-R4-DRAWINGS-01",
     "role": "R4",
-    "status": "WAITING_ENGINEERING_BASELINE",
+    "status": "READY",
     "priority": "P1",
     "requires_fresh_claim": true,
     "requires_input_audit": true,
@@ -183,7 +195,21 @@
       "commit": "093a78ad27e46f6b2066ee78d4170704d4307623"
     },
     "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md",
-    "blocker": "Силовая геометрия, реальные нагрузки и опоры, материалы, допуски и несущая способность соединений ожидают инженерного обоснования.",
-    "physical_input_status": "BLOCKED_INPUTS"
+    "physical_input_status": "BLOCKED_INPUTS",
+    "readiness_scope": "Условная КД",
+    "freecad_version": "1.1.4",
+    "physical_execution": "NOT_RUN",
+    "physical_input_blocker": "Силовая геометрия, реальные нагрузки и опоры, материалы, допуски и несущая способность соединений ожидают инженерного обоснования.",
+    "cad_rebuild": {
+      "task_id": "T-R4-W02-CAD-01",
+      "commit": "224242f918b05640ffa679fac468deb41290f444",
+      "manifest": {
+        "path": "cad/build/w02_rebuild_20261119/manifest.json",
+        "sha256": "4891959d09824c4b91e7e2235f95ecafbf1e78ce143366944195796c28795ea5"
+      },
+      "verification": "PASS",
+      "verification_record": "coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json",
+      "evidence_reconciliation": "coordination/completions/T-R1-ENGINEERING-PLAN-07/completion.json"
+    }
   }
 }

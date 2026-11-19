@@ -14,7 +14,7 @@
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / COMPLETED (ASSUMED_STATIC_SCREENING) |
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / COMPLETED (CAD-rebuild, FreeCAD 1.1.4) |
-| [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / WAITING_ENGINEERING_BASELINE |
+| [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / READY (условная КД) |
 | [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / COMPLETED |
 | [T-R5-W02-GEOMETRY-VERIFY-01](coordination/tasks/T-R5-W02-GEOMETRY-VERIFY-01/task.json) | R5 | P1 / COMPLETED (VERIFICATION_PASS в области документального аудита) |
 | [T-R5-ENGINEERING-VERIFY-02](coordination/tasks/T-R5-ENGINEERING-VERIFY-02/task.json) | R5 | P0 / COMPLETED (условный расчёт и документальный аудит). Claim закрыт |
@@ -32,9 +32,9 @@
   двусторонние соединения; подготовить drawings/ по готовой базе на FreeCAD 1.1.4.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
 
-Следующая по эстафете `T-R4-DRAWINGS-01` ожидает готовую инженерную базу
-(`WAITING_ENGINEERING_BASELINE`). После её готовности R4 принимает свежий claim
-и проводит входной аудит. R5 проверяет комплект чертежей на точном коммите.
+Следующая по эстафете `T-R4-DRAWINGS-01` имеет статус `READY` для условной КД.
+R4 принимает свежий claim, проверяет пакет R2 и CAD-пересборку W02 на FreeCAD 1.1.4
+и фиксирует открытые входы. R5 проверяет комплект на точном коммите.
 
 Открыты реальные свойства сырья, фазовые нагрузки, геометрия/материалы/BC,
 критерии/допуски, метрология, безопасные состояния и нормативная область/юрисдикция.

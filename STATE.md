@@ -76,7 +76,8 @@ R2 завершил [аудит входов и проект ТЗ](coordination/
 [Акт R2](coordination/completions/T-R2-INPUTS-01/completion.json) · [Освобождение claim](coordination/completions/T-R2-INPUTS-01/claim_release.json)
 Следующая по [плану R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md) —
 [`T-R4-DRAWINGS-01`](coordination/tasks/T-R4-DRAWINGS-01/task.json) на FreeCAD 1.1.4 со
-статусом `WAITING_ENGINEERING_BASELINE`, затем независимая проверка R5.
+статусом `READY` для условной КД после свежего claim и аудита входов.
+Затем R5 проверяет комплект на точном SHA.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
