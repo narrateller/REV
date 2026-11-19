@@ -120,6 +120,11 @@ R3 завершил [перерасчёт W02 по итерации 02](cae/case
 и превышение 315 бар при реверсе одной ветвью.
 [Акт и точный SHA для R5](coordination/completions/T-R3-FORCE-CALC-03/completion.json).
 
+R3 завершил [итерацию 03 W02](coordination/completions/T-R3-FORCE-CALC-04/completion.json) с итогом
+`FAILED / CALCULATED_ASSUMED`. Пересчитаны 42 ID. Предельный остаточный
+зазор −2,142 мм, реверс одной ветвью требует до 503,524 бар в полости.
+Claim освобождён для следующей итерации R4. Физические статусы сохраняются.
+
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
 `python -m unittest discover -s tests -v`. PASS относится только к проверенной области.

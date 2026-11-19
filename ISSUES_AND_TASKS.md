@@ -8,7 +8,7 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R3-FORCE-CALC-04](coordination/tasks/T-R3-FORCE-CALC-04/task.json) | R3 | P0 / READY. Итерация 03 по геометрии R4 ревизии 02. Нужны свежий claim и входной аудит. |
+| [T-R3-FORCE-CALC-04](coordination/completions/T-R3-FORCE-CALC-04/completion.json) | R3 | COMPLETED / FAILED в условной области. Зазор и давление реверса блокируют выпуск КД. Claim освобождён для следующей итерации R4. |
 | [T-R3-FORCE-CALC-03](coordination/completions/T-R3-FORCE-CALC-03/completion.json) | R3 | COMPLETED / FAILED в условной области. Контакт B проходит. Зазор при рассогласовании и аварийный реверс блокируют выпуск КД. Ожидается независимая проверка R5. |
 | [T-R4-REDESIGN-1.5MN-02](coordination/completions/T-R4-REDESIGN-1.5MN-02/completion.json) | R4 | P0 / COMPLETED (CALCULATED_ASSUMED). Claim освобождён |
 | [T-R3-FORCE-CALC-02](coordination/completions/T-R3-FORCE-CALC-02/completion.json) | R3 | P0 / COMPLETED. Инженерный итог FAILED в области CALCULATED_ASSUMED. Claim освобождён |

@@ -5,11 +5,10 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основания — [решение о форке](decisions/ARB-OPERATOR-FORK-BASELINE-01.md) и [решение о проектном базисе](decisions/ARB-OPERATOR-DESIGN-BASIS-02.md).
 
-R1 назначает независимую проверку R5 по точному SHA из
-[акта T-R3-FORCE-CALC-03](coordination/completions/T-R3-FORCE-CALC-03/completion.json).
-R5 воспроизводит контакт B, предельные зазоры и давление реверса одной ветвью.
-Выпуск КД заблокирован двумя результатами из
-[инженерного отказа](cae/cases/T-R3-FORCE-CALC-03/engineering_failure_note.md).
+R1 направляет [результат итерации 03](coordination/completions/T-R3-FORCE-CALC-04/completion.json)
+на независимую проверку R5 по точному SHA из акта. R4 получает
+[причины отказа](cae/cases/T-R3-FORCE-CALC-04/engineering_failure_note.md)
+для следующей итерации. Выпуск КД заблокирован.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические
