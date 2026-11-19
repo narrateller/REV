@@ -1,0 +1,95 @@
+{
+  "task_id": "T-R3-FORCE-CALC-03",
+  "role": "R3",
+  "status": "COMPLETED",
+  "engineering_status": "FAILED",
+  "scope": "CALCULATED_ASSUMED",
+  "task_scope": "W02_1P5MN_FORCE_PATH_ITERATION_02",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_case_count": 0,
+  "physical_sections_4_5_6": "NOT_RUN",
+  "completed_at_utc": "2026-11-19T22:03:30Z",
+  "source_main_sha": "3ccd0a706d8a8eb220f75085411a6a05c97fd3b7",
+  "claim_main_sha": "c14fbce20642fd0497cb5a12833dabe780c984c1",
+  "result_commit_sha": "6cf95ee0c7fc926cfc5589b00530997687d2b2bf",
+  "author_sessions": [
+    {
+      "role": "R3",
+      "CODEX_SESSION_ID": "01a1f5cd-d19d-78c1-8254-ce03b9ed324a",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "identity_source": "CODEX_SESSION_ID, session_meta.id and turn_context.model"
+    }
+  ],
+  "runtime": {
+    "python": "3.13.17",
+    "platform": "Windows-11-10.0.28000-SP0",
+    "method": "Analytical statics, Euler screening and compression-only pad equilibrium"
+  },
+  "input_manifest": "cae/cases/T-R3-FORCE-CALC-03/input_manifest.json",
+  "output_manifest": {
+    "path": "cae/cases/T-R3-FORCE-CALC-03/output_manifest.json",
+    "sha256": "005fe9ddf2f3acfe3291cb69f83423c5fdc0cfe7dd892f55e68ce3315ee5fe8d"
+  },
+  "engineering_failure_note": "cae/cases/T-R3-FORCE-CALC-03/engineering_failure_note.md",
+  "result_index": "cae/cases/T-R3-FORCE-CALC-03/results/index.json",
+  "claim_release": "coordination/completions/T-R3-FORCE-CALC-03/claim_release.json",
+  "state_count": 42,
+  "state_samples": {
+    "ZERO_GRAVITY_ONLY": 98,
+    "AXIAL_RELEASE": 116,
+    "STATIC_HOLD": 1152,
+    "SLIDING_LIMIT": 1152
+  },
+  "pressure_bound_samples": 1512,
+  "criteria": {
+    "coverage_42_ids": "PASS",
+    "working_port_within_315_bar": "PASS",
+    "working_supply_within_250_bar": "PASS",
+    "zero_source_points_outside_mechanical_stroke": "PASS",
+    "rod_and_crosshead_strength": "PASS",
+    "other_screened_strength": "PASS",
+    "compression_over_euler": "PASS",
+    "B_key_backing_contact_at_315_bar": "PASS",
+    "B_seat_contact_at_315_bar": "PASS",
+    "B_seat_open_when_keys_loaded": "PASS",
+    "B_key_running_gap_and_registration": "PASS",
+    "working_guide_clearance": "PASS",
+    "pressure_bound_guide_clearance": "FAIL",
+    "single_branch_full_reverse": "FAIL"
+  },
+  "verification": {
+    "scope": "AUTHOR_REPLAY_AND_CI",
+    "local": [
+      {
+        "command": "python -m unittest discover -s tests -v",
+        "result": "PASS",
+        "tests": 104
+      },
+      {
+        "command": "python verify_output.py --check-git",
+        "result": "PASS"
+      },
+      {
+        "command": "python cae/cases/T-R3-FORCE-CALC-03/verify_output.py --check-git",
+        "result": "PASS"
+      }
+    ],
+    "github_actions": {
+      "head_sha": "6cf95ee0c7fc926cfc5589b00530997687d2b2bf",
+      "url": "https://github.com/narrateller/REV/actions/runs/44624403194",
+      "result": "PASS",
+      "registry_check": "python scripts/check_registry.py --check-git"
+    },
+    "independent_R5": "NOT_RUN"
+  },
+  "review_handoff": {
+    "role": "R5",
+    "target_commit_sha": "6cf95ee0c7fc926cfc5589b00530997687d2b2bf",
+    "status": "AWAITING_INDEPENDENT_REVIEW",
+    "focus": "Reproduce the revision 02 B contact margin, guide clearance and single-branch reversal demand."
+  },
+  "R4_final_drawings_handoff": "BLOCKED_BY_ENGINEERING_FAILURE",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}

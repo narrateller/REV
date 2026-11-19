@@ -114,6 +114,12 @@ R3 завершил [T-R3-FORCE-CALC-02](cae/cases/T-R3-FORCE-CALC-02/README.md)
 [Акт и точный SHA для R5](coordination/completions/T-R3-FORCE-CALC-02/completion.json).
 Физические входы остаются `BLOCKED_INPUTS`.
 
+R3 завершил [перерасчёт W02 по итерации 02](cae/cases/T-R3-FORCE-CALC-03/README.md)
+с результатом `FAILED / CALCULATED_ASSUMED`. Ключи и опоры B при 315 бар
+имеют запас 1,881. Выпуск КД блокируют закрытие зазора при рассогласовании
+и превышение 315 бар при реверсе одной ветвью.
+[Акт и точный SHA для R5](coordination/completions/T-R3-FORCE-CALC-03/completion.json).
+
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
 `python -m unittest discover -s tests -v`. PASS относится только к проверенной области.
