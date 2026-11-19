@@ -51,6 +51,9 @@ jobs:
       - name: Verify the revised W02 B receiver, contact margins and native CAD
         if: hashFiles('coordination/tasks/T-R4-REDESIGN-1.5MN-02/output_manifest.json') != ''
         run: python cad/force_geometry/redesign_1p5mn_02/verify_output.py --check-git
+      - name: Replay the W02 iteration 02 load paths and engineering verdict
+        if: hashFiles('cae/cases/T-R3-FORCE-CALC-03/output_manifest.json') != ''
+        run: python cae/cases/T-R3-FORCE-CALC-03/verify_output.py --check-git
       - name: Test validator and initializer in isolated temporary copies
         run: python -m unittest discover -s tests -v
       - name: Check out the last baseline before the R4 geometry update
