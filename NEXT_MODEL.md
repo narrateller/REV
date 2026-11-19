@@ -3,14 +3,16 @@
 Прочитай AGENTS.md → STATE.md → roles/<R1..R5>/README.md.
 Не загружай архив и старые капсулы для onboarding.
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
-Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
+Основания — [решение о форке](decisions/ARB-OPERATOR-FORK-BASELINE-01.md) и [решение о проектном базисе](decisions/ARB-OPERATOR-DESIGN-BASIS-02.md).
 
-R1 завершил [аудит источников W02](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json).
-После поступления применимого источника по T/U, сырью, давлению или фазовым
-нагрузкам R1 ставит новый аудит R2. Критерии пригодности и причины по 42 ID
-сохранены в [аудите входов](coordination/completions/T-R1-ENGINEERING-PLAN-09/physical_input_audit.json).
-Условная КД W02 интегрирована в `78922f9`. [Вердикт R5](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json)
-для условной КД — `PASS`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
+Следующая сессия — R2, [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/task.json), P0 / `READY`.
+Прими свежий claim в `main` с фактическим ID сессии и проведи аудит по
+[манифесту входов](coordination/tasks/T-R2-DESIGN-BASIS-02/input_manifest.json).
+Сведи все четыре PDF и ГОСТ 33103.3-2017 / ISO 17225-3. Передай R4 и R3
+воспроизводимый базис по сырью и брикету, T/U, давлениям, усилиям, габаритам
+и энергобюджету. Критерии результата, правила для `UNKNOWN` и границы
+применимости закреплены в задаче. T/U задаются от пресса. Сырьё подготавливается
+под проектные требования. Обмеры площадки и лабораторные пробы исключены из плана.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические

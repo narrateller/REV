@@ -1,4 +1,4 @@
-# REV — отправная база после ротации 2026-11-18
+# REV — состояние на 2026-11-19
 
 Режим: Stateless Agents / Stateful Repo. На момент ротации все старые claims сняты,
 новых владельцев нет. Административный переход выполнен R1, сессия
@@ -8,6 +8,11 @@
 [авторизация](coordination/user_authorizations/operator_fork_20261118.json).
 Полная история сохранена побайтно: [архив](archive/context/operator-fork-20261118/manifest.json).
 Старые полномочия: [закрытые записи](coordination/completions/operator-fork-20261118/retirements.json).
+
+Проектный базис `DESIGN_BASIS` задан решением [ARB-OPERATOR-DESIGN-BASIS-02](decisions/ARB-OPERATOR-DESIGN-BASIS-02.md).
+Обмеры T/U и пробы конкретного сырья исключены из плана. Площадку и периферию
+адаптируют под интерфейсы пресса REV. Проектные требования к подготовке сырья
+и цели по готовому брикету R2 выводит из четырёх референсов и применимых стандартов.
 
 ## Принятая отправная база
 
@@ -48,7 +53,9 @@ CALCULATED_ASSUMED. [Результаты](cae/cases/T-R3-42-STATES-ENVELOPE-01/
 [Аудит R3](cae/cases/T-R3-42-STATES-01/README.md) содержит блокер каждого случая.
 Прочность, устойчивость и реальные
 реакции не подтверждены. ТЗ/архитектура NOT_APPROVED, G1 OPEN; W02 и physical READY NO-GO.
-Источник power/pressure/moisture и реальные свойства/геометрия/связи остаются открытыми.
+Численные требования к мощности, давлениям, подготовленному сырью и геометрии
+уточняются в проектном базисе. Фактические свойства партий и физические связи
+сохраняют статус `UNKNOWN` при отсутствии подтверждения.
 
 Оператор разрешил R3 расчёты по огибающей и R4 входной аудит W02 после нового
 claim. Физические испытания и выпуск в производство требуют отдельного
@@ -77,9 +84,11 @@ R2 завершил [аудит входов и проект ТЗ](coordination/
 R4 завершил [условную КД W02](coordination/completions/T-R4-DRAWINGS-01/completion.json).
 R5 записал [PASS](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json)
 на `dcb8ff5`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
-R1 завершил [аудит источников W02](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json).
-Все 42 физических состояния остаются BLOCKED_INPUTS. Очередь ожидает новый
-применимый к REV источник для аудита R2.
+Предшествующий [аудит источников W02](coordination/completions/T-R1-ENGINEERING-PLAN-09/completion.json)
+сохраняет причины по 42 физическим состояниям. По решению оператора ожидание
+обмеров и проб снято для проектной работы. Следующая задача [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/task.json)
+имеет статус P0 / `READY`. После свежего claim и аудита R2 готовит входы для R4
+и R3 с границами применимости и списком остаточных пробелов.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,

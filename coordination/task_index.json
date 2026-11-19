@@ -226,20 +226,35 @@
     {
       "task_id": "T-R1-DESIGN-BASIS-02",
       "role": "R1",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "priority": "P0",
       "path": "coordination/tasks/T-R1-DESIGN-BASIS-02/task.json",
-      "scope": "OPERATOR_DESIGN_BASIS_AND_R2_DISPATCH"
+      "scope": "OPERATOR_DESIGN_BASIS_AND_R2_DISPATCH",
+      "completion_record": "coordination/completions/T-R1-DESIGN-BASIS-02/completion.json",
+      "claim_release": "coordination/completions/T-R1-DESIGN-BASIS-02/claim_release.json",
+      "claim_release_status": "RELEASED"
+    },
+    {
+      "task_id": "T-R2-DESIGN-BASIS-02",
+      "role": "R2",
+      "status": "READY",
+      "priority": "P0",
+      "scope": "DESIGN_BASIS",
+      "path": "coordination/tasks/T-R2-DESIGN-BASIS-02/task.json"
     }
   ],
   "next_dispatch": {
-    "task_id": null,
+    "task_id": "T-R2-DESIGN-BASIS-02",
     "role": "R2",
-    "status": "BLOCKED_INPUTS",
+    "status": "READY",
     "priority": "P0",
-    "reason": "В актуальном main отсутствует новый применимый источник физических входов REV. Завершённый аудит R2 закрыт и его claim освобождён.",
-    "unblock_condition": "После поступления применимого источника по T/U, сырью, давлению или фазовым нагрузкам R1 назначает новый ограниченный аудит R2 с новым ID и свежим claim. Далее R4 сверяет силовую геометрию и допуски, R3 проверяет допуск каждого случая, R5 верифицирует новый результат на точном SHA.",
-    "input_audit": "coordination/completions/T-R1-ENGINEERING-PLAN-09/physical_input_audit.json",
+    "scope": "DESIGN_BASIS",
+    "path": "coordination/tasks/T-R2-DESIGN-BASIS-02/task.json",
+    "authority": "decisions/ARB-OPERATOR-DESIGN-BASIS-02.md",
+    "operator_authorization": "coordination/user_authorizations/operator_design_basis_20261119.json",
+    "input_manifest": "coordination/tasks/T-R2-DESIGN-BASIS-02/input_manifest.json",
+    "requires_fresh_claim_and_input_audit": true,
+    "reason": "Оператор задал DESIGN_BASIS. Ожидание обмеров T/U и проб исключено из условий запуска проектной задачи R2.",
     "physical_input_status": "BLOCKED_INPUTS",
     "physical_execution": "NOT_RUN"
   }

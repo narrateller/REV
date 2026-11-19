@@ -1,0 +1,73 @@
+{
+  "record_type": "user_authorization",
+  "authorization_id": "OPERATOR-DESIGN-BASIS-02",
+  "source": "Прямая директива оператора в этой сессии, 2026-11-19, пункты 1–4.",
+  "recorded_at_utc": "2026-11-19T04:19:30Z",
+  "actor_role": "R1",
+  "actor_session": "01a1f203-8382-7982-9ec0-cd1988155870",
+  "CODEX_SESSION_ID": "01a1f203-8382-7982-9ec0-cd1988155870",
+  "session_id_source": "CODEX_SESSION_ID; verified against session_meta.id",
+  "model_label": "gpt-6.2-sol",
+  "runtime_model_id": "gpt-6.2-sol",
+  "runtime_model_provider": "openai",
+  "runtime_model_source": "Codex turn_context.model and session_meta.model_provider",
+  "source_main_sha": "75fe440a44b1775ee4550ed153ff4b43d9d79c29",
+  "decision": "decisions/ARB-OPERATOR-DESIGN-BASIS-02.md",
+  "scope": "DESIGN_BASIS",
+  "directives": [
+    {
+      "point": 1,
+      "field_survey_t_u_planned": false,
+      "specific_feedstock_lab_sampling_planned": false,
+      "text": "Полевые обмеры T/U и лабораторные пробы конкретного сырья не проводятся и проводиться не будут."
+    },
+    {
+      "point": 2,
+      "objective": "Полнофункциональный аналог референсного брикетировочного оборудования.",
+      "reference_pdfs": [
+        "sources/raw/Target_object_BP500.pdf",
+        "sources/raw/additional_Ars_Rst_500.pdf",
+        "sources/raw/additional_Prodeco_E55.pdf",
+        "sources/raw/additional_Weima200.pdf"
+      ]
+    },
+    {
+      "point": 3,
+      "interfaces": {
+        "T": "Подача",
+        "U": "Выдача"
+      },
+      "defined_from": "Проектируемый пресс REV",
+      "site_and_peripherals_adapt_to_press": true
+    },
+    {
+      "point": 4,
+      "feedstock_requirements": [
+        "влажность",
+        "фракция",
+        "насыпная плотность",
+        "допуски"
+      ],
+      "finished_briquette_targets_required": true,
+      "feedstock_prepared_to_specification": true,
+      "basis": [
+        "Четыре референсные модели",
+        "ГОСТ 33103.3-2017",
+        "ISO 17225-3"
+      ]
+    }
+  ],
+  "dispatch": {
+    "task_id": "T-R2-DESIGN-BASIS-02",
+    "role": "R2",
+    "priority": "P0",
+    "status": "READY",
+    "fresh_claim_and_input_audit": true
+  },
+  "field_measurements_or_lab_samples_required_for_design_basis": false,
+  "physical_validation_confirmed": false,
+  "physical_trials_authorized": false,
+  "manufacturing_release_authorized": false,
+  "G1_approved": false,
+  "parameter_maturity_promotion_authorized": false
+}
