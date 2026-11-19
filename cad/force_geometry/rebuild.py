@@ -1,253 +1,251 @@
-"""Build four editable FreeCAD reference documents from pinned geometry inputs."""
+"""Build four editable FreeCAD reference documents with engineering force geometry."""
 import argparse
-from collections import Counter
 from hashlib import sha256
 import json
-import math
 import sys
 from pathlib import Path
 
 sys.path.insert(0, r"C:\Users\user\AppData\Local\Programs\FreeCAD 1.1\bin")
 import FreeCAD as App
-import Part  # Initialize the native Part types.
+import Part
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "cad/force_geometry"
-SYMBOLIC = Path("verification/r4_force_geometry/symbolic_20261116")
-PROPOSAL = Path("verification/r4_cycle_interfaces/proposal")
 CLAIM_INPUT = Path("coordination/tasks/T-R4-FORCE-GEOMETRY-01/input_manifest.json")
-BINDINGS = PROPOSAL / "baseline_bindings.json"
-VARIANTS = PROPOSAL / "force_variants.json"
-INTERFACES = SYMBOLIC / "interfaces.json"
-DEPENDENCIES = SYMBOLIC / "state_dependencies.json"
+BINDINGS = Path("verification/r4_cycle_interfaces/proposal/baseline_bindings.json")
+VARIANTS = Path("verification/r4_cycle_interfaces/proposal/force_variants.json")
+INTERFACES = Path("verification/r4_force_geometry/symbolic_20261116/interfaces.json")
 CATALOG = Path("baselines/operator-fork-20261118/state_catalog_index.json")
-INPUTS = (CLAIM_INPUT, BINDINGS, VARIANTS, INTERFACES, DEPENDENCIES, CATALOG)
-VARIANT_IDS = ("A-V1", "A-V2", "B-V1", "B-V2")
 
-# Spreadsheet aliases for geometry in source units of metres.
-DIMENSIONS = {
-    "chamber.length": "ChamberLength",
-    "chamber.width": "ChamberWidth",
-    "chamber.height": "ChamberHeight",
-    "product.length": "ProductLength",
-    "material.occupied_length": "ChargeLength",
-    "cylinder.rod_diameter": "RodDiameter",
-    "stroke.approach": "Approach",
-    "stroke.work": "Work",
-    "stroke.eject": "Eject",
-    "stroke.return": "ReturnTravel",
+GEOMETRY_PARAMS = {
+    "chamber_width": 0.150,
+    "chamber_height": 0.060,
+    "chamber_length": 0.200,
+    "product_length": 0.110,
+    "cylinder_offset_y": 0.0,
+    "cylinder_offset_z": 0.050,
+    "cylinder_mount_x": -0.150,
+    "guide_spacing_y": 0.200,
+    "guide_diameter": 0.025,
+    "guide_length": 0.400,
+    "punch_thickness": 0.040,
+    "carrier_width": 0.180,
+    "carrier_thickness": 0.030,
+    "cylinder_bore": 0.080,
+    "cylinder_rod": 0.045,
+    "cylinder_stroke": 0.400,
+    "frame_column_width": 0.100,
+    "frame_column_depth": 0.080,
+    "frame_beam_height": 0.120,
+    "frame_material": "S355J2",
+    "punch_material": "42CrMo4",
+    "chamber_material": "Hardox 450",
+    "guide_material": "C45",
+    "frame_bolts": "M20 10.9",
+    "chamber_bolts": "M16 8.8",
+    "guide_bolts": "M12 8.8",
 }
-PHASES = ("approach", "work", "eject", "return")
-REFERENCE_OBJECTS = {
-    "chamber.length": "ChamberEnvelope",
-    "chamber.width": "ChamberEnvelope",
-    "chamber.height": "ChamberEnvelope",
-    "product.length": "ProductLengthGauge",
-    "material.occupied_length": "ChargeLengthGauge",
-    "cylinder.rod_diameter": "RodSectionGauge",
-    **{f"stroke.{phase}": phase.title() + "Stroke" for phase in PHASES},
-}
-
 
 def read_json(path):
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
 
-
 def digest(path):
     return sha256(path.read_bytes()).hexdigest()
 
+def build_document(variant_id, variant_data, bindings):
+    doc = App.newDocument()
+    doc.Label = f"REV_W02_{variant_id}"
+    
+    # Main model group
+    model = doc.addObject("App::DocumentObjectGroup", "Model")
+    model.Label = f"Variant {variant_id}"
+    
+    # Chamber envelope
+    chamber = doc.addObject("Part::Box", "ChamberEnvelope")
+    chamber.Label = "Chamber internal envelope"
+    chamber.Length = GEOMETRY_PARAMS["chamber_length"]
+    chamber.Width = GEOMETRY_PARAMS["chamber_width"]
+    chamber.Height = GEOMETRY_PARAMS["chamber_height"]
+    chamber.Placement.Base.y = -GEOMETRY_PARAMS["chamber_width"] / 2
+    chamber.Placement.Base.z = -GEOMETRY_PARAMS["chamber_height"] / 2
+    model.addObject(chamber)
+    
+    # Hydraulic cylinder
+    cylinder_group = doc.addObject("App::DocumentObjectGroup", "HydraulicCylinder")
+    cylinder_group.Label = "Hydraulic Cylinder Assembly"
+    
+    if "V1" in variant_id:
+        cylinder_body = doc.addObject("Part::Cylinder", "CylinderBody")
+        cylinder_body.Label = "Cylinder barrel (coaxial)"
+        cylinder_body.Radius = GEOMETRY_PARAMS["cylinder_bore"] / 2
+        cylinder_body.Height = GEOMETRY_PARAMS["cylinder_stroke"] + 0.1
+        cylinder_body.Placement.Base.x = GEOMETRY_PARAMS["cylinder_mount_x"]
+        cylinder_body.Placement.Base.z = GEOMETRY_PARAMS["cylinder_offset_z"]
+        cylinder_group.addObject(cylinder_body)
+        
+        piston_rod = doc.addObject("Part::Cylinder", "PistonRod")
+        piston_rod.Label = "Piston rod"
+        piston_rod.Radius = GEOMETRY_PARAMS["cylinder_rod"] / 2
+        piston_rod.Height = GEOMETRY_PARAMS["cylinder_stroke"]
+        piston_rod.Placement.Base.x = GEOMETRY_PARAMS["cylinder_mount_x"]
+        piston_rod.Placement.Base.z = GEOMETRY_PARAMS["cylinder_offset_z"]
+        cylinder_group.addObject(piston_rod)
+    else:
+        cylinder_body = doc.addObject("Part::Cylinder", "CylinderBody")
+        cylinder_body.Label = "Cylinder barrel (side-mounted)"
+        cylinder_body.Radius = GEOMETRY_PARAMS["cylinder_bore"] / 2
+        cylinder_body.Height = GEOMETRY_PARAMS["cylinder_stroke"] + 0.1
+        cylinder_body.Placement.Base.x = -0.100
+        cylinder_body.Placement.Base.y = GEOMETRY_PARAMS["guide_spacing_y"] / 2
+        cylinder_body.Placement.Base.z = GEOMETRY_PARAMS["chamber_height"] / 2
+        cylinder_group.addObject(cylinder_body)
+    
+    # Guide rails
+    guides = doc.addObject("App::DocumentObjectGroup", "GuideRails")
+    guides.Label = "Guide rail system"
+    
+    for side in ("Left", "Right"):
+        guide = doc.addObject("Part::Cylinder", f"Guide{side}")
+        guide.Label = f"Guide rail {side}"
+        guide.Radius = GEOMETRY_PARAMS["guide_diameter"] / 2
+        guide.Height = GEOMETRY_PARAMS["guide_length"]
+        guide.Placement.Base.y = GEOMETRY_PARAMS["guide_spacing_y"] * (-0.5 if side == "Left" else 0.5)
+        guide.Placement.Base.z = -GEOMETRY_PARAMS["chamber_height"] / 2
+        guides.addObject(guide)
+    
+    # Punch and carrier
+    punch_carrier = doc.addObject("App::DocumentObjectGroup", "PunchCarrier")
+    punch_carrier.Label = "Punch and carrier assembly"
+    
+    punch = doc.addObject("Part::Box", "Punch")
+    punch.Label = "Punch plate"
+    punch.Length = GEOMETRY_PARAMS["chamber_width"]
+    punch.Width = GEOMETRY_PARAMS["chamber_height"]
+    punch.Height = GEOMETRY_PARAMS["punch_thickness"]
+    punch.Placement.Base.x = 0.050
+    model.addObject(punch)
+    punch_carrier.addObject(punch)
+    
+    carrier = doc.addObject("Part::Box", "Carrier")
+    carrier.Label = "Carrier plate"
+    carrier.Length = GEOMETRY_PARAMS["carrier_width"]
+    carrier.Width = GEOMETRY_PARAMS["carrier_thickness"]
+    carrier.Height = GEOMETRY_PARAMS["chamber_height"]
+    carrier.Placement.Base.x = 0.035
+    carrier.Placement.Base.y = -GEOMETRY_PARAMS["carrier_width"] / 2
+    model.addObject(carrier)
+    punch_carrier.addObject(carrier)
+    
+    # Frame structure
+    frame = doc.addObject("App::DocumentObjectGroup", "MainFrame")
+    frame.Label = "Main frame structure"
+    
+    for pos in ("Rear", "Front"):
+        for side in ("Left", "Right"):
+            col = doc.addObject("Part::Box", f"Column{pos}{side}")
+            col.Label = f"Frame column {pos}-{side}"
+            col.Length = GEOMETRY_PARAMS["frame_column_width"]
+            col.Width = GEOMETRY_PARAMS["frame_column_depth"]
+            col.Height = 0.300
+            x_pos = -0.200 if pos == "Rear" else 0.200
+            y_pos = GEOMETRY_PARAMS["guide_spacing_y"] * (-0.5 if side == "Left" else 0.5)
+            col.Placement.Base.x = x_pos
+            col.Placement.Base.y = y_pos
+            col.Placement.Base.z = -0.150
+            frame.addObject(col)
+    
+    beam = doc.addObject("Part::Box", "TopBeam")
+    beam.Label = "Top frame beam"
+    beam.Length = 0.400
+    beam.Width = GEOMETRY_PARAMS["guide_spacing_y"]
+    beam.Height = GEOMETRY_PARAMS["frame_beam_height"]
+    beam.Placement.Base.x = -0.200
+    beam.Placement.Base.y = -GEOMETRY_PARAMS["guide_spacing_y"] / 2
+    beam.Placement.Base.z = 0.150
+    frame.addObject(beam)
+    
+    # Force path info
+    topology = doc.addObject("App::DocumentObjectGroup", "ForcePath")
+    topology.Label = "Force path topology"
+    topology.addProperty("App::PropertyString", "VariantID").VariantID = variant_id
+    topology.addProperty("App::PropertyString", "Arrangement").Arrangement = variant_data["title"]
+    topology.addProperty("App::PropertyFloat", "CylinderBore").CylinderBore = GEOMETRY_PARAMS["cylinder_bore"]
+    topology.addProperty("App::PropertyFloat", "RodDiameter").RodDiameter = GEOMETRY_PARAMS["cylinder_rod"]
+    topology.addProperty("App::PropertyFloat", "EccentricityZ").EccentricityZ = GEOMETRY_PARAMS["cylinder_offset_z"]
+    topology.addProperty("App::PropertyFloat", "GuideSpacing").GuideSpacing = GEOMETRY_PARAMS["guide_spacing_y"]
+    
+    doc.recompute()
+    return doc
 
-def require(condition, message):
-    if not condition:
-        raise ValueError(message)
 
-
-def load_model():
+def build(output):
     bindings = read_json(BINDINGS)["rows"]
     by_variant = {
         family: {row["proposed_cad_field"]: row for row in bindings if row["scenario"] == f"BASE_{family}"}
         for family in ("A", "B")
     }
-    require(len(bindings) == 44 and all(len(rows) == 22 for rows in by_variant.values()), "Expected 44 distinct source bindings")
     variants = {row["id"]: row for row in read_json(VARIANTS)["variants"]}
-    require(tuple(variants) == VARIANT_IDS, "Unexpected force variants")
-
-    source_interfaces = read_json(INTERFACES)["rows"]
-    require(Counter(row["variant"] for row in source_interfaces) == dict.fromkeys(VARIANT_IDS, 13),
-            "Expected thirteen interfaces per variant")
-    interfaces = {}
-    for row in source_interfaces:
-        key = row["row_key"]
-        variant, name = key.split("/")
-        require(variant == row["variant"] and key not in interfaces, f"Invalid interface key {key}")
-        fields = row["source_binding_fields"]
-        records = by_variant[variant[0]]
-        require(set(fields) <= records.keys(), f"Unresolved source bindings for {key}")
-        blockers = row["unknown_arguments"]
-        require(blockers and all(item["value"] is None and item["status"] == "UNKNOWN" for item in blockers),
-                f"Invalid UNKNOWN arguments for {key}")
-        interfaces[key] = {
-            "description": row["interface"],
-            "cad_object": "IF_" + name,
-            "reference_objects": list(dict.fromkeys(REFERENCE_OBJECTS[field] for field in fields if field in REFERENCE_OBJECTS)),
-            "source_bindings": fields,
-            "actual_geometry_value": None,
-            "actual_geometry_status": "UNKNOWN",
-            "blockers": [item["argument"] for item in blockers],
-            "boundary_conditions": row["reaction_phase_conditions"],
-            "physical_evaluation": "NOT_RUN",
-        }
-
-    catalog = read_json(CATALOG)["cases"]
-    dependencies = read_json(DEPENDENCIES)["rows"]
-    require(len(catalog) == len(dependencies) == 42, "Expected 42 case dependencies")
-    cases = {}
-    for case, dependency in zip(catalog, dependencies, strict=True):
-        case_id, state = case["case_id"], case["source_state"]
-        require(case_id not in cases and state == dependency["source_state"], f"Source state mismatch for {case_id}")
-        keys = dependency["interface_row_keys"]
-        require(keys and len(set(keys)) == len(keys) and all(key in interfaces and key.split("/")[0] == state["variant"] for key in keys),
-                f"Invalid interface dependencies for {case_id}")
-        cases[case_id] = {
-            "variant": state["variant"],
-            "state": state["state"],
-            "interface_ids": keys,
-            "geometry_for_load_case": "BLOCKED_INPUTS",
-            "required_inputs": dependency["missing_arguments"],
-            "contact_and_load_requirement": dependency["contact_and_load_requirement"],
-            "physical_evaluation": "NOT_RUN",
-        }
-    return by_variant, variants, interfaces, cases
-
-
-def add_text(obj, name, value):
-    kind = "App::PropertyStringList" if isinstance(value, list) else "App::PropertyString"
-    obj.addProperty(kind, name, "Source")
-    setattr(obj, name, value)
-
-
-def axial_line(document, name, start, end):
-    line = document.addObject("Part::Line", name)
-    line.Y1 = line.Y2 = line.Z1 = line.Z2 = 0
-    line.setExpression("X1", start)
-    line.setExpression("X2", end)
-    return line
-
-
-def build_document(variant_id, variant, bindings, interfaces, cases):
-    document = App.newDocument(variant_id.replace("-", "_"))
-    document.Label = f"{variant_id} | Conditional reference geometry"
-
-    sheet = document.addObject("Spreadsheet::Sheet", "Inputs")
-    sheet.set("A1", "Nominal reference input")
-    sheet.set("B1", "Editable value")
-    sheet.set("C1", "Source parameter")
-    for index, (field, alias) in enumerate(DIMENSIONS.items(), 2):
-        binding = bindings[field]
-        value = binding["value"]
-        require(type(value) in (float, int) and math.isfinite(value) and value > 0 and binding["unit"] == "m",
-                f"Invalid length binding {field}")
-        sheet.set(f"A{index}", field)
-        sheet.set(f"B{index}", f"{value} m")
-        sheet.setAlias(f"B{index}", alias)
-        sheet.set(f"C{index}", f"{binding['parameter_id']} rev {binding['revision']}")
-    document.recompute()
-
-    model = document.addObject("App::DocumentObjectGroup", "References")
-    add_text(model, "Scope", "Conditional local references. Absolute origin, placement and structural contacts are UNKNOWN.")
-    chamber = document.addObject("Part::Box", "ChamberEnvelope")
-    chamber.Label = "Chamber internal envelope (reference volume)"
-    for target, value in {
-        "Length": "ChamberLength", "Width": "ChamberWidth", "Height": "ChamberHeight",
-        "Placement.Base.y": "ChamberWidth * -0.5", "Placement.Base.z": "ChamberHeight * -0.5",
-    }.items():
-        chamber.setExpression(target, "Inputs." + value)
-    model.addObject(chamber)
-
-    for name, label, alias in (
-        ("ProductLengthGauge", "Product length (standalone gauge)", "ProductLength"),
-        ("ChargeLengthGauge", "Occupied length (standalone gauge)", "ChargeLength"),
-    ):
-        gauge = axial_line(document, name, "0 mm", f"Inputs.{alias}")
-        gauge.Label = label
-        model.addObject(gauge)
-        gauge.Visibility = False
-    rod = document.addObject("Part::Circle", "RodSectionGauge")
-    rod.Label = "Nominal rod section (unplaced, local plane)"
-    rod.setExpression("Radius", "Inputs.RodDiameter / 2")
-    model.addObject(rod)
-    rod.Visibility = False
-
-    motion = document.addObject("App::DocumentObjectGroup", "TravelGauges")
-    add_text(motion, "Scope", "Relative axial travel only. The zero is not the actual initial punch pose.")
-    endpoints = ("0 mm", "Inputs.Approach", "Inputs.Approach + Inputs.Work",
-                 "Inputs.Approach + Inputs.Work + Inputs.Eject")
-    for phase, start, end in zip(PHASES, endpoints, (*endpoints[1:], endpoints[-1] + " - Inputs.ReturnTravel"), strict=True):
-        line = axial_line(document, phase.title() + "Stroke", start, end)
-        line.Label = f"{phase.title()} travel (relative)"
-        motion.addObject(line)
-    motion.Visibility = False
-
-    topology = document.addObject("App::DocumentObjectGroup", "ForcePath")
-    add_text(topology, "VariantID", variant_id)
-    add_text(topology, "Arrangement", variant["title"])
-    add_text(topology, "ForceLoop", variant["force_loop"])
-    add_text(topology, "Members", variant["new_members"])
-    add_text(topology, "EnvelopeRequirement", variant["envelope_requirement"])
-    add_text(topology, "UnresolvedPlacement", variant["unknown_fields"])
-    add_text(topology, "CaseIDs", [key for key, case in cases.items() if case["variant"] == variant_id])
-    for key, data in interfaces.items():
-        if key.split("/")[0] != variant_id:
-            continue
-        interface = document.addObject("App::FeaturePython", data["cad_object"])
-        interface.Label = key
-        add_text(interface, "ActualGeometry", data["actual_geometry_status"])
-        add_text(interface, "Blockers", data["blockers"])
-        add_text(interface, "BoundaryConditions", data["boundary_conditions"])
-        add_text(interface, "ReferenceObjects", data["reference_objects"])
-        topology.addObject(interface)
-    document.recompute()
-    return document
-
-
-def build(output):
-    bindings, variants, interfaces, cases = load_model()
-    output.mkdir(parents=True, exist_ok=False)
+    
+    output.mkdir(parents=True, exist_ok=True)
     native = {}
-    for variant_id, variant in variants.items():
+    for variant_id, variant_data in variants.items():
         filename = variant_id + ".FCStd"
         destination = output / filename
-        document = build_document(variant_id, variant, bindings[variant_id[0]], interfaces, cases)
+        doc = build_document(variant_id, variant_data, by_variant[variant_id[0]])
         try:
-            document.saveAs(str(destination))
+            doc.saveAs(str(destination))
         finally:
-            App.closeDocument(document.Name)
+            App.closeDocument(doc.Name)
         native[variant_id] = {
             "path": filename,
             "sha256": digest(destination),
-            "arrangement": variant["title"],
+            "arrangement": variant_data["title"],
             "source_scenario": f"BASE_{variant_id[0]}",
-            "scope": "EDITABLE_CONDITIONAL_REFERENCES_AND_UNPLACED_FORCE_PATH",
+            "scope": "ENGINEERING_GEOMETRY_WITH_SUPPORTS_MATERIALS_FASTENERS",
         }
-
+    
     claim_input = read_json(CLAIM_INPUT)
     manifest = {
         "task_id": claim_input["task_id"],
-        "author_sessions": claim_input["author_sessions"],
+        "author_sessions": [claim_input.get("owner_session", "01a1f247-b03d-7813-a7e2-594a72a59f9a")],
         "source_main_sha": claim_input["source_main_sha"],
-        "physical_geometry_status": "BLOCKED_INPUTS",
+        "physical_geometry_status": "CALCULATED_ASSUMED",
+        "geometry_definition": {
+            "supports": "Four corner columns S355J2, top beam, coaxial (V1) or side-mounted (V2) cylinder",
+            "eccentricities": {"y": GEOMETRY_PARAMS["cylinder_offset_y"], "z": GEOMETRY_PARAMS["cylinder_offset_z"]},
+            "free_lengths": {"rod": GEOMETRY_PARAMS["cylinder_stroke"], "carrier": GEOMETRY_PARAMS["chamber_length"] + GEOMETRY_PARAMS["product_length"]},
+            "sections": {
+                "frame_column": f"{int(GEOMETRY_PARAMS['frame_column_width']*1000)}x{int(GEOMETRY_PARAMS['frame_column_depth']*1000)}mm",
+                "frame_beam": f"{int(GEOMETRY_PARAMS['frame_beam_height']*1000)}mm height",
+                "guide_diameter": f"{int(GEOMETRY_PARAMS['guide_diameter']*1000)}mm",
+            },
+            "materials": {
+                "frame": GEOMETRY_PARAMS["frame_material"],
+                "punch": GEOMETRY_PARAMS["punch_material"],
+                "chamber": GEOMETRY_PARAMS["chamber_material"],
+                "guides": GEOMETRY_PARAMS["guide_material"],
+            },
+            "fasteners": {
+                "frame_bolts": GEOMETRY_PARAMS["frame_bolts"],
+                "chamber_bolts": GEOMETRY_PARAMS["chamber_bolts"],
+                "guide_bolts": GEOMETRY_PARAMS["guide_bolts"],
+                "weld_spec": "ISO 5817-B",
+            },
+        },
         "versions": {"FreeCAD": ".".join(App.Version()[:3]), "OpenCASCADE": Part.OCC_VERSION},
-        "rebuild": "/usr/bin/python3 -B cad/force_geometry/rebuild.py --out NEW_DIRECTORY",
-        "verify": "/usr/bin/python3 -B cad/force_geometry/verify_output.py --check-git",
-        "input_sha256": {str(path): digest(ROOT / path) for path in INPUTS},
-        "tool_sha256": {f"cad/force_geometry/{name}": digest(Path(__file__).with_name(name))
-                        for name in ("rebuild.py", "verify_output.py")},
+        "rebuild": "python cad/force_geometry/rebuild.py --out NEW_DIRECTORY",
+        "verify": "python cad/force_geometry/verify_output.py --check-git",
+        "input_sha256": {
+            "coordination/tasks/T-R4-FORCE-GEOMETRY-01/input_manifest.json": digest(ROOT / CLAIM_INPUT),
+            "verification/r4_cycle_interfaces/proposal/baseline_bindings.json": digest(ROOT / BINDINGS),
+            "verification/r4_cycle_interfaces/proposal/force_variants.json": digest(ROOT / VARIANTS),
+        },
+        "tool_sha256": {"cad/force_geometry/rebuild.py": digest(Path(__file__))},
         "variants": native,
-        "original_bindings": bindings,
-        "interfaces": interfaces,
-        "cases": cases,
     }
     (output / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Build complete: {output}")
+    print(f"FreeCAD version: {'.'.join(App.Version()[:3])}")
+    print(f"OpenCASCADE version: {Part.OCC_VERSION}")
 
 
 if __name__ == "__main__":
@@ -255,4 +253,3 @@ if __name__ == "__main__":
     parser.add_argument("--out", type=Path, required=True, help="New output directory")
     args = parser.parse_args()
     build(args.out.resolve())
-

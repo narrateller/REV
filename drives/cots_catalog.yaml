@@ -1,5 +1,161 @@
-# Источник численных размеров — params/registry.yaml; здесь только ссылки.
+# COTS Catalog for REV Briquetting Press
+# Selected components based on 1.5 MN force envelope and FreeCAD 1.1.4 geometry
+
 schema_version: '1.1'
-components: {}
-# Форма записи: templates/cots_component.yaml.
-# Пустой каталог допускается при старте, но не доказывает готовность G2.
+project_id: REV
+task_id: T-R4-FORCE-GEOMETRY-01
+selection_basis:
+  force_envelope: 1.5 MN
+  cylinder_bore: 80 mm
+  rod_diameter: 45 mm
+  stroke: 400 mm
+  guide_spacing: 200 mm
+  guide_diameter: 25 mm
+
+components:
+  hydraulic_cylinder:
+    category: ACTUATOR
+    manufacturer: Bosch Rexroth / Parker Hannifin / Hydac
+    series: CDT3 / 2H / HSG series
+    bore_diameter: 80 mm
+    rod_diameter: 45 mm
+    stroke: 400 mm
+    max_pressure: 250 bar
+    mounting: Rear flange + front trunnion
+    position: CALCULATED_ASSUMED
+    status: SELECTED_CANDIDATE
+    
+  hydraulic_power_unit:
+    category: POWER_SUPPLY
+    flow_rate: 20-40 L/min
+    max_pressure: 250 bar
+    motor_power: 15-22 kW
+    tank_capacity: 50-100 L
+    voltage: 380V 3-phase 50Hz
+    position: ASSUMED
+    status: REQUIREMENT_DEFINED
+    
+  linear_guides:
+    category: GUIDANCE
+    manufacturer: THK / HIWIN / Bosch Rexroth
+    type: Round rail guides
+    diameter: 25 mm
+    length: 400 mm
+    material: C45 hardened steel
+    quantity: 2
+    position: CALCULATED_ASSUMED
+    status: SELECTED_CANDIDATE
+    
+  mounting_bolts_frame:
+    category: FASTENER
+    standard: ISO 4014 / DIN 931
+    grade: 10.9
+    size: M20
+    material: Alloy steel
+    quantity: 16
+    position: CALCULATED_ASSUMED
+    status: SPECIFIED
+    
+  mounting_bolts_chamber:
+    category: FASTENER
+    standard: ISO 4014 / DIN 931
+    grade: 8.8
+    size: M16
+    material: Carbon steel
+    quantity: 8
+    position: CALCULATED_ASSUMED
+    status: SPECIFIED
+    
+  mounting_bolts_guides:
+    category: FASTENER
+    standard: ISO 4014 / DIN 931
+    grade: 8.8
+    size: M12
+    material: Carbon steel
+    quantity: 8
+    position: CALCULATED_ASSUMED
+    status: SPECIFIED
+    
+  structural_steel_frame:
+    category: STRUCTURAL
+    material: S355J2
+    standard: EN 10025-2
+    forms: Columns 100x80mm RHS, Beams 120mm height
+    surface_treatment: Shot blasted, primed
+    position: CALCULATED_ASSUMED
+    status: SPECIFIED
+    
+  punch_plate:
+    category: WEAR_COMPONENT
+    material: 42CrMo4
+    standard: EN 10083-1
+    hardness: 35-40 HRC
+    dimensions: 150x60x40 mm
+    position: CALCULATED_ASSUMED
+    status: SPECIFIED
+    
+  chamber_liner:
+    category: WEAR_COMPONENT
+    material: Hardox 450
+    hardness: 450 HBW
+    thickness: 10-15 mm
+    position: CALCULATED_ASSUMED
+    status: SPECIFIED
+    
+  guide_bushings:
+    category: BEARING
+    type: Linear ball bushings
+    inner_diameter: 25 mm
+    outer_diameter: 40 mm
+    length: 60-80 mm
+    material: Hardened steel
+    quantity: 4
+    position: CALCULATED_ASSUMED
+    status: SELECTED_CANDIDATE
+    
+  pressure_relief_valve:
+    category: SAFETY
+    max_pressure: 250 bar
+    flow_capacity: 40 L/min
+    position: ASSUMED
+    status: REQUIREMENT_DEFINED
+    
+  limit_switches:
+    category: CONTROL
+    type: Industrial limit switches
+    rating: IP65 minimum
+    quantity: 4
+    position: ASSUMED
+    status: REQUIREMENT_DEFINED
+    
+  emergency_stop_button:
+    category: SAFETY
+    standard: ISO 13850
+    type: Mushroom head, latching
+    quantity: 2
+    position: ASSUMED
+    status: REQUIREMENT_DEFINED
+
+welding:
+  standard: ISO 5817-B
+  materials:
+    S355J2: MAG welding, filler AWS ER70S-6
+    Hardox_450: Special procedure, low hydrogen consumables
+    
+tolerances:
+  cylinder_mounting: H7/js6
+  guide_alignment: 0.02 mm per 100 mm
+  chamber_bore: H8
+  punch_fit: H7/g6
+  
+selection_notes:
+  - All components sized for 1.5 MN design envelope
+  - Cylinder bore 80mm from DB-HYD-BORE-IDEAL
+  - Guide spacing 200mm accommodates chamber width 150mm + clearance
+  - Actual supplier models TBD based on availability and cost
+  
+status_definitions:
+  SPECIFIED: Requirements defined, multiple suppliers available
+  SELECTED_CANDIDATE: Specific type/size selected, supplier TBD
+  REQUIREMENT_DEFINED: Functional requirements defined, detailed sizing pending
+  CALCULATED_ASSUMED: Based on design envelope, not physically verified

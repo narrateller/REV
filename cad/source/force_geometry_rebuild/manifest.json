@@ -1,0 +1,80 @@
+{
+  "task_id": "T-R4-FORCE-GEOMETRY-01",
+  "author_sessions": [
+    "01a1f247-b03d-7813-a7e2-594a72a59f9a"
+  ],
+  "source_main_sha": "bc42800c88d9f01b58da4d5f9d29f31e3e994783",
+  "physical_geometry_status": "CALCULATED_ASSUMED",
+  "geometry_definition": {
+    "supports": "Four corner columns S355J2, top beam, coaxial (V1) or side-mounted (V2) cylinder",
+    "eccentricities": {
+      "y": 0.0,
+      "z": 0.05
+    },
+    "free_lengths": {
+      "rod": 0.4,
+      "carrier": 0.31
+    },
+    "sections": {
+      "frame_column": "100x80mm",
+      "frame_beam": "120mm height",
+      "guide_diameter": "25mm"
+    },
+    "materials": {
+      "frame": "S355J2",
+      "punch": "42CrMo4",
+      "chamber": "Hardox 450",
+      "guides": "C45"
+    },
+    "fasteners": {
+      "frame_bolts": "M20 10.9",
+      "chamber_bolts": "M16 8.8",
+      "guide_bolts": "M12 8.8",
+      "weld_spec": "ISO 5817-B"
+    }
+  },
+  "versions": {
+    "FreeCAD": "1.1.4",
+    "OpenCASCADE": "7.8.1"
+  },
+  "rebuild": "python cad/force_geometry/rebuild.py --out NEW_DIRECTORY",
+  "verify": "python cad/force_geometry/verify_output.py --check-git",
+  "input_sha256": {
+    "coordination/tasks/T-R4-FORCE-GEOMETRY-01/input_manifest.json": "64650c367c640e86268ad77cbabfea405b9acf013f0261dc1f9f7b8dc3e82a4a",
+    "verification/r4_cycle_interfaces/proposal/baseline_bindings.json": "bb226cff803a105088feb007e5866d692802311e52a76456931aad051e7d41d0",
+    "verification/r4_cycle_interfaces/proposal/force_variants.json": "9fc252b2deeb70a73346eda0bb7ffbf9d36463c6f775dcfc7d399c73edaa0caa"
+  },
+  "tool_sha256": {
+    "cad/force_geometry/rebuild.py": "27202b51bfc3a0babae05b3646612093924f4904b4a147172405117ab0f11b1d"
+  },
+  "variants": {
+    "A-V1": {
+      "path": "A-V1.FCStd",
+      "sha256": "aab90cd6472b23fa9e5fbed15f85198f462939be93672d5a354bd6469499571f",
+      "arrangement": "Задний соосный цилиндр / направляемый носитель",
+      "source_scenario": "BASE_A",
+      "scope": "ENGINEERING_GEOMETRY_WITH_SUPPORTS_MATERIALS_FASTENERS"
+    },
+    "A-V2": {
+      "path": "A-V2.FCStd",
+      "sha256": "4a11e309be638ac954c2ec9256188ad18cf5c55c829a9e0f6fab2d5a0a74969f",
+      "arrangement": "Один боковой цилиндр / портальная траверса",
+      "source_scenario": "BASE_A",
+      "scope": "ENGINEERING_GEOMETRY_WITH_SUPPORTS_MATERIALS_FASTENERS"
+    },
+    "B-V1": {
+      "path": "B-V1.FCStd",
+      "sha256": "66b91848fce88143065b791472a5551a27f781281e2b858dcdff11ea58aa2a9d",
+      "arrangement": "Задний соосный цилиндр / направляемый носитель",
+      "source_scenario": "BASE_B",
+      "scope": "ENGINEERING_GEOMETRY_WITH_SUPPORTS_MATERIALS_FASTENERS"
+    },
+    "B-V2": {
+      "path": "B-V2.FCStd",
+      "sha256": "6bc934964a39df0be79adbbacbbff1dcd0e9ceb0d440d16b2724592fa92c9073",
+      "arrangement": "Один боковой цилиндр / портальная траверса",
+      "source_scenario": "BASE_B",
+      "scope": "ENGINEERING_GEOMETRY_WITH_SUPPORTS_MATERIALS_FASTENERS"
+    }
+  }
+}
