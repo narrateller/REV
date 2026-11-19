@@ -1,14 +1,13 @@
 {
   "task_id": "T-R3-FORCE-CALC-01",
   "role": "R3",
-  "status": "READY",
+  "status": "COMPLETED",
   "priority": "P0",
   "title": "Рассчитать 42 состояния и §§4/5/6 по силовой геометрии T-R4-FORCE-GEOMETRY-01",
   "scope": "CALCULATED_ASSUMED",
   "operator_pre_authorized": true,
   "owner_session": null,
   "lease_expires_at": null,
-  "claim": "coordination/claims/T-R3-FORCE-CALC-01.json",
   "requires_fresh_claim_and_input_audit": true,
   "source_main_sha": "f1101bfe69292c5f10256bfdc5fc7bc398ddeff9",
   "depends_on": [
@@ -53,7 +52,7 @@
     "cad/source/force_geometry/B-V2.FCStd": "6bc934964a39df0be79adbbacbbff1dcd0e9ceb0d440d16b2724592fa92c9073"
   },
   "expected_case_count": 42,
-  "assumed_execution": "NOT_RUN",
+  "assumed_execution": "CALCULATED_ASSUMED",
   "physical_input_status": "BLOCKED_INPUTS",
   "physical_execution": "NOT_RUN",
   "acceptance": [
@@ -63,5 +62,9 @@
     "При отсутствии определяющего входа указать UNKNOWN с value: null и причиной либо BLOCKED_INPUTS. Для ненулевой осевой нагрузки без удерживающей ветви зафиксировать отсутствие статического равновесия.",
     "Сохранить исходники, манифесты входов и выходов с хэшами, команды воспроизведения и проверки в расчётном пакете. Присваивать CALCULATED_ASSUMED только выполненным условным расчётам."
   ],
-  "result_path": "cae/cases/T-R3-FORCE-CALC-01/"
+  "result_path": "cae/cases/T-R3-FORCE-CALC-01/",
+  "completion_record": "coordination/completions/T-R3-FORCE-CALC-01/completion.json",
+  "claim_release": "coordination/completions/T-R3-FORCE-CALC-01/claim_release.json",
+  "claim_release_status": "RELEASED",
+  "result_commit_sha": "610f74e07e438afa5463ff9c832ac5e195e3322f"
 }

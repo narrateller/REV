@@ -317,12 +317,17 @@
     {
       "task_id": "T-R3-FORCE-CALC-01",
       "role": "R3",
-      "status": "READY",
+      "status": "COMPLETED",
       "priority": "P0",
       "path": "coordination/tasks/T-R3-FORCE-CALC-01/task.json",
       "scope": "CALCULATED_ASSUMED",
-      "claim": "coordination/claims/T-R3-FORCE-CALC-01.json",
-      "requires_fresh_claim_and_input_audit": true
+      "requires_fresh_claim_and_input_audit": true,
+      "completion_record": "coordination/completions/T-R3-FORCE-CALC-01/completion.json",
+      "claim_release": "coordination/completions/T-R3-FORCE-CALC-01/claim_release.json",
+      "claim_release_status": "RELEASED",
+      "result_commit_sha": "610f74e07e438afa5463ff9c832ac5e195e3322f",
+      "physical_input_status": "BLOCKED_INPUTS",
+      "physical_execution": "NOT_RUN"
     },
     {
       "task_id": "T-R1-ENGINEERING-PLAN-12",
@@ -335,19 +340,31 @@
       "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-12/claim_release.json",
       "claim_release_status": "RELEASED",
       "result_commit_sha": "56a2303153da406696535c8e31b65a098ad13e7e"
+    },
+    {
+      "task_id": "T-R5-FORCE-CALC-VERIFY-01",
+      "role": "R5",
+      "status": "READY",
+      "priority": "P0",
+      "path": "coordination/tasks/T-R5-FORCE-CALC-VERIFY-01/task.json",
+      "claim": "coordination/claims/T-R5-FORCE-CALC-VERIFY-01.json",
+      "target_commit": "610f74e07e438afa5463ff9c832ac5e195e3322f",
+      "scope": "INDEPENDENT_VERIFICATION_CALCULATED_ASSUMED",
+      "requires_fresh_claim_and_input_audit": true
     }
   ],
   "next_dispatch": [
     {
-      "task_id": "T-R3-FORCE-CALC-01",
-      "role": "R3",
+      "task_id": "T-R5-FORCE-CALC-VERIFY-01",
+      "role": "R5",
       "status": "READY",
       "priority": "P0",
-      "path": "coordination/tasks/T-R3-FORCE-CALC-01/task.json",
-      "scope": "CALCULATED_ASSUMED",
-      "claim": "coordination/claims/T-R3-FORCE-CALC-01.json",
+      "path": "coordination/tasks/T-R5-FORCE-CALC-VERIFY-01/task.json",
+      "claim": "coordination/claims/T-R5-FORCE-CALC-VERIFY-01.json",
+      "target_commit": "610f74e07e438afa5463ff9c832ac5e195e3322f",
+      "scope": "INDEPENDENT_VERIFICATION_CALCULATED_ASSUMED",
       "requires_fresh_claim_and_input_audit": true
     }
   ],
-  "completion_record": "coordination/completions/T-R1-ENGINEERING-PLAN-12/completion.json"
+  "completion_record": "coordination/completions/T-R3-FORCE-CALC-01/completion.json"
 }

@@ -8,6 +8,8 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
+| [T-R5-FORCE-CALC-VERIFY-01](coordination/tasks/T-R5-FORCE-CALC-VERIFY-01/task.json) | R5 | P0 / READY. Независимая проверка условных результатов R3 |
+| [T-R3-FORCE-CALC-01](coordination/tasks/T-R3-FORCE-CALC-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED). Claim освобождён |
 | [T-R2-DESIGN-BASIS-02](coordination/tasks/T-R2-DESIGN-BASIS-02/README.md) | R2 | P0 / COMPLETED (DESIGN_BASIS r1). Claim освобождён |
 | [T-R3-42-STATES-ENVELOPE-01](coordination/tasks/T-R3-42-STATES-ENVELOPE-01/task.json) | R3 | P0 / COMPLETED (CALCULATED_ASSUMED) |
 | [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json) | R2 | P0 / COMPLETED (аудит входов и проект ТЗ) |

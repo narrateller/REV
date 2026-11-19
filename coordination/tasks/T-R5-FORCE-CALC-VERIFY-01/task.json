@@ -1,0 +1,34 @@
+{
+  "task_id": "T-R5-FORCE-CALC-VERIFY-01",
+  "role": "R5",
+  "status": "READY",
+  "priority": "P0",
+  "claim": "coordination/claims/T-R5-FORCE-CALC-VERIFY-01.json",
+  "target_commit": "610f74e07e438afa5463ff9c832ac5e195e3322f",
+  "scope": "INDEPENDENT_VERIFICATION_CALCULATED_ASSUMED",
+  "requires_fresh_claim_and_input_audit": true,
+  "title": "Независимо проверить T-R3-FORCE-CALC-01 по точному коммиту результата",
+  "operator_pre_authorized": true,
+  "owner_session": null,
+  "lease_expires_at": null,
+  "depends_on": [
+    "T-R3-FORCE-CALC-01"
+  ],
+  "result_completion": "coordination/completions/T-R3-FORCE-CALC-01/completion.json",
+  "verification_inputs_sha256": {
+    "cae/cases/T-R3-FORCE-CALC-01/output_manifest.json": "ced5fdb9a34de64bcd04637935514cf90cc444679282d5b4610fe4dd8139a025",
+    "cae/cases/T-R3-FORCE-CALC-01/input_manifest.json": "1f60ea56dc59e1a546337c0dddd08497fe850086c923cd5097d6c3b6c23e0a0e",
+    "cae/cases/T-R3-FORCE-CALC-01/input_audit.md": "db99ce5222ef58a87f5335c1ca7b40efba7193990db1db2b927cd29d2d1afbcd"
+  },
+  "commands": [
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git",
+    "python cae/cases/T-R3-FORCE-CALC-01/verify_output.py --check-git"
+  ],
+  "acceptance": [
+    "Воспроизвести 42 журнала и фазовые результаты на точном target_commit.",
+    "Независимо сверить ориентацию и масштаб FCStd, номинальную постановку, знаки, моменты, реакции, прочность, устойчивость, ветви B и освобождённую осевую степень свободы.",
+    "Сверить идеальные пределы давления, усилия, хода и энергобюджета, критерии применимости и причины BLOCKED_INPUTS. Зафиксировать область акта и необходимые исправления перед дальнейшей работой R4."
+  ]
+}

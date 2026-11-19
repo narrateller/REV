@@ -90,8 +90,12 @@ R5 записал [PASS](coordination/completions/T-R5-DRAWINGS-VERIFY-01/comple
 Базис `REV_DESIGN_BASIS` r1 задаёт условные входы R3/R4, остаточные `UNKNOWN`
 и границы для потока A1. [Акт](coordination/completions/T-R2-DESIGN-BASIS-02/completion.json) ·
 [Освобождение claim](coordination/completions/T-R2-DESIGN-BASIS-02/claim_release.json).
-R4 задаёт геометрию стыков и допуски от пресса. R3 сверяет фазовые входы и
-совместимость усилия, хода и времени цикла с энергобюджетом.
+R3 завершил [T-R3-FORCE-CALC-01](cae/cases/T-R3-FORCE-CALC-01/README.md) по
+номиналам поставки R4. Из 2 462 сочетаний 2 346 имеют статус CALCULATED_ASSUMED,
+116 не имеют статического равновесия. Все физические состояния и запасы
+соединений остаются BLOCKED_INPUTS. Зафиксированы проблемы масштаба и осей FCStd,
+нехватка усилия и хода гидроцилиндра Ø80/45. Следующий шаг —
+[независимая проверка R5](coordination/tasks/T-R5-FORCE-CALC-VERIFY-01/task.json).
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
