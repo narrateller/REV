@@ -84,9 +84,13 @@
     {
       "task_id": "T-R4-DRAWINGS-01",
       "role": "R4",
-      "status": "WAITING_ENGINEERING_BASELINE",
+      "status": "READY",
       "priority": "P1",
-      "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json"
+      "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json",
+      "scope": "CONDITIONAL_DRAWING_PACKAGE",
+      "physical_state_count": 42,
+      "physical_input_status": "BLOCKED_INPUTS",
+      "physical_execution": "NOT_RUN"
     },
     {
       "task_id": "T-R5-ENGINEERING-VERIFY-01",
@@ -162,15 +166,17 @@
     {
       "task_id": "T-R1-ENGINEERING-PLAN-07",
       "role": "R1",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "priority": "P0",
-      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/task.json"
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/task.json",
+      "completion": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/completion.json",
+      "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-07/claim_release.json"
     }
   ],
   "next_dispatch": {
     "task_id": "T-R4-DRAWINGS-01",
     "role": "R4",
-    "status": "WAITING_ENGINEERING_BASELINE",
+    "status": "READY",
     "priority": "P1",
     "requires_fresh_claim": true,
     "requires_input_audit": true,
@@ -180,10 +186,28 @@
         "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
         "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50"
       },
-      "commit": "093a78ad27e46f6b2066ee78d4170704d4307623"
+      "commit": "093a78ad27e46f6b2066ee78d4170704d4307623",
+      "merge_commit_sha": "8683adacb79f95fc531b4bd5393ef216d47aff3a",
+      "completion_record": "coordination/completions/T-R2-INPUTS-01/completion.json"
     },
-    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md",
-    "blocker": "Силовая геометрия, реальные нагрузки и опоры, материалы, допуски и несущая способность соединений ожидают инженерного обоснования.",
-    "physical_input_status": "BLOCKED_INPUTS"
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/dispatch_plan.md",
+    "physical_input_status": "BLOCKED_INPUTS",
+    "scope": "CONDITIONAL_DRAWING_PACKAGE",
+    "physical_state_count": 42,
+    "physical_execution": "NOT_RUN",
+    "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json",
+    "freecad_version": "1.1.4",
+    "w02_cad_baseline": {
+      "task_id": "T-R4-W02-CAD-01",
+      "rebuild_commit_sha": "224242f918b05640ffa679fac468deb41290f444",
+      "manifest": {
+        "path": "cad/build/w02_rebuild_20261119/manifest.json",
+        "sha256": "4891959d09824c4b91e7e2235f95ecafbf1e78ce143366944195796c28795ea5"
+      },
+      "verification": "PASS",
+      "verification_record": "coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json",
+      "verification_target_sha": "be495ecacee18693e854bdcadb64254823892207"
+    },
+    "manufacturing_release_requires_operator": true
   }
 }

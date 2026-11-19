@@ -1,9 +1,9 @@
 {
   "task_id": "T-R4-DRAWINGS-01",
   "role": "R4",
-  "status": "WAITING_ENGINEERING_BASELINE",
+  "status": "READY",
   "priority": "P1",
-  "title": "Подготовить КД и чертежи по готовой инженерной базе",
+  "title": "Подготовить условный комплект КД по пересборке W02 и аудиту R2",
   "owner_session": "NONE",
   "lease_expires_at": null,
   "operator_pre_authorized": true,
@@ -12,26 +12,48 @@
     "cad/export/",
     "drawings/",
     "cae/results/",
-    "params/registry.yaml"
+    "params/registry.yaml",
+    "cad/build/w02_rebuild_20261119/manifest.json",
+    "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+    "cae/cases/T-R3-42-STATES-01/results/index.json"
   ],
   "acceptance": [
-    "Согласованные источники/размеры/материалы/допуски/BOM иконтроль версий",
-    "Чертежи соответствуют CAD/расчётнойбазе;UNKNOWN не скрыты",
-    "Выпуск в производство отдельнымрешениемчеловека"
+    "Зафиксированы ревизии CAD и входов, источники размеров, материалов, допусков и BOM",
+    "Чертежи согласованы с условной CAD/расчётной базой. Определяющие UNKNOWN помечены BLOCKED_INPUTS",
+    "Выпуск в производство требует отдельного решения оператора"
   ],
   "execution": "NOT_STARTED",
   "requires_fresh_claim_and_input_audit": true,
   "depends_on": [
-    "T-R2-INPUTS-01"
+    "T-R2-INPUTS-01",
+    "T-R4-W02-CAD-01"
   ],
   "freecad_version": "1.1.4",
-  "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md",
+  "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/dispatch_plan.md",
   "r2_input_package": {
     "path": "coordination/tasks/T-R2-INPUTS-01/README.md",
     "output_manifest": {
       "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
       "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50"
     },
-    "commit": "093a78ad27e46f6b2066ee78d4170704d4307623"
-  }
+    "commit": "093a78ad27e46f6b2066ee78d4170704d4307623",
+    "merge_commit_sha": "8683adacb79f95fc531b4bd5393ef216d47aff3a",
+    "completion_record": "coordination/completions/T-R2-INPUTS-01/completion.json"
+  },
+  "scope": "CONDITIONAL_DRAWING_PACKAGE",
+  "physical_state_count": 42,
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "w02_cad_baseline": {
+    "task_id": "T-R4-W02-CAD-01",
+    "rebuild_commit_sha": "224242f918b05640ffa679fac468deb41290f444",
+    "manifest": {
+      "path": "cad/build/w02_rebuild_20261119/manifest.json",
+      "sha256": "4891959d09824c4b91e7e2235f95ecafbf1e78ce143366944195796c28795ea5"
+    },
+    "verification": "PASS",
+    "verification_record": "coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json",
+    "verification_target_sha": "be495ecacee18693e854bdcadb64254823892207"
+  },
+  "manufacturing_release_requires_operator": true
 }

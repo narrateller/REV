@@ -74,9 +74,10 @@ R2 завершил [аудит входов и проект ТЗ](coordination/
 `093a78ad27e46f6b2066ee78d4170704d4307623`. BP500 задаёт ориентиры для адаптации площадки.
 Входы REV без подтверждённых значений сохранены как UNKNOWN с `null` и причиной.
 [Акт R2](coordination/completions/T-R2-INPUTS-01/completion.json) · [Освобождение claim](coordination/completions/T-R2-INPUTS-01/claim_release.json)
-Следующая по [плану R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md) —
-[`T-R4-DRAWINGS-01`](coordination/tasks/T-R4-DRAWINGS-01/task.json) на FreeCAD 1.1.4 со
-статусом `WAITING_ENGINEERING_BASELINE`, затем независимая проверка R5.
+По [плану R1](coordination/tasks/T-R1-ENGINEERING-PLAN-07/dispatch_plan.md)
+[`T-R4-DRAWINGS-01`](coordination/tasks/T-R4-DRAWINGS-01/task.json) готова к передаче R4
+для условной КД на FreeCAD 1.1.4 (`READY`). R4 принимает свежий claim и проверяет входы.
+Следом R5 проверяет комплект на точном SHA.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
