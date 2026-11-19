@@ -1,0 +1,71 @@
+{
+  "task_id": "T-R4-REDESIGN-1.5MN-02",
+  "role": "R4",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "REDESIGN_FORCE_GEOMETRY_1.5MN_ITERATION_02",
+  "requires_fresh_claim_and_input_audit": true,
+  "title": "Повысить запас по контакту ключей затвора B в W02 при 315 бар",
+  "operator_pre_authorized": true,
+  "source_main_sha": "3124487260d3ebdb52607fb06e74404b1b234e49",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f334-0146-7280-bca8-6c4350707834",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "depends_on": [
+    "T-R4-REDESIGN-1.5MN-01",
+    "T-R3-FORCE-CALC-02"
+  ],
+  "basis": {
+    "engineering_failure_note": "cae/cases/T-R3-FORCE-CALC-02/engineering_failure_note.md",
+    "r3_result_commit_sha": "47b6ad26ecd400607e2feafdaf0f25185d6d4d6b",
+    "r3_engineering_status": "FAILED",
+    "r4_baseline_result_commit_sha": "a93ddc51aa293b6dc6a7c7f4e4c3d770e6bb118e"
+  },
+  "input_git_blob_sha256": {
+    "cae/cases/T-R3-FORCE-CALC-02/engineering_failure_note.md": "918e4b78d691cd15e17d5fcd4f7a11a85cb09bc66573eff190168747e6857f21",
+    "cae/cases/T-R3-FORCE-CALC-02/README.md": "afadf1646a368112463c20bbeb7f17143a778708b1c68f6a19e9f61eee607ad1",
+    "cae/cases/T-R3-FORCE-CALC-02/input_audit.md": "b14f638fe5f91077bff399cfd8e1cde9c9d8a383d30671e68c0d86ac31e5f187",
+    "cae/cases/T-R3-FORCE-CALC-02/input_manifest.json": "8d27f5d423367ecff12d8807f83ff2ed889001e089adb9048ada539c7a105fb8",
+    "cae/cases/T-R3-FORCE-CALC-02/output_manifest.json": "3530814755c1b7d5bc295644ff17d5acefa38dee21e807791a397b17d2bf00f8",
+    "cae/cases/T-R3-FORCE-CALC-02/results/index.json": "3c255b2ae4c1c1657ab0b59b40a7caf001b5b56212ba325e9a110716aa7ad1a7",
+    "params/r3_force_calc_02.json": "aa152be1d7ee44dbc9b5d00e947a26bb6e3dd3d8cc316e62113c5998db80f8d9",
+    "coordination/completions/T-R3-FORCE-CALC-02/completion.json": "0d93ab6947305a3388a8f7366827db4cde6f5d823650de915306bf2fabc70574",
+    "coordination/completions/T-R4-REDESIGN-1.5MN-01/completion.json": "6b084e96ec4c23a7e2a69480c7d05540e8721b24e87032f6fa49e63a9c5d9736",
+    "coordination/tasks/T-R4-REDESIGN-1.5MN-01/output_manifest.json": "8aa7fc8e8d233ad75e27eba87f212ddeb7ab8d265b01b20f30d12b1457343394",
+    "cad/source/force_geometry/redesign_1p5mn/manifest.json": "d2c32f2ccb05ce68f90064efafc7d3f48ef7dd407c9a08ebc90c3df9e30d2b4e",
+    "cad/force_geometry/redesign_1p5mn/interfaces.json": "f8226ac28f1fde8513a9ee343e203dc2f5a17ab7900c821e9ae692240aec25c2"
+  },
+  "acceptance_criteria": {
+    "min_b_key_contact_safety_factor": {
+      "operator": ">=",
+      "value": 1.5,
+      "pressure_bar": 315,
+      "pressure_location": "Поршневые полости обоих цилиндров при нулевом обратном давлении",
+      "load_case": "Статическое заклинивание, закрытая ветвь ключей B",
+      "metric": "Допустимое контактное давление определяющей пары / максимальное локальное контактное давление",
+      "evaluation_scope": "CALCULATED_ASSUMED"
+    }
+  },
+  "design_options": [
+    "Увеличить сечение ключей и эффективную площадь контакта",
+    "Добавить ряд ключей с обоснованным распределением реакций",
+    "Изменить материал ключей или опор с обоснованием допустимого контактного давления",
+    "Изменить геометрию соединения и опорных поверхностей"
+  ],
+  "acceptance": [
+    "Выполнить свежий аудит входов после принятия claim. Воспроизвести исходное сочетание R3 и проверить новую геометрию при тех же давлениях, эксцентриситетах и сопоставимых граничных условиях.",
+    "Проверить локальный пик давления и определяющие случаи по знакам эксцентриситетов. Обосновать распределение реакций, допуски, зазоры и несущую способность ключей и сопряжённых опор.",
+    "Поставить редактируемую CAD-сборку затронутых вариантов B, обновлённые интерфейсы, материалы, исходники расчёта, манифесты входов и выходов с SHA-256 и команду воспроизведения.",
+    "Передать точный коммит и изменённые расчётные входы R1 для повторного расчёта R3 и независимой проверки R5."
+  ],
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}

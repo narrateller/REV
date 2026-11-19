@@ -8,6 +8,7 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
+| [T-R4-REDESIGN-1.5MN-02](coordination/tasks/T-R4-REDESIGN-1.5MN-02/task.json) | R4 | P0 / READY. Контакт ключей затвора B при 315 бар. Требуются свежий claim и аудит входов |
 | [T-R3-FORCE-CALC-02](coordination/completions/T-R3-FORCE-CALC-02/completion.json) | R3 | P0 / COMPLETED. Инженерный итог FAILED в области CALCULATED_ASSUMED. Claim освобождён |
 | [T-R4-REDESIGN-1.5MN-01](coordination/tasks/T-R4-REDESIGN-1.5MN-01/task.json) | R4 | P0 / COMPLETED (CALCULATED_ASSUMED). Claim освобождён |
 | [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json) | R4 | P0 / COMPLETED. Экспорт КД W02 выполнен, claim освобождён |
