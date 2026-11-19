@@ -1,0 +1,75 @@
+{
+  "task_id": "T-R5-W02-CAD-REBUILD-VERIFY-01",
+  "role": "R5",
+  "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "actual_session_id": "01a1f128-8725-7c60-8e62-c00404a24f50",
+  "source_main_sha": "be495ecacee18693e854bdcadb64254823892207",
+  "completed_at": "2026-11-19T03:17:00Z",
+  "execution_status": "COMPLETED",
+  "verification_target": {
+    "task_id": "T-R4-W02-CAD-01",
+    "role": "R4",
+    "commit_sha": "be495ecacee18693e854bdcadb64254823892207",
+    "rebuild_path": "cad/build/w02_rebuild_20261119/"
+  },
+  "freecad_version_verified": "1.1.4",
+  "artifacts_check": {
+    "status": "PASS",
+    "directory": "cad/build/w02_rebuild_20261119/",
+    "files": [
+      "A-V1.FCStd",
+      "A-V2.FCStd",
+      "B-V1.FCStd",
+      "B-V2.FCStd",
+      "manifest.json"
+    ],
+    "readable": true,
+    "note": "Все 5 артефактов присутствуют и читаемы"
+  },
+  "metadata_check": {
+    "status": "PASS",
+    "freecad_version_in_completion": "1.1.4",
+    "freecad_version_in_claim_release": "1.1.4",
+    "version_mismatch": false,
+    "note": "Версия FreeCAD 1.1.4 корректно зафиксирована в метаданных R4"
+  },
+  "blocker_check": {
+    "status": "PASS",
+    "MISSING_TOOL_001": "RESOLVED",
+    "note": "MISSING_TOOL_001 снят, FreeCAD 1.1.4 найден и работает"
+  },
+  "ci_checks": {
+    "status": "PASS",
+    "verify_output_check_git": "PASS",
+    "check_registry_check_git": "PASS (exit code 0)",
+    "unittest_discover": "PASS (103 tests)",
+    "note": "Все CI-проверки пройдены"
+  },
+  "claim_release_check": {
+    "status": "PASS",
+    "file": "coordination/completions/T-R4-W02-CAD-01/claim_release.json",
+    "task_status": "RELEASED",
+    "note": "Claim T-R4-W02-CAD-01 корректно закрыт"
+  },
+  "task_index_check": {
+    "status": "PASS",
+    "task_id": "T-R4-W02-CAD-01",
+    "index_status": "COMPLETED",
+    "note": "task_index.json показывает статус COMPLETED"
+  },
+  "overall_result": "PASS",
+  "verification_summary": "W02 CAD-rebuild верифицирован: артефакты присутствуют, FreeCAD 1.1.4 подтверждена, MISSING_TOOL_001 снят, CI-проверки пройдены, claim закрыт корректно",
+  "output_hashes": {
+    "cad_rebuild_directory": "cad/build/w02_rebuild_20261119",
+    "variants": {
+      "A-V1.FCStd": "1e1792fcf83fcf11b61f3dbbb6015e570b3127008cb775403828e10acece5892",
+      "A-V2.FCStd": "f4fae8d12bdd48623cea27e32146bd1851255210b8955d012785ecde78855",
+      "B-V1.FCStd": "d64dcd9fdaf10d296b8aa46929bffa98d19640bcba7ccae11b11e955417fde8",
+      "B-V2.FCStd": "b63226487ca4492791456d88b70dff3fd5fafa3886e240cb8a57878a3ce9d3b0"
+    }
+  },
+  "assumptions": [
+    "Верификация проведена в области документального аудита и CI-воспроизводимости",
+    "Физические испытания и выпуск в производство требуют отдельного решения человека"
+  ]
+}
