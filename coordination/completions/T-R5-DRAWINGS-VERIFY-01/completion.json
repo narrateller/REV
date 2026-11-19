@@ -1,0 +1,69 @@
+{
+  "task_id": "T-R5-DRAWINGS-VERIFY-01",
+  "role": "R5",
+  "title": "Независимая верификация T-R4-DRAWINGS-01 (условная КД W02)",
+  "author_sessions": [
+    "01a1f19d-91f3-7303-b2c1-4f1620326d6c"
+  ],
+  "model_label": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "actual_session_id": "01a1f19d-91f3-7303-b2c1-4f1620326d6c",
+  "source_main_sha": "b1020f550e5224b7511f5f8224d027da6d92ae34",
+  "feature_branch": "feature/T-R4-DRAWINGS-01-conditional-drawings",
+  "feature_commit": "dcb8ff5",
+  "completed_at_utc": "2026-11-19T05:30:00Z",
+  "execution_status": "COMPLETED",
+  "verification_target": {
+    "task_id": "T-R4-DRAWINGS-01",
+    "role": "R4",
+    "commit_sha": "dcb8ff5",
+    "completion_path": "coordination/completions/T-R4-DRAWINGS-01/completion.json"
+  },
+  "versions": {
+    "FreeCAD": "1.1.4",
+    "OpenCASCADE": "7.8.1",
+    "note": "FreeCAD 1.1.4 использована по разрешению оператора, MISSING_TOOL_001 не выставляется"
+  },
+  "audit_inputs": {
+    "r2_package": {
+      "commit": "093a78ad27e46f6b2066ee78d4170704d4307623",
+      "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+      "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50",
+      "status": "VERIFIED"
+    },
+    "cad_rebuild": {
+      "commit": "224242f918b05640ffa679fac468deb41290f444",
+      "path": "cad/build/w02_rebuild_20261119/manifest.json",
+      "status": "VERIFIED",
+      "variants": ["A-V1", "A-V2", "B-V1", "B-V2"]
+    },
+    "blocked_inputs_count": 8
+  },
+  "files_check": {
+    "status": "PASS",
+    "all_files_present": true
+  },
+  "ci_checks": {
+    "status": "PASS",
+    "unittest": "103 tests OK",
+    "verify_output": "PASS"
+  },
+  "drawings_check": {
+    "status": "PASS",
+    "total": 4,
+    "variants": ["W02-001", "W02-002", "W02-003", "W02-004"]
+  },
+  "techdraw_output": {
+    "generated": false,
+    "note": "Допустимо для условной КД"
+  },
+  "freecad_version": {
+    "status": "PASS",
+    "version": "1.1.4",
+    "opencascade": "7.8.1"
+  },
+  "claim_release_check": {
+    "status": "PASS",
+    "released": true
+  },
+  "overall_result": "PASS"
+}
