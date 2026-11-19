@@ -1,0 +1,50 @@
+{
+  "task_id": "T-R3-FORCE-CALC-03",
+  "role": "R3",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "W02_1P5MN_FORCE_PATH_ITERATION_02",
+  "title": "Пересчитать 42 состояния и §§4/5/6 W02 по геометрии итерации 02",
+  "requires_fresh_claim_and_input_audit": true,
+  "depends_on": [
+    "T-R4-REDESIGN-1.5MN-02"
+  ],
+  "source_main_sha": "a17e57e7618499ec0078e80eb4373bc65e37ae56",
+  "r4_result_commit_sha": "a79ec08daba0d440553d9ac5e0378253aa4c4e4f",
+  "geometry_manifest": "cad/source/force_geometry/redesign_1p5mn_02/manifest.json",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f5b9-431d-7cc3-8466-c88f6f9ac247",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "inputs": {
+    "coordination/completions/T-R4-REDESIGN-1.5MN-02/completion.json": "f13c158182c03ea1199f24a5092afc95de8f8b3e9c1cb7dc6a1490dfb70c69c7",
+    "coordination/completions/T-R4-REDESIGN-1.5MN-02/claim_release.json": "a17c3108e345ae3fc24f1b0b6d63bdfc29de80092f32b411b8268cd14a97f6dc",
+    "coordination/tasks/T-R4-REDESIGN-1.5MN-02/output_manifest.json": "ab6d04777222071bc3e83455308fb2c4ef604c9a21f2d5354af66bcfe5690597",
+    "cad/source/force_geometry/redesign_1p5mn_02/manifest.json": "52088cebe746b6f26a16ed06eda86a24215aadd5dfe226d878e32428f649acbc",
+    "cad/source/force_geometry/redesign_1p5mn_02/screening.json": "865f806fa0e2c7fb89fa6e98c2ac27811ab87d2396d80e3dd7634695bc4946b5",
+    "cad/force_geometry/redesign_1p5mn_02/interfaces.json": "5fb8df4c30451a63182d5bd43a3929ef2ef1964e7437b2a5c70ab811b56d145d",
+    "params/r4_b_receiver_02.json": "9475af29b47459c84e83212c12557e7666cf6bebee8f67421589021c1480019f",
+    "cad/source/force_geometry/redesign_1p5mn/manifest.json": "d2c32f2ccb05ce68f90064efafc7d3f48ef7dd407c9a08ebc90c3df9e30d2b4e",
+    "cad/force_geometry/redesign_1p5mn/design.json": "666fd9c0bcf6917357b85d52306eb0d82d8e48afb7f0c826db746d90609cfe0b",
+    "cad/force_geometry/redesign_1p5mn/interfaces.json": "f8226ac28f1fde8513a9ee343e203dc2f5a17ab7900c821e9ae692240aec25c2",
+    "baselines/operator-fork-20261118/state_catalog_index.json": "4eefc5fb0cdc797717535cac3c4338bdc7d7154d9d99588a724f7c0b94110426",
+    "cae/cases/design_boundary_phase_load_envelope/envelope.json": "6be05b48a2bffef99ffefa46a9ae3b1af5df548f1812d9bab7ad544330c02382",
+    "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json": "ddaa4d376a679537a210756ad52e96f96a6ac537d6d2e99ab4d79fbee2bd466d",
+    "drives/cots_catalog.yaml": "4210a972eb8b1901fe167ab93a733aabeb94660c68f6819808ab6e54ec1f0f85",
+    "coordination/completions/T-R3-FORCE-CALC-02/completion.json": "0d93ab6947305a3388a8f7366827db4cde6f5d823650de915306bf2fabc70574"
+  },
+  "acceptance": [
+    "После свежего claim проверить входы, хэши, граничные условия и применимость наложения ревизии 02 к B-V1/B-V2. Для A-V1/A-V2 использовать базовую геометрию, указанную в пакете R4.",
+    "Повторить расчёт всех 42 исходных ID и §§4/5/6. Зафиксировать по каждому ID статус, реакции, равновесие, запасы прочности и устойчивости и нагрузки соединений. Для недостающих определяющих входов сохранить UNKNOWN с причиной и BLOCKED_INPUTS либо явно условную область расчёта.",
+    "Проверить границы давления, включая заклинивание B при 315 бар, раздельные пути седла и ключей и требуемый контактный запас 1,5. Проверить зазоры направляющих при рассогласовании цилиндров и аварийном реверсе одной ветви.",
+    "Поставить воспроизводимый пакет с исходниками, хэшами, допущениями, командами и результатами по критериям. Передать точный SHA результата для независимой проверки перед выпуском КД."
+  ],
+  "physical_status_until_inputs_confirmed": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}

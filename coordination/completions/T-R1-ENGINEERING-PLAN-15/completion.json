@@ -1,0 +1,49 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-15",
+  "role": "R1",
+  "status": "COMPLETED",
+  "scope": "ADMINISTRATIVE_DISPATCH",
+  "completed_at_utc": "2026-11-19T21:33:47Z",
+  "source_main_sha": "a17e57e7618499ec0078e80eb4373bc65e37ae56",
+  "claim_main_sha": "a11a305d289e645ec458de6ece7f16dae304cdce",
+  "CODEX_SESSION_ID": "01a1f5b9-431d-7cc3-8466-c88f6f9ac247",
+  "model_label": "gpt-6.2-sol",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f5b9-431d-7cc3-8466-c88f6f9ac247",
+      "model_label": "gpt-6.2-sol",
+      "runtime_model_provider": "openai",
+      "codex_cli_version": "0.169.0",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "input_manifest": "coordination/tasks/T-R1-ENGINEERING-PLAN-15/task.json",
+  "input_sha256": {
+    "coordination/task_index.json": "cf9ca0fbad8e70c030275a5cd4717e08bc0c03487e34328908dd236f2da939e2",
+    "coordination/completions/T-R4-REDESIGN-1.5MN-02/completion.json": "f13c158182c03ea1199f24a5092afc95de8f8b3e9c1cb7dc6a1490dfb70c69c7",
+    "coordination/completions/T-R4-REDESIGN-1.5MN-02/claim_release.json": "a17c3108e345ae3fc24f1b0b6d63bdfc29de80092f32b411b8268cd14a97f6dc",
+    "coordination/completions/T-R3-FORCE-CALC-02/completion.json": "0d93ab6947305a3388a8f7366827db4cde6f5d823650de915306bf2fabc70574",
+    "coordination/tasks/T-R1-ENGINEERING-PLAN-15/task.json": "ad05e4bf5b8314a1e2bcfdd82572f082a9e42a1290a213b9725fb1527aa395e8"
+  },
+  "task_index": "coordination/task_index.json",
+  "r4_completion": "coordination/completions/T-R4-REDESIGN-1.5MN-02/completion.json",
+  "r4_claim_release": "coordination/completions/T-R4-REDESIGN-1.5MN-02/claim_release.json",
+  "prior_r3_completion": "coordination/completions/T-R3-FORCE-CALC-02/completion.json",
+  "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-15/claim_release.json",
+  "next_dispatch": [
+    {
+      "task_id": "T-R3-FORCE-CALC-03",
+      "role": "R3",
+      "status": "READY",
+      "priority": "P0",
+      "scope": "W02_1P5MN_FORCE_PATH_ITERATION_02",
+      "path": "coordination/tasks/T-R3-FORCE-CALC-03/task.json",
+      "requires_fresh_claim_and_input_audit": true
+    }
+  ],
+  "summary": "Очередь синхронизирована с завершением R4 и освобождением claim. R3 поставлен перерасчёт 42 состояний и §§4/5/6 по итерации 02.",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_sections_4_5_6": "NOT_RUN",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}
