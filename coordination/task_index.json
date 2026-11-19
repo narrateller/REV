@@ -60,7 +60,9 @@
       "role": "R4",
       "status": "DELIVERED_BLOCKERS_REMAIN",
       "priority": "P0",
-      "path": "coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json"
+      "path": "coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json",
+      "requires_fresh_claim_and_input_audit": true,
+      "completion_record": "coordination/completions/T-R4-FORCE-GEOMETRY-01/completion.json"
     },
     {
       "task_id": "T-R3-CAE-456-01",
@@ -169,8 +171,9 @@
       "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-03/task.json",
       "completion_record": "coordination/completions/T-R1-ENGINEERING-PLAN-03/completion.json",
       "claim_release": null,
-      "claim_release_status": "NO_CLAIM_RECORDED",
-      "claim_release_reason": "В карточке задачи владельца и срока нет. В истории main отдельный claim для этой задачи не зарегистрирован."
+      "claim_release_status": "CLOSED",
+      "claim_release_reason": "Административное закрытие. В карточке задачи нет владельца и срока. Отдельный claim в истории main не зарегистрирован.",
+      "claim_release_confirmation": "coordination/completions/T-R1-ENGINEERING-PLAN-11/completion.json"
     },
     {
       "path": "coordination/tasks/T-R5-ENGINEERING-VERIFY-02/task.json",
@@ -309,5 +312,6 @@
       "path": "coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json",
       "requires_fresh_claim_and_input_audit": true
     }
-  ]
+  ],
+  "completion_record": "coordination/completions/T-R1-ENGINEERING-PLAN-11/completion.json"
 }
