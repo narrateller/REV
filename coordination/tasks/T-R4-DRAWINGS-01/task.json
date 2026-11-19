@@ -1,7 +1,7 @@
 {
   "task_id": "T-R4-DRAWINGS-01",
   "role": "R4",
-  "status": "READY",
+  "status": "COMPLETED",
   "priority": "P1",
   "title": "Подготовить КД и чертежи по готовой инженерной базе",
   "owner_session": "NONE",
@@ -19,7 +19,7 @@
     "Чертежи соответствуют CAD/расчётнойбазе;UNKNOWN не скрыты",
     "Выпуск в производство отдельнымрешениемчеловека"
   ],
-  "execution": "NOT_STARTED",
+  "execution": "COMPLETED_CONDITIONAL",
   "requires_fresh_claim_and_input_audit": true,
   "depends_on": [
     "T-R2-INPUTS-01"
@@ -34,5 +34,14 @@
     },
     "commit": "093a78ad27e46f6b2066ee78d4170704d4307623"
   },
-  "readiness_scope": "Условная КД"
+  "readiness_scope": "Условная КД",
+  "completion_record": "coordination/completions/T-R4-DRAWINGS-01/completion.json",
+  "claim_release": "coordination/completions/T-R4-DRAWINGS-01/claim_release.json",
+  "claim_release_status": "RELEASED",
+  "result_commit_sha": "78922f9d022b21bd1a1bf8e90e50775c1e8dd537",
+  "verification": "PASS",
+  "verification_record": "coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json",
+  "verification_target_sha": "dcb8ff5278bf43732ec7c16949dd52c55d10a76b",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN"
 }

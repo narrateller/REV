@@ -14,12 +14,14 @@
 | [T-R4-FORCE-GEOMETRY-01](coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json) | R4 | P0 / DELIVERED_BLOCKERS_REMAIN |
 | [T-R3-CAE-456-01](coordination/tasks/T-R3-CAE-456-01/task.json) | R3 | P1 / COMPLETED (ASSUMED_STATIC_SCREENING) |
 | [T-R4-W02-CAD-01](coordination/tasks/T-R4-W02-CAD-01/task.json) | R4 | P1 / COMPLETED (CAD-rebuild, FreeCAD 1.1.4) |
-| [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / READY (условная КД) |
+| [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) | R4 | P1 / COMPLETED (условная КД) |
+| [T-R5-DRAWINGS-VERIFY-01](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json) | R5 | P1 / COMPLETED (PASS в области условной КД) |
+| [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json) | R1 | P0 / READY |
 | [T-R5-ENGINEERING-VERIFY-01](coordination/tasks/T-R5-ENGINEERING-VERIFY-01/task.json) | R5 | P1 / COMPLETED |
 | [T-R5-W02-GEOMETRY-VERIFY-01](coordination/tasks/T-R5-W02-GEOMETRY-VERIFY-01/task.json) | R5 | P1 / COMPLETED (VERIFICATION_PASS в области документального аудита) |
 | [T-R5-ENGINEERING-VERIFY-02](coordination/tasks/T-R5-ENGINEERING-VERIFY-02/task.json) | R5 | P0 / COMPLETED (условный расчёт и документальный аудит). Claim закрыт |
 
-Эстафета задана [T-R1-ENGINEERING-PLAN-06](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md).
+Эстафету продолжает [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md).
 
 Входы и критерии находятся в каждой задаче. READY_INPUT_AUDIT разрешает аудит
 и работу по пригодным входам, но не выдумывание недостающих величин.
@@ -29,12 +31,11 @@
   BP500 — основа для адаптации площадки под пресс.
 - R3 поставил [отдельные журналы 42 состояний](cae/cases/T-R3-42-STATES-01/results/index.json) по огибающей. Запасы соединений и физический расчёт имеют статус `BLOCKED_INPUTS` [по аудиту R3](cae/cases/T-R3-42-STATES-01/README.md).
 - R4: определить опоры, эксцентриситеты, свободные длины, сечения, материалы,
-  двусторонние соединения; подготовить drawings/ по готовой базе на FreeCAD 1.1.4.
+  двусторонние соединения по подтверждённым входам.
 - R5: воспроизвести результаты, проверить физику, размерности, балансы и CI.
 
-Следующая по эстафете `T-R4-DRAWINGS-01` имеет статус `READY` для условной КД.
-R4 принимает свежий claim, проверяет пакет R2 и CAD-пересборку W02 на FreeCAD 1.1.4
-и фиксирует открытые входы. R5 проверяет комплект на точном коммите.
+Следующая задача — `T-R1-ENGINEERING-PLAN-09`. R1 принимает свежий claim
+и определяет, какие источники доступны для закрытия физических входов W02.
 
 Открыты реальные свойства сырья, фазовые нагрузки, геометрия/материалы/BC,
 критерии/допуски, метрология, безопасные состояния и нормативная область/юрисдикция.

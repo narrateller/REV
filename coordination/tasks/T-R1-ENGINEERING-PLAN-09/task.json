@@ -1,0 +1,26 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-09",
+  "role": "R1",
+  "status": "READY",
+  "priority": "P0",
+  "title": "Проверить доступность источников физических входов W02 и назначить следующий аудит",
+  "owner_session": "NONE",
+  "lease_expires_at": null,
+  "operator_pre_authorized": true,
+  "requires_fresh_claim": true,
+  "source_drawings_merge_sha": "78922f9d022b21bd1a1bf8e90e50775c1e8dd537",
+  "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md",
+  "inputs": [
+    "coordination/completions/T-R4-DRAWINGS-01/completion.json",
+    "coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json",
+    "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+    "cad/build/w02_rebuild_20261119/manifest.json",
+    "coordination/tasks/T-R4-FORCE-GEOMETRY-01/task.json",
+    "cae/cases/T-R3-42-STATES-01/results/manifest.json"
+  ],
+  "acceptance": [
+    "Связать открытые входы с доступными источниками, владельцами и критериями пригодности.",
+    "Назначить первую новую задачу с доступными входами, проверив актуальный индекс и освобождение claims в main.",
+    "Для отсутствующих входов сохранить UNKNOWN с null и причиной, а для зависимых физических расчётов BLOCKED_INPUTS и NOT_RUN."
+  ]
+}

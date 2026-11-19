@@ -1,0 +1,148 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-08",
+  "role": "R1",
+  "execution_status": "COMPLETED",
+  "completed_at_utc": "2026-11-19T02:48:12Z",
+  "author_sessions": [
+    "01a1f1a9-3778-7170-95aa-a2d190104869"
+  ],
+  "CODEX_SESSION_ID": "01a1f1a9-3778-7170-95aa-a2d190104869",
+  "session_id_source": "CODEX_SESSION_ID",
+  "model": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "model_source": "Запрошенная оператором метка",
+  "runtime_model_id": "gpt-6.2-sol",
+  "runtime_model_provider": "openai",
+  "runtime_model_source": "Codex turn_context.model и session_meta.model_provider",
+  "requested_model_label_matches_runtime": false,
+  "source_main_sha": "b1020f550e5224b7511f5f8224d027da6d92ae34",
+  "claim_main_sha": "73b314ec6a7c9d33ae4645140d97d51f7f091188",
+  "accepted_claim": {
+    "path": "coordination/completions/T-R1-ENGINEERING-PLAN-08/accepted_claim.json",
+    "sha256": "a7386fb668dd4e7e54cab20b391d547dc256946204399664db3e31d1f6503db4"
+  },
+  "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-08/claim_release.json",
+  "claim_release_status": "RELEASED",
+  "input_manifest": {
+    "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-08/input_manifest.json",
+    "sha256": "03ab7fe68d1ec135f51a598380a27709c49a21627d1621d507fa16f276023d19"
+  },
+  "integration": {
+    "feature_branch": "feature/T-R4-DRAWINGS-01-conditional-drawings",
+    "feature_head_sha": "f77e3d438bfa7643c26bfdb099e2b5dfc78b1232",
+    "merge_commit_sha": "78922f9d022b21bd1a1bf8e90e50775c1e8dd537",
+    "merge_parents": [
+      "73b314ec6a7c9d33ae4645140d97d51f7f091188",
+      "f77e3d438bfa7643c26bfdb099e2b5dfc78b1232"
+    ],
+    "r4_task_id": "T-R4-DRAWINGS-01",
+    "r4_completion": {
+      "path": "coordination/completions/T-R4-DRAWINGS-01/completion.json",
+      "sha256": "2de8d4b6ec2e043f1cede01dae220ff2b527357473c962987dab4901e348a12e"
+    },
+    "r4_claim_release": {
+      "path": "coordination/completions/T-R4-DRAWINGS-01/claim_release.json",
+      "sha256": "604c132deba380a62ad5c13186f1aee21ca648ea4ccaeb5151cb3dfb0fd457c9"
+    },
+    "r4_original_claim": {
+      "path": "coordination/completions/T-R4-DRAWINGS-01/original_claim.json",
+      "sha256": "15cce1ba15fec9751595cb37e379ea1dcc05e982a81c61e6731ef11bc2c55401",
+      "source_path": "coordination/claims/T-R4-DRAWINGS-01/T-R4-DRAWINGS-01.json",
+      "source_commit": "dcb8ff5278bf43732ec7c16949dd52c55d10a76b"
+    },
+    "r5_task_id": "T-R5-DRAWINGS-VERIFY-01",
+    "r5_reported_verdict": "PASS",
+    "r5_target_sha": "dcb8ff5278bf43732ec7c16949dd52c55d10a76b",
+    "r5_record": {
+      "path": "coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json",
+      "sha256": "69ca3bec257ead0c60ea9f557d69771c60f28c8494e7c26939ff204df0eed761"
+    },
+    "r5_claim_release": {
+      "path": "coordination/completions/T-R5-DRAWINGS-VERIFY-01/claim_release.json",
+      "sha256": "b1b39d427953a851554f3626797e2c833e8c3960d31bc8dee18edc1a074da151"
+    },
+    "r5_scope": "Каталог условной КД W02, прослеживаемость входов и CI в области акта R5. Четыре позиции, восемь открытых входов, экспорт TechDraw отсутствует.",
+    "claim_history_findings": [
+      "Запись claim R4 содержит ACCEPTED_MAIN, но впервые появилась в ветке одновременно с результатом и освобождением. Отдельного принятия в main до выполнения история не подтверждает. Запись перенесена побайтно в пакет завершения.",
+      "Акт освобождения R5 указывает на файл claim, отсутствующий в main до слияния и на ветке f77e3d4. Сессия в акте и в освобождении совпадает. Акт и освобождение сохранены побайтно.",
+      "UTC-метки в исходных актах R4/R5 позже времени соответствующих коммитов, приведённого к UTC. Значения сохранены как записаны авторами, хронология принятия claim по ним не установлена."
+    ],
+    "feature_ci": {
+      "workflow": ".github/workflows/ci_verify.yml",
+      "run_id": 44444707244,
+      "head_sha": "f77e3d438bfa7643c26bfdb099e2b5dfc78b1232",
+      "conclusion": "success"
+    }
+  },
+  "runtime_tools": {
+    "python": "3.13.17",
+    "cad_runtime_executed_by_r1": false,
+    "cad_versions_reported_by_r5": {
+      "FreeCAD": "1.1.4",
+      "OpenCASCADE": "7.8.1",
+      "note": "FreeCAD 1.1.4 использована по разрешению оператора, MISSING_TOOL_001 не выставляется"
+    }
+  },
+  "physical_state_count": 42,
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_execution": "NOT_RUN",
+  "next_dispatch_basis": "План T-R1-ENGINEERING-PLAN-06 завершался верификацией R5. Новый план ставит P0 на проверку доступных источников физических входов W02.",
+  "next_dispatch": {
+    "task_id": "T-R1-ENGINEERING-PLAN-09",
+    "role": "R1",
+    "status": "READY",
+    "priority": "P0",
+    "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json",
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md",
+    "requires_fresh_claim": true,
+    "physical_input_status": "BLOCKED_INPUTS",
+    "physical_execution": "NOT_RUN"
+  },
+  "outputs": [
+    {
+      "path": "coordination/task_index.json",
+      "sha256": "19442b24bf9346c6d06cf664a59e0ea8b648e4f6df9557718553380420ded6ac"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-08/task.json",
+      "sha256": "03c8d5988f2bfa7f7e1ff26ef75e954b68e383d12bf5e2135cdf09013f59740c"
+    },
+    {
+      "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json",
+      "sha256": "b5c4a607762f3299ce69b933c43f1e2722c7f294e1698373f7bd572f5c67eb2b"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json",
+      "sha256": "513679e51e3d4f1cd625f0f1669a3afe6abd5ffd938ead6563480dee29e136c7"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md",
+      "sha256": "2570c13ec86d20b364402ce1cad318cca623e51e1ae6341f5de9e68aefded488"
+    },
+    {
+      "path": "STATE.md",
+      "sha256": "aa0a751052832bef586d051eb70a8fce84f278808ec3f7926cb15ed2d8b882e2"
+    },
+    {
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "d2301945f12aa8f73826113757608a8d109d521fe069249456802ac8def47fed"
+    },
+    {
+      "path": "NEXT_MODEL.md",
+      "sha256": "40f64655dd8e728d74ce749450d4997b8ff31f3f6f3dd576fa3dc615317cbb84"
+    }
+  ],
+  "merge_ci": {
+    "workflow": ".github/workflows/ci_verify.yml",
+    "run_id": 44445820231,
+    "head_sha": "78922f9d022b21bd1a1bf8e90e50775c1e8dd537",
+    "conclusion": "success",
+    "python scripts/check_registry.py --check-git": "PASS"
+  },
+  "local_checks": {
+    "python -m unittest discover -s tests -v": "PASS",
+    "unit_test_count": 103,
+    "python verify_output.py --check-git": "PASS",
+    "python coordination/completions/T-R4-DRAWINGS-01/verify_output.py": "PASS",
+    "merge_parents_exact_r4_r5_records_claims_and_dispatch": "PASS"
+  }
+}

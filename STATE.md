@@ -74,10 +74,11 @@ R2 завершил [аудит входов и проект ТЗ](coordination/
 `093a78ad27e46f6b2066ee78d4170704d4307623`. BP500 задаёт ориентиры для адаптации площадки.
 Входы REV без подтверждённых значений сохранены как UNKNOWN с `null` и причиной.
 [Акт R2](coordination/completions/T-R2-INPUTS-01/completion.json) · [Освобождение claim](coordination/completions/T-R2-INPUTS-01/claim_release.json)
-Следующая по [плану R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md) —
-[`T-R4-DRAWINGS-01`](coordination/tasks/T-R4-DRAWINGS-01/task.json) на FreeCAD 1.1.4 со
-статусом `READY` для условной КД после свежего claim и аудита входов.
-Затем R5 проверяет комплект на точном SHA.
+R4 завершил [условную КД W02](coordination/completions/T-R4-DRAWINGS-01/completion.json).
+R5 записал [PASS](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json)
+на `dcb8ff5`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
+Следующий шаг — [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md)
+со свежим claim R1 для проверки источников физических входов.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,

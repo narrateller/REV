@@ -5,15 +5,11 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-R2 завершил [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/README.md), передал
-входы и проект ТЗ в `093a78ad27e46f6b2066ee78d4170704d4307623` и освободил claim.
-
-1. [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) имеет статус `READY`
-   для условной КД. R4 принимает свежий claim и проводит входной аудит.
-2. R4 сверяет пакет R2 и manifest пересборки W02 и готовит чертежи на FreeCAD 1.1.4.
-   Для физической базы открыты нагрузки, опоры, силовая геометрия, материалы,
-   допуски и несущая способность соединений.
-3. R5 проверяет комплект чертежей на точном SHA. [План R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md)
+Прими свежий claim на [T-R1-ENGINEERING-PLAN-09](coordination/tasks/T-R1-ENGINEERING-PLAN-09/task.json).
+По [плану](coordination/tasks/T-R1-ENGINEERING-PLAN-09/dispatch_plan.md) сопоставь
+открытые входы W02 с доступными источниками и назначь первый аудит с пригодными входами.
+Условная КД W02 интегрирована в `78922f9`. [Вердикт R5](coordination/completions/T-R5-DRAWINGS-VERIFY-01/completion.json)
+для условной КД — `PASS`. В каталоге четыре позиции с `BLOCKED_INPUTS`.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические
