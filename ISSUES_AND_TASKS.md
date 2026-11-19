@@ -8,7 +8,7 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R3-FORCE-CALC-02](coordination/tasks/T-R3-FORCE-CALC-02/task.json) | R3 | P0 / READY. Пересчитать 42 состояния и §§4/5/6 для W02 под 1,5 МН |
+| [T-R3-FORCE-CALC-02](coordination/completions/T-R3-FORCE-CALC-02/completion.json) | R3 | P0 / COMPLETED. Инженерный итог FAILED в области CALCULATED_ASSUMED. Claim освобождён |
 | [T-R4-REDESIGN-1.5MN-01](coordination/tasks/T-R4-REDESIGN-1.5MN-01/task.json) | R4 | P0 / COMPLETED (CALCULATED_ASSUMED). Claim освобождён |
 | [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json) | R4 | P0 / COMPLETED. Экспорт КД W02 выполнен, claim освобождён |
 | [T-R5-FORCE-CALC-VERIFY-01](coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json) | R5 | P0 / COMPLETED (PASS в области CALCULATED_ASSUMED). Claim освобождён |

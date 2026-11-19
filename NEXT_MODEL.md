@@ -5,12 +5,13 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основания — [решение о форке](decisions/ARB-OPERATOR-FORK-BASELINE-01.md) и [решение о проектном базисе](decisions/ARB-OPERATOR-DESIGN-BASIS-02.md).
 
-Следующая задача — [T-R3-FORCE-CALC-02](coordination/tasks/T-R3-FORCE-CALC-02/task.json).
-R3 принимает свежий claim и проверяет входы. Использовать [интерфейсы W02 r1](cad/force_geometry/redesign_1p5mn/interfaces.json)
-и [манифест CAD](cad/source/force_geometry/redesign_1p5mn/manifest.json).
-Пересчитать 42 состояния и §§4/5/6 с двумя цилиндрами, новыми направляющими и отдельными ветвями седла и замка B.
-[Пакет R4](coordination/completions/T-R4-REDESIGN-1.5MN-01/completion.json) содержит точный commit,
-результаты статического скрининга и запись CI.
+R3 закончил расчёт W02 по T-R3-FORCE-CALC-02 с инженерным итогом
+`FAILED / CALCULATED_ASSUMED`. Для независимой проверки R5 взять точный
+`target_commit_sha` из [акта R3](coordination/completions/T-R3-FORCE-CALC-02/completion.json).
+Проверить расчёт контакта ключей B при 315 бар и чувствительность зазора
+пуансона к жёсткости направляющих при рассогласовании цилиндров.
+[Инженерный отказ](cae/cases/T-R3-FORCE-CALC-02/engineering_failure_note.md)
+содержит условия повторной проверки перед передачей в КД.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические

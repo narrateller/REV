@@ -106,8 +106,13 @@ R4 завершил [перепроектирование W02 под 1,5 МН](c
 Два Ø250/140 × 700 мм дают расчётные 2,295 МН выдвижения и 1,540 МН втягивания при 250 бар.
 [CAD и TechDraw](cad/source/force_geometry/redesign_1p5mn/manifest.json) пересобраны на FreeCAD 1.1.4 / OCCT 7.8.1.
 [Claim освобождён](coordination/completions/T-R4-REDESIGN-1.5MN-01/claim_release.json).
-Следующая задача — [R3 по 42 состояниям и §§4/5/6](coordination/tasks/T-R3-FORCE-CALC-02/task.json).
-Физические входы остаются `BLOCKED_INPUTS`, целевой этап выпуска КД использует новую геометрию.
+R3 завершил [T-R3-FORCE-CALC-02](cae/cases/T-R3-FORCE-CALC-02/README.md)
+с инженерным итогом `FAILED / CALCULATED_ASSUMED`. Штатная огибающая
+проходит по давлению, ходу, запасам и устойчивости. В закрытой ветви B
+запас контакта ключей при 315 бар составляет 1,111 при требовании 1,5.
+[Инженерный отказ](cae/cases/T-R3-FORCE-CALC-02/engineering_failure_note.md) блокирует выпуск КД.
+[Акт и точный SHA для R5](coordination/completions/T-R3-FORCE-CALC-02/completion.json).
+Физические входы остаются `BLOCKED_INPUTS`.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
