@@ -8,12 +8,11 @@
 R2 завершил [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/README.md), передал
 входы и проект ТЗ в `093a78ad27e46f6b2066ee78d4170704d4307623` и освободил claim.
 
-1. [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) ожидает готовую
-   инженерную базу. Для КД открыты фактические нагрузки, опоры, силовая геометрия,
-   материалы, допуски и несущая способность соединений.
-2. После готовности входов R4 принимает свежий claim, проверяет ревизии и
-   готовит комплект чертежей на FreeCAD 1.1.4.
-3. R5 проверяет комплект чертежей на точном SHA. [План R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md)
+1. [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) в статусе `READY`
+   для условной КД. R4 принимает свежий claim и проверяет входы R2 и ревизию W02.
+2. R4 готовит комплект на FreeCAD 1.1.4. Для определяющих пробелов указывает
+   `BLOCKED_INPUTS`, сохраняя открытые физические входы.
+3. R5 проверяет комплект на точном SHA. [План R1](coordination/tasks/T-R1-ENGINEERING-PLAN-07/dispatch_plan.md)
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические

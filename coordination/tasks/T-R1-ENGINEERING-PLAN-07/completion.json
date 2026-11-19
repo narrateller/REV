@@ -1,0 +1,126 @@
+{
+  "task_id": "T-R1-ENGINEERING-PLAN-07",
+  "role": "R1",
+  "execution_status": "COMPLETED",
+  "completed_at_utc": "2026-11-19T01:37:11Z",
+  "author_sessions": [
+    "01a1f163-ccce-7692-b9f9-af6ae8c23a57"
+  ],
+  "CODEX_SESSION_ID": "01a1f163-ccce-7692-b9f9-af6ae8c23a57",
+  "session_id_source": "CODEX_SESSION_ID",
+  "model": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "model_source": "Запрошенная оператором модель",
+  "runtime_model_id": "gpt-6.2-sol",
+  "runtime_model_provider": "openai",
+  "runtime_model_source": "Current Codex session turn_context.model and session_meta.model_provider",
+  "requested_model_label_matches_runtime": false,
+  "source_main_sha": "8683adacb79f95fc531b4bd5393ef216d47aff3a",
+  "claim_main_sha": "b3f7d63cac43bcdb72317ac661875bdd4761d00f",
+  "accepted_claim": {
+    "path": "coordination/completions/T-R1-ENGINEERING-PLAN-07/accepted_claim.json",
+    "sha256": "b4497b0e8520dc84eac6c4b7cfaa72e57ebcdd2d1a9e6e9682886026932c934f"
+  },
+  "claim_release": "coordination/completions/T-R1-ENGINEERING-PLAN-07/claim_release.json",
+  "input_manifest": {
+    "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/input_manifest.json",
+    "sha256": "48e0f5f918956c99c000f30d461ab24011289ef97b2ac337d824d3297500bba1"
+  },
+  "r2": {
+    "task_id": "T-R2-INPUTS-01",
+    "status": "COMPLETED",
+    "pull_request": 73,
+    "claim_release_status": "RELEASED"
+  },
+  "w02_cad_artifact_check": {
+    "status": "PASS",
+    "scope": "SHA-256 четырёх файлов по CAD-манифесту и Git LFS на ревизиях пересборки, проверки R5 и исходной main",
+    "variants": {
+      "A-V1.FCStd": "38246fa3fc8311920561e9dcce22ae7a20649cb626599cbedc86d4f8af06674a",
+      "A-V2.FCStd": "6599be99bc01225fd84c1da60b2e8bdd7e05a00df676608d3daaaac47908358e",
+      "B-V1.FCStd": "884b96d1abd127e12b0c79391f7f7edafbb12de8fdcf6eae0a0b454ebbf21ad0",
+      "B-V2.FCStd": "95ceadc2dff9dc09170ca29791a205d85f287d9679930a163b147c84913914be"
+    },
+    "record_discrepancy": "Поля output_hashes.variants в актах R4 и R5 расходятся с CAD-манифестом для всех четырёх вариантов. Для входного аудита R4 использовать манифест и ревизию Git из next_dispatch.",
+    "commands": [
+      "git rev-parse 224242f918b05640ffa679fac468deb41290f444:cad/build/w02_rebuild_20261119 be495ecacee18693e854bdcadb64254823892207:cad/build/w02_rebuild_20261119 8683adacb79f95fc531b4bd5393ef216d47aff3a:cad/build/w02_rebuild_20261119",
+      "git lfs ls-files -l -I 'cad/build/w02_rebuild_20261119/**'",
+      "Get-FileHash -Algorithm SHA256 cad/build/w02_rebuild_20261119/*"
+    ]
+  },
+  "next_dispatch": {
+    "task_id": "T-R4-DRAWINGS-01",
+    "role": "R4",
+    "status": "READY",
+    "priority": "P1",
+    "requires_fresh_claim": true,
+    "requires_input_audit": true,
+    "r2_input_package": {
+      "path": "coordination/tasks/T-R2-INPUTS-01/README.md",
+      "output_manifest": {
+        "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+        "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50"
+      },
+      "commit": "093a78ad27e46f6b2066ee78d4170704d4307623",
+      "merge_commit_sha": "8683adacb79f95fc531b4bd5393ef216d47aff3a",
+      "completion_record": "coordination/completions/T-R2-INPUTS-01/completion.json"
+    },
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/dispatch_plan.md",
+    "physical_input_status": "BLOCKED_INPUTS",
+    "scope": "CONDITIONAL_DRAWING_PACKAGE",
+    "physical_state_count": 42,
+    "physical_execution": "NOT_RUN",
+    "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json",
+    "freecad_version": "1.1.4",
+    "w02_cad_baseline": {
+      "task_id": "T-R4-W02-CAD-01",
+      "rebuild_commit_sha": "224242f918b05640ffa679fac468deb41290f444",
+      "manifest": {
+        "path": "cad/build/w02_rebuild_20261119/manifest.json",
+        "sha256": "4891959d09824c4b91e7e2235f95ecafbf1e78ce143366944195796c28795ea5"
+      },
+      "verification": "PASS",
+      "verification_record": "coordination/completions/T-R5-W02-CAD-REBUILD-VERIFY-01/completion.json",
+      "verification_target_sha": "be495ecacee18693e854bdcadb64254823892207"
+    },
+    "manufacturing_release_requires_operator": true
+  },
+  "local_checks": {
+    "python -m unittest discover -s tests -v": "PASS",
+    "unit_test_count": 103,
+    "python verify_output.py --check-git": "PASS",
+    "python coordination/tasks/T-R2-INPUTS-01/verify_output.py --check-git": "PASS",
+    "python scripts/check_registry.py --check-git": "PASS",
+    "dispatch_links_and_input_manifest_hashes": "PASS"
+  },
+  "output_hash_basis": "Git file bytes",
+  "outputs": [
+    {
+      "path": "coordination/task_index.json",
+      "sha256": "996884e64d212a46c71f0e8166af3cf15bfc580c32ab692635bf8d6caad114b5"
+    },
+    {
+      "path": "coordination/tasks/T-R4-DRAWINGS-01/task.json",
+      "sha256": "e8a473883d965d55bfd30c4620e2f0aac190257511b5977febbbba485af7e6a8"
+    },
+    {
+      "path": "STATE.md",
+      "sha256": "1536f5d3ad29ebc5944e986fa08ae212dcdb2216e2a536f39b0de88db301f84a"
+    },
+    {
+      "path": "ISSUES_AND_TASKS.md",
+      "sha256": "68ba221ce9a9ab44242f1f69561ca3251e62e000bc9378fe1e73554f82a673cd"
+    },
+    {
+      "path": "NEXT_MODEL.md",
+      "sha256": "57fd49dd628d43e959cd737426533429bb918edadc1eed602312de1ac0a62f84"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/task.json",
+      "sha256": "4e89b37d462418adfff32b9b23ec8f190bdca961908b26d7bff03551ef4ab67f"
+    },
+    {
+      "path": "coordination/tasks/T-R1-ENGINEERING-PLAN-07/dispatch_plan.md",
+      "sha256": "f47d8c1a9b9935b6baf2c225bfeafd5e6a9af1103e3aeb1c56d74a2726519bb5"
+    }
+  ]
+}
