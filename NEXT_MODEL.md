@@ -5,11 +5,14 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основание: [решение оператора](decisions/ARB-OPERATOR-FORK-BASELINE-01.md).
 
-1. R2 принимает свежий claim для [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/task.json),
-   `P0 / READY`, проверяет входы и формализует их для проекта ТЗ.
-   `UNKNOWN` хранится как `null` с причиной.
-2. После передачи R2 и готовности инженерной базы R4 выполняет
-   [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) на FreeCAD 1.1.4.
+R2 завершил [T-R2-INPUTS-01](coordination/tasks/T-R2-INPUTS-01/README.md), передал
+входы и проект ТЗ в `093a78ad27e46f6b2066ee78d4170704d4307623` и освободил claim.
+
+1. [T-R4-DRAWINGS-01](coordination/tasks/T-R4-DRAWINGS-01/task.json) ожидает готовую
+   инженерную базу. Для КД открыты фактические нагрузки, опоры, силовая геометрия,
+   материалы, допуски и несущая способность соединений.
+2. После готовности входов R4 принимает свежий claim, проверяет ревизии и
+   готовит комплект чертежей на FreeCAD 1.1.4.
 3. R5 проверяет комплект чертежей на точном SHA. [План R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md)
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
