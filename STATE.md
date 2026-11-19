@@ -98,9 +98,12 @@ R3 завершил [T-R3-FORCE-CALC-01](cae/cases/T-R3-FORCE-CALC-01/README.md)
 нехватка усилия и хода гидроцилиндра Ø80/45. [Независимая проверка R5](coordination/completions/T-R5-FORCE-CALC-VERIFY-01/completion.json)
 дала `PASS` в области `CALCULATED_ASSUMED`. Результат интегрирован в main с зелёным CI.
 Цикл DESIGN_BASIS r1 открыт до выпуска проверяемых файлов КД W02.
-Следующий шаг — [T-R4-FINAL-DRAWINGS-01](coordination/tasks/T-R4-FINAL-DRAWINGS-01/task.json).
+R4 завершил [T-R4-FINAL-DRAWINGS-01](coordination/completions/T-R4-FINAL-DRAWINGS-01/completion.json) — финальный комплект КД W02 с экспортом DXF/SVG/PDF (160 файлов, FreeCAD 1.1.4).
+R5 провёл [независимую верификацию](coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-01/completion.json) на коммите 994f0e9c: все критерии PASS (4 FCStd модели, 53 DXF, 53 SVG, 50 PDF, масштаб 1:1 мм, PistonRod во всех вариантах, ReceiverLock в B-V1/B-V2, BOM привязан к cots_catalog.yaml, CI зелёный).
+[Claim T-R4-FINAL-DRAWINGS-01 освобождён](coordination/completions/T-R4-FINAL-DRAWINGS-01/claim_release.json).
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
 `python -m unittest discover -s tests -v`. PASS относится только к проверенной области.
+
 
