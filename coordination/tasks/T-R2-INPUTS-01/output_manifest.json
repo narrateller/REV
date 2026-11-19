@@ -1,0 +1,38 @@
+{
+  "task_id": "T-R2-INPUTS-01",
+  "source_main_sha": "053f6e3d475df5875ce38bfce6579dac46ddf553",
+  "scope": "DOCUMENTARY_INPUT_AUDIT_AND_DRAFT_REQUIREMENTS",
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.17",
+    "PyYAML": "6.0.3"
+  },
+  "checks": [
+    "python coordination/tasks/T-R2-INPUTS-01/verify_output.py --check-git",
+    "python scripts/check_registry.py --check-git",
+    "python -m unittest discover -s tests -v",
+    "python verify_output.py --check-git"
+  ],
+  "outputs": [
+    {
+      "path": "coordination/tasks/T-R2-INPUTS-01/README.md",
+      "sha256": "87cf20f04dcce52e63bffeb58f63a630a23cb50d5e3cd44d338cfabb8a5d3375"
+    },
+    {
+      "path": "coordination/tasks/T-R2-INPUTS-01/input_manifest.json",
+      "sha256": "5fa5da3f60147251e21c06d6da231a4db0d2a7715a0b236337064a2306e20203"
+    },
+    {
+      "path": "coordination/tasks/T-R2-INPUTS-01/registry_audit.json",
+      "sha256": "7ae56a0b2db98eaa8b2d410ea0d74b15a9cabba49f752bc24b1ec68e4c6b5bd9"
+    },
+    {
+      "path": "coordination/tasks/T-R2-INPUTS-01/site_inputs.json",
+      "sha256": "023cf2cb242c962fec4b1f098a1c8ee57bcd5a49e7324d14941ef802ace138c0"
+    },
+    {
+      "path": "coordination/tasks/T-R2-INPUTS-01/verify_output.py",
+      "sha256": "abd78559acfd31f71c7c153d2477a45a1290e86da438443a22b6a12ed54146fd"
+    }
+  ]
+}

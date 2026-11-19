@@ -20,9 +20,14 @@
     {
       "task_id": "T-R2-INPUTS-01",
       "role": "R2",
-      "status": "READY",
+      "status": "COMPLETED",
       "priority": "P0",
-      "path": "coordination/tasks/T-R2-INPUTS-01/task.json"
+      "path": "coordination/tasks/T-R2-INPUTS-01/task.json",
+      "scope": "DOCUMENTARY_INPUT_AUDIT_AND_DRAFT_REQUIREMENTS",
+      "completion_record": "coordination/completions/T-R2-INPUTS-01/completion.json",
+      "claim_release": "coordination/completions/T-R2-INPUTS-01/claim_release.json",
+      "claim_release_status": "RELEASED",
+      "result_commit_sha": "093a78ad27e46f6b2066ee78d4170704d4307623"
     },
     {
       "task_id": "T-R3-42-STATES-01",
@@ -156,12 +161,22 @@
     }
   ],
   "next_dispatch": {
-    "task_id": "T-R2-INPUTS-01",
-    "role": "R2",
-    "status": "READY",
-    "priority": "P0",
+    "task_id": "T-R4-DRAWINGS-01",
+    "role": "R4",
+    "status": "WAITING_ENGINEERING_BASELINE",
+    "priority": "P1",
     "requires_fresh_claim": true,
     "requires_input_audit": true,
-    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md"
+    "r2_input_package": {
+      "path": "coordination/tasks/T-R2-INPUTS-01/README.md",
+      "output_manifest": {
+        "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+        "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50"
+      },
+      "commit": "093a78ad27e46f6b2066ee78d4170704d4307623"
+    },
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md",
+    "blocker": "Силовая геометрия, реальные нагрузки и опоры, материалы, допуски и несущая способность соединений ожидают инженерного обоснования.",
+    "physical_input_status": "BLOCKED_INPUTS"
   }
 }

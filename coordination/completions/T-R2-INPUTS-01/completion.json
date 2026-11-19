@@ -1,0 +1,84 @@
+{
+  "task_id": "T-R2-INPUTS-01",
+  "role": "R2",
+  "execution_status": "COMPLETED",
+  "scope": "DOCUMENTARY_INPUT_AUDIT_AND_DRAFT_REQUIREMENTS",
+  "completed_at_utc": "2026-11-19T01:11:07Z",
+  "author_sessions": [
+    "01a1f149-3049-71b3-b730-5509fe8ec155"
+  ],
+  "CODEX_SESSION_ID": "01a1f149-3049-71b3-b730-5509fe8ec155",
+  "session_id_source": "CODEX_SESSION_ID",
+  "model": "qwen/qwen3.5-397b-a17b (OpenRouter)",
+  "model_source": "Запрошенная оператором модель",
+  "runtime_model_id": "gpt-6.2-sol",
+  "runtime_model_provider": "openai",
+  "runtime_model_source": "Current Codex session turn_context.model and session_meta.model_provider",
+  "requested_model_label_matches_runtime": false,
+  "source_main_sha": "053f6e3d475df5875ce38bfce6579dac46ddf553",
+  "claim_main_sha": "1627207d969127596cacae6a5a59d4fd6e5d5358",
+  "accepted_claim": {
+    "path": "coordination/completions/T-R2-INPUTS-01/accepted_claim.json",
+    "sha256": "d0094bb691fe3e01980b3c2bf4bee2d28ca08f2cc01fe5b5e89f788b20cf8823"
+  },
+  "claim_release": "coordination/completions/T-R2-INPUTS-01/claim_release.json",
+  "input_manifest": {
+    "path": "coordination/tasks/T-R2-INPUTS-01/input_manifest.json",
+    "sha256": "5fa5da3f60147251e21c06d6da231a4db0d2a7715a0b236337064a2306e20203"
+  },
+  "output_manifest": {
+    "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+    "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50"
+  },
+  "result_commit_sha": "093a78ad27e46f6b2066ee78d4170704d4307623",
+  "criteria": {
+    "active_registry": {
+      "ASSUMED": 47,
+      "RAW": 25,
+      "CALCULATED": 1072,
+      "total": 1144
+    },
+    "scoped_r2_registry": {
+      "RAW": 41,
+      "ASSUMED": 5,
+      "CALCULATED": 9,
+      "total": 55
+    },
+    "separate_scopes_and_source_traceability": "PASS",
+    "bp500_site_reference": "VISUALLY_CHECKED_PDF_PAGES_3_AND_4",
+    "rev_power_pressure_moisture": "UNKNOWN",
+    "physical_state_count": 42,
+    "physical_input_status": "BLOCKED_INPUTS",
+    "physical_execution": "NOT_RUN",
+    "requirements_approval": "NOT_APPROVED"
+  },
+  "local_checks": {
+    "python coordination/tasks/T-R2-INPUTS-01/verify_output.py --check-git": "PASS",
+    "python scripts/check_registry.py --check-git": "PASS",
+    "python -m unittest discover -s tests -v": "PASS",
+    "python verify_output.py --check-git": "PASS"
+  },
+  "unit_test_count": 103,
+  "local_checks_commit_sha": "093a78ad27e46f6b2066ee78d4170704d4307623",
+  "ci_workflow": ".github/workflows/ci_verify.yml",
+  "independent_r5_verification": "NOT_RUN",
+  "next_dispatch": {
+    "task_id": "T-R4-DRAWINGS-01",
+    "role": "R4",
+    "status": "WAITING_ENGINEERING_BASELINE",
+    "priority": "P1",
+    "requires_fresh_claim": true,
+    "requires_input_audit": true,
+    "r2_input_package": {
+      "path": "coordination/tasks/T-R2-INPUTS-01/README.md",
+      "output_manifest": {
+        "path": "coordination/tasks/T-R2-INPUTS-01/output_manifest.json",
+        "sha256": "9170c02f114a450660ff9744769f58170816952849e87c61fe5300b0851d4b50"
+      },
+      "commit": "093a78ad27e46f6b2066ee78d4170704d4307623"
+    },
+    "dispatch_plan": "coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md",
+    "blocker": "Силовая геометрия, реальные нагрузки и опоры, материалы, допуски и несущая способность соединений ожидают инженерного обоснования.",
+    "physical_input_status": "BLOCKED_INPUTS"
+  }
+}

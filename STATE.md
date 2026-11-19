@@ -70,9 +70,13 @@ R4 завершил [CAD-пересборку W02](coordination/completions/T-R4
 R5 завершил [T-R5-ENGINEERING-VERIFY-02](coordination/completions/T-R5-ENGINEERING-VERIFY-02/completion.json)
 в области условного расчёта и документального аудита W02. Расхождение идентификаторов
 зафиксировано при [закрытии claim](coordination/completions/T-R5-ENGINEERING-VERIFY-02/claim_release.json).
-По [плану R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md) следующая задача — `T-R2-INPUTS-01` (R2, P0 / READY).
-После передачи R2 и готовности инженерной базы следует `T-R4-DRAWINGS-01`
-на FreeCAD 1.1.4, затем независимая проверка R5. UNKNOWN хранится как null с причиной.
+R2 завершил [аудит входов и проект ТЗ](coordination/tasks/T-R2-INPUTS-01/README.md) в
+`093a78ad27e46f6b2066ee78d4170704d4307623`. BP500 задаёт ориентиры для адаптации площадки.
+Входы REV без подтверждённых значений сохранены как UNKNOWN с `null` и причиной.
+[Акт R2](coordination/completions/T-R2-INPUTS-01/completion.json) · [Освобождение claim](coordination/completions/T-R2-INPUTS-01/claim_release.json)
+Следующая по [плану R1](coordination/tasks/T-R1-ENGINEERING-PLAN-06/dispatch_plan.md) —
+[`T-R4-DRAWINGS-01`](coordination/tasks/T-R4-DRAWINGS-01/task.json) на FreeCAD 1.1.4 со
+статусом `WAITING_ENGINEERING_BASELINE`, затем независимая проверка R5.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,
