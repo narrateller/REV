@@ -34,7 +34,17 @@ jobs:
         run: python coordination/tasks/T-R2-DESIGN-BASIS-02/verify_output.py --check-git
       - name: Replay R3 force screening with the R4 geometry delivery
         if: hashFiles('cae/cases/T-R3-FORCE-CALC-01/output_manifest.json') != ''
-        run: python cae/cases/T-R3-FORCE-CALC-01/verify_output.py --check-git
+        run: |
+          # This completed package calculates against its historical (superseded) COTS input.
+          pin=$(python -c "import json; print(json.load(open('cae/cases/T-R3-FORCE-CALC-01/input_manifest.json'))['source_main_sha'])")
+          current_catalog=$(mktemp)
+          cp drives/cots_catalog.yaml "$current_catalog"
+          trap 'mv "$current_catalog" drives/cots_catalog.yaml' EXIT
+          git show "${pin}:drives/cots_catalog.yaml" > drives/cots_catalog.yaml
+          python cae/cases/T-R3-FORCE-CALC-01/verify_output.py --check-git
+      - name: Verify W02 1.5 MN calculation, native CAD and drawing basis
+        if: hashFiles('coordination/tasks/T-R4-REDESIGN-1.5MN-01/output_manifest.json') != ''
+        run: python cad/force_geometry/redesign_1p5mn/verify_output.py --check-git
       - name: Test validator and initializer in isolated temporary copies
         run: python -m unittest discover -s tests -v
       - name: Check out the last baseline before the R4 geometry update
