@@ -12,6 +12,9 @@ from repo_support import (COMMIT_RE, ID_RE, SHA_RE, REF_RE, engineering_sha,
 FENCES = re.compile(r'^```yaml\s*\n(.*?)^```\s*$', re.M | re.S)
 
 
+from functools import lru_cache
+
+
 def check_repository(data, root, params, loader, strict=False, check_git=False):
     root = Path(root).resolve()
     errors, reviews = [], {}
@@ -30,9 +33,11 @@ def check_repository(data, root, params, loader, strict=False, check_git=False):
     def file(path):
         return inside_file(root, path)
 
+    @lru_cache(maxsize=None)
     def load(path):
         return yaml.load(file(path).read_text(encoding='utf-8'), Loader=loader)
 
+    @lru_cache(maxsize=None)
     def json_load(path):
         def unique(pairs):
             result = {}
@@ -45,10 +50,15 @@ def check_repository(data, root, params, loader, strict=False, check_git=False):
         return json.loads(file(path).read_text(encoding='utf-8'), object_pairs_hook=unique,
                           parse_constant=invalid)
 
+    @lru_cache(maxsize=None)
     def git_blob(commit, path):
         result = subprocess.run(['git', '-C', str(root), 'show', f'{commit}:{path}'], capture_output=True)
         need(result.returncode == 0, f'Git object unavailable: {commit}:{path}')
         return result.stdout
+
+    @lru_cache(maxsize=None)
+    def git_registry(commit):
+        return flatten(yaml.load(git_blob(commit, 'params/registry.yaml'), Loader=loader))
 
     def blocks(path, kind):
         result = []
@@ -166,7 +176,7 @@ def check_repository(data, root, params, loader, strict=False, check_git=False):
             if r['verdict'] == 'PASS':
                 need(c['result'] in ('PASS','NOT_APPLICABLE'), 'PASS with failed/unrun check')
         if check_git:
-            baseline = flatten(yaml.load(git_blob(commit, 'params/registry.yaml'), Loader=loader))
+            baseline = git_registry(commit)
             for ref in r['parameter_refs']:
                 need(ref['id'] in baseline and engineering_sha(baseline[ref['id']]) == ref['engineering_sha256'],
                      'Parameter differs from reviewed commit')
@@ -207,7 +217,7 @@ def check_repository(data, root, params, loader, strict=False, check_git=False):
                 need(reviews[rid].get('validity') == 'CURRENT', 'STALE decision review')
         artifacts(d.get('artifacts'), p['validity'] == 'CURRENT', commit)
         if check_git:
-            baseline = flatten(yaml.load(git_blob(commit, 'params/registry.yaml'), Loader=loader))
+            baseline = git_registry(commit)
             for ref in d['parameter_refs']:
                 need(ref['id'] in baseline and engineering_sha(baseline[ref['id']]) == ref['engineering_sha256'],
                      'Parameter differs from baseline commit')
