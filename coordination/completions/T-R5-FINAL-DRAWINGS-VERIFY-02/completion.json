@@ -1,0 +1,107 @@
+{
+  "task_id": "T-R5-FINAL-DRAWINGS-VERIFY-02",
+  "role": "R5",
+  "status": "FAILED",
+  "verification": "FAIL",
+  "recorded_at_utc": "2026-11-20T01:13:24Z",
+  "author_sessions": [
+    {
+      "role": "R5",
+      "CODEX_SESSION_ID": "01a1f67e-52f9-7b50-9de0-76fd6404dd28",
+      "model_label": "gpt-6.2-sol",
+      "identity_source": "Runtime CODEX_SESSION_ID and current-session Codex turn_context.model"
+    }
+  ],
+  "upstream_author_session": "01a1f66e-3b50-7de1-8d10-7e44b02230d4",
+  "target_commit": "73c3a638c7cd015c10706cf311f1a903292ff1a1",
+  "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
+  "claim_main_sha": "8298c5ea6f7bf0698184dc37883c4ee4a21972c0",
+  "scope": "Independent verification of nominal W02 iteration 04 drawing delivery",
+  "versions": {
+    "PyMuPDF": "2.1",
+    "FreeCAD": "1.1.4",
+    "pypdf": "6.21.2",
+    "OpenCASCADE": "7.8.1",
+    "ezdxf": "1.4.5"
+  },
+  "artifact_counts": {
+    "DXF": 154,
+    "PDF": 154,
+    "SVG": 154,
+    "FCStd": 4
+  },
+  "checks": {
+    "pdf_structure": {
+      "result": "PASS",
+      "detail": "154 single-page strict parses with %PDF- header, nonempty streams and page size matching SVG in physical mm. Minimum 36655 bytes. No stubs."
+    },
+    "dxf_structure": {
+      "result": "PASS",
+      "detail": "154 ezdxf parses with entities and layers, mm units and zero audit errors."
+    },
+    "svg_xml": {
+      "result": "PASS",
+      "detail": "154 valid XML SVG roots in the SVG namespace."
+    },
+    "svg_size": {
+      "result": "FAIL",
+      "detail": "128 of 154 SVG files are at or below 5120 bytes. Minimum 3681 bytes. Individual files and sizes in audit_evidence.json."
+    },
+    "native": {
+      "result": "PASS",
+      "detail": "Four documents actually opened in FreeCAD 1.1.4 / OCCT 7.8.1. Native solids and TechDraw source links present. Zero invalid objects or invalid solids. 154 added issue pages with 3 unit-scale projections and 6 dimension objects each."
+    },
+    "nominal_content": {
+      "result": "FAIL",
+      "detail": "SVG dimensions and unit mapping match model bounds. PDF page and projection transform scale checks passed. Four W02-402-33 DXF sheets dimension X in XZ and XY as 160 instead of 160.2 mm (A) or 105 instead of 105.2 mm (B). Comparison threshold 0.01 mm is for export verification."
+    },
+    "bom_and_cots": {
+      "result": "FAIL",
+      "detail": "154 SVG BOMs match pinned nominal specification codes, quantities, specification fields and COTS keys. DXF exports contain no TEXT or MTEXT, and the assembly sample lacks a BOM table. PDF vector paths render specification text as solid boxes in 4 sampled sheets: W02-A-V1, W02-A-V1-106-08, W02-B-V2, W02-B-V2-501-40. No text-show operators on any PDF. Visual review was sampled."
+    },
+    "geometry_provenance": {
+      "result": "PASS",
+      "detail": "Pinned geometry commit is an ancestor of target. Repository drawing verifier checked materialized geometry inputs against the pinned commit, file hashes, normalized native BRep geometry and component coverage."
+    },
+    "ci": {
+      "url": "https://github.com/narrateller/REV/actions/runs/44650786346",
+      "run_id": 44650786346,
+      "conclusion": "success",
+      "head_sha": "73c3a638c7cd015c10706cf311f1a903292ff1a1",
+      "result": "PASS"
+    }
+  },
+  "commands": {
+    "python scripts/check_registry.py --check-git": "PASS",
+    "python -m unittest discover -s tests -v": "PASS (104)",
+    "python verify_output.py --check-git": "PASS (operator rotation and baseline integrity)",
+    "python drawings/W02/verify_iteration_04.py --check-git --parse": "PASS (repository checks)",
+    "FreeCAD bundled python coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-02/audit_native.py > native.json": "PASS (runtime inventory)",
+    "python coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-02/audit_exports.py native.json": "FAIL (mandatory SVG size and DXF dimensions)",
+    "gh run view 44650786346 --json headSha,status,conclusion,url": "PASS"
+  },
+  "evidence_sha256": {
+    "drawings/W02/output/manifest.json": "778814796718e874f74053516f4236fd97400ffbe62097cc5822b0edd5263d78",
+    "cad/source/force_geometry/redesign_1p5mn_04/manifest.json": "16fb0a21c04699ab485da9388775b80cf783e19be47f680f63ff94867125dba5",
+    "drives/cots_catalog.yaml": "9542592af386d2ca3315e792e0614caa9853286a6da1adae626e785ac25f5665",
+    "coordination/completions/T-R4-FINAL-DRAWINGS-02/completion.json": "d12926cc41b79953ceb81adc4a467616534b76cde869a726b6c59cc4c1d29c07",
+    "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-02/audit_native.py": "f9672342f7a7d89e4f615849a82371498f254462324db5c658572b0aef0bc34e",
+    "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-02/audit_exports.py": "3f39b3b7bfb15b8b4767f7318e6820a2fac4d00c70f12df319b92a0290022c51",
+    "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-02/audit_evidence.json": "673367e2bebdb649c630f920bf46d17bf4e63caeda4ff6b41cfda473ba383983",
+    "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-02/pdf-bom-sample.png": "74e7bf3542debe9b630f7c33b7fc175f2a22e615b2072a1cf15722450d791521"
+  },
+  "pdf_visual_replay": "Using PyMuPDF, open W02-A-V1.pdf and render page 0 with clip Rect(25, page.rect.height - 156, 920, page.rect.height - 16), default matrix.",
+  "limitations": [
+    "В комплекте отсутствуют разрезы, размерные цепи, поэлементные допуски и посадки.",
+    "Требования к соединениям и данные поставщика цилиндров требуют подтверждения.",
+    "Позиция W02-306 учтена в BOM, деталировка удерживающих элементов отсутствует."
+  ],
+  "physical_sections": {
+    "4": "NOT_RUN",
+    "6": "NOT_RUN",
+    "5": "NOT_RUN"
+  },
+  "physical_input_status": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION",
+  "claim_release": "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-02/claim_release.json"
+}
