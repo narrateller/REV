@@ -50,12 +50,18 @@ def verify_sheet(name, page, parse):
     svg_path = stem.with_suffix(".svg")
     svg = ET.parse(svg_path).getroot()
     require(svg.tag == SVG + "svg" and svg_path.stat().st_size > 5120, svg_path)
+    ids = [element.get("id", "") for element in svg.iter()]
+    require(len(ids) == len(set(ids)), f"{svg_path}: duplicate IDs")
+    pattern = re.compile(re.escape(name) + r"_[A-Za-z][A-Za-z0-9-]*_[0-9]{4,}")
+    require(all(pattern.fullmatch(value) for value in ids), f"{svg_path}: invalid or missing ID")
     width, height = page["size_mm"]
     require(svg.attrib["width"] == f"{width:g}mm" and svg.attrib["height"] == f"{height:g}mm", name)
     has_section = name.endswith("-402-33")
     require(bool(page["section"]) == has_section, name)
     require(len(svg.findall(f"{SVG}g[@transform]")) == 3 + has_section, name)
-    require((svg.find(f"{SVG}g[@id='section-AA']") is not None) == has_section, name)
+    sections = [group for group in svg.findall(f"{SVG}g[@transform]")
+                if group.get("id", "").startswith(f"{name}_section-AA_")]
+    require(len(sections) == int(has_section), name)
     svg_text = [item.text for item in svg.findall(SVG+"text")]
     require(all(label in svg_text for label in ("XZ", "XY", "YZ", "Спецификация")), name)
     pdf_path = stem.with_suffix(".pdf")
