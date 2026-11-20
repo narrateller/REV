@@ -61,9 +61,9 @@ def verify_sheet(name, page, parse):
     pdf_path = stem.with_suffix(".pdf")
     require(pdf_path.stat().st_size > 5120 and pdf_path.read_bytes().startswith(b"%PDF-"), pdf_path)
     dxf_path = stem.with_suffix(".dxf")
-    dxf = dxf_path.read_text(encoding="utf-8").splitlines()
+    dxf = dxf_path.read_bytes().splitlines()
     values = [line.strip() for line in dxf[1::2]]
-    require(values[-1] == "EOF" and values.count("DIMENSION") == 6, dxf_path)
+    require(values[-1] == b"EOF" and values.count(b"DIMENSION") == 6, dxf_path)
     if parse:
         import ezdxf
         from ezdxf.lldxf.encoding import decode_dxf_unicode
