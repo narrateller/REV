@@ -32,6 +32,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "cad/source/force_geometry/redesign_1p5mn_04"
 CATALOG = ROOT / "drives/cots_catalog.yaml"
 VERDICT = ROOT / "cae/cases/T-R3-FORCE-CALC-05/engineering_verdict.json"
+SVG_NAMESPACE = "http://www.w3.org/2000/svg"
 AUDITED_INPUTS = (
     CATALOG, VERDICT, SOURCE/"manifest.json", SOURCE/"screening.json",
     ROOT/"cad/force_geometry/redesign_1p5mn_04/interfaces.json",
@@ -101,7 +102,19 @@ def svg_dimension(x, y, span, vertical=False):
             + text(x-5, y-3, f"{span:g}"))
 
 
-def sheet(doc, name, objects, bom, output, temporary):
+def identify_svg(content, sheet_name):
+    """Assign sheet-wide IDs after assembling the independent TechDraw views."""
+    root = ElementTree.fromstring(content)
+    for index, element in enumerate(root.iter(), 1):
+        tag = element.tag.rsplit("}", 1)[-1]
+        if element.get("id") == "section-AA":
+            tag = "section-AA"
+        element.set("id", f"{sheet_name}_{tag}_{index:04d}")
+    ElementTree.register_namespace("", SVG_NAMESPACE)
+    return root
+
+
+def sheet(doc, name, objects, bom, output, temporary, svg_only):
     x, y, z = size(objects)
     die = name.endswith("-402-33")
     width = max(x+y+120, 450)
@@ -218,7 +231,13 @@ def sheet(doc, name, objects, bom, output, temporary):
     doc.recompute()
     base = output / name
     svg_file = base.with_suffix(".svg")
-    svg_file.write_text(frame(svg+tail), encoding="utf-8", newline="\n")
+    image = identify_svg(frame(svg+tail), name)
+    svg_file.write_bytes(ElementTree.tostring(image, encoding="utf-8"))
+    page_data = {"page": page.Name, "size_mm": [width, height],
+                 "objects": [obj.Name for obj in objects],
+                 "extents_mm": [x, y, z], "section": section.Name if section else None}
+    if svg_only:
+        return page_data
     pdf_file = base.with_suffix(".pdf")
     draft_pdf = temporary / pdf_file.name
     user_unit = 2 if max(width, height)*72/25.4 > 14400 else 1
@@ -231,12 +250,9 @@ def sheet(doc, name, objects, bom, output, temporary):
     if not writer.setPageLayout(layout):
         raise ValueError(f"PDF page rejected: {name}")
     writer.setTitle(name)
-    svg_namespace = "{http://www.w3.org/2000/svg}"
-    image = ElementTree.fromstring(frame(svg+tail))
-    labels = image.findall(svg_namespace + "text")
+    labels = image.findall(f"{{{SVG_NAMESPACE}}}text")
     for label in labels:
         image.remove(label)
-    ElementTree.register_namespace("", svg_namespace[1:-1])
     renderer = QtSvg.QSvgRenderer(QtCore.QByteArray(ElementTree.tostring(image)))
     painter = QtGui.QPainter(writer)
     if not renderer.isValid() or not painter.isActive():
@@ -291,12 +307,10 @@ def sheet(doc, name, objects, bom, output, temporary):
         layout.add_line((x1, height-y1), (x2, height-y2))
     with dxf_file.open("w", encoding=drawing.output_encoding, errors="dxfreplace", newline="\n") as stream:
         drawing.write(stream)
-    return {"page": page.Name, "size_mm": [width, height],
-            "objects": [obj.Name for obj in objects],
-            "extents_mm": [x, y, z], "section": section.Name if section else None}
+    return page_data
 
 
-def run(output, variant_list):
+def run(output, variant_list, svg_only=False):
     output.mkdir(parents=True, exist_ok=True)
     if any(output.iterdir()):
         raise ValueError(f"Use an empty output directory: {output}")
@@ -331,20 +345,23 @@ def run(output, variant_list):
                 catalog_ref = f" | COTS {COTS[code]}" if code in COTS else ""
                 rows[code] = f'{code} | {entry["quantity"]} | {label} | {spec}{catalog_ref}'
             prefix = "W02-" + variant
-            pages = {prefix: sheet(doc, prefix, solids, list(rows.values()), output, Path(directory))}
+            pages = {prefix: sheet(doc, prefix, solids, list(rows.values()), output, Path(directory), svg_only)}
             for index, group in enumerate(groups.values(), 1):
                 obj = group[0]
                 name = f"{prefix}-{obj.BOMItem[-3:]}-{index:02d}"
                 detail = [rows[obj.BOMItem], f"CAD: {', '.join(item.Name for item in group)}"]
-                pages[name] = sheet(doc, name, [obj], detail, output, Path(directory))
+                pages[name] = sheet(doc, name, [obj], detail, output, Path(directory), svg_only)
                 pages[name]["instances"] = [item.Name for item in group]
             doc.recompute()
-            doc.saveAs(str(output / f"{prefix}.FCStd"))
+            if not svg_only:
+                doc.saveAs(str(output / f"{prefix}.FCStd"))
             App.closeDocument(doc.Name)
             manifest["variants"][variant] = pages
+    extensions = (".svg",) if svg_only else (".svg", ".pdf", ".dxf")
     filenames = {name + ext for pages in manifest["variants"].values() for name in pages
-                 for ext in (".svg", ".pdf", ".dxf")}
-    filenames.update(f"W02-{v}.FCStd" for v in variant_list)
+                 for ext in extensions}
+    if not svg_only:
+        filenames.update(f"W02-{v}.FCStd" for v in variant_list)
     manifest["sha256"] = {name: digest(output / name) for name in sorted(filenames)}
     (output / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2)+"\n", encoding="utf-8", newline="\n")
@@ -354,9 +371,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--variants", nargs="+", default=["A-V1", "A-V2", "B-V1", "B-V2"])
+    parser.add_argument("--svg-only", action="store_true", help="Export only SVG sheets and their manifest")
     parser.add_argument("--font", type=Path,
                         default=Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts/arial.ttf")
     args = parser.parse_args()
     qt = QtWidgets.QApplication.instance() or QtWidgets.QApplication(sys.argv[:1])
-    pdfmetrics.registerFont(TTFont("W02", str(args.font)))
-    run(args.out.resolve(), args.variants)
+    if not args.svg_only:
+        pdfmetrics.registerFont(TTFont("W02", str(args.font)))
+    run(args.out.resolve(), args.variants, args.svg_only)

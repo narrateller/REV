@@ -131,7 +131,10 @@ CI ветки и PR прошёл. [Акт поставки](coordination/complet
 и [освобождение claim](coordination/completions/T-R4-REDESIGN-1.5MN-03/claim_release.json) записаны в main.
 Оператор принял итерацию 04 как достаточную для подготовки финальной КД W02.
 [Итерация 05 закрыта](coordination/completions/T-R4-REDESIGN-1.5MN-04/completion.json) со статусом `SUPERSEDED_BY_OPERATOR_DIRECTIVE`.
-[Задача R4 на финальную КД](coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json) имеет статус `READY` и требует fresh claim и входной аудит.
+[R4 исправил SVG-01](coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/completion.json)
+на коммите `0d07ef7`. Все 154 листа перегенерированы, PDF, DXF и FCStd сверены по SHA-256.
+[Следующая независимая проверка R5](coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-04/task.json)
+стартует после интеграции поставки и освобождения claim R4 в main.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,

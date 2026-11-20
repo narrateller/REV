@@ -8,7 +8,8 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R4-FINAL-DRAWINGS-02](coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json) | R4 | P0 / READY. Финальная КД W02 по итерации 04. Требуются fresh claim и аудит входов. |
+| [T-R5-FINAL-DRAWINGS-VERIFY-04](coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-04/task.json) | R5 | P0 / READY после интеграции исправления SVG и освобождения claim R4 в main. |
+| [T-R4-FINAL-DRAWINGS-02](coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/completion.json) | R4 | COMPLETED в области SVG-01. 154 листа переданы на независимую проверку. |
 | [T-R4-REDESIGN-1.5MN-04](coordination/completions/T-R4-REDESIGN-1.5MN-04/completion.json) | R4 | COMPLETED / SUPERSEDED_BY_OPERATOR_DIRECTIVE. |
 | [T-R4-REDESIGN-1.5MN-03](coordination/completions/T-R4-REDESIGN-1.5MN-03/completion.json) | R4 | COMPLETED. Итерация 04 интегрирована и принята оператором для подготовки КД. |
 | [T-R3-FORCE-CALC-04](coordination/completions/T-R3-FORCE-CALC-04/completion.json) | R3 | COMPLETED / FAILED в условной области. Зазор и давление реверса блокируют выпуск КД. Claim освобождён для следующей итерации R4. |
