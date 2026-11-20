@@ -1,0 +1,123 @@
+{
+  "task_id": "T-R5-FINAL-DRAWINGS-VERIFY-04",
+  "role": "R5",
+  "verdict": "FAIL",
+  "recorded_at_utc": "2026-11-20T02:01:26.5007052+00:00",
+  "scope": "INDEPENDENT_NOMINAL_W02_DRAWING_VERIFICATION",
+  "author_sessions": [
+    {
+      "role": "R5",
+      "CODEX_SESSION_ID": "01a1f6aa-9f77-7bc2-8392-3761afb5a830",
+      "model_label": "gpt-6.2-sol",
+      "identity_source": "Runtime CODEX_SESSION_ID and current-session Codex turn_context.model"
+    }
+  ],
+  "source_main_sha": "c5f1b222b4024c47a18567a4bf00cef2270167c1",
+  "claim_main_sha": "45d7f2a7838a02db3044bb8eab12aec41247e830",
+  "target_commit_sha": "0d07ef76daf9f478ebbd4705a366dd9d1efff48c",
+  "pre_repair_commit_sha": "0506e85d134d65842ec70a902b6f731cc9d2d356",
+  "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
+  "input_audit": {
+    "task_manifest": "coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-04/task.json",
+    "r4_delivery": "coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/completion.json",
+    "r4_release": "coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/claim_release.json",
+    "independent_of_r4_author_session": true,
+    "r4_release_in_main": true,
+    "r4_completion_sha256": "e3fa51611c7435806cb0830dc22483d754778db955a3b6edbae30b96bf7bfa74",
+    "r4_release_sha256": "0b1d606733233c7d30e7ac17041f4bb633bb75c3175388feac94de2574619d1a",
+    "output_manifest": "drawings/W02/output/manifest.json",
+    "output_manifest_sha256": "c073cb5525456d188357d0fbffbf0044601691cd36d31aeed5ab1edca3602202",
+    "shared_target_and_execution_output_tree": "638d9731b9667b2a1a0cd6bef475a391820f7b8f",
+    "execution_note": "Ran local checks on the accepted claim commit. Git diff confirmed byte-identical target drawings, CAD source, COTS catalog, scripts, tests, params and root verifier."
+  },
+  "criteria": {
+    "1_pdf": {
+      "result": "PASS",
+      "files": 154,
+      "min_bytes": 60572,
+      "method": "Checked each file independently for %PDF- and size >5120 bytes, then parsed strictly as a one-page PDF."
+    },
+    "2_dxf": {
+      "result": "PASS",
+      "files": 154,
+      "min_bytes": 36908,
+      "min_projection_entities": 11,
+      "dimensions_per_file": 6,
+      "method": "Opened each DXF with ezdxf, checked audit, EOF and ENTITIES structure, graphic entities, millimetre units, Unicode and six dimension measurements against nominal extents within 0.01 mm."
+    },
+    "3_svg": {
+      "result": "PASS",
+      "files": 154,
+      "unique_ids": 15062,
+      "svg_trees_matching_pre_repair_except_ids": 154,
+      "method": "Parsed all elements, checked ID syntax and presence, checked uniqueness across the bundle and compared XML tags, non-ID attributes, text, tail and ordered children against the pre-repair commit."
+    },
+    "4_geometry": {
+      "result": "PASS",
+      "sheets": 154,
+      "sheets_by_variant": {
+        "A-V1": 36,
+        "A-V2": 36,
+        "B-V1": 41,
+        "B-V2": 41
+      },
+      "method": "Compared listed source FCStd and Git inputs with 83407d0, compared source and delivery BREP members using the delivery verifier's topology-flag and numeric normalization, checked sheet-to-solid inventory, sections and manifest extents. Confirmed the 312 PDF/DXF/FCStd SHA-256 values against the target manifest authenticated by the R4 act and the pre-repair manifest."
+    },
+    "5_title_bom_scale": {
+      "result": "PASS",
+      "sheets": 154,
+      "native_views_at_1_to_1": 466,
+      "method": "Checked cross-format Unicode title/footer and BOM rows, source BOM quantities and specifications, COTS references, page size, DXF dimensions and native page and view scale. The manifest defines the 154 exported pages. Each FCStd also retains AssemblyDrawing and BOMDrawing outside that export inventory. AssemblyDrawing has four views at 1:30."
+    },
+    "6_fcstd_inventory": {
+      "result": "FAIL",
+      "expected": [
+        "W02-A-V2",
+        "W02-B-V1",
+        "W02-B-V2",
+        "W02-C-V2"
+      ],
+      "opened_and_validated": [
+        "W02-A-V1",
+        "W02-A-V2",
+        "W02-B-V1",
+        "W02-B-V2"
+      ],
+      "missing": [
+        "W02-C-V2"
+      ],
+      "method": "Opened the four delivered files in FreeCAD 1.1.4 / OCCT 7.8.1 and validated their solid shapes. ZIP CRC, native page links and source BREP correspondence also passed.",
+      "finding": "W02-C-V2 is absent from the exact target and iteration 04 base. The target follows the base inventory, which includes W02-A-V1."
+    },
+    "7_exact_target_ci": {
+      "result": "PASS",
+      "check": "verify-engineering-state",
+      "conclusion": "success",
+      "url": "https://github.com/narrateller/REV/actions/runs/44656245298/job/136023060638"
+    },
+    "8_registry_and_root_verifier": {
+      "result": "PASS",
+      "verify_output_scope": "OPERATOR_ROTATION_AND_BASELINE_INTEGRITY_ONLY"
+    }
+  },
+  "commands": {
+    "python scripts/check_registry.py --check-git": "PASS",
+    "python -m unittest discover -s tests -v": "PASS (104 tests)",
+    "python verify_output.py --check-git": "PASS",
+    "python drawings/W02/verify_iteration_04.py --check-git --parse": "PASS (154 PDF, 154 DXF, 154 SVG, 4 FCStd)",
+    "python coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-03/audit_exports.py": "PASS (154 sheets per format, zero findings)",
+    "git diff --quiet 83407d0 0d07ef7 -- cad/source/force_geometry/redesign_1p5mn_04 drives/cots_catalog.yaml": "PASS",
+    "gh api repos/narrateller/REV/commits/0d07ef76daf9f478ebbd4705a366dd9d1efff48c/check-runs": "PASS"
+  },
+  "runtime": {
+    "python": "3.13.17",
+    "pypdf": "6.21.2",
+    "ezdxf": "1.4.5",
+    "FreeCAD": "1.1.4",
+    "OpenCASCADE": "7.8.1"
+  },
+  "task_index_status": "READY",
+  "claim_release": "NOT_ISSUED",
+  "physical_input_status": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}
