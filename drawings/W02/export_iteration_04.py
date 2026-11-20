@@ -3,12 +3,16 @@ import argparse
 from collections import defaultdict
 from hashlib import sha256
 from html import escape
+from io import BytesIO
 import json
 import os
 from pathlib import Path
 import sys
 import tempfile
 import time
+from xml.etree import ElementTree
+
+import ezdxf
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
@@ -16,8 +20,11 @@ import FreeCAD as App
 import Part
 import TechDraw
 from PySide import QtCore, QtGui, QtSvg, QtWidgets
-from pypdf import PdfWriter
+from pypdf import PdfReader, PdfWriter
 from pypdf.generic import FloatObject, NameObject, RectangleObject
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen.canvas import Canvas
 
 from redesign_1p5mn.prepare import add_view, dimension
 
@@ -82,18 +89,28 @@ def line(x1, y1, x2, y2):
 def svg_dimension(x, y, span, vertical=False):
     half = span / 2
     if vertical:
-        return (line(x, y-half, x, y+half) + line(x-2, y-half, x+2, y-half)
-                + line(x-2, y+half, x+2, y+half) + text(x+3, y, f"{span:g}"))
-    return (line(x-half, y, x+half, y) + line(x-half, y-2, x-half, y+2)
-            + line(x+half, y-2, x+half, y+2) + text(x-5, y-3, f"{span:g}"))
+        return (line(x, y-half, x, y+half) + line(x-9, y-half, x+3, y-half)
+                + line(x-9, y+half, x+3, y+half)
+                + line(x-1, y-half+3, x, y-half) + line(x+1, y-half+3, x, y-half)
+                + line(x-1, y+half-3, x, y+half) + line(x+1, y+half-3, x, y+half)
+                + text(x+3, y, f"{span:g}"))
+    return (line(x-half, y, x+half, y) + line(x-half, y-10, x-half, y+3)
+            + line(x+half, y-10, x+half, y+3)
+            + line(x-half+3, y-1, x-half, y) + line(x-half+3, y+1, x-half, y)
+            + line(x+half-3, y-1, x+half, y) + line(x+half-3, y+1, x+half, y)
+            + text(x-5, y-3, f"{span:g}"))
 
 
 def sheet(doc, name, objects, bom, output, temporary):
     x, y, z = size(objects)
+    die = name.endswith("-402-33")
     width = max(x+y+120, 450)
     top = 65 + z/2
     bottom = z+120+y/2
     footer = z+y+155
+    if die:
+        section_top = footer + 20
+        footer += y + 130
     height = footer + 8*len(bom)+38
     views = [
         ("XZ", (0,-1,0), (1,0,0), 38+x/2, top, x,z),
@@ -103,15 +120,21 @@ def sheet(doc, name, objects, bom, output, temporary):
     header = [text(15, 16, name + "  |  W02  |  REV 04  |  1:1  |  mm", 6),
               text(15, 26, "Номинальная геометрия. Монтажные допуски и посадки требуют утверждения."),
               text(15, 36, "Для проверки R5. FreeCAD TechDraw / OCCT")]
+    if die:
+        header.append(text(15, 46, "Габарит X на XZ и XY включает допуск геометрического ядра."))
     tail = [line(15, footer-10, width-15, footer-10),
-            text(15, footer, "Спецификация")]
+            text(15, footer, "Спецификация"),
+            line(15, footer+2, width-15, footer+2),
+            line(15, footer-10, 15, footer+8*len(bom)+2),
+            line(width-15, footer-10, width-15, footer+8*len(bom)+2)]
     for row, record in enumerate(bom, 1):
-        tail.append(text(15, footer+8*row, record))
+        tail.extend((text(18, footer+8*row, record),
+                     line(15, footer+8*row+2, width-15, footer+8*row+2)))
     tail.append(text(15, height-12, "REV / R4    |    Итерация 04    |    1:1 мм    |    1 / 1"))
 
     def frame(content):
         return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width:g}mm" height="{height:g}mm" '
-                f'viewBox="0 0 {width:g} {height:g}" font-family="DejaVu Sans">'
+                f'viewBox="0 0 {width:g} {height:g}" font-family="Arial, sans-serif">'
                 f'<rect x="5" y="5" width="{width-10:g}" height="{height-10:g}" fill="white" '
                 'stroke="black" stroke-width="0.35"/>' + "".join(content) + '</svg>')
 
@@ -128,9 +151,29 @@ def sheet(doc, name, objects, bom, output, temporary):
         view = add_view(doc, page, "Projection"+label, objects, direction, right, (cx, height-cy))
         view.Scale = 1
         drawn.append((view, label, cx, cy, w, h))
+    section = None
+    if die:
+        shape = objects[0].Shape
+        center = shape.BoundBox.Center
+        section_x = 38+x/2
+        section_y = section_top+y/2
+        section = doc.addObject("TechDraw::DrawViewSection", "DieSection")
+        section.BaseView = drawn[0][0]
+        section.Source = objects
+        section.SectionDirection = "Aligned"
+        section.SectionNormal = App.Vector(0, 0, 1)
+        section.SectionOrigin = center
+        section.Direction = App.Vector(0, 0, 1)
+        section.XDirection = App.Vector(1, 0, 0)
+        section.SectionSymbol = "A"
+        page.addView(section)
+        section.ScaleType = "Custom"
+        section.Scale = 1
+        section.X, section.Y = section_x, height-section_y
     doc.recompute()
     deadline = time.monotonic() + 30
-    while not all(view.getVisibleEdges() for view, *_ in drawn):
+    while not (all(view.getVisibleEdges() for view, *_ in drawn)
+               and (section is None or section.getVisibleEdges())):
         if time.monotonic() > deadline:
             raise RuntimeError(f"TechDraw projection timeout: {name}")
         QtCore.QCoreApplication.processEvents()
@@ -153,10 +196,29 @@ def sheet(doc, name, objects, bom, output, temporary):
                 extent = TechDraw.makeExtentDim(view, [], int(axis == "y"))
                 extent.X, extent.Y = xy
                 extent.FormatSpec = "%.3f"
+    section_lines = []
+    if section is not None:
+        svg.append(f'<g id="section-AA" transform="translate({section_x:g},{section_y:g})">'
+                   f'{TechDraw.viewPartAsSvg(section)}</g>')
+        svg.append(text(38, section_top-8, "Разрез A–A (Z по середине фильеры)"))
+        vertices = [v.Point for wire in shape.slice(App.Vector(0, 0, 1), center.z)
+                    for v in wire.Vertexes]
+        for label, edge_x, baseline in (("Вход", min(v.x for v in vertices), section_top+y+25),
+                                        ("Выход", max(v.x for v in vertices), section_top+y+50)):
+            stops = sorted({round(v.y, 6) for v in vertices if abs(v.x-edge_x) < 1e-6})
+            if len(stops) != 4:
+                raise ValueError(f"Die chain requires four section vertices at {label}: {name}")
+            positions = [38 + stop - stops[0] for stop in stops]
+            svg.append(text(38, baseline-9, label + " · размерная цепь по Y"))
+            for left, right in zip(positions, positions[1:]):
+                svg.append(text((left+right)/2-5, baseline-3, f"{right-left:.3f}"))
+                section_lines.append((left, baseline, right, baseline))
+            section_lines.extend((pos, baseline-5, pos, baseline+3) for pos in positions)
+        svg.extend(line(*segment) for segment in section_lines)
     doc.recompute()
     base = output / name
     svg_file = base.with_suffix(".svg")
-    svg_file.write_text(frame(svg+tail), encoding="utf-8")
+    svg_file.write_text(frame(svg+tail), encoding="utf-8", newline="\n")
     pdf_file = base.with_suffix(".pdf")
     draft_pdf = temporary / pdf_file.name
     user_unit = 2 if max(width, height)*72/25.4 > 14400 else 1
@@ -169,7 +231,13 @@ def sheet(doc, name, objects, bom, output, temporary):
     if not writer.setPageLayout(layout):
         raise ValueError(f"PDF page rejected: {name}")
     writer.setTitle(name)
-    renderer = QtSvg.QSvgRenderer(str(svg_file))
+    svg_namespace = "{http://www.w3.org/2000/svg}"
+    image = ElementTree.fromstring(frame(svg+tail))
+    labels = image.findall(svg_namespace + "text")
+    for label in labels:
+        image.remove(label)
+    ElementTree.register_namespace("", svg_namespace[1:-1])
+    renderer = QtSvg.QSvgRenderer(QtCore.QByteArray(ElementTree.tostring(image)))
     painter = QtGui.QPainter(writer)
     if not renderer.isValid() or not painter.isActive():
         raise ValueError(f"Cannot render {name}")
@@ -179,13 +247,53 @@ def sheet(doc, name, objects, bom, output, temporary):
     pdf = PdfWriter(clone_from=str(draft_pdf))
     pdf.pdf_header = "%PDF-1.6"
     pdf.pages[0].mediabox = RectangleObject((0, 0, pdf_width, pdf_height))
+    overlay = BytesIO()
+    canvas = Canvas(overlay, pagesize=(pdf_width, pdf_height))
+    points_per_mm = 72 / (25.4 * user_unit)
+    for label in labels:
+        canvas.setFont("W02", float(label.get("font-size")) * points_per_mm)
+        canvas.drawString(float(label.get("x")) * points_per_mm,
+                          (height - float(label.get("y"))) * points_per_mm, label.text)
+    canvas.showPage()
+    canvas.save()
+    overlay.seek(0)
+    pdf.pages[0].merge_page(PdfReader(overlay).pages[0])
     if user_unit != 1:
         pdf.pages[0][NameObject("/UserUnit")] = FloatObject(user_unit)
     with pdf_file.open("wb") as stream:
         pdf.write(stream)
-    TechDraw.writeDXFPage(page, str(base.with_suffix(".dxf")))
+    dxf_file = base.with_suffix(".dxf")
+    TechDraw.writeDXFPage(page, str(dxf_file))
+    drawing = ezdxf.readfile(dxf_file)
+    layout = drawing.modelspace()
+    dimensions = list(layout.query("DIMENSION"))
+    expected = [span for *_, w, h in drawn for span in (w, h)]
+    for dim, span in zip(dimensions, expected, strict=True):
+        if abs(dim.get_measurement() - span) <= 0.01:
+            continue
+        if "-402-33" not in name or abs(dim.get_measurement() - span + 0.2) > 0.01:
+            raise ValueError(f"Unexpected DXF measurement in {name}: {dim.get_measurement()} vs {span}")
+        start = min(dim.dxf.defpoint2.x, dim.dxf.defpoint3.x)
+        center = start + dim.get_measurement() / 2
+        fixed = layout.add_linear_dim(base=dim.dxf.defpoint,
+                                      p1=(center-span/2, dim.dxf.defpoint2.y),
+                                      p2=(center+span/2, dim.dxf.defpoint3.y),
+                                      text=f"{span:g}", dimstyle=dim.dxf.dimstyle,
+                                      dxfattribs={"layer": dim.dxf.layer})
+        fixed.render()
+        layout.delete_entity(dim)
+    for label in labels:
+        layout.add_text(label.text, dxfattribs={
+            "insert": (float(label.get("x")), height-float(label.get("y"))),
+            "height": float(label.get("font-size")),
+        })
+    for x1, y1, x2, y2 in section_lines:
+        layout.add_line((x1, height-y1), (x2, height-y2))
+    with dxf_file.open("w", encoding=drawing.output_encoding, errors="dxfreplace", newline="\n") as stream:
+        drawing.write(stream)
     return {"page": page.Name, "size_mm": [width, height],
-            "objects": [obj.Name for obj in objects]}
+            "objects": [obj.Name for obj in objects],
+            "extents_mm": [x, y, z], "section": section.Name if section else None}
 
 
 def run(output, variant_list):
@@ -238,13 +346,17 @@ def run(output, variant_list):
                  for ext in (".svg", ".pdf", ".dxf")}
     filenames.update(f"W02-{v}.FCStd" for v in variant_list)
     manifest["sha256"] = {name: digest(output / name) for name in sorted(filenames)}
-    (output / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    (output / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2)+"\n", encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--variants", nargs="+", default=["A-V1", "A-V2", "B-V1", "B-V2"])
+    parser.add_argument("--font", type=Path,
+                        default=Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts/arial.ttf")
     args = parser.parse_args()
     qt = QtWidgets.QApplication.instance() or QtWidgets.QApplication(sys.argv[:1])
+    pdfmetrics.registerFont(TTFont("W02", str(args.font)))
     run(args.out.resolve(), args.variants)
