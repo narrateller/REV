@@ -47,10 +47,15 @@ def git_matches(path, ref):
 
 def verify_sheet(name, page, parse):
     stem = OUT / name
-    svg = ET.parse(stem.with_suffix(".svg")).getroot()
+    svg_path = stem.with_suffix(".svg")
+    svg = ET.parse(svg_path).getroot()
+    require(svg.tag == SVG + "svg" and svg_path.stat().st_size > 5120, svg_path)
     width, height = page["size_mm"]
     require(svg.attrib["width"] == f"{width:g}mm" and svg.attrib["height"] == f"{height:g}mm", name)
-    require(len(svg.findall(f"{SVG}g[@transform]")) == 3, name)
+    has_section = name.endswith("-402-33")
+    require(bool(page["section"]) == has_section, name)
+    require(len(svg.findall(f"{SVG}g[@transform]")) == 3 + has_section, name)
+    require((svg.find(f"{SVG}g[@id='section-AA']") is not None) == has_section, name)
     svg_text = [item.text for item in svg.findall(SVG+"text")]
     require(all(label in svg_text for label in ("XZ", "XY", "YZ", "Спецификация")), name)
     pdf_path = stem.with_suffix(".pdf")
@@ -65,11 +70,20 @@ def verify_sheet(name, page, parse):
         reader = PdfReader(pdf_path, strict=True)
         require(len(reader.pages) == 1, pdf_path)
         pdf = reader.pages[0]
+        pdf_text = pdf.extract_text()
+        require("Спецификация" in pdf_text and name in pdf_text, pdf_path)
+        for row in svg_text:
+            if " | " in row and row.startswith("W02-") and row != svg_text[0]:
+                require(row in pdf_text, f"{pdf_path}: {row}")
         for points, mm in zip((pdf.mediabox.width, pdf.mediabox.height), (width, height)):
             require(abs(float(points * pdf.user_unit)*25.4/72-mm) < 0.01, pdf_path)
         document = ezdxf.readfile(dxf_path)
         require(document.units == 4 and not document.audit().errors, dxf_path)
-        require(len(document.modelspace().query("DIMENSION")) == 6, dxf_path)
+        modelspace = document.modelspace()
+        actual = sorted(dim.get_measurement() for dim in modelspace.query("DIMENSION"))
+        expected = sorted(page["extents_mm"] * 2)
+        require(all(abs(a-b) <= 0.01 for a, b in zip(actual, expected, strict=True)), dxf_path)
+        require(any(entity.dxf.text == "Спецификация" for entity in modelspace.query("TEXT")), dxf_path)
 
 
 def main():
@@ -101,6 +115,7 @@ def main():
             xml = ET.fromstring(native.read("Document.xml"))
             objects = {obj.attrib["name"] for obj in xml.findall("./Objects/Object")}
             require(all(page["page"] in objects for page in pages.values()), model)
+            require(all(page["section"] in objects for page in pages.values() if page["section"]), model)
         covered = Counter(obj for name, page in pages.items() if name != prefix for obj in page["instances"])
         require(covered == Counter(pages[prefix]["objects"]), f"{variant}: coverage")
         require(sum(covered.values()) == source_manifest["variants"][variant]["native_solid_count"], variant)
