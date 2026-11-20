@@ -57,6 +57,9 @@ jobs:
       - name: Verify W02 iteration 04 screening, CAD and COTS
         if: hashFiles('coordination/tasks/T-R4-REDESIGN-1.5MN-03/output_manifest.json') != ''
         run: python cad/force_geometry/redesign_1p5mn_04/verify_output.py --check-git
+      - name: Verify W02 iteration 04 drawing exports
+        if: hashFiles('drawings/W02/output/manifest.json') != ''
+        run: python drawings/W02/verify_iteration_04.py --check-git
       - name: Test validator and initializer in isolated temporary copies
         run: python -m unittest discover -s tests -v
       - name: Check out the last baseline before the R4 geometry update
