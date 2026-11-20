@@ -5,9 +5,10 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основания — [решение о форке](decisions/ARB-OPERATOR-FORK-BASELINE-01.md) и [решение о проектном базисе](decisions/ARB-OPERATOR-DESIGN-BASIS-02.md).
 
-R4 берёт [T-R4-FINAL-DRAWINGS-02](coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json), принимает fresh claim и сверяет входы
-с коммитом `83407d0844c34735a11af2fbdd2698e5cd909354`.
-Результат — проверяемый комплект финальной КД W02 по принятой итерации 04.
+После интеграции поставки и освобождения claim R4 в main сессия R5 берёт
+[T-R5-FINAL-DRAWINGS-VERIFY-04](coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-04/task.json)
+с новым claim. Целевой коммит `0d07ef76daf9f478ebbd4705a366dd9d1efff48c`.
+Проверить 154 листа на уникальность ID и сверить PDF, DXF, геометрию и BOM с входами задачи.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические

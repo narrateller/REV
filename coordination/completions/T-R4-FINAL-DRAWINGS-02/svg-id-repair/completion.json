@@ -1,0 +1,80 @@
+{
+  "task_id": "T-R4-FINAL-DRAWINGS-02",
+  "status": "COMPLETED",
+  "scope": "W02_ITERATION_04_SVG_ID_REPAIR",
+  "finding": "SVG-01",
+  "recorded_at_utc": "2026-11-20T01:47:33.187628+00:00",
+  "author_sessions": [
+    {
+      "role": "R4",
+      "CODEX_SESSION_ID": "01a1f69e-e1b1-7991-8a1f-c9e0c46f2068",
+      "model_label": "gpt-6.2-sol",
+      "identity_source": "Runtime CODEX_SESSION_ID and current-session Codex turn_context.model"
+    }
+  ],
+  "source_main_sha": "0506e85d134d65842ec70a902b6f731cc9d2d356",
+  "claim_main_sha": "ac9a74c7afe2c33b21eb574724a4da5f1a6c1155",
+  "target_commit_sha": "0d07ef76daf9f478ebbd4705a366dd9d1efff48c",
+  "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
+  "versions": {
+    "FreeCAD": "1.1.4",
+    "OpenCASCADE": "7.8.1"
+  },
+  "cad_runtime_executable": "C:/Users/user/AppData/Local/Programs/FreeCAD 1.1/bin/python.exe",
+  "input_audit": {
+    "geometry_base_ancestor": true,
+    "geometry_scope_and_catalog_identical_to_base": true,
+    "task_definition_commit": "686603b186699ef784fe38416b808cf9898f2fd9",
+    "input_sha256": {
+      "drives/cots_catalog.yaml": "9542592af386d2ca3315e792e0614caa9853286a6da1adae626e785ac25f5665",
+      "cae/cases/T-R3-FORCE-CALC-05/engineering_verdict.json": "8fa8e21ba7d7659b1ba40032bfc0a60498a1f547eff2a93d74ad90d9682bb96a",
+      "cad/source/force_geometry/redesign_1p5mn_04/manifest.json": "16fb0a21c04699ab485da9388775b80cf783e19be47f680f63ff94867125dba5",
+      "cad/source/force_geometry/redesign_1p5mn_04/screening.json": "a308c40014948e799c213e2b0ca3c66ab2be903e101c017ad0c04c9682110abd",
+      "cad/force_geometry/redesign_1p5mn_04/interfaces.json": "be017b9d17886f39cc98c577400cf8eaab6c28a345f7d0c9162ae55492fa0716",
+      "params/r4_w02_iteration_04.json": "851f99c1f5d786dcf705efadd95cadfb596d018a9062c94d385582b6f102b4d0",
+      "cae/cases/T-R3-FORCE-CALC-05/output_manifest.json": "adb250d90f3529259b699b6fbd516f785a4140022ea98c3f9b587c489878b38e",
+      "coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json": "dede3d35e5a9535f4c2f328ff797f98a1c7fd017fa150f79a1b4bf22e482d2d6",
+      "cad/source/force_geometry/redesign_1p5mn_04/A-V1.FCStd": "637a2ff50233f111aaaa1bcf9f6f8c88886c59ead00145170a98dc3ee9ead322",
+      "cad/source/force_geometry/redesign_1p5mn_04/A-V2.FCStd": "678d81ea51f562b3a76824eaf752490daea10b4e7bd5b215b6981c3b4e6b7279",
+      "cad/source/force_geometry/redesign_1p5mn_04/B-V1.FCStd": "ee925ee9e008ad306a759d93137e7a8508e6ceccec2e13db23beaa63c2a8feba",
+      "cad/source/force_geometry/redesign_1p5mn_04/B-V2.FCStd": "0f8b8b6232622f9109af8e91789b674d9429fdca0379b3ac00e69464187b7c31"
+    },
+    "sheet_inventory_matches_pre_repair_manifest": true
+  },
+  "artifact_counts": {
+    "SVG": 154,
+    "PDF": 154,
+    "DXF": 154,
+    "FCStd": 4
+  },
+  "minimum_bytes": {
+    "SVG": 8054,
+    "PDF": 60572,
+    "DXF": 36908
+  },
+  "manifest": "drawings/W02/output/manifest.json",
+  "manifest_sha256": "c073cb5525456d188357d0fbffbf0044601691cd36d31aeed5ab1edca3602202",
+  "exporter_sha256": "8788d757f05c241d24dabdad8827ba41828e9c97dbae68981c02f09c1872a574",
+  "verifier_sha256": "db73d43b0a345c279085401664768e1d130a61e8a75900a1898fe5ec8b0828eb",
+  "reproduction": [
+    "& 'C:/Users/user/AppData/Local/Programs/FreeCAD 1.1/bin/python.exe' drawings/W02/export_iteration_04.py --svg-only --out \"$env:TEMP/w02-svg-$env:CODEX_SESSION_ID\"",
+    "python drawings/W02/verify_iteration_04.py --check-git --parse",
+    "python coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-03/audit_exports.py"
+  ],
+  "checks": {
+    "python scripts/check_registry.py --check-git": "PASS",
+    "python -m unittest discover -s tests -v": "PASS (104)",
+    "python verify_output.py --check-git": "PASS",
+    "python drawings/W02/verify_iteration_04.py --check-git --parse": "PASS",
+    "python coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-03/audit_exports.py": "PASS (154 per format; no failed criteria)",
+    "SVG XML tree parity excluding id attributes": "PASS (154/154)",
+    "SVG-01 regression check against original W02-A-V1.svg": "PASS (duplicate IDs rejected)",
+    "Pre-repair PDF, DXF and FCStd SHA-256 parity": "PASS (312/312)",
+    "Full export smoke test (--variants A-V1)": "PASS (36 SVG matches; 36 PDF and 36 DXF parsed)"
+  },
+  "physical_input_status": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION",
+  "independent_r5": "PENDING",
+  "claim_release": "coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/claim_release.json",
+  "next_task": "T-R5-FINAL-DRAWINGS-VERIFY-04"
+}

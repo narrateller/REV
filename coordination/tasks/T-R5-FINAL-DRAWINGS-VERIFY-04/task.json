@@ -1,0 +1,35 @@
+{
+  "task_id": "T-R5-FINAL-DRAWINGS-VERIFY-04",
+  "role": "R5",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "INDEPENDENT_NOMINAL_W02_DRAWING_VERIFICATION",
+  "path": "coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-04/task.json",
+  "target_commit_sha": "0d07ef76daf9f478ebbd4705a366dd9d1efff48c",
+  "pre_repair_commit_sha": "0506e85d134d65842ec70a902b6f731cc9d2d356",
+  "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
+  "requires_fresh_claim_and_input_audit": true,
+  "claim": "coordination/claims/T-R5-FINAL-DRAWINGS-VERIFY-04.json",
+  "depends_on": [
+    "T-R4-FINAL-DRAWINGS-02"
+  ],
+  "start_condition": "R4 delivery and claim release included in main.",
+  "evidence_location": "Read the coordination records in main and verify the drawing files at target_commit_sha.",
+  "input_paths": [
+    "coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/completion.json",
+    "coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/claim_release.json",
+    "drawings/W02/output/manifest.json",
+    "drawings/W02/verify_iteration_04.py",
+    "drives/cots_catalog.yaml",
+    "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-03/audit_exports.py"
+  ],
+  "acceptance": [
+    "Verify 154 full SVG sheets with unique and valid IDs for every element.",
+    "Compare SVG element trees with the prior main bundle excluding IDs.",
+    "Verify PDF header, size, strict single-page parsing, DXF structure and Unicode and the PDF/DXF/FCStd hashes.",
+    "Verify projections, nominal dimensions, title blocks and BOM/COTS traceability.",
+    "Record an independent verdict and CI for the exact target commit."
+  ],
+  "physical_input_status": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION"
+}

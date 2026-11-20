@@ -582,13 +582,16 @@
     {
       "task_id": "T-R4-FINAL-DRAWINGS-02",
       "role": "R4",
-      "status": "READY",
+      "status": "COMPLETED",
       "priority": "P0",
       "scope": "FINAL_WORKING_DRAWINGS_W02_ITERATION_04",
       "path": "coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json",
       "requires_fresh_claim_and_input_audit": true,
       "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
-      "claim": "coordination/claims/T-R4-FINAL-DRAWINGS-02.json"
+      "completed_scope": "W02_ITERATION_04_SVG_ID_REPAIR",
+      "completion_record": "coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/completion.json",
+      "claim_release": "coordination/completions/T-R4-FINAL-DRAWINGS-02/svg-id-repair/claim_release.json",
+      "claim_release_status": "RELEASED"
     },
     {
       "task_id": "T-R1-ENGINEERING-PLAN-20",
@@ -626,19 +629,32 @@
       "claim_release": "coordination/completions/T-R5-FINAL-DRAWINGS-VERIFY-03/claim_release.json",
       "claim_release_status": "RELEASED",
       "path": "coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-03/task.json"
+    },
+    {
+      "task_id": "T-R5-FINAL-DRAWINGS-VERIFY-04",
+      "role": "R5",
+      "status": "READY",
+      "priority": "P0",
+      "scope": "INDEPENDENT_NOMINAL_W02_DRAWING_VERIFICATION",
+      "path": "coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-04/task.json",
+      "target_commit_sha": "0d07ef76daf9f478ebbd4705a366dd9d1efff48c",
+      "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
+      "requires_fresh_claim_and_input_audit": true,
+      "claim": "coordination/claims/T-R5-FINAL-DRAWINGS-VERIFY-04.json"
     }
   ],
   "next_dispatch": [
     {
-      "task_id": "T-R4-FINAL-DRAWINGS-02",
-      "role": "R4",
+      "task_id": "T-R5-FINAL-DRAWINGS-VERIFY-04",
+      "role": "R5",
       "status": "READY",
       "priority": "P0",
-      "scope": "FINAL_WORKING_DRAWINGS_W02_ITERATION_04",
-      "path": "coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json",
-      "requires_fresh_claim_and_input_audit": true,
+      "scope": "INDEPENDENT_NOMINAL_W02_DRAWING_VERIFICATION",
+      "path": "coordination/tasks/T-R5-FINAL-DRAWINGS-VERIFY-04/task.json",
+      "target_commit_sha": "0d07ef76daf9f478ebbd4705a366dd9d1efff48c",
       "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
-      "claim": "coordination/claims/T-R4-FINAL-DRAWINGS-02.json"
+      "requires_fresh_claim_and_input_audit": true,
+      "claim": "coordination/claims/T-R5-FINAL-DRAWINGS-VERIFY-04.json"
     }
   ],
   "completion_record": "coordination/completions/T-R1-ENGINEERING-PLAN-20/completion.json"
