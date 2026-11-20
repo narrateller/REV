@@ -66,6 +66,7 @@ def verify_sheet(name, page, parse):
     require(values[-1] == "EOF" and values.count("DIMENSION") == 6, dxf_path)
     if parse:
         import ezdxf
+        from ezdxf.lldxf.encoding import decode_dxf_unicode
         from pypdf import PdfReader
         reader = PdfReader(pdf_path, strict=True)
         require(len(reader.pages) == 1, pdf_path)
@@ -83,7 +84,8 @@ def verify_sheet(name, page, parse):
         actual = sorted(dim.get_measurement() for dim in modelspace.query("DIMENSION"))
         expected = sorted(page["extents_mm"] * 2)
         require(all(abs(a-b) <= 0.01 for a, b in zip(actual, expected, strict=True)), dxf_path)
-        require(any(entity.dxf.text == "Спецификация" for entity in modelspace.query("TEXT")), dxf_path)
+        require(any(decode_dxf_unicode(entity.dxf.text) == "Спецификация"
+                    for entity in modelspace.query("TEXT")), dxf_path)
 
 
 def main():
