@@ -1,0 +1,194 @@
+{
+  "design_id": "W02-R4-1P5MN",
+  "revision": 4,
+  "status": "CALCULATED_ASSUMED",
+  "units": {
+    "length": "mm",
+    "force": "N",
+    "moment": "N mm",
+    "pressure": "bar"
+  },
+  "design_registry": "params/r4_w02_iteration_04.json",
+  "source_envelope": "cae/cases/design_boundary_phase_load_envelope/envelope.json",
+  "assets": "cad/source/force_geometry/redesign_1p5mn_04/manifest.json",
+  "layout": {
+    "V1": {
+      "cylinder_axis_yz_mm": [
+        [
+          0,
+          -420
+        ],
+        [
+          0,
+          420
+        ]
+      ]
+    },
+    "V2": {
+      "cylinder_axis_yz_mm": [
+        [
+          -420,
+          0
+        ],
+        [
+          420,
+          0
+        ]
+      ]
+    },
+    "A": {
+      "receiver": "Continuous guide sleeve and tapered die, captured fixture for negative axial load per source state."
+    },
+    "B": {
+      "receiver": "Closed B chamber stop reacts on the seats or the two locking keys. The unloaded stop rises only after the keys descend."
+    }
+  },
+  "interface_index": {
+    "datum_motion": {
+      "objects": [
+        "Design",
+        "PistonRod1",
+        "PistonRod2"
+      ],
+      "relation": "StrokePosition = 35 + 1000*q for q in m. Hard stops at 0 and 740 mm."
+    },
+    "cylinder_frame": {
+      "objects": [
+        "RearFrameHead",
+        "RearPin1",
+        "RearPin2",
+        "RearClevis1_1",
+        "RearClevis1_2",
+        "RearClevis2_1",
+        "RearClevis2_2"
+      ],
+      "relation": "Fixed pin centers x=490 mm. Pins run along Z and carry signed reactions."
+    },
+    "rod_grip": {
+      "objects": [
+        "PistonRod1",
+        "PistonRod2",
+        "MovingPin1",
+        "MovingPin2"
+      ],
+      "relation": "Moving pin centers x=1650+stroke mm. Reversible double-shear connection."
+    },
+    "grip_transfer": {
+      "objects": [
+        "MovingClevis1_1",
+        "MovingClevis1_2",
+        "MovingClevis2_1",
+        "MovingClevis2_2"
+      ],
+      "relation": "Two clevises located at variant cylinder axes. Use signed per-branch force and arm about Y or Z."
+    },
+    "transfer_carrier": {
+      "objects": [
+        "MovingCrosshead"
+      ],
+      "relation": "Primary plate x=(1800..2140)+stroke mm, 1200 mm effective strip width. Guide arms and spider move together."
+    },
+    "carrier_punch": {
+      "objects": [
+        "Punch",
+        "PunchRearCollar",
+        "PunchCollarTie1",
+        "PunchCollarTie2",
+        "PunchCollarTie3",
+        "PunchCollarTie4"
+      ],
+      "relation": "Compression at x=2140+stroke mm and reverse retention at x=1800+stroke via collar and four ties. Punch face x=2930+stroke; local collar connection section 360 x 270 mm."
+    },
+    "carrier_guides": {
+      "objects": [
+        "GuidePad1_1",
+        "GuidePad1_2",
+        "GuidePad2_1",
+        "GuidePad2_2",
+        "GuidePad3_1",
+        "GuidePad3_2",
+        "GuidePad4_1",
+        "GuidePad4_2"
+      ],
+      "relation": "Opposed pads at x=1915+stroke and 2515+stroke mm. Use 0.5 mm nominal guide running gap and 0.75 mm additional radial fit budget at the chamber."
+    },
+    "guides_frame": {
+      "objects": [
+        "GuideBeam1",
+        "GuideBeam2",
+        "GuideBeam3",
+        "GuideBeam4",
+        "RearFrameHead",
+        "ReactionFrameHead"
+      ],
+      "relation": "Guide faces at ±1050 mm on the relevant axis. Elastic 520 x 700 mm strips supported at x=340 and 3845 mm. Check PIN_PIN and FIXED_FIXED."
+    },
+    "material_reaction": {
+      "objects": [
+        "Punch",
+        "Chamber",
+        "OutletDie"
+      ],
+      "relation": "300 x 220 mm punch, 311 x 231 mm chamber passage, die inlet at x=3685 mm (A) or 3740 mm (B), outlet 150 x 60 mm nominal product. Source axial paths and eccentricities apply."
+    },
+    "reaction_frame": {
+      "objects": [
+        "ReactionFrameHead",
+        "TieBar1",
+        "TieBar2",
+        "TieBar3",
+        "TieBar4",
+        "ChamberSupport1",
+        "ChamberSupport2"
+      ],
+      "relation": "Four frame ties at y/z=±1250 mm. Fixed seats and key backings bear axially on the reaction head. Foundation and fixture stiffness are unknown."
+    },
+    "sections_stability": {
+      "objects": [
+        "PistonRod1",
+        "PistonRod2",
+        "MovingCrosshead",
+        "Punch"
+      ],
+      "relation": "Gland end x=1500 mm and rod pin x=1650+stroke mm. Guide and tie span 3505 mm. Free punch length 790 mm. Use scoped sections and assumed material limits."
+    },
+    "envelopes_service": {
+      "objects": [
+        "Design",
+        "RearFrameHead",
+        "ReactionFrameHead",
+        "Chamber",
+        "OutletDie"
+      ],
+      "relation": "Native hard and operating poses plus running clearances are in the assembly manifest. Rear extraction allowance is a design requirement pending full service study."
+    },
+    "receiver_cycle": {
+      "applies_to": [
+        "B-V1",
+        "B-V2"
+      ],
+      "objects": [
+        "Design",
+        "ReceiverGate",
+        "ReceiverSeat1",
+        "ReceiverSeat2",
+        "GateGuide1",
+        "GateGuide2",
+        "ReceiverLock1",
+        "ReceiverLock2",
+        "LockBacking1",
+        "LockBacking2"
+      ],
+      "relation": "B chamber stop closed through 501.389 mm working stroke. For key load use axial take-up 0.50 mm at the stop and 0.25 mm at the keys. Seat-only take-up is 2.50 mm with keys lowered. Unload and reset take-ups, lower keys 700 mm, then raise stop 485 mm before further advance."
+    }
+  },
+  "known_changes_for_r3": [
+    "Read signed force split about the centerline and exceptional imbalance instead of the old single-cylinder arm.",
+    "Use actual FreeCAD mm geometry and native stroke placement. Reconstruct all guide contact locations and endpoint restraints before solving.",
+    "Retain source phase IDs and released combinations. Carry each B compression branch separately and preserve cases without an engaged external reaction as unbalanced.",
+    "Recompute flow, volume, powers, §4/5/6 assumptions, contacts and capacity. Separate static screening from physical states pending missing inputs."
+  ],
+  "design_basis": "cad/force_geometry/redesign_1p5mn/design.json",
+  "receiver_registry": "params/r4_b_receiver_02.json",
+  "calculation": "cad/source/force_geometry/redesign_1p5mn_04/screening.json"
+}

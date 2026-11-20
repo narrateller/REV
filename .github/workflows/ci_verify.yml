@@ -42,21 +42,21 @@ jobs:
           trap 'mv "$current_catalog" drives/cots_catalog.yaml' EXIT
           git show "${pin}:drives/cots_catalog.yaml" > drives/cots_catalog.yaml
           python cae/cases/T-R3-FORCE-CALC-01/verify_output.py --check-git
-      - name: Verify W02 1.5 MN calculation, native CAD and drawing basis
-        if: hashFiles('coordination/tasks/T-R4-REDESIGN-1.5MN-01/output_manifest.json') != ''
-        run: python cad/force_geometry/redesign_1p5mn/verify_output.py --check-git
-      - name: Replay the W02 42-state calculation and verify its engineering verdict
-        if: hashFiles('cae/cases/T-R3-FORCE-CALC-02/output_manifest.json') != ''
-        run: python cae/cases/T-R3-FORCE-CALC-02/verify_output.py --check-git
-      - name: Verify the revised W02 B receiver, contact margins and native CAD
-        if: hashFiles('coordination/tasks/T-R4-REDESIGN-1.5MN-02/output_manifest.json') != ''
-        run: python cad/force_geometry/redesign_1p5mn_02/verify_output.py --check-git
-      - name: Replay the W02 iteration 02 load paths and engineering verdict
-        if: hashFiles('cae/cases/T-R3-FORCE-CALC-03/output_manifest.json') != ''
-        run: python cae/cases/T-R3-FORCE-CALC-03/verify_output.py --check-git
-      - name: Replay the W02 iteration 03 calculation and engineering verdict
-        if: hashFiles('cae/cases/T-R3-FORCE-CALC-04/output_manifest.json') != ''
-        run: python cae/cases/T-R3-FORCE-CALC-04/verify_output.py --check-git
+      - name: Replay completed W02 packages with the previous cylinder catalog
+        run: |
+          # These packages pin the previous catalog as an input or a delivery artifact.
+          historical=$(mktemp -d)
+          GIT_LFS_SKIP_SMUDGE=1 git worktree add --detach "$historical" 3c3a8c8968f74d92f49e0ad0f2b3ceadf8f519d0
+          cd "$historical"
+          git lfs checkout
+          python cad/force_geometry/redesign_1p5mn/verify_output.py --check-git
+          python cae/cases/T-R3-FORCE-CALC-02/verify_output.py --check-git
+          python cad/force_geometry/redesign_1p5mn_02/verify_output.py --check-git
+          python cae/cases/T-R3-FORCE-CALC-03/verify_output.py --check-git
+          python cae/cases/T-R3-FORCE-CALC-04/verify_output.py --check-git
+      - name: Verify W02 iteration 04 screening, CAD and COTS
+        if: hashFiles('coordination/tasks/T-R4-REDESIGN-1.5MN-03/output_manifest.json') != ''
+        run: python cad/force_geometry/redesign_1p5mn_04/verify_output.py --check-git
       - name: Test validator and initializer in isolated temporary copies
         run: python -m unittest discover -s tests -v
       - name: Check out the last baseline before the R4 geometry update
