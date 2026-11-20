@@ -1,0 +1,97 @@
+{
+  "task_id": "T-R3-FORCE-CALC-05",
+  "role": "R3",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "W02_1P5MN_FORCE_PATH_ITERATION_04",
+  "path": "coordination/tasks/T-R3-FORCE-CALC-05/task.json",
+  "requires_fresh_claim_and_input_audit": true,
+  "title": "Верифицировать геометрию и пересчитать силовой контур W02 по итерации 04",
+  "depends_on": [
+    "T-R4-REDESIGN-1.5MN-03",
+    "T-R3-FORCE-CALC-04"
+  ],
+  "source_main_sha": "19ac8c95f15843f78bb3915ef91f98bbea30b115",
+  "r4_result_commit_sha": "83407d0844c34735a11af2fbdd2698e5cd909354",
+  "r4_pull_request": "https://github.com/narrateller/REV/pull/76",
+  "geometry_manifest": "cad/source/force_geometry/redesign_1p5mn_04/manifest.json",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f60d-2efb-7883-b7a9-9241564123c4",
+      "model_label": "gpt-6.2-sol",
+      "identity_source": "CODEX_SESSION_ID, Codex session_meta.id and turn_context.model"
+    }
+  ],
+  "input_git_blob_sha256": {
+    "19ac8c95f15843f78bb3915ef91f98bbea30b115": {
+      "coordination/completions/T-R4-REDESIGN-1.5MN-03/completion.json": "a68664c3da7b096324faf6aebefb38a7161d968e43f0e7df53da25a77f0a338f",
+      "coordination/completions/T-R4-REDESIGN-1.5MN-03/claim_release.json": "d707b39ba6d3dc91c10ae59924a89b00e1939cb0ed0e371a56c054867116830c",
+      "coordination/completions/T-R3-FORCE-CALC-04/completion.json": "f445cf0b7c086637a99a4c25a8e93cdc1092afcd2aad13626afc85fed128dc2c",
+      "cae/cases/T-R3-FORCE-CALC-04/engineering_failure_note.md": "9bfc954e6e512726f6e318a5a6731155904497ed3fd949d92cf98c8f631b4c6a",
+      "baselines/operator-fork-20261118/state_catalog_index.json": "4eefc5fb0cdc797717535cac3c4338bdc7d7154d9d99588a724f7c0b94110426",
+      "cae/cases/design_boundary_phase_load_envelope/envelope.json": "6be05b48a2bffef99ffefa46a9ae3b1af5df548f1812d9bab7ad544330c02382",
+      "coordination/tasks/T-R2-DESIGN-BASIS-02/design_basis_registry.json": "ddaa4d376a679537a210756ad52e96f96a6ac537d6d2e99ab4d79fbee2bd466d"
+    },
+    "83407d0844c34735a11af2fbdd2698e5cd909354": {
+      "coordination/tasks/T-R4-REDESIGN-1.5MN-03/output_manifest.json": "b78ea0eddd0fb84f8d74d9a4f912aa6e666d684b150c0d30e1b1b7486e474459",
+      "cad/force_geometry/redesign_1p5mn_04/screen.py": "5e25f2b0d8cbecac28e61dfe75ab67b78f6619a9aeaa501c180922623010659a",
+      "cad/force_geometry/redesign_1p5mn_04/build.py": "219bfd9e0c831f551f31998478db58adfb255daf523c89b01b88c033f919d1b3",
+      "cad/force_geometry/redesign_1p5mn_04/verify_output.py": "bd8f46962894df58765f19d2c899a2457ddcf138221ece786b887bf59ed4747d",
+      "cad/force_geometry/redesign_1p5mn_04/interfaces.json": "be017b9d17886f39cc98c577400cf8eaab6c28a345f7d0c9162ae55492fa0716",
+      "cad/force_geometry/redesign_1p5mn_04/README.md": "b5a1163772431129f01b65a8ee71b253e9aa1952661296381b75ae46bebd48e5",
+      "coordination/tasks/T-R4-REDESIGN-1.5MN-03/task.json": "0d592cc3296d9f90995a68b6a29dc5b97f06c719bc4b80ba2821682527a66722",
+      "coordination/tasks/T-R4-REDESIGN-1.5MN-03/input_manifest.json": "eed43882a605fc64289d0e08717e81450da54725dcce2974d8255fde5ab3c17a",
+      "coordination/tasks/T-R4-REDESIGN-1.5MN-03/input_audit.md": "cd69fc6e788720bf18e27ebf0dab9f9fbd5c895338e9c1d078abadd6adad8f42",
+      "params/r4_w02_iteration_04.json": "851f99c1f5d786dcf705efadd95cadfb596d018a9062c94d385582b6f102b4d0",
+      "drives/cots_catalog.yaml": "9542592af386d2ca3315e792e0614caa9853286a6da1adae626e785ac25f5665",
+      "cad/source/force_geometry/redesign_1p5mn_04/screening.json": "a308c40014948e799c213e2b0ca3c66ab2be903e101c017ad0c04c9682110abd",
+      "cad/source/force_geometry/redesign_1p5mn_04/manifest.json": "16fb0a21c04699ab485da9388775b80cf783e19be47f680f63ff94867125dba5",
+      "cad/source/force_geometry/redesign_1p5mn_04/A-V1.FCStd": "e6b86b708c654a26cbc3a6a7c2b2d340b7de2789358e032236924b26715710e7",
+      "cad/source/force_geometry/redesign_1p5mn_04/A-V2.FCStd": "8db6abc93055da31442db84e84b570e2bd424eea1d5fa0e6e56c41a53003de1f",
+      "cad/source/force_geometry/redesign_1p5mn_04/B-V1.FCStd": "5733c0259c3965e29bd07542ae8ee99b9fe491b9632ad45fdd35376bf278861e",
+      "cad/source/force_geometry/redesign_1p5mn_04/B-V2.FCStd": "9f3f91a07ebf98393fa715d34fe81fe947c6b269c4dd229f58a523218b088de9"
+    }
+  },
+  "iteration_04_acceptance_criteria": {
+    "minimum_residual_clearance_mm": 0.5,
+    "maximum_single_branch_reverse_pressure_bar": 315,
+    "minimum_forward_force_mn": 1.5,
+    "maximum_forward_working_pressure_bar": 250,
+    "minimum_mechanical_stroke_mm": 700,
+    "stroke_envelope_mm": 636.4,
+    "reinforced_components": [
+      "Траверса",
+      "Рама",
+      "Направляющие",
+      "Соединения"
+    ]
+  },
+  "prior_r3_acceptance_thresholds": {
+    "nominal_cylinder_pressure_max_bar": 315,
+    "maximum_cylinder_pressure_bar": 350,
+    "out_of_stroke_points_max": 0,
+    "rod_strength_factor_min": 1.5,
+    "traverse_strength_factor_min": 1.5,
+    "compression_over_euler_exclusive_max": 0.5,
+    "b_receiver_key_contact_pressure_bar": 315,
+    "b_receiver_key_contact_factor_min": 1.5,
+    "residual_guide_clearance_exclusive_min_mm": 0
+  },
+  "acceptance": [
+    "После свежего claim сверить точный коммит PR #76, хэши входов, CAD всех четырёх вариантов, интерфейсы и применимые граничные условия.",
+    "Пересчитать 42 исходных ID и §§4/5/6 в применимой расчётной области. Для каждого случая зафиксировать статус, нагрузки, реакции, равновесие, прочность и устойчивость.",
+    "Независимо проверить критерии итерации 04 и сохранение ранее пройденных критериев R3. Воспроизвести определяющие случаи итерации 03, включая зазор с шарнирными опорами, реверс одной ветвью и контакт ключей B.",
+    "Сохранить UNKNOWN с null и причиной для отсутствующих входов. Разграничить CALCULATED_ASSUMED и физическое подтверждение.",
+    "Передать хэши, команды, результаты по критериям и точный SHA для R5. Зафиксировать блокеры выпуска КД по результатам проверки."
+  ],
+  "physical_input_status": "BLOCKED_INPUTS",
+  "physical_sections_4_5_6": "NOT_RUN",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION",
+  "r4_lfs_object_sha256": {
+    "cad/source/force_geometry/redesign_1p5mn_04/A-V1.FCStd": "637a2ff50233f111aaaa1bcf9f6f8c88886c59ead00145170a98dc3ee9ead322",
+    "cad/source/force_geometry/redesign_1p5mn_04/A-V2.FCStd": "678d81ea51f562b3a76824eaf752490daea10b4e7bd5b215b6981c3b4e6b7279",
+    "cad/source/force_geometry/redesign_1p5mn_04/B-V1.FCStd": "ee925ee9e008ad306a759d93137e7a8508e6ceccec2e13db23beaa63c2a8feba",
+    "cad/source/force_geometry/redesign_1p5mn_04/B-V2.FCStd": "0f8b8b6232622f9109af8e91789b674d9429fdca0379b3ac00e69464187b7c31"
+  }
+}
