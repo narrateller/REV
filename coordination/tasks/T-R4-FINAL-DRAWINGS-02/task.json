@@ -1,0 +1,38 @@
+{
+  "task_id": "T-R4-FINAL-DRAWINGS-02",
+  "role": "R4",
+  "status": "READY",
+  "priority": "P0",
+  "scope": "FINAL_WORKING_DRAWINGS_W02_ITERATION_04",
+  "path": "coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json",
+  "requires_fresh_claim_and_input_audit": true,
+  "base_geometry_commit": "83407d0844c34735a11af2fbdd2698e5cd909354",
+  "claim": "coordination/claims/T-R4-FINAL-DRAWINGS-02.json",
+  "title": "Подготовить финальный комплект рабочей КД W02 по принятой итерации 04",
+  "source_main_sha": "ffb247ad97a5f0a2d350f0dbb67170279d22b65d",
+  "operator_pre_authorized": true,
+  "operator_acceptance": "coordination/completions/T-R4-REDESIGN-1.5MN-04/completion.json",
+  "input_paths": [
+    "cad/source/force_geometry/redesign_1p5mn_04/manifest.json",
+    "cad/force_geometry/redesign_1p5mn_04/interfaces.json",
+    "cad/source/force_geometry/redesign_1p5mn_04/screening.json",
+    "params/r4_w02_iteration_04.json",
+    "drives/cots_catalog.yaml"
+  ],
+  "output_directory": "drawings/W02/",
+  "acceptance": [
+    "Принять fresh claim и выполнить входной аудит на базе указанного коммита.",
+    "Выпустить рабочие чертежи, спецификации и исходники TechDraw для четырёх вариантов W02 и экспортировать DXF, SVG и PDF.",
+    "Сверить геометрию, размеры, допуски и спецификации с исходниками и предоставить проверяемые артефакты с хэшами и командами."
+  ],
+  "physical_input_status": "BLOCKED_INPUTS",
+  "manufacturing_release": "REQUIRES_OPERATOR_DECISION",
+  "author_sessions": [
+    {
+      "role": "R1",
+      "CODEX_SESSION_ID": "01a1f662-8b6f-7b40-a156-3346b5509463",
+      "model_label": "gpt-6.2-sol",
+      "identity_source": "CODEX_SESSION_ID and Codex turn_context.model"
+    }
+  ]
+}

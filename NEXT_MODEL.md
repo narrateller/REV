@@ -5,10 +5,9 @@
 История: [архив](archive/context/operator-fork-20261118/manifest.json).
 Основания — [решение о форке](decisions/ARB-OPERATOR-FORK-BASELINE-01.md) и [решение о проектном базисе](decisions/ARB-OPERATOR-DESIGN-BASIS-02.md).
 
-R1 направляет [результат итерации 03](coordination/completions/T-R3-FORCE-CALC-04/completion.json)
-на независимую проверку R5 по точному SHA из акта. R4 получает
-[причины отказа](cae/cases/T-R3-FORCE-CALC-04/engineering_failure_note.md)
-для следующей итерации. Выпуск КД заблокирован.
+R4 берёт [T-R4-FINAL-DRAWINGS-02](coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json), принимает fresh claim и сверяет входы
+с коммитом `83407d0844c34735a11af2fbdd2698e5cd909354`.
+Результат — проверяемый комплект финальной КД W02 по принятой итерации 04.
 
 OBS-01/02/03 закрыты оператором документально; ещё один R5-круг не нужен.
 Общий WARNING сохранён. Огибающая 42 состояний `CALCULATED_ASSUMED`. Физические

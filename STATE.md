@@ -126,10 +126,12 @@ R3 завершил [итерацию 03 W02](coordination/completions/T-R3-FORC
 Claim освобождён для следующей итерации R4. Физические статусы сохраняются.
 
 R4 завершил условную итерацию 04 W02 на коммите `83407d0`.
-Сборки и расчётные границы переданы на интеграцию через [PR 76](https://github.com/narrateller/REV/pull/76).
+Сборки и расчётные границы интегрированы через [PR 76](https://github.com/narrateller/REV/pull/76) в `ffb247ad97a5f0a2d350f0dbb67170279d22b65d`.
 CI ветки и PR прошёл. [Акт поставки](coordination/completions/T-R4-REDESIGN-1.5MN-03/completion.json)
 и [освобождение claim](coordination/completions/T-R4-REDESIGN-1.5MN-03/claim_release.json) записаны в main.
-Следующий шаг по задаче — проверка R3/R5 поставленного коммита и интеграция PR.
+Оператор принял итерацию 04 как достаточную для подготовки финальной КД W02.
+[Итерация 05 закрыта](coordination/completions/T-R4-REDESIGN-1.5MN-04/completion.json) со статусом `SUPERSEDED_BY_OPERATOR_DIRECTIVE`.
+[Задача R4 на финальную КД](coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json) имеет статус `READY` и требует fresh claim и входной аудит.
 
 Проверки: `python verify_output.py --check-git`,
 `python scripts/check_registry.py --check-git`,

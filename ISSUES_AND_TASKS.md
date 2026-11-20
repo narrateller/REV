@@ -8,7 +8,9 @@
 
 | Задача | Роль | Приоритет / состояние |
 | --- | --- | --- |
-| [T-R4-REDESIGN-1.5MN-03](coordination/tasks/T-R4-REDESIGN-1.5MN-03/task.json) | R4 | P0 / READY. Итерация 04 силовой геометрии W02 после FAILED расчёта R3. Требуются свежий claim и аудит входов. |
+| [T-R4-FINAL-DRAWINGS-02](coordination/tasks/T-R4-FINAL-DRAWINGS-02/task.json) | R4 | P0 / READY. Финальная КД W02 по итерации 04. Требуются fresh claim и аудит входов. |
+| [T-R4-REDESIGN-1.5MN-04](coordination/completions/T-R4-REDESIGN-1.5MN-04/completion.json) | R4 | COMPLETED / SUPERSEDED_BY_OPERATOR_DIRECTIVE. |
+| [T-R4-REDESIGN-1.5MN-03](coordination/completions/T-R4-REDESIGN-1.5MN-03/completion.json) | R4 | COMPLETED. Итерация 04 интегрирована и принята оператором для подготовки КД. |
 | [T-R3-FORCE-CALC-04](coordination/completions/T-R3-FORCE-CALC-04/completion.json) | R3 | COMPLETED / FAILED в условной области. Зазор и давление реверса блокируют выпуск КД. Claim освобождён для следующей итерации R4. |
 | [T-R3-FORCE-CALC-03](coordination/completions/T-R3-FORCE-CALC-03/completion.json) | R3 | COMPLETED / FAILED в условной области. Контакт B проходит. Зазор при рассогласовании и аварийный реверс блокируют выпуск КД. Ожидается независимая проверка R5. |
 | [T-R4-REDESIGN-1.5MN-02](coordination/completions/T-R4-REDESIGN-1.5MN-02/completion.json) | R4 | P0 / COMPLETED (CALCULATED_ASSUMED). Claim освобождён |
