@@ -1,0 +1,60 @@
+id: T-0.1
+stage: S0-bootstrap
+role: TOOL-CAD
+backend: voh            # резерв: alm, bos
+effort: high
+objective: >
+  Написать геометрические гейты G-ENV, G-MASS, G-COLL, G-FEED, G-CLEAR, которые запускаются
+  под FreeCAD 1.1.4 freecadcmd на Windows, читают модель .FCStd и пороги из
+  ops/criteria/design_criteria.yaml и выдают gate_report.json. Откалибровать их на заведомо
+  ошибочной модели W02-04: гейты обязаны воспроизвести известные значения.
+inputs:
+  - ops/criteria/design_criteria.yaml
+  - drawings/W02/output/W02-A-V1.FCStd      # только для калибровки (отрицательный пример)
+  - drawings/W02/output/W02-B-V1.FCStd
+  - "FreeCAD: C:/Users/user/AppData/Local/Programs/FreeCAD 1.1/bin/freecadcmd.exe"
+spec:
+  run: >
+    Аргументы передаются через переменную окружения REV_GATE_ARGS (JSON: model, roles, criteria,
+    poses (опционально), out). Проверить, что `freecadcmd.exe ops/gates/geom_gates.py` реально
+    выполняет скрипт и завершается с кодом 0 при PASS и 1 при FAIL.
+  roles: >
+    Роли тел: сначала пользовательские свойства тела RevRole / RevMaterial / RevDensity_kg_m3,
+    иначе — файл соответствия ops/gates/roles/<имя>.yaml (метка тела -> роль, материал).
+    Роли: machine (по умолчанию все), moving, punch, chamber_liner, feed_path. Плотность по умолчанию 7850.
+  gates:
+    G-ENV:   "объединённый габарит тел machine во всех позах ≤ C-ENV-01 (по осям X, Y, Z)"
+    G-MASS:  "Σ ρ·V тел machine ≤ C-MASS-01.max_kg (FAIL), > target_kg — WARN; отдельно — подвижная масса"
+    G-COLL:  "попарный общий объём (фильтр по BoundBox) = 0 во всех позах; список пар с объёмом"
+    G-FEED:  "есть тело feed_path; оно не пересекает тела, кроме chamber_liner по окну; FAIL, если тела нет"
+    G-CLEAR: "минимальное расстояние пуансон–вкладыш в номинальной позе (distToShape) ≤ C-CLR-01.max_mm"
+  poses: "файл YAML: имя позы -> смещения групп тел; при отсутствии — только номинальная поза"
+  report: "gate_report.json: модель, версия FreeCAD, по каждому гейту id/status/value/threshold/criteria_ids/details"
+acceptance:
+  calibration_W02_A_V1:
+    G-MASS:  {status: FAIL, value_t: 139.91, tol_pct: 0.5}
+    G-ENV:   {status: FAIL, value_mm: [4505, 3650, 3650], tol_mm: 1}
+    G-COLL:  {status: PASS, pairs: 0}
+    G-FEED:  {status: FAIL, reason: "нет тела feed_path; камера — замкнутая труба"}
+    G-CLEAR: {status: FAIL, value_mm: 5.5, tol_mm: 0.05, roles: "Punch -> punch, Chamber -> chamber_liner"}
+  calibration_W02_B_V1:
+    G-MASS:  {status: FAIL, value_t: 140.94, tol_pct: 0.5}
+  synthetic_tests: >
+    Тесты на синтетических моделях, созданных в тесте: два непересекающихся тела в коробе -> PASS;
+    пересечение -> G-COLL FAIL с верным объёмом; масса куба 1 м³ стали -> 7850 кг ± 0,1 %.
+    Гейты должны уметь и проходить, и проваливаться.
+deliverables:
+  - ops/gates/geom_gates.py
+  - ops/gates/roles/w02_legacy.yaml
+  - ops/calibration/w02_A_V1.json
+  - ops/calibration/w02_B_V1.json
+  - tests/ops/test_geom_gates.py           # запуск через freecadcmd
+  - report.md
+  - metrics.json
+  - self_check.json
+allowed_paths: [ops/gates/**, ops/calibration/**, tests/ops/**, report.md, metrics.json, self_check.json]
+forbidden: [git commit, git push, изменение ops/criteria/**, изменение drawings/**, сеть]
+timebox_min: 90
+stop_and_ask_if:
+  - "freecadcmd не запускает скрипт или не передаёт окружение"
+  - "калибровочные значения расходятся с ожидаемыми больше допуска"

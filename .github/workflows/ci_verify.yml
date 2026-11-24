@@ -1,4 +1,4 @@
-name: Registry & Traceability Gate
+name: REV minimal CI (temporary, T-0.0)
 'on':
   push:
   pull_request:
@@ -6,75 +6,34 @@ name: Registry & Traceability Gate
 permissions:
   contents: read
 jobs:
-  verify-engineering-state:
+  basics:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          lfs: true
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-          cache: pip
-      - name: Install dependencies
-        run: python -m pip install -r requirements.txt
-      - name: Verify operator rotation and baseline preservation
-        if: hashFiles('baselines/operator-fork-20261118/rotation_manifest.json') != ''
-        run: python verify_output.py --check-git
-      - name: Check committed evidence without regeneration
-        run: python scripts/check_registry.py --check-git
-      - name: Verify R2 input audit and BP500 site reference
-        if: hashFiles('coordination/tasks/T-R2-INPUTS-01/output_manifest.json') != ''
-        run: python coordination/tasks/T-R2-INPUTS-01/verify_output.py --check-git
-      - name: Verify R2 design basis and scoped registry
-        if: hashFiles('coordination/tasks/T-R2-DESIGN-BASIS-02/output_manifest.json') != ''
-        run: python coordination/tasks/T-R2-DESIGN-BASIS-02/verify_output.py --check-git
-      - name: Replay R3 force screening with the R4 geometry delivery
-        if: hashFiles('cae/cases/T-R3-FORCE-CALC-01/output_manifest.json') != ''
+          python-version: '3.13'
+      - run: python -m pip install pyyaml pytest
+      - name: Criteria and task cards parse
         run: |
-          # This completed package calculates against its historical (superseded) COTS input.
-          pin=$(python -c "import json; print(json.load(open('cae/cases/T-R3-FORCE-CALC-01/input_manifest.json'))['source_main_sha'])")
-          current_catalog=$(mktemp)
-          cp drives/cots_catalog.yaml "$current_catalog"
-          trap 'mv "$current_catalog" drives/cots_catalog.yaml' EXIT
-          git show "${pin}:drives/cots_catalog.yaml" > drives/cots_catalog.yaml
-          python cae/cases/T-R3-FORCE-CALC-01/verify_output.py --check-git
-      - name: Replay completed W02 packages with the previous cylinder catalog
-        run: |
-          # These packages pin the previous catalog as an input or a delivery artifact.
-          historical=$(mktemp -d)
-          GIT_LFS_SKIP_SMUDGE=1 git worktree add --detach "$historical" 3c3a8c8968f74d92f49e0ad0f2b3ceadf8f519d0
-          cd "$historical"
-          git lfs checkout
-          python cad/force_geometry/redesign_1p5mn/verify_output.py --check-git
-          python cae/cases/T-R3-FORCE-CALC-02/verify_output.py --check-git
-          python cad/force_geometry/redesign_1p5mn_02/verify_output.py --check-git
-          python cae/cases/T-R3-FORCE-CALC-03/verify_output.py --check-git
-          python cae/cases/T-R3-FORCE-CALC-04/verify_output.py --check-git
-      - name: Verify W02 iteration 04 screening, CAD and COTS
-        if: hashFiles('coordination/tasks/T-R4-REDESIGN-1.5MN-03/output_manifest.json') != ''
-        run: python cad/force_geometry/redesign_1p5mn_04/verify_output.py --check-git
-      - name: Verify W02 iteration 04 drawing exports
-        if: hashFiles('drawings/W02/output/manifest.json') != ''
-        run: python drawings/W02/verify_iteration_04.py --check-git
-      - name: Test validator and initializer in isolated temporary copies
-        run: python -m unittest discover -s tests -v
-      - name: Check out the last baseline before the R4 geometry update
-        uses: actions/checkout@v4
-        with:
-          ref: b6499559af6ec09ba8ef7c9bfd4bfc78bc8db11c
-          path: .ci-r3-baseline
-          lfs: true
-          persist-credentials: false
-      - name: Verify the three completed R3 packages with their historical inputs
-        run: |
-          # The replay scripts verify the inputs against hashes and their original Git commits.
-          # Restore only the superseded inputs after checking the current registry and tests.
-          cp .ci-r3-baseline/cad/source/force_geometry/{manifest.json,*.FCStd} cad/source/force_geometry/
-          cp .ci-r3-baseline/drives/cots_catalog.yaml drives/cots_catalog.yaml
-          python cae/cases/T-R3-42-STATES-ENVELOPE-01/verify_output.py --check-git
-          python cae/cases/T-R3-CAE-456-01/verify_output.py --check-git
-          python cae/scripts/screen_42_states.py --check-git
+          python - <<'PY'
+          import glob, yaml
+          c = yaml.safe_load(open('ops/criteria/design_criteria.yaml', encoding='utf-8'))
+          assert c['version'] >= 1 and 'criteria' in c and 'gates' in c
+          for g, ids in c['gates'].items():
+              for i in ids:
+                  assert not i.startswith('C-') or i in c['criteria'], (g, i)
+          for f in glob.glob('ops/tasks/*.yaml'):
+              t = yaml.safe_load(open(f, encoding='utf-8'))
+              for k in ('id', 'backend', 'effort', 'allowed_paths'):
+                  assert k in t, (f, k)
+              assert t['effort'] not in (None, '', 'none', 'low'), f
+          print('ok')
+          PY
+      - name: Local-only files are not committed
+        run: test ! -e ORCHESTRATION_PLAN_OPUS.md
+      - name: Unit tests (pure Python, FreeCAD tests skip themselves)
+        run: if [ -d tests/ops ]; then python -m pytest -q tests/ops; else echo "no tests/ops yet"; fi

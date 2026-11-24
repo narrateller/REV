@@ -1,0 +1,73 @@
+id: T-0.2
+stage: S0-bootstrap
+role: TOOL-CALC
+backend: alm            # резерв: voh, bos
+effort: high
+objective: >
+  Написать расчётные гейты G-PFACE, G-DOSE, G-CYCLE (чистый Python 3.13) и гейт G-SCOPE.
+  Задать схему файла параметров машины design/params.yaml. Откалибровать гейты на параметрах
+  W02-04 (обязаны провалиться) и на синтетическом корректном наборе (обязаны пройти).
+inputs:
+  - ops/criteria/design_criteria.yaml
+  - docs/AUDIT_OPUS_REPORT.md   # §3.1–3.3, справочно
+legacy_W02_04_params:   # для ops/calibration/w02_04_params.yaml (отрицательный пример)
+  chamber_section_mm: [311, 231]     # пуансон 300 × 220, зазор 5,5 мм на сторону
+  nominal_force_N: 1.5e6
+  main_cylinders: {n: 2, bore_mm: 320, rod_mm: 160, stroke_mm: 740, working_range_mm: 636}
+  p_work_bar: 250
+  p_relief_bar: 315
+  main_motor_kW: 30
+  dose_kg: 0.83
+  precompaction: none
+spec:
+  params_schema: >
+    design/params.schema.yaml + пример design/params.example.yaml. Разделы: product (сечение,
+    длины, плотность), raw (насыпная плотность [min, max], доза кг), main_cylinder (n, D, d, ход,
+    p_work_bar, p_relief_bar, η), chamber (сечение, длина, зазор), precompaction (сечение камеры,
+    ход, цилиндр), drive (мощность двигателя кВт, макс. подача насоса л/мин, η, аккумулятор —
+    опционально), cycle (список фаз: привод, ход мм, направление, сила или давление, скорость
+    или «по насосу», регенерация да/нет, выдержка с). Все величины — с единицами в именах.
+  gates:
+    G-PFACE: >
+      p = F_ном / A_камеры. Проверить: A_камеры = A_брикета (C-PROD-01 ± допуск);
+      F на рабочем давлении ≥ 1,5 МН; p ≥ 166,7 МПа; p_work ≤ 300 бар; p_relief ≤ 315 бар.
+    G-DOSE: >
+      Рыхлый объём дозы при 90 и 160 кг/м³ вмещается в камеру подпрессовки; потребный ход
+      главного цилиндра = длина подпрессованной засыпки в главной камере + ход выталкивания
+      (формула — в docstring и report.md); ход ≥ потребного и ≤ 1,3 × потребного.
+    G-CYCLE: >
+      По фазам: объём масла = площадь × ход; доступная подача = min(макс. подача насоса,
+      P·η/p) (+ аккумулятор, если задан); время фазы = объём / подача (+ выдержка);
+      + 0,1 с на каждое переключение. Проверить: цикл ≤ 6,0 с; средняя мощность ≤ 30 кВт;
+      давление ≤ C-HYD-01. Вывести таблицу фаз.
+    G-SCOPE: >
+      ops/gates/scope_gate.py: по worktree и карточке проверить, что изменения только в
+      allowed_paths; хэши ops/criteria/** и ops/gates/** не изменились (если карточка не
+      разрешает); meta.json исполнителя: reasoning effort не none/low/пусто.
+  report: "gate_report.json того же формата, что у T-0.1: id/status/value/threshold/criteria_ids/details"
+acceptance:
+  calibration_W02_04_params:   # ops/calibration/w02_04_params.yaml по AUDIT_OPUS_REPORT §3
+    G-PFACE: {status: FAIL, pressure_MPa: 22.7, tol_pct: 1, reason: "A_камеры 300×220 ≠ 150×60"}
+    G-DOSE:  {status: FAIL, reason: "ход 740 мм > 1,3 × потребного"}
+    G-CYCLE: {status: FAIL, reason: "объём масла ~179 л/цикл при полном ходе; цикл ≫ 6 с при 30 кВт"}
+  synthetic_ok_params: >
+    Синтетический набор BP500-типа (камера 150 × 60, один цилиндр, давление ≤ 300 бар,
+    подпрессовка) — G-PFACE PASS. Числа набора — пример инструмента, не проектное решение;
+    пометить так в файле.
+  unit_tests: "граничные значения каждого порога; ошибки единиц ловятся"
+deliverables:
+  - ops/gates/calc_gates.py
+  - ops/gates/scope_gate.py
+  - design/params.schema.yaml
+  - design/params.example.yaml
+  - ops/calibration/w02_04_params.yaml
+  - ops/calibration/w02_04_calc.json
+  - tests/ops/test_calc_gates.py
+  - report.md
+  - metrics.json
+  - self_check.json
+allowed_paths: [ops/gates/**, ops/calibration/**, design/**, tests/ops/**, report.md, metrics.json, self_check.json]
+forbidden: [git commit, git push, изменение ops/criteria/**, сеть]
+timebox_min: 90
+stop_and_ask_if:
+  - "формула потребного хода требует технологических данных, которых нет в критериях — описать и предложить"

@@ -1,0 +1,53 @@
+id: T-0.3
+stage: S0-bootstrap
+role: TOOL-ORCH
+backend: bos            # резерв: voh, alm
+effort: high
+objective: >
+  Написать детерминированный раннер задач ops/run_task.py (Python 3.13, Windows, PowerShell 7):
+  карточка -> git worktree -> запуск исполнителя через адаптер -> сбор ResultBundle -> гейты ->
+  пакет на проверку или повторный круг. Раннер никогда не коммитит и не пушит.
+inputs:
+  - ops/tasks/T-0.1.yaml         # пример карточки
+  - AGENTS.md                    # контракт исполнителя (ResultBundle: report.md, metrics.json, self_check.json)
+spec:
+  cli: "python ops/run_task.py <TASK_ID> [--backend auto|voh|alm|bos] [--dry-run] [--max-rounds 3]"
+  steps:
+    - "читает ops/tasks/<ID>.yaml и ops/backends.yaml"
+    - "git worktree add ../REV-wt/<ID> -b task/<ID> main (повторный запуск — переиспользует)"
+    - "пишет в worktree TASK.md = карточка + текст AGENTS.md"
+    - "адаптер codex: CODEX_HOME из профиля; codex exec -C <worktree> -m <model> -c model_reasoning_effort=<effort> --sandbox workspace-write; флаги сверить с `codex exec --help`; запрещён --dangerously-bypass-approvals-and-sandbox; таймаут из timebox_min"
+    - "вывод исполнителя -> ops/runs/<ID>/<run>/events.log; разбор 'tokens used', модели и reasoning effort -> meta.json"
+    - "детектор лимита: 'usage limit', 'hit your usage limit', 'try again at <время>' -> ops/state/quota.json (exhausted_until) -> следующий бэкенд роли; если свободных нет — статус WAIT с временем"
+    - "ResultBundle: patch.diff (git diff main), report.md, metrics.json, self_check.json, meta.json"
+    - "гейты: G-SCOPE всегда + гейты из карточки (вызов ops/gates/*, если существуют; иначе — пометка NOT_AVAILABLE)"
+    - "PASS -> ops/review_queue/<ID>.md (сводка карточки, метрики, гейты, diffstat, ключевые фрагменты диффа ≤ 60 КБ); FAIL -> повторный круг с перечнем дефектов (≤ max-rounds), затем BLOCKED"
+  backends_yaml: >
+    ops/backends.yaml: voh, alm, bos -> cli codex, home %LOCALAPPDATA%/rev-orch/codex/<alias>,
+    model gpt-6.2-sol, family openai. Роли и порядок бэкендов:
+    TECH, HYD, CAD, FEA, TOOL-* -> [voh, alm, bos], effort high;
+    DOC, EL, INTEG -> [bos, voh, alm], effort medium.
+    Политика: never openrouter/qwen*; effort none/low/пусто -> отказ запуска;
+    при исчерпании всех бэкендов роли -> WAIT, слабую модель не подставлять.
+  state: "ops/state/, ops/runs/, ops/review_queue/ — вне git (.gitignore добавляет ГК)"
+acceptance:
+  - "dry-run с фиктивным адаптером echo проходит весь цикл и создаёт ResultBundle и пакет проверки"
+  - "тест детектора лимита на образцах строк Codex, включая 'try again at 06:11 on 24 Nov'"
+  - "тест: исполнитель изменил файл вне allowed_paths -> G-SCOPE FAIL -> повторный круг"
+  - "тест: effort none в профиле -> отказ запуска"
+  - "одна реальная пробная задача (карточка-пустышка: создать report.md с версией Python) на bos проходит"
+deliverables:
+  - ops/run_task.py
+  - ops/adapters/codex.py
+  - ops/adapters/echo.py
+  - ops/lib/**
+  - ops/backends.yaml
+  - tests/ops/test_runner.py
+  - report.md
+  - metrics.json
+  - self_check.json
+allowed_paths: [ops/run_task.py, ops/adapters/**, ops/lib/**, ops/backends.yaml, tests/ops/**, report.md, metrics.json, self_check.json]
+forbidden: [git commit, git push, чтение или копирование auth.json, изменение ops/criteria/** и ops/gates/**]
+timebox_min: 120
+stop_and_ask_if:
+  - "codex exec не поддерживает нужный флаг — предложить замену"

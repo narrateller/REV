@@ -1,0 +1,63 @@
+# REV — проектные критерии (единственный источник порогов для гейтов)
+# Изменять только ГК с подтверждением оператора; каждое изменение -> запись в DECISIONS.md.
+# Хэш этого файла проверяет G-SCOPE: исполнители его не трогают.
+version: 1
+status: APPROVED_BY_DELEGATION      # оператор 21.11.2026: «если схема обеспечит параметры не хуже референса — утверждай»
+approved_by: "Оператор (делегировано ГК), запись D0 в DECISIONS.md"
+reference: "BP500 (sources/raw/Target_object_BP500.pdf); REV_DESIGN_BASIS r1 (coordination/tasks/T-R2-DESIGN-BASIS-02)"
+
+architecture:                         # решение D0
+  type: closed_die_hydraulic          # закрытая камера сечения брикета, BP500-тип
+  precompaction: vertical_ram         # вертикальная подпрессовка
+  main_cylinders: 1                   # один соосный главный цилиндр
+  counter_holder: slide_gate          # шибер-противодержатель на торце камеры
+  forbidden:
+    - "камера сечения больше брикета с сужающейся фильерой"
+    - "несколько главных цилиндров без обоснования в DECISIONS.md"
+    - "параллельные альтернативные компоновки на уровне CAD"
+
+criteria:
+  # --- Продукт и производительность («не хуже референса») ---
+  C-PROD-01: {what: "Сечение брикета", value_mm: [150, 60], tol_mm: 1.0, source: "BP500"}
+  C-PROD-02: {what: "Длина брикета, регулируемая", range_mm: [40, 110], source: "BP500"}
+  C-PROD-03: {what: "Плотность брикета после выхода", min_kg_m3: 1000, source: "BP500 / REV_DESIGN_BASIS"}
+  C-PROD-04: {what: "Механическая прочность DU", min_pct: 95, source: "DB-U-DURABILITY"}
+  C-PERF-01: {what: "Производительность", min_kg_h: 498, briquette_kg: 0.83, max_cycle_s: 6.0, source: "BP500: 600 брикетов/ч"}
+  C-PWR-01:  {what: "Главный привод / установленная мощность", max_main_kW: 30.0, max_installed_kW: 34.2, source: "BP500"}
+  C-RAW-01:  {what: "Сырьё", bulk_density_kg_m3: [90, 160], moisture_pct: [8, 12], max_fraction_mm: 3.15, source: "ГОСТ 33103.3-2017 / ISO 17225-3, решение оператора"}
+
+  # --- Габарит, масса, интерфейсы ---
+  C-ENV-01:  {what: "Габарит машины с бункером и ограждениями (X×Y×Z)", max_mm: [2100, 1900, 2200], source: "DB-PRESS-ENVELOPE"}
+  C-MASS-01: {what: "Масса машины", target_kg: 4000, max_kg: 5000, reference_kg: 3050, source: "BP500 3050 кг"}
+  C-T-01:    {what: "Высота загрузочного проёма бункера от пола", target_mm: 1220, tol_mm: 100, source: "DB-T-HEIGHT"}
+
+  # --- Технология и силовая часть ---
+  C-PFACE-01: {what: "Удельное давление на торец брикета при номинале", min_MPa: 166.7, nominal_force_min_N: 1.5e6, rule: "A_камеры = A_брикета (C-PROD-01) ± зазор", source: "BP500 1700 кгс/см²"}
+  C-HYD-01:   {what: "Давление в гидросистеме", max_working_bar: 300, max_relief_bar: 315, source: "BP500 max 300 бар"}
+  C-DOSE-01:  {what: "Доза и ход", rule: "камеры вмещают 0,83 кг при 90 и 160 кг/м³; ход главного цилиндра ≤ 1,3 × потребного", stroke_overshoot_max: 1.3}
+  C-CLR-01:   {what: "Зазор пуансон–вкладыш на сторону", max_mm: 0.3, deflection_share_max: 0.5, note: "уточняет TECH на шаге 1, ужесточение — через DECISIONS"}
+  C-FEEDPATH-01: {what: "Путь подачи бункер → камера", rule: "тело-путь не пересекает другие тела; окно ≥ площади, заданной TECH"}
+
+  # --- Прочность и ресурс ---
+  C-STR-01: {what: "Статика силового пути", min_safety_factor_yield: 1.5, load: "сила при давлении настройки предохранительного клапана (C-HYD-01)"}
+  C-FAT-01: {what: "Усталость силового пути, сварных швов, резьб", min_cycles: 1.0e7, methods: ["FKM", "IIW", "EN 1993-1-9", "VDI 2230"]}
+
+  # --- Геометрическая целостность и документация ---
+  C-COLL-01:  {what: "Пересечения тел", max_common_volume_mm3: 0.0, poses: "крайние и промежуточные позы всех приводов + сервисные"}
+  C-ESKD-01:  {what: "Полнота КД", rule: "все элементы образмерены; посадки и допуски; Ra; материал и ТО; масса; основная надпись ГОСТ 2.104; ТТ; запрет листов только с габаритами"}
+  C-TRACE-01: {what: "Согласованность", rule: "BOM ↔ тела CAD ↔ COTS без расхождений; с шага 5 у COTS есть производитель и модель"}
+  C-SAFE-01:  {what: "Безопасность", rule: "ограждения с блокировкой, аварийный стоп; уровни PL по ISO 13849-1 — задаются на шаге 2 по оценке рисков ISO 12100"}
+
+gates:   # гейт -> критерии
+  G-ENV:   [C-ENV-01]
+  G-MASS:  [C-MASS-01]
+  G-PFACE: [C-PFACE-01, C-PROD-01]
+  G-DOSE:  [C-DOSE-01, C-RAW-01, C-PERF-01]
+  G-CYCLE: [C-PERF-01, C-PWR-01, C-HYD-01]
+  G-COLL:  [C-COLL-01]
+  G-FEED:  [C-FEEDPATH-01]
+  G-CLEAR: [C-CLR-01]
+  G-FEA:   [C-STR-01, C-FAT-01]
+  G-ESKD:  [C-ESKD-01]
+  G-TRACE: [C-TRACE-01]
+  G-SCOPE: ["разрешённые пути", "хэши criteria и ops/gates", "reasoning effort исполнителя не none/low"]
