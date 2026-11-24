@@ -1,0 +1,30 @@
+environment:
+  REV_PYTHON: E:/Tools/Python313/python.exe
+  REV_FREECADCMD: E:/Tools/FreeCAD-1.1/bin/freecadcmd.exe
+  PATH_prepend: [E:/Tools/Python313, E:/Tools/Python313/Scripts]
+backends:
+  voh:
+    cli: codex
+    home: '%LOCALAPPDATA%/rev-orch/codex/voh'
+    model: gpt-6.2-sol
+    family: openai
+    effort: high
+  alm:
+    cli: codex
+    home: '%LOCALAPPDATA%/rev-orch/codex/alm'
+    model: gpt-6.2-sol
+    family: openai
+    effort: high
+  bos:
+    cli: codex
+    home: '%LOCALAPPDATA%/rev-orch/codex/bos'
+    model: gpt-6.2-sol
+    family: openai
+    effort: medium
+roles:
+  'TECH,HYD,CAD,FEA,TOOL-*':
+    backends: [voh, alm, bos]
+    effort: high
+  'DOC,EL,INTEG':
+    backends: [bos, voh, alm]
+    effort: medium

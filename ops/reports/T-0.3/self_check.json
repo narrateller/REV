@@ -1,0 +1,84 @@
+{
+  "task_id": "T-0.3",
+  "checks": [
+    {
+      "command": "E:/Tools/Python313/python.exe -m pytest tests/ops",
+      "interpreter": "CPython 3.13.17 on Windows",
+      "pytest_version": "9.2.0",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTEST_ADDOPTS": "-p no:cacheprovider"
+      },
+      "status": "PASS",
+      "passed_count": 19,
+      "failed_count": 0,
+      "elapsed_s": 72.03
+    },
+    {
+      "command": "E:/Tools/Python313/python.exe ops/run_task.py --help",
+      "status": "PASS"
+    },
+    {
+      "command": "E:/Tools/Python313/python.exe ops/run_task.py --probe --dry-run --backend bos",
+      "status": "PASS",
+      "details": "Exercised the CLI entry function and ResultBundle and review package in a temporary Git fixture."
+    },
+    {
+      "check": "Parse the saved bos probe Codex events.log",
+      "status": "PASS",
+      "tokens_used": 24734,
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "high"
+    },
+    {
+      "check": "UTF-8 stdin and Codex diagnostic parsing",
+      "status": "PASS",
+      "stdin_payload_bytes": 120044,
+      "details": "A subprocess returned the complete stdin payload. Tests covered three space separators and ignored the echoed prompt when looking for 1909."
+    },
+    {
+      "check": "Windows Codex machine lock and 1909 retry",
+      "status": "PASS",
+      "sandbox_cooldown_s": 660,
+      "details": "A contender waited for the other process, acquired after it was killed, and a simulated 1909 suspended all profiles until the recorded time. The next invocation resumed the same round."
+    },
+    {
+      "command": "codex exec --help",
+      "status": "VERIFIED_PREVIOUS_ROUND",
+      "verified_flags": [
+        "-C",
+        "-m",
+        "-c",
+        "--sandbox workspace-write",
+        "--color never"
+      ]
+    },
+    {
+      "command": "E:/Tools/Python313/python.exe ops/run_task.py --probe --backend bos",
+      "status": "PASS_REPORTED_BY_GK_PREVIOUS_ROUND",
+      "details": "The current revision used the saved log and test processes. Repeat live verification is assigned to GK outside the sandbox."
+    }
+  ],
+  "gates": [
+    {
+      "id": "G-SCOPE",
+      "status": "PASS",
+      "details": "The runner scope check covered pass, retry, and blocked. A CLI stub verified that --meta points to a file in the worker and that its contents and scope exclusion are correct."
+    },
+    {
+      "tool": "scope_gate",
+      "status": "NOT_AVAILABLE",
+      "details": "The external implementation is absent from this worktree."
+    },
+    {
+      "tool": "geom_gates",
+      "status": "NOT_AVAILABLE",
+      "details": "The external implementation is absent. A stub verified REV_GATE_ARGS and ERROR on exit 2 without a report."
+    },
+    {
+      "tool": "calc_gates",
+      "status": "NOT_AVAILABLE",
+      "details": "The external implementation is absent. A stub verified the calculation CLI with explicit gate inputs."
+    }
+  ]
+}
