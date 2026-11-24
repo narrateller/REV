@@ -1,0 +1,100 @@
+{
+  "task_id": "T-0.1",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "freecadcmd_version",
+      "command": "E:/Tools/FreeCAD-1.1/bin/freecadcmd.exe --version",
+      "status": "PASS",
+      "exit_code": 0,
+      "freecad_version": "1.1.4",
+      "embedded_python_version": "3.11.14"
+    },
+    {
+      "check": "calibration_W02_A_V1",
+      "command": "freecadcmd.exe ops/gates/geom_gates.py",
+      "report": "ops/calibration/w02_A_V1.json",
+      "status": "PASS",
+      "observed_exit_code": 1,
+      "expected_exit_code": 1,
+      "gate_statuses": {
+        "G-ENV": "FAIL",
+        "G-MASS": "FAIL",
+        "G-COLL": "PASS",
+        "G-FEED": "FAIL",
+        "G-CLEAR": "FAIL"
+      },
+      "all_acceptance_tolerances_met": true
+    },
+    {
+      "check": "calibration_W02_B_V1",
+      "command": "freecadcmd.exe ops/gates/geom_gates.py",
+      "report": "ops/calibration/w02_B_V1.json",
+      "status": "PASS",
+      "observed_exit_code": 1,
+      "expected_exit_code": 1,
+      "gate_statuses": {
+        "G-ENV": "FAIL",
+        "G-MASS": "FAIL",
+        "G-COLL": "PASS",
+        "G-FEED": "FAIL",
+        "G-CLEAR": "FAIL"
+      },
+      "all_acceptance_tolerances_met": true
+    },
+    {
+      "check": "synthetic_freecad_tests",
+      "command": "freecadcmd.exe tests/ops/test_geom_gates.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "subprocess_exit_codes": {
+        "PASS": 0,
+        "WARN": 0,
+        "FAIL": 1,
+        "ERROR": 2
+      },
+      "assertions": {
+        "blocked_window_common_volume_mm3": 108.8,
+        "posed_collision_common_volume_mm3": 200,
+        "touching_common_volume_mm3": 0,
+        "steel_cube_mass_kg": 7850,
+        "warn_mass_kg": 4500,
+        "nominal_clearance_mm": 0.2,
+        "combined_envelope_mm": [
+          70,
+          10,
+          10
+        ],
+        "all_gates_pass_with_connected_feed_and_test_window_threshold": true,
+        "open_window_area_mm2": 108.8,
+        "missing_window_threshold_status": "WARN",
+        "missed_liner_contact_status": "FAIL",
+        "missed_hopper_contact_status": "FAIL",
+        "disconnected_feed_volume_status": "FAIL",
+        "worst_of_two_clearances_mm": 0.8,
+        "explicit_rev_pair_respected": true,
+        "punch_outside_liner_status": "FAIL",
+        "zero_clearance_without_collision_status": "PASS",
+        "liner_collision_cross_reference": "G-COLL",
+        "missing_required_clearance_roles_status": "FAIL",
+        "consumed_transform_operands_excluded": true,
+        "non_solid_shell_status": "WARN",
+        "invalid_args_with_output_overall": "ERROR",
+        "missing_or_malformed_args_without_output_stderr": true,
+        "angled_liner_inferred_axis_status": "PASS",
+        "explicit_stroke_axis_status": "PASS"
+      }
+    },
+    {
+      "check": "ordinary_python_pytest",
+      "command": "E:/Tools/Python313/python.exe -B -m pytest -p no:cacheprovider tests/ops",
+      "status": "PASS",
+      "exit_code": 0,
+      "python_version": "3.13.17",
+      "pytest_version": "9.2.0",
+      "passed": 2,
+      "skipped": 1,
+      "skip_reason": "The ordinary Python runtime does not provide FreeCAD."
+    }
+  ]
+}

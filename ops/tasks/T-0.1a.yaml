@@ -1,0 +1,19 @@
+id: T-0.1a
+stage: S0-followup          # закрыть до первой силовой CAD-модели (шаг 2)
+role: TOOL-CAD
+backend: voh                # резерв: alm, bos
+effort: high
+objective: >
+  Устранить остаточные дефекты гейтов T-0.1 по независимой проверке (24.11.2026).
+defects:
+  - "G-CLEAR: зазор = distToShape (минимальный). Эксцентричный пуансон (0 мм с одной стороны, 40 мм с другой) даёт PASS. Нужен зазор по каждой стороне сечения, итог — максимум по сторонам и парам (geom_gates.py side_gap/measure_clearance)."
+  - "G-FEED: window_area = min по путям; контакт по ребру/точке (площадь 0) должен давать FAIL, а не WARN."
+  - "consumed_objects: эвристика «любой Part::Feature в OutList» может скрыть независимое тело; перейти на явный список потребляющих типов/свойств + WARN на неизвестные."
+acceptance:
+  - "контрпример эксцентричного пуансона -> G-CLEAR FAIL с верным максимальным зазором"
+  - "контакт пути подачи по ребру -> G-FEED FAIL"
+  - "калибровка W02 A/B V1 не меняется"
+allowed_paths: [ops/gates/geom_gates.py, ops/gates/roles/**, ops/calibration/**, tests/ops/test_geom_gates.py, report.md, metrics.json, self_check.json]
+allow_protected: ["ops/gates/geom_gates.py", "ops/gates/roles/**"]
+forbidden: [git commit, git push, изменение ops/criteria/**, изменение drawings/**, сеть]
+timebox_min: 60
