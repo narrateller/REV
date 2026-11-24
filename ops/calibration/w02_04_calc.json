@@ -1,0 +1,247 @@
+{
+  "schema": "rev.gate_report/1",
+  "tool": "calc_gates",
+  "tool_version": "1.1.0",
+  "input": "ops\\calibration\\w02_04_params.yaml",
+  "criteria_version": 1,
+  "criteria_sha256": "db10c8799276113953451c474805dc97686438cb903a0d91ce98c193ea2a55a1",
+  "overall": "FAIL",
+  "gates": [
+    {
+      "id": "G-PFACE",
+      "status": "FAIL",
+      "value": 20.879442101307053,
+      "threshold": {
+        "min_MPa": 166.7,
+        "nominal_force_min_N": 1500000.0,
+        "section_mm": [
+          150,
+          60
+        ],
+        "tol_mm": 1.0,
+        "max_working_bar": 300,
+        "max_relief_bar": 315
+      },
+      "unit": "MPa",
+      "criteria_ids": [
+        "C-PFACE-01",
+        "C-PROD-01",
+        "C-HYD-01"
+      ],
+      "details": {
+        "checks": {
+          "product_section_matches_criterion": true,
+          "chamber_section_matches_criterion": false,
+          "chamber_section_matches_product": false,
+          "minimum_force_at_work_pressure": true,
+          "nominal_force_available": true,
+          "minimum_face_pressure": false,
+          "working_pressure_limit": true,
+          "relief_pressure_limit": true,
+          "working_pressure_at_or_below_relief": true
+        },
+        "chamber_pressure_MPa": 20.879442101307053,
+        "punch_pressure_MPa": 22.727272727272727,
+        "chamber_pressure_at_p_relief_MPa": 66.08419582010151,
+        "punch_pressure_at_p_relief_MPa": 71.9326471501805,
+        "nominal_force_N": 1500000.0,
+        "force_at_p_work_N": 3767900.565009455,
+        "force_at_p_relief_N": 4747554.711911913,
+        "p_work_bar": 250,
+        "p_relief_bar": 315,
+        "product_section_mm": [
+          150,
+          60
+        ],
+        "chamber_section_mm": [
+          311,
+          231
+        ],
+        "punch_section_mm": [
+          300.0,
+          220.0
+        ],
+        "chamber_area_mm2": 71841,
+        "punch_area_mm2": 66000.0
+      }
+    },
+    {
+      "id": "G-DOSE",
+      "status": "FAIL",
+      "value": 740,
+      "threshold": {
+        "min_stroke_mm": 238.36990328951742,
+        "max_stroke_mm": 309.88087427637265,
+        "stroke_overshoot_max": 1.3,
+        "bulk_density_kg_m3": [
+          90,
+          160
+        ],
+        "min_dose_kg": 0.83
+      },
+      "unit": "mm",
+      "criteria_ids": [
+        "C-DOSE-01",
+        "C-RAW-01",
+        "C-PERF-01"
+      ],
+      "details": {
+        "checks": {
+          "precompaction_present": false,
+          "bulk_density_covers_reference": true,
+          "minimum_dose": true,
+          "loose_dose_fits": true,
+          "main_chamber_fits_transferred_dose": true,
+          "stroke_at_least_required": true,
+          "working_range_at_least_required": true,
+          "stroke_overshoot_limit": false
+        },
+        "dose_kg": 0.83,
+        "capacity_check_dose_kg": 0.83,
+        "loose_dose_samples": [
+          {
+            "density_kg_m3": 90,
+            "loose_volume_L": 9.222222222222221,
+            "fits": true
+          },
+          {
+            "density_kg_m3": 160,
+            "loose_volume_L": 5.1875,
+            "fits": true
+          }
+        ],
+        "intake_volume_L": 41.40843399,
+        "intake_chamber": "main",
+        "main_fill_density_kg_m3": 90,
+        "main_fill_length_mm": 128.36990328951742,
+        "ejection_stroke_mm": 110,
+        "required_stroke_mm": 238.36990328951742,
+        "stroke_ratio": 3.104418761714295,
+        "working_range_mm": 636,
+        "approach_stroke_mm": 0,
+        "approach_stroke_source": "zero_assumed",
+        "in_die_density_kg_m3": 1000,
+        "in_die_density_source": "product.density_kg_m3",
+        "compacted_length_mm": 11.55329129605657,
+        "compression_stroke_mm": 116.81661199346085,
+        "minimum_stroke_mm": 226.81661199346087,
+        "minimum_stroke_ratio": 3.262547630423711
+      }
+    },
+    {
+      "id": "G-CYCLE",
+      "status": "FAIL",
+      "value": 59.87518077346884,
+      "threshold": {
+        "max_cycle_s": 6.0,
+        "max_average_power_kW": 30.0,
+        "max_peak_drive_power_kW": 30.0,
+        "max_installed_kW": 34.2,
+        "max_pressure_bar": 300,
+        "min_press_force_N": 1500000.0
+      },
+      "unit": "s",
+      "criteria_ids": [
+        "C-PERF-01",
+        "C-PWR-01",
+        "C-HYD-01",
+        "C-PFACE-01"
+      ],
+      "details": {
+        "checks": {
+          "cycle_time_limit": false,
+          "average_power_limit": true,
+          "peak_drive_power_limit": true,
+          "pump_power_within_motor_rating": true,
+          "working_pressure_limit": true,
+          "press_phase_present": false,
+          "press_configuration_valid": true,
+          "press_force_minimum": true,
+          "actuator_travel_limits": true,
+          "actuators_return_to_start": true,
+          "requested_speeds_met": true,
+          "accumulator_pressure_covered": true
+        },
+        "phases": [
+          {
+            "name": "Ход вперёд",
+            "actuator": "main_cylinder",
+            "direction": "extend",
+            "regeneration": false,
+            "stroke_mm": 636,
+            "area_mm2": 160849.54386379741,
+            "press": false,
+            "force_N": 1507160.226003782,
+            "pressure_bar": 100,
+            "oil_L": 102.30030989737516,
+            "pump_limit_L_min": 180,
+            "pump_rate_L_min": 180,
+            "accumulator_rate_L_min": 0.0,
+            "pump_oil_L": 102.30030989737516,
+            "accumulator_oil_L": 0.0,
+            "motion_s": 34.10010329912505,
+            "dwell_s": 0,
+            "time_s": 34.10010329912505,
+            "motor_energy_kJ": 1023.0030989737515,
+            "requested_speed_met": true,
+            "accumulator_pressure_covered": true,
+            "switch_s": 0.1,
+            "peak_drive_power_kW": 30.0,
+            "peak_hydraulic_power_kW": 30.0
+          },
+          {
+            "name": "Возврат",
+            "actuator": "main_cylinder",
+            "direction": "retract",
+            "regeneration": false,
+            "stroke_mm": 636,
+            "area_mm2": 120637.15789784805,
+            "press": false,
+            "force_N": 1130370.1695028364,
+            "pressure_bar": 100,
+            "oil_L": 76.72523242303136,
+            "pump_limit_L_min": 180,
+            "pump_rate_L_min": 180,
+            "accumulator_rate_L_min": 0.0,
+            "pump_oil_L": 76.72523242303136,
+            "accumulator_oil_L": 0.0,
+            "motion_s": 25.575077474343782,
+            "dwell_s": 0,
+            "time_s": 25.575077474343782,
+            "motor_energy_kJ": 767.2523242303135,
+            "requested_speed_met": true,
+            "accumulator_pressure_covered": true,
+            "switch_s": 0.1,
+            "peak_drive_power_kW": 30.0,
+            "peak_hydraulic_power_kW": 30.0
+          }
+        ],
+        "cycle_s": 59.87518077346884,
+        "warnings": [
+          "установленная мощность не задана"
+        ],
+        "failures": [
+          "нет фазы прессования"
+        ],
+        "switch_count": 2,
+        "switch_time_s": 0.2,
+        "total_oil_L": 179.02554232040652,
+        "total_pump_oil_L": 179.02554232040652,
+        "total_motor_energy_kJ": 1790.2554232040652,
+        "average_power_kW": 29.899791534280283,
+        "peak_hydraulic_power_kW": 30.0,
+        "peak_drive_power_kW": 30.0,
+        "motor_kW": 30,
+        "installed_kW": null,
+        "max_pressure_bar": 100,
+        "actuator_travel_mm": {
+          "main_cylinder": 636.0
+        },
+        "actuator_limits_mm": {
+          "main_cylinder": 636
+        },
+        "main_full_stroke_round_trip_oil_L": 208.30015930361765
+      }
+    }
+  ]
+}

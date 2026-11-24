@@ -1,0 +1,17 @@
+id: T-0.2a
+stage: S0-followup          # закрыть до D1 (шаг 1)
+role: TOOL-CALC
+backend: alm                # резерв: voh, bos
+effort: high
+objective: >
+  Устранить остаточные замечания гейтов T-0.2 по независимой проверке (24.11.2026).
+defects:
+  - "G-CYCLE: проверка «пик привода ≤ 30 кВт» тавтологична (подача по построению ≤ 600·P·η/p). Заменить на проверку требуемой подачи фазы (по заданной скорости) против доступной и на пик по требуемой, а не по ограниченной подаче (calc_gates.py ~372)."
+  - "G-DOSE: approach_stroke_mm по умолчанию 0 занижает минимальный ход — сделать обязательным в схеме или WARN при отсутствии (calc_gates.py ~216)."
+  - "design/params.example.yaml: installed_kW 34 — пометить источник (пример, не проектное решение) и разбивку."
+acceptance:
+  - "калибровка W02-04 — три FAIL; синтетика — PASS; тест на фазу, где требуемая скорость превышает возможности 30 кВт -> FAIL"
+allowed_paths: [ops/gates/calc_gates.py, design/**, ops/calibration/**, tests/ops/test_calc_gates.py, report.md, metrics.json, self_check.json]
+allow_protected: ["ops/gates/calc_gates.py"]
+forbidden: [git commit, git push, изменение ops/criteria/**, сеть]
+timebox_min: 60

@@ -1,0 +1,30 @@
+# Отрицательная калибровка по TASK T-0.2 и docs/AUDIT_OPUS_REPORT.md §§3.1–3.3.
+schema_version: 1
+description: "W02-04. Отрицательная калибровка по аудиту, диапазон движения 636 мм, паспортный ход 740 мм."
+# Раздел product содержит целевой брикет, с которым сравнивается камера W02.
+product: {section_mm: [150, 60], length_range_mm: [40, 110], density_kg_m3: 1000}
+raw: {bulk_density_kg_m3: [90, 160], dose_kg: 0.83}
+main_cylinder:
+  n: 2
+  bore_mm: 320
+  rod_mm: 160
+  stroke_mm: 740
+  working_range_mm: 636
+  p_work_bar: 250
+  p_relief_bar: 315
+  # Оценочное значение, согласованное с 3,767 МН из §3.2.
+  eta: 0.937
+  nominal_force_N: 1.5e6
+chamber:
+  section_mm: [311, 231]
+  length_mm: 576.39
+  clearance_per_side_mm: 5.5
+  # Калибровочная оценка по максимальной длине брикета C-PROD-02.
+  ejection_stroke_mm: 110
+precompaction: null
+# Идеальный привод и верхняя оценка подачи при 100 бар, §3.3.
+drive: {motor_kW: 30, pump_max_flow_L_min: 180, eta: 1}
+# Два расчётных перемещения §3.3. Выделенная фаза прессования и суммарная мощность не установлены.
+cycle:
+  - {name: Ход вперёд, actuator: main_cylinder, stroke_mm: 636, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Возврат, actuator: main_cylinder, stroke_mm: 636, direction: retract, pressure_bar: 100, speed_mm_s: pump, regeneration: false, dwell_s: 0}

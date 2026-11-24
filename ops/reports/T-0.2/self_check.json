@@ -1,0 +1,140 @@
+{
+  "task_id": "T-0.2",
+  "review_round": 2,
+  "python_version": "3.13.17",
+  "pyyaml_version": "6.0.3",
+  "criteria_sha256": "db10c8799276113953451c474805dc97686438cb903a0d91ce98c193ea2a55a1",
+  "criteria_matches_main": true,
+  "pytest": {
+    "command": "E:/Tools/Python313/python.exe -B -m pytest -p no:cacheprovider tests/ops",
+    "pytest_version": "9.2.0",
+    "exit_code": 0,
+    "passed": 52,
+    "failed": 0,
+    "skipped": 0,
+    "freecad_required": false
+  },
+  "calc": [
+    {
+      "params": "ops/calibration/w02_04_params.yaml",
+      "overall": "FAIL",
+      "exit_code": 1,
+      "gate_statuses": {
+        "G-PFACE": "FAIL",
+        "G-DOSE": "FAIL",
+        "G-CYCLE": "FAIL"
+      }
+    },
+    {
+      "params": "design/params.example.yaml",
+      "overall": "PASS",
+      "exit_code": 0,
+      "gate_statuses": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "PASS"
+      }
+    }
+  ],
+  "scope": [
+    {
+      "check": "worktree_task_card",
+      "task_card": "ops/tasks/T-0.2.yaml",
+      "meta": null,
+      "exit_code": 1,
+      "overall": "FAIL",
+      "gate_status": "FAIL",
+      "checks": {
+        "paths_allowed": true,
+        "protected_hashes_match": false
+      },
+      "reasoning_effort_checked": false,
+      "warnings": [
+        "Executor metadata is missing"
+      ],
+      "forbidden_paths": [],
+      "ignored_paths": [],
+      "ignored_outside_allowed": [],
+      "protected_changes": [
+        "ops/gates/calc_gates.py",
+        "ops/gates/gate_report.py",
+        "ops/gates/scope_gate.py"
+      ],
+      "protected_hash_mismatches": [
+        "ops/gates/calc_gates.py",
+        "ops/gates/gate_report.py",
+        "ops/gates/scope_gate.py"
+      ]
+    },
+    {
+      "check": "fixture_card_no_meta",
+      "task_card": "temporary fixture",
+      "meta": null,
+      "exit_code": 0,
+      "overall": "WARN",
+      "gate_status": "WARN",
+      "checks": {
+        "paths_allowed": true,
+        "protected_hashes_match": true
+      },
+      "reasoning_effort_checked": false,
+      "warnings": [
+        "Executor metadata is missing"
+      ],
+      "forbidden_paths": [],
+      "ignored_paths": [],
+      "ignored_outside_allowed": [],
+      "protected_changes": [],
+      "protected_hash_mismatches": []
+    },
+    {
+      "check": "fixture_card_high_effort",
+      "task_card": "temporary fixture",
+      "meta": "high.json",
+      "exit_code": 0,
+      "overall": "PASS",
+      "gate_status": "PASS",
+      "checks": {
+        "paths_allowed": true,
+        "protected_hashes_match": true,
+        "reasoning_effort_allowed": true
+      },
+      "reasoning_effort_checked": true,
+      "warnings": [],
+      "forbidden_paths": [],
+      "ignored_paths": [],
+      "ignored_outside_allowed": [],
+      "protected_changes": [],
+      "protected_hash_mismatches": []
+    },
+    {
+      "check": "fixture_card_low_effort",
+      "task_card": "temporary fixture",
+      "meta": "low.json",
+      "exit_code": 1,
+      "overall": "FAIL",
+      "gate_status": "FAIL",
+      "checks": {
+        "paths_allowed": true,
+        "protected_hashes_match": true,
+        "reasoning_effort_allowed": false
+      },
+      "reasoning_effort_checked": true,
+      "warnings": [],
+      "forbidden_paths": [],
+      "ignored_paths": [],
+      "ignored_outside_allowed": [],
+      "protected_changes": [],
+      "protected_hash_mismatches": []
+    },
+    {
+      "check": "fixture_card_missing_explicit_meta",
+      "task_card": "temporary fixture",
+      "meta": "missing.json",
+      "exit_code": 2,
+      "overall": "FAIL",
+      "gate_status": "ERROR"
+    }
+  ],
+  "scope_meta_evidence": "No executor meta.json in the actual worktree. The permitted gate paths and high/low effort were checked with temporary fixtures."
+}

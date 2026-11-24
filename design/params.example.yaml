@@ -1,0 +1,44 @@
+# Синтетический пример для проверки инструмента. Геометрия и режимы условны.
+schema_version: 1
+description: "Синтетический пример BP500-типа для проверки гейтов, без статуса проектного решения."
+product: {section_mm: [150, 60], length_range_mm: [40, 110], density_kg_m3: 1000}
+raw: {bulk_density_kg_m3: [90, 160], dose_kg: 0.83}
+main_cylinder:
+  n: 1
+  bore_mm: 270
+  rod_mm: 145
+  stroke_mm: 320
+  p_work_bar: 290
+  p_relief_bar: 315
+  eta: 0.95
+  nominal_force_N: 1501000
+chamber:
+  section_mm: [150, 60]
+  length_mm: 220
+  clearance_per_side_mm: 0.1
+  ejection_stroke_mm: 93
+  approach_stroke_mm: 92
+  in_die_density_kg_m3: 1000
+precompaction:
+  section_mm: [150, 225]
+  loose_fill_length_mm: 285
+  stroke_mm: 230
+  post_precompaction_density_kg_m3: 420
+  cylinder: {n: 1, bore_mm: 100, rod_mm: 56, stroke_mm: 230, eta: 0.95}
+drive:
+  motor_kW: 30
+  installed_kW: 34
+  pump_max_flow_L_min: 520
+  eta: 0.9
+  slide_gate_cylinder: {n: 1, bore_mm: 55, rod_mm: 32, stroke_mm: 70, eta: 0.95}
+cycle:
+  - {name: Подпрессовка, actuator: precompaction, stroke_mm: 230, direction: extend, pressure_bar: 65, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Возврат подпрессовки, actuator: precompaction, stroke_mm: 230, direction: retract, pressure_bar: 10, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Подвод пуансона, actuator: main_cylinder, stroke_mm: 92, direction: extend, pressure_bar: 12, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Уплотнение, actuator: main_cylinder, stroke_mm: 103, direction: extend, pressure_bar: 40, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Рост нагрузки, actuator: main_cylinder, stroke_mm: 17, direction: extend, pressure_bar: 120, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Финальное прессование, actuator: main_cylinder, stroke_mm: 8, direction: extend, pressure_bar: 290, speed_mm_s: pump, regeneration: false, press: true, dwell_s: 0.15}
+  - {name: Открытие шибера, actuator: slide_gate, stroke_mm: 70, direction: retract, pressure_bar: 20, speed_mm_s: 250, regeneration: false, dwell_s: 0}
+  - {name: Выталкивание, actuator: main_cylinder, stroke_mm: 93, direction: extend, force_N: 50000, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Возврат пуансона, actuator: main_cylinder, stroke_mm: 313, direction: retract, pressure_bar: 12, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Закрытие шибера, actuator: slide_gate, stroke_mm: 70, direction: extend, pressure_bar: 20, speed_mm_s: 250, regeneration: false, dwell_s: 0}

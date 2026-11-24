@@ -1,0 +1,145 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: REV machine parameters, version 1
+type: object
+additionalProperties: false
+required: [schema_version, product, raw, main_cylinder, chamber, precompaction, drive, cycle]
+properties:
+  schema_version: {type: integer, const: 1}
+  description: {type: string}
+  product:
+    type: object
+    additionalProperties: false
+    required: [section_mm, length_range_mm, density_kg_m3]
+    properties:
+      section_mm: {$ref: '#/$defs/pair'}
+      length_range_mm: {$ref: '#/$defs/pair'}
+      density_kg_m3: {$ref: '#/$defs/positive'}
+  raw:
+    type: object
+    additionalProperties: false
+    required: [bulk_density_kg_m3, dose_kg]
+    properties:
+      bulk_density_kg_m3: {$ref: '#/$defs/pair'}
+      dose_kg: {$ref: '#/$defs/positive'}
+  main_cylinder:
+    type: object
+    additionalProperties: false
+    required: [n, bore_mm, rod_mm, stroke_mm, p_work_bar, p_relief_bar, eta, nominal_force_N]
+    properties:
+      n: {$ref: '#/$defs/count'}
+      bore_mm: {$ref: '#/$defs/positive'}
+      rod_mm: {$ref: '#/$defs/positive'}
+      stroke_mm: {$ref: '#/$defs/positive'}
+      working_range_mm:
+        $ref: '#/$defs/positive'
+        description: Optional operating travel limit within the installed stroke.
+      p_work_bar: {$ref: '#/$defs/positive'}
+      p_relief_bar: {$ref: '#/$defs/positive'}
+      eta: {$ref: '#/$defs/efficiency'}
+      nominal_force_N: {$ref: '#/$defs/positive'}
+  chamber:
+    type: object
+    additionalProperties: false
+    required: [section_mm, length_mm, clearance_per_side_mm, ejection_stroke_mm]
+    properties:
+      section_mm:
+        $ref: '#/$defs/pair'
+        description: Clear internal section. The punch section loses twice the clearance from each dimension.
+      length_mm: {$ref: '#/$defs/positive'}
+      clearance_per_side_mm: {$ref: '#/$defs/nonnegative'}
+      ejection_stroke_mm:
+        $ref: '#/$defs/positive'
+        description: Задаёт TECH на шаге 1 по геометрии выхода брикета при открытом шибере.
+      approach_stroke_mm:
+        $ref: '#/$defs/nonnegative'
+        default: 0
+        description: Задаёт TECH на шаге 1 от исходного положения пуансона до контакта с засыпкой.
+      in_die_density_kg_m3:
+        $ref: '#/$defs/positive'
+        description: Задаёт TECH на шаге 1 под нагрузкой в главной камере. При отсутствии для справочной оценки используется плотность брикета после выхода.
+  precompaction:
+    type: [object, 'null']
+    description: Null denotes a machine without precompaction, such as the W02-04 negative calibration.
+    additionalProperties: false
+    required: [section_mm, loose_fill_length_mm, stroke_mm, post_precompaction_density_kg_m3, cylinder]
+    properties:
+      section_mm: {$ref: '#/$defs/pair'}
+      loose_fill_length_mm:
+        $ref: '#/$defs/positive'
+        description: Usable fill length at the start position, independent of the travel limit.
+      stroke_mm: {$ref: '#/$defs/positive'}
+      post_precompaction_density_kg_m3:
+        $ref: '#/$defs/positive'
+        description: Задаёт TECH на шаге 1 для засыпки, переданной в главную камеру.
+      cylinder: {$ref: '#/$defs/cylinder'}
+  drive:
+    type: object
+    additionalProperties: false
+    required: [motor_kW, pump_max_flow_L_min, eta]
+    properties:
+      motor_kW: {$ref: '#/$defs/positive'}
+      installed_kW:
+        $ref: '#/$defs/positive'
+        description: Суммарная установленная мощность машины. При отсутствии G-CYCLE выдаёт предупреждение.
+      pump_max_flow_L_min: {$ref: '#/$defs/positive'}
+      eta: {$ref: '#/$defs/efficiency'}
+      slide_gate_cylinder: {$ref: '#/$defs/cylinder'}
+      accumulator:
+        type: object
+        additionalProperties: false
+        required: [usable_oil_L, max_flow_L_min, min_delivery_pressure_bar, charge_pressure_bar, round_trip_eta]
+        properties:
+          usable_oil_L:
+            $ref: '#/$defs/positive'
+            description: Usable delivered oil over the specified operating pressure window.
+          max_flow_L_min: {$ref: '#/$defs/positive'}
+          min_delivery_pressure_bar: {$ref: '#/$defs/positive'}
+          charge_pressure_bar: {$ref: '#/$defs/positive'}
+          round_trip_eta:
+            $ref: '#/$defs/efficiency'
+            description: Oil recovery fraction at recharge pressure. Refill takes a separate pump phase.
+  cycle:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [name, actuator, stroke_mm, direction, speed_mm_s, regeneration, dwell_s]
+      properties:
+        name: {type: string, minLength: 1}
+        actuator: {enum: [main_cylinder, precompaction, slide_gate]}
+        stroke_mm: {$ref: '#/$defs/nonnegative'}
+        direction: {enum: [extend, retract]}
+        force_N:
+          $ref: '#/$defs/nonnegative'
+          description: Specify exactly one of force_N and pressure_bar. Force is total for the cylinder group.
+        pressure_bar: {$ref: '#/$defs/nonnegative'}
+        speed_mm_s:
+          anyOf: [{$ref: '#/$defs/positive'}, {const: pump}]
+        regeneration: {type: boolean}
+        press:
+          type: boolean
+          default: false
+          description: Финальное прессование прямым ходом главного цилиндра без регенерации. Для G-CYCLE нужна хотя бы одна такая фаза.
+        use_accumulator: {type: boolean, default: false}
+        dwell_s: {$ref: '#/$defs/nonnegative'}
+$defs:
+  positive: {type: number, exclusiveMinimum: 0}
+  nonnegative: {type: number, minimum: 0}
+  count: {type: integer, minimum: 1}
+  efficiency: {type: number, exclusiveMinimum: 0, maximum: 1}
+  pair:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items: {$ref: '#/$defs/positive'}
+  cylinder:
+    type: object
+    additionalProperties: false
+    required: [n, bore_mm, rod_mm, stroke_mm, eta]
+    properties:
+      n: {$ref: '#/$defs/count'}
+      bore_mm: {$ref: '#/$defs/positive'}
+      rod_mm: {$ref: '#/$defs/positive'}
+      stroke_mm: {$ref: '#/$defs/positive'}
+      eta: {$ref: '#/$defs/efficiency'}
