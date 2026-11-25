@@ -1,0 +1,89 @@
+{
+  "task": "T-1.2b",
+  "python": {
+    "executable": "E:\\Tools\\Python313\\python.exe",
+    "version": "3.13.17"
+  },
+  "reproducibility": {
+    "status": "PASS",
+    "runs": 2,
+    "compare": "byte-for-byte",
+    "commands_per_run": [
+      [
+        "-B",
+        "calc/T-1.2b/shoe_load.py"
+      ],
+      [
+        "-B",
+        "calc/T-1.2b/make_params_t12b.py"
+      ]
+    ],
+    "sha256": {
+      "calc/T-1.2b/results.json": "6ecaf982c73fbee996e3fa1ded42a74184b0922e4a7a45866965eb972ca1692c",
+      "design/params.t12b.yaml": "8224c923d8f4a3cfa46c55b9366751f193ed0a6c9bc257f88895363ffc67289b",
+      "metrics.json": "4e00a9884db4037a598ee8ea9a8dc5584634727b6365eb2d13a106a41437d02b"
+    }
+  },
+  "gates": {
+    "command": [
+      "-B",
+      "ops/gates/calc_gates.py",
+      "--params",
+      "design/params.t12b.yaml",
+      "--criteria",
+      "ops/criteria/design_criteria.yaml",
+      "--out",
+      "gates.t12b.json"
+    ],
+    "exit_code": 1,
+    "criteria_version": 2,
+    "criteria_sha256": "8a31825197210e379e80052717989ddf2980245da5736639f54075ec6b1944f7",
+    "results": {
+      "G-PFACE": {
+        "status": "PASS",
+        "value": 168.88888888888889,
+        "unit": "MPa",
+        "failed_checks": []
+      },
+      "G-DOSE": {
+        "status": "PASS",
+        "value": 289,
+        "unit": "mm",
+        "failed_checks": []
+      },
+      "G-CYCLE": {
+        "status": "FAIL",
+        "value": 7.969673072562054,
+        "unit": "s",
+        "failed_checks": [
+          "cycle_time_limit"
+        ]
+      }
+    }
+  },
+  "checks": {
+    "all_delivered_python_sources_compile": "PASS",
+    "read_only_inputs_byte_stable_through_both_runs_and_gates": "PASS",
+    "independent_shoe_integration": {
+      "status": "PASS",
+      "cases": 36,
+      "quadrature": "4000 midpoint intervals per case",
+      "max_force_error_N": 0.00274746585637331,
+      "max_centroid_error_mm": 5.533176761218783e-07,
+      "max_moment_error_Nm": 0.0005544049490708858
+    },
+    "independent_gate_bending_and_shear_deflection": {
+      "status": "PASS",
+      "at_1p70_MN_error_mm": 8.592193623258026e-11
+    },
+    "all_dose_overtravels_cover_plate_springback_and_clearance": "PASS",
+    "T12_full_stroke_reference_reproduced_s": 6.727499999999733,
+    "overlapped_cycle_convergence_solving_at_dt_s": [
+      0.005,
+      0.0025,
+      0.00125
+    ],
+    "variant_cycle_deltas_clearance_sequence_pressure_power_and_recharge": "PASS",
+    "recommended_gate_lock_stress_shoe_deflection_packaging_and_delta_screen": "PASS"
+  }
+}
