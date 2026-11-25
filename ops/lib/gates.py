@@ -2,6 +2,7 @@ import json
 import re
 import shutil
 import sys
+from pathlib import Path
 
 from ops.lib.config import EFFORT_RANK, RunnerError, in_scope
 from ops.lib.io import read_json, write_json
@@ -82,7 +83,8 @@ def _invoke(root, run_dir, tool, ids, build):
 
 def run_gates(root, worktree, card_path, card, run_dir, changes, task_intact, meta, scope_meta, env):
     criteria = root / "ops" / "criteria" / "design_criteria.yaml"
-    python = env.get("REV_PYTHON") or sys.executable
+    # Tool paths from backends.yaml are for the Windows executor sandbox; fall back when absent (e.g. CI on Linux).
+    python = env.get("REV_PYTHON") if env.get("REV_PYTHON") and Path(env["REV_PYTHON"]).is_file() else sys.executable
 
     def scope(script, output):
         return [
