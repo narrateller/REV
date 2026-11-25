@@ -1,0 +1,952 @@
+{
+  "task": "T-1.4",
+  "round": 2,
+  "selected_variant": null,
+  "fastest_at_90_kg_m3": "V2",
+  "required_base_cycle_s": 6.0,
+  "required_margin_s": 0.15,
+  "motor_rated_kW": 30.0,
+  "command_shaft_limit_kW": 28.5,
+  "installed_power_budget_kW": 34.2,
+  "best_hypothetical_shorter_overtravel_cycle_s_by_overtravel_mm": {
+    "59": 6.212499999999811,
+    "45": 6.0949999999998346
+  },
+  "best_hypothetical_shorter_overtravel_dt_s": 0.00125,
+  "counterfactual_power": [
+    {
+      "variant": "V1",
+      "torque_command_kW": 28.5,
+      "nameplate_with_5pct_tolerance_kW": 29.925,
+      "cycle_s": 6.638749999999726
+    },
+    {
+      "variant": "V1",
+      "torque_command_kW": 34.0,
+      "nameplate_with_5pct_tolerance_kW": 35.7,
+      "cycle_s": 6.0999999999998336
+    },
+    {
+      "variant": "V1",
+      "torque_command_kW": 38.0,
+      "nameplate_with_5pct_tolerance_kW": 39.9,
+      "cycle_s": 5.877499999999878
+    },
+    {
+      "variant": "V1",
+      "torque_command_kW": 42.0,
+      "nameplate_with_5pct_tolerance_kW": 44.1,
+      "cycle_s": 5.709999999999911
+    },
+    {
+      "variant": "V1",
+      "torque_command_kW": 48.0,
+      "nameplate_with_5pct_tolerance_kW": 50.400000000000006,
+      "cycle_s": 5.508749999999951
+    },
+    {
+      "variant": "V1",
+      "torque_command_kW": 54.0,
+      "nameplate_with_5pct_tolerance_kW": 56.7,
+      "cycle_s": 5.347499999999983
+    },
+    {
+      "variant": "V2",
+      "torque_command_kW": 28.5,
+      "nameplate_with_5pct_tolerance_kW": 29.925,
+      "cycle_s": 6.212499999999811
+    },
+    {
+      "variant": "V2",
+      "torque_command_kW": 34.0,
+      "nameplate_with_5pct_tolerance_kW": 35.7,
+      "cycle_s": 5.81624999999989
+    },
+    {
+      "variant": "V2",
+      "torque_command_kW": 38.0,
+      "nameplate_with_5pct_tolerance_kW": 39.9,
+      "cycle_s": 5.628749999999927
+    },
+    {
+      "variant": "V2",
+      "torque_command_kW": 42.0,
+      "nameplate_with_5pct_tolerance_kW": 44.1,
+      "cycle_s": 5.489999999999955
+    },
+    {
+      "variant": "V2",
+      "torque_command_kW": 48.0,
+      "nameplate_with_5pct_tolerance_kW": 50.400000000000006,
+      "cycle_s": 5.342499999999984
+    },
+    {
+      "variant": "V2",
+      "torque_command_kW": 54.0,
+      "nameplate_with_5pct_tolerance_kW": 56.7,
+      "cycle_s": 5.246250000000003
+    },
+    {
+      "variant": "V3",
+      "torque_command_kW": 28.5,
+      "nameplate_with_5pct_tolerance_kW": 29.925,
+      "cycle_s": 7.102499999999634
+    },
+    {
+      "variant": "V3",
+      "torque_command_kW": 34.0,
+      "nameplate_with_5pct_tolerance_kW": 35.7,
+      "cycle_s": 6.051249999999843
+    },
+    {
+      "variant": "V3",
+      "torque_command_kW": 38.0,
+      "nameplate_with_5pct_tolerance_kW": 39.9,
+      "cycle_s": 5.869999999999879
+    },
+    {
+      "variant": "V3",
+      "torque_command_kW": 42.0,
+      "nameplate_with_5pct_tolerance_kW": 44.1,
+      "cycle_s": 5.688749999999915
+    },
+    {
+      "variant": "V3",
+      "torque_command_kW": 48.0,
+      "nameplate_with_5pct_tolerance_kW": 50.400000000000006,
+      "cycle_s": 5.498749999999953
+    },
+    {
+      "variant": "V3",
+      "torque_command_kW": 54.0,
+      "nameplate_with_5pct_tolerance_kW": 56.7,
+      "cycle_s": 5.357499999999981
+    }
+  ],
+  "round_2_v1_diagnostic_gates": {
+    "status": "FAIL",
+    "return_code": 1,
+    "gates": {
+      "G-PFACE": "PASS",
+      "G-DOSE": "PASS",
+      "G-CYCLE": "FAIL"
+    },
+    "failed_cycle_checks": [
+      "cycle_time_limit"
+    ],
+    "g_pface_MPa": 168.88888888888889,
+    "g_dose_mm": 289,
+    "g_cycle_s": 7.846894835580278,
+    "reference_cycle_s": 6.613749999998362,
+    "difference_s": 1.233144835581916,
+    "tolerance_s": 0.15,
+    "phase_differences": {
+      "pre_down": {
+        "reference_s": 0.6612500000000159,
+        "gate_s": 0.5803698186956124,
+        "gate_minus_reference_s": -0.08088018130440344
+      },
+      "regen": {
+        "reference_s": 0.946874999999932,
+        "gate_s": 1.2730392300674849,
+        "gate_minus_reference_s": 0.3261642300675529
+      },
+      "press": {
+        "reference_s": 1.615312500000548,
+        "gate_s": 2.000092534476906,
+        "gate_minus_reference_s": 0.3847800344763579
+      },
+      "hold": {
+        "reference_s": 0.30000000000007665,
+        "gate_s": 0.30000000000000027,
+        "gate_minus_reference_s": -7.638334409421077e-14
+      },
+      "unload": {
+        "reference_s": 0.2000000000000255,
+        "gate_s": 0.20000000000000018,
+        "gate_minus_reference_s": -2.531308496145357e-14
+      },
+      "gate_open": {
+        "reference_s": 0.33000000000009244,
+        "gate_s": 0.2666666666666666,
+        "gate_minus_reference_s": -0.06333333333342583
+      },
+      "eject_return_close": {
+        "reference_s": 1.85812499999831,
+        "gate_s": 2.091802249495509,
+        "gate_minus_reference_s": 0.23367724949719904
+      },
+      "feed": {
+        "reference_s": 0.6399999999994179,
+        "gate_s": 0.6399999999999997,
+        "gate_minus_reference_s": 5.81756864903582e-13
+      },
+      "recharge": {
+        "reference_s": 0.06218750000000005,
+        "gate_s": 0.4949243361780995,
+        "gate_minus_reference_s": 0.43273683617809944
+      }
+    },
+    "gate_eta": 0.519,
+    "position_delays_s": {
+      "return 1": 0.8838514851030567,
+      "gate_close 1": 1.259851486103051,
+      "pre_up 1": 0.6236921338734099
+    },
+    "params_double_run_status": "PASS",
+    "params_sha256_both_runs": "df42345d5327c81fc9795cdba7c46e0cf5e099823e743088022feea724ef2178",
+    "generation_arguments": [
+      "--diagnostic",
+      "--out",
+      "<temporary subdirectory of calc/T-1.4>/params.t14.yaml"
+    ]
+  },
+  "variants": {
+    "V1": {
+      "comparison": [
+        {
+          "profile": "realistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 6.613749999998362,
+          "margin_to_6_s": -0.6137499999983618,
+          "shaft_energy_kJ": 152.90111114644475,
+          "average_shaft_kW": 23.118671124019297,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.06218750000000005,
+          "dose_throughput_kg_h": 451.7860517861637,
+          "oil_heat_budget_kW": 17.240081812298016
+        },
+        {
+          "profile": "realistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.361874999998591,
+          "margin_to_6_s": -0.36187499999859085,
+          "shaft_energy_kJ": 141.3440473002328,
+          "average_shaft_kW": 22.217356879892186,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 469.67285587985646,
+          "oil_heat_budget_kW": 16.275722395115377
+        },
+        {
+          "profile": "optimistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 6.449999999998664,
+          "margin_to_6_s": -0.44999999999866436,
+          "shaft_energy_kJ": 152.0955451569631,
+          "average_shaft_kW": 23.58070467550304,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0924999999999994,
+          "dose_throughput_kg_h": 463.2558139535843,
+          "oil_heat_budget_kW": 17.506047393347956
+        },
+        {
+          "profile": "optimistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.182187499998908,
+          "margin_to_6_s": -0.18218749999890793,
+          "shaft_energy_kJ": 140.62605665316298,
+          "average_shaft_kW": 22.746973729474853,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 483.32406611745887,
+          "oil_heat_budget_kW": 16.578962297221103
+        },
+        {
+          "profile": "pessimistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 6.986249999998177,
+          "margin_to_6_s": -0.9862499999981766,
+          "shaft_energy_kJ": 155.9478946836472,
+          "average_shaft_kW": 22.32211768598145,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.06499999999999999,
+          "dose_throughput_kg_h": 427.6972624799828,
+          "oil_heat_budget_kW": 16.85551729184461
+        },
+        {
+          "profile": "pessimistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.725312499998414,
+          "margin_to_6_s": -0.725312499998414,
+          "shaft_energy_kJ": 144.28538205558115,
+          "average_shaft_kW": 21.45407846187299,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 444.2916221366226,
+          "oil_heat_budget_kW": 15.933409655002377
+        }
+      ],
+      "base_and_high_duties_0p64_s_0p83_kg": [
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.613749999998362,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 1059.864584670376
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.62624999999835,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 1061.7173489143831
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.817812499998176,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 1089.4110951422576
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.361874999998591,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 1059.8645846703757
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.3743749999985795,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 1061.7173489143836
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.565937499998405,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 1089.411095142258
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.022500000000794,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 886.4410737866169
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.049375000000808,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 887.875490623455
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.823125000001204,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 982.1226865378935
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 5.776875000000668,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 886.4410737866169
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 5.804375000000682,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 887.8754906234554
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.576875000001078,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "immediate_density_kg_m3": 982.1226865378939
+        }
+      ],
+      "max_heat_duty_kW": 17.57844616932107,
+      "cooling": {
+        "cooler_capacity_at_design_kW": 18.9,
+        "cooling_margin_kW": 1.3215538306789298,
+        "predicted_oil_C": 53.95114775342942,
+        "circulation_L_min": 250,
+        "circulation_shaft_kW": 1.0256410256410255,
+        "tank_working_oil_L": 650,
+        "tank_gross_L": 850.5,
+        "tank_time_at_full_flow_s": 65.19686970962032,
+        "tank_time_at_mean_flow_s": 179.3413933451925,
+        "tank_reference_min_3min_L": 1794.5646857142854,
+        "tank_reference_max_5min_L": 2990.941142857142,
+        "installed_kW": {
+          "main_motor": 30,
+          "pilot_pack": 0.75,
+          "cooler_fan": 1.1,
+          "cooler_circulation": 1.1,
+          "dosing": 0.75,
+          "controls_and_valves": 0.5
+        },
+        "installed_total_kW": 34.2
+      },
+      "pump_station_filled_kg": 1636.1,
+      "valve_count": 21,
+      "valves_by_NG": {
+        "main_NG40": 3,
+        "main_NG50": 2,
+        "pre_NG25": 4,
+        "gate_NG16": 4,
+        "lp_NG25": 3,
+        "relief_NG16": 2,
+        "tandem_join_NG40": 1,
+        "neutral_NG40": 1,
+        "neutral_NG16": 1
+      },
+      "minimum_throughput_1p068_kg_kg_h": 489.1019677997899
+    },
+    "V2": {
+      "comparison": [
+        {
+          "profile": "realistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 6.184687499998752,
+          "margin_to_6_s": -0.184687499998752,
+          "shaft_energy_kJ": 127.79894355464094,
+          "average_shaft_kW": 20.663767337422744,
+          "peak_shaft_kW": 28.50000000000722,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "peak_shaft_torque_Nm": 183.88848154541213,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 483.12869486139806,
+          "oil_heat_budget_kW": 14.498885127612784
+        },
+        {
+          "profile": "realistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.03249999999889,
+          "margin_to_6_s": -0.032499999998890416,
+          "shaft_energy_kJ": 115.99342937879032,
+          "average_shaft_kW": 19.22808609677773,
+          "peak_shaft_kW": 28.50000000000722,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "peak_shaft_torque_Nm": 183.88848154541213,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 495.31703273941974,
+          "oil_heat_budget_kW": 13.117201448609903
+        },
+        {
+          "profile": "optimistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 5.958437499999111,
+          "margin_to_6_s": 0.04156250000088857,
+          "shaft_energy_kJ": 126.61755569470354,
+          "average_shaft_kW": 21.250127352132573,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 501.47375045898286,
+          "oil_heat_budget_kW": 14.78080149431584
+        },
+        {
+          "profile": "optimistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 5.811874999999245,
+          "margin_to_6_s": 0.18812500000075527,
+          "shaft_energy_kJ": 115.0777782824161,
+          "average_shaft_kW": 19.800456527786825,
+          "peak_shaft_kW": 28.5,
+          "shaft_peak_with_tolerance_kW": 29.925,
+          "peak_shaft_torque_Nm": 183.88848154536558,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 514.1197978277902,
+          "oil_heat_budget_kW": 13.387329068213921
+        },
+        {
+          "profile": "pessimistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 6.544687499998578,
+          "margin_to_6_s": -0.5446874999985782,
+          "shaft_energy_kJ": 129.76394220816096,
+          "average_shaft_kW": 19.827370246201845,
+          "peak_shaft_kW": 28.500000000008193,
+          "shaft_peak_with_tolerance_kW": 29.925000000008602,
+          "peak_shaft_torque_Nm": 183.88848154541844,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0021875,
+          "dose_throughput_kg_h": 456.5535023636574,
+          "oil_heat_budget_kW": 14.103212829242292
+        },
+        {
+          "profile": "pessimistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.413437499998698,
+          "margin_to_6_s": -0.4134374999986976,
+          "shaft_energy_kJ": 118.30752762518095,
+          "average_shaft_kW": 18.446820075069724,
+          "peak_shaft_kW": 28.500000000008193,
+          "shaft_peak_with_tolerance_kW": 29.925000000008602,
+          "peak_shaft_torque_Nm": 183.88848154541844,
+          "peak_working_bar": 268.07849923977534,
+          "extra_recharge_s": 0.0,
+          "dose_throughput_kg_h": 465.89679871373295,
+          "oil_heat_budget_kW": 12.808869146479077
+        }
+      ],
+      "base_and_high_duties_0p64_s_0p83_kg": [
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.184687499998752,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "immediate_density_kg_m3": 1059.864584670376
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.199374999998739,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "immediate_density_kg_m3": 1061.7173489143831
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.439062499998521,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "immediate_density_kg_m3": 1089.4110951422576
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.03249999999889,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "immediate_density_kg_m3": 1059.8645846703757
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.047187499998877,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "immediate_density_kg_m3": 1061.7173489143836
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.286874999998659,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000007582,
+          "immediate_density_kg_m3": 1089.411095142258
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 5.569375000000562,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000001628,
+          "immediate_density_kg_m3": 886.4410737866169
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 5.596875000000576,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000001628,
+          "immediate_density_kg_m3": 887.875490623455
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.58187500000108,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000000004,
+          "immediate_density_kg_m3": 982.1226865378935
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 5.416875000000484,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000001628,
+          "immediate_density_kg_m3": 886.4410737866169
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 5.444375000000498,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000001628,
+          "immediate_density_kg_m3": 887.8754906234554
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.429375000001002,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000000004,
+          "immediate_density_kg_m3": 982.1226865378939
+        }
+      ],
+      "max_heat_duty_kW": 14.989955831604416,
+      "cooling": {
+        "cooler_capacity_at_design_kW": 18.9,
+        "cooling_margin_kW": 3.910044168395583,
+        "predicted_oil_C": 51.896790342543184,
+        "circulation_L_min": 250,
+        "circulation_shaft_kW": 1.0256410256410255,
+        "tank_working_oil_L": 430,
+        "tank_gross_L": 560,
+        "tank_time_at_full_flow_s": 97.49493091139945,
+        "tank_time_at_mean_flow_s": 181.00470480463798,
+        "tank_reference_min_3min_L": 793.8874285714287,
+        "tank_reference_max_5min_L": 1323.1457142857143,
+        "installed_kW": {
+          "main_motor": 30,
+          "pilot_pack": 0.75,
+          "cooler_fan": 1.1,
+          "cooler_circulation": 1.1,
+          "dosing": 0.75,
+          "controls_and_valves": 0.5
+        },
+        "installed_total_kW": 34.2
+      },
+      "pump_station_filled_kg": 1370.3000000000002,
+      "valve_count": 23,
+      "valves_by_NG": {
+        "main_NG40": 3,
+        "main_NG50": 2,
+        "pre_NG25": 4,
+        "gate_NG16": 4,
+        "lp_NG25": 3,
+        "relief_NG16": 1,
+        "prefill_NG80": 1,
+        "paired_rapid_ram_NG32": 4,
+        "neutral_NG32": 1
+      },
+      "minimum_throughput_1p068_kg_kg_h": 512.0000000001401,
+      "prefill": {
+        "cap_flow_L_min": 886.6831105491833,
+        "max_cap_exhaust_L_min": 923.6282401553992,
+        "pipe_velocity_m_s": 1.8816,
+        "pipe_drop_bar": 0.0361919287296,
+        "max_prefill_valve_drop_bar": 0.4,
+        "hydrostatic_head_bar": 0.034138800000000004,
+        "cap_absolute_bar": 1.0611968712704,
+        "cap_margin_bar": 0.26119687127040003,
+        "cap_absolute_without_boost_bar": 0.6111968712704001,
+        "minimum_buffer_L": 26.69285614049104,
+        "proposed_buffer_L": 30.0,
+        "reverse_dedicated_NG50_valve_drop_bar": 0.58510913992631,
+        "case_2_flow_margin_L_min": 113.31688945081669
+      }
+    },
+    "V3": {
+      "comparison": [
+        {
+          "profile": "realistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 7.100624999997919,
+          "margin_to_6_s": -1.100624999997919,
+          "shaft_energy_kJ": 174.85489107265875,
+          "average_shaft_kW": 24.625281728398555,
+          "peak_shaft_kW": 28.500000000000007,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "peak_shaft_torque_Nm": 183.8884815453656,
+          "peak_working_bar": 292.99825376337975,
+          "extra_recharge_s": 0.4321874999999922,
+          "dose_throughput_kg_h": 420.8080274624946,
+          "oil_heat_budget_kW": 19.276835130837863
+        },
+        {
+          "profile": "realistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.61562499999836,
+          "margin_to_6_s": -0.6156249999983601,
+          "shaft_energy_kJ": 162.03804989767957,
+          "average_shaft_kW": 24.493233805985035,
+          "peak_shaft_kW": 28.500000000000007,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "peak_shaft_torque_Nm": 183.8884815453656,
+          "peak_working_bar": 292.99825376337975,
+          "extra_recharge_s": 0.2703124999999956,
+          "dose_throughput_kg_h": 451.65800661324374,
+          "oil_heat_budget_kW": 18.850636637705197
+        },
+        {
+          "profile": "optimistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 6.951562499998208,
+          "margin_to_6_s": -0.9515624999982082,
+          "shaft_energy_kJ": 173.58480783440916,
+          "average_shaft_kW": 24.97061744527995,
+          "peak_shaft_kW": 28.500000000000007,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "peak_shaft_torque_Nm": 183.8884815453656,
+          "peak_working_bar": 292.99980963643065,
+          "extra_recharge_s": 0.45718749999999164,
+          "dose_throughput_kg_h": 429.8314227917494,
+          "oil_heat_budget_kW": 19.46774922760443
+        },
+        {
+          "profile": "optimistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.47687499999864,
+          "margin_to_6_s": -0.4768749999986399,
+          "shaft_energy_kJ": 161.1815353809064,
+          "average_shaft_kW": 24.8856949348166,
+          "peak_shaft_kW": 28.500000000000007,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "peak_shaft_torque_Nm": 183.8884815453656,
+          "peak_working_bar": 292.9998096702608,
+          "extra_recharge_s": 0.3243749999999945,
+          "dose_throughput_kg_h": 461.33359065917244,
+          "oil_heat_budget_kW": 19.08248790761355
+        },
+        {
+          "profile": "pessimistic",
+          "bulk_density_kg_m3": 90,
+          "cycle_s": 7.510937499997699,
+          "margin_to_6_s": -1.5109374999976994,
+          "shaft_energy_kJ": 178.95044853132055,
+          "average_shaft_kW": 23.825314553792435,
+          "peak_shaft_kW": 28.500000000000007,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "peak_shaft_torque_Nm": 183.8884815453656,
+          "peak_working_bar": 292.98920995594125,
+          "extra_recharge_s": 0.4774999999999912,
+          "dose_throughput_kg_h": 397.8198460579542,
+          "oil_heat_budget_kW": 18.87000052630898
+        },
+        {
+          "profile": "pessimistic",
+          "bulk_density_kg_m3": 160,
+          "cycle_s": 6.989062499998174,
+          "margin_to_6_s": -0.9890624999981741,
+          "shaft_energy_kJ": 165.37115479917992,
+          "average_shaft_kW": 23.661421656942277,
+          "peak_shaft_kW": 28.500000000000007,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "peak_shaft_torque_Nm": 183.8884815453656,
+          "peak_working_bar": 292.9892096967596,
+          "extra_recharge_s": 0.2709374999999956,
+          "dose_throughput_kg_h": 427.5251509055443,
+          "oil_heat_budget_kW": 18.419058783343548
+        }
+      ],
+      "base_and_high_duties_0p64_s_0p83_kg": [
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 7.100624999997919,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 1059.864584670376
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 7.113749999997907,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 1061.7173489143831
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 7.31937499999772,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 1089.4110951422576
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.61562499999836,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 1059.8645846703757
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.628749999998348,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 1061.7173489143836
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.834374999998161,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 1089.411095142258
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.661875000001121,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 886.4410737866169
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.665000000001123,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 887.875490623455
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 7.413125000001505,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 982.1226865378935
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": null,
+          "cycle_s": 6.173125000000871,
+          "nominal_force_N": 1520000,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 886.4410737866169
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 270,
+          "cycle_s": 6.176875000000873,
+          "nominal_force_N": 1531121.781491242,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 887.8754906234554
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "specified_max_pressure_bar": 300,
+          "cycle_s": 6.925000000001256,
+          "nominal_force_N": 1704763.890640457,
+          "shaft_peak_with_tolerance_kW": 29.925000000000008,
+          "immediate_density_kg_m3": 982.1226865378939
+        }
+      ],
+      "max_heat_duty_kW": 19.46774922760443,
+      "cooling": {
+        "cooler_capacity_at_design_kW": 18.9,
+        "cooling_margin_kW": -0.5677492276044305,
+        "predicted_oil_C": 55.45059462508288,
+        "circulation_L_min": 250,
+        "circulation_shaft_kW": 1.0256410256410255,
+        "tank_working_oil_L": 575,
+        "tank_gross_L": 750,
+        "tank_time_at_full_flow_s": 74.27749679115063,
+        "tank_time_at_mean_flow_s": 170.32715312479684,
+        "tank_reference_min_3min_L": 1393.4233714285715,
+        "tank_reference_max_5min_L": 2322.3722857142857,
+        "installed_kW": {
+          "main_motor": 30,
+          "pilot_pack": 0.75,
+          "cooler_fan": 1.1,
+          "cooler_circulation": 1.1,
+          "dosing": 0.75,
+          "controls_and_valves": 0.5
+        },
+        "installed_total_kW": 34.2
+      },
+      "pump_station_filled_kg": 1574.85,
+      "valve_count": 24,
+      "valves_by_NG": {
+        "main_NG40": 3,
+        "main_NG50": 2,
+        "pre_NG25": 4,
+        "gate_NG16": 4,
+        "lp_NG25": 3,
+        "relief_NG16": 2,
+        "tandem_join_NG40": 1,
+        "neutral_NG40": 1,
+        "neutral_NG16": 1,
+        "hp_NG16": 3
+      },
+      "minimum_throughput_1p068_kg_kg_h": 451.6651982378197,
+      "hp_accumulator_balance": {
+        "header_input_kJ": 8.327089376196364,
+        "stored_gas_energy_kJ": 8.23903366440683,
+        "returned_gas_energy_kJ": 8.23903367192762,
+        "press_header_delivery_kJ": 6.527011933329203,
+        "hydraulic_round_trip_eta": 0.783828735162514
+      }
+    }
+  }
+}

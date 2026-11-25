@@ -1,0 +1,174 @@
+{
+  "task": "T-1.4",
+  "round": 2,
+  "python_version": "3.13.17",
+  "checks": {
+    "compile_without_bytecode": {
+      "status": "PASS",
+      "files": 3
+    },
+    "periodic_pressure_power_flow_and_convergence": {
+      "status": "PASS",
+      "matrix_cases_by_variant": {
+        "V1": 28,
+        "V2": 48,
+        "V3": 28
+      },
+      "comparison_profiles_per_variant": 6,
+      "max_adjacent_step_delta_s": 0.04750000000052079,
+      "max_final_step_delta_s": 0.024999999998484235,
+      "smallest_step_s": 0.0003125,
+      "maximum_repeating_period_cycles": 1,
+      "max_displacement_closure_fraction": 0.0023496155799705987
+    },
+    "linear_full_stroke_times_and_motor_limit": {
+      "status": "PASS",
+      "variant_torques": {
+        "V1": {
+          "guarded_torque_with_tolerance_Nm": 193.08290562263386,
+          "fault_120bar_full_stroke_torque_Nm_at_1480rpm": 848.8927797012393
+        },
+        "V2": {
+          "guarded_torque_with_tolerance_Nm": 193.08290562268274,
+          "fault_120bar_full_stroke_torque_Nm_at_1480rpm": 391.34307852919756
+        },
+        "V3": {
+          "guarded_torque_with_tolerance_Nm": 193.0829056226339,
+          "fault_120bar_full_stroke_torque_Nm_at_1480rpm": 713.3999268017805
+        }
+      },
+      "motor_catalogue_breakdown_torque_Nm": 446.2
+    },
+    "restored_upstream_interlocks": {
+      "status": "PASS",
+      "takeoff_pull_end_s": 5.279999999999997,
+      "gate_close_command_s": 5.827499999999888,
+      "pre_hold_charge_end_s": 0.7387499999999898,
+      "regen_command_s": 0.7387499999999898
+    },
+    "round_1_artifacts": {
+      "status": "PASS",
+      "scope": "historical only",
+      "params_sha256": "fcde494115d79e4c74d71ea6ca1b03c1542523f39cc7548e39f66b91c6aede43",
+      "gates_sha256": "813738a45c63565f5d05af8a40925eead7f191086d2c53f207c21582eea2c768",
+      "cycle_s": 5.903600560044211,
+      "gate_rerun_bytes_equal": true
+    },
+    "round_2_v1_diagnostic_gates": {
+      "status": "FAIL",
+      "return_code": 1,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "FAIL"
+      },
+      "failed_cycle_checks": [
+        "cycle_time_limit"
+      ],
+      "g_pface_MPa": 168.88888888888889,
+      "g_dose_mm": 289,
+      "g_cycle_s": 7.846894835580278,
+      "reference_cycle_s": 6.613749999998362,
+      "difference_s": 1.233144835581916,
+      "tolerance_s": 0.15,
+      "phase_differences": {
+        "pre_down": {
+          "reference_s": 0.6612500000000159,
+          "gate_s": 0.5803698186956124,
+          "gate_minus_reference_s": -0.08088018130440344
+        },
+        "regen": {
+          "reference_s": 0.946874999999932,
+          "gate_s": 1.2730392300674849,
+          "gate_minus_reference_s": 0.3261642300675529
+        },
+        "press": {
+          "reference_s": 1.615312500000548,
+          "gate_s": 2.000092534476906,
+          "gate_minus_reference_s": 0.3847800344763579
+        },
+        "hold": {
+          "reference_s": 0.30000000000007665,
+          "gate_s": 0.30000000000000027,
+          "gate_minus_reference_s": -7.638334409421077e-14
+        },
+        "unload": {
+          "reference_s": 0.2000000000000255,
+          "gate_s": 0.20000000000000018,
+          "gate_minus_reference_s": -2.531308496145357e-14
+        },
+        "gate_open": {
+          "reference_s": 0.33000000000009244,
+          "gate_s": 0.2666666666666666,
+          "gate_minus_reference_s": -0.06333333333342583
+        },
+        "eject_return_close": {
+          "reference_s": 1.85812499999831,
+          "gate_s": 2.091802249495509,
+          "gate_minus_reference_s": 0.23367724949719904
+        },
+        "feed": {
+          "reference_s": 0.6399999999994179,
+          "gate_s": 0.6399999999999997,
+          "gate_minus_reference_s": 5.81756864903582e-13
+        },
+        "recharge": {
+          "reference_s": 0.06218750000000005,
+          "gate_s": 0.4949243361780995,
+          "gate_minus_reference_s": 0.43273683617809944
+        }
+      },
+      "gate_eta": 0.519,
+      "position_delays_s": {
+        "return 1": 0.8838514851030567,
+        "gate_close 1": 1.259851486103051,
+        "pre_up 1": 0.6236921338734099
+      },
+      "params_double_run_status": "PASS",
+      "params_sha256_both_runs": "df42345d5327c81fc9795cdba7c46e0cf5e099823e743088022feea724ef2178",
+      "generation_arguments": [
+        "--diagnostic",
+        "--out",
+        "<temporary subdirectory of calc/T-1.4>/params.t14.yaml"
+      ]
+    },
+    "round_2_selection": {
+      "status": "NOT_MET",
+      "required_max_with_margin_s": 5.85,
+      "selected_variant": null,
+      "fastest_variant": "V2",
+      "final_params_and_acceptance_gate": "NOT_APPLICABLE_NO_SELECTED_VARIANT"
+    },
+    "export_without_selection": {
+      "status": "PASS",
+      "return_code": 2
+    },
+    "protected_tracked_paths": {
+      "status": "PASS",
+      "command": "git diff --exit-code"
+    },
+    "upstream_cycle_reproduction": {
+      "status": "PASS",
+      "cycle_s": 6.908749999999697,
+      "expected_s": 6.908749999999697
+    },
+    "reference_double_run": {
+      "status": "PASS",
+      "return_codes": [
+        0,
+        0
+      ],
+      "command": "E:/Tools/Python313/python.exe -B calc/T-1.4/x1_calc.py",
+      "bytewise_equal": true,
+      "results_sha256_both_runs": "3cae68478b9fe1def94c43c0913b8a3cbfe242ecea80a0b01f5835200e578304"
+    },
+    "deliverables_and_scope": {
+      "status": "PASS",
+      "files_present": 10,
+      "historical_only": [
+        "design/params.t14.yaml",
+        "gates.t14.json"
+      ]
+    }
+  }
+}
