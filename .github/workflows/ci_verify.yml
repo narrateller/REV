@@ -55,4 +55,4 @@ jobs:
         run: python -c "import json,sys; v=json.load(open('ops/calibration/w02_04.json',encoding='utf-8'))['verdict']; print(v); sys.exit(v!='MATCH')"
       - name: Runner dry-run probe (echo adapter)
         run: |
-          python ops/run_task.py --probe --dry-run
+          python ops/run_task.py --probe --dry-run || { for f in ops/runs/T-PROBE/*/gates.json ops/runs/T-PROBE/*/meta.json; do echo "== $f"; head -c 3000 "$f"; echo; done; exit 1; }
