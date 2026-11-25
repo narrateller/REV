@@ -1,0 +1,89 @@
+{
+  "G-FEA": "pending",
+  "bench_tests": "pending",
+  "checks": {
+    "circuit": {
+      "defects": 0,
+      "inherited_mutants": 24,
+      "mechanical_removed_mutants": [
+        "remove_eject_gate_permission",
+        "remove_gate_close_ram_permission",
+        "remove_feed_bolt_permissions"
+      ],
+      "reference_rows": 114,
+      "rejected_mutants": 33,
+      "status": "PASS"
+    },
+    "inputs_and_outputs": {
+      "protected_tracked_paths_git_diff": "clean",
+      "python_files_compiled": 14,
+      "status": "PASS",
+      "svg_valid_xml": true,
+      "yaml_files_parsed": 5
+    },
+    "mass_reconciliation": {
+      "baseline_and_round1_sums_reproduced": true,
+      "round2_station_and_machine_rows_sum": true,
+      "status": "PASS",
+      "uncredited_blocks_kg": 0
+    },
+    "retained_round1_numbers": {
+      "XCH_absent": true,
+      "metrics": {
+        "ZUP_backpressure_bar": 0.9912728867749124,
+        "adverse_cycle_s": 6.060971402299245,
+        "cooler_dirty_capacity_kW": 26.48994642857143,
+        "cylinder_static_yield_factor": 1.6282772858038033,
+        "heat_load_kW": 21.143607577241763,
+        "installed_kW": 33.9,
+        "nominal_cycle_s": 5.6087839023006625,
+        "pilot_hot_capacity_margin_L_per_cycle": 0.027800208333361994,
+        "pilot_hot_minimum_bar": 133.7161685093897,
+        "rms_shaft_kW": 29.837005142763037
+      },
+      "status": "PASS"
+    },
+    "two_runs_byte_for_byte": {
+      "sha256_each_run": [
+        {
+          "calc/T-1.6/results.json": "110995a66b27a8562d637f15dd934e62e8ead8e52697ca9e4414c9e0b45b53ec",
+          "design/hydraulics/T-1.6_circuit.svg": "1ffa9912bfbe1160bff8b9f72b0ec104ded4fcf1a632c2ff10960710b0923947"
+        },
+        {
+          "calc/T-1.6/results.json": "110995a66b27a8562d637f15dd934e62e8ead8e52697ca9e4414c9e0b45b53ec",
+          "design/hydraulics/T-1.6_circuit.svg": "1ffa9912bfbe1160bff8b9f72b0ec104ded4fcf1a632c2ff10960710b0923947"
+        }
+      ],
+      "status": "PASS"
+    }
+  },
+  "commands": [
+    "REV_PYTHON -B ops/gates/calc_gates.py --params design/params.t14b.yaml --criteria ops/criteria/design_criteria.yaml --out E:\\Projects\\REV-wt\\T-1.6\\gates.t16.json",
+    "REV_PYTHON -B calc/T-1.6/mass_budget.py",
+    "REV_PYTHON -B calc/T-1.6/check_circuit.py",
+    "REV_PYTHON -B calc/T-1.6/draw_circuit.py"
+  ],
+  "design_acceptance": {
+    "ZUP_drain_pass": true,
+    "adverse_cycle_6_s_pass": false,
+    "circuit_pass": true,
+    "cooling_pass": true,
+    "cylinder_static_and_suction_pass": true,
+    "frame_1350_screen_pass": true,
+    "heat_target_pass": false,
+    "main_motor_mean_and_peak_pass": true,
+    "mass_pass": true,
+    "min_25_kW_capacity_pass": true,
+    "nominal_cycle_pass": true,
+    "pilot_hot_pass": true,
+    "rms_29_pass": false
+  },
+  "gates": {
+    "G-CYCLE": "PASS",
+    "G-DOSE": "PASS",
+    "G-PFACE": "PASS"
+  },
+  "python": "3.13.17",
+  "review_round": 2,
+  "task": "T-1.6"
+}
