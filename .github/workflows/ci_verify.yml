@@ -8,6 +8,8 @@ permissions:
 jobs:
   basics:
     runs-on: ubuntu-latest
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'   # runner tests clone the repo; LFS payloads are not needed
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
