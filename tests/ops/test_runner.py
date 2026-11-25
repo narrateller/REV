@@ -349,6 +349,7 @@ class RunnerTest(unittest.TestCase):
         self.assertEqual(read_json(outcome.run_dir / "meta.json")["status"], "TIMEOUT")
         self.assertFalse((self.ops / "state" / "quota.json").exists())
 
+    @unittest.skipUnless(os.name == 'nt', 'runner targets Windows: drive-letter PATH entries and os.pathsep')
     def test_backend_selection_and_role_effort(self):
         card = read_card(self.card("backend: bos\n"), "T-TEST")
         profiles = read_backends(self.ops / "backends.yaml", card, "auto")
