@@ -1,0 +1,118 @@
+{
+  "task": "T-0.3c",
+  "python": "3.13.17",
+  "pytest": {
+    "argv": [
+      "E:\\Tools\\Python313\\python.exe",
+      "-m",
+      "pytest",
+      "tests/ops",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "<worktree>/T-0.3c-test-<id>.tmp/pytest",
+      "-rs"
+    ],
+    "exit_code": 0,
+    "passed": 126,
+    "failed": 0,
+    "skipped": 1,
+    "skipped_tests": [
+      {
+        "id": "tests/ops/test_geom_gates.py::test_freecad_geometry",
+        "reason": "could not import 'FreeCAD': No module named 'FreeCAD'"
+      }
+    ]
+  },
+  "gate_cli": {
+    "argv": [
+      "E:\\Tools\\Python313\\python.exe",
+      "-B",
+      "ops/gates/calc_gates.py",
+      "--params",
+      "<params>",
+      "--criteria",
+      "ops/criteria/design_criteria.yaml",
+      "--gates",
+      "<gates>",
+      "--out",
+      "<worktree>/T-0.3c-gates-<id>.tmp/report.json"
+    ],
+    "runs": [
+      {
+        "params": "design/params.m1.yaml",
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "PASS"
+        },
+        "exit_code": 0
+      },
+      {
+        "params": "design/params.t12.yaml",
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "FAIL"
+        },
+        "exit_code": 1
+      },
+      {
+        "params": "design/params.t12b.yaml",
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "FAIL"
+        },
+        "exit_code": 1
+      },
+      {
+        "params": "ops/calibration/x1_overlap.params.yaml",
+        "gates": {
+          "G-CYCLE": "PASS"
+        },
+        "exit_code": 0,
+        "calibration": "MATCH"
+      },
+      {
+        "params": "ops/calibration/t12b_overlap.params.yaml",
+        "gates": {
+          "G-CYCLE": "FAIL"
+        },
+        "exit_code": 1,
+        "calibration": "MATCH"
+      },
+      {
+        "params": "ops/calibration/t12b_overlap_feed064.params.yaml",
+        "gates": {
+          "G-CYCLE": "FAIL"
+        },
+        "exit_code": 1,
+        "calibration": "MATCH"
+      },
+      {
+        "params": "ops/calibration/w02_04_params.yaml",
+        "gates": {
+          "G-PFACE": "FAIL",
+          "G-DOSE": "FAIL",
+          "G-CYCLE": "FAIL"
+        },
+        "exit_code": 1,
+        "calibration": "MATCH"
+      }
+    ]
+  },
+  "main_comparison": {
+    "ref": "e80a68cff912aa730e15c680ca7a8d5af598cc7e",
+    "method": "Run calc_gates.py from git show <ref>:ops/gates/calc_gates.py in memory against the same inputs and criteria v3, then compare with the current CLI JSON reports.",
+    "cases_compared": 7,
+    "cycle_time_status_phases_and_failed_checks_match_exactly": true,
+    "selected_pface_and_dose_reports_match_exactly": true
+  },
+  "scope": {
+    "git_diff_check_non_lfs_exit_code": 0,
+    "criteria_calibrations_and_design_inputs_diff_exit_code": 0,
+    "criteria_sha256_before": "1f7cd469428eb9b027484cb5a0bc74776be7d69370e86c14b3040ffbcf9f94af",
+    "criteria_sha256_after": "1f7cd469428eb9b027484cb5a0bc74776be7d69370e86c14b3040ffbcf9f94af"
+  }
+}

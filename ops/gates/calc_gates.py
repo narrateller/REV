@@ -284,7 +284,8 @@ def evaluate_dose(params, criteria):
 def pump_flow_L_min(drive, pressure_bar):
     if pressure_bar == 0:
         return drive["pump_max_flow_L_min"]
-    return min(drive["pump_max_flow_L_min"], 600 * drive["motor_kW"] * drive["eta"] / pressure_bar)
+    peak_kW = drive.get("peak_kW", drive["motor_kW"])
+    return min(drive["pump_max_flow_L_min"], 600 * peak_kW * drive["eta"] / pressure_bar)
 
 
 def pump_energy_kJ(oil_L, pressure_bar, eta):
@@ -388,35 +389,50 @@ class GroupPhase:
 
 
 @dataclass
+class CyclePower:
+    idle_kW: float
+    idle_s: float = 0.0
+    peak_kW: float = 0.0
+    squared_power_time_kW2_s: float = 0.0
+
+    def record(self, power_kW, duration_s):
+        if duration_s > 0:
+            self.peak_kW = max(self.peak_kW, power_kW)
+            self.squared_power_time_kW2_s += power_kW * power_kW * duration_s
+
+    def record_idle(self, duration_s):
+        self.idle_s += duration_s
+        self.record(self.idle_kW, duration_s)
+
+
+@dataclass
 class CycleSupply:
     drive: dict
     available_oil_L: float
+    power: CyclePower
     idle_pump_oil_L: float = 0.0
-    idle_charge_s: float = 0.0
-    peak_drive_kW: float = 0.0
     peak_hydraulic_kW: float = 0.0
 
-    def charge_in_idle(self, duration_s):
+    def use_idle_interval(self, duration_s):
         accumulator = self.drive.get("accumulator", {})
-        if not accumulator.get("recharge_when_idle"):
-            return
-        capacity_L = accumulator["usable_oil_L"]
+        capacity_L = accumulator.get("usable_oil_L", 0.0)
         missing_L = capacity_L - self.available_oil_L
-        if missing_L <= 0:
-            return
-        charge = recharge_phase(accumulator, self.drive, missing_L)
-        time_s = min(duration_s, charge["time_s"])
-        fraction = time_s / charge["time_s"]
-        self.available_oil_L = min(capacity_L, self.available_oil_L + missing_L * fraction)
-        self.idle_pump_oil_L += charge["pump_oil_L"] * fraction
-        self.idle_charge_s += time_s
-        power_kW = charge["motor_energy_kJ"] / charge["time_s"]
-        self.peak_drive_kW = max(self.peak_drive_kW, power_kW)
-        self.peak_hydraulic_kW = max(self.peak_hydraulic_kW, power_kW)
+        charge_s = 0.0
+        if accumulator.get("recharge_when_idle") and missing_L > 0:
+            charge = recharge_phase(accumulator, self.drive, missing_L)
+            charge_s = min(duration_s, charge["time_s"])
+            fraction = charge_s / charge["time_s"]
+            self.available_oil_L = min(capacity_L, self.available_oil_L + missing_L * fraction)
+            self.idle_pump_oil_L += charge["pump_oil_L"] * fraction
+            power_kW = charge["motor_energy_kJ"] / charge["time_s"]
+            self.power.record(power_kW, charge_s)
+            self.peak_hydraulic_kW = max(self.peak_hydraulic_kW, power_kW)
+        self.power.record_idle(duration_s - charge_s)
 
 
 def group_phases(phases, cylinders, drive, group_start_s, previous_row):
     """Schedule valve commands; continuations in a group wait for their predecessor."""
+    has_travel = any(phase.get("stroke_mm", 0) > 0 for phase in phases)
     states = []
     group_switch_counted = False
     for phase in phases:
@@ -424,6 +440,8 @@ def group_phases(phases, cylinders, drive, group_start_s, previous_row):
         hydraulic = actuator != "none"
         delay_s = phase.get("start_delay_s", 0.0)
         continues = phase.get("continues", False)
+        if phase.get("press") and len(phases) > 1:
+            raise InputError(f"{phase['name']}: press phase must be alone in group {phase['group']!r}")
         switch_s, valve_wait_s = 0.0, 0.0
         if hydraulic and not continues:
             valve_wait_s = SWITCH_S
@@ -433,10 +451,10 @@ def group_phases(phases, cylinders, drive, group_start_s, previous_row):
         ready_s = delay_s + valve_wait_s
         if continues and states:
             ready_s = None
-        elif continues and (previous_row is None or not at_most(
-            abs(group_start_s - (previous_row["motion_end_s"] or 0.0)), 0.0
-        )):
-            raise InputError(f"{phase['name']}.continues: previous travel must end at the group boundary")
+        elif continues:
+            previous_end_s = previous_row["motion_end_s"] if previous_row else None
+            if previous_end_s is None or not math.isclose(group_start_s, previous_end_s, rel_tol=0.0, abs_tol=1e-9):
+                raise InputError(f"{phase['name']}.continues: previous travel must end at the group boundary")
         if hydraulic:
             row, flow_cap_L_min = phase_requirements(phase, cylinders[actuator], drive)
         else:
@@ -444,6 +462,13 @@ def group_phases(phases, cylinders, drive, group_start_s, previous_row):
                 "name": phase["name"], "actuator": "none", "stroke_mm": 0.0, "oil_L": 0.0,
                 "pressure_bar": 0.0, "dwell_s": phase["dwell_s"],
             }
+            if has_travel:
+                if not phase.get("overlap_allowed"):
+                    raise InputError(
+                        f"{phase['name']}: actuator none in group {phase['group']!r} with travel "
+                        "requires overlap_allowed: true"
+                    )
+                row["overlap_time_s"] = 0.0
             flow_cap_L_min = 0.0
         row.update(
             group=phase.get("group"), group_start_s=group_start_s,
@@ -514,12 +539,13 @@ def move_group(states, supply, positions_mm, step_s, elapsed_s):
             positions.append(positions[-1] + direction * row["stroke_mm"])
         else:
             state.remaining_L -= pump_L + boost_L
-    supply.peak_drive_kW = max(supply.peak_drive_kW, drive_power_kW)
+    supply.power.record(drive_power_kW, step_s)
     supply.peak_hydraulic_kW = max(supply.peak_hydraulic_kW, hydraulic_power_kW)
     return step_s
 
 
 def run_group(states, supply, positions_mm):
+    overlap_pauses = [state for state in states if "overlap_time_s" in state.row]
     elapsed_s = 0.0
     while True:
         active = {}
@@ -552,24 +578,35 @@ def run_group(states, supply, positions_mm):
                 state.remaining_L > 0 for state in active.values()
             ):
                 raise InputError("group motion step is below time resolution")
+            for pause in overlap_pauses:
+                overlap_start_s = max(elapsed_s, pause.ready_s)
+                overlap_end_s = min(next_s, pause.ready_s + pause.row["dwell_s"])
+                pause.row["overlap_time_s"] += max(0.0, overlap_end_s - overlap_start_s)
         else:
             next_s = pending_s if pending_s < math.inf else max(elapsed_s, group_end_s)
             if next_s == elapsed_s:
                 return elapsed_s
             # Constant charge flow has an exact integral on intervals without motion.
-            supply.charge_in_idle(next_s - elapsed_s)
+            supply.use_idle_interval(next_s - elapsed_s)
         elapsed_s = next_s
 
 
-def evaluate_timed_phases(cycle, cylinders, drive, positions_mm):
+def evaluate_timed_phases(cycle, cylinders, drive, positions_mm, power_profile, warnings):
     accumulator = drive.get("accumulator")
     capacity_L = accumulator["usable_oil_L"] if accumulator else 0.0
-    supply = CycleSupply(drive, capacity_L)
+    supply = CycleSupply(drive, capacity_L, power_profile)
     rows = []
     cycle_s = 0.0
     for _, group in groupby(enumerate(cycle), key=lambda item: item[1].get("group", item[0])):
         states = group_phases([phase for _, phase in group], cylinders, drive, cycle_s,
                               rows[-1] if rows else None)
+        uncapped = [state.row["name"] for state in states if state.remaining_L > 0
+                    and math.isinf(state.flow_cap_L_min)]
+        if len(uncapped) > 1:
+            warnings.append(
+                f"группа {states[0].row['group']!r}: несколько фаз pump без max_speed_mm_s "
+                f"({', '.join(uncapped)}). Приоритет распределения подачи задаёт порядок YAML"
+            )
         duration_s = run_group(states, supply, positions_mm)
         for state in states:
             row = state.row
@@ -585,9 +622,14 @@ def evaluate_timed_phases(cycle, cylinders, drive, positions_mm):
                 motion_s=motion_s, time_s=motion_s + row["dwell_s"], available_flow_L_min=flow_L_min,
                 requested_speed_met=required_L_min is None or at_most(required_L_min, flow_L_min),
             )
+            if "overlap_time_s" in row:
+                warnings.append(
+                    f"группа {row['group']!r}: фаза {row['name']!r} с overlap_allowed "
+                    f"перекрывает движение на {row['overlap_time_s']:.9g} с"
+                )
             rows.append(row)
         cycle_s += duration_s
-    if supply.idle_charge_s:
+    if supply.idle_pump_oil_L:
         idle = recharge_phase(accumulator, drive, supply.idle_pump_oil_L * accumulator["round_trip_eta"])
         idle.update(name="Accumulator recharge during idle", switch_s=0.0, time_s=0.0,
                     peak_drive_power_kW=idle["motor_energy_kJ"] / idle["motion_s"],
@@ -601,12 +643,13 @@ def evaluate_timed_phases(cycle, cylinders, drive, positions_mm):
                     peak_drive_power_kW=tail_power_kW, peak_hydraulic_power_kW=tail_power_kW)
         rows.append(tail)
         cycle_s = tail["end_s"]
-        supply.peak_drive_kW = max(supply.peak_drive_kW, tail_power_kW)
+        power_profile.record_idle(SWITCH_S)
+        power_profile.record(tail_power_kW, tail["time_s"])
         supply.peak_hydraulic_kW = max(supply.peak_hydraulic_kW, tail_power_kW)
-    return rows, cycle_s, supply.peak_drive_kW, supply.peak_hydraulic_kW
+    return rows, cycle_s, supply.peak_hydraulic_kW
 
 
-def evaluate_serial_phases(cycle, cylinders, drive, positions_mm):
+def evaluate_serial_phases(cycle, cylinders, drive, positions_mm, power_profile, legacy_peak):
     accumulator = drive.get("accumulator")
     available_oil_L = accumulator["usable_oil_L"] if accumulator else 0.0
     rows = []
@@ -625,25 +668,42 @@ def evaluate_serial_phases(cycle, cylinders, drive, positions_mm):
         row["switch_s"] = 0.0 if row.get("continues") else SWITCH_S
         total_flow_L_min = row["pump_rate_L_min"] + row["accumulator_rate_L_min"]
         pressure_bar = row["pressure_bar"]
-        row["peak_drive_power_kW"] = pressure_bar * row["required_pump_flow_L_min"] / (600 * drive["eta"])
+        shaft_power_kW = pressure_bar * row["pump_rate_L_min"] / (600 * drive["eta"])
+        power_profile.record(shaft_power_kW, row["motion_s"])
+        power_profile.record_idle(row["dwell_s"] + row["switch_s"])
+        # Legacy criteria used the power required by a commanded speed in this path.
+        row["peak_drive_power_kW"] = (pressure_bar * row["required_pump_flow_L_min"] / (600 * drive["eta"])
+                                      if legacy_peak else shaft_power_kW)
         row["peak_hydraulic_power_kW"] = pressure_bar * total_flow_L_min / (600 * drive["eta"])
     return (rows, math.fsum(row["time_s"] + row["switch_s"] for row in rows),
-            max(row["peak_drive_power_kW"] for row in rows), max(row["peak_hydraulic_power_kW"] for row in rows))
+            max(row["peak_hydraulic_power_kW"] for row in rows))
 
 
 def evaluate_cycle(params, criteria):
     perf, power, hyd, face = (criteria[key] for key in CRITERIA_IDS["G-CYCLE"])
     cycle, drive = params["cycle"], params["drive"]
+    max_peak_kW = power.get("max_peak_kW", power["max_main_kW"])
+    drive_peak_kW = drive.get("peak_kW", drive["motor_kW"])
+    legacy_peak = "max_peak_kW" not in power and "peak_kW" not in drive
+    power_profile = CyclePower(drive.get("idle_kW", 0.0))
+    warnings = []
     cylinders = actuators(params)
     accumulator = drive.get("accumulator")
     positions_mm = {name: [0.0] for name in cylinders}
     timed = (accumulator and accumulator.get("recharge_when_idle")) or any(
         "group" in phase or phase.get("start_delay_s") or phase["actuator"] == "none" for phase in cycle
     )
-    evaluate_phases = evaluate_timed_phases if timed else evaluate_serial_phases
-    rows, cycle_s, peak_drive_power_kW, peak_hydraulic_power_kW = evaluate_phases(
-        cycle, cylinders, drive, positions_mm
-    )
+    if timed:
+        rows, cycle_s, peak_hydraulic_power_kW = evaluate_timed_phases(
+            cycle, cylinders, drive, positions_mm, power_profile, warnings
+        )
+    else:
+        rows, cycle_s, peak_hydraulic_power_kW = evaluate_serial_phases(
+            cycle, cylinders, drive, positions_mm, power_profile, legacy_peak
+        )
+    peak_drive_power_kW = power_profile.peak_kW
+    if legacy_peak and not timed:
+        peak_drive_power_kW = max(peak_drive_power_kW, max(row["peak_drive_power_kW"] for row in rows))
     press_rows = [row for row in rows if row.get("press")]
     minimum_force_N = face["nominal_force_min_N"]
     for row in press_rows:
@@ -656,8 +716,10 @@ def evaluate_cycle(params, criteria):
                  for name, cylinder in cylinders.items()}
     if params["precompaction"] is not None:
         limits_mm["precompaction"] = params["precompaction"]["stroke_mm"]
-    total_energy_kJ = math.fsum(row["motor_energy_kJ"] for row in rows)
+    idle_energy_kJ = power_profile.idle_kW * power_profile.idle_s
+    total_energy_kJ = math.fsum(row["motor_energy_kJ"] for row in rows) + idle_energy_kJ
     average_power_kW = total_energy_kJ / cycle_s
+    rms_power_kW = math.sqrt(power_profile.squared_power_time_kW2_s / cycle_s)
     installed_kW = drive.get("installed_kW")
     max_pressure_bar = max(row["pressure_bar"] for row in rows)
     if accumulator:
@@ -665,9 +727,8 @@ def evaluate_cycle(params, criteria):
     checks = {
         "cycle_time_limit": at_most(cycle_s, perf["max_cycle_s"]),
         "average_power_limit": at_most(average_power_kW, power["max_main_kW"]),
-        "peak_drive_power_limit": at_most(peak_drive_power_kW, power["max_main_kW"]),
+        "peak_drive_power_limit": at_most(peak_drive_power_kW, max_peak_kW),
         "motor_rating_limit": at_most(drive["motor_kW"], power["max_main_kW"]),
-        "pump_power_within_motor_rating": at_most(peak_drive_power_kW, drive["motor_kW"]),
         "working_pressure_limit": at_most(max_pressure_bar, hyd["max_working_bar"]),
         "press_phase_present": bool(press_rows),
         "press_configuration_valid": all(row["press_configuration_valid"] for row in press_rows),
@@ -677,7 +738,12 @@ def evaluate_cycle(params, criteria):
         "requested_speeds_met": all(row.get("requested_speed_met", True) for row in rows),
         "accumulator_pressure_covered": all(row.get("accumulator_pressure_covered", True) for row in rows),
     }
-    warnings = []
+    if legacy_peak:
+        checks["pump_power_within_motor_rating"] = at_most(peak_drive_power_kW, drive["motor_kW"])
+    else:
+        checks["peak_rating_limit"] = at_most(drive_peak_kW, max_peak_kW)
+    if "max_rms_kW" in power:
+        checks["rms_power_limit"] = at_most(rms_power_kW, power["max_rms_kW"])
     if installed_kW is None:
         warnings.append("установленная мощность не задана")
     else:
@@ -691,9 +757,11 @@ def evaluate_cycle(params, criteria):
         "switch_time_s": math.fsum(row["switch_s"] for row in rows),
         "total_oil_L": math.fsum(row["oil_L"] for row in rows),
         "total_pump_oil_L": math.fsum(row["pump_oil_L"] for row in rows),
-        "total_motor_energy_kJ": total_energy_kJ, "average_power_kW": average_power_kW,
+        "total_motor_energy_kJ": total_energy_kJ, "average_power_kW": average_power_kW, "rms_power_kW": rms_power_kW,
+        "squared_power_time_kW2_s": power_profile.squared_power_time_kW2_s,
+        "idle_kW": power_profile.idle_kW, "idle_time_s": power_profile.idle_s, "idle_motor_energy_kJ": idle_energy_kJ,
         "peak_hydraulic_power_kW": peak_hydraulic_power_kW, "peak_drive_power_kW": peak_drive_power_kW,
-        "motor_kW": drive["motor_kW"], "installed_kW": installed_kW,
+        "motor_kW": drive["motor_kW"], "peak_kW": drive_peak_kW, "installed_kW": installed_kW,
         "max_pressure_bar": max_pressure_bar, "actuator_travel_mm": travel_mm, "actuator_limits_mm": limits_mm,
     }
     main = params["main_cylinder"]
@@ -701,11 +769,14 @@ def evaluate_cycle(params, criteria):
         piston_mm2 = piston_area_mm2(main)
         retract_mm2 = motion_area_mm2(main, {"direction": "retract", "regeneration": False})
         details["main_full_stroke_round_trip_oil_L"] = (piston_mm2 + retract_mm2) * main["stroke_mm"] / 1e6
-    return result("G-CYCLE", cycle_s, {
+    threshold = {
         "max_cycle_s": perf["max_cycle_s"], "max_average_power_kW": power["max_main_kW"],
-        "max_peak_drive_power_kW": power["max_main_kW"], "max_installed_kW": power["max_installed_kW"],
+        "max_peak_drive_power_kW": max_peak_kW, "max_installed_kW": power["max_installed_kW"],
         "max_pressure_bar": hyd["max_working_bar"], "min_press_force_N": minimum_force_N,
-    }, "s", CRITERIA_IDS["G-CYCLE"], details, status=status)
+    }
+    if "max_rms_kW" in power:
+        threshold["max_rms_power_kW"] = power["max_rms_kW"]
+    return result("G-CYCLE", cycle_s, threshold, "s", CRITERIA_IDS["G-CYCLE"], details, status=status)
 
 
 GATES = {"G-PFACE": evaluate_pface, "G-DOSE": evaluate_dose, "G-CYCLE": evaluate_cycle}

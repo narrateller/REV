@@ -83,6 +83,13 @@ properties:
     required: [motor_kW, pump_max_flow_L_min, eta]
     properties:
       motor_kW: {$ref: '#/$defs/positive'}
+      peak_kW:
+        $ref: '#/$defs/positive'
+        description: Предел мощности на валу для расчёта доступной подачи насоса. По умолчанию равен motor_kW.
+      idle_kW:
+        $ref: '#/$defs/nonnegative'
+        default: 0
+        description: Мощность на валу во время пауз без движения и зарядки аккумулятора.
       installed_kW:
         $ref: '#/$defs/positive'
         description: Суммарная установленная мощность машины. При отсутствии G-CYCLE выдаёт предупреждение.
@@ -130,12 +137,17 @@ properties:
         - required: [stroke_mm, direction, speed_mm_s, regeneration]
           properties:
             actuator: {enum: [main_cylinder, precompaction, slide_gate]}
+            overlap_allowed: false
       properties:
         name: {type: string, minLength: 1}
         actuator: {enum: [main_cylinder, precompaction, slide_gate, none]}
         group:
           type: string
           description: Смежные фазы с одинаковой меткой образуют группу. Фаза без метки образует отдельную группу. Группа заканчивается после последней фазы.
+        overlap_allowed:
+          type: boolean
+          default: false
+          description: Явно разрешает фазе actuator none находиться в группе с движением. G-CYCLE сообщает длительность перекрытия.
         start_delay_s:
           $ref: '#/$defs/nonnegative'
           default: 0
@@ -151,6 +163,7 @@ properties:
           description: Заданная скорость для проверки подачи или pump для движения с доступной подачей.
         max_speed_mm_s:
           $ref: '#/$defs/positive'
+          maximum: 1000
           description: Верхний предел скорости при speed_mm_s = pump. Доступная подача может давать меньшую скорость.
         regeneration: {type: boolean}
         continues:
@@ -160,7 +173,7 @@ properties:
         press:
           type: boolean
           default: false
-          description: Финальное прессование прямым ходом главного цилиндра без регенерации. Для G-CYCLE нужна хотя бы одна такая фаза.
+          description: Финальное прессование прямым ходом главного цилиндра без регенерации. Для G-CYCLE нужна хотя бы одна такая фаза. Прессование занимает отдельную группу.
         use_accumulator: {type: boolean, default: false}
         dwell_s: {$ref: '#/$defs/nonnegative'}
 $defs:

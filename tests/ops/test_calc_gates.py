@@ -216,14 +216,70 @@ def test_cycle_time_and_pressure_boundaries(params, criteria):
 def test_cycle_average_power_boundary(params, criteria):
     params["cycle"] = [phase("out", "extend", 50, 300, press=True), phase("back", "retract", 50, 300)]
     energy_kJ = calc.evaluate_cycle(params, criteria)["details"]["total_motor_energy_kJ"]
-    params["drive"]["motor_kW"] = 30 * energy_kJ / (energy_kJ - 30 * 0.2)
+    params["drive"]["peak_kW"] = 30 * energy_kJ / (energy_kJ - 30 * 0.2)
     gate = calc.evaluate_cycle(params, criteria)
     assert gate["details"]["average_power_kW"] == pytest.approx(30)
     assert gate["details"]["checks"]["average_power_limit"]
-    assert not gate["details"]["checks"]["peak_drive_power_limit"]
+    assert gate["details"]["checks"]["peak_drive_power_limit"]
     assert gate["status"] == "FAIL"
-    params["drive"]["motor_kW"] += 0.001
+    params["drive"]["peak_kW"] += 0.001
     assert not calc.evaluate_cycle(params, criteria)["details"]["checks"]["average_power_limit"]
+
+
+@pytest.mark.parametrize("grouped", [False, True], ids=["serial", "grouped"])
+def test_peak_rating_increases_flow_and_rms_includes_idle(params, criteria, grouped):
+    params["cycle"] = [
+        phase("press", "extend", 10, 290, dwell_s=0.25, press=True),
+        phase("back", "retract", 10, 0),
+    ]
+    if grouped:
+        params["cycle"][0]["group"] = "press"
+    nominal = calc.evaluate_cycle(params, criteria)
+    params["drive"].update(peak_kW=40, idle_kW=4)
+    calc.validate_params(params)
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "PASS"
+    assert gate["value"] < nominal["value"]
+    details = gate["details"]
+    press, _ = details["phases"]
+    assert press["pump_limit_L_min"] == pytest.approx(600 * 40 * 0.9 / 290)
+    assert press["motion_s"] == pytest.approx(nominal["details"]["phases"][0]["motion_s"] * 30 / 40)
+    idle_s = 0.25 + 2 * calc.SWITCH_S
+    assert details["idle_time_s"] == pytest.approx(idle_s)
+    assert details["average_power_kW"] == pytest.approx((40 * press["motion_s"] + 4 * idle_s) / gate["value"])
+    assert details["rms_power_kW"] == pytest.approx(
+        math.sqrt((40**2 * press["motion_s"] + 4**2 * idle_s) / gate["value"])
+    )
+    assert details["peak_drive_power_kW"] == pytest.approx(40)
+
+
+def test_cycle_fails_only_rms_when_average_and_peak_meet_limits(params, criteria):
+    params["drive"]["peak_kW"] = 40
+    params["cycle"] = [phase("press", "extend", 40, 300, press=True), phase("back", "retract", 40, 300)]
+    phases = calc.evaluate_cycle(params, criteria)["details"]["phases"]
+    motion_s = math.fsum(row["motion_s"] for row in phases)
+    params["cycle"][0]["dwell_s"] = motion_s / 2 - 2 * calc.SWITCH_S
+    gate = calc.evaluate_cycle(params, criteria)
+    details = gate["details"]
+    assert gate["status"] == "FAIL"
+    assert details["average_power_kW"] == pytest.approx(40 * 2 / 3)
+    assert details["rms_power_kW"] == pytest.approx(40 * math.sqrt(2 / 3))
+    assert {key for key, passed in details["checks"].items() if not passed} == {"rms_power_limit"}
+
+
+def test_legacy_power_criteria_keep_nominal_peak_and_skip_rms_check(params, criteria):
+    power = criteria["C-PWR-01"]
+    del power["max_peak_kW"], power["max_rms_kW"]
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "PASS"
+    assert gate["threshold"]["max_peak_drive_power_kW"] == 30
+    assert "rms_power_limit" not in gate["details"]["checks"]
+    assert "max_rms_power_kW" not in gate["threshold"]
+    params["drive"]["peak_kW"] = 31
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "FAIL"
+    assert gate["details"]["peak_drive_power_kW"] == pytest.approx(31)
+    assert not gate["details"]["checks"]["peak_drive_power_limit"]
 
 
 def test_cycle_press_force_boundary_and_missing_phase(params, criteria):
@@ -264,8 +320,7 @@ def test_cycle_peak_and_installed_power_boundaries(params, criteria):
     params["drive"]["motor_kW"] += 0.001
     gate = calc.evaluate_cycle(params, criteria)
     assert gate["status"] == "FAIL"
-    assert not gate["details"]["checks"]["peak_drive_power_limit"]
-    assert gate["details"]["checks"]["average_power_limit"]
+    assert {key for key, passed in gate["details"]["checks"].items() if not passed} == {"motor_rating_limit"}
     params["drive"]["motor_kW"] = 30
     params["drive"]["installed_kW"] = 34.2
     assert calc.evaluate_cycle(params, criteria)["status"] == "PASS"
@@ -279,7 +334,30 @@ def test_cycle_peak_and_installed_power_boundaries(params, criteria):
     assert gate["details"]["warnings"] == ["установленная мощность не задана"]
 
 
-def test_cycle_requested_speed_overloads_30_kW_drive(tmp_path):
+def test_cycle_validates_declared_and_actual_peak_independently(params, criteria):
+    params["cycle"] = [phase("hold", "extend", 0, 290, dwell_s=0.1, press=True)]
+    params["drive"]["peak_kW"] = 40.001
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "FAIL"
+    assert {key for key, passed in gate["details"]["checks"].items() if not passed} == {"peak_rating_limit"}
+
+    params["cycle"] = [phase("press", "extend", 10, 290, press=True), phase("back", "retract", 10, 0)]
+    params["drive"].update(peak_kW=40, idle_kW=40.001)
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "FAIL"
+    assert gate["details"]["peak_drive_power_kW"] == pytest.approx(40.001)
+    assert gate["details"]["checks"]["peak_rating_limit"]
+    assert not gate["details"]["checks"]["peak_drive_power_limit"]
+
+
+@pytest.mark.parametrize("field, value", [("peak_kW", 0), ("idle_kW", -1), ("idle_kW", True)])
+def test_drive_power_schema_bounds(params, field, value):
+    params["drive"][field] = value
+    with pytest.raises(InputError, match=rf"drive\.{field}"):
+        calc.validate_params(params)
+
+
+def test_cycle_requested_speed_overloads_30_kW_drive(tmp_path, criteria):
     text = EXAMPLE.read_text(encoding="utf-8")
     path = tmp_path / "overload.yaml"
     path.write_text(text.replace("pressure_bar: 290, speed_mm_s: pump", "pressure_bar: 290, speed_mm_s: 40"),
@@ -292,11 +370,18 @@ def test_cycle_requested_speed_overloads_30_kW_drive(tmp_path):
     expected_flow_L_min = 60 * math.pi / 4 * 270**2 * 40 / 1e6
     assert press["required_flow_L_min"] == pytest.approx(expected_flow_L_min)
     assert press["available_flow_L_min"] == pytest.approx(600 * 30 * 0.9 / 290)
-    assert details["peak_drive_power_kW"] == pytest.approx(290 * expected_flow_L_min / (600 * 0.9))
+    assert details["peak_drive_power_kW"] == pytest.approx(30)
     assert details["checks"]["cycle_time_limit"]
     assert not details["checks"]["requested_speeds_met"]
-    assert not details["checks"]["peak_drive_power_limit"]
-    assert not details["checks"]["pump_power_within_motor_rating"]
+    assert details["checks"]["peak_drive_power_limit"]
+    assert details["checks"]["peak_rating_limit"]
+
+    power = criteria["C-PWR-01"]
+    del power["max_peak_kW"], power["max_rms_kW"]
+    legacy = calc.evaluate_cycle(load_yaml(path.read_bytes(), path), criteria)["details"]
+    assert legacy["peak_drive_power_kW"] == pytest.approx(290 * expected_flow_L_min / (600 * 0.9))
+    assert not legacy["checks"]["peak_drive_power_limit"]
+    assert not legacy["checks"]["pump_power_within_motor_rating"]
 
 
 @pytest.mark.parametrize("previous_change", [None, {"regeneration": True}, {"dwell_s": 0.1},
@@ -335,7 +420,7 @@ def test_cycle_accumulator_boost_does_not_count_as_drive_peak(params, criteria):
     assert out["peak_hydraulic_power_kW"] == pytest.approx(30 + 290 * 80 / (600 * 0.9))
     assert recharge["peak_drive_power_kW"] == pytest.approx(30)
     assert details["peak_hydraulic_power_kW"] > 30
-    assert details["checks"]["pump_power_within_motor_rating"]
+    assert details["checks"]["peak_rating_limit"]
 
 
 def test_cycle_required_speed_accounts_for_sustained_accumulator_delivery(params, criteria):
@@ -352,7 +437,8 @@ def test_cycle_required_speed_accounts_for_sustained_accumulator_delivery(params
     assert gate["status"] == "FAIL"
     row = gate["details"]["phases"][0]
     assert row["available_flow_L_min"] == pytest.approx(row["pump_limit_L_min"] + 60 * 0.25 / (10 / 40))
-    assert row["peak_drive_power_kW"] > 30
+    assert row["peak_drive_power_kW"] == pytest.approx(30)
+    assert row["required_pump_flow_L_min"] > row["pump_limit_L_min"]
     assert not row["requested_speed_met"]
 
 
@@ -428,7 +514,8 @@ def test_group_shares_pump_in_yaml_order_at_highest_active_pressure(params, crit
     assert details["switch_count"] == 1
     assert first["motor_energy_kJ"] == pytest.approx(calc.pump_energy_kJ(first["oil_L"], 54, 0.9))
     assert details["peak_drive_power_kW"] == pytest.approx(30)
-    assert details["checks"]["pump_power_within_motor_rating"]
+    assert details["checks"]["peak_rating_limit"]
+    assert details["rms_power_kW"] == pytest.approx(math.sqrt((30**2 * 0.2 + 20**2 * 0.1) / 0.4))
     assert not details["checks"]["requested_speeds_met"]
     assert not details["checks"]["actuators_return_to_start"]
 
@@ -442,12 +529,13 @@ def test_group_shares_pump_in_yaml_order_at_highest_active_pressure(params, crit
 def test_group_delays_are_from_group_start_and_dwell_can_overlap(params, criteria):
     params["cycle"] = [
         {"name": "feed", "actuator": "none", "stroke_mm": 0, "dwell_s": 0.2},
-        phase("out", "extend", 4, 290, group="trip", speed_mm_s=10, press=True),
+        phase("out", "extend", 4, 290, group="trip", speed_mm_s=10),
         phase("delayed", "extend", 8, 10, actuator="precompaction", group="trip",
               speed_mm_s=40, start_delay_s=0.15),
-        {"name": "dwell", "actuator": "none", "dwell_s": 0.48, "start_delay_s": 0.02, "group": "trip"},
-        phase("back", "retract", 4, 10, group="trip_again"),
-        phase("reset", "retract", 8, 10, actuator="precompaction", group="trip_again"),
+        {"name": "dwell", "actuator": "none", "dwell_s": 0.48, "start_delay_s": 0.02,
+         "group": "trip", "overlap_allowed": True},
+        phase("back", "retract", 4, 10, group="trip_again", max_speed_mm_s=1000),
+        phase("reset", "retract", 8, 10, actuator="precompaction", group="trip_again", max_speed_mm_s=1000),
     ]
     calc.validate_params(params)
     details = calc.evaluate_cycle(params, criteria)["details"]
@@ -461,13 +549,63 @@ def test_group_delays_are_from_group_start_and_dwell_can_overlap(params, criteri
     assert delayed["switch_s"] == calc.SWITCH_S
     assert dwell["command_start_s"] == pytest.approx(0.22)
     assert dwell["end_s"] == back["group_start_s"] == pytest.approx(0.7)
+    assert dwell["overlap_time_s"] == pytest.approx(0.4)  # The two moving intervals overlap one another.
+    assert details["warnings"] == ["группа 'trip': фаза 'dwell' с overlap_allowed перекрывает движение на 0.4 с"]
     assert details["switch_count"] == 3
     assert details["checks"]["actuators_return_to_start"]
-    assert details["checks"]["press_configuration_valid"]
+
+
+@pytest.mark.parametrize("other", [
+    phase("travel", "extend", 1, 10, actuator="precompaction", group="press"),
+    {"name": "hold", "actuator": "none", "dwell_s": 0.1, "group": "press", "overlap_allowed": True},
+])
+def test_press_phase_cannot_share_group(params, criteria, other):
+    params["cycle"] = [phase("press", "extend", 4, 290, group="press", press=True), other]
+    calc.validate_params(params)
+    with pytest.raises(InputError, match="press phase must be alone in group 'press'"):
+        calc.evaluate_cycle(params, criteria)
+
+
+def test_none_phase_sharing_group_requires_explicit_permission(params, criteria):
+    idle = {"name": "feed", "actuator": "none", "dwell_s": 0.15, "group": "return"}
+    params["cycle"] = [
+        phase("press", "extend", 4, 290, press=True),
+        phase("back", "retract", 4, 10, group="return", speed_mm_s=20),
+        idle,
+    ]
+    calc.validate_params(params)
+    with pytest.raises(InputError, match="feed: actuator none.*requires overlap_allowed: true"):
+        calc.evaluate_cycle(params, criteria)
+
+    idle["overlap_allowed"] = True
+    calc.validate_params(params)
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "WARN"
+    assert gate["details"]["phases"][-1]["overlap_time_s"] == pytest.approx(0.05)
+
+
+def test_two_uncapped_movements_in_group_warn(params, criteria):
+    main_return = phase("back", "retract", 4, 10, group="return")
+    params["cycle"] = [
+        phase("press", "extend", 4, 290, press=True),
+        phase("pre", "extend", 4, 20, actuator="precompaction"),
+        main_return,
+        phase("reset", "retract", 4, 10, actuator="precompaction", group="return"),
+    ]
+    calc.validate_params(params)
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "WARN"
+    warning, = gate["details"]["warnings"]
+    assert "'return'" in warning
+    assert "pump без max_speed_mm_s (back, reset)" in warning
+    main_return["max_speed_mm_s"] = 1000
+    calc.validate_params(params)
+    assert calc.evaluate_cycle(params, criteria)["status"] == "PASS"
 
 
 @pytest.mark.parametrize("fields", [
     {"stroke_mm": 1}, {"force_N": 0}, {"dwell_s": 0}, {"start_delay_s": -0.01}, {"max_speed_mm_s": 10},
+    {"overlap_allowed": "true"},
 ])
 def test_nonhydraulic_phase_rejects_invalid_fields(params, fields):
     params["cycle"] = [{"name": "feed", "actuator": "none", "dwell_s": 0.2} | fields]
@@ -509,9 +647,27 @@ def test_pressure_bands_continue_inside_group_and_same_label_can_recur(params, c
     assert details["actuator_travel_mm"]["main_cylinder"] == 20
 
 
+@pytest.mark.parametrize("gap_s", [0.5e-9, 2e-9], ids=["within-tolerance", "outside-tolerance"])
+def test_continues_across_group_boundary_uses_absolute_tolerance(params, criteria, gap_s):
+    params["cycle"] = [
+        phase("pre", "extend", 10 + 50 * gap_s, 10, actuator="precompaction", speed_mm_s=50, group="start"),
+        phase("band 1", "extend", 10, 10, speed_mm_s=50, group="start"),
+        phase("band 2", "extend", 10, 20, speed_mm_s=50, continues=True, group="next"),
+    ]
+    calc.validate_params(params)
+    if gap_s > 1e-9:
+        with pytest.raises(InputError, match="previous travel must end at the group boundary"):
+            calc.evaluate_cycle(params, criteria)
+    else:
+        _, first, second = calc.evaluate_cycle(params, criteria)["details"]["phases"]
+        assert second["switch_s"] == 0
+        assert second["motion_start_s"] - first["motion_end_s"] == pytest.approx(gap_s, abs=1e-12)
+
+
 def test_group_accumulator_shares_delivery_and_recharges_during_dwell(params, criteria):
     drive = params["drive"]
     drive["pump_max_flow_L_min"] = 60
+    drive["idle_kW"] = 2
     drive["accumulator"] = {"usable_oil_L": 0.3, "max_flow_L_min": 60, "min_delivery_pressure_bar": 60,
                             "charge_pressure_bar": 80, "round_trip_eta": 0.8, "recharge_when_idle": True}
     cylinders = calc.actuators(params)
@@ -536,11 +692,25 @@ def test_group_accumulator_shares_delivery_and_recharges_during_dwell(params, cr
     assert tail["motor_energy_kJ"] == pytest.approx(calc.pump_energy_kJ(tail["pump_oil_L"], 80, 0.9))
     assert details["cycle_s"] == pytest.approx(1.075)
     assert details["checks"]["requested_speeds_met"]
+    assert details["idle_time_s"] == pytest.approx(0.2)
+    motion_power_kW = 60 * 60 / (600 * drive["eta"])
+    charge_power_kW = 80 * 60 / (600 * drive["eta"])
+    energy_kJ = motion_power_kW * 0.5 + charge_power_kW * 0.375 + 2 * 0.2
+    integral_kW2_s = motion_power_kW**2 * 0.5 + charge_power_kW**2 * 0.375 + 2**2 * 0.2
+    assert details["total_motor_energy_kJ"] == pytest.approx(energy_kJ)
+    assert details["rms_power_kW"] == pytest.approx(math.sqrt(integral_kW2_s / 1.075))
 
     drive["accumulator"]["recharge_when_idle"] = False
     no_idle = calc.evaluate_cycle(params, criteria)["details"]
     assert no_idle["cycle_s"] == pytest.approx(details["cycle_s"] + 0.25)
     assert no_idle["total_pump_oil_L"] == pytest.approx(details["total_pump_oil_L"])
+
+    drive["accumulator"]["recharge_when_idle"] = True
+    params["cycle"][-1]["dwell_s"] = 0.5
+    details = calc.evaluate_cycle(params, criteria)["details"]
+    assert details["idle_time_s"] == pytest.approx(0.1 + 0.5 - 0.375)
+    assert details["phases"][-1]["name"] == "Accumulator recharge during idle"
+    assert details["rms_power_kW"] == pytest.approx(math.sqrt((integral_kW2_s + 2**2 * 0.025) / 1.1))
 
 
 @pytest.mark.parametrize("group", [{}, {"group": "press"}], ids=["serial", "grouped"])
@@ -570,8 +740,8 @@ def test_phase_speed_cap_conflicts_with_numeric_speed(params):
         calc.validate_params(params)
 
 
-@pytest.mark.parametrize("max_speed_mm_s", [0, -1, "250", True])
-def test_phase_speed_cap_requires_positive_number(params, max_speed_mm_s):
+@pytest.mark.parametrize("max_speed_mm_s", [0, -1, "250", True, 1000.001])
+def test_phase_speed_cap_requires_positive_number_at_most_1000(params, max_speed_mm_s):
     params["cycle"] = [phase("press", "extend", 10, 290, max_speed_mm_s=max_speed_mm_s)]
     with pytest.raises(InputError, match=r"cycle\[0\]\.max_speed_mm_s"):
         calc.validate_params(params)
