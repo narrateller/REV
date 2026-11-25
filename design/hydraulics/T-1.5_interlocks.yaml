@@ -1,0 +1,292 @@
+# T-1.5 · Функциональные разрешения. Сравнения применяются к валидным сигналам.
+schema_version: 1
+reference: design/params.t14b.yaml
+fill_isolation: "На силовых фазах оставить пилот у MF/MBT и снять отдельное питание WK. Закрытие разрешается по E и LVDT обеих ступеней. При stop команды WK пропадают, запас пилота действует до разряда через SAX. Потеря пилота сама переводит установку в stop."
+low_pressure_opening: "Проверка entry_conditions при нулевой скорости перед каждым открытием MF/MBT, включая повтор после прерывания. В ходе движения контролировать PTF <1,2 бар. При превышении снять разрешения WK, закрыть MF/MBT, снять подачу и перейти в stop."
+position_origin: "x=0 у убранного главного пуансона, x растёт к шиберу; башмак y=0 вверху"
+guard_library:
+  service: &service [guard_ok, tank_level_ok, filters_ok, cool_flow_ok, zu_closed, "oil_C <= 55", "pilot_bar >= 120", "limit_bar < 298"]
+  press_chain: &press [gate_closed, bolt1_locked, bolt2_locked, zsf_closed, dumps_ready, mf_locked, mbt_locked]
+  fill_chain: &fill ["prefill_bar >= 0.44", "prefill_bar < 1.2", prefill_level_ok, swash_ok]
+  cap_safe: &capsafe ["cap1_bar <= 3", "cap2_bar <= 3"]
+guard_policy: "Каждое условие должно быть истинно, сигнал валиден. Для разрешения шибера два независимых отбора, уставка 3 бар на приборе 0…400 бар, суммарный бюджет ошибки ≤2 бар на канал, подтверждение при штатном сбросе и проверка на застревание. Первая ошибка фиксирует останов."
+safety_outputs:
+  required_architecture: "ISO 13849-1 категория 3 как проектное требование, PLr по оценке риска. Два отдельных канала: снятие момента M1 с обратной связью и гидравлический ZUP/ZU с QM. Дополнительно снять разрешение MP и проверять его кромку. Анализ отказов, CCF, DC, MTTFd и подтверждение PL на D1."
+  channels:
+    1: {output: M1, feedback: m1_off_confirmed}
+    2: {output: ZUP, hydraulic_output: ZU, feedback: zu_closed, pressure_feedback: header_bar}
+  motor_off_proof:
+    conditions: [m1_off_confirmed]
+  start_proof:
+    conditions: [zu_closed, mp_closed, dumps_ready, mf_locked, mbt_locked]
+    sequence: "Снять момент и оставить все движения запрещёнными. При контролируемой проверке с закрытыми потребителями и малой подачей снять ток ZUP, убедиться в смене QM и спаде P0, затем подтвердить закрытие. Защёлкнуть ошибку при расхождении. После старта тандем PX заряжает пилот при разгруженном P1."
+  emergency_reset:
+    conditions: ["cap1_bar <= 3", "cap2_bar <= 3", "main_b_bar <= 3", "lp_bar <= 3", "pilot_bar <= 3"]
+    sequence: "Снять разрешения движения и дозирования. Проверка остаточного давления до отдельного ручного сброса ошибки. Не инициировать движение на подтверждении."
+transitions:
+  pre_down_to_prefill: "Подтвердить оба засова и закрытый шибер, защита требует живой сигнал каждого засова."
+  prefill_to_closed_ports: "На конце подхода сбросить команду VR и закрыть MBT и подтвердить WK. Открыть RFA/RFB заранее в существующем окне переключения после подтверждения нейтрали VR. Подтвердить оба положения плавания до MP."
+  closed_ports_to_regen: "Подтвердить ZSF, оба клапана плавания и сближение давлений A/B. Открыть MR, проток MB→MR→MRC→MA. Этап неподвижного сжатия масла ограничен по времени и давлению MB."
+  regen_to_press: "Действует только специальное окно handover_regen_press. Сначала удержать пуансон, убрать подачу MP. Открыть кромку MT до ухода MR в ноль. Подтвердить закрытие MR и готовность MT, затем подать MP."
+  press_to_hold: "После задания усилия по PTA/PTB закрыть MP, затем MT, когда пуансон неподвижен. MHOLD и MRC удерживают обратный поток. Заряд LCH."
+  hold_to_unload: "По выдержке 0,30 с открыть MD, фиксировать по обоим датчикам ≤3 бар показания. ME1/ME2 в штатном режиме закрыты."
+  eject_to_return: "Остановить пару, закрыть MBT, проверить оба cap_safe и давление MB, подтвердить WK MBT. Разрешить WK MF после проверки давления, затем открыть MF до вытеснения MA. MBT остаётся закрыт."
+  tail: "Eject → return → gate_close → pre_up по остаточному расходу. Pre_up может идти с eject при x≥205 мм или продолжаться после реверса по защёлкнутому разрешению. Gate_close только на обратной траектории при x≤195 мм. Разрешение pre_up снимается на завершении/ошибке, сброс через штатный канал повторно не нужен."
+floating_routes: &floating_routes
+  - [CYR1.A, T0.RF, [RFA]]
+  - [CYR2.A, T0.RF, [RFA]]
+  - [CYR1.B, T0.RF, [RFB]]
+  - [CYR2.B, T0.RF, [RFB]]
+  - [T0.RF, CYR1.A, [RCA]]
+  - [T0.RF, CYR2.A, [RCA]]
+  - [T0.RF, CYR1.B, [RCB]]
+  - [T0.RF, CYR2.B, [RCB]]
+switching_windows:
+  handover_regen_press:
+    from: regen
+    to: press
+    common_conditions: *service
+    additional_conditions: *press
+    entry_conditions: ["header_bar >= 119", float_a_open, float_b_open]
+    continuation_conditions: ["main_b_bar <= 145", mp_closed, float_a_open, float_b_open]
+    exit_conditions: ["mr_edge_pct <= 0", "mt_edge_pct >= 5", "main_b_bar <= 145"]
+    on_loss: stop
+    timeout_s: 0.08
+    modeled_switch_budget_s: 0.09
+    max_edge_overlap_s: 0.04
+    sequence:
+      - "Довести подачу MP до нуля с упреждением, подтвердить mp_closed. До закрытия MR открыть MT (кривые LVDT с учётом фактического перекрытия)."
+      - "При открытой MT закрыть MR. MHOLD и MRC удерживают MA. Если MT не вышел на 5% до ухода MR в ноль, перекрытие кромок >40 мс, давление MB >145 бар или окно просрочено, аварийный сброс."
+      - "Подачу MP разрешить только после закрытия MR и подтверждения MT. Пороги 5% и времени задать по измеренным кромкам и подтвердить на стенде."
+    commands: {XGFR: open, XGF: open, XGM: open, XGMT: open, XGMR: open, XGRF: open, RFA: float, RFB: float, MP: closed, MR: open, MT: open}
+    floating_routes: *floating_routes
+    routes: [[CYM.B, T0.T, [MT, F2]]]
+    forbidden_routes: [[CYM.A, T0.T], [CYM.A, TF.A], [P1.P, CYM.A]]
+defaults:
+  hydraulic: "Некомандуемые элементы принимают состояния circuit.yaml. ME1/ME2/MEB закрыты под током, ГА в service. XV открывается на уставке и при stop."
+  common_commands: {P1: run, PC: run, PX: run, PXA: run, ZU: closed, ZUP: close, ME1: closed, ME2: closed, MEB1: closed, MEB2: closed, MEB: closed, SAL: service, SAX: service, XV: closed, XVA: closed}
+  common_routes: [[T0.S, P1.S], [P1.S, P1.P], [P1.P, F1.A], [ZU.P, ZU.X, [ZUP]], [T0.C, PC.S], [PC.S, E1.B, [PC, E1]], [E1.B, T0.R, [FT, CD]], [T0.S, PX.S], [PX.S, SAX.A, [PX, XC, FX, SAX]], [PXA.S, SAX.A, [PXA, XCA, FX, SAX]]]
+faults:
+  stop: &stop
+    commands: {P1: "off", PX: "off", PXA: "off", ZU: open, ZUP: vent, ME1: open, ME2: open, MEB1: open, MEB2: open, MEB: open, MP: closed, MR: closed, MT: closed, MF: closed, MBT: closed, VG: center, VR: center, PL1: closed, XPL: vent, SAL: bleed, SAX: bleed, XV: open, XVA: open}
+    lock_release_commands: []
+    actions: "Аппаратно снять питание WK MF/MBT и пропорциональных ступеней. Раздельно снять момент M1 и питание ZUP. Независимые электрические ветви MA и MB выпускают энергию. Разрядить ГА НД и пилота. Движения, дозатор и повторный пуск запрещены. PL1 удерживает башмак."
+    routes: [[CYM.A, T0.EA, [ME1, OE1]], [CYM.A, T0.EA, [MEB1]], [CYM.A, T0.EB, [ME2, OE2]], [CYM.A, T0.EB, [MEB2]], [CYM.B, T0.ER, [MEB]], [ALP.A, T0.T, [SAL, F2]], [AX.A, T0.T, [SAX, F2]], [P1.P, T0.U, [ZU]], [ZU.X, T0.D, [ZUP]], [PX.P, T0.T, [XV, F2]], [PXA.P, T0.T, [XVA, F2]]]
+  bolt_loss:
+    <<: *stop
+    applies: [closed_ports, regen, handover_regen_press, press, hold, prefill, unload, gate_open]
+    sensors: [bolt1_locked, bolt2_locked]
+    actions: "Независимая цепь засовов снимает питание каналов MA/MB и ZUP и момент M1. Цепь действует независимо от MD, EC1 и программы. Удержать башмак, не открывать шибер, разрешить только ручное восстановление."
+operating_branches:
+  pilot_reserve:
+    applies: [hold, unload, feed]
+    conditions: ["header_bar >= 165", "pilot_bar < 125", "lp_bar >= 52", mp_closed]
+    commands: {XCH: charge}
+    routes: [[P1.P, SAX.A, [F1, XCH, XCC, SAX]]]
+    note: "Резервный заряд в неподвижном окне после приоритета НД. Для штатного цикла расчётный баланс обеспечивают PX/PXA."
+  pilot_end_of_feed:
+    conditions: ["pilot_bar < 150", "lp_bar >= 52", gate_closed, "ram_mm <= 1", "shoe_mm <= 1"]
+    commands: {XCH: charge, LCH: closed}
+    routes: [[P1.P, SAX.A, [F1, XCH, XCC, SAX]]]
+    note: "После заряда НД подать до 8 л/мин при 165 бар в остатке окна feed, при неподвижных исполнительных органах. В этом окне регулятор может поднять HP до 165 бар при отсечённом LCH. Проверить периодический баланс и приоритет НД."
+  pilot_idle:
+    conditions: ["pilot_bar >= 150"]
+    commands: {XV: open, XVA: open}
+    routes: [[PX.P, T0.T, [XV, F2]], [PXA.P, T0.T, [XVA, F2]]]
+  pilot_main_priority:
+    conditions: ["header_bar >= 100"]
+    commands: {XV: open}
+    routes: [[PX.P, T0.T, [XV, F2]]]
+    note: "AX питает клапаны при приоритете P1. При просадке ниже 120 бар останов."
+  pilot_booster_priority:
+    conditions: ["header_bar >= 50"]
+    commands: {XVA: open}
+    routes: [[PXA.P, T0.T, [XVA, F2]]]
+    note: "Секции разгружаются независимо. Контакт верхней уставки AX разгружает обе."
+  relief_pre_A:
+    conditions: ["pre_a_bar >= 294"]
+    commands: {RVA: relief}
+    routes: [[PCY.A, T0.EP, [RVA]]]
+  relief_pre_B:
+    conditions: ["pre_b_bar >= 294"]
+    commands: {RVP: relief}
+    routes: [[PCY.B, T0.EQ, [RVP]]]
+  transition_unload:
+    conditions: [swash_ok, "header_bar >= 15"]
+    commands: {XGN: open, ZN: open}
+    routes: [[P1.P, T0.T, [ZN, F2]]]
+  fill_balance_in:
+    conditions: ["prefill_bar >= 0.44", prefill_low]
+    commands: {BAL: fill}
+    routes: [[PC.P, TF.A, [BAL]]]
+  fill_balance_out:
+    conditions: ["prefill_bar >= 0.44", prefill_high]
+    commands: {BAL: drain}
+    routes: [[TF.A, T0.T, [BAL, F2]]]
+    note: "Только при верхнем уровне TF, нижний/верхний контакты входят в LSF."
+  relief_tank_oil:
+    actuation: mechanical
+    conditions: ["prefill_bar >= 1.9"]
+    commands: {RTF: relief}
+    routes: [[TF.A, T0.ET, [RTF]]]
+permitted_overlaps: [[eject, pre_up], [return, pre_up], [return, gate_close], [return, gate_close, pre_up], [gate_close, pre_up]]
+phases:
+  pre_down:
+    reference_pattern: "pre_down [1-4]"
+    common_conditions: *service
+    conditions: ["gate_closed","ram_mm <= 1","pre_a_bar < 294","pre_b_bar < 294"]
+    on_loss: stop
+    commands: {"XGP":"open","XPL":"open","PL1":"open","PPA":"open","PBT":"open"}
+    routes:
+      - ["P1.P","PCY.A",["PPA"]]
+      - ["PCY.B","T0.T",["PL1","PBT"]]
+    optional_lp: {"conditions":["lp_bar >= 38","lp_bar >= pre_a_bar + 3"],"commands":{"PBA":"open"},"routes":[["ALP.A","PCY.A",["SAL","PBA","PAA"]]]}
+  prefill:
+    reference_pattern: "prefill (?:[1-9]|1[0-4])"
+    common_conditions: *service
+    additional_conditions: *fill
+    conditions: ["gate_closed","bolt1_locked","bolt2_locked","dumps_ready","header_bar < 120"]
+    entry_conditions: ["main_b_bar <= 3", "cap1_bar <= 3", "cap2_bar <= 3"]
+    on_loss: bolt_loss_if_bolt_signal_else_stop
+    commands: {"XGR":"open","XGF":"open","VR":"extend","MBT":"open"}
+    lock_release_commands: [MBT]
+    routes:
+      - ["P1.P","CYR1.A",["RC", "VR"]]
+      - ["P1.P","CYR2.A",["RC", "VR"]]
+      - ["CYR1.B","T0.T",["VR"]]
+      - ["CYR2.B","T0.T",["VR"]]
+      - ["TF.A","CYM.A",["ZSF"]]
+      - ["CYM.B","TF.A",["MBT"]]
+  closed_ports:
+    reference_pattern: "closed ports oil compression"
+    common_conditions: *service
+    conditions: [gate_closed, bolt1_locked, bolt2_locked, dumps_ready, mf_locked, mbt_locked, float_a_open, float_b_open, "header_bar < 120", "main_b_bar <= 145"]
+    timeout_s: 0.10
+    on_loss: bolt_loss_if_bolt_signal_else_stop
+    commands: {"XGFR":"open","XGF":"open","XGM":"open","XGRF":"open","VR":"center","RFA":"float","RFB":"float","MP":"open"}
+    floating_routes: *floating_routes
+    routes:
+      - ["P1.P","CYM.A",["MP","MHOLD"]]
+    forbidden_routes: [["CYM.B","T0.T"],["CYM.B","TF.A"]]
+  regen:
+    reference_pattern: "regen (?:[2-9]|1[0-8])"
+    common_conditions: *service
+    additional_conditions: *press
+    conditions: ["header_bar <= 120", "main_b_bar <= 145", float_a_open, float_b_open]
+    entry_conditions: ["cap1_bar <= main_b_bar + 10", "main_b_bar <= cap1_bar + 10"]
+    on_loss: bolt_loss_if_bolt_signal_else_stop
+    commands: {"XGFR":"open","XGF":"open","XGM":"open","XGRF":"open","VR":"center","RFA":"float","RFB":"float","MP":"open","XGMR":"open","MR":"open"}
+    floating_routes: *floating_routes
+    routes:
+      - ["P1.P","CYM.A",["MP","MHOLD"]]
+      - ["CYM.B","CYM.A",["MR","MRC"]]
+  press:
+    reference_pattern: "press (?:[1-9]|[12][0-9])"
+    common_conditions: *service
+    additional_conditions: *press
+    conditions: ["header_bar < 298", "mr_edge_pct <= 0", "mt_edge_pct >= 5", float_a_open, float_b_open]
+    on_loss: bolt_loss_if_bolt_signal_else_stop
+    commands: {"XGFR":"open","XGF":"open","XGM":"open","XGRF":"open","VR":"center","RFA":"float","RFB":"float","MP":"open","XGMT":"open","MT":"open"}
+    floating_routes: *floating_routes
+    routes:
+      - ["P1.P","CYM.A",["MP","MHOLD"]]
+      - ["CYM.B","T0.T",["MT"]]
+  hold:
+    reference_pattern: "hold"
+    common_conditions: *service
+    additional_conditions: *press
+    conditions: ["cap1_bar >= 260","cap2_bar >= 260"]
+    on_loss: bolt_loss_if_bolt_signal_else_stop
+    commands: {"XGFR":"open","XGF":"open","LCH":"charge"}
+    routes:
+      - ["P1.P","ALP.A",["LCH","LCC","SAL"]]
+    forbidden_routes: [["CYM.A","T0.T"],["CYM.A","T0.E"],["CYM.A","TF.A"],["CYM.A","P1.P"]]
+  unload:
+    reference_pattern: "unload"
+    common_conditions: *service
+    conditions: ["gate_closed","bolt1_locked","bolt2_locked"]
+    on_loss: bolt_loss_if_bolt_signal_else_stop
+    commands: {"XGMT":"open","XGMD":"open","MD":"open","MT":"open","LCH":"charge"}
+    routes:
+      - ["CYM.A","T0.E",["MD","OR8"]]
+      - ["CYM.B","T0.T",["MT","F2"]]
+      - ["P1.P","ALP.A",["LCH","LCC","SAL"]]
+  gate_open:
+    reference_pattern: "gate_open [1-9]"
+    common_conditions: *service
+    additional_conditions: *capsafe
+    conditions: ["bolt1_locked","bolt2_locked"]
+    on_loss: bolt_loss_if_bolt_signal_else_stop
+    commands: {"XGG":"open","VG":"retract"}
+    routes:
+      - ["P1.P","CYG.B",["VG"]]
+      - ["CYG.A","T0.T",["VG"]]
+  eject:
+    reference_pattern: "eject (?:[1-9]|1[0-6])"
+    common_conditions: *service
+    additional_conditions: *fill
+    conditions: ["gate_open"]
+    entry_conditions: ["main_b_bar <= 3", "cap1_bar <= 3", "cap2_bar <= 3"]
+    on_loss: stop
+    commands: {"XGR":"open","XGF":"open","VR":"extend","MBT":"open"}
+    lock_release_commands: [MBT]
+    routes:
+      - ["P1.P","CYR1.A",["RC", "VR"]]
+      - ["P1.P","CYR2.A",["RC", "VR"]]
+      - ["CYR1.B","T0.T",["VR"]]
+      - ["CYR2.B","T0.T",["VR"]]
+      - ["TF.A","CYM.A",["ZSF"]]
+      - ["CYM.B","TF.A",["MBT"]]
+  return:
+    reference_pattern: "return (?:[1-9]|10)"
+    common_conditions: *service
+    additional_conditions: *fill
+    conditions: ["ram_mm <= 289"]
+    entry_conditions: ["cap1_bar <= 3", "cap2_bar <= 3", "main_b_bar <= 3"]
+    on_loss: stop
+    commands: {"XGR":"open","XGFR":"open","VR":"retract","MF":"open"}
+    lock_release_commands: [MF]
+    routes:
+      - ["P1.P","CYR1.B",["RC", "VR"]]
+      - ["P1.P","CYR2.B",["RC", "VR"]]
+      - ["CYR1.A","T0.T",["VR"]]
+      - ["CYR2.A","T0.T",["VR"]]
+      - ["CYM.A","TF.A",["MF"]]
+      - ["TF.A","CYM.B",["MC"]]
+    optional_lp: {"conditions":["lp_bar >= 38"],"commands":{"XGLR":"open","LR":"open"},"routes":[["ALP.A","CYR1.B",["SAL","LR","LRC"]],["ALP.A","CYR2.B",["SAL","LR","LRC"]]]}
+  gate_close:
+    reference_pattern: "gate_close [1-9]"
+    common_conditions: *service
+    conditions: ["ram_mm <= 195"]
+    on_loss: stop
+    commands: {"XGG":"open","VG":"extend"}
+    routes:
+      - ["P1.P","CYG.A",["VG"]]
+      - ["CYG.B","T0.T",["VG"]]
+  pre_up:
+    reference_pattern: "pre_up [12]"
+    common_conditions: *service
+    conditions: ["pre_a_bar < 294","pre_b_bar < 294"]
+    entry_conditions: ["ram_mm >= 205", gate_open, "shoe_mm >= 12"]
+    movement_window:
+      position_sensor: shoe_mm
+      origin: latch_at_motion_command
+      direction: decreasing
+      release_travel_mm: 12
+      timeout_s: 0.25
+      require_by_deadline: [bolt1_open, bolt2_open]
+      behavior: "При команде PPB запомнить валидное shoe_mm. Засовы могут быть закрыты до уменьшения координаты на 12 мм от записанного положения. К этой границе или через 0,25 с, что раньше, оба должны быть открыты. После подтверждения следить до завершения подъёма. Отсутствие или потеря подтверждения → stop."
+    on_loss: stop
+    commands: {"XGPU":"open","PPB":"open","PAT":"open"}
+    routes:
+      - ["P1.P","PCY.B",["PPB"]]
+      - ["PCY.A","T0.T",["PAT"]]
+    optional_lp: {"conditions":["lp_bar >= 38","lp_bar >= pre_b_bar + 3"],"commands":{"PBB":"open"},"routes":[["ALP.A","PCY.B",["SAL","PBB","PAB"]]]}
+  feed:
+    reference_pattern: "feed"
+    common_conditions: *service
+    conditions: ["gate_closed","ram_mm <= 1","shoe_mm <= 1","bolt1_open","bolt2_open","doser_ready"]
+    on_loss: stop
+    commands: {"LCH":"charge"}
+    routes:
+      - ["P1.P","ALP.A",["LCH","LCC","SAL"]]

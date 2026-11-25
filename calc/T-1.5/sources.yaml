@@ -1,0 +1,245 @@
+
+schema_version: 1
+catalogs:
+  PV:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/PMDE/Catalogs/Piston_Pumps/PV-/MSG30-3245_UK.pdf
+    where: "MSG30-3245/UK, PV180 technical data/curves, FDV and PQDXXA on pp. 32–33, 37, 46. Drive interpolation copied from T-1.4b."
+  motor:
+    url: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    where: "Specification, 30 kW S1 at 40 °C, mass and rated/breakdown torque."
+  ZSF:
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20478.pdf
+    where: "RE 20478 (2017-12), pp. 2, 6, 7, 15. NG100 case 2, A→B, 1600 L/min at Δp=0.30 bar. Ports B/P 350 bar, A 16 bar, X 150 bar. Case 2 mounting limits and tank minimum apply."
+    additional_url: https://boschrexroth-russia.ru/image/catalog/docs/RE20478_2020-12.pdf
+    case_4_flow_L_min: 950
+    case_2_flow_L_min: 1600
+    case_2_dp_bar: 0.30
+  DB:
+    url: https://www.pressoil.it/share/download/073731500-1615363375bosch-rexroth-db-dbw-valvola-valve-re25802.pdf
+    additional_url: https://device.report/m/243f441d86e129325758e54161c0343432c0f720809b6edae1b2fdf9d511a710
+    where: "RE 25802, 2024-12 pp. 7–10, Bosch Rexroth data sheet. NG32 650 L/min and 350 bar, curve 3 inlet versus flow. Standard N minimum circulation approximately 6 bar at 480 L/min is the unloaded/minimum curve. Pressure-dependent typical curve assumes external unpressurized pilot return and steady flow; no guaranteed transient cap. RE 25802 (2017-03), p. 21 explicitly excludes DBW unload as a safety function."
+    NG32_max_L_min: 650
+    NG32_min_circulation_480_L_min_bar_approx: 6
+  WRC:
+    url: https://airlinemedia.airlinehyd.com/Literature/Manufacturer_Catalogs/Bosch%20Rexroth/data%20sheets/2WRCE_2WRCF_re29406_2019-11.pdf
+    where: "RE 29406, pp. 2, 4, 6–8, 13–18. L versions, nominal flow at 5 bar; A/B 420 bar, external X max 350, Y max 210. X ≥35% system pressure B→A, ≥70% A→B; pilot volumes 5.9/8.5/15.3 cm³; zero-flow pilot stage 0.4 avg/0.9 max L/min at 100 bar."
+    rated_flow_L_min: {32: 1100, 40: 1800, 50: 2700}
+    mass_kg: {32: 15.6, 40: 21.2, 50: 32.3}
+    zero_flow_avg_L_min_at_100bar: 0.4
+    zero_flow_max_L_min_at_100bar: 0.9
+  WRLE:
+    url: https://airlinemedia.airlinehyd.com/Literature/Manufacturer_Catalogs/Bosch%20Rexroth/GoToHydraulicsCatalog.pdf
+    additional_url: https://importtehsnab.ru/upload/catalog_docs/Bosch%20Rexroth/eng/4WRLE.pdf
+    pilot_stage_max_L_min_at_100bar: 0.17
+    NG25_pilot_shift_L_min: 10
+    NG25_pilot_volume_cm3_per_stroke: 6.8
+    leakage_source: "RE 29123 (2023-03), p. 11: NG25 E/E1 maximum at 100 bar: 0.36 incl. pilot and 0.19 main, difference 0.17 L/min. Pilot step 10 L/min. RE 29123 (2019-07) p. 9: 6.8 cm³ from 0 to 100%."
+    where: "Bosch Rexroth GoTo, 4WRLE (RE 29123), NG25 400 L/min at 5 bar per edge, 1250 max, 350 bar, 19 kg. E1/XY with external pilot and drain. Verify metering curves and loss at actual A/B flow split."
+  VEI_NC:
+    url: https://apps.boschrexroth.com/products/compact-hydraulics/ch-catalog/pdf/D36_OD15X75YZ_RE18323-41.pdf
+    where: "RE 18323-41 pp. 1–2, VEI-16-16A-NC, 350 bar, 5–150 L/min. Direction/pressure drop and closure to be checked."
+  VEI_NO:
+    url: https://apps.boschrexroth.com/products/compact-hydraulics/ch-catalog/pdf/D36_OD15X75YZ00_RE18323-43.pdf
+    where: "RE 18323-43 pp. 1–2, VEI-16-16A-NA, 350 bar, 5–150 L/min. Flow direction per symbol."
+  LC:
+    cartridge_mass_kg: {40: 1.9, 50: 3.9}
+    cover_mass_kg: {40: 7.4, 50: 10.5}
+    url: https://www.boschrexroth.com/ics/Projects/GenericSelector/?ProductArea=2_WEGE_LC_DECKEL_LFA_DRUCK&c=cn&language=zh
+    additional_url: https://airlinemedia.airlinehyd.com/Literature/Manufacturer_Catalogs/Bosch%20Rexroth/2-way%20cartridge%20valves%20re21010.pdf
+    where: "Bosch Rexroth RE 21010, pp. 6?9, LC/LFA family and opening code 00. Pressure class, insert spring and pilot arrangement must be confirmed for the selected assembly."
+  SB:
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    where: "SB330 standard bladder accumulator table, part 3047174 (20 L, effective gas 18.4 L, 330 bar), part 3047170 (10 L, 9.3 L, 330 bar)."
+  SAF:
+    url: https://catalog.hydac.com/item/safety-and-shut-off-blocks/type-saf-safety---shut-off-blocks/2076279
+    additional_url: https://betterfit-us.hydac.com/wp-content/uploads/Operating%20and%20Installation%20Instructions%20for%20HYDAC%20Accumulators.pdf
+    normally_open_url: https://catalog.hydac.com/item/safety-and-shut-off-blocks/type-saf-safety---shut-off-blocks/2076271
+    where: "SAF32E code Y uses WSM06020Y normally open; use the spring-open discharge. SAF32E family and §4 schematic, shutoff, manual/solenoid bleed, gauge, relief. Specify certified relief for 60/160 bar circuits separately from body pressure class."
+  DF:
+    url: https://catalog.hydac.com/en-us/viewitems/filters-high-pressure----3000-psi-/in-line-industrial-filter---df-series--6090-psi-?pagenum=26&pagesize=25
+    where: "DF ON 330TF3, 330 L/min nominal, 420 bar, 3 μm. Require clogging indication and check clean/cold Δp and bypass specification at order."
+  RF:
+    url: https://catalog.hydac.com/viewitems/filters-low-pressure----360-psi-/in-tank---in-line-return-filter---rf-series--360-p?pagenum=3&pagesize=25
+    where: "RF ON 1300VP10LE1.1/16, 1300 L/min nominal, 25 bar, 10 μm. Check cold-oil bypass and element Δp."
+  pilot_pump:
+    url: https://www.parker.com/parkerimages/euro_mcd/cat/english/PMD/HY11-3293-UK.pdf
+    additional_url: https://www.parker.com/content/dam/Parker-com/Literature/Germany/CD_Rom-Bauteilfreigabeliste-Mechanik-Hydraulik-UK/MSG30-3245_UK.pdf
+    tandem_url: https://test.parker.com/content/dam/Parker-com/Literature/PMDE/Catalogs/Gear_Units/PGP_PGM/HY30-3300-UK.pdf
+    where: "PGP511 0040 and 0080, HY11-3293 pp. 12–13. At 1450 rpm, 5.8 and 11.6 L/min geometric. PGP511 distributor/tandem option HY30-3300 p. 29. PVplus MSG30-3245 p. 65 lists 1550 N·m rear through torque for PV140–180. Confirm adapter, shaft, minimum net oil and power under load."
+  LAC:
+    url: https://www.parker.com/content/dam/Parker-com/Divisions-2011/Accumulator-and-Cooler-Division---Europe/Support/MSG10-6001_UK_LAC.pdf
+    chart_mirror_url: https://gsglobalresources.com/uploads/LAC_Air-Oil-Cooler-with-AC-Motor-for-Industrial-Use_HY10-6001.UK_.pdf
+    manual_url: https://www.parker.com/content/dam/Parker-com/Literature/Industrial-Hydraulics-Division-China/Manual_LAC.pdf
+    where: "MSG10-6001 pp. 8–10 (mirror pp. 6–8), pressure drop at 30 cSt, thermal curve vs flow, ±10% capacity, fan rating/mass. 078-8 at 250 L/min coefficient 1.40 kW/K conservative project graph reading from T-1.4b. Manual technical table 14 bar dynamic, 21 bar static."
+    selected: {series: LAC 078-8, oil_flow_L_min: 250, coefficient_kW_K: 1.40, tolerance_fraction: 0.10, fan_kW: 1.10, mass_kg: 136, dynamic_bar: 14}
+    next: {series: LAC 110-8, fan_kW: 2.20, mass_kg: 160}
+  PN2020:
+    url: https://media.ifm.com/dam/299ae137-00e2-4afc-a36b-270445a60958/Original/PN2020-01_EN-GB.pdf
+    where: "ifm PN2020, 0–400 bar, switching error <0.4% span. Use error-guarded thresholds, independent channels for low-pressure permission."
+  PI1705:
+    url: https://media.ifm.com/dam/a8954022-2041-425a-8712-86ccfa92bed3/Original/PI1705-01_EN-GB.pdf
+    where: "ifm PI1705 datasheet pp. 1 and 3, −1…4 bar measuring range, 30 bar pressure rating. Installed tapping measures the separated oil pressure."
+  ISO1219:
+    url: https://www.iso.org/standard/60184.html
+    additional_url: https://www.iso.org/standard/51200.html
+    where: "ISO 1219-1 graphical symbols and ISO 1219-2 circuit diagrams. SVG is a functional drawing using simplified symbols and net cross-references."
+  safety:
+    url: https://www.iso.org/standard/44781.html
+    additional_url: https://standards.cencenelec.eu/
+    where: "ISO 4413 fluid power safety; EN 14359 gas-loaded accumulators. Design intent only, component certificates and validation before D1."
+  ISO13849:
+    url: https://www.iso.org/standard/73481.html
+    where: "ISO 13849-1:2023, safety-related control systems. Category 3 is the project requirement; PLr and attained PL require separate risk assessment and validation."
+  LC_MON:
+    url: https://store.livhaven.com/uploads/rexroth_pdfs/re21015_2019-07.pdf
+    where: "RE 21015 pp. 7–8, 12, 14–15, LC/LFA32 E and QMG24 seat position feedback, pilot with separate M-3SEW. Closure from P0, spring-return pilot exhaust to DR. Confirm complete monitored assembly and Q=265 L/min."
+  LC2A:
+    mass_kg: {40: 10.3}
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/directional_valves/re21040.pdf
+    where: "RE 21040 pp. 6–7, 9–14, 26–27, 30–32. Active opening from external pilot, closed control configuration, sensors Q7/Q7T, flow curves at 100% opening. Select controlled opening at zero differential and confirm spring reclosure after float."
+  DBD:
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/pressure_control_valves/re25402_2010_1.pdf
+    where: "RE 25402 pp. 2 and 4–7. Direct seat DBD NG6, pressure stage up to 400 bar, for trapped thermal volume. Set as assembled including return backpressure."
+  SUN_NO:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/TT_US_PODirectional_Aug2015.pdf
+    data_url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/Intl_SC2009directional.pdf
+    pilot_url: https://cmsimages.sunhydraulics.com/DataSheets/999-901-711_DTAF_EN.pdf
+    where: "Sun Technical Tip pp. 7–8 and Int'l Shortcut Catalogue p. 127 show DFFA-8DN, 1→2, 350 bar, 480 L/min, 3.5 bar crack and switching with a NO pilot. DTAF H T-8A, 350 bar, high-power coil, 6.1 L/min nominal, 50 ms typical and direct actuation. Confirm complete valve/coil and Δp at 265 L/min."
+    DFFA_max_L_min: 480
+    DTAF_H_nominal_L_min: 6.1
+    project_valve_dp_bound_at_265_L_min_bar: 20
+  GOETZE:
+    mass_kg: 48.5
+    liquid_discharge_coefficient: 0.54
+    orifice_mm: 59
+    url: https://www.goetze-group.com/en/products/industry/455-s5734.html
+    datasheet_url: https://www.goetze-group.com/Series/455/goetze-455-datasheet-en.pdf
+    where: "Series 455, 2026/04, Connections table, DN65/100 normal-lift F gastight spring cover, inlet PN40, outlet PN16, d0=59 mm, Kdr(F)=0.54, assembly 48.5 kg. Obtain supplier sizing at set 1.9 bar, 1293 L/min HLP46 and tested outlet cap 0.2 bar. Valve response and cold-oil viscosity affect the point."
+  OAC:
+    url: https://www.ktr.com/dam/jcr%3Ad89672a3-ae44-4cf8-b5ee-359ff85d7b7c/KTR-CATALOGUE-COOLING-SYSTEMS.PDF
+    where: "KTR Cooling Systems pp. 25, 28: OAC1000-03-8, 1.50 kW at 50 Hz, 154 kg. 750 rpm class blue curve roughly 1.5 kW/K at 150 L/min and 2.0 at 250. Pressure loss roughly 0.60?0.95 bar in the same interval at 30 cSt. Conservative coefficient 1.60 kW/K at 180 L/min, extra 10% project derating. Confirm exact variant at actual loaded fan speed and installation."
+    supplier_confirmation: "Точку 180 л/мин, воздух +40 °C, масло ≤55 °C подтвердить письмом поставщика."
+    selected: {series: OAC1000-03-8, oil_flow_L_min: 180, coefficient_kW_K: 1.60, tolerance_fraction: 0.10, matrix_dp_bar: 0.705, fan_kW: 1.50, mass_kg: 154, dynamic_bar: 14}
+  KF:
+    url: https://www.kracht.eu/en/pump-technology/transfer-pumps/kf/
+    where: "KF transfer pump family; KF4/125 size. Nominal displacement and low-pressure 0.55 kW assembly at 180 L/min are project sizing targets; verify vendor selection and as-built flow."
+  SED:
+    url: https://www.boschrexroth.com/ics/Materialnumber/JumpToDatasheet.cfm?materialnumber=R900052392&pi=834A9DB4-E798-B03E-2FDB2ABE7C6B448C_ICS_8801&scenario=commerce
+    where: "M-3SED 6, 25 L/min, 350 bar; select spring state A to T."
+project:
+  upstream_drive: calc/T-1.4b/results.json
+  upstream_cylinders: design/cylinders.t13.yaml
+  upstream_cylinder_results: calc/T-1.3/results.json
+  station_mass: "T-1.4b results.station; part cost/weight estimates below are engineering allowances."
+  frame_reference: "T-1.3 GK_review, 1700 kg estimate; new alternatives are engineering screens, not validated structures."
+  steel_density_kg_m3: 7850
+  steel_frame_yield_MPa: 355
+  column_certified_yield_min_MPa: 600
+  elastic_modulus_MPa: 210000
+  project_fatigue_factor: 1.5
+  weld_fat_reference_MPa: 100
+  weld_fat_reference_cycles: 2000000
+  weld_fat_slope: 3
+  column_allowable_range_MPa: 100
+  tank_baffle_deaeration_target_s: 30
+  level_min_main_L: 130
+  upper_oil_inventory_L: 205
+  main_tank_loss_reserve_L: 10
+  tank_nominal_oil_L: 190
+  tank_dims_mm: [900, 700, 400]
+  tank_sheet_mm: 4
+  oil_density_kg_m3: 870
+  oil_cp_kJ_kg_K: 1.9
+  buffer_nominal_oil_L: 42
+  buffer_gross_L: 65
+  cooling_circuit_max_total_dp_bar: 1.25
+  cooling_circuit_motor_kW: 0.55
+  cooling_circuit_pump_eta: 0.72
+  cooling_heat_design_kW: 18.7
+  buffer_valve_loss_extra_bar: 0.046
+  prefill_pipe_ID_mm: 130
+  prefill_rod_check_dp_target_bar: 0.19
+  pressure_air_absolute_bar: 1.0
+  pilot_pressure_set_bar: 150
+  pilot_precharge_bar: 100
+  pilot_min_bar: 120
+  main_wall_min_mm: 35
+  main_wall_nominal_mm: 36
+  mass_allowances_kg:
+    column_end_rings_bases_and_ribs: 235
+    welded_ribs_bases_and_guides: 245
+    tank_baffles_mounts_fittings: 15
+    skid_hardware: 10
+    new_safety_duplicated_sensors_and_cartridges: 24
+    manifold_and_small_valves: 85
+    pipes_filters_and_aux_pumps: 75
+    local_prefill_pipe: 24
+    buffer_shell_membrane_regulator: 30
+    crosshead_punch: 225
+    feeder_hopper: 180
+    guards: 90
+    electrical: 75
+  mechanical_baseline_allowances_kg: {frame: 1700, crosshead_punch: 234, feeder_hopper: 180, guards: 90, electrical: 75}
+  structure:
+    frame_load_N: 1940000
+    load_cycles: 10000000
+    column_count: 4
+    column_diameter_mm: 100
+    column_thread_root_mm: 90
+    column_length_mm: 1450
+    column_pretension_N_each: 450000
+    column_joint_load_fraction: 0.22
+    column_thread_fat_design_range_MPa: 55
+    column_plate_count: 2
+    column_plate_dims_mm: [720, 660, 145]
+    column_plate_effective_width_mm: 600
+    column_plate_support_span_mm: 540
+    welded_side_count: 2
+    welded_side_dims_mm: [1450, 520, 74]
+    welded_side_net_height_mm: 510
+    welded_end_count: 2
+    welded_end_dims_mm: [660, 620, 140]
+    welded_plate_effective_width_mm: 580
+    welded_plate_support_span_mm: 510
+    welded_detail_range_multiplier: 1.05
+  round2:
+    safety_hardware_mass_budget_kg:
+      monitored_unloader_and_adapter: 12
+      float_common_cover_and_mounts: 5
+      TF_relief_flange_and_return_support: 5
+      emergency_dump_poppets_and_returns: 22
+      pilot_tandem_and_feedback: 23
+    low_flow_reliefs_savings_kg_range: [15, 25]
+    combined_2WRCE_manifolds_savings_kg_range: [60, 100]
+    old_pilot_heat_allowance_kW: 0.75
+    pilot_eta_v_floor: 0.85
+    pilot_eta_mechanical_floor: 0.75
+    pilot_high_side_volume_L: 9.3
+    pilot_max_admissible_switch_oil_L: 0.45
+    pilot_max_load_bar: 160
+    pilot_thermal_charge_max_bar: 152
+    pilot_tandem_unloaded_shaft_bound_kW: 0.38
+    pilot_main_priority_cut_in_bar: 100
+    pilot_booster_priority_cut_in_bar: 50
+    electrical_controls_allowance_kW: 1.10
+    float_max_speed_m_s: 0.24
+    float_suction_drop_bound_bar: 0.20
+    float_exhaust_drop_bound_bar: 0.5
+    regen_seat_dp_bound_bar: 1.0
+    TF_relief_backpressure_max_bar: 0.2
+    TF_relief_viscosity_derating_factor: 0.90
+    fault_oil_bulk_modulus_Pa: 1400000000
+    fault_compliance_multiplier: 2
+    fault_orifice_min_cd: 0.56
+    fault_orifice_max_cd: 0.65
+    fault_orifice_diameter_tolerance_mm: 0.1
+    fault_return_at_flow_bar: 5
+    oil_ambient_absolute_bar: 1
+  sensitivity:
+    rapid_and_gate_mass_factors: [1.3, 1.5]
+    deadhead_factor: 1.20
+    nominal_dose_kg: 0.83
+    feed_s: 0.64
+    dt_s: [0.00125, 0.000625]
+    max_pilot_takeoff_L_min: 8
+    pilot_takeoff_cutin_bar: 165

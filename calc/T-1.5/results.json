@@ -1,0 +1,3240 @@
+{
+  "circuit": {
+    "elements": 146,
+    "elements_without_size_or_underrated": 0,
+    "errors": [],
+    "lines": 68,
+    "mutations": {
+      "cases": [
+        {
+          "diagnostics": [
+            "unknown command RFA=float",
+            "unknown command RFA=float",
+            "unknown command RFA=float",
+            "closed_ports: CYR1.A must float and refill from tank without pump/LP feed",
+            "closed_ports: CYR2.A must float and refill from tank without pump/LP feed"
+          ],
+          "name": "remove_float_valve",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "closed_ports: CYR1.B must float and refill from tank without pump/LP feed",
+            "closed_ports: CYR2.B must float and refill from tank without pump/LP feed",
+            "regen: CYR1.B must float and refill from tank without pump/LP feed",
+            "regen: CYR2.B must float and refill from tank without pump/LP feed",
+            "press: CYR1.B must float and refill from tank without pump/LP feed"
+          ],
+          "name": "reverse_makeup_check",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "MR: port A exposed to high cap pressure or loss of seat separation",
+            "regen: rod pressure can intensify with cap feed and blocked rod port",
+            "regen: CYM.B → CYM.A, [['MR', 'MRC']]"
+          ],
+          "name": "reverse_regen_seat",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "MR: port A exposed to high cap pressure or loss of seat separation",
+            "MR.A: trapped volume without independent pressure relief via RMR",
+            "regen: rod pressure can intensify with cap feed and blocked rod port",
+            "regen: CYM.B → CYM.A, [['MR', 'MRC']]"
+          ],
+          "name": "connect_cap_to_MR_A",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized ZU: expected open",
+            "deenergized: missing safe route P1.P → T0.U via ('ZU',)"
+          ],
+          "name": "close_unpowered_unloader",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized ME2: expected open",
+            "deenergized: missing safe route CYM.A → T0.EB via ('ME2', 'OE2')"
+          ],
+          "name": "close_unpowered_cap_dump",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized SAL: expected bleed",
+            "deenergized: missing safe route ALP.A → T0.T via ('SAL', 'F2')"
+          ],
+          "name": "trap_unpowered_low_pressure_acc",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized SAX: expected bleed",
+            "deenergized: missing safe route AX.A → T0.T via ('SAX', 'F2')"
+          ],
+          "name": "trap_unpowered_pilot_acc",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized MEB: expected open",
+            "deenergized: missing safe route CYM.B → T0.ER via ('MEB',)",
+            "unknown command MEB=open",
+            "stop: missing safe route CYM.B → T0.ER via ('MEB',)",
+            "unknown command MEB=open"
+          ],
+          "name": "remove_rod_fault_dump",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "CYM.B: trapped volume without independent pressure relief via RVB",
+            "hold_decompression: missing function components",
+            "independent_fault_dump: missing function components"
+          ],
+          "name": "remove_rod_relief",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: WK locks on TF supply ports must be piloted closed"
+          ],
+          "name": "enable_MF_in_press",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "unknown command RTF=relief",
+            "TF: missing independent oil side relief to tank",
+            "TF.A: trapped volume without independent pressure relief via RTF",
+            "relief_tank_oil: TF.A → T0.ET, [['RTF']]",
+            "TET: line connects fewer than two ports"
+          ],
+          "name": "remove_oil_relief",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['bolt1_locked', 'bolt2_locked', 'gate_closed', 'mbt_locked', 'mf_locked', 'zsf_closed']"
+          ],
+          "name": "remove_press_bolts_and_gate",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "gate_open: missing safety conditions ['cap1_bar <= 3', 'cap2_bar <= 3']"
+          ],
+          "name": "remove_gate_cap_safe",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "return: safe cap channels and rod pressure required before opening",
+            "return: low-pressure TF opening interlock missing"
+          ],
+          "name": "remove_return_cap_safe",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "eject: low-pressure TF opening interlock missing"
+          ],
+          "name": "remove_MBT_pressure_guard",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: MR and MT overlap outside timed handover",
+            "press: missing pilot/drain for MR: SAX.A → MR.X"
+          ],
+          "name": "press_MR_and_MT_overlap",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: rod pressure can intensify with cap feed and blocked rod port",
+            "press: CYM.B → T0.T, [['MT']]"
+          ],
+          "name": "press_rod_ports_blocked",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "handover: exclusive timed edge overlap with pump isolated and rod pressure monitored",
+            "handover: MT must open to tank before MR closes",
+            "handover_regen_press: CYM.B → T0.T, [['MT', 'F2']]"
+          ],
+          "name": "remove_handover_overlap_opening",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: bolt confirmation must follow cam travel or deadline, not inhibit motion onset"
+          ],
+          "name": "block_cam_before_it_moves",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: verify both edges before resuming MP",
+            "press: VR at center and both float positions required",
+            "press: absent_sensor"
+          ],
+          "name": "unknown_guard_sensor",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "RVM: pressure rating below design",
+            "RVM.P: pressure rating 250 < 315 bar"
+          ],
+          "name": "underrated_cap_relief",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "handover: exclusive timed edge overlap with pump isolated and rod pressure monitored",
+            "handover: power feed still reaches MA",
+            "handover_regen_press: unintended P1.P → CYM.A"
+          ],
+          "name": "energize_MP_in_overlap",
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "ZSF: application case 4, available 950 L/min; case 2 required"
+          ],
+          "name": "wrong_ZSF_installation",
+          "status": "FAIL"
+        }
+      ],
+      "rejected": 24,
+      "total": 24
+    },
+    "passed": true,
+    "phases_without_flow_path": 0,
+    "physical_phases": 13,
+    "rating_errors": [],
+    "reference_mapping": {
+      "closed_ports": [
+        "closed ports oil compression"
+      ],
+      "eject": [
+        "eject 1",
+        "eject 2",
+        "eject 3",
+        "eject 4",
+        "eject 5",
+        "eject 6",
+        "eject 7",
+        "eject 8",
+        "eject 9",
+        "eject 10",
+        "eject 11",
+        "eject 12",
+        "eject 13",
+        "eject 14",
+        "eject 15",
+        "eject 16"
+      ],
+      "feed": [
+        "feed"
+      ],
+      "gate_close": [
+        "gate_close 1",
+        "gate_close 2",
+        "gate_close 3",
+        "gate_close 4",
+        "gate_close 5",
+        "gate_close 6",
+        "gate_close 7",
+        "gate_close 8",
+        "gate_close 9"
+      ],
+      "gate_open": [
+        "gate_open 1",
+        "gate_open 2",
+        "gate_open 3",
+        "gate_open 4",
+        "gate_open 5",
+        "gate_open 6",
+        "gate_open 7",
+        "gate_open 8",
+        "gate_open 9"
+      ],
+      "hold": [
+        "hold"
+      ],
+      "pre_down": [
+        "pre_down 1",
+        "pre_down 2",
+        "pre_down 3",
+        "pre_down 4"
+      ],
+      "pre_up": [
+        "pre_up 1",
+        "pre_up 2"
+      ],
+      "prefill": [
+        "prefill 1",
+        "prefill 2",
+        "prefill 3",
+        "prefill 4",
+        "prefill 5",
+        "prefill 6",
+        "prefill 7",
+        "prefill 8",
+        "prefill 9",
+        "prefill 10",
+        "prefill 11",
+        "prefill 12",
+        "prefill 13",
+        "prefill 14"
+      ],
+      "press": [
+        "press 1",
+        "press 2",
+        "press 3",
+        "press 4",
+        "press 5",
+        "press 6",
+        "press 7",
+        "press 8",
+        "press 9",
+        "press 10",
+        "press 11",
+        "press 12",
+        "press 13",
+        "press 14",
+        "press 15",
+        "press 16",
+        "press 17",
+        "press 18",
+        "press 19",
+        "press 20",
+        "press 21",
+        "press 22",
+        "press 23",
+        "press 24",
+        "press 25",
+        "press 26",
+        "press 27",
+        "press 28",
+        "press 29"
+      ],
+      "regen": [
+        "regen 2",
+        "regen 3",
+        "regen 4",
+        "regen 5",
+        "regen 6",
+        "regen 7",
+        "regen 8",
+        "regen 9",
+        "regen 10",
+        "regen 11",
+        "regen 12",
+        "regen 13",
+        "regen 14",
+        "regen 15",
+        "regen 16",
+        "regen 17",
+        "regen 18"
+      ],
+      "return": [
+        "return 1",
+        "return 2",
+        "return 3",
+        "return 4",
+        "return 5",
+        "return 6",
+        "return 7",
+        "return 8",
+        "return 9",
+        "return 10"
+      ],
+      "unload": [
+        "unload"
+      ]
+    },
+    "reference_rows": 114,
+    "rod_intensification": {
+      "cap_to_annulus_ratio": 2.0416666666666665,
+      "trapped_rod_at_120_bar_bar": 244.99999999999997,
+      "trapped_rod_at_300_bar_bar": 612.5
+    },
+    "route_errors": [],
+    "safety_errors": [],
+    "sensors": 41,
+    "unknown_sensor_interlocks": 0,
+    "unknown_sensor_references": [],
+    "unmapped_reference_steps": [],
+    "verified_paths": {
+      "bolt_loss": [
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "ME1",
+            "OE1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "MEB1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "ME2",
+            "OE2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "MEB2"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.ER",
+          "via": [
+            "MEB"
+          ]
+        },
+        {
+          "from": "ALP.A",
+          "to": "T0.T",
+          "via": [
+            "SAL",
+            "F2"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "T0.T",
+          "via": [
+            "SAX",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "T0.U",
+          "via": [
+            "ZU"
+          ]
+        },
+        {
+          "from": "ZU.X",
+          "to": "T0.D",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        },
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "closed_ports": [
+        {
+          "from": "P1.P",
+          "to": "CYM.A",
+          "via": [
+            "F1",
+            "MP",
+            "MHOLD"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "eject": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.A",
+          "via": [
+            "ZSF"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "TF.A",
+          "via": [
+            "MBT"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "eject+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.A",
+          "via": [
+            "ZSF"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "TF.A",
+          "via": [
+            "MBT"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "feed": [
+        {
+          "from": "P1.P",
+          "to": "ALP.A",
+          "via": [
+            "F1",
+            "LCH",
+            "LCC",
+            "SAL"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "fill_balance_in": [
+        {
+          "from": "PC.P",
+          "to": "TF.A",
+          "via": [
+            "BAL"
+          ]
+        }
+      ],
+      "fill_balance_out": [
+        {
+          "from": "TF.A",
+          "to": "T0.T",
+          "via": [
+            "BAL",
+            "F2"
+          ]
+        }
+      ],
+      "gate_close": [
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "gate_close+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "gate_open": [
+        {
+          "from": "P1.P",
+          "to": "CYG.B",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.A",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "handover_regen_press": [
+        {
+          "from": "CYM.B",
+          "to": "T0.T",
+          "via": [
+            "MT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        }
+      ],
+      "hold": [
+        {
+          "from": "P1.P",
+          "to": "ALP.A",
+          "via": [
+            "F1",
+            "LCH",
+            "LCC",
+            "SAL"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "pilot_booster_priority": [
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "pilot_end_of_feed": [
+        {
+          "from": "P1.P",
+          "to": "SAX.A",
+          "via": [
+            "F1",
+            "XCH",
+            "XCC",
+            "SAX"
+          ]
+        }
+      ],
+      "pilot_idle": [
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        },
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "pilot_main_priority": [
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        }
+      ],
+      "pilot_reserve": [
+        {
+          "from": "P1.P",
+          "to": "SAX.A",
+          "via": [
+            "F1",
+            "XCH",
+            "XCC",
+            "SAX"
+          ]
+        }
+      ],
+      "pre_down": [
+        {
+          "from": "P1.P",
+          "to": "PCY.A",
+          "via": [
+            "F1",
+            "PPA"
+          ]
+        },
+        {
+          "from": "PCY.B",
+          "to": "T0.T",
+          "via": [
+            "PL1",
+            "PBT",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "pre_down/lp": [
+        {
+          "from": "ALP.A",
+          "to": "PCY.A",
+          "via": [
+            "SAL",
+            "PBA",
+            "PAA"
+          ]
+        }
+      ],
+      "pre_up": [
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "pre_up/lp": [
+        {
+          "from": "ALP.A",
+          "to": "PCY.B",
+          "via": [
+            "SAL",
+            "PBB",
+            "PAB"
+          ]
+        }
+      ],
+      "prefill": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.A",
+          "via": [
+            "ZSF"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "TF.A",
+          "via": [
+            "MBT"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "press": [
+        {
+          "from": "P1.P",
+          "to": "CYM.A",
+          "via": [
+            "F1",
+            "MP",
+            "MHOLD"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.T",
+          "via": [
+            "MT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "regen": [
+        {
+          "from": "P1.P",
+          "to": "CYM.A",
+          "via": [
+            "F1",
+            "MP",
+            "MHOLD"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "CYM.A",
+          "via": [
+            "MR",
+            "MRC"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "relief_pre_A": [
+        {
+          "from": "PCY.A",
+          "to": "T0.EP",
+          "via": [
+            "RVA"
+          ]
+        }
+      ],
+      "relief_pre_B": [
+        {
+          "from": "PCY.B",
+          "to": "T0.EQ",
+          "via": [
+            "RVP"
+          ]
+        }
+      ],
+      "relief_tank_oil": [
+        {
+          "from": "TF.A",
+          "to": "T0.ET",
+          "via": [
+            "RTF"
+          ]
+        }
+      ],
+      "return": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ],
+      "return+gate_close": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        }
+      ],
+      "return+gate_close+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "return+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "return/lp": [
+        {
+          "from": "ALP.A",
+          "to": "CYR1.B",
+          "via": [
+            "SAL",
+            "LR",
+            "LRC"
+          ]
+        },
+        {
+          "from": "ALP.A",
+          "to": "CYR2.B",
+          "via": [
+            "SAL",
+            "LR",
+            "LRC"
+          ]
+        }
+      ],
+      "stop": [
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "ME1",
+            "OE1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "MEB1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "ME2",
+            "OE2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "MEB2"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.ER",
+          "via": [
+            "MEB"
+          ]
+        },
+        {
+          "from": "ALP.A",
+          "to": "T0.T",
+          "via": [
+            "SAL",
+            "F2"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "T0.T",
+          "via": [
+            "SAX",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "T0.U",
+          "via": [
+            "ZU"
+          ]
+        },
+        {
+          "from": "ZU.X",
+          "to": "T0.D",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        },
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "transition_unload": [
+        {
+          "from": "P1.P",
+          "to": "T0.T",
+          "via": [
+            "ZN",
+            "F2"
+          ]
+        }
+      ],
+      "unload": [
+        {
+          "from": "CYM.A",
+          "to": "T0.E",
+          "via": [
+            "MD",
+            "OR8"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.T",
+          "via": [
+            "MT",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "ALP.A",
+          "via": [
+            "F1",
+            "LCH",
+            "LCC",
+            "SAL"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "PC.S",
+          "to": "E1.B",
+          "via": [
+            "PC",
+            "E1"
+          ]
+        },
+        {
+          "from": "E1.B",
+          "to": "T0.R",
+          "via": [
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        }
+      ]
+    }
+  },
+  "cooling": {
+    "LAC_078_8_capacity_kW": 18.9,
+    "LAC_110_8_with_baseline_aux_kW": 35.300000000000004,
+    "catalogue_curve_screen_only": true,
+    "circulation_required_shaft_kW": 0.5208333333333334,
+    "circulation_total_dp_budget_bar": 1.25,
+    "design_margin_kW": 0.12247522486032025,
+    "extra_fluid_heat_bound_kW": 0.19177354741855052,
+    "heat_capacity_kW": 21.6,
+    "heat_load_kW": 21.47752477513968,
+    "heat_load_reference_kW": 18.7,
+    "installed_kW": {
+      "controls_and_valves": 1.1,
+      "cooler_circulation": 0.55,
+      "cooler_fan": 1.5,
+      "dosing": 0.75,
+      "main_motor": 30
+    },
+    "installed_limit_kW": 34.2,
+    "installed_total_kW": 33.9,
+    "matrix_dp_bar": 0.705,
+    "oil_flow_L_min": 180,
+    "oil_temperature_drop_K": 3.7709215567654772,
+    "predicted_hot_oil_C": 54.91494776051367,
+    "selected": "OAC1000-03-8"
+  },
+  "cycle": {
+    "T13_nominal_physical_s": 5.592533902299517,
+    "T13_pessimistic_reserve_high_s": 6.081283902299073,
+    "T13_physical_allowance_s": 0.09565890230013974,
+    "basis": "Gate-equivalent params.t14b remains in force. Sensitivity at nominal dose and 90 kg/m³. Only valve losses and pilot/main power allocation changed.",
+    "combined_pessimistic": {
+      "mass_x1.3": {
+        "average_shaft_kW": 23.52501589657817,
+        "convergence": [
+          {
+            "cycle_s": 5.977499999999882,
+            "dt_s": 0.00125
+          },
+          {
+            "cycle_s": 5.964375000000745,
+            "dt_s": 0.000625
+          }
+        ],
+        "cycle_s": 5.964375000000745,
+        "deadhead_factor": 1.2,
+        "delta_to_reference_s": 0.46437500000021803,
+        "dt_s": 0.000625,
+        "mass_factor": 1.3,
+        "peak_shaft_kW": 38.310810810810814,
+        "peak_working_bar": 268.1734489748378,
+        "rms_shaft_kW": 26.487360420415325,
+        "with_T13_physical_allowance_s": 6.0600339023008845
+      },
+      "mass_x1.5": {
+        "average_shaft_kW": 23.566106865773772,
+        "convergence": [
+          {
+            "cycle_s": 5.98624999999988,
+            "dt_s": 0.00125
+          },
+          {
+            "cycle_s": 5.966250000000746,
+            "dt_s": 0.000625
+          },
+          {
+            "cycle_s": 5.964687499999106,
+            "dt_s": 0.0003125
+          }
+        ],
+        "cycle_s": 5.964687499999106,
+        "deadhead_factor": 1.2,
+        "delta_to_reference_s": 0.46468749999857906,
+        "dt_s": 0.0003125,
+        "mass_factor": 1.5,
+        "peak_shaft_kW": 38.31081081081084,
+        "peak_working_bar": 268.3299649154557,
+        "rms_shaft_kW": 26.521104222192356,
+        "with_T13_physical_allowance_s": 6.0603464022992455
+      }
+    },
+    "pilot_takeoff_bound": {
+      "average_shaft_kW": 24.610243601650993,
+      "convergence": [
+        {
+          "cycle_s": 5.583749999999936,
+          "dt_s": 0.00125
+        },
+        {
+          "cycle_s": 5.572500000000564,
+          "dt_s": 0.000625
+        }
+      ],
+      "cutin_bar": 165,
+      "cycle_s": 5.572500000000564,
+      "delta_s": 0.07250000000003709,
+      "dt_s": 0.000625,
+      "peak_shaft_kW": 38.31081081081082,
+      "peak_working_bar": 268.07849923977534,
+      "rms_shaft_kW": 27.414862356866394,
+      "takeoff_L_min": 8,
+      "with_T13_physical_allowance_s": 5.6681589023007035
+    },
+    "rapid_float_only": {
+      "average_shaft_kW": 24.44409160326389,
+      "convergence": [
+        {
+          "cycle_s": 5.508749999999951,
+          "dt_s": 0.00125
+        },
+        {
+          "cycle_s": 5.503125000000528,
+          "dt_s": 0.000625
+        }
+      ],
+      "cycle_s": 5.503125000000528,
+      "delta_s": 0.0031250000000015987,
+      "dt_s": 0.000625,
+      "peak_shaft_kW": 38.31081081081082,
+      "peak_working_bar": 268.198451475989,
+      "rms_shaft_kW": 27.25975962646294,
+      "with_T13_physical_allowance_s": 5.598783902300668
+    },
+    "reference_36_kW": {
+      "average_shaft_kW": 24.435536794162648,
+      "convergence": [
+        {
+          "cycle_s": 5.506249999999952,
+          "dt_s": 0.00125
+        },
+        {
+          "cycle_s": 5.500000000000527,
+          "dt_s": 0.000625
+        }
+      ],
+      "cycle_s": 5.500000000000527,
+      "dt_s": 0.000625,
+      "peak_shaft_kW": 38.31081081081082,
+      "peak_working_bar": 268.07849923977534,
+      "rms_shaft_kW": 27.250478568159604,
+      "with_T13_physical_allowance_s": 5.595658902300666
+    },
+    "reference_dir": "calc/T-1.5/reference",
+    "round2_adverse_envelope": {
+      "average_shaft_kW": 27.34217742894272,
+      "convergence": [
+        {
+          "cycle_s": 6.082499999999861,
+          "dt_s": 0.00125
+        },
+        {
+          "cycle_s": 6.062500000000795,
+          "dt_s": 0.000625
+        },
+        {
+          "cycle_s": 6.061874999999017,
+          "dt_s": 0.0003125
+        }
+      ],
+      "cycle_s": 6.061874999999017,
+      "delta_to_previous_mass_x1p5_s": 0.09718749999991161,
+      "dt_s": 0.0003125,
+      "extra_handover_budget_s": 0,
+      "lp_charge_s_by_window": {
+        "feed": 0.41562499999999253,
+        "hold": 0.19999999999999712,
+        "unload": 0.24937499999999607
+      },
+      "peak_shaft_kW": 38.31081081081084,
+      "peak_working_bar": 268.4324015563536,
+      "pre_up_command_to_cam_exit_s": 0.13999999999987267,
+      "rms_shaft_kW": 29.011014409977268,
+      "with_T13_physical_allowance_s": 6.157533902299157
+    },
+    "round2_nominal": {
+      "average_shaft_kW": 28.301750998576324,
+      "convergence": [
+        {
+          "cycle_s": 5.576249999999938,
+          "dt_s": 0.00125
+        },
+        {
+          "cycle_s": 5.571250000000563,
+          "dt_s": 0.000625
+        }
+      ],
+      "cycle_s": 5.591250000000563,
+      "delta_to_reference_s": 0.09125000000003602,
+      "dt_s": 0.000625,
+      "extra_handover_budget_s": 0.01999999999999999,
+      "lp_charge_s_by_window": {
+        "feed": 0.46624999999999284,
+        "hold": 0.22999999999999785,
+        "unload": 0.19874999999999846
+      },
+      "peak_shaft_kW": 38.31081081081083,
+      "peak_working_bar": 268.198451475989,
+      "pre_up_command_to_cam_exit_s": 0.10999999999997812,
+      "rms_shaft_kW": 29.860186765794044,
+      "with_T13_physical_allowance_s": 5.6869089023007025
+    }
+  },
+  "frame": {
+    "column": {
+      "bases_ribs_rings_kg": 235,
+      "column_max_stress_MPa": 87.50771043877347,
+      "column_yield_factor": 6.856538663753545,
+      "end_plates": {
+        "mass_kg": 1081.7928,
+        "stress_range_MPa": 92.27110582639715,
+        "unnotched_fatigue_margin": 1.083762886597938,
+        "yield_factor": 3.8473582474226804
+      },
+      "joint_clamp_remaining_N_each": 71700.0,
+      "screen_pass": true,
+      "thread_fatigue_margin": 3.2792397543914076,
+      "thread_nominal_range_MPa": 16.772180175708872,
+      "tie_columns_kg": 357.5917837948582,
+      "total_kg": 1674.3845837948581
+    },
+    "design_load_N": 1940000,
+    "load_cycles": 10000000,
+    "welded": {
+      "allowable_side_range_MPa": 38.98690317617155,
+      "bases_ribs_guides_kg": 245,
+      "end_plates": {
+        "mass_kg": 899.4216,
+        "stress_range_MPa": 94.71323011963406,
+        "unnotched_fatigue_margin": 1.0558187053032413,
+        "yield_factor": 3.7481564038265067
+      },
+      "screen_pass": true,
+      "side_detail_range_MPa": 26.987281399046108,
+      "side_fatigue_margin": 1.444639887941791,
+      "side_plates_kg": 875.9972,
+      "side_yield_factor": 13.154344624447717,
+      "total_kg": 2020.4188
+    }
+  },
+  "main_cylinder": {
+    "closed_axial_MPa": 56.0,
+    "closed_vm_MPa": 151.55444566227678,
+    "detail_limitations": "Thick tube nominal hoop/stress screen. Retain T-1.3 heads and bolts. Check seal grooves, interfaces, cyclic stress and net frame changes before D1.",
+    "evaluated_pressure_MPa": 31.5,
+    "filled_kg": 733.9322907714237,
+    "frame_insert_gross_cover_reduction_kg": 102.54252669096694,
+    "hoop_MPa": 143.5,
+    "mass_saved_kg": 30.527709228576366,
+    "minimum_yield_factor": 3.094640715313747,
+    "radial_MPa": -31.5,
+    "retained_bore_rod_stroke_mm": [
+      280,
+      200,
+      289
+    ],
+    "static_screen_pass": true,
+    "wall_min_mm": 35,
+    "wall_nominal_mm": 36,
+    "zero_axial_vm_MPa": 161.56964442617308
+  },
+  "mass": {
+    "excess_to_target_kg": 998.5539345662819,
+    "further_candidates_kg_ranges": {
+      "lighten_feeder_guard_supports": [
+        35,
+        65
+      ],
+      "profile_and_pocket_end_plates_outside_force_path": [
+        70,
+        130
+      ],
+      "rear_head_insert_net_after_frame_reinforcement": [
+        50,
+        95
+      ]
+    },
+    "limit_kg": 5000,
+    "machine_T13_budget_kg": 4968.9465,
+    "machine_T15_column_kg": 4998.553934566282,
+    "machine_T15_welded_kg": 5344.588150771423,
+    "machine_column_if_low_cost_reserves_realized_kg": [
+      4873.553934566282,
+      4923.553934566282
+    ],
+    "machine_rows": [
+      {
+        "T13_kg": 1518.3,
+        "T15_kg": 1613.05056,
+        "node": "Гидростанция в сборе",
+        "source": "Detailed station inventory"
+      },
+      {
+        "T13_kg": 764.46,
+        "T15_kg": 733.9322907714237,
+        "node": "Главный ГЦ с маслом",
+        "source": "T-1.3 physical cylinder, minus tube annulus at unchanged bore and length"
+      },
+      {
+        "T13_kg": 82.42,
+        "T15_kg": 82.42,
+        "node": "Два быстрых ГЦ с маслом",
+        "source": "design/cylinders.t13.yaml CY-RAPID"
+      },
+      {
+        "T13_kg": 101.34,
+        "T15_kg": 101.34,
+        "node": "ГЦ подпрессовки с маслом",
+        "source": "design/cylinders.t13.yaml CY-PRE"
+      },
+      {
+        "T13_kg": 23.04,
+        "T15_kg": 23.04,
+        "node": "ГЦ шибера с маслом",
+        "source": "design/cylinders.t13.yaml CY-GATE"
+      },
+      {
+        "T13_kg": 180.22142000000002,
+        "T15_kg": 180.22142000000002,
+        "node": "Камера, башмак и засовы",
+        "source": "T-1.3 grouping minus estimate for gate plate; no double counting"
+      },
+      {
+        "T13_kg": 20.16508,
+        "T15_kg": 20.16508,
+        "node": "Плита шибера",
+        "source": "38 mm from D-GK-01, planform 260×260 mm budget, included in upstream chamber grouping"
+      },
+      {
+        "T13_kg": 1700,
+        "T15_kg": 1674.3845837948581,
+        "node": "Силовая рама",
+        "source": "T-1.3 GK review approximation and column screen at 1.94 MN"
+      },
+      {
+        "T13_kg": 234,
+        "T15_kg": 225,
+        "node": "Траверса с пуансоном",
+        "source": "T-1.3 remaining moving-mass allowance; planned mass cap"
+      },
+      {
+        "T13_kg": 180,
+        "T15_kg": 180,
+        "node": "Подача и бункер",
+        "source": "Engineering allowance"
+      },
+      {
+        "T13_kg": 90,
+        "T15_kg": 90,
+        "node": "Ограждения",
+        "source": "Engineering allowance"
+      },
+      {
+        "T13_kg": 75,
+        "T15_kg": 75,
+        "node": "Электрика",
+        "source": "Engineering allowance"
+      }
+    ],
+    "margin_to_limit_kg": 1.446065433718104,
+    "moving_mass_cap_kg": 233.69269288282717,
+    "moving_mass_margin_kg": 8.692692882827174,
+    "station_T13_kg": 1518.3,
+    "station_T15_kg": 1613.05056,
+    "station_rows": [
+      {
+        "T13_kg": 368,
+        "T15_kg": 368,
+        "node": "Мотор, насос, муфта",
+        "source": "T-1.4b mass breakdown; OMEC and Parker data sheets; coupling in skid hardware"
+      },
+      {
+        "T13_kg": 115,
+        "T15_kg": 94.756,
+        "node": "Основной бак",
+        "source": "Envelope 900×700×400 mm, sheet 4 mm and 15 kg for baffles, fittings and mounts"
+      },
+      {
+        "T13_kg": 374.1,
+        "T15_kg": 165.3,
+        "node": "Основное масло",
+        "source": "Initial main tank inventory × oil density; cylinder fill already carried with cylinders"
+      },
+      {
+        "T13_kg": 64,
+        "T15_kg": 64,
+        "node": "ГА обоих контуров",
+        "source": "HYDAC SB330 table and T-1.4b mass breakdown"
+      },
+      {
+        "T13_kg": 136,
+        "T15_kg": 154,
+        "node": "Охладитель с вентилятором",
+        "source": "KTR OAC1000-03-8 50 Hz, catalogue p. 25"
+      },
+      {
+        "T13_kg": 60,
+        "T15_kg": 42.35456,
+        "node": "Рама станции",
+        "source": "2×900 + 4×700 mm RHS 80×40×4, 10 kg feet/motor plate/mounting hardware, transport to verify"
+      },
+      {
+        "T13_kg": 206.2,
+        "T15_kg": 262.9,
+        "node": "Картриджи 2WRCE",
+        "source": "Circuit inventory × masses in RE 29406, NG32/40/50"
+      },
+      {
+        "T13_kg": 75,
+        "T15_kg": 128,
+        "node": "Коллекторы, малая арматура и защита",
+        "source": "Project allowance including DB, gate valve, LC/LFA, SAF bodies, sensors and safety cartridges"
+      },
+      {
+        "T13_kg": 45,
+        "T15_kg": 75,
+        "node": "Фильтры, трубы, вспомогательные насосы",
+        "source": "Project allowance for wider return and separate cooling loop"
+      },
+      {
+        "T13_kg": 15,
+        "T15_kg": 15,
+        "node": "ZSF NG100",
+        "source": "RE 20478 and T-1.4b"
+      },
+      {
+        "T13_kg": 48,
+        "T15_kg": 66.53999999999999,
+        "node": "Локальный бак и его масло",
+        "source": "Separated 65 L vessel assembly estimated at 30 kg; 42 L of oil"
+      },
+      {
+        "T13_kg": 12,
+        "T15_kg": 24,
+        "node": "Местные линии наполнения",
+        "source": "Engineering allowance for Ø125/100 and matching supports as already reserved in T-1.4b"
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 28.400000000000002,
+        "node": "Клапаны плавания и подпитки",
+        "source": "RE 21040 and RE 21010. Both check inserts in the shared manifold with its own cover allowance."
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 9.3,
+        "node": "Седло регенерации",
+        "source": "RE 21010 LC/LFA NG40"
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 48.5,
+        "node": "Масляный предохранительный TF",
+        "source": "Goetze Series 455 DN65/100 gastight catalogued mass"
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 12,
+        "node": "monitored_unloader_and_adapter",
+        "source": "Round-two engineering allowance; weigh actual procurement assembly"
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 5,
+        "node": "float_common_cover_and_mounts",
+        "source": "Round-two engineering allowance; weigh actual procurement assembly"
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 5,
+        "node": "TF_relief_flange_and_return_support",
+        "source": "Round-two engineering allowance; weigh actual procurement assembly"
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 22,
+        "node": "emergency_dump_poppets_and_returns",
+        "source": "Round-two engineering allowance; weigh actual procurement assembly"
+      },
+      {
+        "T13_kg": 0,
+        "T15_kg": 23,
+        "node": "pilot_tandem_and_feedback",
+        "source": "Round-two engineering allowance; weigh actual procurement assembly"
+      }
+    ],
+    "target_kg": 4000,
+    "unconfirmed_low_cost_reserve_rows_kg": {
+      "DB_NG32_125_to_270_L_min_to_sized_cartridges": [
+        15,
+        25
+      ],
+      "combined_2WRCE_manifolds": [
+        60,
+        100
+      ]
+    }
+  },
+  "round2": {
+    "TF_oil_relief": {
+      "blowoff_inlet_bar": 2.09,
+      "estimated_flow_L_min": 1661.757692680848,
+      "outlet_bar": 0.2,
+      "rated_design_L_min": 1293,
+      "static_screen_pass": true
+    },
+    "emergency_dump": {
+      "active_delay_protection": [
+        "RV0",
+        "RVM",
+        "RVB"
+      ],
+      "branches": [
+        {
+          "maximum_flow_at_315_bar_L_min": 359.048410036423,
+          "minimum_flow_at_315_bar_L_min": 279.089486874037,
+          "single_open_branch_at_full_pump_bar": 286.45851571190417,
+          "static_screen_pass": true,
+          "valve": "ME1"
+        },
+        {
+          "maximum_flow_at_315_bar_L_min": 359.048410036423,
+          "minimum_flow_at_315_bar_L_min": 279.089486874037,
+          "single_open_branch_at_full_pump_bar": 286.45851571190417,
+          "static_screen_pass": true,
+          "valve": "ME2"
+        }
+      ],
+      "closed_cap_300_to_315_bar_estimate_s": 0.009875769783850826,
+      "closed_cap_full_pump_initial_pressure_slope_bar_s": 1518.8689416928773,
+      "effective_volume_compliance_m3_Pa": 2.9078655474671876e-11,
+      "fault_path_return_bound_bar": 5,
+      "fault_valve_dp_bound_at_265_L_min_bar": 20,
+      "full_stroke_cap_with_dead_volume_L": 20.355058832270313,
+      "low_pressure_tail_bleeds": [
+        "MEB1",
+        "MEB2"
+      ],
+      "pump_assumed_stuck_at_L_min": 265,
+      "valve_dp_and_transient_confirm_on_test": true,
+      "while_feed_continues": "Pressure can remain above safe opening setpoint. Keep gate inhibited until two independent cap readings permit release."
+    },
+    "extra_fluid_work_bound_kJ_per_cycle": 1.0722538470040786,
+    "float": {
+      "extra_direct_feed_bar": 0.1127551020408163,
+      "float_velocity_bound_m_s": 0.24,
+      "main_pump_float_L_min": 0,
+      "max_rapid_pair_drag_N": 694.2919764433442,
+      "min_A_absolute_bar": 0.8,
+      "regen_check_dp_bound_bar": 1.0,
+      "tank_discharge_B_L_min": 126.66901579274042,
+      "tank_makeup_A_L_min": 183.2176835573567
+    },
+    "pilot": {
+      "acc_available_150_to_120_L": 1.1960810958439687,
+      "assumed_minimum_delivery_L_min": 14.79,
+      "ax_depletion_screen_pass": true,
+      "booster_theoretical_L_min": 11.6,
+      "catalogue_at_100_bar": {
+        "2WRCE_average_each_L_min": 0.4,
+        "2WRCE_installed_count": 14,
+        "2WRCE_maximum_each_L_min": 0.9,
+        "2WRCE_reference_count": 16,
+        "4WRLE_count": 2,
+        "4WRLE_pilot_only_maximum_each_L_min": 0.17,
+        "unsectioned_maximum_L_min": 14.74
+      },
+      "charge_available_s": {
+        "PX": 4.613125000000669,
+        "PXA": 2.510000000000141
+      },
+      "charge_test_pending": true,
+      "combined_theoretical_L_min": 17.4,
+      "cycle_leak_L": 0.2883892715131044,
+      "cycle_supply_L": 0.7915217708334115,
+      "estimated_pilot_drained_between_recharge_L": 0.5135421637767903,
+      "group_assisted_supply": "PX and PXA on PV180 through shaft, AX bridges priority, XCH reserve",
+      "heat_bound_kW": 3.3357512277211328,
+      "lumped_switch_and_aux_budget_L": 0.45,
+      "maximum_connected_leak_L_min": 7.030035561787721,
+      "net_per_cycle_L": 0.053132499320307,
+      "net_per_cycle_with_linear_leak_scaling_L": -0.011681510416619634,
+      "periodic_balance_screen_pass": true,
+      "phase_windows_s": {
+        "closed_ports": [
+          0.9543749999999824,
+          1.0437499999999882
+        ],
+        "eject": [
+          3.44437499999987,
+          4.027499999999773
+        ],
+        "feed": [
+          4.931250000000236,
+          5.571250000000563
+        ],
+        "gate_close": [
+          4.338749999999933,
+          4.892500000000216
+        ],
+        "gate_open": [
+          3.2193749999999146,
+          3.44437499999987
+        ],
+        "handover_regen_press": [
+          1.4718750000000551,
+          1.541875000000066
+        ],
+        "hold": [
+          2.7193749999999945,
+          3.0193749999999446
+        ],
+        "pre_down": [
+          0.0,
+          0.5806249999999904
+        ],
+        "pre_up": [
+          3.8224999999997946,
+          4.4499999999999895
+        ],
+        "prefill": [
+          0.5806249999999904,
+          0.9543749999999824
+        ],
+        "press": [
+          1.541875000000066,
+          2.7193749999999945
+        ],
+        "regen": [
+          1.0437499999999882,
+          1.4718750000000551
+        ],
+        "return": [
+          4.027499999999773,
+          4.931250000000236
+        ],
+        "unload": [
+          3.0193749999999446,
+          3.2193749999999146
+        ]
+      },
+      "priority_bars": {
+        "PX": 100,
+        "PXA": 50
+      },
+      "reserve_above_lumped_switch_oil_L": 0.053132499320307,
+      "shaft_at_150_bar_bound_kW": 5.8,
+      "shaft_bound_kW": 6.1866666666666665,
+      "stage_minimum_delivery_L_min": {
+        "PX": 4.93,
+        "PXA": 9.86
+      },
+      "stage_shaft_bound_kW": {
+        "PX": 2.062222222222222,
+        "PXA": 4.124444444444444
+      },
+      "stage_standby_bound_kW": {
+        "PX": 0.12666666666666665,
+        "PXA": 0.2533333333333333
+      },
+      "standby_shaft_bound_kW": 0.38,
+      "theoretical_L_min": 5.8,
+      "uncut_150_bar_maximum_L_min": 18.05273940431202
+    }
+  },
+  "tank": {
+    "ZSF_case2_min_L": 30.532588248405467,
+    "calculated_low_inventory_L": 139.55382005167723,
+    "cylinders_cap_sweeps_total_L": 26.685002158857063,
+    "cylinders_sweeps_L": {
+      "CY-GATE": {
+        "annulus_L": 0.2748893571891069,
+        "cap_L": 0.40212385965949354,
+        "net_L": 0.12723450247038662
+      },
+      "CY-MAIN": {
+        "annulus_L": 8.716034658119522,
+        "cap_L": 17.795237426994024,
+        "net_L": 9.079202768874502
+      },
+      "CY-PRE": {
+        "annulus_L": 3.8450643637669266,
+        "cap_L": 4.81056375080937,
+        "net_L": 0.9654993870424439
+      },
+      "CY-RAPID": {
+        "annulus_L": 2.5421767752848603,
+        "cap_L": 3.677077121394173,
+        "net_L": 1.1349003461093128
+      }
+    },
+    "deairing_test_required": true,
+    "fill_and_lines_reserve_L": 5.0,
+    "gross_main_L": 252.0,
+    "local_gross_L": 65,
+    "local_nominal_oil_L": 42,
+    "local_oil_kg": 36.54,
+    "local_oil_min_after_full_net_stroke_L": 32.9207972311255,
+    "lp_full_oil_charge_L": 6.439145692627625,
+    "main_oil_kg": 165.3,
+    "main_tank_loss_reserve_L": 10,
+    "margin_above_minimum_L": 9.553820051677235,
+    "max_fill_oil_L": 205,
+    "minimum_level_L": 130,
+    "minimum_local_annulus_absolute_bar_at_0p44_bar": 0.9118835302400001,
+    "minimum_local_cap_absolute_bar_at_0p44_bar": 0.9134431615251566,
+    "minimum_residence_main_pump_only_s": 29.475211670888207,
+    "minimum_residence_two_pumps_peak_s": 16.88205196703733,
+    "nominal_main_oil_L": 190,
+    "nominal_residence_two_pumps_mean_s": 31.71104540824668,
+    "pilot_full_oil_charge_L": 2.322032096838064,
+    "reserve_above_max_fill_L": 47.0,
+    "tank_shell_kg": 94.756
+  },
+  "transients": {
+    "DB_peak_verification": "Pressure override, tank backpressure and relief opening transient require bench validation.",
+    "decompression_s": 0.10102184332208249,
+    "fault_DB_capacity_L_min": 650,
+    "fault_DB_design_L_min": 480,
+    "orifice_window_s": 0.13,
+    "pilot_acc_available_150_to_120_L": 1.1960810958439687,
+    "release_actual_bar_for_worst_overread": 1.0,
+    "return_steady_bar": 0.5
+  }
+}
