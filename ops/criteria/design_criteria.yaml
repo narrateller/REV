@@ -1,7 +1,7 @@
 # REV — проектные критерии (единственный источник порогов для гейтов)
 # Изменять только ГК с подтверждением оператора; каждое изменение -> запись в DECISIONS.md.
 # Хэш этого файла проверяет G-SCOPE: исполнители его не трогают.
-version: 2                          # v2 25.11.2026: C-PROD-03 уточнён (D-OP-06)
+version: 3                          # v2 25.11.2026: C-PROD-03 (D-OP-06); v3 25.11.2026: C-PWR-01 (D-OP-07)
 status: APPROVED_BY_DELEGATION      # оператор 21.11.2026: «если схема обеспечит параметры не хуже референса — утверждай»
 approved_by: "Оператор (делегировано ГК), запись D0 в DECISIONS.md"
 reference: "BP500 (sources/raw/Target_object_BP500.pdf); REV_DESIGN_BASIS r1 (coordination/tasks/T-R2-DESIGN-BASIS-02)"
@@ -24,7 +24,9 @@ criteria:
               indicator_24h: "отдельный показатель, задаётся после натурного испытания", source: "BP500 / REV_DESIGN_BASIS; уточнено D-OP-06"}
   C-PROD-04: {what: "Механическая прочность DU", min_pct: 95, source: "DB-U-DURABILITY"}
   C-PERF-01: {what: "Производительность", min_kg_h: 498, briquette_kg: 0.83, max_cycle_s: 6.0, source: "BP500: 600 брикетов/ч"}
-  C-PWR-01:  {what: "Главный привод / установленная мощность", max_main_kW: 30.0, max_installed_kW: 34.2, source: "BP500"}
+  C-PWR-01:  {what: "Главный привод / установленная мощность", max_main_kW: 30.0, max_installed_kW: 34.2,
+              rule: "max_main_kW — номинальная мощность двигателя (S1); за цикл: средняя и среднеквадратичная (RMS) мощность на валу ≤ max_main_kW, пик ≤ max_peak_kW",
+              max_rms_kW: 30.0, max_peak_kW: 40.0, source: "BP500 (паспорт двигателя 30 кВт); трактовка D-OP-07"}
   C-RAW-01:  {what: "Сырьё", bulk_density_kg_m3: [90, 160], moisture_pct: [8, 12], max_fraction_mm: 3.15, source: "ГОСТ 33103.3-2017 / ISO 17225-3, решение оператора"}
 
   # --- Габарит, масса, интерфейсы ---

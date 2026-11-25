@@ -1,0 +1,43 @@
+id: T-0.3c
+stage: S1-tool             # до T-1.4b
+role: TOOL-CALC
+backend: alm               # резерв: voh, bos (запуск строго по одному — песочница Windows)
+effort: high
+objective: >
+  (1) G-CYCLE: проверка мощности по C-PWR-01 v3 (D-OP-07): средняя и среднеквадратичная (RMS) мощность на валу за цикл
+  ≤ max_rms_kW / max_main_kW, пик ≤ max_peak_kW; номинал двигателя drive.motor_kW ≤ max_main_kW. Привод с ограничением
+  момента (пик > номинала) должен моделироваться: доступная подача насоса по гиперболе пиковой мощности.
+  (2) Защиты гейта по замечаниям проверки T-0.3b (ops/reports/T-0.3b/GK_review.md, «T-0.3c»).
+inputs:
+  - DECISIONS.md                           # D-OP-07
+  - ops/criteria/design_criteria.yaml      # v3: C-PWR-01 {max_main_kW 30, max_rms_kW 30, max_peak_kW 40, max_installed_kW 34.2}
+  - ops/gates/calc_gates.py
+  - design/params.schema.yaml
+  - tests/ops/test_calc_gates.py
+  - ops/reports/T-0.3b/GK_review.md, ops/reports/T-0.3b/report.md
+  - ops/calibration/                        # x1_overlap, t12b_overlap*, w02_04 — вердикты сохранить
+methods:
+  - "Схема drive: необязательное поле `peak_kW` (> 0) — предел мощности на валу привода с ограничением момента; по умолчанию = motor_kW (нынешнее поведение). Подача насоса при давлении p: min(pump_max_flow, 600·peak_kW·η/p). Проверки: motor_kW ≤ C-PWR-01.max_main_kW; peak_kW ≤ max_peak_kW; пик мощности на валу по фазам ≤ max_peak_kW; средняя ≤ max_main_kW; RMS ≤ max_rms_kW."
+  - "RMS: sqrt(Σ P_i²·t_i / T) по всем интервалам цикла, включая паузы (там — мощность холостого хода: необязательное drive.idle_kW, по умолчанию 0; задать в отчёте, откуда она). Для групп — по шагам времени модели группы. Энергия и RMS считаются по мощности на валу (гидравлическая / η)."
+  - "Если в criteria нет max_peak_kW / max_rms_kW (старые версии критериев) — прежнее поведение: пик ≤ max_main_kW, RMS не проверяется. Обратная совместимость: для params.m1/t12/t12b и калибровок значения G-CYCLE (время, статусы) с критериями v3 совпадают с main, кроме появления в details новых полей rms/peak; перечислить различия, если есть."
+  - "Защиты (из проверки Sonnet T-0.3b): (а) фаза press: true не может делить group с другими фазами — InputError; (б) фаза actuator none (выдержка, сброс, подача дозы) в группе с движением другого привода — InputError, если у неё нет явного `overlap_allowed: true`; при overlap_allowed — WARN в отчёте гейта с перекрытым временем; (в) max_speed_mm_s ≤ 1000 (InputError выше); (г) WARN, когда в одной группе ≥ 2 фазы с неограниченным спросом (speed pump без max_speed_mm_s); (д) граница continues через группы — сравнение с допуском 1e-9 вместо строгого равенства."
+deliverables:
+  - ops/gates/calc_gates.py
+  - design/params.schema.yaml
+  - tests/ops/test_calc_gates.py     # тесты: peak_kW расширяет подачу и даёт меньшее время; RMS считается и FAIL при превышении; motor_kW > 30 → FAIL; старые критерии → прежнее поведение; каждая защита (а)–(д)
+  - report.md
+  - metrics.json
+  - self_check.json
+acceptance:
+  - "pytest tests/ops зелёный (REV_PYTHON -m pytest -p no:cacheprovider --basetemp <внутри worktree>)"
+  - "калибровки: x1_overlap PASS ≈5,854 с, t12b_overlap FAIL только по времени, W02-04 MATCH; params.m1/t12/t12b — время и статус G-CYCLE как в main"
+  - "в report.md: формула RMS, пример расчёта на ops/calibration/x1_overlap.params.yaml (средняя, RMS, пик)"
+  - "ops/criteria/** не изменён"
+allowed_paths: [ops/gates/calc_gates.py, design/params.schema.yaml, tests/ops/test_calc_gates.py, report.md, metrics.json, self_check.json]
+allow_protected: ["ops/gates/calc_gates.py"]
+forbidden: [git commit, git push, изменение ops/criteria/**, изменение design/params.*.yaml кроме schema, изменение ops/calibration/**, изменение calc/**, сеть]
+gates: [G-PFACE, G-DOSE, G-CYCLE]
+gate_inputs: {params: design/params.m1.yaml}
+timebox_min: 90
+stop_and_ask_if:
+  - "защита (а) или (б) ломает существующие калибровки ops/calibration/*overlap* — перечисли, какие фазы, файлы не меняй"
