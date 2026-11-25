@@ -1,4 +1,4 @@
-name: REV CI (T-0.4: gates + tests)
+name: "REV CI (T-0.4 gates + tests)"
 'on':
   push:
   pull_request:
@@ -12,7 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
+      - name: Git setup for runner tests (local main branch, identity)
+        run: |
+          git checkout -q -B main
+          git config --global user.email ci@example.invalid
+          git config --global user.name ci
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -47,6 +53,4 @@ jobs:
         run: python -c "import json,sys; v=json.load(open('ops/calibration/w02_04.json',encoding='utf-8'))['verdict']; print(v); sys.exit(v!='MATCH')"
       - name: Runner dry-run probe (echo adapter)
         run: |
-          git config --global user.email ci@example.invalid && git config --global user.name ci
-          git branch -f main HEAD 2>/dev/null || true
           python ops/run_task.py --probe --dry-run
