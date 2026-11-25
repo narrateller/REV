@@ -8,7 +8,7 @@ import re
 import yaml
 
 
-TASK_ID = re.compile(r"T-[A-Z0-9]+(?:[.-][A-Z0-9]+)*")
+TASK_ID = re.compile(r"[A-Z]{1,3}-[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*")
 GATE_ID = re.compile(r"G-[A-Z0-9]+(?:-[A-Z0-9]+)*")
 BACKENDS = ("voh", "alm", "bos")
 EFFORT_RANK = {"medium": 1, "high": 2, "xhigh": 3}
