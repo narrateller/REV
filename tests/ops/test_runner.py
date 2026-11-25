@@ -203,6 +203,7 @@ class RunnerTest(unittest.TestCase):
             self.assertEqual(run_task.run_task(self.root, "T-TEST").status, "WAIT")
             start.assert_not_called()
 
+    @unittest.skipUnless(os.name == 'nt', 'gate interpreter path in backends.yaml is the Windows E:/Tools copy')
     def test_gate_cli_contracts(self):
         self.card(
             "gates: [G-PFACE, G-CYCLE, G-COLL]\n"
