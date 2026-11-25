@@ -1,0 +1,83 @@
+{
+  "task_id": "T-0.3b",
+  "max_cycle_s": 6.0,
+  "max_working_pressure_bar": 300,
+  "max_main_power_kW": 30.0,
+  "gate_integration_max_step_s": 0.005,
+  "valve_switch_s": 0.1,
+  "overlap_calibration_tolerance_s": 0.15,
+  "overlap_calibration_verdict": "MATCH",
+  "pump_max_flow_L_min": 360,
+  "accumulator_shell_L": 5,
+  "accumulator_max_flow_L_min": 150,
+  "accumulator_charge_pressure_bar": 78,
+  "overlap_cases": [
+    {
+      "params": "ops/calibration/x1_overlap.params.yaml",
+      "reference_step_s": 0.005,
+      "reference_cycle_s": 5.864999999999897,
+      "rounded_reference_cycle_s": 5.87,
+      "gate_cycle_s": 5.8537710841880894,
+      "delta_s": -0.011228915811807738,
+      "pressure_band_delta_s": 0.2973768179333143,
+      "remaining_delta_s": -0.308605733745122,
+      "verdict": "MATCH",
+      "gate_status": "PASS",
+      "failed_checks": [],
+      "gate_peak_drive_power_kW": 30.000000000000007,
+      "gate_average_power_kW": 17.956177019845413,
+      "gate_max_pressure_bar": 268.07849923977517,
+      "accumulator_delivered_L": 1.533892277671966,
+      "reference_feed_s": 0.5,
+      "round_one_cycle_delta_s": 0.0
+    },
+    {
+      "params": "ops/calibration/t12b_overlap.params.yaml",
+      "reference_step_s": 0.00125,
+      "reference_cycle_s": 6.7687499999997245,
+      "rounded_reference_cycle_s": 6.769,
+      "gate_cycle_s": 6.789299365856619,
+      "delta_s": 0.02054936585689493,
+      "pressure_band_delta_s": 0.3369591636378498,
+      "remaining_delta_s": -0.31640979778095485,
+      "verdict": "MATCH",
+      "gate_status": "FAIL",
+      "failed_checks": [
+        "cycle_time_limit"
+      ],
+      "gate_peak_drive_power_kW": 30.000000000000007,
+      "gate_average_power_kW": 18.167754813998318,
+      "gate_max_pressure_bar": 268.07849923977534,
+      "accumulator_delivered_L": 1.5338922776719661,
+      "reference_feed_s": 0.5,
+      "round_one_cycle_delta_s": 0.0
+    },
+    {
+      "params": "ops/calibration/t12b_overlap_feed064.params.yaml",
+      "reference_step_s": 0.00125,
+      "reference_cycle_s": 6.908749999999697,
+      "rounded_reference_cycle_s": 6.909,
+      "gate_cycle_s": 6.929299365856619,
+      "delta_s": 0.020549365856922464,
+      "pressure_band_delta_s": 0.3369591636378498,
+      "remaining_delta_s": -0.3164097977809273,
+      "verdict": "MATCH",
+      "gate_status": "FAIL",
+      "failed_checks": [
+        "cycle_time_limit"
+      ],
+      "gate_peak_drive_power_kW": 30.000000000000007,
+      "gate_average_power_kW": 17.800692353615595,
+      "gate_max_pressure_bar": 268.07849923977534,
+      "accumulator_delivered_L": 1.5338922776719661,
+      "reference_feed_s": 0.64,
+      "round_one_cycle_delta_s": 0.0
+    }
+  ],
+  "legacy_cycle_s": {
+    "design/params.m1.yaml": 5.872055963129407,
+    "design/params.t12.yaml": 7.724224421093544,
+    "design/params.t12b.yaml": 7.969673072562054,
+    "ops/calibration/w02_04_params.yaml": 59.87518077346884
+  }
+}

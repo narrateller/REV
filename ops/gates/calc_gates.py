@@ -1,6 +1,8 @@
 """Evaluate the REV pressure, dose and cycle gates from a machine parameter file."""
 
 import argparse
+from dataclasses import dataclass
+from itertools import groupby
 import json
 import math
 from pathlib import Path
@@ -19,6 +21,7 @@ CRITERIA_IDS = {
     "G-CYCLE": ("C-PERF-01", "C-PWR-01", "C-HYD-01", "C-PFACE-01"),
 }
 SWITCH_S = 0.1  # TASK T-0.2
+GROUP_STEP_S = 0.005
 TYPE_CHECKS = {
     "object": lambda value: isinstance(value, dict),
     "array": lambda value: isinstance(value, list),
@@ -32,6 +35,8 @@ TYPE_CHECKS = {
 
 def validate(value, rule, definitions, path="params"):
     """Apply the JSON Schema keywords used by params.schema.yaml."""
+    if rule is False:
+        raise InputError(f"{path}: field is not allowed")
     if "$ref" in rule:
         validate(value, definitions[rule["$ref"].removeprefix("#/$defs/")], definitions, path)
     if "anyOf" in rule:
@@ -113,8 +118,15 @@ def validate_params(params):
     previous = None
     for index, phase in enumerate(params["cycle"]):
         path = f"cycle[{index}]"
+        if phase["actuator"] == "none":
+            if not phase["dwell_s"]:
+                raise InputError(f"{path}.dwell_s: a non-hydraulic phase requires a positive dwell")
+            previous = phase
+            continue
         if phase["actuator"] not in cylinders:
             raise InputError(f"{path}: actuator is not configured")
+        if "max_speed_mm_s" in phase and phase["speed_mm_s"] != "pump":
+            raise InputError(f"{path}.max_speed_mm_s: requires speed_mm_s: pump")
         if ("force_N" in phase) == ("pressure_bar" in phase):
             raise InputError(f"{path}: specify exactly one of force_N and pressure_bar")
         if phase["regeneration"] and phase["direction"] != "extend":
@@ -124,7 +136,8 @@ def validate_params(params):
         if not phase["stroke_mm"] and not phase["dwell_s"]:
             raise InputError(f"{path}: phase has no travel or dwell")
         if phase.get("continues") and (
-            previous is None or previous["dwell_s"] or not previous["stroke_mm"] or not phase["stroke_mm"]
+            previous is None or previous["dwell_s"] or not previous.get("stroke_mm") or not phase["stroke_mm"]
+            or phase.get("start_delay_s", 0)
             or any(previous.get(key, False) != phase.get(key, False)
                    for key in ("actuator", "direction", "regeneration", "use_accumulator"))
         ):
@@ -286,7 +299,7 @@ def motion_area_mm2(cylinder, phase):
     return piston_mm2 if phase["direction"] == "extend" else piston_mm2 - rod_mm2
 
 
-def evaluate_phase(phase, cylinder, drive, available_oil_L):
+def phase_requirements(phase, cylinder, drive):
     area_mm2 = motion_area_mm2(cylinder, phase)
     pressure_bar = phase.get("pressure_bar")
     if pressure_bar is None:
@@ -295,15 +308,34 @@ def evaluate_phase(phase, cylinder, drive, available_oil_L):
     pump_limit_L_min = pump_flow_L_min(drive, pressure_bar)
     speed_mm_s = phase["speed_mm_s"]
     required_flow_L_min = None if speed_mm_s == "pump" else (60 * area_mm2 * speed_mm_s / 1e6 if oil_L else 0.0)
-    target_flow_L_min = math.inf if required_flow_L_min is None else required_flow_L_min
-    pump_rate_L_min = min(pump_limit_L_min, target_flow_L_min) if oil_L else 0.0
     accumulator = drive.get("accumulator")
     pressure_covered = not phase.get("use_accumulator") or at_most(
         pressure_bar, accumulator["min_delivery_pressure_bar"]
     )
+    row = {
+        "name": phase["name"], "actuator": phase["actuator"], "direction": phase["direction"],
+        "regeneration": phase["regeneration"], "stroke_mm": phase["stroke_mm"], "area_mm2": area_mm2,
+        "press": phase.get("press", False), "continues": phase.get("continues", False),
+        "force_N": 0.1 * pressure_bar * area_mm2 * cylinder["eta"],
+        "pressure_bar": pressure_bar, "oil_L": oil_L, "pump_limit_L_min": pump_limit_L_min,
+        "required_flow_L_min": required_flow_L_min, "dwell_s": phase["dwell_s"],
+        "accumulator_pressure_covered": pressure_covered,
+    }
+    flow_cap_L_min = math.inf if required_flow_L_min is None else required_flow_L_min
+    if "max_speed_mm_s" in phase:
+        row["max_speed_mm_s"] = phase["max_speed_mm_s"]
+        flow_cap_L_min = 60 * area_mm2 * row["max_speed_mm_s"] / 1e6
+    return row, flow_cap_L_min
+
+
+def evaluate_phase(phase, cylinder, drive, available_oil_L):
+    row, target_flow_L_min = phase_requirements(phase, cylinder, drive)
+    oil_L, pressure_bar = row["oil_L"], row["pressure_bar"]
+    pump_limit_L_min, required_flow_L_min = row["pump_limit_L_min"], row["required_flow_L_min"]
+    pump_rate_L_min = min(pump_limit_L_min, target_flow_L_min) if oil_L else 0.0
     accumulator_limit_L_min = 0.0
-    if oil_L and phase.get("use_accumulator") and pressure_covered and available_oil_L > 0:
-        accumulator_limit_L_min = accumulator["max_flow_L_min"]
+    if oil_L and phase.get("use_accumulator") and row["accumulator_pressure_covered"] and available_oil_L > 0:
+        accumulator_limit_L_min = drive["accumulator"]["max_flow_L_min"]
     boost_L_min = min(accumulator_limit_L_min, target_flow_L_min - pump_rate_L_min)
 
     available_flow_L_min = pump_limit_L_min + accumulator_limit_L_min
@@ -320,19 +352,13 @@ def evaluate_phase(phase, cylinder, drive, available_oil_L):
     pump_oil_L = oil_L - accumulator_oil_L
     motion_s = 60 * pump_oil_L / pump_rate_L_min if oil_L else 0.0
     return {
-        "name": phase["name"], "actuator": phase["actuator"], "direction": phase["direction"],
-        "regeneration": phase["regeneration"], "stroke_mm": phase["stroke_mm"], "area_mm2": area_mm2,
-        "press": phase.get("press", False), "continues": phase.get("continues", False),
-        "force_N": 0.1 * pressure_bar * area_mm2 * cylinder["eta"],
-        "pressure_bar": pressure_bar, "oil_L": oil_L, "pump_limit_L_min": pump_limit_L_min,
-        "required_flow_L_min": required_flow_L_min, "available_flow_L_min": available_flow_L_min,
+        **row, "available_flow_L_min": available_flow_L_min,
         "required_pump_flow_L_min": required_pump_flow_L_min,
         "pump_rate_L_min": pump_rate_L_min, "accumulator_rate_L_min": boost_L_min,
         "pump_oil_L": pump_oil_L, "accumulator_oil_L": accumulator_oil_L,
-        "motion_s": motion_s, "dwell_s": phase["dwell_s"], "time_s": motion_s + phase["dwell_s"],
+        "motion_s": motion_s, "time_s": motion_s + phase["dwell_s"],
         "motor_energy_kJ": pump_energy_kJ(pump_oil_L, pressure_bar, drive["eta"]),
         "requested_speed_met": required_flow_L_min is None or at_most(required_flow_L_min, available_flow_L_min),
-        "accumulator_pressure_covered": pressure_covered,
     }
 
 
@@ -351,15 +377,240 @@ def recharge_phase(accumulator, drive, delivered_L):
     }
 
 
-def evaluate_cycle(params, criteria):
-    perf, power, hyd, face = (criteria[key] for key in CRITERIA_IDS["G-CYCLE"])
-    drive = params["drive"]
-    cylinders = actuators(params)
+@dataclass
+class GroupPhase:
+    row: dict
+    remaining_L: float
+    flow_cap_L_min: float
+    can_boost: bool
+    ready_s: float | None
+    finished_motion_s: float | None = None
+
+
+@dataclass
+class CycleSupply:
+    drive: dict
+    available_oil_L: float
+    idle_pump_oil_L: float = 0.0
+    idle_charge_s: float = 0.0
+    peak_drive_kW: float = 0.0
+    peak_hydraulic_kW: float = 0.0
+
+    def charge_in_idle(self, duration_s):
+        accumulator = self.drive.get("accumulator", {})
+        if not accumulator.get("recharge_when_idle"):
+            return
+        capacity_L = accumulator["usable_oil_L"]
+        missing_L = capacity_L - self.available_oil_L
+        if missing_L <= 0:
+            return
+        charge = recharge_phase(accumulator, self.drive, missing_L)
+        time_s = min(duration_s, charge["time_s"])
+        fraction = time_s / charge["time_s"]
+        self.available_oil_L = min(capacity_L, self.available_oil_L + missing_L * fraction)
+        self.idle_pump_oil_L += charge["pump_oil_L"] * fraction
+        self.idle_charge_s += time_s
+        power_kW = charge["motor_energy_kJ"] / charge["time_s"]
+        self.peak_drive_kW = max(self.peak_drive_kW, power_kW)
+        self.peak_hydraulic_kW = max(self.peak_hydraulic_kW, power_kW)
+
+
+def group_phases(phases, cylinders, drive, group_start_s, previous_row):
+    """Schedule valve commands; continuations in a group wait for their predecessor."""
+    states = []
+    group_switch_counted = False
+    for phase in phases:
+        actuator = phase["actuator"]
+        hydraulic = actuator != "none"
+        delay_s = phase.get("start_delay_s", 0.0)
+        continues = phase.get("continues", False)
+        switch_s, valve_wait_s = 0.0, 0.0
+        if hydraulic and not continues:
+            valve_wait_s = SWITCH_S
+            if delay_s or not group_switch_counted:
+                switch_s = SWITCH_S
+            group_switch_counted |= not delay_s
+        ready_s = delay_s + valve_wait_s
+        if continues and states:
+            ready_s = None
+        elif continues and (previous_row is None or not at_most(
+            abs(group_start_s - (previous_row["motion_end_s"] or 0.0)), 0.0
+        )):
+            raise InputError(f"{phase['name']}.continues: previous travel must end at the group boundary")
+        if hydraulic:
+            row, flow_cap_L_min = phase_requirements(phase, cylinders[actuator], drive)
+        else:
+            row = {
+                "name": phase["name"], "actuator": "none", "stroke_mm": 0.0, "oil_L": 0.0,
+                "pressure_bar": 0.0, "dwell_s": phase["dwell_s"],
+            }
+            flow_cap_L_min = 0.0
+        row.update(
+            group=phase.get("group"), group_start_s=group_start_s,
+            start_delay_s=delay_s, start_delay_reference="group_start_s",
+            command_start_s=ready_s - valve_wait_s if ready_s is not None else None,
+            switch_s=switch_s, valve_wait_s=valve_wait_s,
+            motion_start_s=None, pump_oil_L=0.0, accumulator_oil_L=0.0,
+            pump_rate_L_min=0.0, accumulator_rate_L_min=0.0, motor_energy_kJ=0.0,
+            peak_drive_power_kW=0.0, peak_hydraulic_power_kW=0.0,
+        )
+        can_boost = phase.get("use_accumulator", False) and row["accumulator_pressure_covered"]
+        states.append(GroupPhase(row, row["oil_L"], flow_cap_L_min, can_boost, ready_s))
+    return states
+
+
+def move_group(states, supply, positions_mm, step_s, elapsed_s):
+    drive = supply.drive
+    header_bar = max(state.row["pressure_bar"] for state in states)
+    pump_remaining_L_min = pump_flow_L_min(drive, header_bar)
+    boost_remaining_L_min = 0.0
+    if supply.available_oil_L > 0:
+        total_demand_L_min = math.fsum(state.flow_cap_L_min for state in states)
+        boost_remaining_L_min = min(drive["accumulator"]["max_flow_L_min"],
+                                    max(0.0, total_demand_L_min - pump_remaining_L_min))
+    dispatch = []
+    for state in states:
+        # Supply the group deficit through eligible local branches, then share
+        # the pump in YAML order. Boost can free pump flow for another branch.
+        boost_L_min = min(boost_remaining_L_min, state.flow_cap_L_min) if state.can_boost else 0.0
+        pump_L_min = min(pump_remaining_L_min, state.flow_cap_L_min - boost_L_min)
+        pump_remaining_L_min -= pump_L_min
+        boost_remaining_L_min -= boost_L_min
+        flow_L_min = pump_L_min + boost_L_min
+        if flow_L_min > 0:
+            remaining_s = 60 * state.remaining_L / flow_L_min
+            step_s = min(step_s, remaining_s)
+            dispatch.append((state, pump_L_min, boost_L_min, remaining_s))
+
+    boost_L_min = math.fsum(boost for _, _, boost, _ in dispatch)
+    exhaustion_s = 60 * supply.available_oil_L / boost_L_min if boost_L_min else math.inf
+    step_s = min(step_s, exhaustion_s)
+    supply.available_oil_L = max(0.0, supply.available_oil_L - boost_L_min * step_s / 60)
+    if step_s == exhaustion_s:
+        supply.available_oil_L = 0.0
+    drive_power_kW, hydraulic_power_kW = 0.0, 0.0
+    for state, pump_L_min, boost_L_min, remaining_s in dispatch:
+        row = state.row
+        if row["motion_start_s"] is None:
+            row["motion_start_s"] = elapsed_s
+        pump_L = pump_L_min * step_s / 60
+        boost_L = boost_L_min * step_s / 60
+        motor_kW = header_bar * pump_L_min / (600 * drive["eta"])
+        hydraulic_kW = motor_kW + row["pressure_bar"] * boost_L_min / (600 * drive["eta"])
+        row["pump_oil_L"] += pump_L
+        row["accumulator_oil_L"] += boost_L
+        row["pump_rate_L_min"] = max(row["pump_rate_L_min"], pump_L_min)
+        row["accumulator_rate_L_min"] = max(row["accumulator_rate_L_min"], boost_L_min)
+        row["motor_energy_kJ"] += pump_energy_kJ(pump_L, header_bar, drive["eta"])
+        row["peak_drive_power_kW"] = max(row["peak_drive_power_kW"], motor_kW)
+        row["peak_hydraulic_power_kW"] = max(row["peak_hydraulic_power_kW"], hydraulic_kW)
+        drive_power_kW += motor_kW
+        hydraulic_power_kW += hydraulic_kW
+        if math.isclose(step_s, remaining_s, rel_tol=1e-12, abs_tol=1e-12):
+            state.remaining_L = 0.0
+            state.finished_motion_s = elapsed_s + step_s
+            direction = 1 if row["direction"] == "extend" else -1
+            positions = positions_mm[row["actuator"]]
+            positions.append(positions[-1] + direction * row["stroke_mm"])
+        else:
+            state.remaining_L -= pump_L + boost_L
+    supply.peak_drive_kW = max(supply.peak_drive_kW, drive_power_kW)
+    supply.peak_hydraulic_kW = max(supply.peak_hydraulic_kW, hydraulic_power_kW)
+    return step_s
+
+
+def run_group(states, supply, positions_mm):
+    elapsed_s = 0.0
+    while True:
+        active = {}
+        pending_s = math.inf
+        group_end_s = 0.0
+        for index, state in enumerate(states):
+            row = state.row
+            if state.ready_s is None:
+                state.ready_s = states[index - 1].finished_motion_s
+                if state.ready_s is None:
+                    continue
+                row["command_start_s"] = state.ready_s
+            if state.ready_s > elapsed_s:
+                pending_s = min(pending_s, state.ready_s)
+            elif state.remaining_L > 0:
+                actuator = row["actuator"]
+                if actuator in active:
+                    other = active[actuator].row["name"]
+                    raise InputError(f"{actuator}: overlapping travel in {other!r} and {row['name']!r}")
+                active[actuator] = state
+            else:
+                if state.finished_motion_s is None:
+                    state.finished_motion_s = state.ready_s
+                group_end_s = max(group_end_s, state.finished_motion_s + row["dwell_s"])
+        if active:
+            step_s = min(GROUP_STEP_S, pending_s - elapsed_s)
+            oil_before_L = supply.available_oil_L
+            next_s = elapsed_s + move_group(list(active.values()), supply, positions_mm, step_s, elapsed_s)
+            if next_s == elapsed_s and supply.available_oil_L == oil_before_L and all(
+                state.remaining_L > 0 for state in active.values()
+            ):
+                raise InputError("group motion step is below time resolution")
+        else:
+            next_s = pending_s if pending_s < math.inf else max(elapsed_s, group_end_s)
+            if next_s == elapsed_s:
+                return elapsed_s
+            # Constant charge flow has an exact integral on intervals without motion.
+            supply.charge_in_idle(next_s - elapsed_s)
+        elapsed_s = next_s
+
+
+def evaluate_timed_phases(cycle, cylinders, drive, positions_mm):
+    accumulator = drive.get("accumulator")
+    capacity_L = accumulator["usable_oil_L"] if accumulator else 0.0
+    supply = CycleSupply(drive, capacity_L)
+    rows = []
+    cycle_s = 0.0
+    for _, group in groupby(enumerate(cycle), key=lambda item: item[1].get("group", item[0])):
+        states = group_phases([phase for _, phase in group], cylinders, drive, cycle_s,
+                              rows[-1] if rows else None)
+        duration_s = run_group(states, supply, positions_mm)
+        for state in states:
+            row = state.row
+            motion_s = state.finished_motion_s - state.ready_s if row["oil_L"] else 0.0
+            flow_L_min = 60 * row["oil_L"] / motion_s if motion_s else 0.0
+            required_L_min = row.get("required_flow_L_min")
+            row.update(
+                command_start_s=cycle_s + row["command_start_s"], ready_s=cycle_s + state.ready_s,
+                motion_start_s=(cycle_s + row["motion_start_s"] if row["motion_start_s"] is not None else None),
+                motion_end_s=cycle_s + state.finished_motion_s if row["oil_L"] else None,
+                end_s=cycle_s + state.finished_motion_s + row["dwell_s"],
+                group_end_s=cycle_s + duration_s,
+                motion_s=motion_s, time_s=motion_s + row["dwell_s"], available_flow_L_min=flow_L_min,
+                requested_speed_met=required_L_min is None or at_most(required_L_min, flow_L_min),
+            )
+            rows.append(row)
+        cycle_s += duration_s
+    if supply.idle_charge_s:
+        idle = recharge_phase(accumulator, drive, supply.idle_pump_oil_L * accumulator["round_trip_eta"])
+        idle.update(name="Accumulator recharge during idle", switch_s=0.0, time_s=0.0,
+                    peak_drive_power_kW=idle["motor_energy_kJ"] / idle["motion_s"],
+                    peak_hydraulic_power_kW=idle["motor_energy_kJ"] / idle["motion_s"])
+        rows.append(idle)
+    missing_L = capacity_L - supply.available_oil_L
+    if not at_most(missing_L, 0.0):
+        tail = recharge_phase(accumulator, drive, missing_L)
+        tail_power_kW = tail["motor_energy_kJ"] / tail["time_s"]
+        tail.update(switch_s=SWITCH_S, command_start_s=cycle_s, end_s=cycle_s + SWITCH_S + tail["time_s"],
+                    peak_drive_power_kW=tail_power_kW, peak_hydraulic_power_kW=tail_power_kW)
+        rows.append(tail)
+        cycle_s = tail["end_s"]
+        supply.peak_drive_kW = max(supply.peak_drive_kW, tail_power_kW)
+        supply.peak_hydraulic_kW = max(supply.peak_hydraulic_kW, tail_power_kW)
+    return rows, cycle_s, supply.peak_drive_kW, supply.peak_hydraulic_kW
+
+
+def evaluate_serial_phases(cycle, cylinders, drive, positions_mm):
     accumulator = drive.get("accumulator")
     available_oil_L = accumulator["usable_oil_L"] if accumulator else 0.0
     rows = []
-    positions_mm = {name: [0.0] for name in cylinders}
-    for phase in params["cycle"]:
+    for phase in cycle:
         actuator = phase["actuator"]
         row = evaluate_phase(phase, cylinders[actuator], drive, available_oil_L)
         rows.append(row)
@@ -376,6 +627,23 @@ def evaluate_cycle(params, criteria):
         pressure_bar = row["pressure_bar"]
         row["peak_drive_power_kW"] = pressure_bar * row["required_pump_flow_L_min"] / (600 * drive["eta"])
         row["peak_hydraulic_power_kW"] = pressure_bar * total_flow_L_min / (600 * drive["eta"])
+    return (rows, math.fsum(row["time_s"] + row["switch_s"] for row in rows),
+            max(row["peak_drive_power_kW"] for row in rows), max(row["peak_hydraulic_power_kW"] for row in rows))
+
+
+def evaluate_cycle(params, criteria):
+    perf, power, hyd, face = (criteria[key] for key in CRITERIA_IDS["G-CYCLE"])
+    cycle, drive = params["cycle"], params["drive"]
+    cylinders = actuators(params)
+    accumulator = drive.get("accumulator")
+    positions_mm = {name: [0.0] for name in cylinders}
+    timed = (accumulator and accumulator.get("recharge_when_idle")) or any(
+        "group" in phase or phase.get("start_delay_s") or phase["actuator"] == "none" for phase in cycle
+    )
+    evaluate_phases = evaluate_timed_phases if timed else evaluate_serial_phases
+    rows, cycle_s, peak_drive_power_kW, peak_hydraulic_power_kW = evaluate_phases(
+        cycle, cylinders, drive, positions_mm
+    )
     press_rows = [row for row in rows if row.get("press")]
     minimum_force_N = face["nominal_force_min_N"]
     for row in press_rows:
@@ -388,11 +656,8 @@ def evaluate_cycle(params, criteria):
                  for name, cylinder in cylinders.items()}
     if params["precompaction"] is not None:
         limits_mm["precompaction"] = params["precompaction"]["stroke_mm"]
-    cycle_s = math.fsum(row["time_s"] + row["switch_s"] for row in rows)
     total_energy_kJ = math.fsum(row["motor_energy_kJ"] for row in rows)
     average_power_kW = total_energy_kJ / cycle_s
-    peak_drive_power_kW = max(row["peak_drive_power_kW"] for row in rows)
-    peak_hydraulic_power_kW = max(row["peak_hydraulic_power_kW"] for row in rows)
     installed_kW = drive.get("installed_kW")
     max_pressure_bar = max(row["pressure_bar"] for row in rows)
     if accumulator:

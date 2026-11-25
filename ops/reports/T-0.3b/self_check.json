@@ -1,0 +1,165 @@
+{
+  "task_id": "T-0.3b",
+  "python": "3.13.17",
+  "criteria_version": 2,
+  "criteria_sha256": "8a31825197210e379e80052717989ddf2980245da5736639f54075ec6b1944f7",
+  "main_commit": "56b958e436fdfe8e15b42ee32221ac0f5166ca5a",
+  "gate_entrypoint": "ops/gates/calc_gates.py --params <params> --criteria ops/criteria/design_criteria.yaml --out <out>",
+  "required_gate_input": "design/params.m1.yaml",
+  "gate_runs": {
+    "design/params.m1.yaml": {
+      "exit_code": 0,
+      "overall": "PASS",
+      "matches_full_main_gate_records": true,
+      "gates": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 230,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "PASS",
+          "value": 5.872055963129407,
+          "unit": "s"
+        }
+      }
+    },
+    "design/params.t12.yaml": {
+      "exit_code": 1,
+      "overall": "FAIL",
+      "matches_full_main_gate_records": true,
+      "gates": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 230,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "FAIL",
+          "value": 7.724224421093544,
+          "unit": "s"
+        }
+      }
+    },
+    "design/params.t12b.yaml": {
+      "exit_code": 1,
+      "overall": "FAIL",
+      "matches_full_main_gate_records": true,
+      "gates": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 289,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "FAIL",
+          "value": 7.969673072562054,
+          "unit": "s"
+        }
+      }
+    },
+    "ops/calibration/w02_04_params.yaml": {
+      "exit_code": 1,
+      "overall": "FAIL",
+      "matches_full_main_gate_records": true,
+      "gates": {
+        "G-PFACE": {
+          "status": "FAIL",
+          "value": 20.879442101307053,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "FAIL",
+          "value": 740,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "FAIL",
+          "value": 59.87518077346884,
+          "unit": "s"
+        }
+      }
+    }
+  },
+  "main_comparison_tolerance": 1e-09,
+  "w02_04_verdict": "MATCH",
+  "overlap_calibration_runs": [
+    {
+      "params": "ops/calibration/x1_overlap.params.yaml",
+      "gate": "G-CYCLE",
+      "gate_status": "PASS",
+      "gate_cycle_s": 5.8537710841880894,
+      "calibration_verdict": "MATCH",
+      "independent_reference_matches_stored_trace_to_s": 1e-09,
+      "failed_checks": [],
+      "round_one_cycle_delta_s": 0.0,
+      "reference_cycle_s": 5.864999999999897,
+      "delta_s": -0.011228915811807738,
+      "round_one_motion_records_match": true
+    },
+    {
+      "params": "ops/calibration/t12b_overlap.params.yaml",
+      "gate": "G-CYCLE",
+      "gate_status": "FAIL",
+      "gate_cycle_s": 6.789299365856619,
+      "calibration_verdict": "MATCH",
+      "independent_reference_matches_stored_trace_to_s": 1e-09,
+      "failed_checks": [
+        "cycle_time_limit"
+      ],
+      "round_one_cycle_delta_s": 0.0,
+      "reference_cycle_s": 6.7687499999997245,
+      "delta_s": 0.02054936585689493,
+      "round_one_motion_records_match": true
+    },
+    {
+      "params": "ops/calibration/t12b_overlap_feed064.params.yaml",
+      "gate": "G-CYCLE",
+      "gate_status": "FAIL",
+      "gate_cycle_s": 6.929299365856619,
+      "calibration_verdict": "MATCH",
+      "independent_reference_matches_stored_trace_to_s": 1e-09,
+      "failed_checks": [
+        "cycle_time_limit"
+      ],
+      "round_one_cycle_delta_s": 0.0,
+      "reference_cycle_s": 6.908749999999697,
+      "delta_s": 0.020549365856922464,
+      "round_one_motion_records_match": true
+    }
+  ],
+  "pytest": {
+    "command": "E:/Tools/Python313/python.exe -B -m pytest -p no:cacheprovider --basetemp ops/calibration/.pytest-t03b-round2 -ra tests/ops",
+    "exit_code": 0,
+    "passed": 110,
+    "skipped": 1,
+    "failed": 0,
+    "duration_s": 79.29,
+    "skip_reason": "tests/ops/test_geom_gates.py:386 requires the FreeCAD module in the test interpreter"
+  },
+  "scope": {
+    "criteria_diff_vs_main": "empty",
+    "legacy_input_diff_vs_main": "empty",
+    "reference_calc_diff_vs_main": "empty",
+    "scoped_git_diff_check_exit_code": 0
+  },
+  "review_round": 2,
+  "t14_example_schema_validation": "PASS",
+  "t14_example_x1_gate_status": "PASS",
+  "t14_example_x1_gate_cycle_s": 5.8537482190467065
+}

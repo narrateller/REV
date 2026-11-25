@@ -102,17 +102,44 @@ properties:
           charge_pressure_bar: {$ref: '#/$defs/positive'}
           round_trip_eta:
             $ref: '#/$defs/efficiency'
-            description: Oil recovery fraction at recharge pressure. Refill takes a separate pump phase.
+            description: Oil recovery fraction at recharge pressure.
+          recharge_when_idle:
+            type: boolean
+            default: false
+            description: Заряжать при свободном насосе. Остаток восполняется отдельной фазой после цикла.
   cycle:
     type: array
     minItems: 1
     items:
       type: object
       additionalProperties: false
-      required: [name, actuator, stroke_mm, direction, speed_mm_s, regeneration, dwell_s]
+      required: [name, actuator, dwell_s]
+      anyOf:
+        - properties:
+            actuator: {const: none}
+            stroke_mm: {type: number, const: 0}
+            direction: false
+            force_N: false
+            pressure_bar: false
+            speed_mm_s: false
+            max_speed_mm_s: false
+            regeneration: false
+            continues: false
+            press: false
+            use_accumulator: false
+        - required: [stroke_mm, direction, speed_mm_s, regeneration]
+          properties:
+            actuator: {enum: [main_cylinder, precompaction, slide_gate]}
       properties:
         name: {type: string, minLength: 1}
-        actuator: {enum: [main_cylinder, precompaction, slide_gate]}
+        actuator: {enum: [main_cylinder, precompaction, slide_gate, none]}
+        group:
+          type: string
+          description: Смежные фазы с одинаковой меткой образуют группу. Фаза без метки образует отдельную группу. Группа заканчивается после последней фазы.
+        start_delay_s:
+          $ref: '#/$defs/nonnegative'
+          default: 0
+          description: Задержка команды от начала группы. Для гидравлической фазы переключение клапана следует за задержкой.
         stroke_mm: {$ref: '#/$defs/nonnegative'}
         direction: {enum: [extend, retract]}
         force_N:
@@ -122,11 +149,14 @@ properties:
         speed_mm_s:
           anyOf: [{$ref: '#/$defs/positive'}, {const: pump}]
           description: Заданная скорость для проверки подачи или pump для движения с доступной подачей.
+        max_speed_mm_s:
+          $ref: '#/$defs/positive'
+          description: Верхний предел скорости при speed_mm_s = pump. Доступная подача может давать меньшую скорость.
         regeneration: {type: boolean}
         continues:
           type: boolean
           default: false
-          description: Непрерывное движение после предыдущей фазы без выдержки и смены гидравлической конфигурации. Переключение не начисляется.
+          description: Непрерывное движение после предыдущей фазы без задержки, выдержки и смены гидравлической конфигурации. Переключение не начисляется.
         press:
           type: boolean
           default: false

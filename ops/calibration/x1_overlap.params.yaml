@@ -1,0 +1,277 @@
+# Sources: calc/X-1/x1_calc.py; pressure bands as in calc/T-1.2b/make_params_t12b.py
+# Accumulator: 5 L shell, 28 bar precharge, 38-75 bar gas window.
+# Hold and unload dwell include 0.10 s each for their valve commands.
+# Gate command offset: return valve time + clearance / 250 mm/s.
+schema_version: 1
+description: X-1 M-1 overlap, 360 L/min, 5 L accumulator, 0.50 s feed
+product:
+  section_mm:
+  - 150
+  - 60
+  length_range_mm:
+  - 40
+  - 110
+  density_kg_m3: 1064.8148148148148
+raw:
+  bulk_density_kg_m3:
+  - 90
+  - 160
+  dose_kg: 0.83
+main_cylinder:
+  n: 1
+  bore_mm: 280
+  rod_mm: 200
+  stroke_mm: 230
+  p_work_bar: 270
+  p_relief_bar: 300
+  eta: 0.94
+  nominal_force_N: 1520000
+chamber:
+  section_mm:
+  - 150
+  - 60
+  length_mm: 300
+  clearance_per_side_mm: 0.2
+  ejection_stroke_mm: 90.19323671497585
+  ejection_overtravel_mm: 10
+  approach_stroke_mm: 0
+  in_die_density_kg_m3: 1150.0
+precompaction:
+  section_mm:
+  - 150
+  - 200
+  loose_fill_length_mm: 317.4074074074074
+  stroke_mm: 257.4074074074074
+  post_precompaction_density_kg_m3: 461.1111111111111
+  cylinder:
+    n: 1
+    bore_mm: 100
+    rod_mm: 56
+    stroke_mm: 330
+    eta: 0.92
+drive:
+  motor_kW: 30
+  installed_kW: 34
+  pump_max_flow_L_min: 360
+  eta: 0.826
+  slide_gate_cylinder:
+    n: 1
+    bore_mm: 80
+    rod_mm: 45
+    stroke_mm: 70
+    eta: 0.92
+  accumulator:
+    usable_oil_L: 1.533892277671966
+    max_flow_L_min: 150.0
+    min_delivery_pressure_bar: 38.0
+    charge_pressure_bar: 78.0
+    round_trip_eta: 1.0
+    recharge_when_idle: true
+cycle:
+- name: pre_down 1
+  actuator: precompaction
+  stroke_mm: 107.4675925925926
+  direction: extend
+  pressure_bar: 19.998581490910823
+  speed_mm_s: pump
+  max_speed_mm_s: 650.0
+  regeneration: false
+  dwell_s: 0
+- name: pre_down 2
+  actuator: precompaction
+  stroke_mm: 96.14166666666667
+  direction: extend
+  pressure_bar: 49.95526591816134
+  speed_mm_s: pump
+  max_speed_mm_s: 650.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+- name: pre_down 3
+  actuator: precompaction
+  stroke_mm: 34.36388888888889
+  direction: extend
+  pressure_bar: 99.92854826267413
+  speed_mm_s: pump
+  max_speed_mm_s: 650.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+- name: pre_down 4
+  actuator: precompaction
+  stroke_mm: 13.835648148148112
+  direction: extend
+  pressure_bar: 149.74859195712733
+  speed_mm_s: pump
+  max_speed_mm_s: 650.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+- name: pre_down 5
+  actuator: precompaction
+  stroke_mm: 5.598611111111151
+  direction: extend
+  pressure_bar: 181.98475375287748
+  speed_mm_s: pump
+  max_speed_mm_s: 650.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+- name: regen 1
+  actuator: main_cylinder
+  stroke_mm: 56.542074240461076
+  direction: extend
+  pressure_bar: 19.99999611355005
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: true
+  dwell_s: 0
+- name: regen 2
+  actuator: main_cylinder
+  stroke_mm: 21.094271131810185
+  direction: extend
+  pressure_bar: 49.974139476046375
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: true
+  dwell_s: 0
+  continues: true
+- name: regen 3
+  actuator: main_cylinder
+  stroke_mm: 13.292926165744081
+  direction: extend
+  pressure_bar: 99.98691705952635
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: true
+  dwell_s: 0
+  continues: true
+- name: regen 4
+  actuator: main_cylinder
+  stroke_mm: 3.346800559460392
+  direction: extend
+  pressure_bar: 119.99999999999395
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: true
+  dwell_s: 0
+  continues: true
+- name: press 1
+  actuator: main_cylinder
+  stroke_mm: 8.763409750125998
+  direction: extend
+  pressure_bar: 99.98536459038189
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: false
+  dwell_s: 0
+- name: press 2
+  actuator: main_cylinder
+  stroke_mm: 7.040088094966481
+  direction: extend
+  pressure_bar: 149.9548190317788
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+- name: press 3
+  actuator: main_cylinder
+  stroke_mm: 4.876362016821748
+  direction: extend
+  pressure_bar: 199.9790112025324
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+- name: press 4
+  actuator: main_cylinder
+  stroke_mm: 3.7019502221945255
+  direction: extend
+  pressure_bar: 249.93758147622495
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+- name: press 5
+  actuator: main_cylinder
+  stroke_mm: 1.148881103439678
+  direction: extend
+  pressure_bar: 268.07849923977517
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: false
+  dwell_s: 0
+  continues: true
+  press: true
+- name: hold
+  actuator: none
+  dwell_s: 0.3
+- name: unload
+  actuator: none
+  dwell_s: 0.25
+- name: gate_open 1
+  actuator: slide_gate
+  stroke_mm: 70.0
+  direction: retract
+  pressure_bar: 40.02185204310963
+  speed_mm_s: pump
+  max_speed_mm_s: 250.0
+  regeneration: false
+  dwell_s: 0
+- name: eject 1
+  actuator: main_cylinder
+  stroke_mm: 57.81386473429952
+  direction: extend
+  pressure_bar: 44.41177415728659
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: true
+  dwell_s: 0
+- name: eject 2
+  actuator: main_cylinder
+  stroke_mm: 32.37937198067633
+  direction: extend
+  pressure_bar: 19.999033747084525
+  speed_mm_s: pump
+  max_speed_mm_s: 240.0
+  regeneration: true
+  dwell_s: 0
+  continues: true
+- name: return 1
+  actuator: main_cylinder
+  stroke_mm: 210.00000000000003
+  direction: retract
+  pressure_bar: 24.234480770558097
+  speed_mm_s: pump
+  max_speed_mm_s: 250.0
+  regeneration: false
+  dwell_s: 0
+  use_accumulator: true
+  group: return_and_close
+- name: gate_close 1
+  actuator: slide_gate
+  stroke_mm: 70.0
+  direction: extend
+  pressure_bar: 23.350231586075584
+  speed_mm_s: pump
+  max_speed_mm_s: 250.0
+  regeneration: false
+  dwell_s: 0
+  group: return_and_close
+  start_delay_s: 0.18
+- name: pre_up 1
+  actuator: precompaction
+  stroke_mm: 257.4074074074074
+  direction: retract
+  pressure_bar: 20.46814708816474
+  speed_mm_s: pump
+  max_speed_mm_s: 650.0
+  regeneration: false
+  dwell_s: 0
+  group: return_and_close
+- name: feed
+  actuator: none
+  dwell_s: 0.5
