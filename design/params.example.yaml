@@ -16,7 +16,7 @@ chamber:
   section_mm: [150, 60]
   length_mm: 220
   clearance_per_side_mm: 0.1
-  ejection_stroke_mm: 93
+  ejection_overtravel_mm: 0.8  # Округлённый перебег для синтетического хода выталкивания 93 мм.
   approach_stroke_mm: 92
   in_die_density_kg_m3: 1000
 precompaction:
@@ -27,6 +27,7 @@ precompaction:
   cylinder: {n: 1, bore_mm: 100, rod_mm: 56, stroke_mm: 230, eta: 0.95}
 drive:
   motor_kW: 30
+  # Условная разбивка синтетического примера: 30 кВт привод, 2,2 кВт шнек, 1,5 кВт охладитель, 0,3 кВт управление.
   installed_kW: 34
   pump_max_flow_L_min: 520
   eta: 0.9

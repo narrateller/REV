@@ -17,6 +17,7 @@ from ops.gates.gate_report import InputError, load_yaml, read_criteria
 ROOT = Path(__file__).resolve().parents[2]
 CRITERIA = ROOT / "ops/criteria/design_criteria.yaml"
 EXAMPLE = ROOT / "design/params.example.yaml"
+M1 = ROOT / "design/params.m1.yaml"
 LEGACY = ROOT / "ops/calibration/w02_04_params.yaml"
 
 
@@ -30,12 +31,12 @@ def params():
     return load_yaml(EXAMPLE.read_bytes(), EXAMPLE)
 
 
-def run_calc(tmp_path, path, *args):
+def run_calc(tmp_path, path, *args, cwd=ROOT):
     out = tmp_path / "gate_report.json"
     process = subprocess.run(
         [sys.executable, "-B", str(ROOT / "ops/gates/calc_gates.py"), "--params", str(path),
          "--criteria", str(CRITERIA), "--out", str(out), *args],
-        check=False, capture_output=True, text=True,
+        cwd=cwd, check=False, capture_output=True, text=True,
     )
     return process.returncode, json.loads(out.read_text(encoding="utf-8"))
 
@@ -63,6 +64,17 @@ def test_calibration_cli(tmp_path, path, expected, code):
         assert cycle["failures"] == ["нет фазы прессования"]
     else:
         assert report["gates"][2]["details"]["switch_count"] == 10
+
+
+def test_m1_cli_from_another_working_directory(tmp_path):
+    code, report = run_calc(tmp_path, M1, cwd=tmp_path)
+    assert code == 0
+    assert [gate["status"] for gate in report["gates"]] == ["PASS", "PASS", "PASS"]
+    _, dose, cycle = report["gates"]
+    assert dose["threshold"]["min_stroke_mm"] == pytest.approx(210, abs=0.1)
+    assert dose["value"] == 230
+    assert cycle["value"] == pytest.approx(5.87, abs=0.01)
+    assert cycle["details"]["switch_count"] == 9
 
 
 def test_gate_selection(tmp_path):
@@ -127,23 +139,35 @@ def test_dose_stroke_limits(params, criteria, edge, outside_mm):
     assert calc.evaluate_dose(params, criteria)["status"] == "FAIL"
 
 
-def test_dose_minimum_stroke_is_informational(params, criteria):
+def test_dose_approach_and_overtravel_define_checked_stroke(params, criteria):
     chamber = params["chamber"]
     chamber.update(approach_stroke_mm=120, in_die_density_kg_m3=1100)
     gate = calc.evaluate_dose(params, criteria)
     details = gate["details"]
     compressed_mm = 0.83e9 / (1100 * 150 * 60)
     fill_mm = 0.83e9 / (420 * 150 * 60)
-    minimum_mm = 120 + fill_mm - compressed_mm + 93
+    minimum_mm = 120 + fill_mm + chamber["ejection_overtravel_mm"]
     assert details["compression_stroke_mm"] == pytest.approx(fill_mm - compressed_mm)
+    assert details["ejection_stroke_mm"] == pytest.approx(compressed_mm + chamber["ejection_overtravel_mm"])
+    assert gate["threshold"]["min_stroke_mm"] == pytest.approx(minimum_mm)
     assert details["minimum_stroke_mm"] == pytest.approx(minimum_mm)
     assert details["minimum_stroke_ratio"] == pytest.approx(320 / minimum_mm)
-    assert details["stroke_ratio"] == pytest.approx(320 / (fill_mm + 93))
-    assert gate["status"] == "PASS"
+    assert not details["checks"]["stroke_at_least_required"]
+    assert gate["status"] == "FAIL"
+
+
+def test_dose_missing_approach_warns(params, criteria):
+    chamber = params["chamber"]
     del chamber["approach_stroke_mm"], chamber["in_die_density_kg_m3"]
-    details = calc.evaluate_dose(params, criteria)["details"]
+    params["main_cylinder"]["stroke_mm"] = 250
+    gate = calc.evaluate_dose(params, criteria)
+    details = gate["details"]
+    assert gate["status"] == "WARN"
+    assert "chamber.approach_stroke_mm" in details["warnings"][0]
     assert details["approach_stroke_mm"] == 0
     assert details["in_die_density_source"] == "product.density_kg_m3"
+    chamber["approach_stroke_mm"] = 0
+    assert calc.evaluate_dose(params, criteria)["status"] == "PASS"
 
 
 @pytest.mark.parametrize("density", [90, 160])
@@ -255,6 +279,36 @@ def test_cycle_peak_and_installed_power_boundaries(params, criteria):
     assert gate["details"]["warnings"] == ["установленная мощность не задана"]
 
 
+def test_cycle_requested_speed_overloads_30_kW_drive(tmp_path):
+    text = EXAMPLE.read_text(encoding="utf-8")
+    path = tmp_path / "overload.yaml"
+    path.write_text(text.replace("pressure_bar: 290, speed_mm_s: pump", "pressure_bar: 290, speed_mm_s: 40"),
+                    encoding="utf-8")
+    code, report = run_calc(tmp_path, path, "--gates", "G-CYCLE")
+    gate, = report["gates"]
+    assert (code, gate["status"]) == (1, "FAIL")
+    details = gate["details"]
+    press = next(row for row in details["phases"] if row["press"])
+    expected_flow_L_min = 60 * math.pi / 4 * 270**2 * 40 / 1e6
+    assert press["required_flow_L_min"] == pytest.approx(expected_flow_L_min)
+    assert press["available_flow_L_min"] == pytest.approx(600 * 30 * 0.9 / 290)
+    assert details["peak_drive_power_kW"] == pytest.approx(290 * expected_flow_L_min / (600 * 0.9))
+    assert details["checks"]["cycle_time_limit"]
+    assert not details["checks"]["requested_speeds_met"]
+    assert not details["checks"]["peak_drive_power_limit"]
+    assert not details["checks"]["pump_power_within_motor_rating"]
+
+
+@pytest.mark.parametrize("previous_change", [None, {"regeneration": True}, {"dwell_s": 0.1},
+                                              {"direction": "retract"}, {"actuator": "precompaction"}])
+def test_cycle_continuation_requires_uninterrupted_configuration(params, previous_change):
+    start = phase("start", "extend", 10, 50)
+    continuation = phase("continue", "extend", 10, 100, continues=True)
+    params["cycle"] = [start | previous_change, continuation] if previous_change is not None else [continuation]
+    with pytest.raises(InputError, match="continues: expected uninterrupted travel"):
+        calc.validate_params(params)
+
+
 def test_cycle_missing_installed_power_cli_warns(tmp_path):
     filtered = tmp_path / "params.yaml"
     text = EXAMPLE.read_text(encoding="utf-8")
@@ -282,6 +336,24 @@ def test_cycle_accumulator_boost_does_not_count_as_drive_peak(params, criteria):
     assert recharge["peak_drive_power_kW"] == pytest.approx(30)
     assert details["peak_hydraulic_power_kW"] > 30
     assert details["checks"]["pump_power_within_motor_rating"]
+
+
+def test_cycle_required_speed_accounts_for_sustained_accumulator_delivery(params, criteria):
+    accumulator = {"usable_oil_L": 0.5, "max_flow_L_min": 100, "min_delivery_pressure_bar": 290,
+                   "charge_pressure_bar": 300, "round_trip_eta": 0.8}
+    params["drive"]["accumulator"] = accumulator
+    press = phase("press", "extend", 10, 290, speed_mm_s=40, press=True, use_accumulator=True)
+    params["cycle"] = [press, phase("back", "retract", 10, 10)]
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "PASS"
+    assert gate["details"]["phases"][0]["peak_drive_power_kW"] == pytest.approx(30)
+    accumulator["usable_oil_L"] = 0.25
+    gate = calc.evaluate_cycle(params, criteria)
+    assert gate["status"] == "FAIL"
+    row = gate["details"]["phases"][0]
+    assert row["available_flow_L_min"] == pytest.approx(row["pump_limit_L_min"] + 60 * 0.25 / (10 / 40))
+    assert row["peak_drive_power_kW"] > 30
+    assert not row["requested_speed_met"]
 
 
 def test_cycle_regeneration_force_and_speed(params, criteria):

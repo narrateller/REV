@@ -110,6 +110,7 @@ def validate_params(params):
     accumulator = params["drive"].get("accumulator")
     if accumulator and accumulator["min_delivery_pressure_bar"] > accumulator["charge_pressure_bar"]:
         raise InputError("accumulator.min_delivery_pressure_bar exceeds charge_pressure_bar")
+    previous = None
     for index, phase in enumerate(params["cycle"]):
         path = f"cycle[{index}]"
         if phase["actuator"] not in cylinders:
@@ -122,6 +123,13 @@ def validate_params(params):
             raise InputError(f"{path}: use_accumulator requires drive.accumulator")
         if not phase["stroke_mm"] and not phase["dwell_s"]:
             raise InputError(f"{path}: phase has no travel or dwell")
+        if phase.get("continues") and (
+            previous is None or previous["dwell_s"] or not previous["stroke_mm"] or not phase["stroke_mm"]
+            or any(previous.get(key, False) != phase.get(key, False)
+                   for key in ("actuator", "direction", "regeneration", "use_accumulator"))
+        ):
+            raise InputError(f"{path}.continues: expected uninterrupted travel in the same hydraulic configuration")
+        previous = phase
 
 
 def at_most(value, limit):
@@ -181,12 +189,9 @@ def evaluate_pface(params, criteria):
 
 
 def evaluate_dose(params, criteria):
-    """Required travel [mm] = (dose_kg / fill_density_kg_m3) * 1e9 / main_area_mm2
-    + ejection_stroke_mm. The first term is the axial length of the transferred
-    charge. Without precompaction use the lowest bulk density as the fill density.
-    The informational minimum is approach + max(0, fill length minus length
-    under load) + ejection. Use zero approach and the product density as
-    provisional inputs when the corresponding TECH values are absent.
+    """Required travel is approach + compression + ejection.
+
+    The in-die briquette length cancels between compression and ejection.
     """
     dose_id, raw_id, perf_id = CRITERIA_IDS["G-DOSE"]
     raw, chamber, precomp = params["raw"], params["chamber"], params["precompaction"]
@@ -208,15 +213,26 @@ def evaluate_dose(params, criteria):
         samples.append({"density_kg_m3": density, "loose_volume_L": volume_L, "fits": at_most(volume_L, intake_volume_L)})
     fill_density_kg_m3 = precomp["post_precompaction_density_kg_m3"] if precomp else bulk_densities[0]
     fill_length_mm = (dose_kg / fill_density_kg_m3) * 1e9 / main_area_mm2
-    required_stroke_mm = fill_length_mm + chamber["ejection_stroke_mm"]
-    max_stroke_mm = overshoot_max * required_stroke_mm
-    installed_stroke_mm = cylinder["stroke_mm"]
-    working_range_mm = cylinder.get("working_range_mm", installed_stroke_mm)
     approach_stroke_mm = chamber.get("approach_stroke_mm", 0)
     in_die_density_kg_m3 = chamber.get("in_die_density_kg_m3", params["product"]["density_kg_m3"])
     compacted_length_mm = (dose_kg / in_die_density_kg_m3) * 1e9 / main_area_mm2
     compression_stroke_mm = max(0, fill_length_mm - compacted_length_mm)
-    minimum_stroke_mm = approach_stroke_mm + compression_stroke_mm + chamber["ejection_stroke_mm"]
+    if "ejection_overtravel_mm" in chamber:
+        ejection_overtravel_mm = chamber["ejection_overtravel_mm"]
+        ejection_source = "chamber.ejection_overtravel_mm"
+    else:
+        ejection_overtravel_mm = chamber["ejection_stroke_mm"] - compacted_length_mm
+        if not at_most(0, ejection_overtravel_mm):
+            raise InputError("chamber.ejection_stroke_mm is shorter than the in-die briquette")
+        ejection_overtravel_mm = max(0, ejection_overtravel_mm)
+        ejection_source = "chamber.ejection_stroke_mm minus compacted_length_mm"
+    required_stroke_mm = approach_stroke_mm + fill_length_mm + ejection_overtravel_mm
+    max_stroke_mm = overshoot_max * required_stroke_mm
+    installed_stroke_mm = cylinder["stroke_mm"]
+    working_range_mm = cylinder.get("working_range_mm", installed_stroke_mm)
+    warnings = []
+    if "approach_stroke_mm" not in chamber:
+        warnings.append("подвод пуансона не задан (chamber.approach_stroke_mm), для оценки принят 0 мм")
     checks = {
         "precompaction_present": precomp is not None,
         "bulk_density_covers_reference": at_most(density_range[0], reference_density[0])
@@ -228,16 +244,19 @@ def evaluate_dose(params, criteria):
         "working_range_at_least_required": at_most(required_stroke_mm, working_range_mm),
         "stroke_overshoot_limit": at_most(installed_stroke_mm, max_stroke_mm),
     }
+    status = "FAIL" if not all(checks.values()) else "WARN" if warnings else "PASS"
     return result("G-DOSE", installed_stroke_mm, {
         "min_stroke_mm": required_stroke_mm, "max_stroke_mm": max_stroke_mm,
         "stroke_overshoot_max": overshoot_max, "bulk_density_kg_m3": reference_density,
         "min_dose_kg": reference_dose_kg,
     }, "mm", CRITERIA_IDS["G-DOSE"], {
-        "checks": checks, "dose_kg": dose_kg, "capacity_check_dose_kg": capacity_check_dose_kg,
+        "checks": checks, "warnings": warnings, "dose_kg": dose_kg, "capacity_check_dose_kg": capacity_check_dose_kg,
         "loose_dose_samples": samples,
         "intake_volume_L": intake_volume_L, "intake_chamber": "precompaction" if precomp else "main",
         "main_fill_density_kg_m3": fill_density_kg_m3, "main_fill_length_mm": fill_length_mm,
-        "ejection_stroke_mm": chamber["ejection_stroke_mm"], "required_stroke_mm": required_stroke_mm,
+        "ejection_overtravel_mm": ejection_overtravel_mm, "ejection_overtravel_source": ejection_source,
+        "ejection_stroke_mm": compacted_length_mm + ejection_overtravel_mm,
+        "required_stroke_mm": required_stroke_mm,
         "stroke_ratio": installed_stroke_mm / required_stroke_mm, "working_range_mm": working_range_mm,
         "approach_stroke_mm": approach_stroke_mm,
         "approach_stroke_source": "chamber.approach_stroke_mm" if "approach_stroke_mm" in chamber else "zero_assumed",
@@ -245,8 +264,8 @@ def evaluate_dose(params, criteria):
         "in_die_density_source": "chamber.in_die_density_kg_m3" if "in_die_density_kg_m3" in chamber
         else "product.density_kg_m3",
         "compacted_length_mm": compacted_length_mm, "compression_stroke_mm": compression_stroke_mm,
-        "minimum_stroke_mm": minimum_stroke_mm, "minimum_stroke_ratio": installed_stroke_mm / minimum_stroke_mm,
-    })
+        "minimum_stroke_mm": required_stroke_mm, "minimum_stroke_ratio": installed_stroke_mm / required_stroke_mm,
+    }, status=status)
 
 
 def pump_flow_L_min(drive, pressure_bar):
@@ -275,15 +294,25 @@ def evaluate_phase(phase, cylinder, drive, available_oil_L):
     oil_L = area_mm2 * phase["stroke_mm"] / 1e6
     pump_limit_L_min = pump_flow_L_min(drive, pressure_bar)
     speed_mm_s = phase["speed_mm_s"]
-    target_flow_L_min = math.inf if speed_mm_s == "pump" else 60 * area_mm2 * speed_mm_s / 1e6
+    required_flow_L_min = None if speed_mm_s == "pump" else (60 * area_mm2 * speed_mm_s / 1e6 if oil_L else 0.0)
+    target_flow_L_min = math.inf if required_flow_L_min is None else required_flow_L_min
     pump_rate_L_min = min(pump_limit_L_min, target_flow_L_min) if oil_L else 0.0
     accumulator = drive.get("accumulator")
     pressure_covered = not phase.get("use_accumulator") or at_most(
         pressure_bar, accumulator["min_delivery_pressure_bar"]
     )
-    boost_L_min = 0.0
+    accumulator_limit_L_min = 0.0
     if oil_L and phase.get("use_accumulator") and pressure_covered and available_oil_L > 0:
-        boost_L_min = min(accumulator["max_flow_L_min"], target_flow_L_min - pump_rate_L_min)
+        accumulator_limit_L_min = accumulator["max_flow_L_min"]
+    boost_L_min = min(accumulator_limit_L_min, target_flow_L_min - pump_rate_L_min)
+
+    available_flow_L_min = pump_limit_L_min + accumulator_limit_L_min
+    required_pump_flow_L_min = pump_rate_L_min
+    if required_flow_L_min is not None and oil_L:
+        # Credit only the accumulator flow it can sustain over the requested stroke time.
+        sustained_boost_L_min = min(accumulator_limit_L_min, available_oil_L * required_flow_L_min / oil_L)
+        available_flow_L_min = pump_limit_L_min + sustained_boost_L_min
+        required_pump_flow_L_min = required_flow_L_min - min(boost_L_min, sustained_boost_L_min)
 
     # For a finite discharge, the balance of the stroke uses pump flow alone.
     dispatch_fraction = boost_L_min / (pump_rate_L_min + boost_L_min) if boost_L_min else 0.0
@@ -293,14 +322,16 @@ def evaluate_phase(phase, cylinder, drive, available_oil_L):
     return {
         "name": phase["name"], "actuator": phase["actuator"], "direction": phase["direction"],
         "regeneration": phase["regeneration"], "stroke_mm": phase["stroke_mm"], "area_mm2": area_mm2,
-        "press": phase.get("press", False),
+        "press": phase.get("press", False), "continues": phase.get("continues", False),
         "force_N": 0.1 * pressure_bar * area_mm2 * cylinder["eta"],
         "pressure_bar": pressure_bar, "oil_L": oil_L, "pump_limit_L_min": pump_limit_L_min,
+        "required_flow_L_min": required_flow_L_min, "available_flow_L_min": available_flow_L_min,
+        "required_pump_flow_L_min": required_pump_flow_L_min,
         "pump_rate_L_min": pump_rate_L_min, "accumulator_rate_L_min": boost_L_min,
         "pump_oil_L": pump_oil_L, "accumulator_oil_L": accumulator_oil_L,
         "motion_s": motion_s, "dwell_s": phase["dwell_s"], "time_s": motion_s + phase["dwell_s"],
         "motor_energy_kJ": pump_energy_kJ(pump_oil_L, pressure_bar, drive["eta"]),
-        "requested_speed_met": speed_mm_s == "pump" or not oil_L or at_most(motion_s, phase["stroke_mm"] / speed_mm_s),
+        "requested_speed_met": required_flow_L_min is None or at_most(required_flow_L_min, available_flow_L_min),
         "accumulator_pressure_covered": pressure_covered,
     }
 
@@ -313,6 +344,7 @@ def recharge_phase(accumulator, drive, delivered_L):
     return {
         "name": "Accumulator recharge", "actuator": "accumulator", "pressure_bar": pressure_bar,
         "oil_L": 0.0, "pump_limit_L_min": flow_L_min, "pump_rate_L_min": flow_L_min,
+        "required_pump_flow_L_min": flow_L_min,
         "accumulator_rate_L_min": 0.0, "pump_oil_L": pump_oil_L, "accumulator_oil_L": 0.0,
         "motion_s": duration_s, "dwell_s": 0.0, "time_s": duration_s,
         "motor_energy_kJ": pump_energy_kJ(pump_oil_L, pressure_bar, drive["eta"]),
@@ -339,11 +371,10 @@ def evaluate_cycle(params, criteria):
     if delivered_L > 0:
         rows.append(recharge_phase(accumulator, drive, delivered_L))
     for row in rows:
-        row["switch_s"] = SWITCH_S
-        pump_flow_L_min = row["pump_rate_L_min"]
-        total_flow_L_min = pump_flow_L_min + row["accumulator_rate_L_min"]
+        row["switch_s"] = 0.0 if row.get("continues") else SWITCH_S
+        total_flow_L_min = row["pump_rate_L_min"] + row["accumulator_rate_L_min"]
         pressure_bar = row["pressure_bar"]
-        row["peak_drive_power_kW"] = pressure_bar * pump_flow_L_min / (600 * drive["eta"])
+        row["peak_drive_power_kW"] = pressure_bar * row["required_pump_flow_L_min"] / (600 * drive["eta"])
         row["peak_hydraulic_power_kW"] = pressure_bar * total_flow_L_min / (600 * drive["eta"])
     press_rows = [row for row in rows if row.get("press")]
     minimum_force_N = face["nominal_force_min_N"]
@@ -370,6 +401,7 @@ def evaluate_cycle(params, criteria):
         "cycle_time_limit": at_most(cycle_s, perf["max_cycle_s"]),
         "average_power_limit": at_most(average_power_kW, power["max_main_kW"]),
         "peak_drive_power_limit": at_most(peak_drive_power_kW, power["max_main_kW"]),
+        "motor_rating_limit": at_most(drive["motor_kW"], power["max_main_kW"]),
         "pump_power_within_motor_rating": at_most(peak_drive_power_kW, drive["motor_kW"]),
         "working_pressure_limit": at_most(max_pressure_bar, hyd["max_working_bar"]),
         "press_phase_present": bool(press_rows),
@@ -390,7 +422,8 @@ def evaluate_cycle(params, criteria):
     details = {
         "checks": checks, "phases": rows, "cycle_s": cycle_s,
         "warnings": warnings, "failures": failures,
-        "switch_count": len(rows), "switch_time_s": len(rows) * SWITCH_S,
+        "switch_count": sum(row["switch_s"] > 0 for row in rows),
+        "switch_time_s": math.fsum(row["switch_s"] for row in rows),
         "total_oil_L": math.fsum(row["oil_L"] for row in rows),
         "total_pump_oil_L": math.fsum(row["pump_oil_L"] for row in rows),
         "total_motor_energy_kJ": total_energy_kJ, "average_power_kW": average_power_kW,

@@ -18,6 +18,7 @@ chamber:
   length_mm: 300
   clearance_per_side_mm: 0.2
   ejection_stroke_mm: 88.2
+  ejection_overtravel_mm: 10
   approach_stroke_mm: 0
   in_die_density_kg_m3: 1180
 precompaction:
@@ -34,17 +35,17 @@ drive:
   slide_gate_cylinder: {n: 1, bore_mm: 80, rod_mm: 45, stroke_mm: 70, eta: 0.95}
 cycle:
   - {name: Подпрессовка 1, actuator: precompaction, stroke_mm: 285.1, direction: extend, pressure_bar: 20, speed_mm_s: pump, regeneration: false, dwell_s: 0}
-  - {name: Подпрессовка 2, actuator: precompaction, stroke_mm: 19.3, direction: extend, pressure_bar: 50, speed_mm_s: pump, regeneration: false, dwell_s: 0}
-  - {name: Подпрессовка 3, actuator: precompaction, stroke_mm: 8.9, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: false, dwell_s: 0}
-  - {name: Подпрессовка 4, actuator: precompaction, stroke_mm: 4.1, direction: extend, pressure_bar: 123, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Подпрессовка 2, actuator: precompaction, stroke_mm: 19.3, direction: extend, pressure_bar: 50, speed_mm_s: pump, regeneration: false, dwell_s: 0, continues: true}
+  - {name: Подпрессовка 3, actuator: precompaction, stroke_mm: 8.9, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: false, dwell_s: 0, continues: true}
+  - {name: Подпрессовка 4, actuator: precompaction, stroke_mm: 4.1, direction: extend, pressure_bar: 123, speed_mm_s: pump, regeneration: false, dwell_s: 0, continues: true}
   - {name: Прессование 1, actuator: main_cylinder, stroke_mm: 39.1, direction: extend, pressure_bar: 20, speed_mm_s: pump, regeneration: true, dwell_s: 0}
-  - {name: Прессование 2, actuator: main_cylinder, stroke_mm: 31.1, direction: extend, pressure_bar: 50, speed_mm_s: pump, regeneration: true, dwell_s: 0}
-  - {name: Прессование 3, actuator: main_cylinder, stroke_mm: 17.5, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: true, dwell_s: 0}
-  - {name: Прессование 4, actuator: main_cylinder, stroke_mm: 4.8, direction: extend, pressure_bar: 120, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Прессование 2, actuator: main_cylinder, stroke_mm: 31.1, direction: extend, pressure_bar: 50, speed_mm_s: pump, regeneration: true, dwell_s: 0, continues: true}
+  - {name: Прессование 3, actuator: main_cylinder, stroke_mm: 17.5, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: true, dwell_s: 0, continues: true}
+  - {name: Прессование 4, actuator: main_cylinder, stroke_mm: 4.8, direction: extend, pressure_bar: 120, speed_mm_s: pump, regeneration: true, dwell_s: 0, continues: true}
   - {name: Прессование 5, actuator: main_cylinder, stroke_mm: 11.2, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: false, dwell_s: 0}
-  - {name: Прессование 6, actuator: main_cylinder, stroke_mm: 8.3, direction: extend, pressure_bar: 150, speed_mm_s: pump, regeneration: false, dwell_s: 0}
-  - {name: Прессование 7, actuator: main_cylinder, stroke_mm: 5.4, direction: extend, pressure_bar: 200, speed_mm_s: pump, regeneration: false, dwell_s: 0}
-  - {name: Прессование 8, actuator: main_cylinder, stroke_mm: 4.0, direction: extend, pressure_bar: 250, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Прессование 6, actuator: main_cylinder, stroke_mm: 8.3, direction: extend, pressure_bar: 150, speed_mm_s: pump, regeneration: false, dwell_s: 0, continues: true}
+  - {name: Прессование 7, actuator: main_cylinder, stroke_mm: 5.4, direction: extend, pressure_bar: 200, speed_mm_s: pump, regeneration: false, dwell_s: 0, continues: true}
+  - {name: Прессование 8, actuator: main_cylinder, stroke_mm: 4.0, direction: extend, pressure_bar: 250, speed_mm_s: pump, regeneration: false, dwell_s: 0, continues: true}
   - {name: Финальное прессование, actuator: main_cylinder, stroke_mm: 0.5, direction: extend, pressure_bar: 270, speed_mm_s: pump, regeneration: false, press: true, dwell_s: 0.35}
   - {name: Открытие шибера, actuator: slide_gate, stroke_mm: 70, direction: retract, pressure_bar: 100, speed_mm_s: 280, regeneration: false, dwell_s: 0}
   - {name: Выталкивание, actuator: main_cylinder, stroke_mm: 88.2, direction: extend, force_N: 150000, speed_mm_s: pump, regeneration: true, dwell_s: 0}

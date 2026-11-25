@@ -1,0 +1,123 @@
+{
+  "task_id": "T-0.2a",
+  "python_version": "3.13.17",
+  "calc_cli": {
+    "command": "REV_PYTHON -B ops/gates/calc_gates.py --params <params> --criteria ops/criteria/design_criteria.yaml --out <report>",
+    "m1": {
+      "params": "design/params.m1.yaml",
+      "exit_code": 0,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "PASS"
+      }
+    },
+    "synthetic": {
+      "params": "design/params.example.yaml",
+      "exit_code": 0,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "PASS"
+      }
+    },
+    "w02_04": {
+      "params": "ops/calibration/w02_04_params.yaml",
+      "exit_code": 1,
+      "gates": {
+        "G-PFACE": "FAIL",
+        "G-DOSE": "FAIL",
+        "G-CYCLE": "FAIL"
+      },
+      "calibration_verdict": "MATCH",
+      "snapshot": "ops/calibration/w02_04_calc.json",
+      "snapshot_matches_replay": true
+    },
+    "requested_speed_overload": {
+      "base_params": "design/params.example.yaml",
+      "phase": "Финальное прессование",
+      "speed_mm_s": 40,
+      "gate_selection_argument": "--gates G-CYCLE",
+      "exit_code": 1,
+      "gates": {
+        "G-CYCLE": "FAIL"
+      },
+      "cycle_time_limit": true,
+      "requested_speeds_met": false,
+      "peak_drive_power_limit": false
+    },
+    "criteria_sha256": "db10c8799276113953451c474805dc97686438cb903a0d91ce98c193ea2a55a1"
+  },
+  "scope_cli": {
+    "command": "REV_PYTHON ops/gates/scope_gate.py --worktree <worktree> --task <control checkout>/ops/tasks/T-0.2a.yaml --base main --meta <worktree>/rev-scope-*.tmp/meta.json --out <report>",
+    "invoked_by": "ops.lib.gates.run_gates with worktree as tool root",
+    "exit_code": 0,
+    "gates": {
+      "G-SCOPE": "PASS"
+    },
+    "runner_metadata_in_ignored_paths": true,
+    "ignored_outside_allowed": [],
+    "forbidden_paths": [],
+    "protected_changes": []
+  },
+  "pytest": {
+    "command": "REV_PYTHON -m pytest -p no:cacheprovider --basetemp <worktree temp>/pytest tests/ops",
+    "exit_code": 0,
+    "passed": 85,
+    "skipped": 1,
+    "skip_reason": "FreeCAD unavailable as an import in Python 3.13; exercised separately in FreeCAD",
+    "duration_s": 77.56,
+    "local_git_override": "Process-only safe.directory for control checkout and worktree; lfs.storage in worktree scratch directory"
+  },
+  "freecad": {
+    "command": "REV_FREECADCMD tests/ops/test_geom_gates.py",
+    "version": "1.1.4",
+    "exit_code": 0,
+    "status": "PASS"
+  },
+  "checks": {
+    "m1_original_fields_match_HEAD": true,
+    "criteria_match_HEAD_and_control_checkout": true,
+    "worker_changes_in_allowed_paths": true,
+    "git_diff_check_exit_code": 0
+  },
+  "status": "BLOCKED_RUNNER",
+  "runner_reproduction": {
+    "entry_point": "ops.lib.gates.run_gates",
+    "control_checkout": "E:/Projects/REV",
+    "params_worktree": "E:/Projects/REV-wt/T-0.2a",
+    "calc_script": "E:/Projects/REV/ops/gates/calc_gates.py",
+    "params_schema": "E:/Projects/REV/design/params.schema.yaml",
+    "calc_exit_code": 2,
+    "gates": {
+      "G-SCOPE": "WARN",
+      "G-PFACE": "ERROR",
+      "G-DOSE": "ERROR",
+      "G-CYCLE": "ERROR"
+    },
+    "calc_error": "params.chamber.ejection_overtravel_mm: unexpected field (check units in the field name)",
+    "scope_warning": "Ignored files outside allowed_paths",
+    "scope_warning_is_runner_metadata": true,
+    "worktree_tool_root_replay": {
+      "G-SCOPE": "PASS",
+      "G-PFACE": "PASS",
+      "G-DOSE": "PASS",
+      "G-CYCLE": "PASS"
+    },
+    "control_cwd_with_worktree_calc_script_exit_code": 0,
+    "control_cwd_with_worktree_calc_script_gates": {
+      "G-PFACE": "PASS",
+      "G-DOSE": "PASS",
+      "G-CYCLE": "PASS"
+    },
+    "control_calc_with_original_m1_params": {
+      "exit_code": 1,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "FAIL",
+        "G-CYCLE": "FAIL"
+      }
+    },
+    "dispatcher_path_outside_allowed_paths": "ops/lib/gates.py"
+  }
+}

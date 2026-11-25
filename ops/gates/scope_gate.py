@@ -21,7 +21,10 @@ CRITERIA_PATH = "ops/criteria/design_criteria.yaml"
 PROTECTED = ("ops/criteria/", "ops/gates/")
 CHECKOUT_NOISE = {"__pycache__", ".pytest_cache"}
 ALWAYS_ALLOWED = {"TASK.md", "report.md", "metrics.json", "self_check.json"}
-CARD_BLOCK = re.compile(r"^```ya?ml[^\S\n]*\n(.*?)^```[^\S\n]*$", re.MULTILINE | re.DOTALL)
+CARD_BLOCK = re.compile(
+    r"^(?P<fence>```|~~~)ya?ml[^\S\n]*\n(?P<yaml>.*?)^(?P=fence)[^\S\n]*$",
+    re.MULTILINE | re.DOTALL,
+)
 
 
 def git(worktree, *args):
@@ -47,7 +50,7 @@ def read_card(path):
         block = CARD_BLOCK.search(text)
         if not block:
             raise InputError(f"{path}: expected a fenced YAML task card")
-        text = block[1]
+        text = block["yaml"]
     card = load_yaml(text, path)
     for key in ("allowed_paths", "allow_protected"):
         patterns = card.get(key, [] if key == "allow_protected" else None)
@@ -78,6 +81,15 @@ def ignored_paths(worktree):
 
 def is_checkout_noise(name):
     return bool(CHECKOUT_NOISE.intersection(name.split("/"))) or name.endswith(".pyc")
+
+
+def runner_metadata_path(worktree, meta_path):
+    if meta_path is not None:
+        path = Path(os.path.abspath(meta_path))
+        directory = path.parent
+        if path.name == "meta.json" and directory.parent == worktree and fnmatchcase(directory.name, "rev-scope-*.tmp"):
+            return path.relative_to(worktree).as_posix()
+    return None
 
 
 def disk_sha256(worktree, name):
@@ -150,7 +162,8 @@ def evaluate_scope(worktree, card, base_commit, merge_base, meta_path):
     changes = worktree_changes(worktree, base_commit)
     paths = {name for names in changes.values() for name in names}
     ignored = ignored_paths(worktree)
-    ignored_non_noise = {name for name in ignored if not is_checkout_noise(name)}
+    runner_metadata = runner_metadata_path(worktree, meta_path)
+    ignored_non_noise = {name for name in ignored if name != runner_metadata and not is_checkout_noise(name)}
     ignored_outside_allowed = sorted(name for name in ignored_non_noise if not allowed(name))
     tracked = set(nul_records(git(worktree, "ls-files", "-z", "--", *PROTECTED)))
     forbidden_paths = sorted(name for name in paths if not allowed(name))

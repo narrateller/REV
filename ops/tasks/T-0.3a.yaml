@@ -1,0 +1,16 @@
+id: T-0.3a
+stage: S0-followup
+role: TOOL
+backend: alm                # резерв: voh, bos
+effort: high
+objective: >
+  Раннер запускает гейты из управляющей копии (main). Для задач, меняющих сами гейты (allow_protected покрывает
+  ops/gates/**), это даёт ERROR на любом новом поле схемы и сжигает круги исполнителя (T-0.2a, 25.11: 3 круга).
+requirements:
+  - "Если карточка разрешает изменять ops/gates/<tool>.py (allow_protected), этот гейт запускать из worktree; в gates.json и meta.json отметить source: worktree и статус CANDIDATE-уровня (не финальная приёмка)."
+  - "Во всех остальных случаях — как сейчас, только из main (исполнитель не может подменить гейт)."
+  - "Схему design/params.schema.yaml брать из того же источника, что и calc_gates.py."
+  - "Тесты: задача с allow_protected на calc_gates.py и новым полем схемы → гейты из worktree; без allow_protected → из main даже если worktree их изменил (G-SCOPE FAIL)."
+allowed_paths: [ops/lib/**, ops/run_task.py, tests/ops/test_runner.py, report.md, metrics.json, self_check.json]
+forbidden: [git commit, git push, изменение ops/criteria/**, изменение ops/gates/**, сеть]
+timebox_min: 60

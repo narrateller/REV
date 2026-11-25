@@ -40,23 +40,28 @@ properties:
   chamber:
     type: object
     additionalProperties: false
-    required: [section_mm, length_mm, clearance_per_side_mm, ejection_stroke_mm]
+    required: [section_mm, length_mm, clearance_per_side_mm]
+    anyOf:
+      - required: [ejection_overtravel_mm]
+      - required: [ejection_stroke_mm]
     properties:
       section_mm:
         $ref: '#/$defs/pair'
         description: Clear internal section. The punch section loses twice the clearance from each dimension.
       length_mm: {$ref: '#/$defs/positive'}
       clearance_per_side_mm: {$ref: '#/$defs/nonnegative'}
+      ejection_overtravel_mm:
+        $ref: '#/$defs/nonnegative'
+        description: Перебег после выталкивания брикета на его длину под нагрузкой. Имеет приоритет над ejection_stroke_mm.
       ejection_stroke_mm:
         $ref: '#/$defs/positive'
-        description: Задаёт TECH на шаге 1 по геометрии выхода брикета при открытом шибере.
+        description: Полный ход выталкивания в старых файлах. Без ejection_overtravel_mm из этого хода вычитается длина брикета под нагрузкой.
       approach_stroke_mm:
         $ref: '#/$defs/nonnegative'
-        default: 0
-        description: Задаёт TECH на шаге 1 от исходного положения пуансона до контакта с засыпкой.
+        description: Ход от исходного положения пуансона до контакта с засыпкой. Если поле пропущено, G-DOSE предупреждает и считает ход при нулевом подводе.
       in_die_density_kg_m3:
         $ref: '#/$defs/positive'
-        description: Задаёт TECH на шаге 1 под нагрузкой в главной камере. При отсутствии для справочной оценки используется плотность брикета после выхода.
+        description: Плотность под нагрузкой в главной камере. При отсутствии используется плотность брикета после выхода.
   precompaction:
     type: [object, 'null']
     description: Null denotes a machine without precompaction, such as the W02-04 negative calibration.
@@ -116,7 +121,12 @@ properties:
         pressure_bar: {$ref: '#/$defs/nonnegative'}
         speed_mm_s:
           anyOf: [{$ref: '#/$defs/positive'}, {const: pump}]
+          description: Заданная скорость для проверки подачи или pump для движения с доступной подачей.
         regeneration: {type: boolean}
+        continues:
+          type: boolean
+          default: false
+          description: Непрерывное движение после предыдущей фазы без выдержки и смены гидравлической конфигурации. Переключение не начисляется.
         press:
           type: boolean
           default: false
