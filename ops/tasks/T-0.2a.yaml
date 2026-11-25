@@ -11,8 +11,10 @@ defects:
   - "design/params.example.yaml: installed_kW 34 — пометить источник (пример, не проектное решение) и разбивку."
 acceptance:
   - "калибровка W02-04 — три FAIL; синтетика — PASS; тест на фазу, где требуемая скорость превышает возможности 30 кВт -> FAIL"
-allowed_paths: [ops/gates/calc_gates.py, design/**, ops/calibration/**, tests/ops/test_calc_gates.py, report.md, metrics.json, self_check.json]
-allow_protected: ["ops/gates/calc_gates.py"]
+allowed_paths: [ops/gates/calc_gates.py, ops/gates/scope_gate.py, design/**, ops/calibration/**, tests/ops/test_calc_gates.py, tests/ops/test_scope_gate.py, report.md, metrics.json, self_check.json]
+allow_protected: ["ops/gates/calc_gates.py", "ops/gates/scope_gate.py"]
+gates: [G-PFACE, G-DOSE, G-CYCLE]
+gate_inputs: {params: design/params.m1.yaml}
 forbidden: [git commit, git push, изменение ops/criteria/**, сеть]
 timebox_min: 60
 # дополнено ГК 24.11 (проба G0): G-SCOPE даёт WARN на служебный каталог раннера rev-scope-*.tmp с meta.json внутри worktree — исключить служебные пути раннера.
@@ -22,3 +24,8 @@ timebox_min: 60
 #    L_засыпки + перебег (+ подвод). Ввести параметр ejection_overtravel_mm вместо полного ejection_stroke.
 #  - G-CYCLE: ступени давления одного непрерывного хода считаются отдельными переключениями (+0,1 с каждая). Ввести у фазы
 #    признак `continues: true` (без переключения). Проверка на design/params.m1.yaml: ожидаемо ≈ 5,9 с вместо 6,77.
+# дополнено ГК 25.11 (запуск):
+#  - design/params.m1.yaml менять только добавлением новых полей (ejection_overtravel_mm, continues: true); числа M-1 не трогать.
+#    Ожидаемо после правки: G-PFACE PASS, G-DOSE PASS (потребно 210, ход 230), G-CYCLE ≈ 5,9 с PASS. Если не так — объясни в report.md, не подгоняй.
+#  - калибровка ops/calibration/w02_04*.json: вердикт MATCH должен сохраниться (три FAIL на W02); при смене чисел — обновить с объяснением.
+#  - pytest tests/ops — зелёный (запуск: REV_PYTHON -m pytest -p no:cacheprovider --basetemp <внутри worktree>).
