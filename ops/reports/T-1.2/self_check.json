@@ -1,0 +1,77 @@
+{
+  "status": "STOP_BASE_CYCLE_OVER_LIMIT",
+  "python_version": "3.13.17",
+  "entry_points": {
+    "calc/T-1.2/geometry.py": 0,
+    "calc/T-1.2/make_params_t12.py": 0,
+    "calc/T-1.2/x1_calc.py": 0
+  },
+  "determinism": {
+    "status": "PASS",
+    "run_exit_codes": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "same_bytes": true,
+    "sha256": {
+      "calc/T-1.2/results.json": "0b8109badaea94934d15b733ba0ad37052ab2b63c4b2ffb1d1e55c1b2375a350",
+      "design/params.t12.yaml": "2d1674301ec55e55d17fd75bd6aa92f6c824417b847230ce776f2f5cd6f018cc"
+    }
+  },
+  "checks": {
+    "python_sources_compile": "PASS",
+    "parameter_schema_accepted_by_gates": "PASS",
+    "m1_main_bore_rod_pressures_nominal_force_and_chamber_section": "PASS",
+    "axis_travel_balance_and_cylinder_force_reserve_all_three_windows": "PASS",
+    "all_12_briquette_cases_and_length_endpoint_capacity": "PASS",
+    "x1_30_cases_at_5_2p5_1p25_ms_interlocks_recharge_and_power": "PASS",
+    "base_110_mm_volume_force_and_498_kg_h_at_both_bulk_densities": "PASS",
+    "model_dump_capacity_and_screw_refill": "PASS",
+    "nominal_base_cycle_limit_with_360_L_min_and_5_L": "FAIL",
+    "C-PROD-01_released_section_screening": "FAIL",
+    "C-PROD-03_immediate_density_base_low": "PASS",
+    "C-PROD-03_immediate_density_high_raw_qualification_risk": "FAIL",
+    "physical_dump_time_and_dose_tolerance": "NOT_TESTED",
+    "physical_hot_die_density_within_one_hour": "NOT_TESTED"
+  },
+  "gate_command": [
+    "E:\\Tools\\Python313\\python.exe",
+    "-B",
+    "ops/gates/calc_gates.py",
+    "--params",
+    "design/params.t12.yaml",
+    "--criteria",
+    "ops/criteria/design_criteria.yaml",
+    "--out",
+    "E:\\Projects\\REV-wt\\T-1.2\\gates.t12.json"
+  ],
+  "gate_exit_code": 1,
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "unit": "MPa",
+      "failed_checks": []
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 230,
+      "unit": "mm",
+      "failed_checks": []
+    },
+    "G-CYCLE": {
+      "status": "FAIL",
+      "value": 7.724224421093544,
+      "unit": "s",
+      "failed_checks": [
+        "cycle_time_limit"
+      ]
+    }
+  }
+}
