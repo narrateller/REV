@@ -1,0 +1,137 @@
+{
+  "task": "T-1.4b",
+  "status": "PASS",
+  "python_version": "3.13.17",
+  "repeated_generation": {
+    "commands": [
+      [
+        "E:/Tools/Python313/python.exe",
+        "-B",
+        "calc/T-1.4b/drive.py"
+      ],
+      [
+        "E:/Tools/Python313/python.exe",
+        "-B",
+        "calc/T-1.4b/make_params_t14b.py"
+      ]
+    ],
+    "successful_runs": 2,
+    "result_files": {
+      "calc/T-1.4b/results.json": {
+        "run_1_sha256": "c87d144f84a0e8a179862571f33dc5f32652b6d089fb73322b0ed278fad93eb6",
+        "run_2_sha256": "c87d144f84a0e8a179862571f33dc5f32652b6d089fb73322b0ed278fad93eb6",
+        "size_bytes": 624660,
+        "status": "PASS"
+      },
+      "design/params.t14b.yaml": {
+        "run_1_sha256": "71acb1af373fca07e2a4a71e6a1d5de68bcd3db22cf42721b1be6457cc314d59",
+        "run_2_sha256": "71acb1af373fca07e2a4a71e6a1d5de68bcd3db22cf42721b1be6457cc314d59",
+        "size_bytes": 29276,
+        "status": "PASS"
+      }
+    },
+    "status": "PASS"
+  },
+  "calculation": {
+    "status": "PASS",
+    "case_count": 52,
+    "max_initial_step_s": 0.0025,
+    "max_last_step_delta_s": 0.014999999999159463,
+    "max_working_pressure_bar": 300.0000000000003,
+    "max_extra_recharge_s": 0.0,
+    "max_shaft_peak_with_tolerance_kW": 39.907094594594625,
+    "max_shaft_rms_with_tolerance_kW": 29.046063494918776,
+    "max_shaft_average_with_tolerance_kW": 25.9704874600651,
+    "checks": {
+      "reference_time": true,
+      "reference_peak": true,
+      "reference_rms": true,
+      "reference_average": true,
+      "production_upper_dose": true,
+      "recharge_in_allocated_windows": true,
+      "all_cases_peak": true,
+      "all_cases_rms": true,
+      "all_cases_average": true
+    }
+  },
+  "gate_run": {
+    "command": [
+      "E:/Tools/Python313/python.exe",
+      "-B",
+      "ops/gates/calc_gates.py",
+      "--params",
+      "design/params.t14b.yaml",
+      "--criteria",
+      "ops/criteria/design_criteria.yaml",
+      "--out",
+      "E:\\Projects\\REV-wt\\T-1.4b\\gates.t14b.json"
+    ],
+    "exit_code": 0,
+    "criteria_sha256": "1f7cd469428eb9b027484cb5a0bc74776be7d69370e86c14b3040ffbcf9f94af",
+    "status": {
+      "G-PFACE": "PASS",
+      "G-DOSE": "PASS",
+      "G-CYCLE": "PASS"
+    }
+  },
+  "tests": [
+    {
+      "name": "Python source compilation",
+      "status": "PASS",
+      "files": 3
+    },
+    {
+      "name": "Phase reconciliation and grouping",
+      "status": "PASS",
+      "gate_reference_delta_s": 0.31409170565232003,
+      "phase_explanation_path": "report.md"
+    },
+    {
+      "name": "Selected unchanged gate regressions",
+      "status": "PASS",
+      "command": [
+        "E:/Tools/Python313/python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/ops/test_calc_gates.py",
+        "-k",
+        "peak_rating_increases_flow or cycle_fails_only_rms or group_shares_pump or press_phase_cannot_share_group or none_phase_sharing_group or group_accumulator_shares_delivery or pressure_bands_continue or continues_across_group_boundary or phase_speed_cap_limits_motion"
+      ],
+      "count_passed": 15,
+      "count_deselected": 87
+    }
+  ],
+  "protected_files": {
+    "status": "PASS",
+    "unchanged_paths": [
+      "DECISIONS.md",
+      "ops/criteria",
+      "ops/gates",
+      "design/params.schema.yaml",
+      "calc/T-1.4"
+    ]
+  },
+  "text_worktree_scope": {
+    "status": "PASS",
+    "changed_paths": [
+      "calc/T-1.4b/drive.py",
+      "calc/T-1.4b/make_params_t14b.py",
+      "calc/T-1.4b/results.json",
+      "calc/T-1.4b/sources.yaml",
+      "calc/T-1.4b/x1_calc.py",
+      "design/params.t14b.yaml",
+      "gates.t14b.json",
+      "metrics.json",
+      "report.md",
+      "self_check.json"
+    ],
+    "pre_existing_paths": [
+      "TASK.md"
+    ],
+    "attributes_based_lfs_exclusions": true
+  }
+}
