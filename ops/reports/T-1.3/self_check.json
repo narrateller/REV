@@ -1,0 +1,97 @@
+{
+  "task": "T-1.3",
+  "python_version": "3.13.17",
+  "python_executable": "E:/Tools/Python313/python.exe",
+  "gate_command_args": [
+    "-B",
+    "ops/gates/calc_gates.py",
+    "--params",
+    "design/params.t14b.yaml",
+    "--criteria",
+    "ops/criteria/design_criteria.yaml",
+    "--out",
+    "gates.t13.json"
+  ],
+  "gate_report": "gates.t13.json",
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "unit": "MPa"
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 289,
+      "unit": "mm"
+    },
+    "G-CYCLE": {
+      "status": "PASS",
+      "value": 5.752529205651751,
+      "unit": "s"
+    }
+  },
+  "determinism": {
+    "status": "PASS",
+    "command_args": [
+      "-B",
+      "calc/T-1.3/cylinders.py"
+    ],
+    "successful_runs": 2,
+    "compared_bytes_equal": true,
+    "sha256_run_1": {
+      "calc/T-1.3/results.json": "2490e372256d48870535ccd310d465faa35129caae73d6912f1065df37612c98",
+      "design/cylinders.t13.yaml": "a093878c8d7f975b86087c74b849a32e9947b0af7b3d4940a3662997c1c87342",
+      "metrics.json": "78eec001be0d22c07012a848e07e1d2e522902d66c11467752e33b0baa9696f8"
+    },
+    "sha256_run_2": {
+      "calc/T-1.3/results.json": "2490e372256d48870535ccd310d465faa35129caae73d6912f1065df37612c98",
+      "design/cylinders.t13.yaml": "a093878c8d7f975b86087c74b849a32e9947b0af7b3d4940a3662997c1c87342",
+      "metrics.json": "78eec001be0d22c07012a848e07e1d2e522902d66c11467752e33b0baa9696f8"
+    }
+  },
+  "tests": {
+    "python_parse": {
+      "status": "PASS",
+      "files": [
+        "calc/T-1.3/cylinders.py",
+        "calc/T-1.3/v2/drive.py",
+        "calc/T-1.3/v2/x1_calc.py"
+      ]
+    },
+    "physical_bores_rods_strokes_count_and_pressure_limits": "PASS",
+    "gate_projection_unchanged": "PASS",
+    "analytic_calculation_checks": {
+      "main_at_270_bar": "PASS",
+      "main_wall_at_most_70_mm": "PASS",
+      "C_STR_01_static_screen_all": "PASS",
+      "column_factor_at_least_3p5_all": "PASS",
+      "closed_tie_rods_under_service": "PASS",
+      "pre_125_compaction_reserve_and_cam": "PASS",
+      "pre_100_rejected_by_force": "PASS",
+      "max_braking_pressure_screen": "PASS",
+      "prefill_minimum_pressure_screen": "PASS",
+      "main_10million_cycle_screen": "PASS"
+    },
+    "t14b_nominal_replay": {
+      "status": "PASS",
+      "cycle_s": 5.448749999999963
+    },
+    "t13_nominal_cycle_and_shaft_power": {
+      "status": "PASS",
+      "cycle_s": 5.592533902299517,
+      "peak_kW": 38.310810810810835,
+      "rms_kW": 27.15319409600097
+    },
+    "t13_sensitivity_high_300_bar": {
+      "status": "FAIL",
+      "cycle_s": 6.081283902299073,
+      "limit_s": 6,
+      "scope": "0.83 kg, high, reserve mode"
+    }
+  },
+  "pending_validation": [
+    "lock_failure_315_bar_dynamic_protection",
+    "fatigue_and_contact_details_in_G_FEA",
+    "seal_service_interval_and_whole_machine_mass_envelope"
+  ]
+}

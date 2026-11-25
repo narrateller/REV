@@ -1,0 +1,229 @@
+# T-1.3. Геометрия ниже — проектные оценки, если прямо не указан каталог.
+references:
+  decisions: DECISIONS.md
+  criteria: ops/criteria/design_criteria.yaml
+  precompaction: calc/T-1.2/results.json#/precompaction
+  transfer_and_lock: calc/T-1.2b/results.json
+  v2: calc/T-1.4b/drive.py
+  v2_motion: calc/T-1.4b/x1_calc.py
+  v2_data: calc/T-1.4b/sources.yaml
+  v2_results: calc/T-1.4b/results.json
+  gate_projection: design/params.t14b.yaml
+catalogs:
+  steel_34CrNiMo6:
+    url: https://metals.ovako.com/tuotteet/erikoisterakset/lastuttavuus/teraslajien-ominaisuudet/nuorrutusterakset/
+    location: "34CrNiMo6+QT, d >160–250: Re ≥600 MPa, Rm ≥800 MPa; d >40–100: Re ≥800 MPa."
+    limitations: "Для цельнокованого главного узла с высадкой Ø280 требуется договорная гарантия 600/800 МПа и контроль образцов поковки."
+  steel_42CrMo4:
+    url: https://steelnavigator.ovako.com/steel-grades/42crmo4/
+    location: "Mechanical Properties, +QT; минимумы круглого проката зависят от сечения."
+    limitations: "Rp0,2 ≥500 МПа задано как требование закупки готовых гильз и крышек после ТО; каталог проката не удостоверяет большие кольцевые и плоские поковки."
+  prefill:
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20478.pdf
+    location: "Bosch Rexroth RE 20478, 2017-12, с. 6–8, 13, 15–16, ZSF NG100."
+  seal_catalog:
+    url: https://www.trelleborg.com/seals/-/media/tss-media-repository/tss_website/pdf-and-other-literature/catalogs/hydraulic_complete_gb_en.pdf
+    location: "Hydraulic Seals – Linear, Jan 2025, Glyd Ring T pp. 263–267; Rod Stepseal 2K, Rimseal, Excluder and Slydring product sections."
+    limitations: "Максимальные p, v и T в каждом семействе указаны раздельно. Проверить сочетание по фактической щели, жидкости и нагрузочному спектру."
+  chrome:
+    url: https://www.iso.org/standard/72269.html
+    location: "ISO 6158:2018, твёрдый инженерный хром; толщину и подготовку задаёт проект."
+  local_relief_reference:
+    url: https://store.livhaven.com/uploads/rexroth_pdfs/RE_25802_2021-10.pdf
+    location: "Bosch Rexroth RE 25802, 2021-10, DB/DBW NG32 (pilot-operated relief), up to 650 L/min at 350 bar max; text lost to encoding in executor output, restored by GK from catalog title — rating to be re-read in T-1.5."
+  rod_fatigue:
+    url: https://doi.org/10.1016/j.ijfatigue.2024.108165
+    location: "Baumgartner et al., FKM §§4.2.1 и 4.3; оценка по локальным упругим напряжениям."
+  thread_fatigue:
+    url: https://www.phd.eng.br/wp-content/uploads/2015/12/en.1993-1-9.2005-1.pdf
+    location: "EN 1993-1-9:2005, §7.1 Figure 7.1 и Table 8.1 detail 14, FAT50, масштаб резьбы."
+  tie_rods:
+    url: https://www.iso.org/standard/60610.html
+    location: "ISO 898-1, класс 10.9, метрическая резьба."
+
+common:
+  steel_density_kg_m3: 7850
+  E_MPa: 210000
+  barrel_and_cover_material: "42CrMo4+QT, бесшовная полая поковка гильзы и кованые крышки"
+  barrel_and_cover_Rp02_min_MPa: 500
+  rod_and_piston_material: "34CrNiMo6+QT, цельная поковка поршень–шток"
+  tie_Rp02_min_MPa: 900
+  tie_preload_fraction: 0.40
+  tie_local_service_load_factor: 1.25
+  tie_preload_min_fraction_of_target: 0.85
+  tube_transition_stress_factor: 1.25
+  cover_detail_stress_factor: 1.75
+  coating: "Инженерный твёрдый хром по ISO 6158, 25–40 мкм после шлифования; только рабочая дорожка, переходы и резьба без хрома."
+  oil: "HLP 46; базовый расчёт 40 °C, предел масла T-1.4b 55 °C."
+  piston_seal: "Trelleborg Turcon Glyd Ring T M12N, двустороннее"
+  rod_seal: "Trelleborg Turcon Stepseal 2K M12N + Zurcon Rimseal, с дренажом/сбросом межуплотнительной полости"
+  guidance_and_static: "Trelleborg Slydring, грязесъёмник Excluder 2, NBR со страховочным кольцом на статических стыках"
+  piston_material_dynamic_max_MPa: 40
+  rod_material_dynamic_max_MPa: 50
+  separate_catalog_limit_m_s: 15
+  rod_tandem_catalog_limit_m_s: 5
+  ancillary_mass_allowance_fraction: 0.06
+
+design:
+  main:
+    designation: "Главный, осевой пуансон"
+    stroke_mm: [264, 289]
+    work_port_passage_ID_mm: {cap: 124, annulus: 100}
+    bore_mm: 280
+    rod_mm: 200
+    n: 1
+    eta: 0.94
+    tube_wall_mm: 45
+    wall_minus_tolerance_mm: 2
+    piston_thickness_mm: 72
+    cover_thickness_mm: [132, 105]
+    cap_central_port_mm: 124
+    cover_OD_mm: 520
+    tie_PCD_mm: 450
+    tie_n: 16
+    tie_diameter_mm: 36
+    tie_pitch_mm: 4
+    tie_hole_diameter_mm: 39
+    rod_projection_home_mm: 70
+    end_clearance_mm: [10, 10]
+    rod_Rp02_min_MPa: 600
+    rod_core_mm: 200
+    rod_eccentricity_mm: 1
+    column_end_offset_mm: 180
+    rod_end_thread: {diameter_mm: 140, pitch_mm: 3, engagement_mm: 35, root_min_mm: 135}
+    mounting: "Передняя стяжная фланцевая крышка центрируется и опирается на траверсную плиту, задняя крышка опирается на стяжки, пуансон на внешних направляющих."
+  rapid:
+    designation: "Быстрый ход, траверса"
+    stroke_mm: [264, 289]
+    work_port_passage_ID_mm: {cap: 22, annulus: 18}
+    bore_mm: 90
+    rod_mm: 50
+    n: 2
+    eta: 0.92
+    tube_wall_mm: 12
+    wall_minus_tolerance_mm: 1
+    piston_thickness_mm: 33
+    cover_thickness_mm: [36, 30]
+    cap_central_port_mm: 0
+    cover_OD_mm: 190
+    tie_PCD_mm: 146
+    tie_n: 8
+    tie_diameter_mm: 16
+    tie_pitch_mm: 2
+    tie_hole_diameter_mm: 18
+    rod_projection_home_mm: 40
+    end_clearance_mm: [8, 8]
+    rod_Rp02_min_MPa: 800
+    rod_core_mm: 42
+    rod_eccentricity_mm: 0.5
+    column_end_offset_mm: 105
+    rod_end_thread: {diameter_mm: 45, pitch_mm: 2, engagement_mm: 25, root_min_mm: 42}
+    mounting: "Два симметричных корпуса на переднем фланце, шарнирная муфта штока на общей направляемой траверсе, компенсация несоосности."
+  pre:
+    designation: "Вертикальная подпрессовка, привод кулачка"
+    stroke_mm: [380, 392]
+    work_port_passage_ID_mm: {cap: 40, annulus: 36}
+    bore_mm: 125
+    rod_mm: 56
+    n: 1
+    eta: 0.92
+    tube_wall_mm: 18
+    wall_minus_tolerance_mm: 1
+    piston_thickness_mm: 41
+    cover_thickness_mm: [54, 47]
+    cap_central_port_mm: 0
+    cover_OD_mm: 246
+    tie_PCD_mm: 200
+    tie_n: 8
+    tie_diameter_mm: 22
+    tie_pitch_mm: 2.5
+    tie_hole_diameter_mm: 24
+    rod_projection_home_mm: 50
+    end_clearance_mm: [8, 8]
+    rod_Rp02_min_MPa: 800
+    rod_core_mm: 53
+    rod_eccentricity_mm: 0.5
+    column_end_offset_mm: 130
+    rod_end_thread: {diameter_mm: 56, pitch_mm: 2, engagement_mm: 35, root_min_mm: 53}
+    mounting: "Передний фланец на силовом мосту, шток сопряжён с направляемым башмаком и передачей относительно остановленного башмака на последних 12 мм."
+  gate:
+    designation: "Подъём/закрытие шибера"
+    stroke_mm: [75, 80]
+    work_port_passage_ID_mm: {cap: 25, annulus: 20}
+    bore_mm: 80
+    rod_mm: 45
+    n: 1
+    eta: 0.92
+    tube_wall_mm: 12
+    wall_minus_tolerance_mm: 1
+    piston_thickness_mm: 32
+    cover_thickness_mm: [35, 30]
+    cap_central_port_mm: 0
+    cover_OD_mm: 174
+    tie_PCD_mm: 132
+    tie_n: 8
+    tie_diameter_mm: 16
+    tie_pitch_mm: 2
+    tie_hole_diameter_mm: 18
+    rod_projection_home_mm: 35
+    end_clearance_mm: [8, 8]
+    rod_Rp02_min_MPa: 800
+    rod_core_mm: 39
+    rod_eccentricity_mm: 0.5
+    column_end_offset_mm: 85
+    rod_end_thread: {diameter_mm: 42, pitch_mm: 2, engagement_mm: 25, root_min_mm: 39}
+    mounting: "Цилиндр над плитой, втягивание открывает шибер, шарнир на тяге; реакции прессования воспринимают опоры плиты."
+
+load_and_hydraulic_assumptions:
+  main_header_stop_bar: 270
+  main_min_nominal_force_N: 1520000
+  main_contact_outer_mm: 196
+  main_contact_inner_mm: 150
+  main_shoulder_stress_factor: 2.2
+  main_shoulder_fillet_min_mm: 4
+  main_retainer_axial_float_mm: 0.30
+  main_retainer_contact_stack_max_closure_mm: 0.15
+  main_return_thread_design_range_N: 40000
+  rod_thread_local_stress_factor: 2.5
+  main_press_peak_speed_limit_m_s: 0.24
+  main_rod_alternative_mm: 190
+  fast_peak_force_reserve_factor: 1.25
+  cam_peak_force_reserve_factor: 2
+  gate_peak_force_reserve_factor: 2
+  gate_friction_coefficient: 0.15
+  gate_reference_open_drag_N: 10000
+  gate_reference_close_drag_N: 8000
+  gate_working_open_cap_bar: 5
+  gate_residual_note: "N ≈ p_остат A главного поршня, без уменьшения по Янссену. Разность между 10 кН V2 и μN — бюджет на направляющие и защемление, не измерение."
+  pre_screen_accel_m_s2: 20
+  pre_moving_mass_allowance_kg: 85
+  max_meter_in_during_pre_brake_bar: 170
+  max_meter_in_during_gate_brake_bar: 70
+  max_meter_in_during_rapid_brake_bar: 110
+  max_meter_in_during_main_regen_brake_bar: 116
+  main_direct_press_outlet_bound_bar: 15
+  local_relief:
+    maximum_setting_bar: 315
+    target_cracking_bar: 300
+    screening_reference: "Bosch Rexroth DB NG32; screening choice, confirm flow and transient peak in T-1.5."
+    tank_backpressure_and_dynamic_increment_budget_bar: 15
+    pre_isolated_return_path: "Локальный full-flow клапан A→T и B→T непосредственно у портов, отдельный свободный путь в бак после отказа распределителя."
+  pre_fault_response:
+    motion_mm_s: 650
+    force_free_outlet: "В расчётном отказе отключить подачу главного ГЦ и открыть независимый сброс; контролировать ход башмака. Для нижней полости A пропускная способность по вытесняемому объёму."
+  main_cap_port_K_with_fittings: 2
+  main_cap_auxiliary_volume_L: 0.35
+  main_annulus_manifold_volume_L: 0.60
+  main_annulus_through_flow_diameters_mm: [16, 25]
+  main_annulus_gallery_flow_ID_mm: 100
+  fatigue:
+    smooth_main_Rm_min_MPa: 800
+    material_axial_endurance_fraction: 0.40
+    section_factor: 0.75
+    surface_factor: 0.90
+    hard_chrome_factor: 0.70
+    coated_shaft_local_factor: 1.15
+    safety_factor: 1.35
+    number_of_cycles: 10000000
+    thread_FAT_MPa: 50
+    mean_stress_note: "Для тела и упора расчётный пик сжатия; среднее сжатие не увеличивает допускаемую амплитуду. Возвратное растяжение учтено в размахе."

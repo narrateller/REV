@@ -1,0 +1,2014 @@
+{
+  "task": "T-1.3",
+  "status": "engineering_screen",
+  "gate_params": "design/params.t14b.yaml",
+  "sources": {
+    "decisions": "DECISIONS.md",
+    "criteria": "ops/criteria/design_criteria.yaml",
+    "precompaction": "calc/T-1.2/results.json#/precompaction",
+    "transfer_and_lock": "calc/T-1.2b/results.json",
+    "v2": "calc/T-1.4b/drive.py",
+    "v2_motion": "calc/T-1.4b/x1_calc.py",
+    "v2_data": "calc/T-1.4b/sources.yaml",
+    "v2_results": "calc/T-1.4b/results.json",
+    "gate_projection": "design/params.t14b.yaml"
+  },
+  "axis": {
+    "max_main_travel_mm": 274,
+    "nominal_pre_travel_mm": 269.0
+  },
+  "cylinders": {
+    "main": {
+      "n": 1,
+      "geometry": {
+        "barrel_OD_mm": 370,
+        "length_body_mm": 618,
+        "length_retracted_to_rod_tip_mm": 688,
+        "length_extended_to_rod_tip_mm": 977,
+        "barrel_length_mm": 381,
+        "rod_blank_length_mm": 474,
+        "dry_mass_parts_per_cylinder_kg": {
+          "barrel": 137.41697367433954,
+          "rear_cover": 187.74071743877604,
+          "front_cover": 133.398505177067,
+          "tie_rods": 92.8156355877095,
+          "piston": 34.80231208905545,
+          "rod": 116.89552104742262
+        },
+        "dry_mass_per_cylinder_kg": 745.2538449152323,
+        "moving_metal_mass_per_cylinder_kg": 151.69783313647807,
+        "maximum_oil_per_cylinder_L": 22.081319798582253,
+        "filled_mass_per_cylinder_kg": 764.4645931399989
+      },
+      "areas_per_cylinder_mm2": {
+        "cap": 61575.21601035995,
+        "annulus": 30159.289474462017,
+        "rod": 31415.926535897936
+      },
+      "forces_by_header_bar": {
+        "300": {
+          "gross_push_per_cylinder_N": 1847256.4803107986,
+          "gross_pull_per_cylinder_N": 904778.6842338605,
+          "net_push_per_cylinder_N": 1704763.8906404572,
+          "net_pull_per_cylinder_N": 821787.8594225097,
+          "net_push_total_N": 1704763.8906404572,
+          "net_pull_total_N": 821787.8594225097
+        },
+        "315": {
+          "gross_push_per_cylinder_N": 1939619.3043263385,
+          "gross_pull_per_cylinder_N": 950017.6184455536,
+          "net_push_per_cylinder_N": 1791584.9452150646,
+          "net_pull_per_cylinder_N": 864312.4575815011,
+          "net_push_total_N": 1791584.9452150646,
+          "net_pull_total_N": 864312.4575815011
+        }
+      },
+      "phase_requirements": {
+        "press_nominal": {
+          "mode": "extend",
+          "speed_limit_m_s": 0.058209113907579414,
+          "required_force_total_N": 1520000,
+          "required_force_with_reserve_total_N": 1520000,
+          "header_pressure_bar": 268.07849923977517,
+          "header_pressure_with_reserve_bar": 268.07849923977517,
+          "hydraulic_pressures_bar": {
+            "cap": 264.07849923977517,
+            "annulus": 3
+          },
+          "push_at_header_per_cylinder_N": 1520000.0,
+          "pull_at_header_per_cylinder_N": 731291.259925143,
+          "available_force_in_mode_per_cylinder_N": 1520000.0,
+          "cap_flow_per_cylinder_L_min": 215.054325757851,
+          "annulus_flow_per_cylinder_L_min": 105.33273098343723,
+          "supply_flow_total_L_min": 215.054325757851
+        },
+        "reserve": {
+          "mode": "extend",
+          "speed_limit_m_s": 0.058209113907579414,
+          "required_force_total_N": 1704763.8906404572,
+          "required_force_with_reserve_total_N": 1704763.8906404572,
+          "header_pressure_bar": 300.00000000000006,
+          "header_pressure_with_reserve_bar": 300.00000000000006,
+          "hydraulic_pressures_bar": {
+            "cap": 296.00000000000006,
+            "annulus": 3
+          },
+          "push_at_header_per_cylinder_N": 1704763.8906404574,
+          "pull_at_header_per_cylinder_N": 821787.8594225098,
+          "available_force_in_mode_per_cylinder_N": 1704763.8906404574,
+          "cap_flow_per_cylinder_L_min": 215.054325757851,
+          "annulus_flow_per_cylinder_L_min": 105.33273098343723,
+          "supply_flow_total_L_min": 215.054325757851
+        },
+        "regen_before_direct_switch": {
+          "mode": "regen",
+          "speed_limit_m_s": 0.13234716494690874,
+          "required_force_total_N": 331219.37010503333,
+          "required_force_with_reserve_total_N": 331219.37010503333,
+          "header_pressure_bar": 120.0,
+          "header_pressure_with_reserve_bar": 120.0,
+          "hydraulic_pressures_bar": {
+            "cap": 116.0,
+            "annulus": 120.0
+          },
+          "push_at_header_per_cylinder_N": 662911.2357451665,
+          "pull_at_header_per_cylinder_N": 311492.68151461234,
+          "available_force_in_mode_per_cylinder_N": 331219.37010503333,
+          "cap_flow_per_cylinder_L_min": 488.9583161978786,
+          "annulus_flow_per_cylinder_L_min": 239.48978752549158,
+          "supply_flow_total_L_min": 249.46852867238707
+        },
+        "external_driver_float": {
+          "approach": {
+            "speed_target_m_s": 0.3,
+            "cap_flow_L_min": 1108.353888186479,
+            "annulus_flow_L_min": 542.8672105403163,
+            "own_pump_feed_L_min": 0
+          },
+          "eject": {
+            "speed_target_m_s": 0.35,
+            "cap_flow_L_min": 1293.0795362175588,
+            "annulus_flow_L_min": 633.3450789637023,
+            "own_pump_feed_L_min": 0
+          },
+          "return": {
+            "speed_target_m_s": 0.35,
+            "cap_flow_L_min": 1293.0795362175588,
+            "annulus_flow_L_min": 633.3450789637023,
+            "own_pump_feed_L_min": 0
+          }
+        }
+      },
+      "braking": {
+        "floating_extend": {
+          "mode": "extend",
+          "speed_m_s": 0.35,
+          "dec_m_s2": 5,
+          "brake_distance_mm": 12.249999999999998,
+          "brake_time_s": 0.06999999999999999,
+          "kinetic_energy_J": 24.499999999999996,
+          "meter_in_pressure_bound_bar": 3.0,
+          "meter_out_pressure_bound_bar": 6.78814559621623,
+          "meter_out_flow_at_ramp_entry_L_min": 633.3450789637023
+        },
+        "floating_return": {
+          "mode": "retract",
+          "speed_m_s": 0.35,
+          "dec_m_s2": 5,
+          "brake_distance_mm": 12.249999999999998,
+          "brake_time_s": 0.06999999999999999,
+          "kinetic_energy_J": 24.499999999999996,
+          "meter_in_pressure_bound_bar": 3.0,
+          "meter_out_pressure_bound_bar": 1.7941937614120314,
+          "meter_out_flow_at_ramp_entry_L_min": 1293.0795362175588
+        },
+        "regen_open_outlet_bound": {
+          "mode": "extend",
+          "speed_m_s": 0.24,
+          "dec_m_s2": 5,
+          "brake_distance_mm": 5.76,
+          "brake_time_s": 0.048,
+          "kinetic_energy_J": 11.52,
+          "meter_in_pressure_bound_bar": 116,
+          "meter_out_pressure_bound_bar": 237.49647892954954,
+          "meter_out_flow_at_ramp_entry_L_min": 434.29376843225305
+        },
+        "direct_press_open_meter_out": {
+          "meter_out_pressure_bound_bar": 15,
+          "normal_outlet_nominal_bar": 3,
+          "meter_out_path_during_braking": "При прямом прессовании B→T открыт, торможение ограничением подачи и силой материала."
+        }
+      },
+      "static": {
+        "static_safety_factor_min": 1.6282772858038033,
+        "static_safety_factors": {
+          "tube": 1.9878265525715175,
+          "piston": 3.427420685421263,
+          "rod": 1.75766410460288,
+          "rear_cover": 1.6282772858038033,
+          "front_cover": 2.2222164350518954,
+          "tie_rods_with_preload": 1.649747906813418,
+          "front_support_average_bearing": 22.69760285066409
+        },
+        "tube": {
+          "wall_min_after_allowance_mm": 43,
+          "minimum_wall_for_screen_mm": 31.975265393680274,
+          "lame_radial_MPa": -31.5,
+          "lame_hoop_MPa": 120.40488876088992,
+          "lame_closed_axial_MPa": 44.45244438044496,
+          "lame_closed_VM_MPa": 131.55349262597994,
+          "with_preload_VM_MPa": 201.22479976059626,
+          "local_bound_MPa": 251.53099970074533
+        },
+        "rear_cover": {
+          "section_bending_MPa": 62.20615243342516,
+          "section_shear_MPa": 25.047869318181814,
+          "local_combined_bound_MPa": 307.0730055373669
+        },
+        "front_cover": {
+          "section_bending_MPa": 37.993650793650794,
+          "section_shear_MPa": 15.428571428571429,
+          "local_combined_bound_MPa": 225.00058595252156
+        },
+        "piston_local_bound_MPa": 175.05875556862208,
+        "rod": {
+          "eccentricity_mm": 1,
+          "core_axial_MPa": 61.739999999999995,
+          "core_bending_MPa": 2.4696000000000002,
+          "thread_local_MPa": 175.75857338820302,
+          "thread_stripping_VM_MPa": 221.70250336881634,
+          "thrust_shoulder_local_MPa": 341.3621512942951,
+          "screen_MPa": 341.3621512942951
+        },
+        "tied_joint": {
+          "tie_area_mm2": 816.7213405677704,
+          "target_preload_each_N": 294019.68260439736,
+          "preload_plus_factored_service_MPa": 545.5378947795734,
+          "joint_opening_margin": 1.6492587692855973,
+          "cover_ligament_fraction": 0.5557613223914722,
+          "central_cap_port_mm": 124
+        },
+        "column": {
+          "Le_mm": 469,
+          "slenderness": 9.38,
+          "Euler_Johnson_transition_slenderness": 83.1187288206608,
+          "method": "Johnson",
+          "Euler_critical_N": 740053703.0272368,
+          "governing_critical_N": 18729528.90289612,
+          "safety_factor": 9.656291242884485,
+          "without_external_guidance_K2": {
+            "Le_mm": 938,
+            "slenderness": 18.76,
+            "Euler_Johnson_transition_slenderness": 83.1187288206608,
+            "method": "Johnson",
+            "Euler_critical_N": 185013425.7568092,
+            "governing_critical_N": 18369447.846968204,
+            "safety_factor": 9.470646021100627
+          },
+          "K": 1,
+          "load_N": 1939619.3043263385
+        }
+      },
+      "seal_travel_at_1e7_cycles_km": 5280.0
+    },
+    "rapid": {
+      "n": 2,
+      "geometry": {
+        "barrel_OD_mm": 114,
+        "length_body_mm": 404,
+        "length_retracted_to_rod_tip_mm": 444,
+        "length_extended_to_rod_tip_mm": 733,
+        "barrel_length_mm": 338,
+        "rod_blank_length_mm": 367,
+        "dry_mass_parts_per_cylinder_kg": {
+          "barrel": 10.202759452230234,
+          "rear_cover": 7.437218580867792,
+          "front_cover": 5.735278982022912,
+          "tie_rods": 5.707263515375259,
+          "piston": 1.6480048932476827,
+          "rod": 5.656732097099697
+        },
+        "dry_mass_per_cylinder_kg": 38.57049297209419,
+        "moving_metal_mass_per_cylinder_kg": 7.304736990347379,
+        "maximum_oil_per_cylinder_L": 3.0385385606970865,
+        "filled_mass_per_cylinder_kg": 41.21402151990066
+      },
+      "areas_per_cylinder_mm2": {
+        "cap": 6361.725123519331,
+        "annulus": 4398.22971502571,
+        "rod": 1963.495408493621
+      },
+      "forces_by_header_bar": {
+        "300": {
+          "gross_push_per_cylinder_N": 190851.7537055799,
+          "gross_pull_per_cylinder_N": 131946.89145077128,
+          "net_push_per_cylinder_N": 172028.5871623313,
+          "net_pull_per_cylinder_N": 118016.75546548878,
+          "net_push_total_N": 344057.1743246626,
+          "net_pull_total_N": 236033.51093097756
+        },
+        "315": {
+          "gross_push_per_cylinder_N": 200394.3413908589,
+          "gross_pull_per_cylinder_N": 138544.23602330984,
+          "net_push_per_cylinder_N": 180807.767832788,
+          "net_pull_per_cylinder_N": 124086.31247222426,
+          "net_push_total_N": 361615.535665576,
+          "net_pull_total_N": 248172.62494444853
+        }
+      },
+      "phase_requirements": {
+        "approach_before_regen": {
+          "mode": "extend",
+          "speed_limit_m_s": 0.3,
+          "required_force_total_N": 90000.0,
+          "required_force_with_reserve_total_N": 112500.0,
+          "header_pressure_bar": 82.96052001218777,
+          "header_pressure_with_reserve_bar": 102.1821314967162,
+          "hydraulic_pressures_bar": {
+            "cap": 78.96052001218777,
+            "annulus": 3
+          },
+          "push_at_header_per_cylinder_N": 44999.99999999999,
+          "pull_at_header_per_cylinder_N": 30194.522365605422,
+          "available_force_in_mode_per_cylinder_N": 44999.99999999999,
+          "cap_flow_per_cylinder_L_min": 114.51105222334795,
+          "annulus_flow_per_cylinder_L_min": 79.16813487046277,
+          "supply_flow_total_L_min": 229.0221044466959
+        },
+        "eject_start": {
+          "mode": "extend",
+          "speed_limit_m_s": 0.35,
+          "required_force_total_N": 110000.0,
+          "required_force_with_reserve_total_N": 137500.0,
+          "header_pressure_bar": 100.04639688732415,
+          "header_pressure_with_reserve_bar": 123.53947759063666,
+          "hydraulic_pressures_bar": {
+            "cap": 96.04639688732415,
+            "annulus": 3
+          },
+          "push_at_header_per_cylinder_N": 55000.0,
+          "pull_at_header_per_cylinder_N": 37108.102612519004,
+          "available_force_in_mode_per_cylinder_N": 55000.0,
+          "cap_flow_per_cylinder_L_min": 133.59622759390592,
+          "annulus_flow_per_cylinder_L_min": 92.3628240155399,
+          "supply_flow_total_L_min": 267.1924551878119
+        },
+        "return": {
+          "mode": "retract",
+          "speed_limit_m_s": 0.35,
+          "required_force_total_N": 53495.48333461076,
+          "required_force_with_reserve_total_N": 66869.35416826345,
+          "header_pressure_bar": 74.44231836796128,
+          "header_pressure_with_reserve_bar": 90.96807653138018,
+          "hydraulic_pressures_bar": {
+            "cap": 3,
+            "annulus": 70.44231836796128
+          },
+          "push_at_header_per_cylinder_N": 40014.4779185303,
+          "pull_at_header_per_cylinder_N": 26747.74166730538,
+          "available_force_in_mode_per_cylinder_N": 26747.74166730538,
+          "cap_flow_per_cylinder_L_min": 133.59622759390592,
+          "annulus_flow_per_cylinder_L_min": 92.3628240155399,
+          "supply_flow_total_L_min": 184.7256480310798
+        }
+      },
+      "braking": {
+        "extend": {
+          "mode": "extend",
+          "speed_m_s": 0.35,
+          "dec_m_s2": 5,
+          "brake_distance_mm": 12.249999999999998,
+          "brake_time_s": 0.06999999999999999,
+          "kinetic_energy_J": 24.499999999999996,
+          "meter_in_pressure_bound_bar": 110,
+          "meter_out_pressure_bound_bar": 161.3807849013128,
+          "meter_out_flow_at_ramp_entry_L_min": 184.7256480310798
+        },
+        "retract": {
+          "mode": "retract",
+          "speed_m_s": 0.35,
+          "dec_m_s2": 5,
+          "brake_distance_mm": 12.249999999999998,
+          "brake_time_s": 0.06999999999999999,
+          "kinetic_energy_J": 24.499999999999996,
+          "meter_in_pressure_bound_bar": 110,
+          "meter_out_pressure_bound_bar": 77.62128338856192,
+          "meter_out_flow_at_ramp_entry_L_min": 267.19245518781185
+        }
+      },
+      "static": {
+        "static_safety_factor_min": 1.5796699241484722,
+        "static_safety_factors": {
+          "tube": 1.6528115857317291,
+          "piston": 3.6515060045440495,
+          "rod": 2.019967793880838,
+          "rear_cover": 1.5796699241484722,
+          "front_cover": 1.772210766283105,
+          "tie_rods_with_preload": 1.6075462006341728,
+          "front_support_average_bearing": 41.081716637272194
+        },
+        "tube": {
+          "wall_min_after_allowance_mm": 11,
+          "minimum_wall_for_screen_mm": 9.937300353633873,
+          "lame_radial_MPa": -31.5,
+          "lame_hoop_MPa": 146.32898289828984,
+          "lame_closed_axial_MPa": 57.41449144914491,
+          "lame_closed_VM_MPa": 154.00441671906748,
+          "with_preload_VM_MPa": 242.01185631386585,
+          "local_bound_MPa": 302.5148203923323
+        },
+        "rear_cover": {
+          "section_bending_MPa": 86.9755993150685,
+          "section_shear_MPa": 29.51025,
+          "local_combined_bound_MPa": 316.5218203856905
+        },
+        "front_cover": {
+          "section_bending_MPa": 74.6027397260274,
+          "section_shear_MPa": 24.491291985071978,
+          "local_combined_bound_MPa": 282.1334851997658
+        },
+        "piston_local_bound_MPa": 219.08768573965227,
+        "rod": {
+          "eccentricity_mm": 0.5,
+          "core_axial_MPa": 144.6428571428571,
+          "core_bending_MPa": 13.775510204081632,
+          "thread_local_MPa": 396.04591836734687,
+          "thread_stripping_VM_MPa": 210.4441731196185,
+          "thrust_shoulder_local_MPa": 0.0,
+          "screen_MPa": 396.04591836734687
+        },
+        "tied_joint": {
+          "tie_area_mm2": 156.66814448611203,
+          "target_preload_each_N": 56400.53201500033,
+          "preload_plus_factored_service_MPa": 559.8594924643238,
+          "joint_opening_margin": 1.531075638324374,
+          "cover_ligament_fraction": 0.6778337894825373,
+          "central_cap_port_mm": 0
+        },
+        "column": {
+          "Le_mm": 394,
+          "slenderness": 37.523809523809526,
+          "Euler_Johnson_transition_slenderness": 71.98293068896204,
+          "method": "Johnson",
+          "Euler_critical_N": 2039358.872882082,
+          "governing_critical_N": 957761.4204024732,
+          "safety_factor": 4.779383558213396,
+          "without_external_guidance_K2": {
+            "Le_mm": 788,
+            "slenderness": 75.04761904761905,
+            "Euler_Johnson_transition_slenderness": 71.98293068896204,
+            "method": "Euler",
+            "Euler_critical_N": 509839.7182205205,
+            "governing_critical_N": 509839.7182205205,
+            "safety_factor": 2.5441822093474395
+          },
+          "K": 1,
+          "load_N": 200394.3413908589
+        }
+      },
+      "seal_travel_at_1e7_cycles_km": 5280.0,
+      "port_velocity_at_max_cylinder_speed_m_s": {
+        "cap": 5.857438016528926,
+        "annulus": 6.049382716049382
+      }
+    },
+    "pre": {
+      "n": 1,
+      "geometry": {
+        "barrel_OD_mm": 161,
+        "length_body_mm": 550,
+        "length_retracted_to_rod_tip_mm": 600,
+        "length_extended_to_rod_tip_mm": 992,
+        "barrel_length_mm": 449,
+        "rod_blank_length_mm": 497,
+        "dry_mass_parts_per_cylinder_kg": {
+          "barrel": 28.50193944262735,
+          "rear_cover": 18.61346617609928,
+          "front_cover": 15.291882411687002,
+          "tie_rods": 14.70535790175644,
+          "piston": 3.949693732647949,
+          "rod": 9.609305060144752
+        },
+        "dry_mass_per_cylinder_kg": 96.11194340846055,
+        "moving_metal_mass_per_cylinder_kg": 13.558998792792702,
+        "maximum_oil_per_cylinder_L": 6.0105637508093706,
+        "filled_mass_per_cylinder_kg": 101.3411338716647
+      },
+      "areas_per_cylinder_mm2": {
+        "cap": 12271.846303085129,
+        "annulus": 9808.837662670732,
+        "rod": 2463.008640414398
+      },
+      "forces_by_header_bar": {
+        "300": {
+          "gross_push_per_cylinder_N": 368155.3890925539,
+          "gross_pull_per_cylinder_N": 294265.12988012197,
+          "net_push_per_cylinder_N": 331479.67933071713,
+          "net_pull_per_cylinder_N": 263727.2376501979,
+          "net_push_total_N": 331479.67933071713,
+          "net_pull_total_N": 263727.2376501979
+        },
+        "315": {
+          "gross_push_per_cylinder_N": 386563.1585471816,
+          "gross_pull_per_cylinder_N": 308978.38637412805,
+          "net_push_per_cylinder_N": 348414.8272289746,
+          "net_pull_per_cylinder_N": 277263.4336246835,
+          "net_push_total_N": 348414.8272289746,
+          "net_pull_total_N": 277263.4336246835
+        }
+      },
+      "phase_requirements": {
+        "precompact_upper_high": {
+          "mode": "extend",
+          "speed_limit_m_s": 0.65,
+          "required_force_total_N": 159777.9394614817,
+          "required_force_with_reserve_total_N": 319555.8789229634,
+          "header_pressure_bar": 147.91829905993694,
+          "header_pressure_with_reserve_bar": 289.43871011987386,
+          "hydraulic_pressures_bar": {
+            "cap": 143.91829905993694,
+            "annulus": 3
+          },
+          "push_at_header_per_cylinder_N": 159777.9394614817,
+          "pull_at_header_per_cylinder_N": 126486.72377967746,
+          "available_force_in_mode_per_cylinder_N": 159777.9394614817,
+          "cap_flow_per_cylinder_L_min": 478.6020058203201,
+          "annulus_flow_per_cylinder_L_min": 382.54466884415854,
+          "supply_flow_total_L_min": 478.6020058203201
+        },
+        "lock_with_upper_high": {
+          "mode": "extend",
+          "speed_limit_m_s": 0.3,
+          "required_force_total_N": 175371.66651077432,
+          "required_force_with_reserve_total_N": 175371.66651077432,
+          "header_pressure_bar": 161.73015988008703,
+          "header_pressure_with_reserve_bar": 161.73015988008703,
+          "hydraulic_pressures_bar": {
+            "cap": 157.73015988008703,
+            "annulus": 3
+          },
+          "push_at_header_per_cylinder_N": 175371.66651077435,
+          "pull_at_header_per_cylinder_N": 138950.72743526887,
+          "available_force_in_mode_per_cylinder_N": 175371.66651077435,
+          "cap_flow_per_cylinder_L_min": 220.89323345553234,
+          "annulus_flow_per_cylinder_L_min": 176.55907792807315,
+          "supply_flow_total_L_min": 220.89323345553234
+        },
+        "unlock_cam_plus_return": {
+          "mode": "retract",
+          "speed_limit_m_s": 0.3,
+          "required_force_total_N": 22036.833958292606,
+          "required_force_with_reserve_total_N": 44073.66791658521,
+          "header_pressure_bar": 32.17319975183453,
+          "header_pressure_with_reserve_bar": 56.593096597111284,
+          "hydraulic_pressures_bar": {
+            "cap": 3,
+            "annulus": 28.17319975183453
+          },
+          "push_at_header_per_cylinder_N": 29100.58110940079,
+          "pull_at_header_per_cylinder_N": 22036.83395829261,
+          "available_force_in_mode_per_cylinder_N": 22036.83395829261,
+          "cap_flow_per_cylinder_L_min": 220.89323345553234,
+          "annulus_flow_per_cylinder_L_min": 176.55907792807315,
+          "supply_flow_total_L_min": 176.55907792807318
+        },
+        "return_after_unlock": {
+          "mode": "retract",
+          "speed_limit_m_s": 0.65,
+          "required_force_total_N": 6443.106909,
+          "required_force_with_reserve_total_N": 6443.106909,
+          "header_pressure_bar": 14.893167298087656,
+          "header_pressure_with_reserve_bar": 14.893167298087656,
+          "hydraulic_pressures_bar": {
+            "cap": 3,
+            "annulus": 10.893167298087656
+          },
+          "push_at_header_per_cylinder_N": 9591.254090007962,
+          "pull_at_header_per_cylinder_N": 6443.106908999999,
+          "available_force_in_mode_per_cylinder_N": 6443.106908999999,
+          "cap_flow_per_cylinder_L_min": 478.6020058203201,
+          "annulus_flow_per_cylinder_L_min": 382.54466884415854,
+          "supply_flow_total_L_min": 382.54466884415854
+        }
+      },
+      "braking": {
+        "extend": {
+          "mode": "extend",
+          "speed_m_s": 0.65,
+          "dec_m_s2": 20,
+          "brake_distance_mm": 10.562500000000002,
+          "brake_time_s": 0.0325,
+          "kinetic_energy_J": 17.95625,
+          "meter_in_pressure_bound_bar": 170,
+          "meter_out_pressure_bound_bar": 215.27039636514309,
+          "meter_out_flow_at_ramp_entry_L_min": 382.54466884415854
+        },
+        "retract": {
+          "mode": "retract",
+          "speed_m_s": 0.65,
+          "dec_m_s2": 20,
+          "brake_distance_mm": 10.562500000000002,
+          "brake_time_s": 0.0325,
+          "kinetic_energy_J": 17.95625,
+          "meter_in_pressure_bound_bar": 170,
+          "meter_out_pressure_bound_bar": 137.9450867330734,
+          "meter_out_flow_at_ramp_entry_L_min": 478.6020058203201
+        }
+      },
+      "static": {
+        "static_safety_factor_min": 1.60978886278853,
+        "static_safety_factors": {
+          "tube": 1.8252842380123884,
+          "piston": 2.110841256654225,
+          "rod": 1.6981347591200222,
+          "rear_cover": 1.7922960065350908,
+          "front_cover": 1.863012625591419,
+          "tie_rods_with_preload": 1.60978886278853,
+          "front_support_average_bearing": 31.113142857142858
+        },
+        "tube": {
+          "wall_min_after_allowance_mm": 17,
+          "minimum_wall_for_screen_mm": 13.825744567760921,
+          "lame_radial_MPa": -31.5,
+          "lame_hoop_MPa": 133.44438690969346,
+          "lame_closed_axial_MPa": 50.972193454846725,
+          "lame_closed_VM_MPa": 142.84602927544395,
+          "with_preload_VM_MPa": 219.1439512103458,
+          "local_bound_MPa": 273.9299390129322
+        },
+        "rear_cover": {
+          "section_bending_MPa": 73.8450038580247,
+          "section_shear_MPa": 27.34375,
+          "local_combined_bound_MPa": 278.971775966076
+        },
+        "front_cover": {
+          "section_bending_MPa": 70.20090142598461,
+          "section_shear_MPa": 25.10361892530175,
+          "local_combined_bound_MPa": 268.38250752126464
+        },
+        "piston_local_bound_MPa": 378.9958138624003,
+        "rod": {
+          "eccentricity_mm": 0.5,
+          "core_axial_MPa": 175.2180491278035,
+          "core_bending_MPa": 13.224003707758754,
+          "thread_local_MPa": 471.10513208890563,
+          "thread_stripping_VM_MPa": 229.78268378714466,
+          "thrust_shoulder_local_MPa": 0.0,
+          "screen_MPa": 471.10513208890563
+        },
+        "tied_joint": {
+          "tie_area_mm2": 303.3988159159408,
+          "target_preload_each_N": 109223.5737297387,
+          "preload_plus_factored_service_MPa": 559.0795294986635,
+          "joint_opening_margin": 1.5370741570998854,
+          "cover_ligament_fraction": 0.6864248884296696,
+          "central_cap_port_mm": 0
+        },
+        "column": {
+          "Le_mm": 522,
+          "slenderness": 39.39622641509434,
+          "Euler_Johnson_transition_slenderness": 71.98293068896204,
+          "method": "Johnson",
+          "Euler_critical_N": 2946126.6404401404,
+          "governing_critical_N": 1500613.4925142762,
+          "safety_factor": 3.881936132129157,
+          "without_external_guidance_K2": {
+            "Le_mm": 1044,
+            "slenderness": 78.79245283018868,
+            "Euler_Johnson_transition_slenderness": 71.98293068896204,
+            "method": "Euler",
+            "Euler_critical_N": 736531.6601100351,
+            "governing_critical_N": 736531.6601100351,
+            "safety_factor": 1.9053333040793086
+          },
+          "K": 1,
+          "load_N": 386563.1585471816
+        }
+      },
+      "seal_travel_at_1e7_cycles_km": 7600.0,
+      "port_velocity_at_max_cylinder_speed_m_s": {
+        "cap": 6.34765625,
+        "annulus": 6.2637731481481485
+      }
+    },
+    "gate": {
+      "n": 1,
+      "geometry": {
+        "barrel_OD_mm": 104,
+        "length_body_mm": 193,
+        "length_retracted_to_rod_tip_mm": 228,
+        "length_extended_to_rod_tip_mm": 308,
+        "barrel_length_mm": 128,
+        "rod_blank_length_mm": 153,
+        "dry_mass_parts_per_cylinder_kg": {
+          "barrel": 3.4849662173530347,
+          "rear_cover": 5.97387901707224,
+          "front_cover": 4.745921162271863,
+          "tie_rods": 3.0430320955872516,
+          "piston": 1.2626689193308096,
+          "rod": 1.910187489900723
+        },
+        "dry_mass_per_cylinder_kg": 21.64589419560688,
+        "moving_metal_mass_per_cylinder_kg": 3.1728564092315326,
+        "maximum_oil_per_cylinder_L": 1.6021238596594936,
+        "filled_mass_per_cylinder_kg": 23.03974195351064
+      },
+      "areas_per_cylinder_mm2": {
+        "cap": 5026.548245743669,
+        "annulus": 3436.1169648638365,
+        "rod": 1590.4312808798327
+      },
+      "forces_by_header_bar": {
+        "300": {
+          "gross_push_per_cylinder_N": 150796.44737231007,
+          "gross_pull_per_cylinder_N": 103083.50894591509,
+          "net_push_per_cylinder_N": 135934.59354578916,
+          "net_pull_per_cylinder_N": 92185.00987134675,
+          "net_push_total_N": 135934.59354578916,
+          "net_pull_total_N": 92185.00987134675
+        },
+        "315": {
+          "gross_push_per_cylinder_N": 158336.26974092558,
+          "gross_pull_per_cylinder_N": 108237.68439321085,
+          "net_push_per_cylinder_N": 142871.23012491543,
+          "net_pull_per_cylinder_N": 96926.85128285883,
+          "net_push_total_N": 142871.23012491543,
+          "net_pull_total_N": 96926.85128285883
+        }
+      },
+      "phase_requirements": {
+        "open": {
+          "mode": "retract",
+          "speed_limit_m_s": 0.6,
+          "required_force_total_N": 10900,
+          "required_force_with_reserve_total_N": 21800,
+          "header_pressure_bar": 42.868847298418075,
+          "header_pressure_with_reserve_bar": 77.34912316826471,
+          "hydraulic_pressures_bar": {
+            "cap": 3,
+            "annulus": 38.868847298418075
+          },
+          "push_at_header_per_cylinder_N": 17026.236248276236,
+          "pull_at_header_per_cylinder_N": 10900.000000000002,
+          "available_force_in_mode_per_cylinder_N": 10900.000000000002,
+          "cap_flow_per_cylinder_L_min": 180.95573684677208,
+          "annulus_flow_per_cylinder_L_min": 123.7002107350981,
+          "supply_flow_total_L_min": 123.70021073509811
+        },
+        "close": {
+          "mode": "extend",
+          "speed_limit_m_s": 0.6,
+          "required_force_total_N": 8900,
+          "required_force_with_reserve_total_N": 17800,
+          "header_pressure_bar": 25.296419748884084,
+          "header_pressure_with_reserve_bar": 44.54205824776817,
+          "hydraulic_pressures_bar": {
+            "cap": 21.296419748884084,
+            "annulus": 3
+          },
+          "push_at_header_per_cylinder_N": 8900.000000000002,
+          "pull_at_header_per_cylinder_N": 5344.955689654917,
+          "available_force_in_mode_per_cylinder_N": 8900.000000000002,
+          "cap_flow_per_cylinder_L_min": 180.95573684677208,
+          "annulus_flow_per_cylinder_L_min": 123.7002107350981,
+          "supply_flow_total_L_min": 180.95573684677208
+        }
+      },
+      "braking": {
+        "open": {
+          "mode": "retract",
+          "speed_m_s": 0.6,
+          "dec_m_s2": 20,
+          "brake_distance_mm": 9.0,
+          "brake_time_s": 0.03,
+          "kinetic_energy_J": 8.1,
+          "meter_in_pressure_bound_bar": 70,
+          "meter_out_pressure_bound_bar": 49.642055609783824,
+          "meter_out_flow_at_ramp_entry_L_min": 180.95573684677206
+        },
+        "close": {
+          "mode": "extend",
+          "speed_m_s": 0.6,
+          "dec_m_s2": 20,
+          "brake_distance_mm": 9.0,
+          "brake_time_s": 0.03,
+          "kinetic_energy_J": 8.1,
+          "meter_in_pressure_bound_bar": 70,
+          "meter_out_pressure_bound_bar": 105.01923563488376,
+          "meter_out_flow_at_ramp_entry_L_min": 123.70021073509811
+        }
+      },
+      "static": {
+        "static_safety_factor_min": 1.665687260478339,
+        "static_safety_factors": {
+          "tube": 1.665687260478339,
+          "piston": 4.125276676383336,
+          "rod": 2.189700996677741,
+          "rear_cover": 1.6900715369508834,
+          "front_cover": 1.9705835414708168,
+          "tie_rods_with_preload": 1.7377413395664671,
+          "front_support_average_bearing": 42.85714285714286
+        },
+        "tube": {
+          "wall_min_after_allowance_mm": 11,
+          "minimum_wall_for_screen_mm": 9.879595655047524,
+          "lame_radial_MPa": -31.5,
+          "lame_hoop_MPa": 132.1993006993007,
+          "lame_closed_axial_MPa": 50.34965034965035,
+          "lame_closed_VM_MPa": 141.76775298734213,
+          "with_preload_VM_MPa": 240.1411174178826,
+          "local_bound_MPa": 300.17639677235326
+        },
+        "rear_cover": {
+          "section_bending_MPa": 73.55844155844156,
+          "section_shear_MPa": 26.997300000000006,
+          "local_combined_bound_MPa": 295.84546515827805
+        },
+        "front_cover": {
+          "section_bending_MPa": 59.045928030303024,
+          "section_shear_MPa": 21.519725362930448,
+          "local_combined_bound_MPa": 253.7319476579038
+        },
+        "piston_local_bound_MPa": 193.9263867027136,
+        "rod": {
+          "eccentricity_mm": 0.5,
+          "core_axial_MPa": 132.54437869822485,
+          "core_bending_MPa": 13.594295251099984,
+          "thread_local_MPa": 365.3466848733121,
+          "thread_stripping_VM_MPa": 179.06740656712088,
+          "thrust_shoulder_local_MPa": 0.0,
+          "screen_MPa": 365.3466848733121
+        },
+        "tied_joint": {
+          "tie_area_mm2": 156.66814448611203,
+          "target_preload_each_N": 56400.53201500033,
+          "preload_plus_factored_service_MPa": 517.9136730582312,
+          "joint_opening_margin": 1.9377676047542851,
+          "cover_ligament_fraction": 0.6436646459428064,
+          "central_cap_port_mm": 0
+        },
+        "column": {
+          "Le_mm": 165,
+          "slenderness": 16.923076923076923,
+          "Euler_Johnson_transition_slenderness": 71.98293068896204,
+          "method": "Johnson",
+          "Euler_critical_N": 8645288.259415401,
+          "governing_critical_N": 929261.8592369371,
+          "safety_factor": 5.868913425568397,
+          "without_external_guidance_K2": {
+            "Le_mm": 330,
+            "slenderness": 33.84615384615385,
+            "Euler_Johnson_transition_slenderness": 71.98293068896204,
+            "method": "Johnson",
+            "Euler_critical_N": 2161322.0648538503,
+            "governing_critical_N": 850029.9812817033,
+            "safety_factor": 5.368510845130729
+          },
+          "K": 1,
+          "load_N": 158336.26974092558
+        }
+      },
+      "seal_travel_at_1e7_cycles_km": 1500.0,
+      "port_velocity_at_max_cylinder_speed_m_s": {
+        "cap": 6.143999999999999,
+        "annulus": 6.5625
+      }
+    }
+  },
+  "functional_checks": {
+    "main": {
+      "nominal_header_bar": 268.07849923977517,
+      "nominal_cap_port_bar": 264.07849923977517,
+      "net_at_270_bar_N": 1531121.781491242,
+      "net_at_300_bar_N": 1704763.8906404572,
+      "additional_header_loss_to_270_bar": 1.9215007602248306,
+      "regen_differential_area_mm2": 31415.926535897936,
+      "maximum_steady_rod_port_bar_at_270_header": 6.9230640521256595,
+      "regen_at_0p24_m_s_supply_L_min": 452.38934211693027,
+      "main_annulus_to_cap_ratio": 0.4897959183673469,
+      "minimum_eta_for_nominal_at_270_bar": 0.933172016277121,
+      "nominal_end_pump_capacity_L_min": 50.83996261684806,
+      "nominal_end_speed_upper_m_s": 0.01376093768210636,
+      "reserve_end_pump_capacity_L_min": 43.16427875422182,
+      "reserve_end_speed_upper_m_s": 0.011683347497841633,
+      "main_column_factor_if_full_ejection_force_on_main": 136.21475565742634
+    },
+    "pre": {
+      "T12_pre_force_cases_N": [
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 90,
+          "nominal": {
+            "density_kg_m3": 461.1111111111111,
+            "face_MPa": 1.1072100023746945,
+            "janssen_transfer": 0.9252265802636224,
+            "material_force_N": 33216.30007124083
+          },
+          "length_110": {
+            "density_kg_m3": 593.4475377210665,
+            "face_MPa": 3.8105327837702863,
+            "janssen_transfer": 0.9252265802636223,
+            "material_force_N": 114315.98351310859
+          },
+          "upper_dose": {
+            "density_kg_m3": 626.4601869017937,
+            "face_MPa": 4.9290944043241725,
+            "janssen_transfer": 0.9252265802636224,
+            "material_force_N": 147872.83212972517
+          }
+        },
+        {
+          "case": "base",
+          "bulk_density_kg_m3": 160,
+          "nominal": {
+            "density_kg_m3": 461.1111111111111,
+            "face_MPa": 1.1072100023746945,
+            "janssen_transfer": 0.9252265802636224,
+            "material_force_N": 33216.30007124083
+          },
+          "length_110": {
+            "density_kg_m3": 593.4475377210665,
+            "face_MPa": 3.8105327837702863,
+            "janssen_transfer": 0.9252265802636223,
+            "material_force_N": 114315.98351310859
+          },
+          "upper_dose": {
+            "density_kg_m3": 626.4601869017937,
+            "face_MPa": 4.9290944043241725,
+            "janssen_transfer": 0.9252265802636224,
+            "material_force_N": 147872.83212972517
+          }
+        },
+        {
+          "case": "low",
+          "bulk_density_kg_m3": 90,
+          "nominal": {
+            "density_kg_m3": 461.1111111111111,
+            "face_MPa": 0.9788807928810247,
+            "janssen_transfer": 0.9457085580315039,
+            "material_force_N": 29366.42378643074
+          },
+          "length_110": {
+            "density_kg_m3": 593.4475377210665,
+            "face_MPa": 3.36437066815691,
+            "janssen_transfer": 0.9457085580315039,
+            "material_force_N": 100931.12004470729
+          },
+          "upper_dose": {
+            "density_kg_m3": 626.4601869017937,
+            "face_MPa": 4.328735115745404,
+            "janssen_transfer": 0.9457085580315039,
+            "material_force_N": 129862.05347236212
+          }
+        },
+        {
+          "case": "low",
+          "bulk_density_kg_m3": 160,
+          "nominal": {
+            "density_kg_m3": 461.1111111111111,
+            "face_MPa": 0.9788807928810247,
+            "janssen_transfer": 0.9457085580315039,
+            "material_force_N": 29366.42378643074
+          },
+          "length_110": {
+            "density_kg_m3": 593.4475377210665,
+            "face_MPa": 3.36437066815691,
+            "janssen_transfer": 0.9457085580315039,
+            "material_force_N": 100931.12004470729
+          },
+          "upper_dose": {
+            "density_kg_m3": 626.4601869017937,
+            "face_MPa": 4.328735115745404,
+            "janssen_transfer": 0.9457085580315039,
+            "material_force_N": 129862.05347236212
+          }
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 90,
+          "nominal": {
+            "density_kg_m3": 461.1111111111111,
+            "face_MPa": 1.1589125618988436,
+            "janssen_transfer": 0.8839494521073565,
+            "material_force_N": 34767.37685696531
+          },
+          "length_110": {
+            "density_kg_m3": 593.4475377210665,
+            "face_MPa": 3.988470390591989,
+            "janssen_transfer": 0.8839494521073565,
+            "material_force_N": 119654.11171775968
+          },
+          "upper_dose": {
+            "density_kg_m3": 626.4601869017937,
+            "face_MPa": 5.159264648716056,
+            "janssen_transfer": 0.8839494521073565,
+            "material_force_N": 154777.9394614817
+          }
+        },
+        {
+          "case": "high",
+          "bulk_density_kg_m3": 160,
+          "nominal": {
+            "density_kg_m3": 461.1111111111111,
+            "face_MPa": 1.1589125618988436,
+            "janssen_transfer": 0.8839494521073565,
+            "material_force_N": 34767.37685696531
+          },
+          "length_110": {
+            "density_kg_m3": 593.4475377210665,
+            "face_MPa": 3.988470390591989,
+            "janssen_transfer": 0.8839494521073565,
+            "material_force_N": 119654.11171775968
+          },
+          "upper_dose": {
+            "density_kg_m3": 626.4601869017937,
+            "face_MPa": 5.159264648716056,
+            "janssen_transfer": 0.8839494521073565,
+            "material_force_N": 154777.9394614817
+          }
+        }
+      ],
+      "T12_upper_dose_kg": 1.1276283364232287,
+      "T12_operating_force_upper_high_N": 159777.9394614817,
+      "T12_required_pre_compaction_force_with_reserve_N": 319555.8789229634,
+      "if_factored_compaction_and_unfactored_cam_are_simultaneous_N": 335149.605972256,
+      "actual_upper_high_with_cam_N": 175371.66651077432,
+      "net_pre_125_at_300_bar_N": 331479.67933071713,
+      "net_pre_100_at_300_bar_N": 212391.71931017056,
+      "header_125_at_2x_compaction_bar": 289.43871011987386,
+      "header_100_at_2x_compaction_bar": 448.3104845623029,
+      "net_125_over_2x_compaction_margin_N": 11923.800407753733,
+      "unfactored_joint_load_margin": 1.8901552680994338,
+      "max_shoe_at_main_300_bar_N": 1224030.3055545068,
+      "max_shoe_at_main_315_bar_N": 1285231.8208322322,
+      "blocked_cap_at_315_bar_main_fault_bar": 1047.3011061987684,
+      "blocked_annulus_area_pressure_reference_bar": 1310.2794286456688,
+      "local_cap_relief_flow_at_screen_speed_L_min": 478.6020058203201,
+      "local_annulus_relief_flow_at_screen_speed_L_min": 382.54466884415854,
+      "local_cap_capped_static_hydraulic_support_N": 386563.1585471816,
+      "local_relief_full_flow_port_limit_bar": 315,
+      "cam": {
+        "n_keys": 2,
+        "force_at_pre_rod_N": 15593.727049292605,
+        "stroke_at_pre_rod_mm": 12,
+        "key_orthogonal_travel_mm": 36,
+        "speed_at_pre_rod_m_s": 0.3,
+        "extra_s_at_speed_limit": 0.04,
+        "sensing": "Два независимых положения каждого засова (вошёл/вышел), датчик положения башмака и энкодер/датчик штока; разрешения PLC по совпадению и давлению."
+      }
+    },
+    "gate": {
+      "residual_main_cap_bar": 5,
+      "residual_normal_at_plate_N": 30787.608005179976,
+      "plate_friction_N": 4618.141200776996,
+      "pinch_and_guide_allowance_N": 5381.858799223004,
+      "pinch_allowable_at_2x_opening_margin_N": 40574.363734896375,
+      "minimum_bore_for_2x_opening_with_45_mm_rod_mm": 55.45660339034834,
+      "close_force_margin_at_300_bar": 7.636774918302762
+    }
+  },
+  "main_fatigue": {
+    "cycles": 10000000,
+    "load_press_range_N": 1520000,
+    "load_retraction_range_N": 40000,
+    "shaft_alternating_MPa": 29.694492662313454,
+    "shaft_design_alternating_MPa": 112.0,
+    "shaft_margin": 3.771743173849337,
+    "shoulder_alternating_MPa": 137.28517013092318,
+    "shoulder_design_alternating_MPa": 160.0,
+    "shoulder_margin": 1.1654572729699402,
+    "thread_load_in_full_press_N": 0.0,
+    "thread_return_stress_range_MPa": 2.8717647198241636,
+    "thread_FAT50_size_reduced_design_range_MPa": 16.163368411390223,
+    "thread_margin": 5.62837488036969,
+    "thread_margin_if_full_press_transmitted": 0.1481151284307813,
+    "thread_retainer_min_gap_after_deformation_budget_mm": 0.15,
+    "shoulder_bearing_area_mm2": 12500.39716863379
+  },
+  "protected_port_pressure_bar": 315,
+  "cycles": {
+    "reference_37p5_kW": {
+      "cycle_s": 5.448749999999963,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.07849923977534,
+      "peak_shaft_kW": 37.500000000000014,
+      "rms_shaft_kW": 25.98299680164464,
+      "mean_shaft_kW": 23.129479217542073,
+      "peak_shaft_with_tolerance_kW": 39.90709459459461,
+      "rms_shaft_with_tolerance_kW": 27.650824299047507,
+      "decompression": {
+        "cap_volume_L": 9.193810947332588,
+        "oil_elastic_release_L": 0.17013705303779592,
+        "effective_release_L": 0.34027410607559183,
+        "estimated_orifice_time_s": 0.07260382742544387,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.1441282463476,
+        "oil_elastic_energy_kJ": 2.237970028913069,
+        "effective_release_energy_kJ": 4.475940057826138
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 54.05914325783287,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5087499999999932
+        },
+        "prefill": {
+          "peak_supply_bar": 81.24787107151954,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3037499999999935
+        },
+        "regen": {
+          "peak_supply_bar": 119.99890254430329,
+          "peak_speed_m_s": 0.13359673135177275,
+          "motion_s": 0.3999999999999915
+        },
+        "press": {
+          "peak_supply_bar": 268.0778693647893,
+          "peak_speed_m_s": 0.060603318156576755,
+          "motion_s": 1.0850000000000826
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.15500000000002423
+        },
+        "eject": {
+          "peak_supply_bar": 100.04153813853839,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5137500000000803
+        },
+        "pre_up": {
+          "peak_supply_bar": 32.17319975183453,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5187499999999785
+        },
+        "return": {
+          "peak_supply_bar": 74.17293311390398,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8237499999998414
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.25778324335170716,
+          "motion_s": 0.3049999999999393
+        }
+      }
+    },
+    "control_37p5_kW_fine": {
+      "cycle_s": 5.438437499999431,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.07849923977534,
+      "peak_shaft_kW": 37.50000000000003,
+      "rms_shaft_kW": 26.027658784431257,
+      "mean_shaft_kW": 23.18715878387223,
+      "peak_shaft_with_tolerance_kW": 39.907094594594625,
+      "rms_shaft_with_tolerance_kW": 27.698353098296778,
+      "decompression": {
+        "cap_volume_L": 9.193810947332588,
+        "oil_elastic_release_L": 0.17013705303779592,
+        "effective_release_L": 0.34027410607559183,
+        "estimated_orifice_time_s": 0.07260382742544387,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.1441282463476,
+        "oil_elastic_energy_kJ": 2.237970028913069,
+        "effective_release_energy_kJ": 4.475940057826138
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 54.05914325783287,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5059375000000027
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25153252076119,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3031250000000474
+        },
+        "regen": {
+          "peak_supply_bar": 119.99994719554132,
+          "peak_speed_m_s": 0.1336342674443274,
+          "motion_s": 0.39874999999992067
+        },
+        "press": {
+          "peak_supply_bar": 268.0782655181051,
+          "peak_speed_m_s": 0.060570988535129086,
+          "motion_s": 1.0809375000002017
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04609321552505,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5128125000002624
+        },
+        "pre_up": {
+          "peak_supply_bar": 32.17319975183453,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5181249999998698
+        },
+        "return": {
+          "peak_supply_bar": 74.17293311390401,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992867
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.25778324335170716,
+          "motion_s": 0.3043749999997232
+        }
+      }
+    },
+    "alternative_pre_100_37p5_kW": {
+      "cycle_s": 5.52687499999935,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.07849923977534,
+      "peak_shaft_kW": 37.50000000000003,
+      "rms_shaft_kW": 24.891854973732407,
+      "mean_shaft_kW": 21.24576331586267,
+      "peak_shaft_with_tolerance_kW": 39.907094594594625,
+      "rms_shaft_with_tolerance_kW": 26.489642961911176,
+      "decompression": {
+        "cap_volume_L": 9.193810947332588,
+        "oil_elastic_release_L": 0.17013705303779592,
+        "effective_release_L": 0.34027410607559183,
+        "estimated_orifice_time_s": 0.07260382742544387,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.1441282463476,
+        "oil_elastic_energy_kJ": 2.237970028913069,
+        "effective_release_energy_kJ": 4.475940057826138
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 80.52991134036387,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5493750000000095
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25163641706563,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3125000000000482
+        },
+        "regen": {
+          "peak_supply_bar": 119.9999470421924,
+          "peak_speed_m_s": 0.13363426956744065,
+          "motion_s": 0.39874999999992067
+        },
+        "press": {
+          "peak_supply_bar": 268.07826551810666,
+          "peak_speed_m_s": 0.0605709885351303,
+          "motion_s": 1.0809375000002392
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.86884729841809,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.20000000000010232
+        },
+        "eject": {
+          "peak_supply_bar": 100.04609321552505,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5131250000002625
+        },
+        "pre_up": {
+          "peak_supply_bar": 52.80246091210101,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.4518749999996974
+        },
+        "return": {
+          "peak_supply_bar": 74.17293311390401,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992502
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.25778324335170716,
+          "motion_s": 0.30406249999972346
+        }
+      }
+    },
+    "baseline_36_kW": {
+      "cycle_s": 5.496874999999378,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.20773663872507,
+      "peak_shaft_kW": 36.00000000000002,
+      "rms_shaft_kW": 25.626003563318285,
+      "mean_shaft_kW": 22.985956956882486,
+      "peak_shaft_with_tolerance_kW": 38.310810810810835,
+      "rms_shaft_with_tolerance_kW": 27.27091595420696,
+      "decompression": {
+        "cap_volume_L": 9.193810947332588,
+        "oil_elastic_release_L": 0.17013705303779592,
+        "effective_release_L": 0.34027410607559183,
+        "estimated_orifice_time_s": 0.07260382742544387,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.1441282463476,
+        "oil_elastic_energy_kJ": 2.237970028913069,
+        "effective_release_energy_kJ": 4.475940057826138
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 54.05914325783287,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.4981250000000014
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25153252076119,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3031250000000474
+        },
+        "regen": {
+          "peak_supply_bar": 119.99986612587254,
+          "peak_speed_m_s": 0.1336342674443274,
+          "motion_s": 0.40687499999991905
+        },
+        "press": {
+          "peak_supply_bar": 268.20773663872507,
+          "peak_speed_m_s": 0.058583034935241245,
+          "motion_s": 1.1390625000002317
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04609321552505,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5128125000002624
+        },
+        "pre_up": {
+          "peak_supply_bar": 32.17319975183453,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5315624999997746
+        },
+        "return": {
+          "peak_supply_bar": 74.17293311390401,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992502
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.2171420660065066,
+          "motion_s": 0.356249999999676
+        }
+      }
+    },
+    "alternative_pre_100_36_kW": {
+      "cycle_s": 5.599062499999285,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.2060519127747,
+      "peak_shaft_kW": 36.00000000000002,
+      "rms_shaft_kW": 24.46312058514326,
+      "mean_shaft_kW": 21.03131541870792,
+      "peak_shaft_with_tolerance_kW": 38.310810810810835,
+      "rms_shaft_with_tolerance_kW": 26.03338846054097,
+      "decompression": {
+        "cap_volume_L": 9.193810947332588,
+        "oil_elastic_release_L": 0.17013705303779592,
+        "effective_release_L": 0.34027410607559183,
+        "estimated_orifice_time_s": 0.07260382742544387,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.1441282463476,
+        "oil_elastic_energy_kJ": 2.237970028913069,
+        "effective_release_energy_kJ": 4.475940057826138
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 80.52991134036387,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5515625000000098
+        },
+        "prefill": {
+          "peak_supply_bar": 81.2517789757671,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.31625000000004666
+        },
+        "regen": {
+          "peak_supply_bar": 119.99987399331692,
+          "peak_speed_m_s": 0.133634273199761,
+          "motion_s": 0.40687499999991905
+        },
+        "press": {
+          "peak_supply_bar": 268.2060519127747,
+          "peak_speed_m_s": 0.05858307259811405,
+          "motion_s": 1.139062500000279
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.86884729841809,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.20000000000010232
+        },
+        "eject": {
+          "peak_supply_bar": 100.04609321552505,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5131250000001701
+        },
+        "pre_up": {
+          "peak_supply_bar": 52.80246091210101,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.45062499999959593
+        },
+        "return": {
+          "peak_supply_bar": 74.17293311390401,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992502
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.2171420660065066,
+          "motion_s": 0.3565624999996757
+        }
+      }
+    },
+    "alternative_main_190_36_kW": {
+      "cycle_s": 5.501562499999373,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.3699252785652,
+      "peak_shaft_kW": 36.000000000000014,
+      "rms_shaft_kW": 25.643412116424113,
+      "mean_shaft_kW": 23.000215774113403,
+      "peak_shaft_with_tolerance_kW": 38.31081081081083,
+      "rms_shaft_with_tolerance_kW": 27.289441948221608,
+      "decompression": {
+        "cap_volume_L": 9.193810947332588,
+        "oil_elastic_release_L": 0.17023505557795973,
+        "effective_release_L": 0.34047011115591946,
+        "estimated_orifice_time_s": 0.07262656504168072,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.2919091253789,
+        "oil_elastic_energy_kJ": 2.2405293957927888,
+        "effective_release_energy_kJ": 4.4810587915855775
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 54.05914325783287,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.4981250000000014
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25153252076859,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3031250000000474
+        },
+        "regen": {
+          "peak_supply_bar": 119.99953874364178,
+          "peak_speed_m_s": 0.14441688103634737,
+          "motion_s": 0.36156249999992807
+        },
+        "press": {
+          "peak_supply_bar": 268.3699252785652,
+          "peak_speed_m_s": 0.06321071591536842,
+          "motion_s": 1.1862500000002256
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04609321552505,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5128125000002624
+        },
+        "pre_up": {
+          "peak_supply_bar": 32.17319975183453,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5318749999997676
+        },
+        "return": {
+          "peak_supply_bar": 74.22142521366226,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992502
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.21653088198690462,
+          "motion_s": 0.35749999999967486
+        }
+      }
+    },
+    "control_300_bar_high_36_kW": {
+      "cycle_s": 5.975312499998942,
+      "nominal_force_N": 1704763.890640457,
+      "peak_working_bar": 300.0,
+      "peak_shaft_kW": 36.00000000000002,
+      "rms_shaft_kW": 26.023046498542744,
+      "mean_shaft_kW": 23.475560472373196,
+      "peak_shaft_with_tolerance_kW": 38.310810810810835,
+      "rms_shaft_with_tolerance_kW": 27.693444753516772,
+      "decompression": {
+        "cap_volume_L": 8.859047364471516,
+        "oil_elastic_release_L": 0.18414162736151507,
+        "effective_release_L": 0.3682832547230302,
+        "estimated_orifice_time_s": 0.07451224076650971,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 547.8477147125451,
+        "oil_elastic_energy_kJ": 2.716089003582347,
+        "effective_release_energy_kJ": 5.432178007164694
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 55.43298137992338,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.4987500000000015
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25145310463553,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3031250000000474
+        },
+        "regen": {
+          "peak_supply_bar": 119.94750832263638,
+          "peak_speed_m_s": 0.13363426599574815,
+          "motion_s": 0.3906249999999223
+        },
+        "press": {
+          "peak_supply_bar": 300.0,
+          "peak_speed_m_s": 0.05923056334477796,
+          "motion_s": 1.6059375000004594
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04611549008956,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5343749999996681
+        },
+        "pre_up": {
+          "peak_supply_bar": 32.17319975183453,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5309374999995171
+        },
+        "return": {
+          "peak_supply_bar": 74.17293311390401,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8299999999992451
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.2171420660065066,
+          "motion_s": 0.3565624999996757
+        }
+      }
+    },
+    "control_300_bar_high_37p5_kW": {
+      "cycle_s": 5.902812499999008,
+      "nominal_force_N": 1704763.890640457,
+      "peak_working_bar": 300.0,
+      "peak_shaft_kW": 37.50000000000003,
+      "rms_shaft_kW": 26.480271821470854,
+      "mean_shaft_kW": 23.742107395397515,
+      "peak_shaft_with_tolerance_kW": 39.907094594594625,
+      "rms_shaft_with_tolerance_kW": 28.180018999200403,
+      "decompression": {
+        "cap_volume_L": 8.859047364471516,
+        "oil_elastic_release_L": 0.18414162736151507,
+        "effective_release_L": 0.3682832547230302,
+        "estimated_orifice_time_s": 0.07451224076650971,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 547.8477147125451,
+        "oil_elastic_energy_kJ": 2.716089003582347,
+        "effective_release_energy_kJ": 5.432178007164694
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 55.43298137992338,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5053125000000026
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25145310463553,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3031250000000474
+        },
+        "regen": {
+          "peak_supply_bar": 119.98771618519677,
+          "peak_speed_m_s": 0.13363426599574815,
+          "motion_s": 0.3840624999999236
+        },
+        "press": {
+          "peak_supply_bar": 300.0,
+          "peak_speed_m_s": 0.061084171374594806,
+          "motion_s": 1.5334375000004223
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04611549008956,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5343749999997711
+        },
+        "pre_up": {
+          "peak_supply_bar": 32.17319975183453,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5196874999995273
+        },
+        "return": {
+          "peak_supply_bar": 74.17293311390401,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8299999999992451
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.25778324335170716,
+          "motion_s": 0.30562499999972204
+        }
+      }
+    },
+    "physical_36_kW": {
+      "cycle_s": 5.5706249999993105,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.2077286813347,
+      "peak_shaft_kW": 36.00000000000002,
+      "rms_shaft_kW": 25.51538238862313,
+      "mean_shaft_kW": 22.82993553056841,
+      "peak_shaft_with_tolerance_kW": 38.310810810810835,
+      "rms_shaft_with_tolerance_kW": 27.15319409600097,
+      "decompression": {
+        "cap_volume_L": 10.953632352608878,
+        "oil_elastic_release_L": 0.20270361650986826,
+        "effective_release_L": 0.40540723301973647,
+        "estimated_orifice_time_s": 0.08650119494150657,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.1441282463476,
+        "oil_elastic_energy_kJ": 2.666348161094553,
+        "effective_release_energy_kJ": 5.332696322189106
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 54.05914325783287,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5453125000000089
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25166004145797,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3059375000000478
+        },
+        "regen": {
+          "peak_supply_bar": 119.99956176722277,
+          "peak_speed_m_s": 0.13234716494690874,
+          "motion_s": 0.40999999999991843
+        },
+        "press": {
+          "peak_supply_bar": 268.2077286813347,
+          "peak_speed_m_s": 0.058209113907579414,
+          "motion_s": 1.1556250000002808
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04609321552505,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5131250000002239
+        },
+        "pre_up": {
+          "peak_supply_bar": 34.05703772581666,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5990624999996084
+        },
+        "return": {
+          "peak_supply_bar": 74.4423183679613,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992502
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.213757220757764,
+          "motion_s": 0.36156249999967116
+        }
+      },
+      "cycle_with_reversal_clearance_upper_s": 5.592533902299517
+    },
+    "physical_36_kW_160_kg_m3": {
+      "cycle_s": 5.498437499999376,
+      "nominal_force_N": 1520000,
+      "peak_working_bar": 268.2077286813347,
+      "peak_shaft_kW": 36.00000000000002,
+      "rms_shaft_kW": 24.14520883884706,
+      "mean_shaft_kW": 20.825169895922606,
+      "peak_shaft_with_tolerance_kW": 38.310810810810835,
+      "rms_shaft_with_tolerance_kW": 25.6950702170163,
+      "decompression": {
+        "cap_volume_L": 10.953632352608878,
+        "oil_elastic_release_L": 0.20270361650986826,
+        "effective_release_L": 0.40540723301973647,
+        "estimated_orifice_time_s": 0.08650119494150657,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 517.1441282463476,
+        "oil_elastic_energy_kJ": 2.666348161094553,
+        "effective_release_energy_kJ": 5.332696322189106
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 54.05914325783287,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.4281249999999909
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25166004436949,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3059375000000478
+        },
+        "regen": {
+          "peak_supply_bar": 119.99956176720842,
+          "peak_speed_m_s": 0.13234716494701643,
+          "motion_s": 0.40999999999993053
+        },
+        "press": {
+          "peak_supply_bar": 268.2077286813347,
+          "peak_speed_m_s": 0.058209113907579414,
+          "motion_s": 1.1556250000001975
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.86884729841809,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.20000000000010232
+        },
+        "eject": {
+          "peak_supply_bar": 100.04609321552505,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5131250000002625
+        },
+        "pre_up": {
+          "peak_supply_bar": 34.05703772581666,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.30812499999997556
+        },
+        "return": {
+          "peak_supply_bar": 74.4423183679613,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992502
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.213757220757764,
+          "motion_s": 0.38687499999964814
+        }
+      },
+      "cycle_with_reversal_clearance_upper_s": 5.520346402299583
+    },
+    "physical_36_kW_reserve_300_bar_base": {
+      "cycle_s": 5.754687499999143,
+      "nominal_force_N": 1704763.890640457,
+      "peak_working_bar": 300.00000000000006,
+      "peak_shaft_kW": 36.00000000000002,
+      "rms_shaft_kW": 25.902451417744427,
+      "mean_shaft_kW": 23.236702820145208,
+      "peak_shaft_with_tolerance_kW": 38.310810810810835,
+      "rms_shaft_with_tolerance_kW": 27.56510877226181,
+      "decompression": {
+        "cap_volume_L": 11.068332298531786,
+        "oil_elastic_release_L": 0.230063192776625,
+        "effective_release_L": 0.46012638555325,
+        "estimated_orifice_time_s": 0.09309423543883885,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 547.8477147125451,
+        "oil_elastic_energy_kJ": 3.3934320934552185,
+        "effective_release_energy_kJ": 6.786864186910437
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 54.05914325783287,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5453125000000089
+        },
+        "prefill": {
+          "peak_supply_bar": 81.25166004145547,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3059375000000478
+        },
+        "regen": {
+          "peak_supply_bar": 119.99956176721433,
+          "peak_speed_m_s": 0.13234716494692456,
+          "motion_s": 0.40999999999991843
+        },
+        "press": {
+          "peak_supply_bar": 300.0,
+          "peak_speed_m_s": 0.058144738309946174,
+          "motion_s": 1.3453125000003778
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04608474987563,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5074999999999594
+        },
+        "pre_up": {
+          "peak_supply_bar": 34.05703772581666,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5993749999994549
+        },
+        "return": {
+          "peak_supply_bar": 74.4423183679613,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8243749999992502
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.213757220757764,
+          "motion_s": 0.36156249999967116
+        }
+      },
+      "cycle_with_reversal_clearance_upper_s": 5.77659640229935
+    },
+    "physical_36_kW_reserve_300_bar_high": {
+      "cycle_s": 6.059374999998866,
+      "nominal_force_N": 1704763.890640457,
+      "peak_working_bar": 300.0,
+      "peak_shaft_kW": 36.00000000000002,
+      "rms_shaft_kW": 25.912311057766555,
+      "mean_shaft_kW": 23.318455595022,
+      "peak_shaft_with_tolerance_kW": 38.310810810810835,
+      "rms_shaft_with_tolerance_kW": 27.575601294582654,
+      "decompression": {
+        "cap_volume_L": 10.618868769747804,
+        "oil_elastic_release_L": 0.22072077228547218,
+        "effective_release_L": 0.4414415445709444,
+        "estimated_orifice_time_s": 0.08931385891587001,
+        "available_orifice_time_s": 0.13,
+        "peak_orifice_flow_L_min": 547.8477147125451,
+        "oil_elastic_energy_kJ": 3.255631391210715,
+        "effective_release_energy_kJ": 6.51126278242143
+      },
+      "phase_peaks": {
+        "pre_down": {
+          "peak_supply_bar": 55.43298137992338,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.546562500000009
+        },
+        "prefill": {
+          "peak_supply_bar": 81.251659866591,
+          "peak_speed_m_s": 0.3,
+          "motion_s": 0.3059375000000478
+        },
+        "regen": {
+          "peak_supply_bar": 119.98163564078271,
+          "peak_speed_m_s": 0.13234716494238954,
+          "motion_s": 0.3934374999999217
+        },
+        "press": {
+          "peak_supply_bar": 300.0,
+          "peak_speed_m_s": 0.05890849326712358,
+          "motion_s": 1.632812500000514
+        },
+        "gate_open": {
+          "peak_supply_bar": 42.868847298418075,
+          "peak_speed_m_s": 0.6,
+          "motion_s": 0.1550000000000793
+        },
+        "eject": {
+          "peak_supply_bar": 100.04611549008956,
+          "peak_speed_m_s": 0.34664227301963474,
+          "motion_s": 0.5343749999995482
+        },
+        "pre_up": {
+          "peak_supply_bar": 34.05703772581666,
+          "peak_speed_m_s": 0.65,
+          "motion_s": 0.5978124999994563
+        },
+        "return": {
+          "peak_supply_bar": 74.4423183679613,
+          "peak_speed_m_s": 0.35,
+          "motion_s": 0.8299999999992451
+        },
+        "gate_close": {
+          "peak_supply_bar": 25.296419748884087,
+          "peak_speed_m_s": 0.213757220757764,
+          "motion_s": 0.36156249999967116
+        }
+      },
+      "cycle_with_reversal_clearance_upper_s": 6.081283902299073
+    },
+    "reversal_clearance_time_bound_s": 0.021908902300206645,
+    "alternative_pre_100_cycle_delta_s": 0.10218749999990706,
+    "alternative_pre_100_reference_cycle_delta_s": 0.08843749999991957,
+    "alternative_main_190_cycle_delta_s": 0.004687499999995737,
+    "alternative_main_190_hydraulics": {
+      "annulus_flow_at_0p35_m_s_L_min": 697.6691885459534,
+      "regen_flow_at_0p24_m_s_L_min": 408.28138126052954,
+      "nominal_header_bar": 268.22773393365276,
+      "float_return_drag_N": 11316.720188955334,
+      "prefill_annulus_intake_min_absolute_bar_with_same_cover": 1.0719079459693748
+    },
+    "physical_cycle_delta_with_clearance_s": 0.09565890230013974
+  },
+  "main_fluid_geometry": {
+    "cap_dead_L": 2.5598214052762893,
+    "annulus_dead_L": 1.726260966311941,
+    "main_prefill_port": {
+      "model": "ZSF NG100 without pre-decompression, passive fill",
+      "bore_mm": 124,
+      "B_port_rating_bar": 350,
+      "A_port_rating_bar": 16,
+      "valve_body_port_B_entry_mm": 132,
+      "valve_mount_PCD_mm": 240,
+      "valve_mount_threads": "8 × M27"
+    },
+    "annulus_port_distribution": {
+      "small_bores_n": 16,
+      "small_bores_mm": 25,
+      "parallel_passage_length_mm": 105,
+      "external_distribution_gallery_volume_L": 0.6,
+      "line_ID_mm": 100
+    }
+  },
+  "prefill": {
+    "cap_intake": {
+      "approach": {
+        "flow_L_min": 1108.353888186479,
+        "pipe_velocity_m_s": 1.50528,
+        "steady_drop_bar": 0.022472877617971197,
+        "acceleration_head_bar": 0.21826560000000003,
+        "min_absolute_bar": 0.9566503223820286,
+        "without_boost_min_absolute_bar": 0.5066503223820287,
+        "case_2_flow_margin_L_min": 491.646111813521,
+        "cover_passage_extra_drop_bar": 0.05419052176143849,
+        "min_absolute_with_cover_bar": 0.9024598006205902
+      },
+      "ejection": {
+        "flow_L_min": 1293.0795362175588,
+        "pipe_velocity_m_s": 1.7561600000000002,
+        "steady_drop_bar": 0.030588083424460805,
+        "acceleration_head_bar": 0.21826560000000003,
+        "min_absolute_bar": 0.9485351165755391,
+        "without_boost_min_absolute_bar": 0.4985351165755391,
+        "case_2_flow_margin_L_min": 306.9204637824412,
+        "cover_passage_extra_drop_bar": 0.027707715904673528,
+        "min_absolute_with_cover_bar": 0.9208274006708655
+      }
+    },
+    "cap_exhaust": {
+      "flow_L_min": 1293.0795362175588,
+      "pipe_velocity_m_s": 1.7561600000000002,
+      "steady_drop_bar": 0.030588083424460805,
+      "acceleration_head_bar": 0.21826560000000003,
+      "valve_drop_bar": 1.1468139142555671,
+      "peak_gauge_bar": 1.8798063976800279,
+      "peak_gauge_bar_with_cover": 1.9075141135847014
+    },
+    "annulus_intake": {
+      "flow_L_min": 633.3450789637023,
+      "pipe_velocity_m_s": 1.3439999999999999,
+      "steady_drop_bar": 0.018465269759999996,
+      "acceleration_head_bar": 0.16704000000000002,
+      "min_absolute_bar": 1.11188353024,
+      "velocity_in_cover_ports_m_s": 1.3439999999999999,
+      "min_absolute_with_cover_bar": 1.0961684070400002
+    },
+    "annulus_exhaust": {
+      "flow_L_min": 633.3450789637023,
+      "pipe_velocity_m_s": 1.3439999999999999,
+      "steady_drop_bar": 0.018465269759999996,
+      "acceleration_head_bar": 0.16704000000000002,
+      "pressure_budget_bar": 3.0
+    },
+    "return_drag_budget_N": 11277.476780440806,
+    "minimum_buffer_L": 26.69285614049104,
+    "buffer_oil_L": 35,
+    "speed_limit_m_s": 0.35,
+    "local_exhaust_NG": 50,
+    "liquid_level_head_bar": 0.034138800000000004,
+    "head_at_tank_gauge_bar": 0.45,
+    "return_drag_with_cover_N": 11495.483334610764
+  },
+  "mass": {
+    "dry_cylinders_kg": 940.1526684634881,
+    "filled_cylinders_kg": 971.2735120049756,
+    "station_includes_ZSF_kg": 1518.3,
+    "chamber_lock_shoe_plate_without_actuators_kg": 200.3865,
+    "subtotal_before_frame_feeder_hopper_guards_kg": 2689.9600120049754,
+    "remaining_to_machine_target_kg": 1310.0399879950246,
+    "remaining_to_machine_max_kg": 2310.0399879950246,
+    "remaining_crosshead_and_punch_kg": 233.69269288282717
+  },
+  "envelope": {
+    "upstream_screen_mm": [
+      1244,
+      1061,
+      1875
+    ],
+    "cylinders_local_envelope_only": true,
+    "horizontal_axis_component_allowance_mm": 1471,
+    "vertical_screen_replacing_only_pre_body_mm": 1888,
+    "machine_limit_mm": [
+      2100,
+      1900,
+      2200
+    ]
+  },
+  "analytic_checks": {
+    "main_at_270_bar": true,
+    "main_wall_at_most_70_mm": true,
+    "C_STR_01_static_screen_all": true,
+    "column_factor_at_least_3p5_all": true,
+    "closed_tie_rods_under_service": true,
+    "pre_125_compaction_reserve_and_cam": true,
+    "pre_100_rejected_by_force": true,
+    "max_braking_pressure_screen": true,
+    "prefill_minimum_pressure_screen": true,
+    "main_10million_cycle_screen": true
+  },
+  "conditions_to_verify": {
+    "cycle_high_300_bar_within_6_s": false,
+    "nominal_cycle_including_reversal_within_6_s": true,
+    "lock_failure_pressure_transient_verified": false,
+    "seal_service_interval_verified": false,
+    "whole_machine_mass_and_envelope_verified": false
+  }
+}
