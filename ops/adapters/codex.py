@@ -50,7 +50,8 @@ def command(backend, worktree, environ):
     env["CODEX_HOME"] = str(home)
     env.pop("OPENAI_BASE_URL", None)
     argv = [
-        executable, "exec", "-C", str(worktree), "-m", backend.model,
+        executable, *(["--search"] if backend.web_search else []),
+        "exec", "-C", str(worktree), "-m", backend.model,
         "-c", f"model_reasoning_effort={backend.effort}",
         "-c", "model_provider=openai", "-c", "approval_policy=never",
         "--sandbox", "workspace-write", "--color", "never", "--", "-",

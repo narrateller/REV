@@ -51,6 +51,7 @@ class Backend:
     model: str
     effort: str
     environment: ToolEnvironment = ToolEnvironment()
+    web_search: bool = False
 
 
 def load_yaml(text, label):
@@ -145,6 +146,9 @@ def read_backends(path, card, preference):
         if preferred not in order:
             raise RunnerError(f"{role}: backend {preferred!r} is outside the role policy")
         order = [preferred, *(alias for alias in order if alias != preferred)]
+    web_search = card.data.get("web_search", False)
+    if not isinstance(web_search, bool):
+        raise RunnerError(f"{card.id}: web_search must be true or false")
     role_effort = effort(policy.get("effort"), role)
     card_effort = effort(card.data.get("effort", role_effort), card.id)
     if EFFORT_RANK[card_effort] < EFFORT_RANK[role_effort]:
@@ -161,7 +165,8 @@ def read_backends(path, card, preference):
         if not isinstance(home, str) or not home.strip():
             raise RunnerError(f"{alias}: missing CODEX_HOME")
         # A role/card sets the effort for every backend, including failover.
-        result.append(Backend(alias, profile["cli"], home, model, card_effort, tools))
+        # Live web search (model-side tool only; shell stays offline) is opt-in per card: web_search: true.
+        result.append(Backend(alias, profile["cli"], home, model, card_effort, tools, web_search))
     return result
 
 

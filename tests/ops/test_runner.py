@@ -369,6 +369,17 @@ class RunnerTest(unittest.TestCase):
         self.assertEqual(env["REV_PYTHON"], PYTHON)
         self.assertEqual(env["REV_FREECADCMD"], FREECAD)
         self.assertEqual(env["PATH"].split(os.pathsep), [*TOOL_PATHS, "existing"])
+        self.assertNotIn("--search", argv)
+        searching = read_backends(self.ops / "backends.yaml", read_card(
+            self.card("backend: bos\nweb_search: true\n"), "T-TEST"), "auto")
+        self.assertTrue(all(backend.web_search for backend in searching))
+        with patch("ops.adapters.codex.shutil.which", return_value="codex.exe"):
+            argv, _ = codex.command(searching[0], self.root, {"LOCALAPPDATA": str(self.root), "PATH": "existing"})
+        self.assertEqual(argv[1:3], ["--search", "exec"])
+        self.assertIn("workspace-write", argv)
+        with self.assertRaises(RunnerError):
+            read_backends(self.ops / "backends.yaml", read_card(
+                self.card("backend: bos\nweb_search: yes please\n"), "T-TEST"), "auto")
 
 
 class AdapterTest(unittest.TestCase):
