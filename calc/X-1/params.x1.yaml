@@ -1,0 +1,746 @@
+# Conditional X-1 scenario. Sequential gate approximation. D0 unmodified.
+# Valve overlap, pump transient, oil elasticity and parallel recharge are in x1_calc.py.
+schema_version: 1
+description: X-1 conditional example, 360 L/min, sequential equivalent for calc_gates
+product:
+  section_mm:
+  - 150
+  - 60
+  length_range_mm:
+  - 40
+  - 110
+  density_kg_m3: 1064.8148148148148
+raw:
+  bulk_density_kg_m3:
+  - 90
+  - 160
+  dose_kg: 0.83
+main_cylinder:
+  n: 1
+  bore_mm: 280
+  rod_mm: 200
+  stroke_mm: 230
+  p_work_bar: 270
+  p_relief_bar: 300
+  eta: 0.94
+  nominal_force_N: 1520000
+chamber:
+  section_mm:
+  - 150
+  - 60
+  length_mm: 300
+  clearance_per_side_mm: 0.2
+  ejection_stroke_mm: 90.19323671497585
+  ejection_overtravel_mm: 10
+  approach_stroke_mm: 0
+  in_die_density_kg_m3: 1150.0
+precompaction:
+  section_mm:
+  - 150
+  - 200
+  loose_fill_length_mm: 317.4074074074074
+  stroke_mm: 257.4074074074074
+  post_precompaction_density_kg_m3: 461.1111111111111
+  cylinder:
+    n: 1
+    bore_mm: 100
+    rod_mm: 56
+    stroke_mm: 330
+    eta: 0.92
+drive:
+  motor_kW: 30
+  installed_kW: 34
+  pump_max_flow_L_min: 360
+  eta: 0.826
+  slide_gate_cylinder:
+    n: 1
+    bore_mm: 80
+    rod_mm: 45
+    stroke_mm: 70
+    eta: 0.92
+cycle:
+- name: pre_down 1
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 13.013168728917035
+  dwell_s: 0
+  continues: false
+- name: pre_down 2
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 13.536597920958958
+  dwell_s: 0
+  continues: true
+- name: pre_down 3
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 14.09789421990342
+  dwell_s: 0
+  continues: true
+- name: pre_down 4
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 14.704414044843304
+  dwell_s: 0
+  continues: true
+- name: pre_down 5
+  actuator: precompaction
+  stroke_mm: 10.725308641975316
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 15.365093488548625
+  dwell_s: 0
+  continues: true
+- name: pre_down 6
+  actuator: precompaction
+  stroke_mm: 10.725308641975301
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 16.0908837082793
+  dwell_s: 0
+  continues: true
+- name: pre_down 7
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 16.89533181009977
+  dwell_s: 0
+  continues: true
+- name: pre_down 8
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 17.795365293950027
+  dwell_s: 0
+  continues: true
+- name: pre_down 9
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 18.812365426376996
+  dwell_s: 0
+  continues: true
+- name: pre_down 10
+  actuator: precompaction
+  stroke_mm: 10.725308641975323
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 19.973657180395463
+  dwell_s: 0
+  continues: true
+- name: pre_down 11
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 21.314610140155096
+  dwell_s: 0
+  continues: true
+- name: pre_down 12
+  actuator: precompaction
+  stroke_mm: 10.725308641975309
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 22.8816524904768
+  dwell_s: 0
+  continues: true
+- name: pre_down 13
+  actuator: precompaction
+  stroke_mm: 10.725308641975323
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 24.736678201637762
+  dwell_s: 0
+  continues: true
+- name: pre_down 14
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 26.963629417401126
+  dwell_s: 0
+  continues: true
+- name: pre_down 15
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 29.678563240697553
+  dwell_s: 0
+  continues: true
+- name: pre_down 16
+  actuator: precompaction
+  stroke_mm: 10.725308641975323
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 33.04546317193231
+  dwell_s: 0
+  continues: true
+- name: pre_down 17
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 37.30183529244979
+  dwell_s: 0
+  continues: true
+- name: pre_down 18
+  actuator: precompaction
+  stroke_mm: 10.725308641975323
+  direction: extend
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 42.80160178919188
+  dwell_s: 0
+  continues: true
+- name: pre_down 19
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 50.08991074499217
+  dwell_s: 0
+  continues: true
+- name: pre_down 20
+  actuator: precompaction
+  stroke_mm: 10.725308641975351
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 60.0398517318344
+  dwell_s: 0
+  continues: true
+- name: pre_down 21
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 74.11654644376935
+  dwell_s: 0
+  continues: true
+- name: pre_down 22
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 94.92259139362797
+  dwell_s: 0
+  continues: true
+- name: pre_down 23
+  actuator: precompaction
+  stroke_mm: 10.725308641975323
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 127.42151254358212
+  dwell_s: 0
+  continues: true
+- name: pre_down 24
+  actuator: precompaction
+  stroke_mm: 10.725308641975296
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 181.98475375287748
+  dwell_s: 0
+  continues: true
+- name: regen 1
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092233
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 10.553337993183575
+  dwell_s: 0
+  continues: false
+- name: regen 2
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092233
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 10.586908463783214
+  dwell_s: 0
+  continues: true
+- name: regen 3
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092233
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 10.689695421505075
+  dwell_s: 0
+  continues: true
+- name: regen 4
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092233
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 10.917009441894166
+  dwell_s: 0
+  continues: true
+- name: regen 5
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092233
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 11.344850724497732
+  dwell_s: 0
+  continues: true
+- name: regen 6
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092233
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 12.077205653805573
+  dwell_s: 0
+  continues: true
+- name: regen 7
+  actuator: main_cylinder
+  stroke_mm: 5.89225450609223
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 13.256080247730944
+  dwell_s: 0
+  continues: true
+- name: regen 8
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092237
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 15.075402596328859
+  dwell_s: 0
+  continues: true
+- name: regen 9
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092237
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 17.800449264002594
+  dwell_s: 0
+  continues: true
+- name: regen 10
+  actuator: main_cylinder
+  stroke_mm: 5.89225450609223
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 21.795244216865154
+  dwell_s: 0
+  continues: true
+- name: regen 11
+  actuator: main_cylinder
+  stroke_mm: 5.89225450609223
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 27.5616003893407
+  dwell_s: 0
+  continues: true
+- name: regen 12
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092237
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 35.79538318714031
+  dwell_s: 0
+  continues: true
+- name: regen 13
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092237
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 47.46860887369802
+  dwell_s: 0
+  continues: true
+- name: regen 14
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092224
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 63.95089874711696
+  dwell_s: 0
+  continues: true
+- name: regen 15
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092237
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 87.19190794502215
+  dwell_s: 0
+  continues: true
+- name: regen 16
+  actuator: main_cylinder
+  stroke_mm: 5.892254506092237
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 119.99999999999395
+  dwell_s: 0
+  continues: true
+- name: press 1
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811847
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 65.00247022217522
+  dwell_s: 0
+  continues: false
+- name: press 2
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811847
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 68.9331115938487
+  dwell_s: 0
+  continues: true
+- name: press 3
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811845
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 73.11995868883196
+  dwell_s: 0
+  continues: true
+- name: press 4
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481185
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 77.58053816045168
+  dwell_s: 0
+  continues: true
+- name: press 5
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 82.33369454927875
+  dwell_s: 0
+  continues: true
+- name: press 6
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481185
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 87.3997012429934
+  dwell_s: 0
+  continues: true
+- name: press 7
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481185
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 92.80038191017343
+  dwell_s: 0
+  continues: true
+- name: press 8
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481185
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 98.55924351151013
+  dwell_s: 0
+  continues: true
+- name: press 9
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 104.70162212094793
+  dwell_s: 0
+  continues: true
+- name: press 10
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 111.25484293485196
+  dwell_s: 0
+  continues: true
+- name: press 11
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811858
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 118.24839601189714
+  dwell_s: 0
+  continues: true
+- name: press 12
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 125.71412947263589
+  dwell_s: 0
+  continues: true
+- name: press 13
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 133.68646209879844
+  dwell_s: 0
+  continues: true
+- name: press 14
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811858
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 142.20261751190517
+  dwell_s: 0
+  continues: true
+- name: press 15
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811858
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 151.30288238296313
+  dwell_s: 0
+  continues: true
+- name: press 16
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 161.0308914347386
+  dwell_s: 0
+  continues: true
+- name: press 17
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 171.43394235104066
+  dwell_s: 0
+  continues: true
+- name: press 18
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 182.56334411024005
+  dwell_s: 0
+  continues: true
+- name: press 19
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 194.4748027206021
+  dwell_s: 0
+  continues: true
+- name: press 20
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 207.2288488619874
+  dwell_s: 0
+  continues: true
+- name: press 21
+  actuator: main_cylinder
+  stroke_mm: 1.063778799481184
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 220.89131254264643
+  dwell_s: 0
+  continues: true
+- name: press 22
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811874
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 235.53385057365924
+  dwell_s: 0
+  continues: true
+- name: press 23
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811805
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 251.2345334616242
+  dwell_s: 0
+  continues: true
+- name: press 24
+  actuator: main_cylinder
+  stroke_mm: 1.0637787994811874
+  direction: extend
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 268.07849923977517
+  dwell_s: 0.55
+  continues: true
+  press: true
+- name: gate_open 1
+  actuator: slide_gate
+  stroke_mm: 70.0
+  direction: retract
+  regeneration: false
+  speed_mm_s: 250.0
+  pressure_bar: 40.02185204310963
+  dwell_s: 0
+  continues: false
+- name: eject 1
+  actuator: main_cylinder
+  stroke_mm: 11.274154589371982
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 44.41177415728659
+  dwell_s: 0
+  continues: false
+- name: eject 2
+  actuator: main_cylinder
+  stroke_mm: 11.274154589371982
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 39.651099350304904
+  dwell_s: 0
+  continues: true
+- name: eject 3
+  actuator: main_cylinder
+  stroke_mm: 11.27415458937198
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 34.89042454332322
+  dwell_s: 0
+  continues: true
+- name: eject 4
+  actuator: main_cylinder
+  stroke_mm: 11.274154589371983
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 30.129749736341545
+  dwell_s: 0
+  continues: true
+- name: eject 5
+  actuator: main_cylinder
+  stroke_mm: 11.274154589371983
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 25.369074929359858
+  dwell_s: 0
+  continues: true
+- name: eject 6
+  actuator: main_cylinder
+  stroke_mm: 11.274154589371976
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 20.608400122378182
+  dwell_s: 0
+  continues: true
+- name: eject 7
+  actuator: main_cylinder
+  stroke_mm: 11.27415458937199
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 15.847725315396499
+  dwell_s: 0
+  continues: true
+- name: eject 8
+  actuator: main_cylinder
+  stroke_mm: 11.274154589371976
+  direction: extend
+  regeneration: true
+  speed_mm_s: pump
+  pressure_bar: 11.087050508414816
+  dwell_s: 0
+  continues: true
+- name: return 1
+  actuator: main_cylinder
+  stroke_mm: 210.00000000000003
+  direction: retract
+  regeneration: false
+  speed_mm_s: pump
+  pressure_bar: 24.234480770558097
+  dwell_s: 0
+  continues: false
+- name: gate_close 1
+  actuator: slide_gate
+  stroke_mm: 70.0
+  direction: extend
+  regeneration: false
+  speed_mm_s: 250.0
+  pressure_bar: 23.350231586075584
+  dwell_s: 0
+  continues: false
+- name: pre_up 1
+  actuator: precompaction
+  stroke_mm: 257.4074074074074
+  direction: retract
+  regeneration: false
+  speed_mm_s: 650.0
+  pressure_bar: 20.46814708816474
+  dwell_s: 0.5
+  continues: false

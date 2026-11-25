@@ -1,0 +1,129 @@
+{
+  "python": "3.13.17",
+  "model_run": {
+    "command": "python -B calc/X-1/x1_calc.py",
+    "status": "PASS",
+    "checks": [
+      "Analytical force and chamber travel",
+      "Constant-pressure quadrature and M-1 curve integral",
+      "Valve ordering and gate interlock",
+      "Pump power and pressure constraints",
+      "Accumulator charge balance",
+      "Pressure-limit rejection in sensitivity case",
+      "Single-load cavity capacity at reference and maximum product lengths"
+    ],
+    "dt_convergence": [
+      {
+        "overlap": false,
+        "accumulator": false,
+        "cycle_at_dt_0p005_s": 6.624999999999881,
+        "cycle_at_dt_0p0025_s": 6.6300000000003365,
+        "cycle_at_dt_0p00125_s": 6.633749999999751,
+        "absolute_coarse_fine_difference_s": 0.008749999999870361
+      },
+      {
+        "overlap": true,
+        "accumulator": false,
+        "cycle_at_dt_0p005_s": 6.074999999999893,
+        "cycle_at_dt_0p0025_s": 6.082500000000251,
+        "cycle_at_dt_0p00125_s": 6.083749999999861,
+        "absolute_coarse_fine_difference_s": 0.008749999999968061
+      },
+      {
+        "overlap": true,
+        "accumulator": true,
+        "cycle_at_dt_0p005_s": 5.864999999999897,
+        "cycle_at_dt_0p0025_s": 5.867500000000217,
+        "cycle_at_dt_0p00125_s": 5.869999999999903,
+        "absolute_coarse_fine_difference_s": 0.005000000000006111
+      }
+    ]
+  },
+  "gate_runs": {
+    "m1": {
+      "command": "python -B ops/gates/calc_gates.py --params design/params.m1.yaml --criteria ops/criteria/design_criteria.yaml --out calc/X-1/gates.m1.json",
+      "exit_code": 0,
+      "overall": "PASS",
+      "gates": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 230,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "PASS",
+          "value": 5.872055963129407,
+          "unit": "s"
+        }
+      },
+      "failed_cycle_checks": [],
+      "output": "calc/X-1/gates.m1.json"
+    },
+    "x1": {
+      "command": "python -B ops/gates/calc_gates.py --params calc/X-1/params.x1.yaml --criteria ops/criteria/design_criteria.yaml --out calc/X-1/gates.x1.json",
+      "exit_code": 1,
+      "overall": "FAIL",
+      "gates": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 230,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "FAIL",
+          "value": 6.349033197647526,
+          "unit": "s"
+        }
+      },
+      "failed_cycle_checks": [
+        "cycle_time_limit"
+      ],
+      "output": "calc/X-1/gates.x1.json"
+    }
+  },
+  "deterministic_outputs": {
+    "status": "PASS",
+    "files": [
+      "calc/X-1/x1_results.json",
+      "calc/X-1/params.x1.yaml",
+      "metrics.json"
+    ]
+  },
+  "output_consistency_and_flow_thresholds": "PASS",
+  "report_markdown_render": {
+    "status": "PASS",
+    "tables": 2,
+    "fenced_diagrams": 1
+  },
+  "scope": {
+    "status": "PASS",
+    "criteria_sha256": "db10c8799276113953451c474805dc97686438cb903a0d91ce98c193ea2a55a1",
+    "preexisting_untracked": [
+      "TASK.md"
+    ]
+  },
+  "incomplete": [
+    {
+      "item": "Primary sawdust compaction data at moisture 8?12% with DOI",
+      "status": "BLOCKED_LOCAL_SOURCE"
+    },
+    {
+      "item": "Pressure-ratio literature stop check at 1000 kg/m3",
+      "status": "UNKNOWN"
+    },
+    {
+      "item": "Primary ISO 3320 table",
+      "status": "UNVERIFIED_LOCAL_SOURCE"
+    }
+  ]
+}
