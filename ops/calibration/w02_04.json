@@ -1,0 +1,119 @@
+{
+  "schema": "rev.calibration/1",
+  "subject": "W02 iteration 04 (negative example, D-W02)",
+  "date": "2026-11-24",
+  "criteria_sha256": "db10c8799276113953451c474805dc97686438cb903a0d91ce98c193ea2a55a1",
+  "sources": {
+    "W02-A-V1": "ops/calibration/w02_A_V1.json",
+    "W02-B-V1": "ops/calibration/w02_B_V1.json",
+    "W02-04 params": "ops/calibration/w02_04_calc.json"
+  },
+  "gates": {
+    "G-ENV": {
+      "W02-A-V1": {
+        "status": "FAIL",
+        "value": [
+          4505.0,
+          3650.0,
+          3650.0
+        ],
+        "unit": "mm"
+      },
+      "W02-B-V1": {
+        "status": "FAIL",
+        "value": [
+          4505.0,
+          3650.0,
+          3650.0
+        ],
+        "unit": "mm"
+      },
+      "expected": "FAIL",
+      "match": true
+    },
+    "G-MASS": {
+      "W02-A-V1": {
+        "status": "FAIL",
+        "value": 139908.3565195209,
+        "unit": "kg"
+      },
+      "W02-B-V1": {
+        "status": "FAIL",
+        "value": 140939.42771297978,
+        "unit": "kg"
+      },
+      "expected": "FAIL",
+      "match": true
+    },
+    "G-COLL": {
+      "W02-A-V1": {
+        "status": "PASS",
+        "value": 0,
+        "unit": "mm3"
+      },
+      "W02-B-V1": {
+        "status": "PASS",
+        "value": 0,
+        "unit": "mm3"
+      },
+      "expected": "PASS",
+      "match": true
+    },
+    "G-FEED": {
+      "W02-A-V1": {
+        "status": "FAIL",
+        "value": null,
+        "unit": "mm2"
+      },
+      "W02-B-V1": {
+        "status": "FAIL",
+        "value": null,
+        "unit": "mm2"
+      },
+      "expected": "FAIL",
+      "match": true
+    },
+    "G-CLEAR": {
+      "W02-A-V1": {
+        "status": "FAIL",
+        "value": 5.5,
+        "unit": "mm"
+      },
+      "W02-B-V1": {
+        "status": "FAIL",
+        "value": 5.5,
+        "unit": "mm"
+      },
+      "expected": "FAIL",
+      "match": true
+    },
+    "G-PFACE": {
+      "W02-04 params": {
+        "status": "FAIL",
+        "value": 20.879442101307053,
+        "unit": "MPa"
+      },
+      "expected": "FAIL",
+      "match": true
+    },
+    "G-DOSE": {
+      "W02-04 params": {
+        "status": "FAIL",
+        "value": 740,
+        "unit": "mm"
+      },
+      "expected": "FAIL",
+      "match": true
+    },
+    "G-CYCLE": {
+      "W02-04 params": {
+        "status": "FAIL",
+        "value": 59.87518077346884,
+        "unit": "s"
+      },
+      "expected": "FAIL",
+      "match": true
+    }
+  },
+  "verdict": "MATCH"
+}

@@ -1,9 +1,0 @@
-PR54 интегрирован обычным merge `043271b57aa3d49b6d9b45da03496ea11dad41b1` от exact head `6ad3c2b2afcb8db4fefa810cf75f2f7c744c31b0`. Эта поставка сохраняет фактическую квитанцию и эстафету по прямому поручению пользователя; решение R1 и independent R5 WARNING не расширяются.
-
-Подтверждены родители main/head, дерево=exact head,14 исторических C/H ancestors. Свежий preflight280 PASS/0FAIL, оба head CI SUCCESS с registry PASS и по100 тестов. Main CI44032688799 SUCCESS: registry PASS и100 тестов. Postmerge проверки165 PASS/0FAIL; JSON/выдержки сохранены после фактического завершения. R5 C/H, target25/formal26 artifacts, R1 limited decision,54 pins/44 full bindings/loads/strokes/CAD и42 source-state объекта сохраняются.
-
-Claim owner actual R1 `6afb300b-1540-8191-a5c4-be1a684c20e0`, исходный deadline `2026-11-18T01:58:30.990734+00:00` не продлён. Owner/lease/accepted ledger неизменны; intake released/NONE. Task metadata получает факт интеграции, без нового назначения/claim или запуска следующего этапа. STATE/NEXT_MODEL/капсула обновляются на actual merge SHA; история сохраняется.
-
-Принят только предварительный DRAFT rev8 для документальной доработки с WARNING. ТЗ/G1 не утверждены. B01 критерии/допуски/владельцы, B02 программа/метрология, B03 безопасность/нормативная область и source power/pressure/moisture вопросы остаются OPEN. 40 scoped RAW/84 UNKNOWN/15 gaps не повышены и не закрыты; старые REJECT/STALE/счётчики и OBS01 exact-C closure сохранены.
-
-**42 состояния не рассчитаны; §4/5/6 NOT_RUN.** Прочность/устойчивость/реальные реакции/цикл не подтверждены. Архитектура/ТЗ NOT_APPROVED, G1 OPEN, W02/physical READY NO-GO. Численный/физический этап,CAD-build/rebuild и физические испытания не начинаются. Receipt публикуется отдельно с C/H; его интеграция не выполняется автоматически.

@@ -1,4 +1,4 @@
-name: REV minimal CI (temporary, T-0.0)
+name: REV CI (T-0.4: gates + tests)
 'on':
   push:
   pull_request:
@@ -36,4 +36,17 @@ jobs:
       - name: Local-only files are not committed
         run: test ! -e ORCHESTRATION_PLAN_OPUS.md
       - name: Unit tests (pure Python, FreeCAD tests skip themselves)
-        run: if [ -d tests/ops ]; then python -m pytest -q tests/ops; else echo "no tests/ops yet"; fi
+        run: python -m pytest -q tests/ops
+      - name: Calc gates calibration — W02-04 must FAIL (exit 1), synthetic must PASS (exit 0)
+        run: |
+          set +e
+          python ops/gates/calc_gates.py --params ops/calibration/w02_04_params.yaml --criteria ops/criteria/design_criteria.yaml --out /tmp/w02.json; e1=$?
+          python ops/gates/calc_gates.py --params design/params.example.yaml --criteria ops/criteria/design_criteria.yaml --out /tmp/syn.json; e2=$?
+          echo "w02=$e1 synthetic=$e2"; test $e1 -eq 1 && test $e2 -eq 0
+      - name: Calibration summary verdict is MATCH
+        run: python -c "import json,sys; v=json.load(open('ops/calibration/w02_04.json',encoding='utf-8'))['verdict']; print(v); sys.exit(v!='MATCH')"
+      - name: Runner dry-run probe (echo adapter)
+        run: |
+          git config --global user.email ci@example.invalid && git config --global user.name ci
+          git branch -f main HEAD 2>/dev/null || true
+          python ops/run_task.py --probe --dry-run
