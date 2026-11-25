@@ -47,7 +47,7 @@ def test_calibration_cli(tmp_path, path, expected, code):
     assert exit_code == code
     assert report["schema"] == "rev.gate_report/1"
     assert report["tool"] == "calc_gates"
-    assert report["criteria_version"] == 1
+    assert report["criteria_version"] == read_criteria(CRITERIA.read_bytes())["version"]
     assert report["criteria_sha256"] == hashlib.sha256(CRITERIA.read_bytes()).hexdigest()
     assert report["overall"] == expected
     assert [row["id"] for row in report["gates"]] == list(calc.GATES)

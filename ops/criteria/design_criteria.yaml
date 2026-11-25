@@ -1,7 +1,7 @@
 # REV — проектные критерии (единственный источник порогов для гейтов)
 # Изменять только ГК с подтверждением оператора; каждое изменение -> запись в DECISIONS.md.
 # Хэш этого файла проверяет G-SCOPE: исполнители его не трогают.
-version: 1
+version: 2                          # v2 25.11.2026: C-PROD-03 уточнён (D-OP-06)
 status: APPROVED_BY_DELEGATION      # оператор 21.11.2026: «если схема обеспечит параметры не хуже референса — утверждай»
 approved_by: "Оператор (делегировано ГК), запись D0 в DECISIONS.md"
 reference: "BP500 (sources/raw/Target_object_BP500.pdf); REV_DESIGN_BASIS r1 (coordination/tasks/T-R2-DESIGN-BASIS-02)"
@@ -20,7 +20,8 @@ criteria:
   # --- Продукт и производительность («не хуже референса») ---
   C-PROD-01: {what: "Сечение брикета", value_mm: [150, 60], tol_mm: 1.0, source: "BP500"}
   C-PROD-02: {what: "Длина брикета, регулируемая", range_mm: [40, 110], source: "BP500"}
-  C-PROD-03: {what: "Плотность брикета после выхода", min_kg_m3: 1000, source: "BP500 / REV_DESIGN_BASIS"}
+  C-PROD-03: {what: "Плотность брикета после выхода", min_kg_m3: 1000, measured_within_h: 1, die_state: "рабочая температура матрицы",
+              indicator_24h: "отдельный показатель, задаётся после натурного испытания", source: "BP500 / REV_DESIGN_BASIS; уточнено D-OP-06"}
   C-PROD-04: {what: "Механическая прочность DU", min_pct: 95, source: "DB-U-DURABILITY"}
   C-PERF-01: {what: "Производительность", min_kg_h: 498, briquette_kg: 0.83, max_cycle_s: 6.0, source: "BP500: 600 брикетов/ч"}
   C-PWR-01:  {what: "Главный привод / установленная мощность", max_main_kW: 30.0, max_installed_kW: 34.2, source: "BP500"}
