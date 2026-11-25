@@ -1,0 +1,1174 @@
+status: concept_stop
+definition: REV punch-face pressure vs mean bulk density under load; wet mass. Fit
+  stress is axial mean.
+inputs: sources.yaml
+density_domain_kg_m3:
+- 90
+- 1457
+domain_basis: Use the minimum measured solid-phase density in Horabik Table 4 (beech
+  1457); the text calls birch 1465 the minimum, but lists neither the lower beech
+  nor oak (1460). Keep the prior pooled-fit ceiling for converted observations at
+  1396 + 23 kg/m³ and retain higher density observations in the envelope as far as
+  the common calculation domain permits.
+base_model: power
+models:
+  power:
+    scale_MPa: 56.89401598364152
+    exponent: 4.052507610637413
+    source_errors:
+      zhong1991:
+        n_fit: 12
+        rmse_mean_pressure_MPa: 0.6475445630362922
+        bias_mean_pressure_MPa: 0.5326748013494007
+        rmse_log_pressure: 0.12852862348030009
+      li2000:
+        n_fit: 13
+        rmse_mean_pressure_MPa: 17.494581571981076
+        bias_mean_pressure_MPa: 7.506156143012697
+        rmse_log_pressure: 0.21526333228758562
+      krizan2015:
+        n_fit: 8
+        rmse_mean_pressure_MPa: 14.178137002365343
+        bias_mean_pressure_MPa: -5.690763320692181
+        rmse_log_pressure: 0.10814068692803426
+      horabik2023:
+        n_fit: 1
+        rmse_mean_pressure_MPa: 59.364347821764525
+        bias_mean_pressure_MPa: 59.364347821764525
+        rmse_log_pressure: 0.43644542401059344
+      spirchez2025:
+        n_fit: 3
+        rmse_mean_pressure_MPa: 68.07638587216826
+        bias_mean_pressure_MPa: -66.47293624131676
+        rmse_log_pressure: 0.6515711728727904
+    source_balanced_rmse_log_pressure: 0.37137095172056034
+  generalized_heckel:
+    scale_MPa: 27.537529904286252
+    exponent: 2.204866489897635
+    source_errors:
+      zhong1991:
+        n_fit: 12
+        rmse_mean_pressure_MPa: 1.1396070683885082
+        bias_mean_pressure_MPa: 1.0566743836798667
+        rmse_log_pressure: 0.4434030254800196
+      li2000:
+        n_fit: 13
+        rmse_mean_pressure_MPa: 19.24764071127396
+        bias_mean_pressure_MPa: -3.774032330424753
+        rmse_log_pressure: 0.2583948237585697
+      krizan2015:
+        n_fit: 8
+        rmse_mean_pressure_MPa: 11.93548851706309
+        bias_mean_pressure_MPa: -1.0431986171758374
+        rmse_log_pressure: 0.1811372891850817
+      horabik2023:
+        n_fit: 1
+        rmse_mean_pressure_MPa: 101.76742779618205
+        bias_mean_pressure_MPa: 101.76742779618205
+        rmse_log_pressure: 0.6616839310083669
+      spirchez2025:
+        n_fit: 3
+        rmse_mean_pressure_MPa: 81.91041586617703
+        bias_mean_pressure_MPa: -79.78683948229578
+        rmse_log_pressure: 0.8810846951674457
+    source_balanced_rmse_log_pressure: 0.5496036226402393
+formula:
+  onset: t = clamp((rho-rho_bulk)/(rho_join-rho_bulk), 0, 1); f = t*(2-t); delta =
+    max(rho-rho_ref,0)
+  rho_ref_kg_m3: 90
+  rho_join_kg_m3: 400
+  power: p_mean_MPa = scale_MPa * (delta/1000)**exponent * f
+  generalized_heckel: p_mean_MPa = scale_MPa * log(1+delta/(rho_limit-rho))**exponent
+    * f
+  rho_limit_kg_m3: 1511
+  janssen: q=4*K*mu*L/Dh; p_mean/p_face=-expm1(-q)/q; p_gate/p_face=exp(-q)
+  immediate_density: rho_loaded/((1+springback_axial)*(1+transverse_area_growth))
+  stabilized_density: same recovery mapping for conversion and prediction; linear
+    interpolation of knots
+K:
+  low: 0.35
+  base: 0.45
+  high: 0.6
+mu:
+  low: 0.23
+  base: 0.25
+  high: 0.3
+wall_values_used_for_curves: base
+springback:
+  low: 0.23
+  base: 0.23
+  high: 0.23
+transverse_area_growth: 0.03
+stabilization_knots_kg_m3:
+- rho_immediate: 0
+  rho_stabilized: 0
+- rho_immediate: 690
+  rho_stabilized: 620.0
+- rho_immediate: 850
+  rho_stabilized: 790.0
+- rho_immediate: 950
+  rho_stabilized: 870.0
+- rho_immediate: 980
+  rho_stabilized: 920.0
+- rho_immediate: 1040
+  rho_stabilized: 960.0
+- rho_immediate: 1070
+  rho_stabilized: 990.0
+- rho_immediate: 1090
+  rho_stabilized: 1030.0
+- rho_immediate: 1110
+  rho_stabilized: 1050.0
+- rho_immediate: 1140
+  rho_stabilized: 1075.0
+bulk_density_kg_m3:
+  base: 90
+  alternative: 160
+envelope:
+  basis: Bounds in punch pressure versus early external density (stabilized observations
+    are mapped using the same paired recovery relation as used in prediction). Include
+    raw face pressures as well as Janssen-transferred pressures. Monotone one-sided
+    interpolation of the measured extrema retains a small positive density slope (0.1
+    kg/m³/MPa, numerical/shape assumption). Include the base curve and continue beyond
+    the terminal knots with its pressure increment. K and mu for the bounds use their
+    base values. Horabik 1144 is checked at its own in-die unloaded state.
+  min_density_slope_kg_m3_per_MPa: 0.1
+  knots:
+    low:
+    - p_face_MPa: 0.0
+      rho_immediate_equivalent_kg_m3: 71.03954534690979
+    - p_face_MPa: 0.9337986531084217
+      rho_immediate_equivalent_kg_m3: 334.9908437919331
+    - p_face_MPa: 1.840761004593723
+      rho_immediate_equivalent_kg_m3: 381.79808982555846
+    - p_face_MPa: 2.674388656294422
+      rho_immediate_equivalent_kg_m3: 414.7918541321336
+    - p_face_MPa: 3.5342317669918453
+      rho_immediate_equivalent_kg_m3: 440.7608335306654
+    - p_face_MPa: 4.400318104421905
+      rho_immediate_equivalent_kg_m3: 462.8620254163707
+    - p_face_MPa: 5.246801715553896
+      rho_immediate_equivalent_kg_m3: 481.4112400347305
+    - p_face_MPa: 6.080767281521167
+      rho_immediate_equivalent_kg_m3: 498.6974504696504
+    - p_face_MPa: 6.958706596202358
+      rho_immediate_equivalent_kg_m3: 515.115557660431
+    - p_face_MPa: 7.794275009550781
+      rho_immediate_equivalent_kg_m3: 533.349119898966
+    - p_face_MPa: 8.644085851115936
+      rho_immediate_equivalent_kg_m3: 546.3730365458995
+    - p_face_MPa: 10.34556209013078
+      rho_immediate_equivalent_kg_m3: 569.6582208540533
+    - p_face_MPa: 13.66760472252933
+      rho_immediate_equivalent_kg_m3: 591.9962112242482
+    - p_face_MPa: 31
+      rho_immediate_equivalent_kg_m3: 690.0
+    - p_face_MPa: 32.511482233086575
+      rho_immediate_equivalent_kg_m3: 690.1511482233086
+    - p_face_MPa: 34
+      rho_immediate_equivalent_kg_m3: 796.943231441048
+    - p_face_MPa: 35.65549769827862
+      rho_immediate_equivalent_kg_m3: 797.1087812108759
+    - p_face_MPa: 36.240562328307625
+      rho_immediate_equivalent_kg_m3: 797.1672876738788
+    - p_face_MPa: 36.5965043663676
+      rho_immediate_equivalent_kg_m3: 797.2028818776848
+    - p_face_MPa: 36.59769558511397
+      rho_immediate_equivalent_kg_m3: 797.2030009995594
+    - p_face_MPa: 62.98856338714978
+      rho_immediate_equivalent_kg_m3: 850.0000000000001
+    - p_face_MPa: 63
+      rho_immediate_equivalent_kg_m3: 850.0011436612851
+    - p_face_MPa: 69
+      rho_immediate_equivalent_kg_m3: 950.8733624454148
+    - p_face_MPa: 69.80296482400595
+      rho_immediate_equivalent_kg_m3: 950.9536589278155
+    - p_face_MPa: 70.68084986897658
+      rho_immediate_equivalent_kg_m3: 951.0414474323126
+    - p_face_MPa: 71.37285566034565
+      rho_immediate_equivalent_kg_m3: 951.1106480114495
+    - p_face_MPa: 71.73401460629849
+      rho_immediate_equivalent_kg_m3: 951.1467639060447
+    - p_face_MPa: 92.91699829852912
+      rho_immediate_equivalent_kg_m3: 953.2650622752677
+    - p_face_MPa: 95
+      rho_immediate_equivalent_kg_m3: 953.4733624454149
+    - p_face_MPa: 102.80868689420411
+      rho_immediate_equivalent_kg_m3: 1024.0174672489084
+    - p_face_MPa: 103
+      rho_immediate_equivalent_kg_m3: 1024.0365985594879
+    - p_face_MPa: 103.8499584011249
+      rho_immediate_equivalent_kg_m3: 1024.1215943996003
+    - p_face_MPa: 104.94149253411477
+      rho_immediate_equivalent_kg_m3: 1024.2307478128994
+    - p_face_MPa: 105.24790778492209
+      rho_immediate_equivalent_kg_m3: 1024.26138933798
+    - p_face_MPa: 120
+      rho_immediate_equivalent_kg_m3: 1101.902281158734
+    - p_face_MPa: 123.50293195423484
+      rho_immediate_equivalent_kg_m3: 1102.2525743541576
+    - p_face_MPa: 127
+      rho_immediate_equivalent_kg_m3: 1102.602281158734
+    - p_face_MPa: 128.38633454672333
+      rho_immediate_equivalent_kg_m3: 1102.7409146134064
+    - p_face_MPa: 128.570108223068
+      rho_immediate_equivalent_kg_m3: 1102.7592919810409
+    - p_face_MPa: 129.16576913557515
+      rho_immediate_equivalent_kg_m3: 1102.8188580722915
+    - p_face_MPa: 129.6303879308861
+      rho_immediate_equivalent_kg_m3: 1102.8653199518226
+    - p_face_MPa: 130.03282831131872
+      rho_immediate_equivalent_kg_m3: 1102.9055639898659
+    - p_face_MPa: 130.04086833709985
+      rho_immediate_equivalent_kg_m3: 1102.906367992444
+    - p_face_MPa: 130.35762434319375
+      rho_immediate_equivalent_kg_m3: 1102.9380435930534
+    - p_face_MPa: 136.92586915847218
+      rho_immediate_equivalent_kg_m3: 1103.5948680745812
+    - p_face_MPa: 137.54375584964538
+      rho_immediate_equivalent_kg_m3: 1103.6566567436985
+    - p_face_MPa: 138
+      rho_immediate_equivalent_kg_m3: 1103.702281158734
+    - p_face_MPa: 138.2152742020918
+      rho_immediate_equivalent_kg_m3: 1103.7238085789431
+    - p_face_MPa: 139.1323476847732
+      rho_immediate_equivalent_kg_m3: 1103.8155159272114
+    - p_face_MPa: 139.59468127749182
+      rho_immediate_equivalent_kg_m3: 1103.8617492864832
+    - p_face_MPa: 140
+      rho_immediate_equivalent_kg_m3: 1103.902281158734
+    - p_face_MPa: 153.00052279886398
+      rho_immediate_equivalent_kg_m3: 1105.2023334386204
+    - p_face_MPa: 159
+      rho_immediate_equivalent_kg_m3: 1105.802281158734
+    - p_face_MPa: 160
+      rho_immediate_equivalent_kg_m3: 1105.902281158734
+    - p_face_MPa: 163.33988858096922
+      rho_immediate_equivalent_kg_m3: 1106.236270016831
+    - p_face_MPa: 180
+      rho_immediate_equivalent_kg_m3: 1107.902281158734
+    - p_face_MPa: 182.90548472173444
+      rho_immediate_equivalent_kg_m3: 1108.1928296309075
+    - p_face_MPa: 186.61560463408063
+      rho_immediate_equivalent_kg_m3: 1108.563841622142
+    - p_face_MPa: 191
+      rho_immediate_equivalent_kg_m3: 1109.002281158734
+    - p_face_MPa: 206.27286171052694
+      rho_immediate_equivalent_kg_m3: 1110.5295673297867
+    - p_face_MPa: 212.89178994150436
+      rho_immediate_equivalent_kg_m3: 1111.1914601528845
+    - p_face_MPa: 223
+      rho_immediate_equivalent_kg_m3: 1112.202281158734
+    - p_face_MPa: 242.71785245441112
+      rho_immediate_equivalent_kg_m3: 1114.1740664041752
+    - p_face_MPa: 255
+      rho_immediate_equivalent_kg_m3: 1115.402281158734
+    - p_face_MPa: 271.06368354665733
+      rho_immediate_equivalent_kg_m3: 1140.0
+    - p_face_MPa: 271.2907328658841
+      rho_immediate_equivalent_kg_m3: 1140.0227049319226
+    - p_face_MPa: 286
+      rho_immediate_equivalent_kg_m3: 1141.493631645334
+    - p_face_MPa: 301.1842305429214
+      rho_immediate_equivalent_kg_m3: 1145.0
+    - p_face_MPa: 301.3924873001295
+      rho_immediate_equivalent_kg_m3: 1145.0208256757207
+    - p_face_MPa: 318
+      rho_immediate_equivalent_kg_m3: 1146.6815769457078
+    high:
+    - p_face_MPa: 0.0
+      rho_immediate_equivalent_kg_m3: 71.03954534690979
+    - p_face_MPa: 0.9337986531084217
+      rho_immediate_equivalent_kg_m3: 334.9908437919331
+    - p_face_MPa: 1.840761004593723
+      rho_immediate_equivalent_kg_m3: 381.79808982555846
+    - p_face_MPa: 2.674388656294422
+      rho_immediate_equivalent_kg_m3: 414.7918541321336
+    - p_face_MPa: 3.5342317669918453
+      rho_immediate_equivalent_kg_m3: 440.7608335306654
+    - p_face_MPa: 4.400318104421905
+      rho_immediate_equivalent_kg_m3: 462.8620254163707
+    - p_face_MPa: 5.246801715553896
+      rho_immediate_equivalent_kg_m3: 481.4112400347305
+    - p_face_MPa: 6.080767281521167
+      rho_immediate_equivalent_kg_m3: 498.6974504696504
+    - p_face_MPa: 6.958706596202358
+      rho_immediate_equivalent_kg_m3: 515.115557660431
+    - p_face_MPa: 7.794275009550781
+      rho_immediate_equivalent_kg_m3: 533.349119898966
+    - p_face_MPa: 8.644085851115936
+      rho_immediate_equivalent_kg_m3: 546.3730365458995
+    - p_face_MPa: 10.34556209013078
+      rho_immediate_equivalent_kg_m3: 569.6582208540533
+    - p_face_MPa: 13.66760472252933
+      rho_immediate_equivalent_kg_m3: 591.9962112242482
+    - p_face_MPa: 31
+      rho_immediate_equivalent_kg_m3: 689.8488517766914
+    - p_face_MPa: 32.511482233086575
+      rho_immediate_equivalent_kg_m3: 690.0
+    - p_face_MPa: 34
+      rho_immediate_equivalent_kg_m3: 712.0636434908812
+    - p_face_MPa: 35.65549769827862
+      rho_immediate_equivalent_kg_m3: 712.229193260709
+    - p_face_MPa: 36.240562328307625
+      rho_immediate_equivalent_kg_m3: 712.287699723712
+    - p_face_MPa: 36.5965043663676
+      rho_immediate_equivalent_kg_m3: 712.323293927518
+    - p_face_MPa: 36.59769558511397
+      rho_immediate_equivalent_kg_m3: 712.3234130493926
+    - p_face_MPa: 62.98856338714978
+      rho_immediate_equivalent_kg_m3: 828.6578204637404
+    - p_face_MPa: 63
+      rho_immediate_equivalent_kg_m3: 828.6589641250255
+    - p_face_MPa: 69
+      rho_immediate_equivalent_kg_m3: 829.2589641250255
+    - p_face_MPa: 69.80296482400595
+      rho_immediate_equivalent_kg_m3: 829.3392606074261
+    - p_face_MPa: 70.68084986897658
+      rho_immediate_equivalent_kg_m3: 829.4270491119232
+    - p_face_MPa: 71.37285566034565
+      rho_immediate_equivalent_kg_m3: 829.4962496910601
+    - p_face_MPa: 71.73401460629849
+      rho_immediate_equivalent_kg_m3: 829.5323655856554
+    - p_face_MPa: 92.91699829852912
+      rho_immediate_equivalent_kg_m3: 872.9577109717558
+    - p_face_MPa: 95
+      rho_immediate_equivalent_kg_m3: 873.1660111419029
+    - p_face_MPa: 102.80868689420411
+      rho_immediate_equivalent_kg_m3: 873.9468798313234
+    - p_face_MPa: 103
+      rho_immediate_equivalent_kg_m3: 873.9660111419029
+    - p_face_MPa: 103.8499584011249
+      rho_immediate_equivalent_kg_m3: 874.0510069820155
+    - p_face_MPa: 104.94149253411477
+      rho_immediate_equivalent_kg_m3: 874.1601603953144
+    - p_face_MPa: 105.24790778492209
+      rho_immediate_equivalent_kg_m3: 874.1908019203951
+    - p_face_MPa: 120
+      rho_immediate_equivalent_kg_m3: 875.6660111419029
+    - p_face_MPa: 123.50293195423484
+      rho_immediate_equivalent_kg_m3: 876.0163043373263
+    - p_face_MPa: 127
+      rho_immediate_equivalent_kg_m3: 876.366011141903
+    - p_face_MPa: 128.38633454672333
+      rho_immediate_equivalent_kg_m3: 876.5046445965752
+    - p_face_MPa: 128.570108223068
+      rho_immediate_equivalent_kg_m3: 876.5230219642098
+    - p_face_MPa: 129.16576913557515
+      rho_immediate_equivalent_kg_m3: 876.5825880554604
+    - p_face_MPa: 129.6303879308861
+      rho_immediate_equivalent_kg_m3: 876.6290499349915
+    - p_face_MPa: 130.03282831131872
+      rho_immediate_equivalent_kg_m3: 876.6692939730348
+    - p_face_MPa: 130.04086833709985
+      rho_immediate_equivalent_kg_m3: 876.6700979756129
+    - p_face_MPa: 130.35762434319375
+      rho_immediate_equivalent_kg_m3: 876.7017735762223
+    - p_face_MPa: 136.92586915847218
+      rho_immediate_equivalent_kg_m3: 877.3585980577501
+    - p_face_MPa: 137.54375584964538
+      rho_immediate_equivalent_kg_m3: 877.4203867268675
+    - p_face_MPa: 138
+      rho_immediate_equivalent_kg_m3: 877.4660111419029
+    - p_face_MPa: 138.2152742020918
+      rho_immediate_equivalent_kg_m3: 877.4875385621121
+    - p_face_MPa: 139.1323476847732
+      rho_immediate_equivalent_kg_m3: 877.5792459103802
+    - p_face_MPa: 139.59468127749182
+      rho_immediate_equivalent_kg_m3: 877.6254792696521
+    - p_face_MPa: 140
+      rho_immediate_equivalent_kg_m3: 877.6660111419029
+    - p_face_MPa: 153.00052279886398
+      rho_immediate_equivalent_kg_m3: 878.9660634217893
+    - p_face_MPa: 159
+      rho_immediate_equivalent_kg_m3: 879.5660111419029
+    - p_face_MPa: 160
+      rho_immediate_equivalent_kg_m3: 879.6660111419029
+    - p_face_MPa: 163.33988858096922
+      rho_immediate_equivalent_kg_m3: 879.9999999999999
+    - p_face_MPa: 180
+      rho_immediate_equivalent_kg_m3: 899.3384395365921
+    - p_face_MPa: 182.90548472173444
+      rho_immediate_equivalent_kg_m3: 899.6289880087655
+    - p_face_MPa: 186.61560463408063
+      rho_immediate_equivalent_kg_m3: 900.0000000000001
+    - p_face_MPa: 191
+      rho_immediate_equivalent_kg_m3: 1028.4727138289472
+    - p_face_MPa: 206.27286171052694
+      rho_immediate_equivalent_kg_m3: 1030.0
+    - p_face_MPa: 212.89178994150436
+      rho_immediate_equivalent_kg_m3: 1088.9891789941505
+    - p_face_MPa: 223
+      rho_immediate_equivalent_kg_m3: 1090.0
+    - p_face_MPa: 242.71785245441112
+      rho_immediate_equivalent_kg_m3: 1108.7717852454412
+    - p_face_MPa: 255
+      rho_immediate_equivalent_kg_m3: 1110.0
+    - p_face_MPa: 271.06368354665733
+      rho_immediate_equivalent_kg_m3: 1132.506368354666
+    - p_face_MPa: 271.2907328658841
+      rho_immediate_equivalent_kg_m3: 1132.5290732865885
+    - p_face_MPa: 286
+      rho_immediate_equivalent_kg_m3: 1134.0
+    - p_face_MPa: 301.1842305429214
+      rho_immediate_equivalent_kg_m3: 1138.3184230542922
+    - p_face_MPa: 301.3924873001295
+      rho_immediate_equivalent_kg_m3: 1138.339248730013
+    - p_face_MPa: 318
+      rho_immediate_equivalent_kg_m3: 1140.0
+table:
+- rho_loaded_kg_m3: 90
+  p_MPa:
+    low: 0.0
+    base: 0.0
+    high: 0.0
+- rho_loaded_kg_m3: 115
+  p_MPa:
+    low: 1.211e-05
+    base: 1.211e-05
+    high: 0.06981152
+- rho_loaded_kg_m3: 140
+  p_MPa:
+    low: 0.00032175
+    base: 0.00032175
+    high: 0.13962305
+- rho_loaded_kg_m3: 160
+  p_MPa:
+    low: 0.00151365
+    base: 0.00151365
+    high: 0.19547226
+- rho_loaded_kg_m3: 165
+  p_MPa:
+    low: 0.00207117
+    base: 0.00207117
+    high: 0.20943457
+- rho_loaded_kg_m3: 190
+  p_MPa:
+    low: 0.00754141
+    base: 0.00754141
+    high: 0.27924609
+- rho_loaded_kg_m3: 215
+  p_MPa:
+    low: 0.02017936
+    base: 0.02017936
+    high: 0.34905762
+- rho_loaded_kg_m3: 240
+  p_MPa:
+    low: 0.04450445
+    base: 0.04450445
+    high: 0.41886914
+- rho_loaded_kg_m3: 265
+  p_MPa:
+    low: 0.08591649
+    base: 0.08591649
+    high: 0.48868066
+- rho_loaded_kg_m3: 290
+  p_MPa:
+    low: 0.15040441
+    base: 0.15040441
+    high: 0.55849218
+- rho_loaded_kg_m3: 315
+  p_MPa:
+    low: 0.24415283
+    base: 0.24415283
+    high: 0.62830371
+- rho_loaded_kg_m3: 340
+  p_MPa:
+    low: 0.37304411
+    base: 0.37304411
+    high: 0.69811523
+- rho_loaded_kg_m3: 365
+  p_MPa:
+    low: 0.54205426
+    base: 0.54205426
+    high: 0.76792675
+- rho_loaded_kg_m3: 390
+  p_MPa:
+    low: 0.75454138
+    base: 0.75454138
+    high: 0.83773828
+- rho_loaded_kg_m3: 400
+  p_MPa:
+    low: 0.85201838
+    base: 0.85201838
+    high: 0.86566289
+- rho_loaded_kg_m3: 415
+  p_MPa:
+    low: 0.9075498
+    base: 1.01379933
+    high: 1.01379933
+- rho_loaded_kg_m3: 440
+  p_MPa:
+    low: 1.17239359
+    base: 1.33244489
+    high: 1.33244489
+- rho_loaded_kg_m3: 461
+  p_MPa:
+    low: 1.49357701
+    base: 1.65284048
+    high: 1.65284048
+- rho_loaded_kg_m3: 465
+  p_MPa:
+    low: 1.55475481
+    base: 1.71980404
+    high: 1.71980404
+- rho_loaded_kg_m3: 490
+  p_MPa:
+    low: 1.96640405
+    base: 2.18498302
+    high: 2.18498302
+- rho_loaded_kg_m3: 515
+  p_MPa:
+    low: 2.46498757
+    base: 2.73765622
+    high: 2.73765622
+- rho_loaded_kg_m3: 540
+  p_MPa:
+    low: 3.05335094
+    base: 3.38806799
+    high: 3.38806799
+- rho_loaded_kg_m3: 565
+  p_MPa:
+    low: 3.73838378
+    base: 4.14703426
+    high: 4.14703426
+- rho_loaded_kg_m3: 590
+  p_MPa:
+    low: 4.52999579
+    base: 5.02594416
+    high: 5.02594416
+- rho_loaded_kg_m3: 615
+  p_MPa:
+    low: 5.44101757
+    base: 6.03676148
+    high: 6.03676148
+- rho_loaded_kg_m3: 640
+  p_MPa:
+    low: 6.42688475
+    base: 7.19202605
+    high: 7.19202605
+- rho_loaded_kg_m3: 665
+  p_MPa:
+    low: 7.4072385
+    base: 8.50485516
+    high: 8.50485516
+- rho_loaded_kg_m3: 690
+  p_MPa:
+    low: 8.53077774
+    base: 9.98894477
+    high: 9.98894477
+- rho_loaded_kg_m3: 715
+  p_MPa:
+    low: 9.95912511
+    base: 11.65857078
+    high: 11.65857078
+- rho_loaded_kg_m3: 740
+  p_MPa:
+    low: 12.49373807
+    base: 13.5285902
+    high: 13.5285902
+- rho_loaded_kg_m3: 765
+  p_MPa:
+    low: 15.61444232
+    base: 15.61444232
+    high: 15.7647811
+- rho_loaded_kg_m3: 790
+  p_MPa:
+    low: 17.93214978
+    base: 17.93214978
+    high: 19.26007508
+- rho_loaded_kg_m3: 815
+  p_MPa:
+    low: 20.49831963
+    base: 20.49831963
+    high: 22.75536905
+- rho_loaded_kg_m3: 840
+  p_MPa:
+    low: 23.33014439
+    base: 23.33014439
+    high: 26.25066302
+- rho_loaded_kg_m3: 865
+  p_MPa:
+    low: 26.44540301
+    base: 26.44540301
+    high: 29.74595699
+- rho_loaded_kg_m3: 890
+  p_MPa:
+    low: 29.86246188
+    base: 29.86246188
+    high: 33.35493781
+- rho_loaded_kg_m3: 915
+  p_MPa:
+    low: 32.95868716
+    base: 33.60027572
+    high: 38.84625948
+- rho_loaded_kg_m3: 940
+  p_MPa:
+    low: 33.23373778
+    base: 37.67838852
+    high: 43.32280662
+- rho_loaded_kg_m3: 965
+  p_MPa:
+    low: 33.50878841
+    base: 42.11693442
+    high: 47.79935375
+- rho_loaded_kg_m3: 990
+  p_MPa:
+    low: 33.78383903
+    base: 46.93663857
+    high: 52.27590089
+- rho_loaded_kg_m3: 1000
+  p_MPa:
+    low: 33.89385928
+    base: 48.97599965
+    high: 54.06651975
+- rho_loaded_kg_m3: 1015
+  p_MPa:
+    low: 38.57972485
+    base: 52.15881798
+    high: 56.75244803
+- rho_loaded_kg_m3: 1040
+  p_MPa:
+    low: 48.44347598
+    base: 57.80538234
+    high: 61.22899516
+- rho_loaded_kg_m3: 1065
+  p_MPa:
+    low: 58.3072271
+    base: 63.89883477
+    high: 77.1497199
+- rho_loaded_kg_m3: 1090
+  p_MPa:
+    low: 63.6166227
+    base: 70.4622727
+    high: 86.77562383
+- rho_loaded_kg_m3: 1115
+  p_MPa:
+    low: 64.79037741
+    base: 77.51938854
+    high: 163.42692963
+- rho_loaded_kg_m3: 1140
+  p_MPa:
+    low: 65.96413213
+    base: 85.09447046
+    high: 184.95801524
+- rho_loaded_kg_m3: 1165
+  p_MPa:
+    low: 67.13788684
+    base: 93.21240313
+    high: 187.28338401
+- rho_loaded_kg_m3: 1190
+  p_MPa:
+    low: 68.31164155
+    base: 101.89866841
+    high: 187.95682025
+- rho_loaded_kg_m3: 1215
+  p_MPa:
+    low: 95.61550432
+    base: 111.17934607
+    high: 188.63025649
+- rho_loaded_kg_m3: 1240
+  p_MPa:
+    low: 97.79981775
+    base: 121.08111444
+    high: 189.30369273
+- rho_loaded_kg_m3: 1250
+  p_MPa:
+    low: 98.67354312
+    base: 125.22181722
+    high: 189.57306723
+- rho_loaded_kg_m3: 1265
+  p_MPa:
+    low: 99.98413117
+    base: 131.63125113
+    high: 189.97712898
+- rho_loaded_kg_m3: 1290
+  p_MPa:
+    low: 102.1684446
+    base: 142.85763363
+    high: 190.65056522
+- rho_loaded_kg_m3: 1315
+  p_MPa:
+    low: 107.85197195
+    base: 154.78873999
+    high: 207.1667706
+- rho_loaded_kg_m3: 1340
+  p_MPa:
+    low: 111.60136333
+    base: 167.45364946
+    high: 209.38095096
+- rho_loaded_kg_m3: 1365
+  p_MPa:
+    low: 115.3507547
+    base: 180.88204306
+    high: 211.59513131
+- rho_loaded_kg_m3: 1390
+  p_MPa:
+    low: 119.10014607
+    base: 195.10420423
+    high: 230.52748182
+- rho_loaded_kg_m3: 1415
+  p_MPa:
+    low: 210.15101945
+    base: 210.15101945
+    high: 259.92445872
+- rho_loaded_kg_m3: 1440
+  p_MPa:
+    low: 226.05397874
+    base: 226.05397874
+    high: 295.25706241
+- rho_loaded_kg_m3: 1457
+  p_MPa:
+    low: 237.37337265
+    base: 237.37337265
+    high: 326.51789182
+face_to_density_table:
+- p_face_MPa: 0
+  low:
+    rho_loaded_kg_m3: 90.0
+    rho_immediate_kg_m3: 71.03954534690979
+    rho_stabilized_kg_m3: 63.8326349493972
+  base:
+    rho_loaded_kg_m3: 90.0
+    rho_immediate_kg_m3: 71.03954534690979
+    rho_stabilized_kg_m3: 63.8326349493972
+  high:
+    rho_loaded_kg_m3: 90.0
+    rho_immediate_kg_m3: 71.03954534690979
+    rho_stabilized_kg_m3: 63.8326349493972
+- p_face_MPa: 10
+  low:
+    rho_loaded_kg_m3: 715.7086840914333
+    rho_immediate_kg_m3: 564.9291057632278
+    rho_stabilized_kg_m3: 507.6174573524655
+  base:
+    rho_loaded_kg_m3: 690.1754707828655
+    rho_immediate_kg_m3: 544.7750183778243
+    rho_stabilized_kg_m3: 489.50798752790007
+  high:
+    rho_loaded_kg_m3: 690.1754707828657
+    rho_immediate_kg_m3: 544.7750183778244
+    rho_stabilized_kg_m3: 489.5079875279002
+- p_face_MPa: 20
+  low:
+    rho_loaded_kg_m3: 810.336551203924
+    rho_immediate_kg_m3: 639.6215575056627
+    rho_stabilized_kg_m3: 574.7324139905955
+  base:
+    rho_loaded_kg_m3: 810.336551203924
+    rho_immediate_kg_m3: 639.6215575056627
+    rho_stabilized_kg_m3: 574.7324139905955
+  high:
+    rho_loaded_kg_m3: 795.2922939448017
+    rho_immediate_kg_m3: 627.746699774885
+    rho_stabilized_kg_m3: 564.0622519716358
+- p_face_MPa: 30
+  low:
+    rho_loaded_kg_m3: 890.9603563782448
+    rho_immediate_kg_m3: 703.2602071025691
+    rho_stabilized_kg_m3: 634.0889700464796
+  base:
+    rho_loaded_kg_m3: 890.9603563782448
+    rho_immediate_kg_m3: 703.2602071025691
+    rho_stabilized_kg_m3: 634.0889700464796
+  high:
+    rho_loaded_kg_m3: 866.8170361002977
+    rho_immediate_kg_m3: 684.2032015946781
+    rho_stabilized_kg_m3: 614.7912825923195
+- p_face_MPa: 31
+  low:
+    rho_loaded_kg_m3: 897.8453803850153
+    rho_immediate_kg_m3: 708.6947512708307
+    rho_stabilized_kg_m3: 639.8631732252576
+  base:
+    rho_loaded_kg_m3: 897.8453803850091
+    rho_immediate_kg_m3: 708.6947512708258
+    rho_stabilized_kg_m3: 639.8631732252525
+  high:
+    rho_loaded_kg_m3: 873.9695103157975
+    rho_immediate_kg_m3: 689.8488517766182
+    rho_stabilized_kg_m3: 619.8641856543526
+- p_face_MPa: 34
+  low:
+    rho_loaded_kg_m3: 1009.647379912663
+    rho_immediate_kg_m3: 796.9432314410475
+    rho_stabilized_kg_m3: 733.627183406113
+  base:
+    rho_loaded_kg_m3: 917.5479425606057
+    rho_immediate_kg_m3: 724.2465408166436
+    rho_stabilized_kg_m3: 656.3869496176837
+  high:
+    rho_loaded_kg_m3: 902.1134299384852
+    rho_immediate_kg_m3: 712.0636434907926
+    rho_stabilized_kg_m3: 643.4426212089671
+- p_face_MPa: 40
+  low:
+    rho_loaded_kg_m3: 1018.5997338396108
+    rho_immediate_kg_m3: 804.0095775827697
+    rho_stabilized_kg_m3: 741.1351761816928
+  base:
+    rho_loaded_kg_m3: 953.3363969200669
+    rho_immediate_kg_m3: 752.4953799984743
+    rho_stabilized_kg_m3: 686.4013412483789
+  high:
+    rho_loaded_kg_m3: 921.4432501325817
+    rho_immediate_kg_m3: 727.3212172488609
+    rho_stabilized_kg_m3: 659.6537933269146
+- p_face_MPa: 50
+  low:
+    rho_loaded_kg_m3: 1043.9450610700017
+    rho_immediate_kg_m3: 824.0153611729432
+    rho_stabilized_kg_m3: 762.3913212462522
+  base:
+    rho_loaded_kg_m3: 1004.9037409154391
+    rho_immediate_kg_m3: 793.1989430226847
+    rho_stabilized_kg_m3: 729.6488769616025
+  high:
+    rho_loaded_kg_m3: 977.2898641427009
+    rho_immediate_kg_m3: 771.4025291204523
+    rho_stabilized_kg_m3: 706.4901871904806
+- p_face_MPa: 60
+  low:
+    rho_loaded_kg_m3: 1069.2903883003924
+    rho_immediate_kg_m3: 844.0211447631166
+    rho_stabilized_kg_m3: 783.6474663108113
+  base:
+    rho_loaded_kg_m3: 1049.2224074174471
+    rho_immediate_kg_m3: 828.180919896951
+    rho_stabilized_kg_m3: 766.8172273905104
+  high:
+    rho_loaded_kg_m3: 1033.13647815282
+    rho_immediate_kg_m3: 815.4838409920436
+    rho_stabilized_kg_m3: 753.3265810540463
+- p_face_MPa: 63
+  low:
+    rho_loaded_kg_m3: 1076.866448904482
+    rho_immediate_kg_m3: 850.0011436612851
+    rho_stabilized_kg_m3: 790.0009149290281
+  base:
+    rho_loaded_kg_m3: 1061.4281235702963
+    rho_immediate_kg_m3: 837.8152368539714
+    rho_stabilized_kg_m3: 777.0536891573447
+  high:
+    rho_loaded_kg_m3: 1049.8280416499947
+    rho_immediate_kg_m3: 828.6589641250255
+    rho_stabilized_kg_m3: 767.3251493828395
+- p_face_MPa: 69
+  low:
+    rho_loaded_kg_m3: 1204.6614628820957
+    rho_immediate_kg_m3: 950.8733624454146
+    rho_stabilized_kg_m3: 871.455604075691
+  base:
+    rho_loaded_kg_m3: 1084.5865984382694
+    rho_immediate_kg_m3: 856.0948760267341
+    rho_stabilized_kg_m3: 794.8759008213873
+  high:
+    rho_loaded_kg_m3: 1050.5881816499948
+    rho_immediate_kg_m3: 829.2589641250255
+    rho_stabilized_kg_m3: 767.9626493828396
+- p_face_MPa: 70
+  low:
+    rho_loaded_kg_m3: 1204.788152882096
+    rho_immediate_kg_m3: 950.9733624454149
+    rho_stabilized_kg_m3: 871.6222707423581
+  base:
+    rho_loaded_kg_m3: 1088.297837743556
+    rho_immediate_kg_m3: 859.0242621703024
+    rho_stabilized_kg_m3: 797.2194097362419
+  high:
+    rho_loaded_kg_m3: 1050.7148716499948
+    rho_immediate_kg_m3: 829.3589641250256
+    rho_stabilized_kg_m3: 768.0688993828397
+- p_face_MPa: 80
+  low:
+    rho_loaded_kg_m3: 1206.0550528820959
+    rho_immediate_kg_m3: 951.9733624454148
+    rho_stabilized_kg_m3: 873.2889374090246
+  base:
+    rho_loaded_kg_m3: 1123.381261279697
+    rho_immediate_kg_m3: 886.7166005838637
+    rho_stabilized_kg_m3: 819.373280467091
+  high:
+    rho_loaded_kg_m3: 1072.4026297153564
+    rho_immediate_kg_m3: 846.4777249312151
+    rho_stabilized_kg_m3: 786.2575827394161
+- p_face_MPa: 90
+  low:
+    rho_loaded_kg_m3: 1207.321952882096
+    rho_immediate_kg_m3: 952.9733624454149
+    rho_stabilized_kg_m3: 874.9556040756914
+  base:
+    rho_loaded_kg_m3: 1155.3104493237156
+    rho_immediate_kg_m3: 911.9192117165646
+    rho_stabilized_kg_m3: 839.5353693732517
+  high:
+    rho_loaded_kg_m3: 1098.3742165650779
+    rho_immediate_kg_m3: 866.9778329505706
+    rho_stabilized_kg_m3: 803.5822663604565
+- p_face_MPa: 95
+  low:
+    rho_loaded_kg_m3: 1207.955402882096
+    rho_immediate_kg_m3: 953.4733624454149
+    rho_stabilized_kg_m3: 875.7889374090248
+  base:
+    rho_loaded_kg_m3: 1170.2837162389935
+    rho_immediate_kg_m3: 923.7380347612232
+    rho_stabilized_kg_m3: 848.9904278089786
+  high:
+    rho_loaded_kg_m3: 1106.2140195156767
+    rho_immediate_kg_m3: 873.1660111419029
+    rho_stabilized_kg_m3: 808.5328089135223
+- p_face_MPa: 100
+  low:
+    rho_loaded_kg_m3: 1265.1816225948853
+    rho_immediate_kg_m3: 998.6436361156251
+    rho_stabilized_kg_m3: 932.4290907437501
+  base:
+    rho_loaded_kg_m3: 1184.6762260548487
+    rho_immediate_kg_m3: 935.0984498025485
+    rho_stabilized_kg_m3: 858.0787598420388
+  high:
+    rho_loaded_kg_m3: 1106.8474695156767
+    rho_immediate_kg_m3: 873.6660111419029
+    rho_stabilized_kg_m3: 808.9328089135223
+- p_face_MPa: 103
+  low:
+    rho_loaded_kg_m3: 1297.3519667150151
+    rho_immediate_kg_m3: 1024.0365985594879
+    rho_stabilized_kg_m3: 949.3577323729919
+  base:
+    rho_loaded_kg_m3: 1193.054013560007
+    rho_immediate_kg_m3: 941.711274417876
+    rho_stabilized_kg_m3: 863.3690195343008
+  high:
+    rho_loaded_kg_m3: 1107.2275395156767
+    rho_immediate_kg_m3: 873.9660111419029
+    rho_stabilized_kg_m3: 809.1728089135223
+- p_face_MPa: 110
+  low:
+    rho_loaded_kg_m3: 1329.3225115369214
+    rho_immediate_kg_m3: 1049.2718537666126
+    rho_stabilized_kg_m3: 969.2718537666126
+  base:
+    rho_loaded_kg_m3: 1211.9122029704097
+    rho_immediate_kg_m3: 956.5965766598862
+    rho_stabilized_kg_m3: 880.9942944331436
+  high:
+    rho_loaded_kg_m3: 1108.1143695156768
+    rho_immediate_kg_m3: 874.666011141903
+    rho_stabilized_kg_m3: 809.7328089135224
+- p_face_MPa: 120
+  low:
+    rho_loaded_kg_m3: 1395.9999999995282
+    rho_immediate_kg_m3: 1101.9022811583616
+    rho_stabilized_kg_m3: 1041.9022811583616
+  base:
+    rho_loaded_kg_m3: 1237.346829780372
+    rho_immediate_kg_m3: 976.6728469337534
+    rho_stabilized_kg_m3: 914.4547448895889
+  high:
+    rho_loaded_kg_m3: 1109.3812695156766
+    rho_immediate_kg_m3: 875.6660111419028
+    rho_stabilized_kg_m3: 810.5328089135222
+- p_face_MPa: 127
+  low:
+    rho_loaded_kg_m3: 1396.88683
+    rho_immediate_kg_m3: 1102.6022811587338
+    rho_stabilized_kg_m3: 1042.6022811587338
+  base:
+    rho_loaded_kg_m3: 1254.2182380774434
+    rho_immediate_kg_m3: 989.9899266535981
+    rho_stabilized_kg_m3: 926.6599511023987
+  high:
+    rho_loaded_kg_m3: 1110.2680995156768
+    rho_immediate_kg_m3: 876.366011141903
+    rho_stabilized_kg_m3: 811.0928089135224
+- p_face_MPa: 130
+  low:
+    rho_loaded_kg_m3: 1397.2669
+    rho_immediate_kg_m3: 1102.902281158734
+    rho_stabilized_kg_m3: 1042.902281158734
+  base:
+    rho_loaded_kg_m3: 1261.2353741242925
+    rho_immediate_kg_m3: 995.5287505914379
+    rho_stabilized_kg_m3: 930.352500394292
+  high:
+    rho_loaded_kg_m3: 1110.6481695156767
+    rho_immediate_kg_m3: 876.6660111419029
+    rho_stabilized_kg_m3: 811.3328089135223
+- p_face_MPa: 138
+  low:
+    rho_loaded_kg_m3: 1398.28042
+    rho_immediate_kg_m3: 1103.702281158734
+    rho_stabilized_kg_m3: 1043.702281158734
+  base:
+    rho_loaded_kg_m3: 1279.3706123284878
+    rho_immediate_kg_m3: 1009.8434070001483
+    rho_stabilized_kg_m3: 939.8956046667655
+  high:
+    rho_loaded_kg_m3: 1111.6616895156767
+    rho_immediate_kg_m3: 877.4660111419029
+    rho_stabilized_kg_m3: 811.9728089135223
+- p_face_MPa: 140
+  low:
+    rho_loaded_kg_m3: 1398.5338
+    rho_immediate_kg_m3: 1103.902281158734
+    rho_stabilized_kg_m3: 1043.902281158734
+  base:
+    rho_loaded_kg_m3: 1283.7805005721025
+    rho_immediate_kg_m3: 1013.3242565096713
+    rho_stabilized_kg_m3: 942.2161710064476
+  high:
+    rho_loaded_kg_m3: 1111.9150695156766
+    rho_immediate_kg_m3: 877.6660111419028
+    rho_stabilized_kg_m3: 812.1328089135222
+- p_face_MPa: 150
+  low:
+    rho_loaded_kg_m3: 1399.8007
+    rho_immediate_kg_m3: 1104.902281158734
+    rho_stabilized_kg_m3: 1044.902281158734
+  base:
+    rho_loaded_kg_m3: 1305.1460276716487
+    rho_immediate_kg_m3: 1030.188671301325
+    rho_stabilized_kg_m3: 953.4591142008834
+  high:
+    rho_loaded_kg_m3: 1113.1819695156767
+    rho_immediate_kg_m3: 878.6660111419029
+    rho_stabilized_kg_m3: 812.9328089135223
+- p_face_MPa: 159
+  low:
+    rho_loaded_kg_m3: 1400.94091
+    rho_immediate_kg_m3: 1105.802281158734
+    rho_stabilized_kg_m3: 1045.802281158734
+  base:
+    rho_loaded_kg_m3: 1323.4780740554102
+    rho_immediate_kg_m3: 1044.6586739722238
+    rho_stabilized_kg_m3: 964.6586739722238
+  high:
+    rho_loaded_kg_m3: 1114.3221795156767
+    rho_immediate_kg_m3: 879.5660111419029
+    rho_stabilized_kg_m3: 813.6528089135223
+- p_face_MPa: 160
+  low:
+    rho_loaded_kg_m3: 1401.0676
+    rho_immediate_kg_m3: 1105.902281158734
+    rho_stabilized_kg_m3: 1045.902281158734
+  base:
+    rho_loaded_kg_m3: 1325.466423128557
+    rho_immediate_kg_m3: 1046.2281341294158
+    rho_stabilized_kg_m3: 966.2281341294158
+  high:
+    rho_loaded_kg_m3: 1114.4488695156767
+    rho_immediate_kg_m3: 879.6660111419029
+    rho_stabilized_kg_m3: 813.7328089135224
+- p_face_MPa: 166.7
+  low:
+    rho_loaded_kg_m3: 1401.9164230000001
+    rho_immediate_kg_m3: 1106.572281158734
+    rho_stabilized_kg_m3: 1046.572281158734
+  base:
+    rho_loaded_kg_m3: 1338.5528532176068
+    rho_immediate_kg_m3: 1056.5576235043072
+    rho_stabilized_kg_m3: 976.5576235043072
+  high:
+    rho_loaded_kg_m3: 1119.8132808645419
+    rho_immediate_kg_m3: 883.9002927338717
+    rho_stabilized_kg_m3: 817.1202341870974
+- p_face_MPa: 170
+  low:
+    rho_loaded_kg_m3: 1402.3345
+    rho_immediate_kg_m3: 1106.902281158734
+    rho_stabilized_kg_m3: 1046.902281158734
+  base:
+    rho_loaded_kg_m3: 1344.8535380863418
+    rho_immediate_kg_m3: 1061.5309322648527
+    rho_stabilized_kg_m3: 981.5309322648527
+  high:
+    rho_loaded_kg_m3: 1124.666163647129
+    rho_immediate_kg_m3: 887.7308103616142
+    rho_stabilized_kg_m3: 820.1846482892913
+- p_face_MPa: 180
+  low:
+    rho_loaded_kg_m3: 1403.6014
+    rho_immediate_kg_m3: 1107.902281158734
+    rho_stabilized_kg_m3: 1047.902281158734
+  base:
+    rho_loaded_kg_m3: 1363.4014965398505
+    rho_immediate_kg_m3: 1076.1713604387487
+    rho_stabilized_kg_m3: 1002.3427208774974
+  high:
+    rho_loaded_kg_m3: 1139.3718690488188
+    rho_immediate_kg_m3: 899.3384395365213
+    rho_stabilized_kg_m3: 829.470751629217
+- p_face_MPa: 190
+  low:
+    rho_loaded_kg_m3: 1404.8683
+    rho_immediate_kg_m3: 1108.902281158734
+    rho_stabilized_kg_m3: 1048.902281158734
+  base:
+    rho_loaded_kg_m3: 1381.1903184925836
+    rho_immediate_kg_m3: 1090.212580702963
+    rho_stabilized_kg_m3: 1030.212580702963
+  high:
+    rho_loaded_kg_m3: 1265.8490419242116
+    rho_immediate_kg_m3: 999.1704490679704
+    rho_stabilized_kg_m3: 932.7802993786469
+- p_face_MPa: 191
+  low:
+    rho_loaded_kg_m3: 1404.9949900000001
+    rho_immediate_kg_m3: 1109.0022811587341
+    rho_stabilized_kg_m3: 1049.0022811587341
+  base:
+    rho_loaded_kg_m3: 1382.9301775366296
+    rho_immediate_kg_m3: 1091.5859006524822
+    rho_stabilized_kg_m3: 1031.5859006524822
+  high:
+    rho_loaded_kg_m3: 1302.9720811497723
+    rho_immediate_kg_m3: 1028.4727138288517
+    rho_stabilized_kg_m3: 952.3151425525679
+- p_face_MPa: 200
+  low:
+    rho_loaded_kg_m3: 1406.1352
+    rho_immediate_kg_m3: 1109.902281158734
+    rho_stabilized_kg_m3: 1049.902281158734
+  base:
+    rho_loaded_kg_m3: 1398.2886534020984
+    rho_immediate_kg_m3: 1103.7087800158642
+    rho_stabilized_kg_m3: 1043.7087800158642
+  high:
+    rho_loaded_kg_m3: 1304.1122911498933
+    rho_immediate_kg_m3: 1029.3727138289473
+    rho_stabilized_kg_m3: 952.9151425526316
+- p_face_MPa: 223
+  low:
+    rho_loaded_kg_m3: 1435.3040133774734
+    rho_immediate_kg_m3: 1132.9260504992292
+    rho_stabilized_kg_m3: 1069.105042082691
+  base:
+    rho_loaded_kg_m3: 1435.3040133773975
+    rho_immediate_kg_m3: 1132.9260504991694
+    rho_stabilized_kg_m3: 1069.1050420826411
+  high:
+    rho_loaded_kg_m3: 1380.9209999999998
+    rho_immediate_kg_m3: 1090.0
+    rho_stabilized_kg_m3: 1030.0
+- p_face_MPa: 255
+  low: null
+  base: null
+  high:
+    rho_loaded_kg_m3: 1406.2589999999998
+    rho_immediate_kg_m3: 1110.0
+    rho_stabilized_kg_m3: 1050.0
+- p_face_MPa: 286
+  low: null
+  base: null
+  high:
+    rho_loaded_kg_m3: 1436.6646000003357
+    rho_immediate_kg_m3: 1134.0000000002651
+    rho_stabilized_kg_m3: 1070.000000000221
+- p_face_MPa: 318
+  low: null
+  base: null
+  high:
+    rho_loaded_kg_m3: 1444.266000000001
+    rho_immediate_kg_m3: 1140.000000000001
+    rho_stabilized_kg_m3: 1075.000000000001

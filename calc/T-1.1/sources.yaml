@@ -1,0 +1,817 @@
+# Measured input and documented transfer assumptions.
+# doi_verified marks the GK Crossref check of 25.11; point verification is separate.
+project:
+  basis: TASK.md, ops/criteria/design_criteria.yaml, D0 and X-1 report
+  dose_kg: 0.83
+  width_mm: 150
+  height_mm: 60
+  feed_length_mm: 200
+  target_relaxed_kg_m3: 1000
+  nominal_face_MPa: 166.7
+  loaded_comparison_kg_m3: 1000
+  bulk_kg_m3:
+    base: 90
+    alternative: 160
+  pump_L_min: 360
+  accumulator_L: 5
+  feed_s: 0.5
+  pressure_threshold_bar: 120
+  cycle_limit_s: 6
+  pressure_limit_bar: 300
+  moisture_pct_range:
+  - 8
+  - 12
+assumptions:
+  wall_K:
+    low: 0.35
+    base: 0.45
+    high: 0.6
+  wall_mu:
+    low: 0.23
+    base: 0.25
+    high: 0.3
+  wall_basis: 'Zhong Table 5.1: dry K 0.442–0.464, mu 0.230–0.258; wetter K ~0.35.
+    Wilczyński section 2.2 mu 0.25. Wang Fig. 8a fine wood ratio ~0.57 relative to
+    backstop, not local K. Low/high are transfer allowances across stress, steel surface
+    and moisture, not direct bounds.'
+  springback_axial_immediate: 0.23
+  springback_area: 0.03
+  cycle_axial_recovery_fractions: [0.15, 0.30]
+  springback_basis: "Horabik Fig. 3 gives 1396/1144 - 1 = 22.0% axial recovery in the closed mould. The 23% early free recovery is an engineering assumption, allowing one additional percentage point at ejection. The 3% rectangular area growth is transferred from the approximately 2–5% circular area growth in Dhamodaran (Table A1) and Horabik (10.25 vs 10 mm), with constant mass. The Križan Fig. 5 pairs define a monotone piecewise-linear mapping from initial to stabilized density. Average the repeat digitized abscissa at 1140; extrapolate above the last knot with constant absolute density loss. Continued growth is assigned to length for length/cycle reporting. The 15% and 30% cases specify total axial recovery through stabilization."
+  zhong_initial_fill_H_over_D: 1
+  krizan_loaded_H_over_D: 1
+  missing_geometry_basis: Assume D for unreported sample length as order-of-magnitude
+    transfer; adjust Zhong length using conservation of reference fill mass. Use 50
+    mm external length for Li, shrink it by the axial recovery fraction. For Spirchez
+    use Table 1 masses and infer length from measured density.
+  heckel_limit_kg_m3: 1511
+  heckel_limit_basis: Upper end of Horabik et al. Table 4 solid-phase density; saturation
+    is a fit assumption, not a project limit.
+  bulk_transition_kg_m3: 400
+  bulk_transition_basis: Below 400 kg/m³ use a smooth onset from loose fill. The first positive direct loading point in Zhong is 424 kg/m³. Above the join use a common absolute-density response, consistent with the early convergence described for Horabik Fig. 3.
+  envelope_min_density_slope_kg_m3_per_MPa: 0.1
+  envelope_basis: "Bounds in punch pressure versus early external density (stabilized observations are mapped using the same paired recovery relation as used in prediction). Include raw face pressures as well as Janssen-transferred pressures. Monotone one-sided interpolation of the measured extrema retains a small positive density slope (0.1 kg/m³/MPa, numerical/shape assumption). Include the base curve and continue beyond the terminal knots with its pressure increment. K and mu for the bounds use their base values. Horabik 1144 is checked at its own in-die unloaded state."
+  moisture_sensitivity_basis: "Li Table 1 oak only: linear interpolation in wet early density from 8.9% to 12.7% at the same pressures for 12%. These points enter the envelope only. Moisture endpoints lack a matched species/fraction sweep at 8% and 12%."
+  domain_basis: "Use the minimum measured solid-phase density in Horabik Table 4 (beech 1457); the text calls birch 1465 the minimum, but lists neither the lower beech nor oak (1460). Keep the prior pooled-fit ceiling for converted observations at 1396 + 23 kg/m³ and retain higher density observations in the envelope as far as the common calculation domain permits."
+sources:
+  zhong1991:
+    authors:
+    - Zhijun Zhong
+    year: 1991
+    title: Theoretical and experimental analysis of the compaction process in a tapered
+      screw press
+    journal: PhD thesis, University of Newcastle upon Tyne
+    volume: null
+    pages: 115–118, 123–124, 134
+    doi: null
+    doi_verified: false
+    url: https://theses.ncl.ac.uk/jspui/bitstream/10443/1715/1/Zhong%2091.pdf
+    read: full_text
+    material: Sawdust (species unspecified in Ch. 5)
+    moisture_pct: 7.35
+    moisture_basis: wet
+    particle_mm: null
+    die:
+      diameter_mm: 36.5
+      chamber_height_mm: 100
+      chamber_H_over_D: 2.74
+      sample_H_over_D: null
+      wall: mild steel
+    temperature_C: null
+    piston_speed_mm_s: null
+    hold_s: null
+    pressure_range_MPa:
+    - 0
+    - 10.9038
+    confidence: high for low-pressure lab data; transfer limited by pre-vibration
+      and unknown sample height
+    fit_role: loaded
+    notes: Section 5.2 uses a separate closed test die, not a screw. Pressure from
+      upper-plunger force. Vibrated charge. Table 5.1 also reports K near 0.35 at
+      23% moisture; this is outside the project range and used as context for the
+      lower assumed K.
+    points:
+    - p_MPa: 0
+      rho_loaded_kg_m3: 268.7998
+      where: Table 5.1
+    - p_MPa: 0.6401
+      rho_loaded_kg_m3: 424.3999
+      where: Table 5.1
+      K: 0.4513
+      mu: 0.2296
+    - p_MPa: 1.3146
+      rho_loaded_kg_m3: 483.7
+      where: Table 5.1
+      K: 0.4635
+      mu: 0.2361
+    - p_MPa: 1.9563
+      rho_loaded_kg_m3: 525.4998
+      where: Table 5.1
+      K: 0.4431
+      mu: 0.2476
+    - p_MPa: 2.6286
+      rho_loaded_kg_m3: 558.3999
+      where: Table 5.1
+      K: 0.4426
+      mu: 0.25
+    - p_MPa: 3.315
+      rho_loaded_kg_m3: 586.3999
+      where: Table 5.1
+      K: 0.4463
+      mu: 0.252
+    - p_MPa: 3.9922
+      rho_loaded_kg_m3: 609.8999
+      where: Table 5.1
+      K: 0.4436
+      mu: 0.2523
+    - p_MPa: 4.667
+      rho_loaded_kg_m3: 631.7998
+      where: Table 5.1
+      K: 0.4418
+      mu: 0.2541
+    - p_MPa: 5.3823
+      rho_loaded_kg_m3: 652.5999
+      where: Table 5.1
+      K: 0.4473
+      mu: 0.2544
+    - p_MPa: 6.0775
+      rho_loaded_kg_m3: 675.7
+      where: Table 5.1
+      K: 0.4482
+      mu: 0.2576
+    - p_MPa: 6.7771
+      rho_loaded_kg_m3: 692.2
+      where: Table 5.1
+      K: 0.4484
+      mu: 0.257
+    - p_MPa: 8.1861
+      rho_loaded_kg_m3: 721.7
+      where: Table 5.1
+      K: 0.4498
+      mu: 0.2567
+    - p_MPa: 10.9038
+      rho_loaded_kg_m3: 750
+      where: Table 5.1
+      K: 0.4512
+      mu: 0.2573
+  li2000:
+    authors:
+    - Yadong Li
+    - Henry Liu
+    authors_basis: Article byline (Crossref lists Y. Li only)
+    points_verified_by_gk: false
+    points_read_in_this_round: Table 1 in the full article text at the recorded URL
+    year: 2000
+    title: High-pressure densification of wood residues to form an upgraded fuel
+    journal: Biomass and Bioenergy
+    volume: 19(3)
+    pages: 177–186
+    doi: 10.1016/S0961-9534(00)00026-X
+    doi_verified: true
+    url: https://www.academia.edu/97316198/High_pressure_densification_of_wood_residues_to_form_an_upgraded_fuel
+    read: full_text
+    material: Oak, pine and cottonwood sawdust; binderless
+    moisture_pct:
+    - 6.9
+    - 8.2
+    - 8.4
+    - 8.9
+    - 11
+    - 12.7
+    - 14.8
+    moisture_basis: not named in Table 1; wet basis assumed for converting dry density
+    particle_mm:
+      max: 2.36
+    die:
+      diameter_mm: 48.5
+      chamber_height_mm: 300
+      chamber_H_over_D: 6.186
+      sample_relaxed_height_mm_approx: 50
+      sample_relaxed_diameter_mm_approx: 49
+      tooling: opposing punches
+    temperature_C: null
+    temperature_note: room temperature, no preheating
+    piston_speed_mm_s: null
+    pressure_ramp_MPa_s:
+      value: 2
+      tolerance: 0.2
+    hold_s: null
+    pressure_range_MPa:
+    - 34
+    - 138
+    confidence: high for published dry density 2 min after ejection; medium for transfer
+    fit_role: convert_relaxed
+    notes: Table 1 reports dry mass per external volume. Individual hold times and
+      dimensions are unspecified; dimensions above are for tumbler-test logs. No holding
+      in separate Fig. 5 tests at 138 MPa. Model assumes moisture retained to the
+      two-minute measurement and a driven punch against an opposite punch.
+    points:
+    - p_MPa: 34
+      rho_relaxed_kg_m3: 676
+      where: Table 1
+      material: oak
+      moisture_pct: 8.9
+      density_basis: dry
+      fit: true
+    - p_MPa: 69
+      rho_relaxed_kg_m3: 812
+      where: Table 1
+      material: oak
+      moisture_pct: 8.9
+      density_basis: dry
+      fit: true
+    - p_MPa: 103
+      rho_relaxed_kg_m3: 882
+      where: Table 1
+      material: oak
+      moisture_pct: 8.9
+      density_basis: dry
+      fit: true
+    - p_MPa: 138
+      rho_relaxed_kg_m3: 915
+      where: Table 1
+      material: oak
+      moisture_pct: 8.9
+      density_basis: dry
+      fit: true
+    - p_MPa: 34
+      rho_relaxed_kg_m3: 730
+      where: Table 1
+      material: pine
+      moisture_pct: 8.4
+      density_basis: dry
+      fit: true
+    - p_MPa: 69
+      rho_relaxed_kg_m3: 871
+      where: Table 1
+      material: pine
+      moisture_pct: 8.4
+      density_basis: dry
+      fit: true
+    - p_MPa: 103
+      rho_relaxed_kg_m3: 938
+      where: Table 1
+      material: pine
+      moisture_pct: 8.4
+      density_basis: dry
+      fit: true
+    - p_MPa: 138
+      rho_relaxed_kg_m3: 971
+      where: Table 1
+      material: pine
+      moisture_pct: 8.4
+      density_basis: dry
+      fit: true
+    - p_MPa: 138
+      rho_relaxed_kg_m3: 919
+      where: Table 1
+      material: pine
+      moisture_pct: 11
+      density_basis: dry
+      fit: true
+    - p_MPa: 34
+      rho_relaxed_kg_m3: 654
+      where: Table 1
+      material: cottonwood
+      moisture_pct: 8.2
+      density_basis: dry
+      fit: true
+    - p_MPa: 69
+      rho_relaxed_kg_m3: 780
+      where: Table 1
+      material: cottonwood
+      moisture_pct: 8.2
+      density_basis: dry
+      fit: true
+    - p_MPa: 103
+      rho_relaxed_kg_m3: 841
+      where: Table 1
+      material: cottonwood
+      moisture_pct: 8.2
+      density_basis: dry
+      fit: true
+    - p_MPa: 138
+      rho_relaxed_kg_m3: 889
+      where: Table 1
+      material: cottonwood
+      moisture_pct: 8.2
+      density_basis: dry
+      fit: true
+    - p_MPa: 138
+      rho_relaxed_kg_m3: 980
+      where: Table 1
+      material: pine
+      moisture_pct: 6.9
+      density_basis: dry
+      fit: false
+    - p_MPa: 34
+      rho_relaxed_kg_m3: 616
+      where: Table 1
+      material: oak
+      moisture_pct: 12.7
+      density_basis: dry
+      fit: false
+    - p_MPa: 69
+      rho_relaxed_kg_m3: 712
+      where: Table 1
+      material: oak
+      moisture_pct: 12.7
+      density_basis: dry
+      fit: false
+    - p_MPa: 103
+      rho_relaxed_kg_m3: 775
+      where: Table 1
+      material: oak
+      moisture_pct: 12.7
+      density_basis: dry
+      fit: false
+    - p_MPa: 138
+      rho_relaxed_kg_m3: 820
+      where: Table 1
+      material: oak
+      moisture_pct: 12.7
+      density_basis: dry
+      fit: false
+    - p_MPa: 138
+      rho_relaxed_kg_m3: 691
+      where: Table 1
+      material: cottonwood
+      moisture_pct: 14.8
+      density_basis: dry
+      fit: false
+  krizan2015:
+    authors:
+    - Peter Križan
+    - Miloš Matúš
+    - Ľubomír Šooš
+    - Juraj Beniak
+    year: 2015
+    title: Behavior of Beech Sawdust during Densification into a Solid Biofuel
+    journal: Energies
+    volume: 8(7)
+    pages: 6382–6398
+    doi: 10.3390/en8076382
+    doi_verified: true
+    url: https://pdfs.semanticscholar.org/e35c/7df99032cc6713a110dd662f3243f9ae1018.pdf
+    read: full_text
+    material: European beech sawdust without bark
+    moisture_pct: 8
+    particle_mm:
+      nominal: 2
+    die:
+      diameter_mm: 20
+      sample_H_over_D: null
+      tooling: backpressure plug
+    temperature_C: 25
+    piston_speed_mm_s: null
+    hold_s: null
+    pressure_range_MPa:
+    - 31
+    - 318
+    confidence: medium; approximate plotted means; sample length unreported
+    fit_role: convert_relaxed
+    notes: Fig. 5 upper curve immediately after ejection, lower curve after stabilization
+      (about 24 h). Approximate graphical readings, ±2 MPa and ±20 kg/m³; pressure
+      setpoints reconcile the plot with the text and Fig. 9. Both are external densities.
+    points:
+    - p_MPa: 31
+      rho_relaxed_kg_m3: 690
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 620
+    - p_MPa: 63
+      rho_relaxed_kg_m3: 850
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 790
+    - p_MPa: 95
+      rho_relaxed_kg_m3: 950
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 870
+    - p_MPa: 127
+      rho_relaxed_kg_m3: 980
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 920
+    - p_MPa: 159
+      rho_relaxed_kg_m3: 1040
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 960
+    - p_MPa: 191
+      rho_relaxed_kg_m3: 1070
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 990
+    - p_MPa: 223
+      rho_relaxed_kg_m3: 1090
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 1030
+    - p_MPa: 255
+      rho_relaxed_kg_m3: 1110
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 1050
+    - p_MPa: 286
+      rho_relaxed_kg_m3: 1140
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 1070
+    - p_MPa: 318
+      rho_relaxed_kg_m3: 1140
+      where: Fig. 5 (digitized)
+      rho_stabilized_kg_m3: 1080
+  horabik2023:
+    authors:
+    - Józef Horabik
+    - Maciej Bańda
+    - Vlasta Vozárová
+    - Ľubomír Kubík
+    - Mateusz Stasiak
+    year: 2023
+    title: DEM modeling of wood sawdust compaction and breakage strength of pellets
+      determined in diametral compression test
+    journal: International Agrophysics
+    volume: 37
+    pages: 51–58
+    doi: 10.31545/intagr/156086
+    doi_verified: true
+    url: https://www.international-agrophysics.org/pdf-156086-87532?filename=DEM+modeling+of+wood.pdf
+    read: full_text
+    material: Beech, birch, oak, pine, poplar and willow; binderless
+    moisture_pct: 8
+    particle_mm:
+      mean_sizes_mm_range:
+      - 0.355
+      - 0.593
+    die:
+      diameter_mm: 10
+      chamber_height_mm: 25
+      chamber_H_over_D: 2.5
+      sample_mass_g: 0.5
+    temperature_C: null
+    temperature_note: no heating step described
+    piston_speed_mm_s: 0.033
+    hold_s: null
+    pressure_range_MPa:
+    - 0
+    - 120
+    confidence: high for the endpoint mean; short pellet and slow compression
+    fit_role: loaded
+    notes: Use the printed six-species mean; intermediate Fig. 3 coordinates are omitted.
+      At 120 MPa the birch, oak and pine values duplicate Horabik et al. Materials
+      2021, DOI 10.3390/ma14123273. Table 3 density is after conditioning; the text
+      describes sample length after seven days.
+    observations:
+      rho_unloaded_in_die_kg_m3: 1144
+      rho_unloaded_in_die_sd_kg_m3: 31
+      relaxed_diameter_mm: 10.25
+      relaxed_diameter_sd_mm: 0.1
+      solid_density_kg_m3_by_species:
+        beech: 1457
+        birch: 1465
+        oak: 1460
+        pine: 1469
+        poplar: 1511
+        willow: 1482
+      text_claimed_minimum_solid_density_kg_m3: 1465
+      where: Results pp. 54–55 and Table 4
+    points:
+    - p_MPa: 120
+      rho_loaded_kg_m3: 1396
+      where: Results p. 54 text (Fig. 3)
+      rho_sd_kg_m3: 23
+    - p_MPa: 120
+      rho_stabilized_kg_m3: 882.1
+      where: Table 3
+      material: beech
+      fit: false
+    - p_MPa: 120
+      rho_stabilized_kg_m3: 843.9
+      where: Table 3
+      material: birch
+      fit: false
+    - p_MPa: 120
+      rho_stabilized_kg_m3: 1005.8
+      where: Table 3
+      material: oak
+      fit: false
+    - p_MPa: 120
+      rho_stabilized_kg_m3: 937.8
+      where: Table 3
+      material: pine
+      fit: false
+    - p_MPa: 120
+      rho_stabilized_kg_m3: 844.5
+      where: Table 3
+      material: poplar
+      fit: false
+    - p_MPa: 120
+      rho_stabilized_kg_m3: 821
+      where: Table 3
+      material: willow
+      fit: false
+    table3_initial_bulk_kg_m3:
+      beech: 235.5
+      birch: 301.7
+      oak: 312.6
+      pine: 267.9
+      poplar: 215.1
+      willow: 239.9
+  spirchez2025:
+    authors:
+    - Cosmin Spirchez
+    - Aurel Lunguleasa
+    - Daniela Șova
+    - Galina Gorbacheva
+    year: 2025
+    title: On the Rheological Behavior of Pine (Pinus sylvestris L.) Shavings and
+      the Briquettes Obtained from Them
+    journal: Forests
+    volume: 16(2)
+    pages: Article 267
+    doi: 10.3390/f16020267
+    doi_verified: true
+    url: https://www.mdpi.com/1999-4907/16/2/267
+    read: full_text
+    material: Scots pine planer shavings; no adhesive
+    moisture_pct: 12
+    moisture_note: "Section 2.2, separate hydraulic briquetting: 18 °C and 65% RH to achieve about 12% moisture. Section 2.1, closed-die rheology and post-ejection density used for Fig. 8: shavings dried to 10%. Point-specific preparation supersedes the source-level 12%; final moisture for each Fig. 8 compact is unreported."
+    conditioned_briquetting_temperature_C: 18
+    conditioned_briquetting_RH_pct: 65
+    particle_mm:
+      tested:
+      - - 0
+        - 1
+      - - 1
+        - 2
+      - - 2
+        - 3
+    die:
+      diameter_mm: 25
+      chamber_height_mm: 80
+      chamber_H_over_D: 3.2
+    temperature_C: null
+    temperature_note: room conditions
+    piston_speed_mm_s: null
+    piston_speed_note: 5 mm/s in deformation series; not established for density series
+    hold_s: 30
+    pressure_range_MPa:
+    - 20
+    - 200
+    confidence: medium; endpoint measurements and estimated geometry
+    fit_role: convert_relaxed
+    notes: Section 2.1 says density measured after removal. Table 1 fraction masses
+      are used as proxies for density-series masses. Fig. 8 intermediate readings
+      omitted.
+    points:
+    - p_MPa: 180
+      rho_relaxed_kg_m3: 1030
+      moisture_pct: 10
+      where: Section 4 text (Fig. 8); Table 1 mass proxy
+      fraction_mm:
+      - 0
+      - 1
+      sample_mass_g: 3.122
+    - p_MPa: 160
+      rho_relaxed_kg_m3: 900
+      moisture_pct: 10
+      where: Section 4 text (Fig. 8); Table 1 mass proxy
+      fraction_mm:
+      - 1
+      - 2
+      sample_mass_g: 3.195
+    - p_MPa: 140
+      rho_relaxed_kg_m3: 880
+      moisture_pct: 10
+      where: Section 4 text (Fig. 8); Table 1 mass proxy
+      fraction_mm:
+      - 2
+      - 3
+      sample_mass_g: 3.382
+    table1_bulk_kg_m3:
+      '0': 131
+      '1': 123
+      '2': 121
+  dhamodaran2012:
+    authors:
+    - A. Dhamodaran
+    - M. T. Afzal
+    year: 2012
+    title: Compression and springback properties of hardwood and softwood pellets
+    journal: BioResources
+    volume: 7(3)
+    pages: 4362–4376
+    doi: 10.15376/biores.7.3.4362-4376
+    doi_verified: true
+    url: https://bioresources.cnr.ncsu.edu/wp-content/uploads/2016/06/BioRes_07_3_4362_Dhamodaran_A_Compression_Springback_Hardwood_Softwood_Pellet_2871.pdf
+    read: full_text
+    material: Maple and white spruce
+    moisture_pct:
+    - 8
+    - 10
+    moisture_basis: wet
+    particle_mm:
+      tested:
+      - - 0.15
+        - 0.3
+      - - 0.3
+        - 0.425
+    die:
+      diameter_mm: 8
+      specimen_mass_g:
+        maple: 1.16
+        spruce: 1.21
+      loaded_height_mm_range:
+      - 14.37
+      - 17.48
+      loaded_H_over_D_range:
+      - 1.796
+      - 2.185
+    temperature_C:
+    - 60
+    - 70
+    piston_speed_mm_s: null
+    hold_s:
+    - 0
+    - 15
+    - 30
+    pressure_range_MPa:
+    - 139.26
+    - 159.16
+    confidence: high for paired dimensions; heated, used only as recovery context
+    fit_role: validation
+    points:
+    - p_MPa: 139.26
+      material: maple
+      temperature_C: 60
+      moisture_pct: 8
+      hold_s: 0
+      height_loaded_mm: 17.48
+      height_relaxed_mm: 20.7
+      diameter_relaxed_mm: 8.11
+      rho_relaxed_kg_m3: 1061.14
+      where: Table A1
+    - p_MPa: 139.26
+      material: maple
+      temperature_C: 60
+      moisture_pct: 8
+      hold_s: 15
+      height_loaded_mm: 17.13
+      height_relaxed_mm: 20.4
+      diameter_relaxed_mm: 8.1
+      rho_relaxed_kg_m3: 1081.36
+      where: Table A1
+    - p_MPa: 139.26
+      material: maple
+      temperature_C: 60
+      moisture_pct: 8
+      hold_s: 30
+      height_loaded_mm: 17.03
+      height_relaxed_mm: 20.29
+      diameter_relaxed_mm: 8.09
+      rho_relaxed_kg_m3: 1087.87
+      where: Table A1
+    observations:
+      min_axial_pct: 16.28
+      min_spruce_axial_pct: 20.56
+      mean_fine_spruce_axial_pct: 30.09
+      where: Results pp. 4371–4373
+  wilczynski2022:
+    authors:
+    - Dominik Wilczyński
+    - Krzysztof Talaśka
+    - Dominik Wojtkowiak
+    - Krzysztof Wałęsa
+    - Szymon Wojciechowski
+    year: 2022
+    title: Selection of the Electric Drive for the Wood Waste Compacting Unit
+    journal: Energies
+    volume: 15(20)
+    pages: Article 7488
+    doi: 10.3390/en15207488
+    doi_verified: true
+    url: https://www.mdpi.com/1996-1073/15/20/7488
+    read: full_text
+    material: Oak parquet sawdust against steel
+    moisture_pct: 9
+    particle_mm: null
+    die:
+      diameter_mm: 20
+      sample_H_over_D_min_as_reported: 1.5
+      friction_test: separate plate
+    temperature_C: 25
+    piston_speed_mm_s: null
+    hold_s: 0
+    pressure_range_note: compaction tests at 5–50 kN; friction measured separately
+    confidence: medium for wall friction transfer
+    fit_role: wall
+    points: []
+    observations:
+      mu: 0.25
+      compaction_force_N: 34000
+      where: Section 2.2 and Fig. 9
+  wang2020:
+    authors:
+    - Yu Wang
+    - Yu Sun
+    - Kai Wu
+    year: 2020
+    title: Research on the Mechanical Behavior of the Biomass Densification Process
+      Based on a Thick-walled Cylinder
+    journal: BioResources
+    volume: 15(3)
+    pages: 4932–4946
+    doi: 10.15376/biores.15.3.4932-4946
+    doi_verified: true
+    url: https://bioresources.cnr.ncsu.edu/wp-content/uploads/2020/05/BioRes_15_3_4932_Wang_SW_Research_Mechan_Behavior_Biomass_Densif_Thickwalled_Cylinder_17319.pdf
+    read: full_text
+    material: Wood shavings, species unspecified; fine fraction used as K context
+    moisture_pct: 10
+    particle_mm:
+      fine_max: 2.5
+    die:
+      diameter_mm: null
+      tooling: removable backstop
+    temperature_C: null
+    piston_speed_mm_s:
+    - 0.333
+    - 0.833
+    - 1.33
+    hold_s: 60
+    pressure_range_note: 2000 N terminal shaft force
+    confidence: 'medium for context only: ratio uses backstop axial stress'
+    fit_role: wall
+    points: []
+    observations:
+      radial_to_backstop_fine_approx: 0.57
+      estimated_reading_error: 0.04
+      where: Fig. 8a (digitized), definition Eq. 7
+  matus2014:
+    authors:
+    - Miloš Matúš
+    - Peter Križan
+    - Monika Kováčová
+    - Juraj Beniak
+    year: 2014
+    title: The influence of size fraction on the compressibility of pine sawdust and
+      the effectiveness criterion for densification
+    journal: Acta Polytechnica
+    volume: 54(1)
+    pages: 52–58
+    doi: 10.14311/AP.2014.54.0052
+    doi_verified: true
+    url: https://www.researchgate.net/publication/260555612_THE_INFLUENCE_OF_SIZE_FRACTION_ON_THE_COMPRESSIBILITY_OF_PINE_SAWDUST_AND_THE_EFFECTIVENESS_CRITERION_FOR_DENSIFICATION
+    read: full_text
+    material: Pine sawdust
+    moisture_pct: 15.5
+    particle_mm:
+      selected:
+      - 0
+      - 0.5
+    die:
+      diameter_mm: 20
+      chamber_height_mm: 229
+      initial_H_over_D: 11.45
+      sample_mass_g: 12.8
+    temperature_C: 20
+    piston_speed_mm_s: null
+    hold_s: null
+    pressure_range_MPa:
+    - 1.9
+    - 159
+    confidence: published direct points; major extrapolation in geometry and moisture
+    fit_role: validation
+    notes: 15.5% is outside target moisture and the loaded specimen is much longer
+      than in REV (4.32 D at 159 MPa), so these pressures are a transfer stress test
+      only. Shared research group with Križan 2015.
+    points:
+    - p_MPa: 0
+      rho_loaded_kg_m3: 178
+      where: Table 1
+    - p_MPa: 1.9
+      rho_loaded_kg_m3: 281
+      where: Table 1
+    - p_MPa: 5.1
+      rho_loaded_kg_m3: 323
+      where: Table 1
+    - p_MPa: 8
+      rho_loaded_kg_m3: 341
+      where: Table 1
+    - p_MPa: 14
+      rho_loaded_kg_m3: 373
+      where: Table 1
+    - p_MPa: 20.3
+      rho_loaded_kg_m3: 394
+      where: Table 1
+    - p_MPa: 36.6
+      rho_loaded_kg_m3: 419
+      where: Table 1
+    - p_MPa: 52.2
+      rho_loaded_kg_m3: 435
+      where: Table 1
+    - p_MPa: 84
+      rho_loaded_kg_m3: 452
+      where: Table 1
+    - p_MPa: 116
+      rho_loaded_kg_m3: 461
+      where: Table 1
+    - p_MPa: 152.6
+      rho_loaded_kg_m3: 470
+      where: Table 1
+    - p_MPa: 159
+      rho_loaded_kg_m3: 472
+      where: Table 1

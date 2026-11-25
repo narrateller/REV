@@ -1,0 +1,290 @@
+{
+  "reproducibility": {
+    "command": "E:/Tools/Python313/python.exe -B calc/T-1.1/compaction.py",
+    "python_version": "3.13.17",
+    "runs": 2,
+    "byte_identical": true,
+    "sha256": {
+      "results.json": "abf78886228f8792efd452590bf1ab6364a0e0a8d394fa3e0c8048675ed29c0d",
+      "curve.yaml": "88f2bdd8a499363757b0635855f8213cf76bc35406b980c6bf74aefb936d27b1",
+      "metrics.json": "896a4e0bbe245e60a5471b23eab3f12e182f23029a5648616192b00f5f0d39ef"
+    }
+  },
+  "stop_checks": {
+    "independent_sources_at_least_three": true,
+    "base_face_for_stabilized_target_at_most_nominal": false,
+    "base_face_at_1000_loaded_within_factor_two_of_M1": true
+  },
+  "curve_domain_monotonicity_and_order": "PASS (one kg/m3 grid and exported table)",
+  "janssen_transfer_zero_friction_and_pressure_ratios": "PASS",
+  "source_provenance_doi_flags_and_moisture_series": "PASS",
+  "phase_mapping_and_bulk_endpoints": "PASS",
+  "force_and_mass_balance": "PASS",
+  "envelope": {
+    "total_anchors_covered": 60,
+    "anchors_by_stage": {
+      "loaded": 13,
+      "immediate": 30,
+      "stabilized": 16,
+      "unloaded_in_die": 1
+    },
+    "requested_raw_and_transferred_observations": [
+      {
+        "source": "li2000",
+        "stage": "immediate",
+        "lab_face_MPa": 34,
+        "measured_kg_m3": [
+          742.0417124039517,
+          796.943231441048,
+          712.4183006535948
+        ],
+        "covered_in_lab_and_transferred_coordinates": true
+      },
+      {
+        "source": "li2000",
+        "stage": "immediate",
+        "lab_face_MPa": 138,
+        "measured_kg_m3": [
+          1004.390779363337,
+          1060.0436681222707,
+          1032.5842696629213,
+          968.4095860566448
+        ],
+        "covered_in_lab_and_transferred_coordinates": true
+      },
+      {
+        "source": "krizan2015",
+        "stage": "immediate",
+        "lab_face_MPa": 159,
+        "measured_kg_m3": [
+          1040
+        ],
+        "covered_in_lab_and_transferred_coordinates": true
+      },
+      {
+        "source": "krizan2015",
+        "stage": "stabilized",
+        "lab_face_MPa": 159,
+        "measured_kg_m3": [
+          960
+        ],
+        "covered_in_lab_and_transferred_coordinates": true
+      },
+      {
+        "source": "spirchez2025",
+        "stage": "immediate",
+        "lab_face_MPa": 180,
+        "measured_kg_m3": [
+          1030
+        ],
+        "covered_in_lab_and_transferred_coordinates": true
+      },
+      {
+        "source": "horabik2023",
+        "stage": "unloaded_in_die",
+        "lab_face_MPa": 120,
+        "measured_kg_m3": [
+          1144
+        ],
+        "covered_in_lab_and_transferred_coordinates": true
+      }
+    ]
+  },
+  "hydraulic_copy": {
+    "byte_identical_to_x1": true,
+    "sha256": "16a24f1991259091f2360558ff9dc5a267e9247a09d546203827f1607ae7666a",
+    "reproduced_x1_reference_cycle_s": 5.864999999999897
+  },
+  "time_step_convergence": {
+    "coarse_step_s": 0.005,
+    "fine_step_s": 0.0025,
+    "coarse_cycle_s": 5.934999999999896,
+    "fine_cycle_s": 5.937500000000228
+  },
+  "official_calculation_gates": {
+    "scope": "Official schema and gate functions, X-1 sequential motion export, base simulated at 166.7 MPa. G-PFACE evaluates the nominal declared in the M-1 parameters.",
+    "results": {
+      "G-PFACE": {
+        "status": "PASS",
+        "value": 168.88888888888889,
+        "unit": "MPa",
+        "failed_checks": []
+      },
+      "G-DOSE": {
+        "status": "PASS",
+        "value": 230,
+        "unit": "mm",
+        "failed_checks": []
+      },
+      "G-CYCLE": {
+        "status": "FAIL",
+        "value": 6.39665247036084,
+        "unit": "s",
+        "failed_checks": [
+          "cycle_time_limit"
+        ]
+      }
+    }
+  },
+  "dynamic_criteria": {
+    "C-PROD-03_base_at_nominal": {
+      "status": "FAIL",
+      "value_kg_m3": 976.5576235043072,
+      "min_kg_m3": 1000
+    },
+    "C-PERF-01_base_at_nominal": {
+      "status": "PASS",
+      "value_s": 5.934999999999896,
+      "max_s": 6
+    },
+    "C-PERF-01_base_at_stabilized_target": {
+      "status": "STOP",
+      "reason": "concept_stop",
+      "required_face_MPa": 179.18403872048697
+    },
+    "C-HYD-01_base_at_nominal": {
+      "status": "PASS",
+      "value_bar": 264.67494693961135,
+      "max_bar": 300
+    },
+    "C-HYD-01_high_at_stabilized_target": {
+      "status": "FAIL",
+      "value_bar": 334.05888401714145,
+      "max_bar": 300
+    }
+  },
+  "residual_errors_by_model_and_source": {
+    "power": {
+      "zhong1991": {
+        "n_fit": 12,
+        "rmse_mean_pressure_MPa": 0.6475445630362922,
+        "bias_mean_pressure_MPa": 0.5326748013494007,
+        "rmse_log_pressure": 0.12852862348030009
+      },
+      "li2000": {
+        "n_fit": 13,
+        "rmse_mean_pressure_MPa": 17.494581571981076,
+        "bias_mean_pressure_MPa": 7.506156143012697,
+        "rmse_log_pressure": 0.21526333228758562
+      },
+      "krizan2015": {
+        "n_fit": 8,
+        "rmse_mean_pressure_MPa": 14.178137002365343,
+        "bias_mean_pressure_MPa": -5.690763320692181,
+        "rmse_log_pressure": 0.10814068692803426
+      },
+      "horabik2023": {
+        "n_fit": 1,
+        "rmse_mean_pressure_MPa": 59.364347821764525,
+        "bias_mean_pressure_MPa": 59.364347821764525,
+        "rmse_log_pressure": 0.43644542401059344
+      },
+      "spirchez2025": {
+        "n_fit": 3,
+        "rmse_mean_pressure_MPa": 68.07638587216826,
+        "bias_mean_pressure_MPa": -66.47293624131676,
+        "rmse_log_pressure": 0.6515711728727904
+      }
+    },
+    "generalized_heckel": {
+      "zhong1991": {
+        "n_fit": 12,
+        "rmse_mean_pressure_MPa": 1.1396070683885082,
+        "bias_mean_pressure_MPa": 1.0566743836798667,
+        "rmse_log_pressure": 0.4434030254800196
+      },
+      "li2000": {
+        "n_fit": 13,
+        "rmse_mean_pressure_MPa": 19.24764071127396,
+        "bias_mean_pressure_MPa": -3.774032330424753,
+        "rmse_log_pressure": 0.2583948237585697
+      },
+      "krizan2015": {
+        "n_fit": 8,
+        "rmse_mean_pressure_MPa": 11.93548851706309,
+        "bias_mean_pressure_MPa": -1.0431986171758374,
+        "rmse_log_pressure": 0.1811372891850817
+      },
+      "horabik2023": {
+        "n_fit": 1,
+        "rmse_mean_pressure_MPa": 101.76742779618205,
+        "bias_mean_pressure_MPa": 101.76742779618205,
+        "rmse_log_pressure": 0.6616839310083669
+      },
+      "spirchez2025": {
+        "n_fit": 3,
+        "rmse_mean_pressure_MPa": 81.91041586617703,
+        "bias_mean_pressure_MPa": -79.78683948229578,
+        "rmse_log_pressure": 0.8810846951674457
+      }
+    }
+  },
+  "residual_errors_without_li2000": {
+    "power": {
+      "zhong1991": {
+        "n_fit": 12,
+        "rmse_mean_pressure_MPa": 0.7008947721719959,
+        "bias_mean_pressure_MPa": 0.5754358142368522,
+        "rmse_log_pressure": 0.13388614063176207
+      },
+      "krizan2015": {
+        "n_fit": 8,
+        "rmse_mean_pressure_MPa": 12.144831532580739,
+        "bias_mean_pressure_MPa": -2.4217208387226394,
+        "rmse_log_pressure": 0.10282164009619586
+      },
+      "horabik2023": {
+        "n_fit": 1,
+        "rmse_mean_pressure_MPa": 64.73109654988015,
+        "bias_mean_pressure_MPa": 64.73109654988015,
+        "rmse_log_pressure": 0.4679179762324896
+      },
+      "spirchez2025": {
+        "n_fit": 3,
+        "rmse_mean_pressure_MPa": 65.96092233653492,
+        "bias_mean_pressure_MPa": -64.09731455821584,
+        "rmse_log_pressure": 0.6271022077488363
+      }
+    },
+    "generalized_heckel": {
+      "zhong1991": {
+        "n_fit": 12,
+        "rmse_mean_pressure_MPa": 0.9743033866387028,
+        "bias_mean_pressure_MPa": 0.8524900361986757,
+        "rmse_log_pressure": 0.4093051265775084
+      },
+      "krizan2015": {
+        "n_fit": 8,
+        "rmse_mean_pressure_MPa": 11.581442040818143,
+        "bias_mean_pressure_MPa": -3.0913127225014394,
+        "rmse_log_pressure": 0.19701541540503925
+      },
+      "horabik2023": {
+        "n_fit": 1,
+        "rmse_mean_pressure_MPa": 98.55978948153573,
+        "bias_mean_pressure_MPa": 98.55978948153573,
+        "rmse_log_pressure": 0.6463104439056905
+      },
+      "spirchez2025": {
+        "n_fit": 3,
+        "rmse_mean_pressure_MPa": 83.34349270050996,
+        "bias_mean_pressure_MPa": -81.35611975270187,
+        "rmse_log_pressure": 0.9036346112771422
+      }
+    }
+  },
+  "validation_excluded_sources": {
+    "dhamodaran2012": {
+      "n_validation": 3,
+      "rmse_face_MPa": 81.43661802451165
+    },
+    "matus2014": {
+      "n_validation": 11,
+      "rmse_face_MPa": 80.31949434277395
+    }
+  },
+  "comparison_values_computed_from_M1_section_4": {
+    "face_for_relaxed_target_MPa": 120.28914516115589,
+    "stroke_above_120_bar_mm": 14.547518730291209
+  }
+}
