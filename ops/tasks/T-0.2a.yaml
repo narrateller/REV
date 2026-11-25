@@ -16,3 +16,9 @@ allow_protected: ["ops/gates/calc_gates.py"]
 forbidden: [git commit, git push, изменение ops/criteria/**, сеть]
 timebox_min: 60
 # дополнено ГК 24.11 (проба G0): G-SCOPE даёт WARN на служебный каталог раннера rev-scope-*.tmp с meta.json внутри worktree — исключить служебные пути раннера.
+# дополнено ГК 25.11 (M-1):
+#  - G-DOSE: required_stroke = fill_length + ejection_stroke считает длину брикета дважды (288 мм против физических 210 для
+#    design/params.m1.yaml). Нормативная формула: ход = (L_засыпки − L_брикета_в_камере) + (L_брикета_в_камере + перебег) =
+#    L_засыпки + перебег (+ подвод). Ввести параметр ejection_overtravel_mm вместо полного ejection_stroke.
+#  - G-CYCLE: ступени давления одного непрерывного хода считаются отдельными переключениями (+0,1 с каждая). Ввести у фазы
+#    признак `continues: true` (без переключения). Проверка на design/params.m1.yaml: ожидаемо ≈ 5,9 с вместо 6,77.

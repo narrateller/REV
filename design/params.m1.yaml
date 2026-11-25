@@ -1,0 +1,53 @@
+# M-1 master calculation, base case (GK, 25.11.2026). Source: calc/M-1/m1_calc.py, docs/M-1_master_calc.md.
+# Status: PRELIMINARY — compaction curve is a placeholder until T-1.1; values are fixed only at D1.
+schema_version: 1
+description: "M-1 base case: closed die 150x60, one main cylinder D280/d200, vertical precompaction D100, slide gate"
+product: {section_mm: [150, 60], length_range_mm: [40, 110], density_kg_m3: 1000}
+raw: {bulk_density_kg_m3: [90, 160], dose_kg: 0.83}
+main_cylinder:
+  n: 1
+  bore_mm: 280
+  rod_mm: 200
+  stroke_mm: 230
+  p_work_bar: 270
+  p_relief_bar: 300
+  eta: 0.95
+  nominal_force_N: 1520000   # 166.7 MPa x 9000 mm2 = 1.5003 MN; 1.5 MN gives 166.67 < 166.7
+chamber:
+  section_mm: [150, 60]
+  length_mm: 300
+  clearance_per_side_mm: 0.2
+  ejection_stroke_mm: 88.2
+  approach_stroke_mm: 0
+  in_die_density_kg_m3: 1180
+precompaction:
+  section_mm: [150, 200]
+  loose_fill_length_mm: 312
+  stroke_mm: 317.4
+  post_precompaction_density_kg_m3: 461
+  cylinder: {n: 1, bore_mm: 100, rod_mm: 56, stroke_mm: 330, eta: 0.95}
+drive:
+  motor_kW: 30
+  installed_kW: 34   # 30 main + ~4 feed screw, cooler, control (estimate, T-1.4)
+  pump_max_flow_L_min: 360
+  eta: 0.85
+  slide_gate_cylinder: {n: 1, bore_mm: 80, rod_mm: 45, stroke_mm: 70, eta: 0.95}
+cycle:
+  - {name: Подпрессовка 1, actuator: precompaction, stroke_mm: 285.1, direction: extend, pressure_bar: 20, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Подпрессовка 2, actuator: precompaction, stroke_mm: 19.3, direction: extend, pressure_bar: 50, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Подпрессовка 3, actuator: precompaction, stroke_mm: 8.9, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Подпрессовка 4, actuator: precompaction, stroke_mm: 4.1, direction: extend, pressure_bar: 123, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Прессование 1, actuator: main_cylinder, stroke_mm: 39.1, direction: extend, pressure_bar: 20, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Прессование 2, actuator: main_cylinder, stroke_mm: 31.1, direction: extend, pressure_bar: 50, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Прессование 3, actuator: main_cylinder, stroke_mm: 17.5, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Прессование 4, actuator: main_cylinder, stroke_mm: 4.8, direction: extend, pressure_bar: 120, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Прессование 5, actuator: main_cylinder, stroke_mm: 11.2, direction: extend, pressure_bar: 100, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Прессование 6, actuator: main_cylinder, stroke_mm: 8.3, direction: extend, pressure_bar: 150, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Прессование 7, actuator: main_cylinder, stroke_mm: 5.4, direction: extend, pressure_bar: 200, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Прессование 8, actuator: main_cylinder, stroke_mm: 4.0, direction: extend, pressure_bar: 250, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Финальное прессование, actuator: main_cylinder, stroke_mm: 0.5, direction: extend, pressure_bar: 270, speed_mm_s: pump, regeneration: false, press: true, dwell_s: 0.35}
+  - {name: Открытие шибера, actuator: slide_gate, stroke_mm: 70, direction: retract, pressure_bar: 100, speed_mm_s: 280, regeneration: false, dwell_s: 0}
+  - {name: Выталкивание, actuator: main_cylinder, stroke_mm: 88.2, direction: extend, force_N: 150000, speed_mm_s: pump, regeneration: true, dwell_s: 0}
+  - {name: Возврат пуансона, actuator: main_cylinder, stroke_mm: 210.1, direction: retract, pressure_bar: 20, speed_mm_s: pump, regeneration: false, dwell_s: 0}
+  - {name: Закрытие шибера, actuator: slide_gate, stroke_mm: 70, direction: extend, pressure_bar: 30, speed_mm_s: 280, regeneration: false, dwell_s: 0}
+  - {name: Возврат подпрессовки, actuator: precompaction, stroke_mm: 317.4, direction: retract, pressure_bar: 15, speed_mm_s: pump, regeneration: false, dwell_s: 0}
