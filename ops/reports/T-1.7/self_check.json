@@ -1,0 +1,145 @@
+{
+  "CalculiX": "2.22",
+  "Gmsh": "4.15.0",
+  "Gmsh_mesh_seed": 42,
+  "Gmsh_threads": 1,
+  "Python": "3.13.17",
+  "ccx_threads": 1,
+  "checks": {
+    "archive_size_bytes": 2715462,
+    "column_shoulder_convergence": true,
+    "convergence": {
+      "cast": {
+        "chamber": {
+          "column_conical_seat": true,
+          "outlet_traverse_R20": true,
+          "profile_1": true,
+          "profile_2": true,
+          "profile_3": false,
+          "profile_4": false,
+          "traverse_global": true
+        },
+        "cylinder": {
+          "column_conical_seat": false,
+          "cylinder_bore": true,
+          "profile_1": true,
+          "profile_2": true,
+          "profile_3": true,
+          "profile_4": true,
+          "stud_1_OD39": true,
+          "stud_2_OD39": true,
+          "stud_3_OD39": true,
+          "stud_4_OD39": true,
+          "stud_5_OD39": true,
+          "traverse_global": true
+        }
+      },
+      "plate": {
+        "chamber": {
+          "column_conical_seat": false,
+          "outlet_traverse_R20": true,
+          "profile_1": true,
+          "profile_2": true,
+          "traverse_global": true
+        },
+        "cylinder": {
+          "column_conical_seat": true,
+          "cylinder_bore": true,
+          "profile_1": true,
+          "profile_2": true,
+          "stud_1_OD39": true,
+          "stud_2_OD39": true,
+          "stud_3_OD39": true,
+          "stud_4_OD39": true,
+          "stud_5_OD39": true,
+          "traverse_global": true
+        }
+      },
+      "weld": {
+        "chamber": {
+          "IIW_hot_spot": true,
+          "column_conical_seat": false,
+          "outlet_traverse_R20": true,
+          "profile_1": true,
+          "profile_2": true,
+          "traverse_global": true
+        },
+        "cylinder": {
+          "IIW_hot_spot": true,
+          "column_conical_seat": false,
+          "cylinder_bore": true,
+          "profile_1": true,
+          "profile_2": true,
+          "stud_1_OD39": true,
+          "stud_2_OD39": true,
+          "stud_3_OD39": true,
+          "stud_4_OD39": true,
+          "stud_5_OD39": true,
+          "traverse_global": true
+        }
+      }
+    },
+    "force_and_moment_balance": "PASS",
+    "frame_mass_discharge_rails_and_row_sum": "PASS",
+    "full_meshes_in_submission": 0,
+    "insert_bearing_and_minimum_outlet": "PASS",
+    "insert_convergence": {
+      "insert_global": true,
+      "outlet_insert_R20": true
+    },
+    "physical_acceptance": "PASS",
+    "plate_verification": "PASS",
+    "thin_inp_count": 54,
+    "three_mesh_counts": {
+      "cast": {
+        "chamber": 5,
+        "cylinder": 4
+      },
+      "plate": {
+        "chamber": 3,
+        "cylinder": 4
+      },
+      "weld": {
+        "chamber": 3,
+        "cylinder": 3
+      }
+    }
+  },
+  "deterministic_replay": {
+    "absolute_numeric_tolerance": 1e-06,
+    "fea_summaries_byte_identical": true,
+    "first_deliverable_sha256": {
+      "calc/T-1.7/results.json": "23a8b5ec6a0eb026eaceaccc13a3d0eec6e54cf66a5e952cf6aeaff83a7e5a4d",
+      "design/frame.t17.yaml": "04861d9cfe0a5fae9b28b7911c8f6645cf157178ccab9b3ede785a352e1629c1",
+      "metrics.json": "66254ad18553d7b627859de185b5f5547b87cb1e0ed36b2f278c7437ff4f6c7e"
+    },
+    "first_errors": [],
+    "full_fea_replay_executed": true,
+    "generated_deliverables_byte_identical": true,
+    "numeric_differences_exceeding_tolerance": 0,
+    "second_deliverable_sha256": {
+      "calc/T-1.7/results.json": "23a8b5ec6a0eb026eaceaccc13a3d0eec6e54cf66a5e952cf6aeaff83a7e5a4d",
+      "design/frame.t17.yaml": "04861d9cfe0a5fae9b28b7911c8f6645cf157178ccab9b3ede785a352e1629c1",
+      "metrics.json": "66254ad18553d7b627859de185b5f5547b87cb1e0ed36b2f278c7437ff4f6c7e"
+    }
+  },
+  "gate_command": "REV_PYTHON -B ops/gates/calc_gates.py --params design/params.t14b.yaml --criteria ops/criteria/design_criteria.yaml --out gates.t17.json",
+  "gates": {
+    "G-CYCLE": "PASS",
+    "G-DOSE": "PASS",
+    "G-PFACE": "PASS"
+  },
+  "replay_commands": [
+    "frame_fea.py --variant cast --end chamber --levels 0,1,2,3,4 --archive-level -1",
+    "frame_fea.py --variant cast --end cylinder --levels 0,1,2,3 --archive-level -1",
+    "frame_fea.py --variant plate --end chamber --levels 0,1,2 --archive-level -1",
+    "frame_fea.py --variant plate --end cylinder --levels 0,1,2,3 --archive-level -1",
+    "frame_fea.py --variant weld --end chamber --levels 0,1,2 --archive-level -1",
+    "frame_fea.py --variant weld --end cylinder --levels 0,1,2 --archive-level -1",
+    "column_fea.py --levels 0,1,2 --archive-level -1",
+    "insert_fea.py --levels 0,1,2 --archive-level -1",
+    "frame_fea.py --benchmark"
+  ],
+  "round": 2,
+  "task": "T-1.7"
+}

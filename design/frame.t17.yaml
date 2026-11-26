@@ -1,0 +1,122 @@
+schema_version: 2
+task: T-1.7
+round: 2
+status: selected
+selected_variant: cast
+reference_variant: cast
+traverses:
+  cylinder:
+    depth_mm: 238.0
+    material: G35CrNiMo6-6+QT1
+    yield_min_MPa: 650.0
+    tensile_min_MPa: 800.0
+    profile_fillet_mm: 36.0
+    cast_ring_OD_mm: 600.0
+    cast_rib_width_mm: 192.0
+    cast_boss_OD_mm: 200
+    half_width_at_midcut_mm: 300.0
+    flange_mm: null
+  chamber:
+    depth_mm: 205.0
+    material: G35CrNiMo6-6+QT1
+    yield_min_MPa: 650.0
+    tensile_min_MPa: 800.0
+    profile_fillet_mm: 36.0
+    cast_ring_OD_mm: 550.0
+    cast_rib_width_mm: 166.0
+    cast_boss_OD_mm: 200
+    half_width_at_midcut_mm: 275.0
+    flange_mm: null
+interfaces:
+  inner_bearing_planes_spacing_mm: 740.0
+  cylinder_cover_OD_mm: 520
+  barrel_passage_mm: 360
+  cylinder_studs:
+    n: 16
+    property_class: '10.9'
+    PCD_mm: 450
+    diameter_mm: 36
+    pitch_mm: 4
+    hole_diameter_mm: 39
+  insert_footprint_mm:
+  - 340.0
+  - 180.0
+  insert_depth_mm: 55.0
+  insert_material: 34CrNiMo6+QT
+  open_discharge_bay_mm: 190.0
+  discharge_rails_clear_width_mm: 176.0
+  discharge_rail_cross_section_mm:
+  - 82.0
+  - 180.0
+  outlet_width_height_radius_mm:
+  - 176.0
+  - 74.0
+  - 20.0
+  minimum_rectangular_outlet_mm:
+  - 164
+  - 62
+  guide_reference_plane: Plane of the rod tip on the travelling crosshead (design assumption).
+  layout:
+    guide_station_at_press_end_mm: 311.3180105762088
+    punch_station_at_press_end_mm: 388.3180105762088
+    guide_station_at_installed_stroke_mm: 464
+    punch_station_at_installed_stroke_mm: 541.0
+    guide_to_punch_lever_mm: 77.0
+    nut_across_corners_mm: 167.43157806499147
+    nut_radial_edge_clearance_mm: 4.284210967504265
+    washer_outer_diameter_mm: 176.0
+    seat_radial_edge_clearance_mm: 9.0
+    rear_cylinder_projection_to_mount_mm: 513
+    retracted_rod_tip_from_cylinder_mount_mm: 175
+    punch_home_from_cylinder_mount_mm: 252.0
+    rod_tip_to_punch_home_in_stack_screen_mm: 77.0
+    minimum_nut_to_cover_mm: 38.121872808239914
+    minimum_200mm_tool_to_cover_mm: 21.837661840735677
+    minimum_nut_to_barrel_mm: 122.12187280823991
+    stud_ligament_to_barrel_bore_mm: 25.5
+    stud_ligament_to_ring_OD_mm: 55.5
+    frame_axial_length_mm: 1395.0
+    end_projection_from_mount_mm: 344.0
+    chamber_end_projection_from_mount_mm: 311.0
+    module_axial_excluding_ZSF_and_safety_guards_mm: 1564.0
+    frame_transverse_max_mm: 740.0
+    frame_height_with_feet_upper_mm: 850
+columns:
+  quantity: 4
+  square_pitch_mm: 540.0
+  bore_mm: 104.0
+  material: 42CrMo4+QT
+  thread_mm:
+  - 100.0
+  - 6.0
+  smooth_span_diameter_mm: 70.0
+  smooth_span_mm: 624.0
+  midspan_shoulder_fillet_mm: 18.0
+  thread_end_shoulder_fillet_mm: 16.0
+  inside_seat_mouth_diameter_mm: 134.0
+  inside_seat_chamfer_depth_mm: 16.0
+  preload_N_per_end: 735000.0
+  preload_scatter_fraction: 0.05
+  collar_diameter_height_mm:
+  - 176.0
+  - 40.0
+  nut_across_flats_height_mm:
+  - 145.0
+  - 80.0
+  washer_diameter_thickness_mm:
+  - 176.0
+  - 12.0
+  per_end_load_fraction:
+    cylinder: 0.23390761219498885
+    chamber: 0.22935144447329206
+results:
+  frame_mass_kg: 1605.959056703334
+  machine_mass_kg: 4972.4094516052755
+  minimum_static_factor: 1.833345284670883
+  minimum_fatigue_factor: 1.0287260384625356
+  preload_residual_min_N: 120609.90710866445
+  lateral_srss_mm: 0.04299013329183725
+D1_checks:
+- Contact and opening with friction coefficient 0.15 on the chamber load path.
+- Confirmation of guide bases, chute, moving gate clearances and whole-machine envelope.
+- Column thread runout, nut proof load, preload process and casting qualification.
