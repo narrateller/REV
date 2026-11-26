@@ -1,0 +1,1038 @@
+{
+  "task": "T-2.2c",
+  "status": "STOP_AT_HAND_SCREEN",
+  "selected": null,
+  "criteria": {
+    "min_static_factor": 1.5,
+    "cycles": 10000000,
+    "max_briquette_height_delta_mm": 0.5,
+    "target_module_delta_kg": 40,
+    "stop_module_delta_kg": 80,
+    "max_machine_mass_kg": 5000,
+    "max_cycle_s": 6.0,
+    "max_gate_cycle_s": 5.95,
+    "min_FKM_factor_at_1e7_cycles": 1.0
+  },
+  "design_basis": {
+    "product_section_mm": [
+      150,
+      60
+    ],
+    "shoe_window_mm": [
+      150,
+      200
+    ],
+    "window_x_mm": [
+      5,
+      205
+    ],
+    "main_cylinder_bore_rod_mm": [
+      280,
+      200
+    ],
+    "main_installed_stroke_mm": 306,
+    "guide_to_punch_mm": 77,
+    "work_pressure_bar": 300,
+    "relief_pressure_bar": 315
+  },
+  "load": {
+    "centroid_x_mm": 141.30751238773644,
+    "decay_per_mm": 0.0084,
+    "end_x_mm": 205.0,
+    "force_300_N": 1224030.3055545068,
+    "force_315_N": 1285231.8208322322,
+    "initial_pressure_300_MPa": 113.33333333333333,
+    "start_x_mm": 94.47604704867892
+  },
+  "mass_basis": {
+    "baseline_machine_kg": 4942.65,
+    "replaced_chamber_kg": 180.22,
+    "H2_separate_delta_kg": [
+      5,
+      18
+    ]
+  },
+  "baseline_cycle": {
+    "gate_s": 5.823772630624717,
+    "pessimistic_s": 5.8837500000007035,
+    "realistic_s": 5.520000000000526,
+    "source": "calc/T-2.1/results.json: selected candidate summary"
+  },
+  "baseline_gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "unit": "MPa"
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 306,
+      "unit": "mm"
+    },
+    "G-CYCLE": {
+      "status": "PASS",
+      "value": 5.823772630624717,
+      "unit": "s"
+    }
+  },
+  "candidates": {
+    "closed_extension": {
+      "added_main_stroke_mm": 120.0,
+      "analogous_extra_time_s": 1.2599999999998692,
+      "available_shoe_hydraulic_at_transfer_N": 331000.0,
+      "contact_note": "Average material/roof pressure during transfer; no oscillating hardened lock pair.",
+      "contact_screen_MPa": null,
+      "estimated_gate_cycle_s": 7.083772630624586,
+      "fatigue_factor": 0.3186435836309329,
+      "final_peak_charge_pressure_315_MPa": 119.0,
+      "final_pressure_roof_force_315_N": 1285231.8208322322,
+      "height_at_300_mm": 0.39278508406898044,
+      "height_at_300_transfer_mm": 0.09370131117479502,
+      "ideal_extra_rapid_oil_time_s": 0.5846918855662211,
+      "illustrative_thicker_roof": {
+        "M_sigma": 0.32999999999999996,
+        "Rm_MPa": 800,
+        "Rp02_MPa": 650,
+        "fatigue_demand_MPa": 88.22344530837931,
+        "fatigue_factor_n_sigma_1": 1.2745743345237317,
+        "fatigue_strength_MPa": 112.44733909331839,
+        "j_G": 1.25,
+        "static_factor": 4.666182160849791,
+        "stress_315_MPa": 139.30017680270416
+      },
+      "installed_main_stroke_mm": 426.0,
+      "manufacturing": "Longer chamber blank and longer manufactured baseline columns, main and rapid cylinders.",
+      "mass": {
+        "assembly_kg": 230.8996,
+        "delta_kg": 50.67959999999999,
+        "machine_kg": 5113.717201017498,
+        "machine_with_H2_kg": [
+          5118.717201017498,
+          5131.717201017498
+        ],
+        "outside_module_delta_kg": 120.38760101749858,
+        "outside_module_rows_kg": {
+          "four_longer_smooth_columns": 14.500963370439766,
+          "longer_main_and_rapid_cylinders_T17d_gross_scaling": 105.88663764705882
+        },
+        "rows_kg": {
+          "D1_chamber_less_old_keys": 161.0032,
+          "die_extension": 69.8964
+        },
+        "station_reduction_to_5000_with_H2_kg": [
+          118.71720101749816,
+          131.71720101749816
+        ]
+      },
+      "mechanical_drive": null,
+      "peak_shoe_300_N": 292000.0,
+      "reason": "Окончательное прессование целиком в закрытой зоне, нагрузка окна только при проталкивании.",
+      "reference_cycle_s": 7.143750000000573,
+      "requires_main_frame_or_stroke_change": true,
+      "roof": {
+        "M_sigma": 0.32999999999999996,
+        "Rm_MPa": 800,
+        "Rp02_MPa": 650,
+        "fatigue_demand_MPa": 352.89378123351725,
+        "fatigue_factor_n_sigma_1": 0.3186435836309329,
+        "fatigue_strength_MPa": 112.44733909331839,
+        "j_G": 1.25,
+        "static_factor": 1.1665455402124478,
+        "stress_315_MPa": 557.2007072108166
+      },
+      "screen_pass": {
+        "contact_nominal": null,
+        "delta_mass": false,
+        "fatigue": false,
+        "gate_cycle": false,
+        "height": true,
+        "reference_cycle": false,
+        "static": false
+      },
+      "sequential_cycle_with_ideal_rapid_and_no_cam_s": 6.388441885566925,
+      "static_factor": 1.1665455402124478,
+      "transfer_mean_charge_pressure_MPa": 18.581818181818182,
+      "upper_working_contact_MPa": null
+    },
+    "full_width_block": {
+      "analytic_height_excludes": "Local nonlinear indentation",
+      "beta_block_withdraw": [
+        {
+          "angle_deg": 4.0,
+          "flat_block_withdraw_N": 257046.36416644647,
+          "friction_angle_one_pair_deg": 5.710593137499643,
+          "insert_N": 348456.45124084805,
+          "mu": 0.1,
+          "self_lock_angle_two_pairs_deg": 11.421186274999286,
+          "withdraw_N": 166905.80289654428
+        },
+        {
+          "angle_deg": 4.0,
+          "flat_block_withdraw_N": 385569.5462496697,
+          "friction_angle_one_pair_deg": 8.530765609948133,
+          "insert_N": 478437.9323002297,
+          "mu": 0.15,
+          "self_lock_angle_two_pairs_deg": 17.061531219896267,
+          "withdraw_N": 294629.13468279317
+        }
+      ],
+      "contact_qualification": "Elastic screen, with separate hardened steel inserts assumed at support faces.",
+      "contact_screen_MPa": 480.0,
+      "drive": {
+        "bore_rod_mm": [
+          40.0,
+          22.0
+        ],
+        "ideal_actuation_N": 4092.9012244897954,
+        "move_s": 0.14,
+        "optimistic_volume_limited_roundtrip_s": 0.13909691922900935,
+        "peak_acceleration_m_s2": 58.77551020408163,
+        "peak_flow_L_min": 310.20983459446643,
+        "peak_speed_m_s": 4.114285714285714,
+        "retract_required_bar": 46.69573200461808
+      },
+      "estimated_gate_cycle_s": 6.023772630624717,
+      "fatigue_factor": 0.38574352052422556,
+      "geometry": {
+        "key_locked_x_mm": [
+          95.0,
+          195.0
+        ],
+        "key_top_z_mm": 198.0,
+        "key_xyz_mm": [
+          100.0,
+          418.0,
+          150.0
+        ],
+        "lateral_support_centres_y_mm": [
+          -174.0,
+          174.0
+        ],
+        "relocated_cylinder_x_mm": 55.0,
+        "shoe_z_mm": 48.0,
+        "stroke_y_mm": 288.0
+      },
+      "height_at_300_mm": 1.0609385322742806,
+      "key_asymmetry_moment_multiplier": 0.9216,
+      "manufacturing": "Closed cast portals with line-machined windows. Load pads ground separately. External park guide on one side.",
+      "mass": {
+        "assembly_kg": 208.69,
+        "delta_kg": 28.47,
+        "machine_kg": 4971.12,
+        "machine_with_H2_kg": [
+          4976.12,
+          4989.12
+        ],
+        "outside_module_delta_kg": 0.0,
+        "outside_module_rows_kg": {},
+        "rows_kg": {
+          "closed_floor_box": 53.87298,
+          "drive_and_park_support": 15.0,
+          "four_portal_legs": 32.796672,
+          "shoe_blank_including_rear_guide_riser": 17.48352,
+          "throat_and_guide_walls": 9.75912,
+          "transverse_lock_blank": 49.2195,
+          "two_portal_roofs": 20.558207999999997,
+          "working_inserts_guides_and_retainers": 10.0
+        },
+        "station_reduction_to_5000_with_H2_kg": [
+          0.0,
+          0.0
+        ]
+      },
+      "reason": "Опора сплошного блока по двум замкнутым боковым порталам, без изгиба стяжек.",
+      "reference_cycle_s": 6.083750000000704,
+      "screen_pass": {
+        "contact_nominal": true,
+        "delta_mass": true,
+        "fatigue": false,
+        "gate_cycle": false,
+        "height": false,
+        "reference_cycle": false,
+        "static": false
+      },
+      "sections": {
+        "key": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 135.33491073363408,
+          "fatigue_factor_n_sigma_1": 1.3462988765211372,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 2.9925759569688584,
+          "stress_315_MPa": 233.91219139146628
+        },
+        "post": {
+          "M_sigma": 0.32999999999999996,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 650,
+          "fatigue_demand_MPa": 45.91673343473263,
+          "fatigue_factor_n_sigma_1": 2.448940303063028,
+          "fatigue_strength_MPa": 112.44733909331839,
+          "j_G": 1.25,
+          "static_factor": 8.965504204514495,
+          "stress_315_MPa": 72.50010542326204
+        },
+        "roof": {
+          "M_sigma": 0.32999999999999996,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 650,
+          "fatigue_demand_MPa": 291.50804384349067,
+          "fatigue_factor_n_sigma_1": 0.38574352052422556,
+          "fatigue_strength_MPa": 112.44733909331839,
+          "j_G": 1.25,
+          "static_factor": 1.4121965940936045,
+          "stress_315_MPa": 460.2758587002484
+        }
+      },
+      "shoe_contact_MPa": 136.5594772174499,
+      "shoe_contact_screen_MPa": 360.0,
+      "static_factor": 1.4121965940936045,
+      "upper_hertz": {
+        "crown_radius_mm": 8000.05,
+        "finite_pad_peak_valid": true,
+        "finite_patch_mean_lower_bound_MPa": 130.56323259248072,
+        "footprint_clipped": false,
+        "half_width_mm": 28.404485273148772,
+        "infinite_line_peak_MPa": 204.83875778527903,
+        "pressure_MPa": 204.83875778527903
+      },
+      "upper_planar_contact_MPa": 162.7034405234688,
+      "upper_working_contact_MPa": 204.83875778527903
+    },
+    "main_frame": {
+      "bridge": {
+        "M_sigma": 0.24999999999999997,
+        "Rm_MPa": 1000,
+        "Rp02_MPa": 800,
+        "fatigue_demand_MPa": 618.4015542833065,
+        "fatigue_factor_n_sigma_1": 0.3243934157246268,
+        "fatigue_strength_MPa": 200.60539248338003,
+        "j_G": 1.0,
+        "static_factor": 0.7700344103150822,
+        "stress_315_MPa": 1038.9146111959549
+      },
+      "column_MPa": {
+        "bending": 471.1232882522248,
+        "combined": 662.1092199624992,
+        "preload": 190.9859317102744
+      },
+      "column_only_height_at_300_mm": 0.3968632493767054,
+      "contact_screen_MPa": 480.0,
+      "estimated_gate_cycle_s": 5.823772630624717,
+      "fatigue_factor": 0.3243934157246268,
+      "height_at_300_mm": 1.5467472383177885,
+      "kinetics": {
+        "assumed_radial_key_stroke_mm": 36.0,
+        "inherited_cam_stroke_mm": 12.0,
+        "lock_time_lower_bound_s": 0.04,
+        "note": "Optimistic reuse of T-2.1 cam timings; no credible unchanged frame interface.",
+        "unlock_time_lower_bound_s": 0.04
+      },
+      "manufacturing": "Bridge and pads mounted to column bosses. Existing axial qualification does not cover the transverse reaction.",
+      "mass": {
+        "assembly_kg": 203.59344,
+        "delta_kg": 23.373439999999988,
+        "machine_kg": 4966.02344,
+        "machine_with_H2_kg": [
+          4971.02344,
+          4984.02344
+        ],
+        "outside_module_delta_kg": 0.0,
+        "outside_module_rows_kg": {},
+        "rows_kg": {
+          "D1_chamber_less_old_keys": 161.0032,
+          "bridges_and_struts": 34.590239999999994,
+          "replaceable_pads_and_drive": 8.0
+        },
+        "station_reduction_to_5000_with_H2_kg": [
+          0.0,
+          0.0
+        ]
+      },
+      "reason": "Проверка использования существующих колонн и траверс в качестве внешнего силового контура.",
+      "reference_cycle_s": 5.8837500000007035,
+      "screen_pass": {
+        "contact_nominal": true,
+        "delta_mass": true,
+        "fatigue": false,
+        "gate_cycle": true,
+        "height": false,
+        "reference_cycle": true,
+        "static": false
+      },
+      "static_factor": 0.7551624187144218,
+      "upper_working_contact_MPa": 234.10121352153215
+    },
+    "rotary_bayonet": {
+      "backing_contact_screens_MPa": {
+        "cast_foot": 390.0,
+        "shoe": 360.0
+      },
+      "contact_screen_MPa": 480.0,
+      "differential_post_extension_edge_mm": 0.06352920145996584,
+      "drive": {
+        "combined_rotor_inertia_kg_m2": 0.1217214739944999,
+        "friction_torque_315_Nm": [
+          6940.251832494055,
+          10410.37774874108
+        ],
+        "lock_time_s": 0.08,
+        "peak_stem_speed_mm_s": 300.0,
+        "rod_extra_stroke_mm": 12.0,
+        "stem_inertia_force_N": 11587.025419012345,
+        "unloaded_stem_guide_force_assumption_N": 3000.0,
+        "unlock_time_s": 0.08
+      },
+      "estimated_gate_cycle_s": 5.903772630624717,
+      "fatigue_factor": 0.4080383127657827,
+      "floor_sensitivity": {
+        "depth_range_mm": [
+          125,
+          220,
+          5
+        ],
+        "grid_count": 260,
+        "lightest_passing_height_and_floor_fatigue": {
+          "I_mm4": 57691666.666666664,
+          "depth_mm": 150.0,
+          "floor_check": {
+            "M_sigma": 0.32999999999999996,
+            "Rm_MPa": 800,
+            "Rp02_MPa": 650,
+            "fatigue_demand_MPa": 110.68880790693684,
+            "fatigue_factor_n_sigma_1": 1.0158871634778113,
+            "fatigue_strength_MPa": 112.44733909331839,
+            "j_G": 1.25,
+            "static_factor": 3.719135425261614,
+            "stress_315_MPa": 174.77180195832133
+          },
+          "height_at_300_mm": 0.49797902088687135,
+          "interior_web_mm": 22.0,
+          "mass": {
+            "assembly_kg": 262.0222729392517,
+            "delta_kg": 81.80227293925171,
+            "machine_kg": 5024.452272939251,
+            "machine_with_H2_kg": [
+              5029.452272939251,
+              5042.452272939251
+            ],
+            "outside_module_delta_kg": 0.0,
+            "outside_module_rows_kg": {},
+            "rows_kg": {
+              "closed_floor_box": 50.72356,
+              "floor_end_diaphragms": 6.742208,
+              "front_anchor_flange_addition": 3.505385941282837,
+              "front_carrier_lands": 5.024781099876025,
+              "front_collar_lobes": 6.494360023761239,
+              "front_collar_sleeves": 13.157404723464326,
+              "front_heads": 6.494360023761239,
+              "front_posts": 34.80231208905544,
+              "gearing_rack_indexing_and_guards": 9.0,
+              "inserts_and_mechanical_retainers": 6.0,
+              "interfaces_and_local_ribs": 12.0,
+              "rear_anchor_flange_addition": 2.2772431252149796,
+              "rear_carrier_lands": 2.752223660103874,
+              "rear_collar_lobes": 2.7582040744190635,
+              "rear_collar_sleeves": 4.4435094899419,
+              "rear_heads": 2.7582040744190635,
+              "rear_posts": 14.030224613951749,
+              "shoe_carrier_bridges": 21.0066,
+              "shoe_core": 34.382999999999996,
+              "throat_and_guide_walls": 9.30696,
+              "two_floor_webs": 14.361731999999998
+            },
+            "station_reduction_to_5000_with_H2_kg": [
+              29.45227293925109,
+              42.45227293925109
+            ]
+          }
+        },
+        "smallest_height_with_delta_mass_at_most_80_kg": {
+          "I_mm4": 85888000.0,
+          "depth_mm": 180.0,
+          "floor_check": {
+            "M_sigma": 0.32999999999999996,
+            "Rm_MPa": 800,
+            "Rp02_MPa": 650,
+            "fatigue_demand_MPa": 122.51698278536107,
+            "fatigue_factor_n_sigma_1": 0.9178102213822569,
+            "fatigue_strength_MPa": 112.44733909331839,
+            "j_G": 1.25,
+            "static_factor": 3.3600783932776923,
+            "stress_315_MPa": 193.44786755583326
+          },
+          "height_at_300_mm": 0.5032055752516822,
+          "interior_web_mm": 8.0,
+          "mass": {
+            "assembly_kg": 260.00827693925174,
+            "delta_kg": 79.78827693925174,
+            "machine_kg": 5022.438276939251,
+            "machine_with_H2_kg": [
+              5027.438276939251,
+              5040.438276939251
+            ],
+            "outside_module_delta_kg": 0.0,
+            "outside_module_rows_kg": {},
+            "rows_kg": {
+              "closed_floor_box": 54.58575999999999,
+              "floor_end_diaphragms": 8.580992,
+              "front_anchor_flange_addition": 3.505385941282837,
+              "front_carrier_lands": 5.024781099876025,
+              "front_collar_lobes": 6.494360023761239,
+              "front_collar_sleeves": 13.157404723464326,
+              "front_heads": 6.494360023761239,
+              "front_posts": 34.80231208905544,
+              "gearing_rack_indexing_and_guards": 9.0,
+              "inserts_and_mechanical_retainers": 6.0,
+              "interfaces_and_local_ribs": 12.0,
+              "rear_anchor_flange_addition": 2.2772431252149796,
+              "rear_carrier_lands": 2.752223660103874,
+              "rear_collar_lobes": 2.7582040744190635,
+              "rear_collar_sleeves": 4.4435094899419,
+              "rear_heads": 2.7582040744190635,
+              "rear_posts": 14.030224613951749,
+              "shoe_carrier_bridges": 21.0066,
+              "shoe_core": 34.382999999999996,
+              "throat_and_guide_walls": 9.30696,
+              "two_floor_webs": 6.646751999999999
+            },
+            "station_reduction_to_5000_with_H2_kg": [
+              27.43827693925141,
+              40.43827693925141
+            ]
+          }
+        },
+        "web_range_mm": [
+          0,
+          24,
+          2
+        ]
+      },
+      "front": {
+        "elongation_300_mm": 0.22701295045724018,
+        "foot_bearing_MPa": 172.87115507931108,
+        "force_N": 727198.5153409443,
+        "hertz": {
+          "crown_radius_mm": 3358.7997477457225,
+          "finite_pad_peak_valid": false,
+          "finite_patch_mean_lower_bound_MPa": 386.266835320625,
+          "footprint_clipped": true,
+          "half_width_mm": 24.47334862339545,
+          "infinite_line_peak_MPa": 420.36562614060745,
+          "pressure_MPa": 449.5875334849947
+        },
+        "hertz_assumption": "Finite uniform radial line, circumferential crown, no pad tilt.",
+        "moving_tooth": {
+          "M_sigma": 0.17999999999999997,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 600,
+          "fatigue_demand_MPa": 72.3358046078153,
+          "fatigue_factor_n_sigma_1": 2.2617097541193343,
+          "fatigue_strength_MPa": 163.60259485356616,
+          "j_G": 1.0,
+          "static_factor": 4.660801921963159,
+          "stress_315_MPa": 128.7332115901798
+        },
+        "pad_mean_MPa": 386.266835320625,
+        "peak_tooth_N": 290879.4061363777,
+        "post": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 83.70282414619196,
+          "fatigue_factor_n_sigma_1": 2.176763330667967,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 4.838546418608808,
+          "stress_315_MPa": 144.67154790699846
+        },
+        "shoulder_bearing_MPa": 185.47634347051084,
+        "tooth": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 126.61830882834114,
+          "fatigue_factor_n_sigma_1": 1.4389801914176064,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 3.1985895542884424,
+          "stress_315_MPa": 218.84645970330567
+        }
+      },
+      "gate_interface": {
+        "check_point_xyz_mm": [
+          206.0,
+          120.0,
+          -90.0
+        ],
+        "radial_interference_mm": 12.403557437305928,
+        "radius_from_front_post_mm": 50.59644256269407
+      },
+      "geometry": {
+        "crown_mm": 0.1,
+        "edge_radius_mm": 5.0,
+        "floor_box_height_mm": 125.0,
+        "front": {
+          "foot_r_mm": 63.0,
+          "head_r_mm": 68.0,
+          "ring_bottom_locked_z_mm": 163.0,
+          "seat_length_mm": 346.0,
+          "seat_z_mm": -88.0,
+          "shank_r_mm": 40.0,
+          "sleeve_r_mm": 87.0,
+          "tooth_height_mm": 95.0,
+          "x_mm": 158.0
+        },
+        "moving_y_outer_mm": 230.0,
+        "rear": {
+          "foot_r_mm": 50.0,
+          "head_r_mm": 52.0,
+          "ring_bottom_locked_z_mm": 68.0,
+          "seat_length_mm": 226.0,
+          "seat_z_mm": -88.0,
+          "shank_r_mm": 31.0,
+          "sleeve_r_mm": 64.0,
+          "tooth_height_mm": 70.0,
+          "x_mm": 14.0
+        },
+        "root_radius_mm": 15.0,
+        "tooth_sector_deg": 55.0,
+        "unlocking_rotation_deg": 60.0,
+        "y_mm": [
+          -136.0,
+          136.0
+        ]
+      },
+      "height_at_300_mm": 0.6906048598599136,
+      "height_without_floor_mm": 0.3642440522456339,
+      "manufacturing": "Three sectors per head, three per sleeve. Ground interchangeable pads. Lift-out post with an integral foot, no service-load thread.",
+      "mass": {
+        "assembly_kg": 242.9097209392517,
+        "delta_kg": 62.689720939251714,
+        "machine_kg": 5005.3397209392515,
+        "machine_with_H2_kg": [
+          5010.3397209392515,
+          5023.3397209392515
+        ],
+        "outside_module_delta_kg": 0.0,
+        "outside_module_rows_kg": {},
+        "rows_kg": {
+          "closed_floor_box": 47.50505999999999,
+          "floor_end_diaphragms": 5.209887999999999,
+          "front_anchor_flange_addition": 3.505385941282837,
+          "front_carrier_lands": 5.024781099876025,
+          "front_collar_lobes": 6.494360023761239,
+          "front_collar_sleeves": 13.157404723464326,
+          "front_heads": 6.494360023761239,
+          "front_posts": 34.80231208905544,
+          "gearing_rack_indexing_and_guards": 9.0,
+          "inserts_and_mechanical_retainers": 6.0,
+          "interfaces_and_local_ribs": 12.0,
+          "rear_anchor_flange_addition": 2.2772431252149796,
+          "rear_carrier_lands": 2.752223660103874,
+          "rear_collar_lobes": 2.7582040744190635,
+          "rear_collar_sleeves": 4.4435094899419,
+          "rear_heads": 2.7582040744190635,
+          "rear_posts": 14.030224613951749,
+          "shoe_carrier_bridges": 21.0066,
+          "shoe_core": 34.382999999999996,
+          "throat_and_guide_walls": 9.30696,
+          "two_floor_webs": 0.0
+        },
+        "station_reduction_to_5000_with_H2_kg": [
+          10.339720939251492,
+          23.339720939251492
+        ]
+      },
+      "nominal_equal_sharing": {
+        "front": {
+          "elongation_300_mm": 0.22701295045724018,
+          "foot_bearing_MPa": 172.87115507931108,
+          "force_N": 727198.5153409443,
+          "hertz": {
+            "crown_radius_mm": 3358.7997477457225,
+            "finite_pad_peak_valid": false,
+            "finite_patch_mean_lower_bound_MPa": 321.88902943385415,
+            "footprint_clipped": true,
+            "half_width_mm": 22.341008497869485,
+            "infinite_line_peak_MPa": 383.73955972832334,
+            "pressure_MPa": 391.2152251797321
+          },
+          "hertz_assumption": "Finite uniform radial line, circumferential crown, no pad tilt.",
+          "moving_tooth": {
+            "M_sigma": 0.17999999999999997,
+            "Rm_MPa": 800,
+            "Rp02_MPa": 600,
+            "fatigue_demand_MPa": 60.27983717317943,
+            "fatigue_factor_n_sigma_1": 2.7140517049432007,
+            "fatigue_strength_MPa": 163.60259485356616,
+            "j_G": 1.0,
+            "static_factor": 5.5929623063557905,
+            "stress_315_MPa": 107.27767632514984
+          },
+          "pad_mean_MPa": 321.88902943385415,
+          "peak_tooth_N": 242399.50511364808,
+          "post": {
+            "M_sigma": 0.215,
+            "Rm_MPa": 900,
+            "Rp02_MPa": 700,
+            "fatigue_demand_MPa": 83.70282414619196,
+            "fatigue_factor_n_sigma_1": 2.176763330667967,
+            "fatigue_strength_MPa": 182.20123827477994,
+            "j_G": 1.0,
+            "static_factor": 4.838546418608808,
+            "stress_315_MPa": 144.67154790699846
+          },
+          "shoulder_bearing_MPa": 185.47634347051084,
+          "tooth": {
+            "M_sigma": 0.215,
+            "Rm_MPa": 900,
+            "Rp02_MPa": 700,
+            "fatigue_demand_MPa": 105.51525735695095,
+            "fatigue_factor_n_sigma_1": 1.7267762297011275,
+            "fatigue_strength_MPa": 182.20123827477994,
+            "j_G": 1.0,
+            "static_factor": 3.838307465146131,
+            "stress_315_MPa": 182.37204975275472
+          }
+        },
+        "rear": {
+          "elongation_300_mm": 0.03237029066500442,
+          "foot_bearing_MPa": 41.63347036830529,
+          "force_N": 95349.84999168433,
+          "hertz": {
+            "crown_radius_mm": 1983.7971718295853,
+            "finite_pad_peak_valid": true,
+            "finite_patch_mean_lower_bound_MPa": 96.83868415569232,
+            "footprint_clipped": false,
+            "half_width_mm": 7.953032852756575,
+            "infinite_line_peak_MPa": 231.28817045600604,
+            "pressure_MPa": 231.28817045600604
+          },
+          "hertz_assumption": "Finite uniform radial line, circumferential crown, no pad tilt.",
+          "moving_tooth": {
+            "M_sigma": 0.17999999999999997,
+            "Rm_MPa": 800,
+            "Rp02_MPa": 600,
+            "fatigue_demand_MPa": 14.05338450972099,
+            "fatigue_factor_n_sigma_1": 11.641508473663349,
+            "fatigue_strength_MPa": 163.60259485356616,
+            "j_G": 1.0,
+            "static_factor": 23.990153895643363,
+            "stress_315_MPa": 25.010260568147526
+          },
+          "pad_mean_MPa": 96.83868415569232,
+          "peak_tooth_N": 31783.28333056144,
+          "post": {
+            "M_sigma": 0.215,
+            "Rm_MPa": 900,
+            "Rp02_MPa": 700,
+            "fatigue_demand_MPa": 18.272742617645747,
+            "fatigue_factor_n_sigma_1": 9.971203671354218,
+            "fatigue_strength_MPa": 182.20123827477994,
+            "j_G": 1.0,
+            "static_factor": 22.164160491643813,
+            "stress_315_MPa": 31.582518104572895
+          },
+          "shoulder_bearing_MPa": 259.40854614097907,
+          "tooth": {
+            "M_sigma": 0.215,
+            "Rm_MPa": 900,
+            "Rp02_MPa": 700,
+            "fatigue_demand_MPa": 24.272630763372668,
+            "fatigue_factor_n_sigma_1": 7.506447902207663,
+            "fatigue_strength_MPa": 182.20123827477994,
+            "j_G": 1.0,
+            "static_factor": 16.685459600495545,
+            "stress_315_MPa": 41.95269514657004
+          }
+        }
+      },
+      "other_eccentric_press_cases": [
+        {
+          "e_mm": 12.762216615152568,
+          "front_peak_contact_MPa": 352.49979130908054,
+          "front_peak_tooth_N": 204539.08620402694,
+          "label": [
+            "nominal",
+            "nominal",
+            "low"
+          ],
+          "tooth_fatigue_factor": 2.0464044857619186
+        },
+        {
+          "e_mm": 10.59968178780099,
+          "front_peak_contact_MPa": 395.45592419928863,
+          "front_peak_tooth_N": 246064.2685363789,
+          "label": [
+            "nominal",
+            "nominal",
+            "base"
+          ],
+          "tooth_fatigue_factor": 1.701058451156966
+        },
+        {
+          "e_mm": 1.257077004998962,
+          "front_peak_contact_MPa": 404.3765183328729,
+          "front_peak_tooth_N": 253669.42859161465,
+          "label": [
+            "nominal",
+            "nominal",
+            "high"
+          ],
+          "tooth_fatigue_factor": 1.650059708990099
+        },
+        {
+          "e_mm": 12.826404378547238,
+          "front_peak_contact_MPa": 375.88138682987875,
+          "front_peak_tooth_N": 228765.68562285116,
+          "label": [
+            "nominal",
+            "reserve",
+            "low"
+          ],
+          "tooth_fatigue_factor": 1.8296874480188825
+        },
+        {
+          "e_mm": 11.615986729173557,
+          "front_peak_contact_MPa": 431.7531502588898,
+          "front_peak_tooth_N": 276399.1429961034,
+          "label": [
+            "nominal",
+            "reserve",
+            "base"
+          ],
+          "tooth_fatigue_factor": 1.5143668644713035
+        },
+        {
+          "e_mm": 5.40234382417529,
+          "front_peak_contact_MPa": 468.494548128094,
+          "front_peak_tooth_N": 306044.44399531547,
+          "label": [
+            "nominal",
+            "reserve",
+            "high"
+          ],
+          "tooth_fatigue_factor": 1.3676762043357709
+        },
+        {
+          "e_mm": 2.4056272844311195,
+          "front_peak_contact_MPa": 338.23439107730036,
+          "front_peak_tooth_N": 188318.9875179182,
+          "label": [
+            "length_110",
+            "nominal",
+            "low"
+          ],
+          "tooth_fatigue_factor": 2.222663306756247
+        },
+        {
+          "e_mm": 2.4863844397576713,
+          "front_peak_contact_MPa": 357.92956675776605,
+          "front_peak_tooth_N": 210888.9052991934,
+          "label": [
+            "length_110",
+            "reserve",
+            "low"
+          ],
+          "tooth_fatigue_factor": 1.9847876915465474
+        },
+        {
+          "e_mm": 0.1772468573807373,
+          "front_peak_contact_MPa": 389.6234789111187,
+          "front_peak_tooth_N": 241014.25704128487,
+          "label": [
+            "length_110",
+            "reserve",
+            "base"
+          ],
+          "tooth_fatigue_factor": 1.7367010095583886
+        }
+      ],
+      "rear": {
+        "elongation_300_mm": 0.03237029066500442,
+        "foot_bearing_MPa": 41.63347036830529,
+        "force_N": 95349.84999168433,
+        "hertz": {
+          "crown_radius_mm": 1983.7971718295853,
+          "finite_pad_peak_valid": true,
+          "finite_patch_mean_lower_bound_MPa": 116.20642098683078,
+          "footprint_clipped": false,
+          "half_width_mm": 8.712110988068877,
+          "infinite_line_peak_MPa": 253.36349648570885,
+          "pressure_MPa": 253.36349648570885
+        },
+        "hertz_assumption": "Finite uniform radial line, circumferential crown, no pad tilt.",
+        "moving_tooth": {
+          "M_sigma": 0.17999999999999997,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 600,
+          "fatigue_demand_MPa": 16.864061411665187,
+          "fatigue_factor_n_sigma_1": 9.701257061386125,
+          "fatigue_strength_MPa": 163.60259485356616,
+          "j_G": 1.0,
+          "static_factor": 19.991794913036138,
+          "stress_315_MPa": 30.012312681777033
+        },
+        "pad_mean_MPa": 116.20642098683078,
+        "peak_tooth_N": 38139.939996673726,
+        "post": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 18.272742617645747,
+          "fatigue_factor_n_sigma_1": 9.971203671354218,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 22.164160491643813,
+          "stress_315_MPa": 31.582518104572895
+        },
+        "shoulder_bearing_MPa": 259.40854614097907,
+        "tooth": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 29.127156916047202,
+          "fatigue_factor_n_sigma_1": 6.2553732518397185,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 13.90454966707962,
+          "stress_315_MPa": 50.34323417588406
+        }
+      },
+      "reason": "Четыре соосных байонетных опоры снимают эксцентричный изгиб в силовом крепеже.",
+      "reference_cycle_s": 5.9637500000007035,
+      "screen_pass": {
+        "contact_nominal": true,
+        "delta_mass": false,
+        "fatigue": false,
+        "gate_cycle": true,
+        "height": false,
+        "reference_cycle": true,
+        "static": false
+      },
+      "sections": {
+        "box_floor": {
+          "M_sigma": 0.32999999999999996,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 650,
+          "fatigue_demand_MPa": 275.58034521592606,
+          "fatigue_factor_n_sigma_1": 0.4080383127657827,
+          "fatigue_strength_MPa": 112.44733909331839,
+          "j_G": 1.25,
+          "static_factor": 1.4938172254052176,
+          "stress_315_MPa": 435.12686086725165
+        },
+        "front_moving_tooth": {
+          "M_sigma": 0.17999999999999997,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 600,
+          "fatigue_demand_MPa": 72.3358046078153,
+          "fatigue_factor_n_sigma_1": 2.2617097541193343,
+          "fatigue_strength_MPa": 163.60259485356616,
+          "j_G": 1.0,
+          "static_factor": 4.660801921963159,
+          "stress_315_MPa": 128.7332115901798
+        },
+        "front_post": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 83.70282414619196,
+          "fatigue_factor_n_sigma_1": 2.176763330667967,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 4.838546418608808,
+          "stress_315_MPa": 144.67154790699846
+        },
+        "front_tooth": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 126.61830882834114,
+          "fatigue_factor_n_sigma_1": 1.4389801914176064,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 3.1985895542884424,
+          "stress_315_MPa": 218.84645970330567
+        },
+        "rear_moving_tooth": {
+          "M_sigma": 0.17999999999999997,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 600,
+          "fatigue_demand_MPa": 16.864061411665187,
+          "fatigue_factor_n_sigma_1": 9.701257061386125,
+          "fatigue_strength_MPa": 163.60259485356616,
+          "j_G": 1.0,
+          "static_factor": 19.991794913036138,
+          "stress_315_MPa": 30.012312681777033
+        },
+        "rear_post": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 18.272742617645747,
+          "fatigue_factor_n_sigma_1": 9.971203671354218,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 22.164160491643813,
+          "stress_315_MPa": 31.582518104572895
+        },
+        "rear_tooth": {
+          "M_sigma": 0.215,
+          "Rm_MPa": 900,
+          "Rp02_MPa": 700,
+          "fatigue_demand_MPa": 29.127156916047202,
+          "fatigue_factor_n_sigma_1": 6.2553732518397185,
+          "fatigue_strength_MPa": 182.20123827477994,
+          "j_G": 1.0,
+          "static_factor": 13.90454966707962,
+          "stress_315_MPa": 50.34323417588406
+        },
+        "shoe": {
+          "M_sigma": 0.17999999999999997,
+          "Rm_MPa": 800,
+          "Rp02_MPa": 600,
+          "fatigue_demand_MPa": 101.47880924977945,
+          "fatigue_factor_n_sigma_1": 1.6121848104354037,
+          "fatigue_strength_MPa": 163.60259485356616,
+          "j_G": 1.0,
+          "static_factor": 3.3222981195316876,
+          "stress_315_MPa": 180.5978808682516
+        }
+      },
+      "static_factor": 1.4938172254052176,
+      "two_post_sensitivity": {
+        "best_height_at_nominal_shank": {
+          "indicative_contact_315_MPa": 633.854855537575,
+          "r_head_mm": 68.0,
+          "r_shank_mm": 40,
+          "steel_post_only_height_300_mm": 0.5666088238861912,
+          "x_mm": 150
+        },
+        "best_pressure_with_post_only_height_at_most_0_5_mm": {
+          "indicative_contact_315_MPa": 527.9383969949871,
+          "r_head_mm": 72.0,
+          "r_shank_mm": 43,
+          "steel_post_only_height_300_mm": 0.4993211317136135,
+          "x_mm": 148
+        },
+        "grid_count": 945,
+        "head_radius_limit_mm": 72.1496241626263,
+        "simultaneous_screen_pass_count": 0
+      },
+      "upper_working_contact_MPa": 468.494548128094
+    }
+  },
+  "hydraulic_reference": {
+    "bore_mm": 125.0,
+    "full_extension_minimum_oil_length_mm": 380.0,
+    "ideal_oil_only_travel_300_mm": 27.073089820104215,
+    "locked_pressure_315_bar": 1047.3011061987684,
+    "reference_oversized_bore_mm": 255.0,
+    "reference_oversized_cycle_s": 9.85,
+    "section_area_mm2": 12271.846303085129
+  }
+}

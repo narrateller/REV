@@ -1,0 +1,81 @@
+task: T-2.2c
+inputs:
+  load: [calc/T-1.2b/results.json, shoe_load.samples.upper_dose.reserve.high, calc/T-1.1/curve.yaml]
+  limits: [TASK.md, DECISIONS.md, ops/criteria/design_criteria.yaml]
+  rejected_lock: [ops/reports/T-2.2b/GK_review.md, calc/T-2.2b/hand.json, calc/T-2.2b/sources.yaml]
+  main_frame: [design/frame.t17d.yaml, design/cylinders.t16.yaml, design/cylinders.t17d.yaml, design/slide_gate.t17d.yaml, ops/reports/T-1.7/GK_review.md]
+  machine_mass: [ops/reports/T-2.2/GK_review.md, ops/reports/D1/D1_package.md, calc/T-1.7c/results.json]
+  cycle: [ops/reports/T-2.1/report.md, calc/T-2.1/results.json, design/params.t21.yaml]
+analogues:
+  vertical_prepress:
+    url: https://patents.google.com/patent/DE3333766C2/en
+    where: Claim 1 and Fig. 1, vertical precompressor closes the receiving chamber before horizontal pressing.
+  press_wedges:
+    url: https://patents.google.com/patent/EP0037096B1/en
+    where: Background description, wedge actuation for a press working part.
+  bayonet:
+    url: https://patents.google.com/patent/EP0904918B1/en
+    where: Claim 1 and Figs. 3–6, rotatable sleeve and interrupted teeth with axial passage in the open position.
+materials:
+  steel_model:
+    project_source: calc/T-1.7/sources.yaml, steel_model_constants
+    E_MPa: 210000
+    nu: 0.30
+    density_kg_m3: 7850
+  forging_34CrNiMo6_QT:
+    url: https://www.stahlwerk-augustfehn.com/wp-content/uploads/2024/01/34CrNiMo6-Technichal-data-sheet_-1.6582-new.pdf
+    where: p. 2, DIN EN ISO 683-2, flat 20–60, 60–100 and 100–160 mm, round 100–160 mm.
+    properties_Rp02_Rm_MPa:
+      flat_20_to_60_mm: [800, 1000]
+      flat_60_to_100_mm: [700, 900]
+      flat_100_to_160_mm: [600, 800]
+      round_100_to_160_mm: [700, 900]
+    note: Accept only with properties certified in the ruling section of the actual blank.
+  cast_steel_G35CrNiMo6_6_QT1:
+    url: https://www.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+    where: Steel Castings Handbook Supplement 2, European cast steel table, G35CrNiMo6-6 QT1.
+    project_source: calc/T-1.7/sources.yaml, ruling sections 100–250 mm and inspection requirements.
+    Rp02_Rm_MPa: [650, 800]
+  original_columns:
+    url: https://en.saarstahl.com/app/uploads/2024/03/20160323013851-42CrMo4-42CrMoS4.pdf
+    where: Mechanical properties, 42CrMo4+QT for ruling section 160–250 mm.
+    project_source: calc/T-1.7/sources.yaml, fasteners.column_and_nut_material
+    Rp02_Rm_MPa: [500, 750]
+models:
+  beam:
+    url: https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/
+    where: Lecture notes on beam equilibrium, bending and deflection.
+  wedge:
+    url: https://www.purdue.edu/freeform/statics/wp-content/uploads/sites/13/2018/10/LectureNotes_Period_20-min.pdf
+    where: Wedges, friction cones and impending sliding.
+    mu_range: [0.10, 0.15]
+    mu_FEA: 0.15
+  hertz:
+    url: https://academic.oup.com/jom/article/doi/10.1093/jom/ufaf013/8117592
+    where: Hertzian contact of cylinders, reduced modulus, contact width and pressure distribution.
+    screen_project_source: calc/T-2.2b/sources.yaml, contact. Same screen as T-1.7b and T-2.2.
+    screen_factor_softer_core_Rp02: 0.60
+    crown_sag_mm: 0.10
+    radius_edge_min_mm: 5.0
+    note: Elastic indentation project screen. Surface hardening earns no increase in the bulk yield minima or given pressure screen.
+  induction:
+    project_source: design/frame.t17d.yaml, interfaces.replaceable_bearing
+    requirements: [52–57 HRC, SHD at least 6 mm, ISO 18203, finish grind, pair test]
+  fkm:
+    url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+    method_url: https://doi.org/10.1016/j.ijfatigue.2024.108165
+    gradient_url: https://www.mdpi.com/1996-1944/17/13/3130
+    where: Chapter 4 local stress, mean stress, Siebel–Stieler gradient support.
+    project_source: calc/T-1.7/frame_fea.py, static, fatigue_coefficients and notch_support
+    values: {N_D: 1000000, N: 10000000, k_D: 15, j: 1.5, j_G_forged: 1, j_G_cast: 1.25, Rz_um: 6.3}
+  vdi:
+    url: https://www.vdi.de/mitgliedschaft/vdi-richtlinien/details/vdi-2230-blatt-1-systematische-berechnung-hochbeanspruchter-schraubenverbindungen-zylindrische-einschraubenverbindungen
+    where: Blatt 1, R0–R13, eccentric preload and service loading.
+  oil:
+    project_source: calc/T-2.1/cycle/x1_calc.py, OIL_BULK_PA
+    bulk_modulus_MPa: 1400
+assumptions:
+  transverse_asymmetry: Load level T-1.2b. 64/36 screening from T-2.2b as a conditional support reaction envelope.
+  crown_and_clearance: R5 and crown 0.10 mm inherited from D-GK-07. Crown is tangential for bayonet sectors. Geometry and fits are engineering assignments for comparison.
+  tooth_redistribution: Equal sharing is a nominal check. +20% on one sector is a sensitivity and is not a measured manufacturing tolerance or a proven bound.
+  cycle: T-2.1 baseline is measured by its calculation. Added times for concept screening use prescribed kinematics and explicitly identified assumptions.
