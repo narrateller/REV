@@ -1,0 +1,109 @@
+{
+  "FEA_full_replay_completed": true,
+  "FEA_max_force_balance_residual_fraction": 1.4952204459871826e-06,
+  "FEA_replay_absolute_and_relative_tolerance": 1e-06,
+  "FEA_replay_levels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "FEA_replay_pass_by_level": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true
+  },
+  "FEA_solved_levels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "FEA_strength_criteria_pass": true,
+  "analytic_checks": [
+    "mass balance",
+    "PCD chord",
+    "tool axial thread engagement",
+    "VDI SG validity",
+    "Roache GCI order"
+  ],
+  "byte_equal_on_second_aggregation": {
+    "calc/T-2.2/results.json": true,
+    "design/chamber_lateral.t22.yaml": true,
+    "design/main_cylinder_rear.t22.yaml": true,
+    "metrics.json": true
+  },
+  "calc_and_archive_bytes": 1295334,
+  "chamber_recalculated": false,
+  "gate_command": [
+    "ops/gates/calc_gates.py",
+    "--params",
+    "design/params.t21.yaml",
+    "--criteria",
+    "ops/criteria/design_criteria.yaml",
+    "--out",
+    "gates.t22.json"
+  ],
+  "gate_status": {
+    "G-CYCLE": {
+      "status": "PASS",
+      "unit": "s",
+      "value": 5.823772630624717
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "unit": "mm",
+      "value": 306
+    },
+    "G-PFACE": {
+      "status": "PASS",
+      "unit": "MPa",
+      "value": 168.88888888888889
+    }
+  },
+  "inputs_preserved": true,
+  "lateral_archive_preserved": true,
+  "ordinary_runner_read_pass": true,
+  "publication": {
+    "blocked_by_Windows_write_permissions": [
+      "design/main_cylinder_rear.t22.yaml",
+      "design/chamber_lateral.t22.yaml",
+      "metrics.json",
+      "calc/T-2.2/vdi2230.py",
+      "calc/T-2.2/mass.py",
+      "calc/T-2.2/run.py",
+      "calc/T-2.2/render_report.py",
+      "calc/T-2.2/verify.py",
+      "calc/T-2.2/sources.yaml",
+      "calc/T-2.2/results.json",
+      "calc/T-2.2/cap_fea/joint.py",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_0.geo",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_0.json",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_0_relief.inp",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_1.geo",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_1.json",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_2.geo",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_2.json",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_3.geo",
+      "calc/T-2.2/cap_fea/r2_s16_ma8_recessed_taps_t144_r1.2_3.json"
+    ],
+    "complete_overlay_zip": "C:\\Users\\user\\AppData\\Local\\Temp\\REV-T-2.2-round2.zip",
+    "status": "PARTIAL_WORKTREE_ACL",
+    "written_or_byte_equal_in_worktree": [
+      "gates.t22.json",
+      "report.md",
+      "self_check.json"
+    ]
+  },
+  "round": 2,
+  "scratch_dirs_remaining": [],
+  "staging_output_used": true,
+  "structural_status": "HOLD",
+  "task": "T-2.2",
+  "tools": {
+    "CalculiX": "2.22",
+    "Gmsh": "4.15.0",
+    "Python": "3.13.17"
+  }
+}

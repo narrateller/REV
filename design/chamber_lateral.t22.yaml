@@ -1,0 +1,310 @@
+task: T-2.2
+status: HOLD_G_FEA
+trial_only: true
+accepted_for_CAD: false
+design_basis:
+- D1
+- D-GK-01
+- D-GK-05
+- D-GK-06
+inherited_interfaces:
+  die_section_mm:
+  - 150
+  - 60
+  feed_opening_axial_x_mm:
+  - 5
+  - 205
+  die_guide_lever_to_punch_mm: 77.0
+  shoe_envelope_mm:
+  - 200
+  - 222
+  - 160
+  locks:
+    quantity: 2
+    length_mm: 200.0
+    height_mm: 90.0
+    engagement_mm: 32.0
+    side_gap_mm: 4.0
+    cam_stroke_mm: 12.0
+    lateral_travel_mm: 36.0
+load_cases:
+  static_pressure_bar: 315.0
+  fatigue_pressure_bar:
+  - 0.0
+  - 300.0
+  main_hydrostatic_at_relief_N: 1939619.3043263385
+  main_hydrostatic_cycle_peak_N: 1847256.4803107982
+  main_product_force_cycle_peak_N: 1700000.0
+  load_at_300_bar_N: 1224030.3055545068
+  load_at_315_bar_N: 1285231.8208322322
+  lateral_case_dose_kg: 1.1276283364232287
+  lateral_contact_axial_centroid_mm: 141.3075123877364
+  lateral_moment_about_prepress_axis_Nm: 44441.49548188504
+  lateral_static_high_side_N: 771139.0924993394
+selected_execution: null
+trial_status:
+  local_guide:
+    status: SCREEN_ONLY
+    solved_meshes: 3
+    convergence_max_fraction: 0.33401500801637934
+    unlocked_clearance_mm: -35.0
+    contact_mu: 0.15
+    parts:
+      HOUSING:
+        fkm_M_sigma: 0.32999999999999996
+        fkm_factor_n_sigma_1: 0.1735355631745919
+        fkm_jG: 1.25
+        fkm_kR: 0.9037498071455776
+        fkm_xyz_mm:
+        - 182.8952094097358
+        - 147.0
+        - 250.0
+        static_MPa: 962.4138121527715
+        static_factor: 0.6753851532388652
+        static_xyz_mm:
+        - 182.8952094097358
+        - 147.0
+        - 250.0
+        static_yield_MPa: 650.0
+        tensile_MPa: 800.0
+      LEFT:
+        fkm_M_sigma: 0.215
+        fkm_factor_n_sigma_1: 0.7082578894664285
+        fkm_jG: 1.0
+        fkm_kR: 0.8851293650723495
+        fkm_xyz_mm:
+        - 205.0
+        - -115.0
+        - 250.0
+        nominal_axis_peak_components_MPa:
+          sigma_x_axial_bending: 222.977
+          sigma_y_transverse_bending: 362.078
+          tau_xz_axial_shear: 76.3984
+          tau_yz_transverse_shear: 247.803
+        static_MPa: 539.6618390110143
+        static_factor: 1.2971085768873742
+        static_xyz_mm:
+        - 205.0
+        - -115.0
+        - 250.0
+        static_yield_MPa: 700.0
+        tensile_MPa: 900.0
+      RIGHT:
+        fkm_M_sigma: 0.215
+        fkm_factor_n_sigma_1: 0.541339526576782
+        fkm_jG: 1.0
+        fkm_kR: 0.8851293650723495
+        fkm_xyz_mm:
+        - 205.0
+        - 115.0
+        - 250.0
+        nominal_axis_peak_components_MPa:
+          sigma_x_axial_bending: 296.629
+          sigma_y_transverse_bending: 463.923
+          tau_xz_axial_shear: 108.768
+          tau_yz_transverse_shear: 327.443
+        static_MPa: 708.1051233506788
+        static_factor: 0.9885537851889473
+        static_xyz_mm:
+        - 205.0
+        - 115.0
+        - 250.0
+        static_yield_MPa: 700.0
+        tensile_MPa: 900.0
+      SHOE:
+        fkm_M_sigma: 0.17999999999999997
+        fkm_factor_n_sigma_1: 0.26327689250958086
+        fkm_jG: 1.0
+        fkm_kR: 0.8941247878601354
+        fkm_xyz_mm:
+        - 205.0
+        - 111.0
+        - 160.0
+        static_MPa: 1294.7288158309445
+        static_factor: 0.4634175069432789
+        static_xyz_mm:
+        - 205.0
+        - 111.0
+        - 160.0
+        static_yield_MPa: 600.0
+        tensile_MPa: 800.0
+  full_travel:
+    status: SCREEN_ONLY
+    solved_meshes: 1
+    convergence_max_fraction: null
+    unlocked_clearance_mm: 1.0
+    contact_mu: 0.15
+    parts:
+      HOUSING:
+        fkm_M_sigma: 0.32999999999999996
+        fkm_factor_n_sigma_1: 0.07334883024734035
+        fkm_jG: 1.25
+        fkm_kR: 0.9037498071455776
+        fkm_xyz_mm:
+        - 225.0
+        - 196.0
+        - 204.975
+        static_MPa: 2309.9295008155964
+        static_factor: 0.2813938692806409
+        static_xyz_mm:
+        - 225.0
+        - 196.0
+        - 204.975
+        static_yield_MPa: 650.0
+        tensile_MPa: 800.0
+      LEFT:
+        fkm_M_sigma: 0.215
+        fkm_factor_n_sigma_1: 0.7103358348739354
+        fkm_jG: 1.0
+        fkm_kR: 0.8851293650723495
+        fkm_xyz_mm:
+        - 205.0
+        - -111.0
+        - 250.0
+        nominal_axis_peak_components_MPa:
+          sigma_x_axial_bending: 119.408
+          sigma_y_transverse_bending: 202.408
+          tau_xz_axial_shear: 41.1102
+          tau_yz_transverse_shear: 270.213
+        static_MPa: 512.7914852101632
+        static_factor: 1.3650772686155486
+        static_xyz_mm:
+        - 205.0
+        - -111.0
+        - 250.0
+        static_yield_MPa: 700.0
+        tensile_MPa: 900.0
+      RIGHT:
+        fkm_M_sigma: 0.215
+        fkm_factor_n_sigma_1: 0.4930299165625992
+        fkm_jG: 1.0
+        fkm_kR: 0.8851293650723495
+        fkm_xyz_mm:
+        - 205.0
+        - 111.0
+        - 250.0
+        nominal_axis_peak_components_MPa:
+          sigma_x_axial_bending: 176.141
+          sigma_y_transverse_bending: 361.554
+          tau_xz_axial_shear: 88.0662
+          tau_yz_transverse_shear: 406.102
+        static_MPa: 744.0981546584026
+        static_factor: 0.9407361053345886
+        static_xyz_mm:
+        - 205.0
+        - 111.0
+        - 250.0
+        static_yield_MPa: 700.0
+        tensile_MPa: 900.0
+      SHOE:
+        fkm_M_sigma: 0.17999999999999997
+        fkm_factor_n_sigma_1: 0.4357004353997264
+        fkm_jG: 1.0
+        fkm_kR: 0.8941247878601354
+        fkm_xyz_mm:
+        - 205.0
+        - 111.0
+        - 160.0
+        static_MPa: 779.7768578251857
+        static_factor: 0.7694508935202473
+        static_xyz_mm:
+        - 205.0
+        - 111.0
+        - 160.0
+        static_yield_MPa: 600.0
+        tensile_MPa: 800.0
+  end_supported:
+    status: SCREEN_ONLY
+    solved_meshes: 1
+    convergence_max_fraction: null
+    unlocked_clearance_mm: 2.0
+    contact_mu: 0.15
+    parts:
+      HOUSING:
+        fkm_M_sigma: 0.32999999999999996
+        fkm_factor_n_sigma_1: 0.10406068755626373
+        fkm_jG: 1.25
+        fkm_kR: 0.9037498071455776
+        fkm_xyz_mm:
+        - 207.0
+        - 185.0
+        - 280.0
+        static_MPa: 1645.2197261205934
+        static_factor: 0.39508400591129034
+        static_xyz_mm:
+        - 205.0
+        - 185.0
+        - 280.0
+        static_yield_MPa: 650.0
+        tensile_MPa: 800.0
+      LEFT:
+        fkm_M_sigma: 0.215
+        fkm_factor_n_sigma_1: 0.5278855838362004
+        fkm_jG: 1.0
+        fkm_kR: 0.8851293650723495
+        fkm_xyz_mm:
+        - 237.0
+        - -147.0
+        - 280.0
+        nominal_axis_peak_components_MPa:
+          sigma_x_axial_bending: 216.327
+          sigma_y_transverse_bending: 187.493
+          tau_xz_axial_shear: 291.945
+          tau_yz_transverse_shear: 188.295
+        static_MPa: 717.0068348013149
+        static_factor: 0.976280791233981
+        static_xyz_mm:
+        - 237.0
+        - -147.0
+        - 280.0
+        static_yield_MPa: 700.0
+        tensile_MPa: 900.0
+      RIGHT:
+        fkm_M_sigma: 0.215
+        fkm_factor_n_sigma_1: 0.4306583439401221
+        fkm_jG: 1.0
+        fkm_kR: 0.8851293650723495
+        fkm_xyz_mm:
+        - 207.0
+        - 147.0
+        - 280.0
+        nominal_axis_peak_components_MPa:
+          sigma_x_axial_bending: 299.75
+          sigma_y_transverse_bending: 259.663
+          tau_xz_axial_shear: 381.668
+          tau_yz_transverse_shear: 257.587
+        static_MPa: 852.7623819241501
+        static_factor: 0.820861725186023
+        static_xyz_mm:
+        - 237.0
+        - 147.0
+        - 280.0
+        static_yield_MPa: 700.0
+        tensile_MPa: 900.0
+      SHOE:
+        fkm_M_sigma: 0.17999999999999997
+        fkm_factor_n_sigma_1: 0.30844228525627393
+        fkm_jG: 1.0
+        fkm_kR: 0.8941247878601354
+        fkm_xyz_mm:
+        - 205.0
+        - 111.0
+        - 160.0
+        static_MPa: 1099.2103717845596
+        static_factor: 0.5458463779102671
+        static_xyz_mm:
+        - 205.0
+        - 111.0
+        - 160.0
+        static_yield_MPa: 600.0
+        tensile_MPa: 800.0
+full_travel_screen_delta_kg: 19.697596799999985
+full_travel_screen_cam_force_N: 17000.00731590785
+end_supported_screen_delta_kg: 62.8134392
+end_supported_screen_cam_force_N: 21747.7800737917
+open_geometry:
+- shoulder fillets and contact relief
+- anti-rotation slide with clearance throughout stroke
+- joint to chamber module and guide datums
+- support section and quality certificate
+transferred_to: T-2.2b (D-GK-07)

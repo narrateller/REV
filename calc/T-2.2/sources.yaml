@@ -1,0 +1,140 @@
+﻿catalogue:
+  rexroth_RE20478_2020_12:
+    url: https://boschrexroth-russia.ru/image/catalog/docs/RE20478_2020-12.pdf
+    publisher: Bosch Rexroth AG
+    use:
+      pages_9_14: "NG100 F0; размеры, качество и жёсткость присоединительной плоскости"
+      page_15: "Площадь тарелки 73,13 см², перепад пассивного открытия около 0,12 бар"
+      page_17: "8 × M27×180 10.9-flZn ISO 4762, R913059494, 1150 Н·м; ±10 %, μ = 0,09–0,14"
+    T2_min_mm: 55
+    distinction: "T2 задаёт минимальную глубину посадки по чертежу. Рабочая длина контакта резьбы зависит от крепежа, фаски, сбега и толщины пакета."
+    hardware_scope: "Момент каталога указан для рекомендованной пары и требует адаптации при изменении поверхностей."
+  rexroth_RE20478_2017_12:
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20478.pdf
+    use: "Подтверждение размеров и ограничения штатного момента указанной каталожной парой."
+  rexroth_selector:
+    url: https://www.boschrexroth.com/ics/Projects/GenericSelector/?ProductArea=ZSF_W&c=gb&language=en
+    use: "NG100, F0, серия 1X"
+design_methods:
+  VDI_2230_1_2015:
+    url: https://www.vdi.de/mitgliedschaft/vdi-richtlinien/details/vdi-2230-blatt-1-systematische-berechnung-hochbeanspruchter-schraubenverbindungen-zylindrische-einschraubenverbindungen
+    publisher_sample: https://www.normsplash.com/Samples/DIN/131389157/VDI-2230-Part-1-2015-en-de-2.pdf
+    use: "R3–R11: упругая модель, осадка, эквивалентные напряжения, σASV/σASG, контакт и срыв резьбы. Эксцентриситет многовинтового стыка требует расчёта распределения."
+  Schaeffler_STT:
+    url: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_en.pdf
+    use: "R1, ориентиры αA по способам измерения и затяжки"
+  Bossard:
+    url: https://www.bossard.com/us-en/knowledge-hub/resources/technical-information/tightening-methods-and-tightening-factor/
+    use: "Зависимость αA от способа контроля. Диапазон сил T-2.2 требует подтверждения процесса на реальном пакете."
+  ISO_898_1:
+    url: https://www.iso.org/standard/60610.html
+    use: "Класс 10.9, Rp0,2 ≥ 940 МПа, пробное напряжение 830 МПа, Rm 1040–1200 МПа"
+  FKM_7_2020:
+    url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+    method: "Упругая локальная методика T-1.7/T-1.7b, kD=15, ND=10^6, jD=1,5. jG=1 для поковки, jG=1,25 для литой детали с НК по T-1.7."
+    project_source: calc/T-1.7b/frame_fea.py
+    roughness_Rz_assumed_um: 6.3
+  hydraulics:
+    url: https://www.publications.usace.army.mil/portals/76/publications/engineermanuals/em_1110-1-4008.pdf
+    use: "Верхний экран по Жуковскому для мгновенной остановки потока в жёсткой линии"
+  calculix:
+    url: https://www.dhondt.de/ccx_2.22.pdf
+    use: "*SPRING, *CONTACT PAIR, *CONTACT PRINT CF, *CONTACT FILE CSTR"
+  gmsh:
+    url: https://gmsh.info/doc/texinfo/
+    use: "OpenCASCADE BooleanDifference, Fillet, C3D10, msh2"
+materials:
+  rear_cover_42CrMo4_QT:
+    url: https://en.saarstahl.com/app/uploads/2024/03/20160323013851-42CrMo4-42CrMoS4.pdf
+    ruling_flat_thickness_mm: [100, 160]
+    Rp02_min_MPa: 500
+    Rm_min_MPa: 750
+    condition: "Гарантии на фактическое определяющее сечение поковки, а для резьбы на зону нагруженных витков."
+  lateral_forging_34CrNiMo6_QT:
+    url: https://stahlwerk-augustfehn.com/wp-content/uploads/2024/01/34CrNiMo6-Technichal-data-sheet_-1.6582-new.pdf
+    lock_flat_60_to_100_mm: {Rp02_min_MPa: 700, Rm_min_MPa: 900}
+    shoe_flat_100_to_160_mm: {Rp02_min_MPa: 600, Rm_min_MPa: 800}
+    condition: "Подтвердить размер заготовки при ТО и свойства готовых заплечиков. 900 МПа в T-1.2b — специальное закупочное требование."
+  cast_case_screen:
+    project_source: design/frame.t17d.yaml
+    standard_url: https://cdn.standards.iteh.ai/samples/37740/e17c195133c94e8ca3b14cfd6e0b2a51/SIST-EN-10293-2015.pdf
+    G35CrNiMo6_6_QT1: {Rp02_min_MPa: 650, Rm_min_MPa: 800}
+    condition: "Для подмодели принято по аналогии с траверсой. Для реального корпуса материал и НК не заданы."
+  contact_bearing_screen:
+    project_source: calc/T-1.7b/sources.yaml
+    calculation: "Порог 0,60 × Rp0,2 более мягкого материала по проектному экрану T-1.7b. Контактный ресурс пары требует данных состояния поверхностей и испытания."
+project_inputs:
+  source_decisions: [D1, D-GK-01, D-GK-03, D-GK-05, D-GK-06]
+  cylinder: [design/cylinders.t17d.yaml, design/cylinders.t16.yaml]
+  hydraulics: [design/hydraulics/T-1.6_circuit.yaml, design/hydraulics/T-1.6_interlocks.yaml]
+  lock_and_pressure_profile: calc/T-1.2b/results.json
+  compression_material_model: calc/T-1.1/curve.yaml
+  chamber_module_and_guide_reference: design/frame.t17d.yaml
+  machine_mass: calc/T-2.1/results.json
+  frame_reference: ops/reports/T-1.7/GK_review.md
+  cover_reference: ops/reports/T-1.7b/GK_review.md
+assumptions_to_validate:
+  ZSF:
+    - "Ø138,5 и Ø188 — чувствительность. Ø188 является диаметром выступа контрфланца. Рабочий диаметр по уплотнению B нуждается в подтверждении."
+    - "135 мм — эскизная длина зажима. Кольцо опоры 39/30 мм и ограничение конуса 45–70 мм взяты с экрана T-1.7b."
+    - "FZ из осадки 0,04 мм, нагрузка винта до 1,2 от средней, остаточное кручение 50 % для затяжки моментом."
+    - "Допускаемое смятие материала ответной детали под головкой, температурная потеря, изгиб фланца и трубные силы открыты."
+  cover:
+    - "Радиальная восьмиканальная разводка MA — эскиз для сравнения. Внешний коллектор, штуцеры, отборы PTA/PTB и уплотнения отсутствуют в геометрической оценке."
+    - "Жёсткость стяжек и гильзы приведена к передней опоре. Преднатяг передан распределёнными нагрузками в линейной модели."
+  chamber:
+    - "Из T-1.2b заданы окно, огибающие деталей, ход и 60/40. Сечения перемычки/боковин и положение стыка с корпусом восстановлены как варианты подмодели."
+    - "Нижняя плоскость корпуса закреплена; реальная податливость стыка и геометрия сопряжения с рамой требуют уточнения."
+round_2:
+  decisions:
+    repository: DECISIONS.md
+    revision_with_D_GK_07: 20ad423
+    scope: "A и B. Для C используется архив отчёта первого круга, передано в T-2.2b."
+  boltight_TSR:
+    url: https://www.nord-lock.com/globalassets/mediavalet/web-assets/downloads/tensioning-pdfs/boltight---tsr-user-manual---hs-operations.pdf
+    publisher: Nord-Lock Group
+    pages: [10, 36, 39, 42]
+    use: "§2.4 и §4.1: LTF=max(1,10; 1,01+d/l) годится для первого назначения. При l/d=5 получается 1,21. Эскизный коэффициент 1,25 учитывает резерв +0,04; фактический перенос и разброс измеряются по удлинению на полном пакете."
+    proof: "§4.4: TSR+1 M27, Ø87, площадь 1870 мм², 280 кН, TH 117 мм, габарит осевого доступа 145 мм по графе чертежа. Действуют одновременно ≥1d над гайкой и ≥2d над опорной плоскостью согласно §2.4."
+  RE_20478:
+    url: https://boschrexroth-russia.ru/image/catalog/docs/RE20478_2020-12.pdf
+    publisher: Bosch Rexroth AG
+    pages: [6, 9, 14, 15, 17]
+    use: "Стр. 9: D3=240, D6=138,5, D2=212, H1=145, T1=25, T2≥55. Стр. 14: отверстие Ø30 и выступ Ø188 контрфланца, жёсткость опоры, плоскостность 0,01/100, Rz≤8. Стр. 17: R913059494 8 × M27×180, 10.9-flZn, 1150 Н·м, ±10 %, μ=0,09–0,14."
+    evidence_limit: "D6 и d4 относятся к размерам чертежей, эффективный диаметр уплотнения B явно не указан. Стр. 6: давление A≤16 бар, B≤350 бар. Требуется подтверждение для своей крышки."
+  VDI_R9_R11:
+    url: https://www.normsplash.com/Samples/DIN/131389157/VDI-2230-Part-1-2015-en-de-2.pdf
+    publisher: Verein Deutscher Ingenieure
+    pages: [92, 93, 96, 97, 98, 99, 100]
+    use: "Формулы (168)–(172) и интервал 0,3 ≤ FSm/F0,2min < 1 для SV/SG; (190)–(193) смятие; (195)–(210) срыв резьбы и табл. 6. В расчёте множитель 1,35 сохранён из первого круга, исходный запас SG показан отдельно."
+  A_bearing:
+    url: https://assets.eu.ctfassets.net/0vp0u5uh75zd/7MM4CVEWakvMoaUSg5YsPX/c4b6542d94541de714325d3d8ebb7dc7/053_056_Surface_pressure_mounted_Fastening_EN_01_2025.pdf
+    use: "Для шайбы из 42CrMo4+QT при Rm≥1000 справочный консервативный pG=850 МПа обусловлен достаточной опорой, температурой и геометрией. pG материала клапана неизвестно."
+  A_nut:
+    url: https://dlvn.vn/uploads/files/ISO%2000898-2-2022.pdf
+    proof_load_class_10_M27_N: 486500
+    dimensions_url: https://www.schuster-gmbh.de/de/lieferprogramm/produkte/din-en-iso-4032/
+    dimensions: "M27 ISO 4032: s=41, m=22,5…23,8 мм. Минимальная площадь по фактической опорной плоскости."
+  A_baseline_head:
+    url: https://www.ruuvikeskus.fi/attachments/25ovx.pdf
+    use: "Bossard, ряд DIN 912 M27: Ø40, высота 27, шестигранник 19, глубина 13,5 мм. Использовано для сравнения массы."
+  A_shoulder_Kt:
+    url: https://nao3886noda.sakura.ne.jp/thesis/pdf/773.pdf
+    use: "Noda, Takase, Monda, 1997, табл. 3: круглое ступенчатое сечение в растяжении. Для 2h/D между 0,10 и 0,20 и 2r/D≥1,0 взята верхняя оценка Kt=1,271. Сбег фактической винтовой линии этим графиком не описан."
+  A_root_profile:
+    url: https://files.infocentre.io/files/docs_clients/126_2007771838_1256813_ISO%20965-1%20%282013%29.pdf
+    use: "ISO 965-1 §11: минимальный радиус впадины 0,125P, для M27×3 это 0,375 мм."
+  B_ruling_section:
+    url: https://qilusteelgroup.com/wp-content/uploads/2024/02/DIN-EN10083-1.pdf
+    normative_reference: "EN 10083-1:2006, приложение A, пп. A.2.1.3 и A.2.2, рис. A.1, стр. 18–19"
+    use: "График для прямоугольных сечений, ширина до 360 мм. Диск Ø520 — прочая форма по п. A.2.2: согласовать определяющее сечение с кузницей. Для пакета 160–250 мм использован теплофизический экран, в котором учитываются две торцевые и боковая поверхности."
+    table_url: https://asremavad.com/wp-content/uploads/2019/06/DIN-EN-10083-3-2007.pdf
+    table_use: "EN 10083-3:2006, табл. 8: 34CrNiMo6+QT, 160 < d ≤ 250 или 100 < t ≤ 160 мм, Rp0,2≥600 МПа, Rm=800–950 МПа."
+  B_qualified_forging:
+    url: https://www.lucefin.com/oaleekso/files_mf/152353526334CrNiMo6.pdf
+    publisher: Lucefin Group
+    use: "Пример поковки круг Ø520, закалка в воде от 870 °C, отпуск 630 °C: на глубине 25 мм Rp0,2=828 и Rm=930 МПа, на 1/3 радиуса 750 и 900 МПа. Данные иллюстрируют возможность, режим для диска согласует кузница."
+    procurement: "Rp0,2 ≥ 650 и Rm ≥ 850 МПа в тангенциальной пробе на T/4 (36 мм от действительной плоскости диска). Проба из термообработанного припуска, совпадающего по охлаждению с рабочей зоной, или из первой разрезанной заготовки. Мехсвойства в сертификате EN 10204 3.1 по партии с квалифицированным циклом ТО."
+  B_GCI:
+    url: https://www.asme.org/wwwasmeorg/media/resourcefiles/shop/journals/jfenumaccuracy.pdf
+    use: "Celik et al., J. Fluids Eng. 130, 078001, 2008. Неравномерное отношение h, наблюдаемый порядок, GCI с Fs=1,25 для монотонных трёх сеток. Для немонотонных значений показан инженерный индекс с p=2 и Fs=3 как ориентир, без утверждения асимптотичности."

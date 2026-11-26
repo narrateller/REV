@@ -1,0 +1,332 @@
+task: T-2.2
+round: 2
+status: HOLD
+accepted_for_CAD: false
+design_basis:
+- D1
+- D-GK-01
+- D-GK-03
+- D-GK-05
+- D-GK-06
+- D-GK-07
+cover:
+  status: HOLD
+  selected_execution: recessed_taps
+  material: 34CrNiMo6+QT (1.6582)
+  material_requirements:
+    blank_OD_mm: 520.0
+    blank_thickness_mm: 144.0
+    T_over_4_mm: 36.0
+    equivalent_diameter_screen_mm: 202.97052175899165
+    equivalent_infinite_plate_limit_mm: 220.45816787424712
+    equivalent_lumped_heat_transfer_screen_mm: 185.34653465346534
+    table_round_diameter_range_mm:
+    - 160
+    - 250
+    Rp02_table_MPa: 600.0
+    Rm_table_min_MPa: 800.0
+    Rp02_purchase_min_MPa: 650.0
+    Rm_purchase_min_MPa: 850.0
+    rule: EN 10083-1 Annex A.2.2 / EN 10083-3 Table 8
+    specimen: Tangential specimen at T/4 under the quenched working face; EN 10204 type 3.1.
+  OD_mm: 520.0
+  thickness_mm: 144.0
+  through_ZSF_ID_mm: 124.0
+  through_ZSF_entry_blend_R_mm: 4.0
+  ZSF_blind_tap_count: 8
+  ZSF_blind_hole_depth_mm: 55.0
+  ZSF_recess_depth_mm: 10.0
+  ZSF_recess_diameter_at_surface_mm: 30.0
+  ZSF_through_H1_reference_mm: 145.0
+  MA_line_DN: 125
+  MA_branches: 8
+  MA_branch_ID_mm: 44.0
+  MA_junction_fillet_mm: 1.2
+  MA_centrelines_from_barrel_seat_mm: 51.0
+  MA_angles_from_Gmsh_X_deg:
+  - 0
+  - 45
+  - 90
+  - 135
+  - 180
+  - 225
+  - 270
+  - 315
+  M36_angles_from_Gmsh_X_deg:
+  - 11.25
+  - 33.75
+  - 56.25
+  - 78.75
+  - 101.25
+  - 123.75
+  - 146.25
+  - 168.75
+  - 191.25
+  - 213.75
+  - 236.25
+  - 258.75
+  - 281.25
+  - 303.75
+  - 326.25
+  - 348.75
+  MA_equivalent_ID_mm: 124.45079348883237
+  MA_nominal_ligament_to_M36_mm: 2.3953224536288573
+  finest_mesh_level: 3
+  strength:
+    factored_with_preload_VM_MPa: 489.6172114739535
+    fixed_preload_load_to_yield_factor: 2.7272227716076154
+    fixed_preload_load_to_yield_factor_Rp600: 2.3480216912088516
+    fkm_G_per_mm: 0.09003141722034035
+    fkm_factor: 1.4569839541404113
+    fkm_mean_MPa: 284.73319342325834
+    fkm_n_sigma: 1.0436093156833979
+    fkm_xyz_mm:
+    - 99.77898951121898
+    - 41.32981069542969
+    - 134.0
+    static_VM_MPa: 425.9536651485699
+    static_without_preload_Rp600: 2.4818702965481294
+    static_xyz_mm:
+    - 99.77898951121898
+    - 41.3298106954297
+    - 130.7
+    static_yield_factor: 1.525987573726556
+    static_yield_factor_Rp600: 1.4086039142091284
+    static_yield_factor_without_preload: 2.688692821260474
+    stress_range_VM_MPa: 135.25978072425372
+    unclamped_VM_MPa: 241.75316527801658
+  force_balance_residual_fraction: 1.4952204459871826e-06
+  convergence:
+    status: EVALUATED_THREE_LATEST
+    levels:
+    - 1
+    - 2
+    - 3
+    local_sizes_mm:
+    - 3.5
+    - 2.4
+    - 1.85
+    max_fixed_point_change_fraction: 0.027480947298510347
+    max_regional_change_fraction: 0.05602759919682721
+    fixed_points_pass_5_percent: true
+    regional_envelopes_pass_5_percent: false
+  held_for:
+  - Confirm forged disc ruling section and the T/4 mechanical properties.
+  - Qualify the MA collector, pressure taps, and the local barrel/tie/valve interface boundary conditions.
+ZSF:
+  NG: 100
+  status: HOLD
+  catalogue:
+    count: 8
+    fastener: ISO 4762 M27x180 10.9-flZn
+    part: R913059494
+    torque_Nm: 1150
+    friction:
+    - 0.09
+    - 0.14
+    torque_tolerance_fraction: 0.1
+    T2_min_mm: 55
+    T1_mm: 25
+    PCD_mm: 240
+    bolt_hole_counterflange_mm: 30
+    contact_face_Rz_max_um: 8
+    contact_face_flatness_mm_per_100_mm: 0.01
+    drawing_page: 9
+    counterflange_page: 14
+    screws_page: 17
+    D6_mm: 138.5
+    raised_face_OD_mm: 188
+    B_port_pressure_rating_bar: 350
+    A_port_pressure_rating_bar: 16
+  machining_and_assembly:
+    count: 8
+    thread: M27x3 6g/6H
+    property_class: '10.9'
+    machining: 'SG: roll both threads after QT; blend to neck before rolling.'
+    neck_mm: 23.5
+    transition_min_radius_mm: 14.0
+    Rz_um: 3.2
+    nominal_bearing_to_cover_grip_mm: 135.0
+    grip_to_d: 5.0
+    nominal_neck_model_length_mm: 121.5
+    smooth_transition_length_each_mm: 9.743587634952538
+    rolled_root_radius_min_mm: 0.375
+    depth_inserted_mm: 42.0
+    penetration_tolerance_mm: 0.5
+    tap_recess_mm: 10.0
+    nominal_tap_cylindrical_depth_mm: 43.0
+    nut_height_mm: 23.8
+    nut_property_class: 10
+    washer_OD_mm: 50.0
+    washer_ID_mm: 28.0
+    washer_thickness_mm: 4.0
+    stand_proud_above_nut_mm: 33.0
+    stud_overall_mm: 233.8
+    transfer_formula_estimate: 1.21
+    transfer_factor: 1.25
+    tension_target_N: 206250.0
+    tension_qualification_range_N:
+    - 196875.0
+    - 215625.0
+    preload_after_transfer_N:
+    - 157500.0
+    - 172500.0
+    alpha_A: 1.0952380952380953
+    stud_VM_at_tension_MPa: 497.134045873281
+    stud_VM_after_transfer_MPa: 397.7072366986248
+    shoulder_stress_at_tension_MPa: 631.8573723049401
+    VDI_assembly_factor_to_0p9_Rp: 1.3389097557157452
+    tensile_proof_factor_at_tension: 1.6695698210368923
+    local_runout_stress_at_tension_screen_MPa: 757.2965997750297
+    takeoff_proof_test_required_N: 215625.0
+    minimum_manual_pull_thread_above_nut_mm: 27.0
+    assembly_procedure: Tension in opposed sequence and repeat; control each residual stud force via calibrated
+      elongation.
+  service_tool:
+    vendor: Nord-Lock Boltight TSR+1 M27
+    pitch_circle_mm: 240.0
+    fastener_chord_mm: 91.84402376762155
+    tool_OD_limit_mm: 90.0
+    tool_OD_mm: 87.0
+    two_adjacent_tools_nominal_gap_mm: 4.84402376762155
+    hydraulic_area_mm2: 1870.0
+    nominal_tool_pressure_bar: 1102.9411764705883
+    max_tool_load_N: 280000.0
+    tool_load_factor: 1.298550724637681
+    puller_above_nut_min_mm: 27.0
+    puller_above_nut_design_mm: 33.0
+    stud_above_bearing_seat_mm: 56.8
+    tool_min_stud_above_bearing_seat_mm: 54.0
+    tool_OD_start_above_nut_mm: null
+    tool_min_axial_service_space_from_bearing_mm: 145.0
+    central_clear_radius_at_full_tool_OD_with_2mm_gap_mm: 74.5
+    nominal_gap_against_body_D2_if_same_height_mm: -29.5
+    bridge_area_required_if_pG300_mm2: 718.75
+    catalogue_body_D2_mm: 212.0
+    flange_support_map_confirmed: false
+  service_tool_plan_section_mm:
+    origin: ZSF axis
+    coordinates: r radial to bolt, z along bolt away from cover
+    bolt_axis_r_mm: 120.0
+    catalogue_D2_r_mm: 106.0
+    tool_radial_intervals_at_full_OD_mm:
+    - 76.5
+    - 163.5
+    nearest_bolt_chord_mm: 91.84402376762155
+    bolt_tips_z_from_nut_bearing_mm: 56.8
+    require_body_radius_at_tool_OD_height_mm: 74.5
+    radial_interference_if_D2_and_tool_overlap_axially_mm: 29.5
+    nominal_valve_to_tool_radial_clearance_mm: null
+    plan_sketch:
+    - Adjacent axes at R120, chord 91.84 mm; both tools OD 87 mm.
+    - 'Radial section at full OD: ZSF axis (r=0) ... body limit (r=74.5) | 2 mm | tool (r=76.5..163.5).'
+    - 'Axial section above nut bearing: nut z=0..23.8; stud tip z=56.8; tool service envelope z=0..145.'
+    - Catalogue body D2 projects to r=106; compare only where its axial interval meets tool OD.
+    unresolved: Map axial profile of the ZSF body, bridge toe load area and puller access before release.
+  engagement:
+  - cover_Rm_MPa: 800.0
+    d_min_mm: 26.5
+    D2_max_mm: 25.3
+    d2_min_mm: 24.8
+    D1_max_mm: 24.0
+    s_over_d: 1.4
+    C1: 0.7499999999999996
+    C3: 0.9448736827468805
+    strength_ratio: 0.8227614468100797
+    effective_engagement_mm: 25.5
+    total_penetration_required_mm: 40.58455906988142
+    strip_load_N: 571815.7059335142
+    strip_to_full_thread_rupture_factor: 1.0372364184981495
+  - cover_Rm_MPa: 850.0
+    d_min_mm: 26.5
+    D2_max_mm: 25.3
+    d2_min_mm: 24.8
+    D1_max_mm: 24.0
+    s_over_d: 1.4
+    C1: 0.7499999999999996
+    C3: 0.92710703018911
+    strength_ratio: 0.8741840372357095
+    effective_engagement_mm: 25.5
+    total_penetration_required_mm: 39.58182235139756
+    strip_load_N: 596130.2222588955
+    strip_to_full_thread_rupture_factor: 1.081341366244698
+  diameters:
+  - seal_diameter_mm: 138.5
+    static_factor_nominal: 2.0990168665642917
+    static_factor_shoulder: 1.6514688171237542
+    local_elastic_VM_budget_to_C_STR_01_MPa: 57.47638571596053
+    thread_1e7_factor: 2.114312162369326
+    thread_SG_raw_factor: 2.85432141919859
+    sigma_ASV_MPa: 42.97222222222222
+    sigma_ASG_min_MPa: 67.8048266557074
+    thread_amplitude_max_MPa: 23.755147615696696
+    shoulder_FKM_factor: 1.423723538317424
+    runout_FKM_factor_conditional: 1.1878968083009758
+    runout_Kt_limit_static: 1.377918173066344
+    runout_static_factor_at_assumed_Kt: 1.377918173066344
+    runout_Kt_limit_fatigue: 1.7818452124514637
+    residual_clamp_min_N: 77754.54800044917
+    opening_factor_min: 2.29777405499042
+    pG_valve_required_MPa: 219.83413421105163
+    pG_valve_if_stock_40mm_footprint_MPa: 353.3048585534759
+    contact_under_nut_max_MPa: 374.7172742233835
+  - seal_diameter_mm: 188.0
+    static_factor_nominal: 1.918140779237466
+    static_factor_shoulder: 1.509158756284395
+    local_elastic_VM_budget_to_C_STR_01_MPa: 3.803103714340182
+    thread_1e7_factor: 1.160087733389347
+    thread_SG_raw_factor: 1.5661184400756185
+    sigma_ASV_MPa: 42.97222222222222
+    sigma_ASG_min_MPa: 66.93690246070713
+    thread_amplitude_max_MPa: 42.74063873322068
+    shoulder_FKM_factor: 1.199694495506009
+    runout_FKM_factor_conditional: 1.0009761191642976
+    runout_Kt_limit_static: 1.2591804669664801
+    runout_static_factor_at_assumed_Kt: 1.2591804669664801
+    runout_Kt_limit_fatigue: 1.5014641787464464
+    residual_clamp_min_N: 27274.98909977966
+    opening_factor_min: 1.24707097007526
+    pG_valve_required_MPa: 240.56396722819989
+    pG_valve_if_stock_40mm_footprint_MPa: 386.6206616167499
+    contact_under_nut_max_MPa: 410.05221686624986
+  held_for:
+  - Rexroth approval of studs in place of R913059494 and 315 bar with this counterflange
+  - Valve nut-seat pG and bridge footprint/height, individual local prying and runout profile
+  - Seal seating, thermal preload loss and transient at port A
+integration:
+  datum: front bearing plane CY-MAIN against separate cylinder traverse
+  cap_thickness_delta_mm: 12.0
+  cylinder_body_before_after_mm:
+  - 635
+  - 647.0
+  cylinder_retracted_before_after_mm:
+  - 705
+  - 717.0
+  cylinder_extended_before_after_mm:
+  - 1011
+  - 1023.0
+  cylinder_tie_elongation_mm: 12.0
+  rear_cylinder_projection_to_mount_mm: 542.0
+  structural_frame_axial_before_after_mm:
+  - 1166.0
+  - 1166.0
+  four_column_smooth_span_before_after_mm:
+  - 395.0
+  - 395.0
+  structural_module_axial_excluding_ZSF_and_guards_before_after_mm:
+  - 1352.0
+  - 1364.0
+  minimum_nut_clearance_lower_bound_mm: 26.121872808239914
+  minimum_column_tool_clearance_lower_bound_mm: 9.837661840735677
+  M27_stud_tip_from_cover_mount_mm: 191.8
+  additional_projection_of_stud_beyond_catalogue_H1_mm: 46.80000000000001
+  working_stroke_mm: 281
+  installed_stroke_mm: 306
+  bore_and_rod_mm:
+  - 280
+  - 200
+mass:
+  A_delta_kg: 0.6392332190668331
+  B_delta_kg: -0.3167057398257953
+  nominal_machine_AB_kg: 4942.654131609759
+  nominal_reserve_for_T22b_kg: 57.34586839024087
