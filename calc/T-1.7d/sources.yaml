@@ -1,0 +1,161 @@
+task: T-1.7d
+materials:
+  "34CrNiMo6+QT":
+    url: https://www.stahlwerk-augustfehn.com/wp-content/uploads/2024/01/34CrNiMo6-Technichal-data-sheet_-1.6582-new.pdf
+    where: С. 2, Mechanical properties, Flat products (QT), и последний блок об индукционном упрочнении
+    standard: DIN EN ISO 683-2, преемник требований к легированным сталям EN 10083-3
+    standard_succession_url: https://www.dinmedia.de/de/norm/din-en-iso-683-2/291176306
+    standard_succession_where: Änderungsvermerk и замена DIN EN 10083-3:2007-01
+    EN_10083_3_comparison_url: https://www.esb-group.com/wp-content/uploads/2025/03/ESB-Quality-Guide-V1.1-Warmgewaltzer-legierter-verguetungsstahl.pdf
+    standard_comparison_where: С. 82–83, механические свойства в состоянии +QT
+    flat_gt_20_le_60_mm: {Rp02_min_MPa: 800, Rm_MPa: [1000, 1200]}
+    flat_gt_60_le_100_mm: {Rp02_min_MPa: 700, Rm_MPa: [900, 1100]}
+    hardness_induction_HRC: [52, 57]
+    supplier_case_depth_more_than_mm: 6
+    qualification: Контролировать определяющее сечение поковки и сердцевину. Обычный +QT, Rz 6,3 мкм для рабочих контрольных поверхностей.
+  "42CrMo4+QT":
+    url: https://www.stahlwerk-augustfehn.com/wp-content/uploads/2024/01/42CrMo4-Technical-data-sheet_-1.7225-new.pdf
+    where: С. 2, Flat products (QT), и строка Achievable surface hardness
+    EN_10083_3_url: https://www.swisssteel-group.com/tw/services/download-center/1-7225-1-7227-42crmo4-42crmos4-werkstoffdatenblatt
+    EN_10083_3_where: Таблица свойств +QT, строка 40 < d ≤ 100 мм для круглого проката, плоский диапазон по Augustfehn
+    flat_gt_20_le_60_mm: {Rp02_min_MPa: 650, Rm_MPa: [900, 1100]}
+    hardness_induction_HRC: [54, 59]
+    supplier_case_depth_max_mm: 6
+  "G35CrNiMo6-6+QT1":
+    url: https://cdn.standards.iteh.ai/samples/37740/e17c195133c94e8ca3b14cfd6e0b2a51/SIST-EN-10293-2015.pdf
+    where: Проектная база T-1.7 calc/T-1.7/sources.yaml, EN 10293, табл. 3, 150–250 мм
+    Rp02_min_MPa: 650
+    Rm_min_MPa: 800
+    qualification: По T-1.7, Rz 6,3 мкм на обработанных стенках проёма, УЗК уровня 2, MT SM1, аттестовать место пробы.
+  model_elastic:
+    source: calc/T-1.7/frame_analytic.py E_MPa, NU, RHO_kg_mm3
+    E_MPa: 210000
+    poisson: 0.30
+    steel_density_kg_m3: 7850
+contact:
+  yield_screen_fraction: 0.60
+  forged_800_MPa_pressure_screen_MPa: 480
+  forged_700_MPa_pressure_screen_MPa: 420
+  cast_650_MPa_pressure_screen_MPa: 390
+  project_source: ops/reports/T-1.7b/report.md, раздел B, и calc/T-1.7b/sources.yaml engineering_requirement
+  physical_basis_url: https://www.tbksoft.com/fileadmin/dokumente/tbk/etc/HTMLHandbuch/en/HTMLHandbuchch15.html
+  physical_basis_where: §15.1, DIN 6892, расчёт допустимого давления на плоских гранях по пределу текучести
+  interpretation: 0,60 — проектный консервативный экран REV. Метод расчёта шпонок не переносится на шибер.
+  surface_treatment: Закалка или азотирование рассматриваются для износостойкости. Для расширения экрана нужны профиль твёрдости, граница слоя, форма и глубина поля напряжений, контактный ресурс и испытание дорожки под пылью.
+  surface_treatment_reference_url: https://www.gbv.de/dms/ilmenau/toc/1767294123.PDF
+  surface_treatment_reference_where: Глава FKM по поверхностной обработке и практическая оценка двух зон, сердцевины и слоя
+  contact_mu: 0.15
+  numerical_reference_url: https://www.dhondt.de/ccx_2.22.pdf
+  numerical_reference_where: Разделы CONTACT PAIR, FRICTION и SURFACE BEHAVIOR, см. также T-1.7c sources.yaml
+fkm:
+  publisher_url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+  where: Глава 4, расчёт по местным напряжениям, коэффициенты расчёта, усталостная прочность
+  original_method_url: https://doi.org/10.1016/j.ijfatigue.2024.108165
+  original_method_where: Раздел Structural fatigue strength assessment, локальная проверка и параметры Хэя
+  gradient_validation_url: https://www.mdpi.com/1996-1944/17/13/3130
+  gradient_validation_where: Уравнения (4)–(5), влияние относительного градиента и коэффициент опоры
+  implementation: calc/T-1.7/frame_fea.py fkm_parameters, normal_gradient, notch_support, local_results
+  design_assumptions:
+    ND_cycles: 1000000
+    cycles: 10000000
+    k_D: 15
+    j_D: 1.5
+    j_G_cast: 1.25
+    j_G_forging: 1
+    fully_reversed_to_Rm_forging: 0.40
+    fully_reversed_to_Rm_cast: 0.34
+    M_sigma_forging: "0.00035 * Rm_MPa - 0.10"
+    M_sigma_cast: "0.00035 * Rm_MPa + 0.05"
+    fatigue_range_force_N: [0, 1700000]
+    static_force_N: 1940000
+    machined_Rz_um: 6.3
+    boundary_basis: calc/T-1.7/frame_fea.py, секторы preload/centred/ex/ey, пружины колонн из frame_analytic.py
+    roughness_and_limits: Машинный Rz только в обработанной зоне. Проверка качества по T-1.7, без кредита повышению прочности от ТО.
+geometry_and_actuators:
+  tail_recovery: calc/T-1.2b/results.json gate.clearance_cases, calc/T-1.1/curve.yaml и ops/reports/T-1.7c/GK_review.md
+  outlet_cross_section: calc/T-1.7c/results.json layout, сохранены окно 158×65 R3 и отливка 176×74 R20
+  opening_residual: ops/reports/T-1.7c/GK_review.md, 201 кН брикет и 5 бар в гидравлическом экране T-1.7b с допуском датчиков
+  decompression_interlock: design/hydraulics/T-1.6_interlocks.yaml, два показания не выше 3 бар
+  opening_force: design/slide_gate.t17b.yaml opening_force_screen, η 0,92, противодавление 5 бар, трение 0,15
+  drives: design/cylinders.t16.yaml CY-MAIN, CY-RAPID, CY-GATE; calc/T-1.3/cylinders.py physical_geometry и stability
+  provisional_rib_location: Боковые рёбра по поверхности к камере. Слой 12 мм начинается вне окна на расстоянии 80 мм от поперечной оси, C1-переход на 45 мм.
+cycle_mass:
+  source: calc/T-1.7c/results.json layout и mass; calc/T-1.7c/cycle/, design/params.t17c.yaml, D-GK-02
+  cycle_driver_url: https://www.parker.com/content/dam/Parker-com/Literature/PMDE/Catalogs/Piston_Pumps/PV-/MSG30-3245_UK.pdf
+  cycle_driver_where: С. 5, 26, 32–39, 61, 63–65, обработка характеристик и уставка 36 кВт в копии cycle/sources.yaml
+  mass_density_oil_kg_m3: 870
+  mass_hardware_fraction: 0.06
+  mass_basis: calc/T-1.3/sources.yaml ancillary_mass_allowance_fraction, calc/T-1.3/v2/sources.yaml oil_density_kg_m3
+  reheated_briquette_inputs: T-1.7c free_channel_cases / base upper. Модель сохраняет 100 кН начального сопротивления камеры и 5 кН рыхлой крошки.
+
+
+reproduction:
+  screen_series: 'REV_PYTHON -B calc/T-1.7d/study.py --run-slices'
+  elastic_submodel_inputs: 'REV_PYTHON -B calc/T-1.7d/fea/submodel.py 0 1 2 --inputs-only'
+  elastic_submodel_solver: 'REV_PYTHON -B calc/T-1.7d/fea/submodel.py 0 1 2'
+  rigid_back_and_reactions: 'REV_PYTHON -B calc/T-1.7d/fea/contact_local.py 0'
+  one_way_cast_transfer: 'REV_PYTHON -B calc/T-1.7d/fea/cast_reaction.py 0 1 2'
+  automate_generation_and_gates: 'REV_PYTHON -B calc/T-1.7d/verify.py'
+  comparison_round_2: 'REV_PYTHON -B calc/T-1.7d/study.py --r2-slices'
+  coupled_round_2: 'REV_PYTHON -B calc/T-1.7d/fea/submodel.py 0 1 2 --thickness 54 --travel 100 --runout-length 11 --runout-depth .10 --wing 6 --label r2_aligned_node54 --small-sliding'
+  coupled_round_2_replay: 'REV_PYTHON -B calc/T-1.7d/fea/submodel.py 0 --thickness 54 --travel 100 --runout-length 11 --runout-depth .10 --wing 6 --label r2_aligned_node54_replay_a --small-sliding'
+  coupled_round_2_replay_again: 'REV_PYTHON -B calc/T-1.7d/fea/submodel.py 0 --thickness 54 --travel 100 --runout-length 11 --runout-depth .10 --wing 6 --label r2_aligned_node54_replay_b --small-sliding'
+  coupled_round_2_refinement: 'REV_PYTHON -B calc/T-1.7d/fea/submodel.py 3 4 5 --thickness 54 --travel 100 --runout-length 11 --runout-depth .10 --wing 6 --label r2_aligned_node54 --small-sliding'
+  rigid_comparison_round_2: 'REV_PYTHON -B calc/T-1.7d/fea/contact_local.py 0 1 2 --thickness 50 --travel 104 --runout-length 14 --runout-depth .15 --wing 10 --label r2_rigid'
+  cast_transfer_round_2: 'REV_PYTHON -B calc/T-1.7d/fea/cast_reaction.py 0 1 2 --label r2_cast --source r2_rigid'
+
+
+round_2:
+  hardened_support:
+    geometry: "Сменная кольцевая кассета 340 × 180 × 55 мм; материал плиты и кассеты 34CrNiMo6+QT. Целевое SHD ≥ 6 мм, 52–57 HRC, подлежат измерению."
+    depth_url: https://www.iso.org/standard/89021.html
+    depth_where: "ISO 18203:2026, Scope и метод определения surface hardening depth (индукция)."
+    induction_study_url: https://doi.org/10.3390/met15090970
+    induction_study_where: "§3, распределение микротвёрдости и микроструктура 34CrNiMo6. Лабораторный образец подтверждает необходимость профиля; параметры процесса на плоскую плиту не перенесены."
+    transition_url: https://www.imorules.com/GUID-C8C59C37-1003-4AA5-8A98-41A978D892D5.html
+    transition_where: "Правила Lloyd’s Register для индукционно упрочнённых коленвалов, §4.1 и §4.2.1–2. Основание контролировать зону перехода, остаточное растяжение и испытать пару. Числа для коленвала не перенесены."
+    hardness_conversion_url: https://www.iso.org/standard/53810.html
+    hardness_conversion_where: "ISO 18265:2013, Scope, пересчёт твёрдости даёт оценку Rm и не заменяет испытание."
+    existing_static_screens_MPa: {plate_seat: 480, seat_cast: 390}
+    static_bearing_method_url: https://www.dinmedia.de/de/norm/din-6892/393862443
+    static_bearing_method_where: "DIN 6892:2025-10, §7, плоские грани шпоночных соединений. Метод используют как аналог для проверок местного смятия и фактического пятна, коэффициенты на шибер не перенесены."
+    fretting_original_url: https://researchportal.tuni.fi/files/10868394/Juoksukangas_1472.pdf
+    fretting_original_where: "§2.1–2.2, плоские контакты 34CrNiMo6+QT, испытания до 3×10^6, испытательная установка допускает номинальное давление до 300 МПа."
+    flat_pair_original_url: https://www.sciencedirect.com/science/article/pii/S0301679X18304523
+    flat_pair_original_where: "§2–3, сухие плоские контакты QT, давление 10–50 МПа. Изучены адгезия и выкрашивание при микроскольжении."
+    fretting_wear_standard_url: https://store.astm.org/g0204-21.html
+    fretting_wear_standard_where: "ASTM G204-21, §1 и §5, контролируемое фреттинг-испытание и объём потери обеих поверхностей. Условия со смазкой и загрязнением требуют адаптации."
+    rolling_contact_specific_url: https://www.iso.org/standard/55353.html
+    rolling_contact_specific_where: "ISO 6336-5:2016, Scope и §5.2/5.6. Пределы рассчитаны для контакта зубьев и применяются с указанными в стандарте геометрией и методикой."
+    pair_fatigue_qualification_url: https://www.iso.org/standard/50242.html
+    pair_fatigue_qualification_where: "ISO 12107:2012, статистическое планирование испытаний. Для пары нужны те же сбег, смазка, загрязнение, микроподвижка и цикл давления; испытать обе контактные поверхности до 10^7 с контролем остаточной вмятины, потери толщины, задира и трещин."
+    static_pressure_allowance_MPa: null
+    fatigue_pressure_allowance_at_1e7_MPa: null
+    interpretation: "Обоснованного повышенного допуска для данного плоского контакта с микроподвижкой и древесной пылью не найдено. Сохраняются исходные инженерные экраны; ресурс пары подтверждается отдельно от FKM плиты и кассеты."
+  signed_fatigue:
+    url: https://doi.org/10.1016/j.ijfatigue.2024.108165
+    where: "Рис. 8, формулы (23)–(24), (43)–(46). Для поковки учтено M_sigma по знаку на направлении доминирующей главной амплитуды при полностью сжимающем тензоре средних. Для смешанных знаков и литья остаётся положительная поправка T-1.7."
+    implementation: calc/T-1.7d/fea/r2_strength.py
+    hardening_fkm_method_url: https://saemobilus.sae.org/papers/analytical-approach-assess-strength-utilization-rate-a-case-hardened-components-based-fkm-guideline-2022-01-1036
+    hardening_fkm_where: "Surface and interior assessment. Расчёт слоя и сердцевины раздельно. Коэффициент K_V поверхностного упрочнения равен 1 до квалификации."
+  contact_numerics:
+    url: https://www.dhondt.de/ccx_2.22.pdf
+    where: "§6 Theory Contact, §7 CONTACT PAIR, CONTROLS, FRICTION, SURFACE BEHAVIOR; face-to-face и small-sliding node-to-surface проверены раздельно."
+    executed_mesh_threads: "Грубые и уточнённые сетки серии прогнаны с четырьмя потоками CCX. Для воспроизведения задать REV_T17D_CCX_THREADS=4. Повтор для контроля 1e-6 выполнен в одном потоке."
+    thin_ligament_boundary: "Поля предзатяжки, силы и эксцентриситетов T-1.7, срез 380 × 250 мм; эксцентриситеты +10 / −10 мм."
+  fast_actuation:
+    valves_url: https://www.boschrexroth.com/ics/Projects/GenericSelector/?ProductArea=4WRLE-4X&c=tr&language=en
+    valves_where: "4WRLE-4X, NG25, 400 л/мин при Δp 5 бар/кромка. Оценка при полном открытии по Q²."
+    LP_url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    LP_where: "EN 3.000.7, таблица 20 L SB330 3047174, 18,4 л газового объёма. §4.1, расход и заряд."
+    LP_catalog_check_url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    LP_catalog_check_where: "Страница США указывает 240 gpm и 63 кг; в таблице EN дано 49 кг. В принятом бюджете T-1.7c сохранён установленный ГА, массу и исполнение сверить по поставке."
+    cushioning_url: https://www.parker.com/content/dam/Parker-com/Literature/Atlas-Cylinder/PDF/HY08-AC1151_HMI.pdf
+    cushioning_where: "С. 24, энергия торможения, зависимость от площади и давления подпора; для v > 0,5 м/с требуется проверка специального профиля."
+    tail: "T-1.7c; номинальный маркер x ≤ 195 мм из T-1.6. Ранний вариант x ≤ 200 мм оценён как чувствительность, нужен допуск и подтверждение свободного хвоста."
+    assumptions:
+      axial_tolerance_budget_mm: 1.0
+      axial_tolerance_breakdown_mm: {part_axial_size_chain: 0.25, position: 0.25, follow_up_and_stack: 0.50}
+      cushioning_peak_factor_assumed: 2.0
+      proposed_cushion_supply_max_bar: 175.0
+      effective_dust_wear_pair_test: true

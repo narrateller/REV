@@ -1,0 +1,57 @@
+task: T-1.7d
+status: HOLD_R2_CONTACT_QUALIFICATION_AND_CONVERGENCE
+trial_only: true
+inherit_unchanged_from: design/cylinders.t16.yaml
+cylinders:
+- id: CY-MAIN
+  stroke_working_mm: 281
+  stroke_installed_mm: 306
+  barrel_length_mm: 398
+  body_length_mm: 635
+  rod_tip_retracted_length_mm: 705
+  rod_tip_extended_length_mm: 1011
+  column_effective_length_max_mm: 486
+  dry_mass_each_kg: 726.5232712242895
+  filled_mass_each_kg: 746.6439686690827
+  max_operating_stroke_mm: 291
+- id: CY-RAPID
+  stroke_working_mm: 281
+  stroke_installed_mm: 306
+  barrel_length_mm: 355
+  body_length_mm: 421
+  rod_tip_retracted_length_mm: 461
+  rod_tip_extended_length_mm: 767
+  column_effective_length_max_mm: 411
+  dry_mass_each_kg: 39.61922904218929
+  filled_mass_each_kg: 42.35331895676614
+  max_operating_stroke_mm: 291
+- id: CY-GATE
+  stroke_working_mm: 100.0
+  stroke_installed_mm: 105.0
+  barrel_length_mm: 153.0
+  body_length_mm: 218.0
+  rod_tip_retracted_length_mm: 253.0
+  rod_tip_extended_length_mm: 358.0
+  column_effective_length_max_mm: 190.0
+  dry_mass_each_kg: 23.118618728291967
+  filled_mass_each_kg: 24.629497278315334
+  bore_mm: 81
+  barrel_OD_mm: 105
+  cap_area_mm2: 5152.9973500506585
+  annulus_area_mm2: 3562.566069170826
+  work_port_passage_ID_mm:
+    cap: 32.0
+    annulus: 28.0
+  end_cushion_requirements:
+    kinetic_energy_J: 27.155922404409463
+    initial_cushion_length_mm: 12.5
+    inlet_pressure_limit_bar: 175.0
+    assumed_peak_to_mean_inertial_pressure: 2.0
+    ideal_peak_screen_bar:
+      opening: 129.4195383091733
+      closing: 266.8166668703784
+    local_relief_limit_at_full_flow_bar: 315.0
+    validation: Профиль торможения проверяется датчиками обеих полостей при крайних
+      температурах. До зоны торможения снизить давление подпора привода. Нужны гидравлическое
+      демпфирование на двух концах, защита от кавитации и независимое локальное ограничение
+      давления.

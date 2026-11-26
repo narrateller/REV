@@ -1,0 +1,88 @@
+{
+  "surface_to_surface_direct": {
+    "level": 0,
+    "force_N": 1940000,
+    "status": "STOPPED_UNCONVERGED",
+    "CPU_time_s": 426.05,
+    "last_increment_rows": [],
+    "last_convergence_rows": [
+      "     1     1     1    12   120643  0.1461E+04  0.9915E+00  0.0000E+00  0.0000E+00",
+      "     1     1     1    13   119857  0.1088E+04  0.5215E+00  0.0000E+00  0.0000E+00"
+    ]
+  },
+  "tied_interface_diagnostic": {
+    "level": 0,
+    "force_N": 1940000,
+    "status": "STOPPED_UNCONVERGED",
+    "CPU_time_s": 468.5,
+    "last_increment_rows": [
+      "SUMMARY OF JOB INFORMATION",
+      "  STEP      INC     ATT  ITRS     TOT TIME     STEP TIME      INC TIME",
+      "     1          1     1U   60  0.000000E+00  0.000000E+00  0.500000E+00"
+    ],
+    "last_convergence_rows": [
+      "     1     1     1    60    40664  0.3944E+02  0.6300E+00  0.0000E+00  0.0000E+00",
+      "     1     1     2     1    40479  0.2737E+04  0.1000E+03  0.0000E+00  0.0000E+00"
+    ]
+  },
+  "surface_to_surface_iterative": {
+    "level": 0,
+    "force_N": 1940000,
+    "status": "STOPPED_UNCONVERGED",
+    "CPU_time_s": 1080.97,
+    "last_increment_rows": [
+      "SUMMARY OF JOB INFORMATION",
+      "  STEP      INC     ATT  ITRS     TOT TIME     STEP TIME      INC TIME",
+      "     1          1     1U   60  0.000000E+00  0.000000E+00  0.500000E+00"
+    ],
+    "last_convergence_rows": [
+      "     1     1     2    40   102814  0.4644E+03  0.0000E+00  0.0000E+00  0.0000E+00",
+      "     1     1     2    41   102814  0.4644E+03  0.0000E+00  0.0000E+00  0.0000E+00"
+    ]
+  },
+  "node_to_surface_iterative": {
+    "level": 0,
+    "force_N": 1940000,
+    "status": "ERROR_TOO_MANY_CUTBACKS",
+    "solver_exit_code": 201
+  },
+  "original_front_wing_morph": {
+    "level": 0,
+    "status": "INVALID_JACOBIAN",
+    "resolution": "Smooth side profile only"
+  },
+  "mesh_input_preparation": {
+    "status": "PASS",
+    "levels": [
+      0,
+      1,
+      2
+    ],
+    "command": "REV_PYTHON -B calc/T-1.7d/fea/submodel.py 0 1 2 --inputs-only"
+  },
+  "rigid_back": {
+    "status": "COMPLETE_DIAGNOSTIC_TWICE",
+    "level": 0,
+    "both_loads": true
+  },
+  "central_slice": {
+    "status": "COMPLETE_DIAGNOSTIC",
+    "mesh_sizes_mm": [
+      5.0,
+      3.5,
+      2.5
+    ],
+    "convergence": "FAIL for all 3-mesh strength envelopes"
+  },
+  "one_way_cast": {
+    "status": "COMPLETE_DIAGNOSTIC",
+    "levels": [
+      0,
+      1,
+      2
+    ],
+    "source_reaction_patch_radius_mm": 9,
+    "convergence": "FAIL for full controlling envelope",
+    "scope": "Recovered cast stresses and guide displacement from rigid-backed nodal reaction resultants"
+  }
+}

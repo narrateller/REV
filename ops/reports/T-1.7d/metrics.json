@@ -1,0 +1,162 @@
+{
+  "task": "T-1.7d",
+  "round": 2,
+  "status": "HOLD_R2_CONTACT_QUALIFICATION_AND_CONVERGENCE",
+  "working_trial": true,
+  "static_force_N": 1940000.0,
+  "cyclic_peak_force_N": 1700000.0,
+  "target_cycles": 10000000,
+  "plate_thickness_mm": 54.0,
+  "gate_stroke_mm": 100.0,
+  "main_stroke_increment_mm": 17,
+  "installed_stroke_mm": 306,
+  "overtravel_mm": [
+    76,
+    86
+  ],
+  "minimum_tail_clearance_mm": 5.112642024442096,
+  "channel_length_mm": 205.0,
+  "lower_land_width_mm": 35.0,
+  "gate_actuator": {
+    "required_N": 47473.414189927265,
+    "available_N": 95750.32483408948,
+    "safety_factor": 2.016925187875058,
+    "residual_product_N": 201000.0,
+    "residual_hydraulic_N": 30787.608,
+    "moving_mass_kg": 54.311844808818925,
+    "cap_mm2": 5152.9973500506585,
+    "annulus_mm2": 3562.566069170826,
+    "acceleration_m_s2": 40.0,
+    "command_speed_m_s": 1.0,
+    "retract_flow_L_min": 213.75396415024954,
+    "extend_flow_L_min": 309.17984100303954,
+    "maximum_residual_product_for_2x_N": 203678.32151411643
+  },
+  "gate_bore_mm": 81,
+  "nominal_mass_kg": 4923.405700364904,
+  "mass_range_kg": [
+    4792.215309102531,
+    5126.67228057143
+  ],
+  "cycle_s": 5.936300932881372,
+  "reference_cycle_s": 5.550000000000552,
+  "pessimistic_reference_cycle_s": 5.983750000000755,
+  "gate_margin_to_5p95_s": 0.013699067118627895,
+  "cycle_margin_to_6_s": 0.06369906711862772,
+  "pessimistic_margin_to_6_s": 0.016249999999245368,
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 306
+    },
+    "G-CYCLE": {
+      "status": "PASS",
+      "value": 5.936300932881372
+    }
+  },
+  "structural": {
+    "plate_hotspot": {
+      "G_per_mm": 0.0,
+      "K_AK": 1.0,
+      "M_sigma": 0.24999999999999997,
+      "amplitude_MPa": 182.80874839484207,
+      "compressed": false,
+      "fatigue_factor": 1.014532364103052,
+      "fatigue_factor_T17": 1.014532364103052,
+      "fatigue_xyz_mm": [
+        12.75597447728514,
+        -38.52464286508265,
+        50.02487198409185
+      ],
+      "j_G": 1.0,
+      "k_R": 0.8770826851901443,
+      "n_sigma": 1.0,
+      "normal_amplitude_MPa": 136.10167957725753,
+      "signed_mean_normal_MPa": -135.97784556866515,
+      "signed_peak_range_normal_MPa": -272.20335915451506,
+      "static_factor": 1.9377269674680504,
+      "static_mises_MPa": 412.85486213020386,
+      "static_xyz_mm": [
+        12.75597447728514,
+        -38.52464286508265,
+        50.02487198409185
+      ]
+    },
+    "lower_land_governing_depth_mm": [
+      3,
+      6
+    ],
+    "lower_land_Rp02_required_MPa": 619.2822931953058,
+    "lower_land_tensile_mean_headroom_MPa": 11.494046746084814,
+    "static_factor": 1.9377269674680504,
+    "fatigue_factor": 1.014532364103052,
+    "cast_static_factor": 3.539364158416937,
+    "cast_fatigue_factor": 1.0670575839567105,
+    "R20_static_factor": 3.539364158416937,
+    "R20_fatigue_factor": 1.0670575839567105,
+    "guide_deformation_mm": 0.059704996020788575,
+    "static_contact_blade_seat_MPa": 357.312,
+    "cyclic_contact_blade_seat_MPa": 324.075,
+    "static_contact_seat_cast_MPa": 336.315,
+    "cyclic_contact_seat_cast_MPa": 307.818
+  },
+  "acceptance": {
+    "C_STR_01": "PROVISIONAL_PASS",
+    "C_FAT_01": "PROVISIONAL_PASS",
+    "bearing_contact": "OPEN_10E7_PAIR_LIMIT",
+    "static_bearing_screen_blade_seat": "PROVISIONAL_PASS",
+    "static_bearing_screen_seat_cast": "PROVISIONAL_PASS",
+    "three_mesh_convergence": "FAIL",
+    "R20_and_chamber_end": "PROVISIONAL_PASS",
+    "C_CLR_01": "PROVISIONAL_PASS",
+    "G_CYCLE_R2": "PASS",
+    "pessimistic_reference": "PASS",
+    "pessimistic_reference_at_201_kN": "FAIL"
+  },
+  "residual_bracket": [
+    {
+      "residual_product_N": 110000.0,
+      "gate_cycle_s": 5.938107168276671,
+      "pessimistic_cycle_s": 5.993125000000759,
+      "gate_rms_kW": 29.87929676173103
+    },
+    {
+      "residual_product_N": 120000.0,
+      "gate_cycle_s": 5.939736751595224,
+      "pessimistic_cycle_s": 6.001875000000764,
+      "gate_rms_kW": 29.882742947718736
+    }
+  ],
+  "fea_runs": {
+    "r2_rigid": [
+      "r2_rigid_0.json",
+      "r2_rigid_1.json",
+      "r2_rigid_2.json"
+    ],
+    "r2_cast": [
+      "r2_cast_0.json",
+      "r2_cast_1.json",
+      "r2_cast_2.json"
+    ],
+    "r2_mortar": [
+      "r2_mortar_0_static_failure.json"
+    ],
+    "r2_penalty": [
+      "r2_penalty_0_static_failure.json"
+    ],
+    "r2_aligned_node": [
+      "r2_aligned_node_0_static_failure.json"
+    ],
+    "r2_aligned_node54": [
+      "r2_aligned_node54_0.json",
+      "r2_aligned_node54_1.json",
+      "r2_aligned_node54_2.json",
+      "r2_aligned_node54_3.json",
+      "r2_aligned_node54_4.json"
+    ]
+  }
+}

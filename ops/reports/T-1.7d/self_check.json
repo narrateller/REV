@@ -1,0 +1,146 @@
+{
+  "task": "T-1.7d",
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 295
+    },
+    "G-CYCLE": {
+      "status": "PASS",
+      "value": 5.996956893791757
+    }
+  },
+  "gate_command": "REV_PYTHON -B ops/gates/calc_gates.py --params design/params.t17d.yaml --criteria ops/criteria/design_criteria.yaml --out gates.t17d.json",
+  "geometry_and_actuation": "PASS",
+  "cycle_phase_accounting": "PASS",
+  "machine_nominal_mass": "PASS",
+  "double_generation": {
+    "status": "PASS",
+    "sha256": {
+      "calc/T-1.7d/results.json": "91e2200da63a41db35d0cfdb7260ca90ae56be20fd52cc8129e15bf07df807d9",
+      "metrics.json": "6d5cf0fab16bceee0ceda71dd3c7d38e67403eccbf52c77541632b8aef15a82e",
+      "design/frame.t17d.yaml": "5074c4515462090e0a463e744f5349a777f50e925d72c20b599fc75f5c26d9f2",
+      "design/slide_gate.t17d.yaml": "a30763250033932a47835a1b9ba72a60539e9d338e92701734b4ced4607f4b93",
+      "design/cylinders.t17d.yaml": "6f0d05aaaa4b7600e9636557f0b79d5e45c0f5bff52f0eb5969e362187af23e0",
+      "design/params.t17d.yaml": "d9ee80e364cbbe013491ddda6dcf1b7bc0e570556ea95ab984ad0e6d14533572"
+    }
+  },
+  "FEA_replay": {
+    "status": "PASS",
+    "scope": "Оба уровня нагрузки, жёсткий тыл вставки, сетка h=9 мм.",
+    "max_absolute_difference": 0,
+    "tolerance": 1e-06,
+    "second_run_has_reaction_transfer": true
+  },
+  "FEA_acceptance": {
+    "C_STR_01": "OPEN",
+    "C_FAT_01": "OPEN",
+    "bearing_contact": "FAIL_RIGID_BACK_SCREEN",
+    "three_mesh_convergence": "OPEN",
+    "R20_and_chamber_end": "OPEN",
+    "C_CLR_01": "OPEN",
+    "G_CYCLE": "PASS",
+    "reference_cycle": "PASS",
+    "pessimistic_reference": "FAIL"
+  },
+  "numerical_attempts": {
+    "surface_to_surface_direct": {
+      "level": 0,
+      "force_N": 1940000,
+      "status": "STOPPED_UNCONVERGED",
+      "CPU_time_s": 426.05,
+      "last_increment_rows": [],
+      "last_convergence_rows": [
+        "     1     1     1    12   120643  0.1461E+04  0.9915E+00  0.0000E+00  0.0000E+00",
+        "     1     1     1    13   119857  0.1088E+04  0.5215E+00  0.0000E+00  0.0000E+00"
+      ]
+    },
+    "tied_interface_diagnostic": {
+      "level": 0,
+      "force_N": 1940000,
+      "status": "STOPPED_UNCONVERGED",
+      "CPU_time_s": 468.5,
+      "last_increment_rows": [
+        "SUMMARY OF JOB INFORMATION",
+        "  STEP      INC     ATT  ITRS     TOT TIME     STEP TIME      INC TIME",
+        "     1          1     1U   60  0.000000E+00  0.000000E+00  0.500000E+00"
+      ],
+      "last_convergence_rows": [
+        "     1     1     1    60    40664  0.3944E+02  0.6300E+00  0.0000E+00  0.0000E+00",
+        "     1     1     2     1    40479  0.2737E+04  0.1000E+03  0.0000E+00  0.0000E+00"
+      ]
+    },
+    "surface_to_surface_iterative": {
+      "level": 0,
+      "force_N": 1940000,
+      "status": "STOPPED_UNCONVERGED",
+      "CPU_time_s": 1080.97,
+      "last_increment_rows": [
+        "SUMMARY OF JOB INFORMATION",
+        "  STEP      INC     ATT  ITRS     TOT TIME     STEP TIME      INC TIME",
+        "     1          1     1U   60  0.000000E+00  0.000000E+00  0.500000E+00"
+      ],
+      "last_convergence_rows": [
+        "     1     1     2    40   102814  0.4644E+03  0.0000E+00  0.0000E+00  0.0000E+00",
+        "     1     1     2    41   102814  0.4644E+03  0.0000E+00  0.0000E+00  0.0000E+00"
+      ]
+    },
+    "node_to_surface_iterative": {
+      "level": 0,
+      "force_N": 1940000,
+      "status": "ERROR_TOO_MANY_CUTBACKS",
+      "solver_exit_code": 201
+    },
+    "original_front_wing_morph": {
+      "level": 0,
+      "status": "INVALID_JACOBIAN",
+      "resolution": "Smooth side profile only"
+    },
+    "mesh_input_preparation": {
+      "status": "PASS",
+      "levels": [
+        0,
+        1,
+        2
+      ],
+      "command": "REV_PYTHON -B calc/T-1.7d/fea/submodel.py 0 1 2 --inputs-only"
+    },
+    "rigid_back": {
+      "status": "COMPLETE_DIAGNOSTIC_TWICE",
+      "level": 0,
+      "both_loads": true
+    },
+    "central_slice": {
+      "status": "COMPLETE_DIAGNOSTIC",
+      "mesh_sizes_mm": [
+        5.0,
+        3.5,
+        2.5
+      ],
+      "convergence": "FAIL for all 3-mesh strength envelopes"
+    },
+    "one_way_cast": {
+      "status": "COMPLETE_DIAGNOSTIC",
+      "levels": [
+        0,
+        1,
+        2
+      ],
+      "source_reaction_patch_radius_mm": 9,
+      "convergence": "FAIL for full controlling envelope",
+      "scope": "Recovered cast stresses and guide displacement from rigid-backed nodal reaction resultants"
+    }
+  },
+  "package": {
+    "status": "PASS",
+    "files": 79,
+    "calc_bytes": 2005630,
+    "largest_FEA_file_bytes": 195279,
+    "readable_with_workspace_account": true,
+    "ACL": "Унаследованный RX для BUILTIN\\Пользователи"
+  }
+}
