@@ -1,0 +1,166 @@
+{
+  "task": "T-1.7c",
+  "round": 2,
+  "selected_variant": 1,
+  "status": "STOP_GATE_FATIGUE_SCREEN",
+  "acceptance": {
+    "C_STR_01": "FAIL_SCREEN",
+    "C_FAT_01": "FAIL_SCREEN",
+    "C_CLR_01": "OPEN",
+    "contact_pressure": "FAIL_SCREEN",
+    "casting_R20_actual_reactions": "OPEN",
+    "three_mesh_convergence": "OPEN"
+  },
+  "outlet_acceptance": {
+    "rapid_ejection": "PASS",
+    "C_PERF_01": "PASS",
+    "C_PROD_01_and_C_PROD_03": "OPEN_STAND_MEASUREMENTS",
+    "mass_4850_kg": "FAIL",
+    "mass_5000_kg_nominal": "PASS",
+    "mass_5000_kg_upper_estimate": "FAIL",
+    "cycle_delta_from_published_0p15_s": "FAIL",
+    "cycle_delta_same_power_0p15_s": "PASS"
+  },
+  "gate_metal_thickness_mm": 38.0,
+  "max_gate_metal_thickness_with_existing_travel_mm": 38.112642024442096,
+  "gate_screen_thickness_for_fatigue_factor_1_mm": 43.055356540957305,
+  "minimum_relaxed_tail_clearance_mm": 5.112642024442096,
+  "channel_length_mm": 205.0,
+  "channel_section_mm": [
+    158.0,
+    65.0
+  ],
+  "clearance_in_R20_mm": 0.4395048383208042,
+  "eject_peak_force_N": 118636.28517851423,
+  "eject_peak_force_with_inertia_bound_N": 120636.28517851423,
+  "rapid_pair_available_force_N": 344057.1743246626,
+  "rapid_required_pressure_bar": 109.13290983577073,
+  "eject_time_s": 0.5118749999998982,
+  "cycle_upper_s": 5.528125000000541,
+  "cycle_upper_pessimistic_s": 5.931875000000728,
+  "effective_pressure_for_6s_MPa": [
+    3.2436921020965794,
+    3.245597914142465
+  ],
+  "mass_nominal_kg": 4884.882412051302,
+  "mass_range_kg": [
+    4759.192020788929,
+    5076.148992257828
+  ],
+  "max_residual_briquette_force_for_2x_gate_margin_N": 201347.90569123346,
+  "gate_opening_force_N": 30959.591200000003,
+  "gate_opening_factor": 2.982066317056862,
+  "gate_delta_same_power_s": 0.03131295843897064,
+  "gate_delta_published_s": 0.1686774183017885,
+  "gate_reference": {
+    "G_CYCLE_T14b_published_kW": 37.5,
+    "G_CYCLE_T14b_published_s": 5.752529205651751,
+    "G_CYCLE_T14b_same_power_kW": 36.0,
+    "G_CYCLE_T14b_same_power_s": 5.889893665514569,
+    "normalized_t17c_at_published_power": {
+      "shaft_kW": 37.5,
+      "G_CYCLE_s": 5.779959843182199,
+      "gate_result": "FAIL",
+      "shaft_rms_kW": 30.137313567157758
+    }
+  },
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 289
+    },
+    "G-CYCLE": {
+      "status": "PASS",
+      "value": 5.921206623953539
+    }
+  },
+  "fea": {
+    "status": "ASSEMBLY_PROOF_OPEN",
+    "criteria": {
+      "C_STR_01": "FAIL_SCREEN",
+      "C_FAT_01": "FAIL_SCREEN",
+      "C_CLR_01": "OPEN",
+      "contact_pressure": "FAIL_SCREEN",
+      "casting_R20_actual_reactions": "OPEN",
+      "three_mesh_convergence": "OPEN"
+    },
+    "coupled_completed_levels": 0,
+    "local_completed_levels": 1,
+    "slice_completed_levels": 3,
+    "coupled_max_relative_change": null,
+    "slice_max_relative_change": 0.1192731791250638,
+    "latest": {
+      "elements": 11736,
+      "load_eccentricity_mm": [
+        10.0,
+        -10.0
+      ],
+      "loads": {
+        "fatigue": {
+          "bearing_screen_MPa": 480.0,
+          "force_N": 1700000.0,
+          "max_contact_MPa": 1042.2,
+          "reaction_N": -1699987.240493,
+          "relative_reaction_error": 7.505592352929799e-06
+        },
+        "static": {
+          "bearing_screen_MPa": 480.0,
+          "force_N": 1940000.0,
+          "max_contact_MPa": 1140.95,
+          "reaction_N": -1940031.92088,
+          "relative_reaction_error": 1.6454061855725252e-05
+        }
+      },
+      "mesh_mm": 9.0,
+      "nodes": 17010,
+      "regions": {
+        "blade": {
+          "fatigue_factor": 0.4997162063270552,
+          "fatigue_xyz_mm": [
+            18.0,
+            -37.5,
+            35.0
+          ],
+          "n_sigma": 1.0,
+          "static_factor": 0.9068293233142659,
+          "static_xyz_mm": [
+            18.0,
+            -37.5,
+            35.0
+          ]
+        },
+        "seat": {
+          "fatigue_factor": 0.5456271645738545,
+          "fatigue_xyz_mm": [
+            16.666666666666668,
+            -36.0,
+            41.0
+          ],
+          "n_sigma": 1.0,
+          "static_factor": 0.9858718483149355,
+          "static_xyz_mm": [
+            16.666666666666668,
+            -36.0,
+            41.0
+          ]
+        }
+      },
+      "scope": "Full-width window and seat, squared macro corners, rigid cast backing outside R20. Diagnostic."
+    },
+    "latest_scope": "recessed_seat_rigid_backing",
+    "full_model": "calc/T-1.7c/fea/contact.py",
+    "rigid_backing_model": "calc/T-1.7c/fea/contact_local.py",
+    "diagnostic_model": "calc/T-1.7c/fea/contact_hex_slice.py",
+    "execution_record": "calc/T-1.7c/fea/execution.json",
+    "solver": {
+      "gmsh": "4.15.0",
+      "calculix": "2.22",
+      "contact_mu": 0.15,
+      "precision_replay_target": 1e-06
+    }
+  }
+}

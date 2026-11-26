@@ -1,0 +1,569 @@
+{
+  "task": "T-1.7c",
+  "round": 2,
+  "selected_variant": 1,
+  "layout": {
+    "gate_face_x_mm": 205,
+    "gate_back_x_mm": 243.0,
+    "original_cast_face_x_mm": 488.0,
+    "closed_gate_thickness_mm": 38.0,
+    "insert_seat_face_x_mm": 243.0,
+    "insert_recess_depth_mm": 55.0,
+    "channel_length_mm": 205.0,
+    "channel_exit_x_mm": 448.0,
+    "passage_inlet_mm": [
+      158.0,
+      65.0
+    ],
+    "passage_exit_mm": [
+      158.0,
+      65.0
+    ],
+    "cast_channel_mm_R": [
+      176.0,
+      74.0,
+      20.0
+    ],
+    "guide_corner_clearance_in_cast_R20_mm": 0.4395048383208042,
+    "bored_gate_and_insert_R_mm": 3.0,
+    "entry_transition_max_loaded_length_mm": 5.0,
+    "guide_floor_y_mm": -30.5,
+    "guide_ceiling_y_mm": 34.5,
+    "nominal_floor_step_down_mm": 0.5,
+    "open_window_center_y_mm": 2.0,
+    "closed_window_center_y_mm": -73.0,
+    "closed_window_ligament_to_chamber_mm": 10.5,
+    "gate_working_travel_mm": 75.0,
+    "punch_face_nominal_eject_end_x_mm": 264.0,
+    "punch_face_maximum_eject_end_x_mm": 274,
+    "main_installed_stroke_mm": 289,
+    "overtravel_nominal_mm": 59,
+    "overtravel_maximum_mm": 69,
+    "nominal_relaxed_tail_clearance_mm": 5.203142432528024,
+    "minimum_relaxed_tail_clearance_mm": 5.112642024442096,
+    "maximum_gate_thickness_preserving_5mm_axial_margin_mm": 38.112642024442096,
+    "limiting_tail_case": [
+      "nominal",
+      "nominal",
+      "high"
+    ],
+    "maximum_tail_springback_mm": 25.865809631744863,
+    "max_compliant_product_section_mm": [
+      151.0,
+      61.0
+    ],
+    "equal_transverse_strain_section_mm": [
+      152.2333734763833,
+      60.89334939055332
+    ],
+    "max_recovered_section_axiswise_mm": [
+      154.5,
+      61.800000000000004
+    ],
+    "side_clearance_per_side_after_max_recovery_mm": 1.75,
+    "top_clearance_after_max_recovery_at_floor_mm": 3.1999999999999957,
+    "shortest_product_mm": 40.0,
+    "shortest_loaded_product_at_project_recovery_mm": 32.520325203252035,
+    "unlined_passage_prevents_yaw_of_40mm_product": false,
+    "qualified_lot_guide_width_mm": 152.0,
+    "qualified_lot_max_short_yaw_deg": 5.1737520111350435,
+    "lot_guide_width_condition": "width_max + 1 mm <= set_width < hypot(width_min, minimum_free_length) - 0.5 mm",
+    "typical_max_short_pitch_deg": 8.031161252724509,
+    "guide_to_punch_lever_mm": 77.0,
+    "column_shortening_mm": 245.0,
+    "frame_axial_length_mm": 1150.0,
+    "column_smooth_span_mm": 379.0,
+    "inner_bearing_spacing_mm": 495.0,
+    "module_envelope_xyz_mm": [
+      1319.0,
+      740.0,
+      850
+    ],
+    "stack_counts": [
+      {
+        "length_mm": 40,
+        "whole_briquettes": 5,
+        "maximum_simultaneous_with_end_pieces": 7,
+        "first_exit_cycles_from_empty": 5
+      },
+      {
+        "length_mm": 110,
+        "whole_briquettes": 1,
+        "maximum_simultaneous_with_end_pieces": 3,
+        "first_exit_cycles_from_empty": 2
+      }
+    ]
+  },
+  "mass": {
+    "baseline_kg": 4972.4094516052755,
+    "baseline_rows": [
+      {
+        "mass_kg": 1655.3316041305181,
+        "node": "Гидростанция в сборе",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Station rows; manufacturer valve package reconciliation and no credit for common blocks"
+      },
+      {
+        "mass_kg": 733.9322907714237,
+        "node": "Главный ГЦ с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, T-1.3 physical cylinder, minus tube annulus at unchanged bore and length"
+      },
+      {
+        "mass_kg": 82.42,
+        "node": "Два быстрых ГЦ с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-RAPID"
+      },
+      {
+        "mass_kg": 101.34,
+        "node": "ГЦ подпрессовки с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-PRE"
+      },
+      {
+        "mass_kg": 23.04,
+        "node": "ГЦ шибера с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-GATE"
+      },
+      {
+        "mass_kg": 180.22142000000002,
+        "node": "Камера, башмак и засовы",
+        "source": "calc/T-1.6/results.json mass.machine_rows, T-1.3 grouping minus estimate for gate plate; no double counting"
+      },
+      {
+        "mass_kg": 20.16508,
+        "node": "Плита шибера",
+        "source": "calc/T-1.6/results.json mass.machine_rows, 38 mm from D-GK-01, planform 260×260 mm budget, included in upstream chamber grouping"
+      },
+      {
+        "mass_kg": 1605.959056703334,
+        "node": "Силовая рама",
+        "source": "T-1.7 frame_rows, Gmsh OCC и параметрическая ведомость"
+      },
+      {
+        "mass_kg": 225,
+        "node": "Траверса с пуансоном",
+        "source": "calc/T-1.6/results.json mass.machine_rows, T-1.3 remaining moving-mass allowance; planned mass cap"
+      },
+      {
+        "mass_kg": 180,
+        "node": "Подача и бункер",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Engineering allowance"
+      },
+      {
+        "mass_kg": 90,
+        "node": "Ограждения",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Engineering allowance"
+      },
+      {
+        "mass_kg": 75,
+        "node": "Электрика",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Engineering allowance"
+      }
+    ],
+    "baseline_gate_source_rows": [
+      {
+        "mass_kg": 23.04,
+        "node": "ГЦ шибера с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-GATE"
+      },
+      {
+        "mass_kg": 20.16508,
+        "node": "Плита шибера",
+        "source": "calc/T-1.6/results.json mass.machine_rows, 38 mm from D-GK-01, planform 260×260 mm budget, included in upstream chamber grouping"
+      }
+    ],
+    "delta_rows": [
+      {
+        "item": "Упоры зоны падения",
+        "delta_kg": -44.02907999999999,
+        "lower_delta_kg": 0.0,
+        "upper_delta_kg": 0.0,
+        "source": "T-1.7 variants.cast.mass.frame_rows"
+      },
+      {
+        "item": "Четыре колонны Ø70",
+        "delta_kg": -29.60613354798119,
+        "lower_delta_kg": 0.0,
+        "upper_delta_kg": 5.0,
+        "source": "frame.t17.yaml, сокращение на 245 мм"
+      },
+      {
+        "item": "Прежняя вставка",
+        "delta_kg": -20.948234948725005,
+        "lower_delta_kg": 0.0,
+        "upper_delta_kg": 0.0,
+        "source": "T-1.7 variants.cast.mass.frame_rows"
+      },
+      {
+        "item": "Отливка, карман",
+        "delta_kg": -20.93978531718402,
+        "lower_delta_kg": 0.0,
+        "upper_delta_kg": 8.0,
+        "source": "По расточке 340,2 × 180,2 R12 в координатах модели"
+      },
+      {
+        "item": "Новая вставка",
+        "delta_kg": 21.938994154805297,
+        "lower_delta_kg": -1.0,
+        "upper_delta_kg": 2.0,
+        "source": "Контактная геометрия fea/contact.py"
+      },
+      {
+        "item": "Оконный шибер, дельта",
+        "delta_kg": -6.790422006582947,
+        "lower_delta_kg": -1.0,
+        "upper_delta_kg": 3.0,
+        "source": "По геометрии с вычетом плиты 260×260×38 из базы"
+      },
+      {
+        "item": "Вставные направляющие R20",
+        "delta_kg": 2.8476221116943745,
+        "lower_delta_kg": -1.4238110558471873,
+        "upper_delta_kg": 1.0,
+        "source": "Верхняя оценка полного заполнения зазора сталью"
+      },
+      {
+        "item": "Сервисный выход, крепёж, датчики",
+        "delta_kg": 10.0,
+        "lower_delta_kg": -5.0,
+        "upper_delta_kg": 15.0,
+        "source": "Эскизный бюджет, подтвердить ведомостью КД"
+      }
+    ],
+    "uncertainty_rows": [
+      {
+        "item": "Гидростанция",
+        "delta_kg": 0.0,
+        "lower_delta_kg": -82.76658020652592,
+        "upper_delta_kg": 82.76658020652592,
+        "source": "T-1.7 GK_review M3, ±5 %"
+      },
+      {
+        "item": "Припуски литья",
+        "delta_kg": 0.0,
+        "lower_delta_kg": 0.0,
+        "upper_delta_kg": 40.0,
+        "source": "T-1.7 GK_review M3"
+      },
+      {
+        "item": "Подача, ограждения, электрика",
+        "delta_kg": 0.0,
+        "lower_delta_kg": -34.5,
+        "upper_delta_kg": 34.5,
+        "source": "Как в круге 1, чувствительность ±10 %"
+      }
+    ],
+    "nominal_kg": 4884.882412051302,
+    "lower_kg": 4759.192020788929,
+    "upper_kg": 5076.148992257828,
+    "target_kg": 4850.0,
+    "limit_kg": 5000.0,
+    "margin_to_target_kg": -34.8824120513018,
+    "margin_to_limit_kg": 115.1175879486982,
+    "upper_margin_to_limit_kg": -76.14899225782756,
+    "shuttle_mass_kg": 13.374657993417053
+  },
+  "nominal_press_force_N": 1520000,
+  "nominal_press_face_MPa": 168.88888888888889,
+  "free_channel_cases": [
+    {
+      "curve": "base",
+      "bound": "lower",
+      "mu": 0.2,
+      "debris_N": 0,
+      "residual_radial_pressure_MPa": 11.516448532706615,
+      "closed_gate_stack_force_on_dose_N": 0.0,
+      "free_density_kg_m3": 1059.864584670376,
+      "predicted_relaxed_length_mm": 84.47884699126318,
+      "axial_growth_mm": 15.796857567471976,
+      "guide_force_from_weight_N": 8.52261199640261,
+      "transition_friction_N": 4836.908383736779,
+      "max_added_resistance_upper_bound_N": 4845.430995733182,
+      "ejection_peak_N": 111380.92260290906,
+      "ejection_peak_at_mm": 1.0,
+      "peak_with_inertia_bound_N": 113380.92260290906,
+      "rapid_required_bar": 102.93469825320764,
+      "engagement_mm": 27.406284865056048,
+      "eject_travel_mm": 127.68198942379122,
+      "time_steps_s": [
+        0.00125,
+        0.000625
+      ],
+      "cycles": [
+        {
+          "feasible": true,
+          "cycle_s": 5.533749999999946,
+          "eject_motion_s": 0.5125000000000801,
+          "eject_start_s": 3.4762500000001695,
+          "gate_open_end_s": 3.4062500000001585,
+          "main_travel_mm": 264.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 23.109050109699368,
+          "rms_shaft_kW": 25.739598459579895,
+          "peak_shaft_kW": 36.00000000000001
+        },
+        {
+          "feasible": true,
+          "cycle_s": 5.528750000000541,
+          "eject_motion_s": 0.512499999999898,
+          "eject_start_s": 3.4718749999998644,
+          "gate_open_end_s": 3.4018749999998783,
+          "main_travel_mm": 264.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 23.143566524861097,
+          "rms_shaft_kW": 25.765631219952414,
+          "peak_shaft_kW": 36.00000000000001
+        }
+      ]
+    },
+    {
+      "curve": "base",
+      "bound": "upper",
+      "mu": 0.5,
+      "debris_N": 5000,
+      "residual_radial_pressure_MPa": 11.516448532706615,
+      "closed_gate_stack_force_on_dose_N": 0.0,
+      "free_density_kg_m3": 1059.864584670376,
+      "predicted_relaxed_length_mm": 84.47884699126318,
+      "axial_growth_mm": 15.796857567471976,
+      "guide_force_from_weight_N": 42.61305998201304,
+      "transition_friction_N": 12092.270959341946,
+      "max_added_resistance_upper_bound_N": 17134.88401932396,
+      "ejection_peak_N": 118636.28517851423,
+      "ejection_peak_at_mm": 1.0,
+      "peak_with_inertia_bound_N": 120636.28517851423,
+      "rapid_required_bar": 109.13290983577073,
+      "engagement_mm": 27.406284865056048,
+      "eject_travel_mm": 127.68198942379122,
+      "time_steps_s": [
+        0.00125,
+        0.000625
+      ],
+      "cycles": [
+        {
+          "feasible": true,
+          "cycle_s": 5.533749999999946,
+          "eject_motion_s": 0.5125000000000801,
+          "eject_start_s": 3.4762500000001695,
+          "gate_open_end_s": 3.4062500000001585,
+          "main_travel_mm": 264.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 23.314564710639605,
+          "rms_shaft_kW": 25.922757825013296,
+          "peak_shaft_kW": 36.00000000000001
+        },
+        {
+          "feasible": true,
+          "cycle_s": 5.528125000000541,
+          "eject_motion_s": 0.5118749999998982,
+          "eject_start_s": 3.4718749999998644,
+          "gate_open_end_s": 3.4018749999998783,
+          "main_travel_mm": 264.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 23.354169160713575,
+          "rms_shaft_kW": 25.95142388042311,
+          "peak_shaft_kW": 36.00000000000001
+        }
+      ]
+    },
+    {
+      "curve": "high",
+      "bound": "lower",
+      "mu": 0.2,
+      "debris_N": 0,
+      "residual_radial_pressure_MPa": 6.711532203657528,
+      "closed_gate_stack_force_on_dose_N": 0.0,
+      "free_density_kg_m3": 886.4410737866169,
+      "predicted_relaxed_length_mm": 101.0063056953749,
+      "axial_growth_mm": 18.887357975557908,
+      "guide_force_from_weight_N": 7.128074132137754,
+      "transition_friction_N": 2818.8435255361624,
+      "max_added_resistance_upper_bound_N": 2825.9715996683003,
+      "ejection_peak_N": 109601.09777042504,
+      "ejection_peak_at_mm": 1.0,
+      "peak_with_inertia_bound_N": 111601.09777042504,
+      "rapid_required_bar": 101.41420485585103,
+      "engagement_mm": 24.225284048884184,
+      "eject_travel_mm": 144.118947719817,
+      "time_steps_s": [
+        0.00125,
+        0.000625
+      ],
+      "cycles": [
+        {
+          "feasible": true,
+          "cycle_s": 5.097500000000033,
+          "eject_motion_s": 0.5600000000000875,
+          "eject_start_s": 2.9837500000000925,
+          "gate_open_end_s": 2.9137500000000816,
+          "main_travel_mm": 267.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 21.7811280789475,
+          "rms_shaft_kW": 24.349144930241188,
+          "peak_shaft_kW": 36.00000000000001
+        },
+        {
+          "feasible": true,
+          "cycle_s": 5.093750000000319,
+          "eject_motion_s": 0.5599999999998886,
+          "eject_start_s": 2.980624999999962,
+          "gate_open_end_s": 2.910624999999976,
+          "main_travel_mm": 267.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 21.800720132086123,
+          "rms_shaft_kW": 24.36330032515651,
+          "peak_shaft_kW": 36.00000000000001
+        }
+      ]
+    },
+    {
+      "curve": "high",
+      "bound": "upper",
+      "mu": 0.5,
+      "debris_N": 5000,
+      "residual_radial_pressure_MPa": 6.711532203657528,
+      "closed_gate_stack_force_on_dose_N": 0.0,
+      "free_density_kg_m3": 886.4410737866169,
+      "predicted_relaxed_length_mm": 101.0063056953749,
+      "axial_growth_mm": 18.887357975557908,
+      "guide_force_from_weight_N": 35.64037066068877,
+      "transition_friction_N": 7047.108813840405,
+      "max_added_resistance_upper_bound_N": 12082.749184501094,
+      "ejection_peak_N": 113829.36305872927,
+      "ejection_peak_at_mm": 1.0,
+      "peak_with_inertia_bound_N": 115829.36305872927,
+      "rapid_required_bar": 105.02638586142,
+      "engagement_mm": 24.225284048884184,
+      "eject_travel_mm": 144.118947719817,
+      "time_steps_s": [
+        0.00125,
+        0.000625
+      ],
+      "cycles": [
+        {
+          "feasible": true,
+          "cycle_s": 5.097500000000033,
+          "eject_motion_s": 0.5600000000000875,
+          "eject_start_s": 2.9837500000000925,
+          "gate_open_end_s": 2.9137500000000816,
+          "main_travel_mm": 267.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 21.985279405680465,
+          "rms_shaft_kW": 24.538235309713023,
+          "peak_shaft_kW": 36.00000000000001
+        },
+        {
+          "feasible": true,
+          "cycle_s": 5.093750000000319,
+          "eject_motion_s": 0.5599999999998886,
+          "eject_start_s": 2.980624999999962,
+          "gate_open_end_s": 2.910624999999976,
+          "main_travel_mm": 267.0,
+          "peak_working_bar": 268.07849923977534,
+          "mean_shaft_kW": 22.00990352981271,
+          "rms_shaft_kW": 24.55508272436963,
+          "peak_shaft_kW": 36.00000000000001
+        }
+      ]
+    }
+  ],
+  "reference_bare_cycle": {
+    "feasible": true,
+    "cycle_s": 5.500000000000527,
+    "eject_motion_s": 0.5131249999998979,
+    "eject_start_s": 3.44249999999987,
+    "gate_open_end_s": 3.372499999999884,
+    "main_travel_mm": 264.0,
+    "peak_working_bar": 268.07849923977534,
+    "mean_shaft_kW": 22.9616472732449,
+    "rms_shaft_kW": 25.606798908492834,
+    "peak_shaft_kW": 36.00000000000001
+  },
+  "upper_pessimistic_cycle": {
+    "feasible": true,
+    "cycle_s": 5.931875000000728,
+    "eject_motion_s": 0.554375000000142,
+    "eject_start_s": 3.8006249999997794,
+    "gate_open_end_s": 3.7006249999997993,
+    "main_travel_mm": 264.0,
+    "peak_working_bar": 268.07849923977534,
+    "mean_shaft_kW": 22.19648031638416,
+    "rms_shaft_kW": 25.013787694877504,
+    "peak_shaft_kW": 36.00000000000001
+  },
+  "pressure_sensitivity": {
+    "pressure_bracket_for_6s_MPa": [
+      3.2436921020965794,
+      3.245597914142465
+    ],
+    "mu": 0.5,
+    "occupied_wall_length_mm": 205.0,
+    "added_wall_friction_at_boundary_N": 139640.94499525774
+  },
+  "limit_cycle_s": 6.0,
+  "rapid_pair_available_N": 344057.1743246626,
+  "guide_drag_N": 8000,
+  "gate_opening": {
+    "plate_thickness_mm": 38.0,
+    "optimistic_strip_span_mm": 65.0,
+    "static_force_N": 1940000.0,
+    "fatigue_force_N": 1700000.0,
+    "fatigue_cycles": 10000000,
+    "fkm_k_D": 15.0,
+    "fkm_j": 1.5,
+    "fkm_j_G_cast": 1.25,
+    "moving_mass_screen_kg": 45,
+    "static_bending_screen_factor": 1.7013254786450662,
+    "fatigue_bending_screen_factor": 0.7789557962917667,
+    "required_thickness_hand_screen_mm": 43.055356540957305,
+    "contact_steel_pair_mu": 0.15,
+    "bearing_pressure_screen_MPa": 480.0,
+    "opening_force_N": 30959.591200000003,
+    "opening_available_N": 92323.55410737004,
+    "opening_force_factor": 2.982066317056862,
+    "opening_main_hydraulic_residual_N": 30787.608,
+    "opening_product_residual_screen_N": 100000.0,
+    "opening_max_residual_product_for_factor_2_N": 201347.90569123346,
+    "noncontact_gate_drag_N": 10000.0,
+    "permissive_indicated_pressure_bar_each_channel": 3.0,
+    "edge_relief_width_mm": 3.0,
+    "edge_relief_depth_mm": 0.035
+  },
+  "reference_gate_input": "design/params.t14b.yaml",
+  "previous_comparison": {
+    "retractable_support": {
+      "mass_nominal_kg": 5008,
+      "mass_interval_kg": [
+        4881,
+        5187
+      ],
+      "cycle_sequential_s": 6.07,
+      "drive_available_N": 36000,
+      "loaded_friction_N": 188000,
+      "module_length_mm": 1564
+    },
+    "axial_ejection": {
+      "mass_nominal_kg": 5178,
+      "mass_interval_kg": [
+        5043,
+        5365
+      ],
+      "cycle_s": 8.7,
+      "working_stroke_minimum_mm": 454,
+      "module_length_range_mm": [
+        1769,
+        1974
+      ]
+    }
+  },
+  "reference_comparison": {
+    "G_CYCLE_T14b_published_kW": 37.5,
+    "G_CYCLE_T14b_published_s": 5.752529205651751,
+    "G_CYCLE_T14b_same_power_kW": 36.0,
+    "G_CYCLE_T14b_same_power_s": 5.889893665514569,
+    "normalized_t17c_at_published_power": {
+      "shaft_kW": 37.5,
+      "G_CYCLE_s": 5.779959843182199,
+      "gate_result": "FAIL",
+      "shaft_rms_kW": 30.137313567157758
+    }
+  }
+}

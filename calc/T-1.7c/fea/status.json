@@ -1,0 +1,85 @@
+{
+  "status": "ASSEMBLY_PROOF_OPEN",
+  "criteria": {
+    "C_STR_01": "FAIL_SCREEN",
+    "C_FAT_01": "FAIL_SCREEN",
+    "C_CLR_01": "OPEN",
+    "contact_pressure": "FAIL_SCREEN",
+    "casting_R20_actual_reactions": "OPEN",
+    "three_mesh_convergence": "OPEN"
+  },
+  "coupled_completed_levels": 0,
+  "local_completed_levels": 1,
+  "slice_completed_levels": 3,
+  "coupled_max_relative_change": null,
+  "slice_max_relative_change": 0.1192731791250638,
+  "latest": {
+    "elements": 11736,
+    "load_eccentricity_mm": [
+      10.0,
+      -10.0
+    ],
+    "loads": {
+      "fatigue": {
+        "bearing_screen_MPa": 480.0,
+        "force_N": 1700000.0,
+        "max_contact_MPa": 1042.2,
+        "reaction_N": -1699987.240493,
+        "relative_reaction_error": 7.505592352929799e-06
+      },
+      "static": {
+        "bearing_screen_MPa": 480.0,
+        "force_N": 1940000.0,
+        "max_contact_MPa": 1140.95,
+        "reaction_N": -1940031.92088,
+        "relative_reaction_error": 1.6454061855725252e-05
+      }
+    },
+    "mesh_mm": 9.0,
+    "nodes": 17010,
+    "regions": {
+      "blade": {
+        "fatigue_factor": 0.4997162063270552,
+        "fatigue_xyz_mm": [
+          18.0,
+          -37.5,
+          35.0
+        ],
+        "n_sigma": 1.0,
+        "static_factor": 0.9068293233142659,
+        "static_xyz_mm": [
+          18.0,
+          -37.5,
+          35.0
+        ]
+      },
+      "seat": {
+        "fatigue_factor": 0.5456271645738545,
+        "fatigue_xyz_mm": [
+          16.666666666666668,
+          -36.0,
+          41.0
+        ],
+        "n_sigma": 1.0,
+        "static_factor": 0.9858718483149355,
+        "static_xyz_mm": [
+          16.666666666666668,
+          -36.0,
+          41.0
+        ]
+      }
+    },
+    "scope": "Full-width window and seat, squared macro corners, rigid cast backing outside R20. Diagnostic."
+  },
+  "latest_scope": "recessed_seat_rigid_backing",
+  "full_model": "calc/T-1.7c/fea/contact.py",
+  "rigid_backing_model": "calc/T-1.7c/fea/contact_local.py",
+  "diagnostic_model": "calc/T-1.7c/fea/contact_hex_slice.py",
+  "execution_record": "calc/T-1.7c/fea/execution.json",
+  "solver": {
+    "gmsh": "4.15.0",
+    "calculix": "2.22",
+    "contact_mu": 0.15,
+    "precision_replay_target": 1e-06
+  }
+}

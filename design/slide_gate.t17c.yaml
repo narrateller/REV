@@ -1,0 +1,68 @@
+task: T-1.7c
+round: 2
+selected_variant: 1
+status: STOP_GATE_FATIGUE_SCREEN
+acceptance:
+  C_STR_01: FAIL_SCREEN
+  C_FAT_01: FAIL_SCREEN
+  C_CLR_01: OPEN
+  contact_pressure: FAIL_SCREEN
+  casting_R20_actual_reactions: OPEN
+  three_mesh_convergence: OPEN
+references:
+- design/slide_gate.t17b.yaml
+- design/cylinders.t16.yaml
+face_x_mm: 205
+back_x_mm: 243.0
+thickness_mm: 38.0
+plate_outline_mm_R:
+- 260.0
+- 212.0
+- 5.0
+plate_outline_center_y_mm: -18.0
+window_width_height_R_mm:
+- 158.0
+- 65.0
+- 3.0
+window_center_y_closed_open_mm:
+- -73.0
+- 2.0
+housing_pocket_width_height_R_mm:
+- 340.2
+- 180.2
+- 12.0
+opening_travel_mm: 75.0
+overtravel_mm:
+- 59
+- 69
+minimum_relaxed_tail_clearance_mm: 5.112642024442096
+material: 34CrNiMo6+QT, гарантированные 800/1000 МПа для плоского сечения 20–60 мм.
+lateral_guide: Сменные боковые планки в оконном шибере и канале, согласованный размер
+  под фактическую партию.
+seat_opening_and_hand_screen:
+  plate_thickness_mm: 38.0
+  optimistic_strip_span_mm: 65.0
+  static_force_N: 1940000.0
+  fatigue_force_N: 1700000.0
+  fatigue_cycles: 10000000
+  fkm_k_D: 15.0
+  fkm_j: 1.5
+  fkm_j_G_cast: 1.25
+  moving_mass_screen_kg: 45
+  static_bending_screen_factor: 1.7013254786450662
+  fatigue_bending_screen_factor: 0.7789557962917667
+  required_thickness_hand_screen_mm: 43.055356540957305
+  contact_steel_pair_mu: 0.15
+  bearing_pressure_screen_MPa: 480.0
+  opening_force_N: 30959.591200000003
+  opening_available_N: 92323.55410737004
+  opening_force_factor: 2.982066317056862
+  opening_main_hydraulic_residual_N: 30787.608
+  opening_product_residual_screen_N: 100000.0
+  opening_max_residual_product_for_factor_2_N: 201347.90569123346
+  noncontact_gate_drag_N: 10000.0
+  permissive_indicated_pressure_bar_each_channel: 3.0
+  edge_relief_width_mm: 3.0
+  edge_relief_depth_mm: 0.035
+fea_summary: calc/T-1.7c/fea/status.json
+interlocks_reference: design/hydraulics/T-1.6_interlocks.yaml

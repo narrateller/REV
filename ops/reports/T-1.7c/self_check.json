@@ -1,0 +1,211 @@
+{
+  "task": "T-1.7c",
+  "round": 2,
+  "result": "STOP_GATE_FATIGUE_SCREEN",
+  "python_version": "3.13.17",
+  "gates": {
+    "command": "REV_PYTHON -B ops/gates/calc_gates.py --params design/params.t17c.yaml --criteria ops/criteria/design_criteria.yaml --out gates.t17c.json",
+    "runs": 2,
+    "checks": {
+      "G-PFACE": {
+        "status": "PASS",
+        "value": 168.88888888888889
+      },
+      "G-DOSE": {
+        "status": "PASS",
+        "value": 289
+      },
+      "G-CYCLE": {
+        "status": "PASS",
+        "value": 5.921206623953539
+      }
+    },
+    "delta_from_published_s": 0.1686774183017885,
+    "delta_from_published_within_0p15_s": false,
+    "delta_from_same_power_s": 0.03131295843897064
+  },
+  "reproducibility": {
+    "runs": 2,
+    "status": "PASS",
+    "method": "SHA-256 byte equality",
+    "sha256": {
+      "calc/T-1.7c/results.json": "db50bc510204dcbca603232025ed34645e5e5042f2f296745f6f19cc25c679e9",
+      "calc/T-1.7c/fea/status.json": "d0095e7b89273b3737f10765ad72e28b19acac22b5ebf631ac05a203793d158d",
+      "design/frame.t17c.yaml": "eebd2456922c995b43ffb91dc0f48692da356ed449f13b38fbc013318c51c50e",
+      "design/slide_gate.t17c.yaml": "6ec19f11ffc76d15d2f9c3cfa953571680aae3d708fb441396b8d45a0f44ff40",
+      "design/params.t17c.yaml": "d046002ebc6c8f5cacd3fcd4a9f3704747a5d448b1cdca0702596e4fc4b54b19",
+      "metrics.json": "2437204d529714f6d82a00133e41323b72bcb9d0e811987e9a1a10046087a090",
+      "gates.t17c.json": "940c2972486388ea7868c5c00e09d93b37aae4154c6b2ab3acfbed920e61a84d"
+    }
+  },
+  "physical_tests": {
+    "free_outlet_travel_geometry_and_inventory": "PASS",
+    "stack_friction_scaling_and_rapid_drive": "PASS",
+    "pressure_sensitivity_bracket": "PASS",
+    "nominal_mass_and_opening_reserve": "PASS",
+    "max_adjacent_time_step_cycle_difference_s": 0.005624999999405134
+  },
+  "fea": {
+    "assembly": {
+      "status": "ASSEMBLY_PROOF_OPEN",
+      "criteria": {
+        "C_STR_01": "FAIL_SCREEN",
+        "C_FAT_01": "FAIL_SCREEN",
+        "C_CLR_01": "OPEN",
+        "contact_pressure": "FAIL_SCREEN",
+        "casting_R20_actual_reactions": "OPEN",
+        "three_mesh_convergence": "OPEN"
+      },
+      "coupled_completed_levels": 0,
+      "local_completed_levels": 1,
+      "slice_completed_levels": 3,
+      "coupled_max_relative_change": null,
+      "slice_max_relative_change": 0.1192731791250638,
+      "latest": {
+        "elements": 11736,
+        "load_eccentricity_mm": [
+          10.0,
+          -10.0
+        ],
+        "loads": {
+          "fatigue": {
+            "bearing_screen_MPa": 480.0,
+            "force_N": 1700000.0,
+            "max_contact_MPa": 1042.2,
+            "reaction_N": -1699987.240493,
+            "relative_reaction_error": 7.505592352929799e-06
+          },
+          "static": {
+            "bearing_screen_MPa": 480.0,
+            "force_N": 1940000.0,
+            "max_contact_MPa": 1140.95,
+            "reaction_N": -1940031.92088,
+            "relative_reaction_error": 1.6454061855725252e-05
+          }
+        },
+        "mesh_mm": 9.0,
+        "nodes": 17010,
+        "regions": {
+          "blade": {
+            "fatigue_factor": 0.4997162063270552,
+            "fatigue_xyz_mm": [
+              18.0,
+              -37.5,
+              35.0
+            ],
+            "n_sigma": 1.0,
+            "static_factor": 0.9068293233142659,
+            "static_xyz_mm": [
+              18.0,
+              -37.5,
+              35.0
+            ]
+          },
+          "seat": {
+            "fatigue_factor": 0.5456271645738545,
+            "fatigue_xyz_mm": [
+              16.666666666666668,
+              -36.0,
+              41.0
+            ],
+            "n_sigma": 1.0,
+            "static_factor": 0.9858718483149355,
+            "static_xyz_mm": [
+              16.666666666666668,
+              -36.0,
+              41.0
+            ]
+          }
+        },
+        "scope": "Full-width window and seat, squared macro corners, rigid cast backing outside R20. Diagnostic."
+      },
+      "latest_scope": "recessed_seat_rigid_backing",
+      "full_model": "calc/T-1.7c/fea/contact.py",
+      "rigid_backing_model": "calc/T-1.7c/fea/contact_local.py",
+      "diagnostic_model": "calc/T-1.7c/fea/contact_hex_slice.py",
+      "execution_record": "calc/T-1.7c/fea/execution.json",
+      "solver": {
+        "gmsh": "4.15.0",
+        "calculix": "2.22",
+        "contact_mu": 0.15,
+        "precision_replay_target": 1e-06
+      }
+    },
+    "paired_full_run_replay_status": "OPEN",
+    "slice_replay": {
+      "status": "PASS",
+      "models": 3,
+      "method": "SHA-256 byte equality",
+      "sha256": [
+        "f2d57c6ffdf14971f045f2b5124734f549182a07ef7ace6e31dd0402d982bc1f",
+        "772c17bb8338a14addba1c5de756335aed4992980d99a191bebb45d73d792bc0",
+        "6130e96e67e4526dab8ddf2249a80fc441a98ddd863b9a2f09e1b66f5ebda04e"
+      ]
+    },
+    "numeric_tolerance": 1e-06,
+    "execution_record": {
+      "mesh_preprocessing": {
+        "status": "PASS",
+        "levels": [
+          0,
+          1,
+          2
+        ],
+        "command": "REV_PYTHON -B calc/T-1.7c/fea/contact.py 0 1 2 --formulation penalty --inputs-only"
+      },
+      "full_assembly": {
+        "surface_to_surface_penalty": {
+          "result": "TIMEOUT",
+          "level": 0,
+          "load_N": 1940000,
+          "timeout_s": 1500
+        },
+        "mortar": {
+          "result": "TIMEOUT",
+          "level": 0,
+          "load_N": 1940000,
+          "timeout_s": 1500
+        }
+      },
+      "rigid_cast_backing": {
+        "level_0": {
+          "status": "COMPLETE_SCREEN",
+          "summary": "calc/T-1.7c/fea/local_0.json"
+        },
+        "level_1_static": {
+          "status": "COMPLETE_SCREEN",
+          "force_N": 1940000.0,
+          "reaction_N": -1940001.859558,
+          "relative_reaction_error": 9.585350515445715e-07,
+          "max_contact_MPa": 1140.86,
+          "bearing_screen_MPa": 480.0
+        },
+        "level_1_fatigue": {
+          "status": "STOPPED_AFTER_SCREEN_FAILURE"
+        },
+        "level_2": {
+          "status": "NOT_RUN_AFTER_SCREEN_FAILURE"
+        },
+        "command": "REV_PYTHON -B calc/T-1.7c/fea/contact_local.py 0 1 2"
+      },
+      "central_section": {
+        "status": "COMPLETE_DIAGNOSTIC",
+        "levels": [
+          0,
+          1,
+          2
+        ],
+        "command": "REV_PYTHON -B calc/T-1.7c/fea/contact_hex_slice.py 0 1 2"
+      }
+    }
+  },
+  "calc_size_bytes": 396601,
+  "access": {
+    "status": "PASS",
+    "deliverable_files_read": 46,
+    "project_files_acl_checked": 1816,
+    "method": "Python read and Windows BUILTIN Users ACE with FILE_GENERIC_READ",
+    "unreadable_deliverables": [],
+    "project_files_without_ordinary_read_access": []
+  }
+}

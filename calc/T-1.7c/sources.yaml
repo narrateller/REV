@@ -1,0 +1,116 @@
+scope: T-1.7c comparative research
+friction_briquette_channel:
+  engineering_envelope: {mu: [0.2, 0.5], basis: TASK.md}
+  Meng_Hirai_Koizumi_2008:
+    url: https://eprints.lib.hokudai.ac.jp/repo/huscap/all/68014/54_281.pdf
+    where: С. 281 (аннотация), с. 283–285 (эксперименты и данные SS400)
+    applicability: Строганая хвойная древесина, статическое трение 0,2–0,4 по совокупности пар. Не калибровка брикета.
+  Koubek_Dedicova_2014:
+    url: https://www.diva-portal.org/smash/get/diva2%3A729796/FULLTEXT01.pdf
+    where: § 5.3–5.5, 6–7, рис. 5.7–5.10
+    applicability: Испытания древесины и стали. Гладкая поверхность 0,12–0,22 при 5 МПа и 0,15–0,30 при 0,3 МПа. Рост с влажностью и шероховатостью. 0,5 — верх сценария карточки, а не гарантированная отсечка.
+  Kuwamura_2011:
+    url: https://doi.org/10.3130/aijs.76.1469
+    where: С. 1469–1478, метод compression–pullout и выводы о тяжёлом контакте
+    applicability: Коэффициент зависит от давления, шероховатости и сдвига древесины. Закон Кулона здесь служит для оценки чувствительности.
+  Krizan_et_al_2015:
+    url: https://doi.org/10.3390/en8076382
+    where: § 4–5, рис. 11–14, 18–19
+    applicability: Выдача и трение зависят от давления, фракции и температуры. Опыты на Ø20 мм, 8% и 25–115 °C. Температуры используются как точки чувствительности для стенда, без переноса сил на REV.
+  raw_moisture_pct:
+    value: [8, 12]
+    where: ops/criteria/design_criteria.yaml C-RAW-01
+  rough_or_wet_material:
+    note: Для каждой температуры и влажности проверять обе границы μ. Совместный закон μ(T,w) и восстановление по осям REV подлежат измерению.
+analogs:
+  Ruf:
+    url: https://rufgroup.com/fileadmin/redaktion/Dokumente/Downloads/RUF_Flyer_LIGNUM_EN.pdf
+    where: LIGNUM, иллюстрация машины с выпускными желобами
+    applicability: Наличие желобов выдачи в серийной машине. Внутреннюю длину и силовой путь по каталогу определить нельзя.
+  Krizan_Matus_Beniak_2016:
+    url: https://ojs.cvut.cz/ojs/index.php/ap/article/view/2594
+    where: Аннотация, с. 33–40
+    applicability: Исследование влияния длины и условий в прессовальном канале на давление и плотность. В REV при прессовании канал отсечён закрытым шибером.
+  Krizan_Matus_Kers_Vukelic_2012:
+    url: https://ojs.cvut.cz/ojs/index.php/ap/article/download/1554/1386
+    where: Acta Polytechnica 52(3), опыты по конусности
+    applicability: Геометрия стенок влияет на трение. Конус REV принят по габаритам и направлению выдачи, а не по переносу опытных сил.
+project:
+  compaction_and_recovery:
+    where: calc/T-1.1/curve.yaml, formula, K, mu, springback, transverse_area_growth
+  calibration:
+    where: calc/T-1.2b/shoe_load.py load_study, calc/T-1.2b/results.json shoe_load.samples, calc/X-1/x1_calc.py Model.ejection_N
+    note: 100 кН — проектный сценарий сопротивления в камере. Остаточное радиальное давление получено обратной калибровкой, а не измерено.
+  pose:
+    where: ops/reports/T-1.7b/GK_review.md, calc/T-1.2b/results.json axis_A и gate.clearance_cases, design/frame.t17.yaml interfaces
+  fast_main_and_gate_cylinders:
+    where: design/cylinders.t16.yaml CY-RAPID, CY-MAIN, CY-GATE; design/hydraulics/T-1.6_interlocks.yaml phases.eject и return
+  steel_steel_contact_mu:
+    where: TASK.md и design/slide_gate.t17b.yaml
+    value: 0.15
+  mass:
+    where: calc/T-1.7/results.json variants.cast.mass и ops/reports/T-1.7/GK_review.md M3
+  mass_model_properties:
+    where: calc/T-1.6/sources.yaml engineering inputs, steel_density_kg_m3 и oil_density_kg_m3
+    steel_density_kg_m3: 7850
+    oil_density_kg_m3: 870
+  pv180:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/PMDE/Catalogs/Piston_Pumps/PV-/MSG30-3245_UK.pdf
+    where: MSG30-3245/UK, с. 5, 26, 32–39 и 61, 63–65; чтение кривых в calc/T-1.4b/sources.yaml
+    setting_kW: 36
+  accumulator:
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    where: Точные значения и каталожный паспорт SB330 приведены в calc/T-1.4b/sources.yaml catalogs.hydac_sb330
+  34CrNiMo6_QT:
+    url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+    where: С. 2, закалённые с отпуском плоские сечения 20–60 мм
+    yield_min_MPa: 800
+    tensile_min_MPa: 1000
+  G35CrNiMo6_6_QT1:
+    url: https://cdn.standards.iteh.ai/samples/37740/e17c195133c94e8ca3b14cfd6e0b2a51/SIST-EN-10293-2015.pdf
+    where: EN 10293, табл. 3 по design/frame.t17.yaml и calc/T-1.7/sources.yaml
+    yield_min_MPa: 650
+    tensile_min_MPa: 800
+    note: Минимумы приняты из T-1.7, место пробы в отливке подлежит согласованию.
+  FKM:
+    url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+    where: Глава 4, местные напряжения, коэффициенты и кривая усталости; проектная реализация fkm_parameters и notch_support в calc/T-1.7/frame_fea.py
+
+round_2_assumptions:
+  recovery_axes:
+    area_growth_fraction: 0.03
+    axial_growth_fraction: 0.23
+    where: calc/T-1.1/curve.yaml springback and transverse_area_growth
+    treatment: Весь прирост площади по одной оси даёт независимую верхнюю границу по той оси при неотрицательных деформациях обеих осей. Измерить и на горячей матрице, и на холодном пуске.
+  guide_normal_to_weight_screen:
+    value: [0, 1]
+    where: В расчётной вилке боковая нормальная сила от перекоса ограничена сверху весом. Защемление по углам проверяется стендом и контролем силы.
+  debris_breakaway_allowance_N:
+    value: [0, 5000]
+    where: Инженерная вилка 0–5 кН для рыхлой крошки, 0–5% исходных 100 кН X-1. Верх требует проверки, слёживание и посторонний предмет представляют отказ.
+  transition_length_mm:
+    value: 5
+    where: Проектная верхняя граница осевого контакта у раскрытого окна, 0,5 мм понижения пола, без сужения. Консервативно вся длина под исходным остаточным давлением камеры.
+  accepted_round_1_comparison:
+    retractable_support:
+      mass_nominal_kg: 5008
+      mass_interval_kg: [4881, 5187]
+      cycle_sequential_s: 6.07
+      drive_available_N: 36000
+      loaded_friction_N: 188000
+      module_length_mm: 1564
+    axial_ejection:
+      mass_nominal_kg: 5178
+      mass_interval_kg: [5043, 5365]
+      cycle_s: 8.7
+      working_stroke_minimum_mm: 454
+      module_length_range_mm: [1769, 1974]
+numerics:
+  contact_type:
+    url: https://www.dhondt.de/ccx_2.22.pdf
+    where: §6.7.6–6.7.8, §7.22 и §7.129, контакт между гранями, MORTAR, линейный закон
+    implementation: CalculiX 2.22, Gmsh 4.15.0 из комплекта FreeCAD
+  inherited_E_and_nu:
+    where: calc/T-1.7/frame_analytic.py, константы E_MPa и NU
+    E_MPa: 210000
+    poisson_ratio: 0.30

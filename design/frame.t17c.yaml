@@ -1,0 +1,216 @@
+task: T-1.7c
+round: 2
+selected_variant: 1
+status: STOP_GATE_FATIGUE_SCREEN
+acceptance:
+  C_STR_01: FAIL_SCREEN
+  C_FAT_01: FAIL_SCREEN
+  C_CLR_01: OPEN
+  contact_pressure: FAIL_SCREEN
+  casting_R20_actual_reactions: OPEN
+  three_mesh_convergence: OPEN
+reference: design/frame.t17.yaml
+geometry:
+  gate_face_x_mm: 205
+  gate_back_x_mm: 243.0
+  original_cast_face_x_mm: 488.0
+  closed_gate_thickness_mm: 38.0
+  insert_seat_face_x_mm: 243.0
+  insert_recess_depth_mm: 55.0
+  channel_length_mm: 205.0
+  channel_exit_x_mm: 448.0
+  passage_inlet_mm:
+  - 158.0
+  - 65.0
+  passage_exit_mm:
+  - 158.0
+  - 65.0
+  cast_channel_mm_R:
+  - 176.0
+  - 74.0
+  - 20.0
+  guide_corner_clearance_in_cast_R20_mm: 0.4395048383208042
+  bored_gate_and_insert_R_mm: 3.0
+  entry_transition_max_loaded_length_mm: 5.0
+  guide_floor_y_mm: -30.5
+  guide_ceiling_y_mm: 34.5
+  nominal_floor_step_down_mm: 0.5
+  open_window_center_y_mm: 2.0
+  closed_window_center_y_mm: -73.0
+  closed_window_ligament_to_chamber_mm: 10.5
+  gate_working_travel_mm: 75.0
+  punch_face_nominal_eject_end_x_mm: 264.0
+  punch_face_maximum_eject_end_x_mm: 274
+  main_installed_stroke_mm: 289
+  overtravel_nominal_mm: 59
+  overtravel_maximum_mm: 69
+  nominal_relaxed_tail_clearance_mm: 5.203142432528024
+  minimum_relaxed_tail_clearance_mm: 5.112642024442096
+  maximum_gate_thickness_preserving_5mm_axial_margin_mm: 38.112642024442096
+  limiting_tail_case:
+  - nominal
+  - nominal
+  - high
+  maximum_tail_springback_mm: 25.865809631744863
+  max_compliant_product_section_mm:
+  - 151.0
+  - 61.0
+  equal_transverse_strain_section_mm:
+  - 152.2333734763833
+  - 60.89334939055332
+  max_recovered_section_axiswise_mm:
+  - 154.5
+  - 61.800000000000004
+  side_clearance_per_side_after_max_recovery_mm: 1.75
+  top_clearance_after_max_recovery_at_floor_mm: 3.1999999999999957
+  shortest_product_mm: 40.0
+  shortest_loaded_product_at_project_recovery_mm: 32.520325203252035
+  unlined_passage_prevents_yaw_of_40mm_product: false
+  qualified_lot_guide_width_mm: 152.0
+  qualified_lot_max_short_yaw_deg: 5.1737520111350435
+  lot_guide_width_condition: width_max + 1 mm <= set_width < hypot(width_min, minimum_free_length)
+    - 0.5 mm
+  typical_max_short_pitch_deg: 8.031161252724509
+  guide_to_punch_lever_mm: 77.0
+  column_shortening_mm: 245.0
+  frame_axial_length_mm: 1150.0
+  column_smooth_span_mm: 379.0
+  inner_bearing_spacing_mm: 495.0
+  module_envelope_xyz_mm:
+  - 1319.0
+  - 740.0
+  - 850
+  stack_counts:
+  - length_mm: 40
+    whole_briquettes: 5
+    maximum_simultaneous_with_end_pieces: 7
+    first_exit_cycles_from_empty: 5
+  - length_mm: 110
+    whole_briquettes: 1
+    maximum_simultaneous_with_end_pieces: 3
+    first_exit_cycles_from_empty: 2
+mass_budget:
+  baseline_kg: 4972.4094516052755
+  baseline_rows:
+  - mass_kg: 1655.3316041305181
+    node: Гидростанция в сборе
+    source: calc/T-1.6/results.json mass.machine_rows, Station rows; manufacturer
+      valve package reconciliation and no credit for common blocks
+  - mass_kg: 733.9322907714237
+    node: Главный ГЦ с маслом
+    source: calc/T-1.6/results.json mass.machine_rows, T-1.3 physical cylinder, minus
+      tube annulus at unchanged bore and length
+  - mass_kg: 82.42
+    node: Два быстрых ГЦ с маслом
+    source: calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-RAPID
+  - mass_kg: 101.34
+    node: ГЦ подпрессовки с маслом
+    source: calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-PRE
+  - mass_kg: 23.04
+    node: ГЦ шибера с маслом
+    source: calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-GATE
+  - mass_kg: 180.22142000000002
+    node: Камера, башмак и засовы
+    source: calc/T-1.6/results.json mass.machine_rows, T-1.3 grouping minus estimate
+      for gate plate; no double counting
+  - mass_kg: 20.16508
+    node: Плита шибера
+    source: calc/T-1.6/results.json mass.machine_rows, 38 mm from D-GK-01, planform
+      260×260 mm budget, included in upstream chamber grouping
+  - mass_kg: 1605.959056703334
+    node: Силовая рама
+    source: T-1.7 frame_rows, Gmsh OCC и параметрическая ведомость
+  - mass_kg: 225
+    node: Траверса с пуансоном
+    source: calc/T-1.6/results.json mass.machine_rows, T-1.3 remaining moving-mass
+      allowance; planned mass cap
+  - mass_kg: 180
+    node: Подача и бункер
+    source: calc/T-1.6/results.json mass.machine_rows, Engineering allowance
+  - mass_kg: 90
+    node: Ограждения
+    source: calc/T-1.6/results.json mass.machine_rows, Engineering allowance
+  - mass_kg: 75
+    node: Электрика
+    source: calc/T-1.6/results.json mass.machine_rows, Engineering allowance
+  baseline_gate_source_rows:
+  - mass_kg: 23.04
+    node: ГЦ шибера с маслом
+    source: calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-GATE
+  - mass_kg: 20.16508
+    node: Плита шибера
+    source: calc/T-1.6/results.json mass.machine_rows, 38 mm from D-GK-01, planform
+      260×260 mm budget, included in upstream chamber grouping
+  delta_rows:
+  - item: Упоры зоны падения
+    delta_kg: -44.02907999999999
+    lower_delta_kg: 0.0
+    upper_delta_kg: 0.0
+    source: T-1.7 variants.cast.mass.frame_rows
+  - item: Четыре колонны Ø70
+    delta_kg: -29.60613354798119
+    lower_delta_kg: 0.0
+    upper_delta_kg: 5.0
+    source: frame.t17.yaml, сокращение на 245 мм
+  - item: Прежняя вставка
+    delta_kg: -20.948234948725005
+    lower_delta_kg: 0.0
+    upper_delta_kg: 0.0
+    source: T-1.7 variants.cast.mass.frame_rows
+  - item: Отливка, карман
+    delta_kg: -20.93978531718402
+    lower_delta_kg: 0.0
+    upper_delta_kg: 8.0
+    source: По расточке 340,2 × 180,2 R12 в координатах модели
+  - item: Новая вставка
+    delta_kg: 21.938994154805297
+    lower_delta_kg: -1.0
+    upper_delta_kg: 2.0
+    source: Контактная геометрия fea/contact.py
+  - item: Оконный шибер, дельта
+    delta_kg: -6.790422006582947
+    lower_delta_kg: -1.0
+    upper_delta_kg: 3.0
+    source: По геометрии с вычетом плиты 260×260×38 из базы
+  - item: Вставные направляющие R20
+    delta_kg: 2.8476221116943745
+    lower_delta_kg: -1.4238110558471873
+    upper_delta_kg: 1.0
+    source: Верхняя оценка полного заполнения зазора сталью
+  - item: Сервисный выход, крепёж, датчики
+    delta_kg: 10.0
+    lower_delta_kg: -5.0
+    upper_delta_kg: 15.0
+    source: Эскизный бюджет, подтвердить ведомостью КД
+  uncertainty_rows:
+  - item: Гидростанция
+    delta_kg: 0.0
+    lower_delta_kg: -82.76658020652592
+    upper_delta_kg: 82.76658020652592
+    source: T-1.7 GK_review M3, ±5 %
+  - item: Припуски литья
+    delta_kg: 0.0
+    lower_delta_kg: 0.0
+    upper_delta_kg: 40.0
+    source: T-1.7 GK_review M3
+  - item: Подача, ограждения, электрика
+    delta_kg: 0.0
+    lower_delta_kg: -34.5
+    upper_delta_kg: 34.5
+    source: Как в круге 1, чувствительность ±10 %
+  nominal_kg: 4884.882412051302
+  lower_kg: 4759.192020788929
+  upper_kg: 5076.148992257828
+  target_kg: 4850.0
+  limit_kg: 5000.0
+  margin_to_target_kg: -34.8824120513018
+  margin_to_limit_kg: 115.1175879486982
+  upper_margin_to_limit_kg: -76.14899225782756
+  shuttle_mass_kg: 13.374657993417053
+guide_reference: Обработанные базы переднего модуля камеры, общий установочный комплект
+  пуансона и вкладыша.
+clearance_limit_mm: 0.15
+reference_T17_deflection_mm: 0.043
+overall_machine_envelope_status: OPEN_FRAME_MODULE_ONLY
+required_frame_proof: Податливость баз с реакциями контакта, горловина расточки, R20,
+  преднатяг и разброс колонн.

@@ -1,0 +1,30 @@
+﻿{
+  "mesh_preprocessing": {
+    "status": "PASS",
+    "levels": [0, 1, 2],
+    "command": "REV_PYTHON -B calc/T-1.7c/fea/contact.py 0 1 2 --formulation penalty --inputs-only"
+  },
+  "full_assembly": {
+    "surface_to_surface_penalty": {"result": "TIMEOUT", "level": 0, "load_N": 1940000, "timeout_s": 1500},
+    "mortar": {"result": "TIMEOUT", "level": 0, "load_N": 1940000, "timeout_s": 1500}
+  },
+  "rigid_cast_backing": {
+    "level_0": {"status": "COMPLETE_SCREEN", "summary": "calc/T-1.7c/fea/local_0.json"},
+    "level_1_static": {
+      "status": "COMPLETE_SCREEN",
+      "force_N": 1940000.0,
+      "reaction_N": -1940001.859558,
+      "relative_reaction_error": 9.585350515445715e-7,
+      "max_contact_MPa": 1140.86,
+      "bearing_screen_MPa": 480.0
+    },
+    "level_1_fatigue": {"status": "STOPPED_AFTER_SCREEN_FAILURE"},
+    "level_2": {"status": "NOT_RUN_AFTER_SCREEN_FAILURE"},
+    "command": "REV_PYTHON -B calc/T-1.7c/fea/contact_local.py 0 1 2"
+  },
+  "central_section": {
+    "status": "COMPLETE_DIAGNOSTIC",
+    "levels": [0, 1, 2],
+    "command": "REV_PYTHON -B calc/T-1.7c/fea/contact_hex_slice.py 0 1 2"
+  }
+}
