@@ -1,0 +1,105 @@
+{
+  "task": "T-2.2e",
+  "round": 2,
+  "qualification_status": "STOP",
+  "used_r2_filename_fallback": false,
+  "tools": {
+    "python": "3.13.17",
+    "gmsh": "4.15.0",
+    "CalculiX": "2.22"
+  },
+  "official_gates": {
+    "command": "REV_PYTHON -B ops/gates/calc_gates.py --params design/params.t22e.yaml --criteria ops/criteria/design_criteria.yaml --out gates.t22e.json",
+    "criteria_version": 4,
+    "criteria_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+    "results": {
+      "G-PFACE": {
+        "status": "PASS",
+        "value": 168.88888888888889,
+        "unit": "MPa"
+      },
+      "G-DOSE": {
+        "status": "PASS",
+        "value": 321,
+        "unit": "mm"
+      },
+      "G-CYCLE": {
+        "status": "PASS",
+        "value": 5.888629160188189,
+        "unit": "s"
+      }
+    }
+  },
+  "tests": {
+    "report_strict_utf8_no_corruption": "PASS",
+    "JSON_YAML_Python_parsing": "PASS",
+    "protected_tracked_paths": "PASS",
+    "original_gate_parameter_hash": "PASS",
+    "C_STR_01_at_evaluated_global_points": true,
+    "C_FAT_01_at_evaluated_global_points": false,
+    "global_mesh_convergence": {
+      "height": true,
+      "proof_stress": true,
+      "working_range": true,
+      "proof_stress_mesh_envelope": false,
+      "working_stress_mesh_envelope": false
+    },
+    "vertical_global_equilibrium": true,
+    "three_manual_section_checks_within_15_pct": true,
+    "solver_pressure_steps": true,
+    "nominal_front_support_gate_clearance": true,
+    "accepted_cycle_limits": true,
+    "delta_height_at_design_skew": false,
+    "contact_convergence": {
+      "front": "FAIL",
+      "rear": "FAIL"
+    },
+    "contact_pressure_screen": {
+      "front": "UNQUALIFIED_BELOW_SCREEN_AT_TRIAL_LOAD",
+      "rear": "UNQUALIFIED_BELOW_SCREEN_AT_TRIAL_LOAD"
+    },
+    "local_force_balance": {
+      "front": true,
+      "rear": true
+    },
+    "local_operating_and_proof_loads": {
+      "front": true,
+      "rear": true
+    },
+    "contact_pair_life": "BENCH_VALIDATION_OPEN",
+    "overall_qualification": "STOP"
+  },
+  "same_outputs_twice": {
+    "status": "PASS_BYTES_IDENTICAL",
+    "command": "REV_PYTHON -B calc/T-2.2e/run.py",
+    "sha256": {
+      "calc/T-2.2e/results.json": "3dc94ce1592a7e35bb7707dd7f1328d2443cb1ac2c4b900a281bd71dd59f87e9",
+      "design/prepress_lock.t22e.yaml": "673705db25ef2caa98b432dcebb43f1c49f358e8c7f3d93c7943aa4e3ba86dd4",
+      "design/params.t22e.yaml": "6fed606a0fb964ac6352708b29a464e024316127ad9fe78db24003f18efa74a7",
+      "metrics.json": "b102e05c6161fa64fc0a45e1621253ef356a93b8fda34816e7788331ee56d052",
+      "gates.t22e.json": "e63f644818dedd2dfae6f2644b377e793c86c711ba367f60f631789c55cdbd5e"
+    }
+  },
+  "FEA_replay": {
+    "global_model": {
+      "status": "PASS",
+      "rows_compared": 3,
+      "full_series": true,
+      "maximum_absolute_difference": 0.0,
+      "permitted_absolute_difference": 1e-06
+    },
+    "contact": {
+      "status": "PASS",
+      "rows_compared": 6,
+      "full_series": true,
+      "maximum_absolute_difference": 0.0,
+      "permitted_absolute_difference": 1e-06
+    }
+  },
+  "workspace": {
+    "required_files_readable": "PASS",
+    "package_bytes": 4088606,
+    "temporary_folders_removed": true,
+    "retained_large_meshes": 0
+  }
+}

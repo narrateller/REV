@@ -1,0 +1,144 @@
+task: T-2.2e
+project_decisions:
+  load_geometry: {path: DECISIONS.md, decisions: [D-GK-09, D-GK-10, D-OP-13]}
+  mass: {path: DECISIONS.md, decisions: [D-OP-10, D-GK-10]}
+  thresholds: {path: ops/criteria/design_criteria.yaml, version: 4}
+  initial_variant: calc/T-2.2d/results.json#hand.minimum_height_with_FKM
+  load_distribution: calc/T-2.2d/load.py
+  gate_and_frame: [design/slide_gate.t17d.yaml, design/frame.t17d.yaml, design/params.t22d.yaml]
+  reference_cycle: [calc/T-2.2d/cycle/roof_cycle.py, calc/T-2.1/study.py]
+  solver_precedent: [calc/T-2.2b/fea/solve.py, ops/reports/T-2.2b/report.md]
+  machine_mass_rows: [ops/reports/T-2.2/GK_review.md, calc/T-2.2d/mass.py, calc/T-2.2d/results.json]
+materials:
+  forge:
+    grade: 34CrNiMo6+QT
+    url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+    supplementary_url: https://www.saarstahl.com/app/uploads/2024/03/20160318102442-34CrNiMo6-.pdf
+    values:
+      tooth_post_and_foot_min_Rp02_Rm_MPa: [700, 900]
+      moving_crosshead_min_Rp02_Rm_MPa: [500, 750]
+      roof_min_Rp02_Rm_MPa: [600, 800]
+      target_tooth_HRC: [52, 57]
+      target_tooth_SHD_mm: 6
+    note: >
+      Для передних стоек с пятами Ø140 мм ориентир для круглой заготовки 100–160 мм. Для муфты
+      Ø172 мм требуется кольцевая заготовка с отверстием до ТО и сертификат свойств сердцевины
+      в определяющем сечении 700/900 МПа. Для сплошной заготовки Ø172 мм применяется 600/800 МПа
+      и статический экран контакта 360 МПа. Для поперечины 500/750 МПа консервативная предпосылка
+      из T-2.2d, требуется сертификат по фактическому определяющему сечению. Паспорт поставщика
+      указывает достижимую твёрдость 52–57 HRC глубже 6 мм для стали после индукционного упрочнения.
+  casting:
+    grade: G35CrNiMo6-6+QT1
+    url: https://www.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+    standard_url: https://cdn.standards.iteh.ai/samples/37740/e17c195133c94e8ca3b14cfd6e0b2a51/SIST-EN-10293-2015.pdf
+    min_Rp02_Rm_MPa: [650, 800]
+    project_source: calc/T-1.7/sources.yaml
+    note: >
+      EN 10293, отливка QT1. Место пробы и свойства подтвердить по фактической заготовке.
+      Rz ≤ 6,3 мкм в управляющих зонах, включая внутренние переходы. Требуются доступ инструмента,
+      проверяемая технология доводки и контроль этой шероховатости. УЗК и МПК по T-1.7.
+  elasticity:
+    url: https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/
+    project_source: calc/T-2.2d/hand.py
+    E_MPa: 210000
+    nu: 0.30
+    density_kg_m3: 7850
+strength:
+  method: FKM, 7-е изд., гл. 4, и проектная реализация T-1.7.
+  url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+  project_source: [calc/T-1.7/frame_fea.py, calc/T-1.7/sources.yaml]
+  rules: {stress_ratio: 0, cycles: 10000000, ND_cycles: 1000000, kD: 15, jD: 1.5, jG_cast: 1.25, jG_forge: 1.0, notch_support: 1.0}
+  surface_Rz_um: 6.3
+  coefficients:
+    alternating_fraction_Rm_forge: 0.40
+    alternating_fraction_Rm_cast: 0.34
+    roughness_coefficient_forge: 0.22
+    roughness_coefficient_cast: 0.20
+    mean_slope_per_MPa: 0.00035
+    mean_slope_intercept_forge: -0.10
+    mean_slope_intercept_cast: 0.05
+  scope: Упругая оценка по номинальному напряжению или по разности тензоров, без кредита от упрочнения и надрезной поддержки.
+contact:
+  elastic_bearing:
+    url: https://academic.oup.com/jom/article/doi/10.1093/jom/ufaf013/8117592
+    project_source: [ops/reports/T-2.2b/report.md, calc/T-2.2d/hand.py]
+    screen: 0,60 Rp0,2 более мягкой детали
+    values_MPa: {integral_hardened_tooth_core_700: 420, optional_core_800: 480, forged_heel_on_cast_base: 390}
+    note: Проектная отсечка для упругого смятия. Поправка на конечную ширину пятна остаётся приближённой.
+  pulsating:
+    url: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_en.pdf
+    location: STT 478, guide values for flank contact pressures, feather-key joints
+    guide_ranges_MPa: {hardened_steel: [100, 170], cast_steel: [80, 100]}
+    note: >
+      Нижние края диапазонов используются как консервативные экраны номинального давления,
+      перенос по аналогии с пульсирующей шпонкой. Таблица не задаёт S–N-кривую этой пары или ресурс 10⁷.
+      Для ресурса требуются испытания представительной пары с таким же контактом, ТО, смазкой и загрязнением.
+  fretting_experiment:
+    url: https://doi.org/10.1016/j.triboint.2025.111020
+    open_full_text_url: https://trepo.tuni.fi/bitstream/handle/10024/230111/Effects_of_contact_pressure.pdf
+    study: Kovanen et al., Tribology International 213 (2026) 111020
+    tested_nominal_pressure_MPa: [30, 200]
+    test_cycle_range: [1000, 3000000]
+    scope: >
+      Кольцевой контакт 34CrNiMo6+QT при касательных колебаниях.
+      Опыт описывает фреттинг при других термообработке и режиме.
+      Перенос числа циклов на зуб байонета не обоснован.
+  heat_treatment_metrology:
+    url: https://www.iso.org/standard/89021.html
+    method: ISO 18203, микротвёрдость поперечного шлифа
+  assumptions:
+    friction: 0.15
+    edge_radius_mm: 5
+    tooth_root_radius_mm: 15
+    tooth_and_foot_crown_mm: 0.10
+    side_share_screen: 0.64
+    worst_tooth_share_at_300_and_315_bar: 0.40
+    rationale: Геометрические назначения и μ по карточке и T-2.2d. Устойчивость распределения проверяется стендовым измерением.
+cycle:
+  positive_lock_analogue:
+    url: https://patents.google.com/patent/EP0904918B1/en
+    note: Пример конструктивного применения поворотных колец с зубчатыми секторами на колоннах.
+  main_hydraulics:
+    url: https://boschrexroth-russia.ru/image/catalog/docs/RE92088_2018-10.pdf
+    project_source: [calc/T-2.1/sources.yaml, calc/T-2.2d/cycle/drive.py]
+  lock_accumulator:
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    location: EN 3.100.30/05.24, §4.2.2, стр. 89, сварной мембранный сосуд
+    value: {gas_shell_L: 0.6, pressure_rating_bar: 330, catalogue_flow_L_min: 95, dry_mass_kg: 3.3}
+    note: Газовая модель pV^1,4 для быстрого разряда. p0 проверять при рабочих температурах. Клапаны и крепления входят в эскизный резерв.
+  engineering_assumptions:
+    project_source: calc/T-2.2d/hand.py#drive_screen
+    new: >
+      Предельная остаточная сила 2 кН, потери ветви и окно подтверждения 10 мс являются требованиями
+      для проверки на стенде. Холостые 3 кН на направляющие и КПД преобразования 0,60 унаследованы из T‑2.2d.
+solver:
+  gmsh_url: https://gmsh.info/doc/texinfo/gmsh.pdf
+  calculix_url: https://www.dhondt.de/
+  calculix_2_22_manual_url: https://www.dhondt.de/ccx_2.22.pdf
+  versions: {gmsh: 4.15.0, ccx: '2.22'}
+  note: Диагностические оболочки и пружины для корпуса, отдельный контакт на C3D10. Причины HOLD и численные результаты в report.md и results.json.
+
+
+round2:
+  accepted_baseline: calc/T-2.2e/round1_accepted.json
+  nominal_cast_structure: [calc/T-2.2e/fea/r2_geometry.py, calc/T-2.2e/fea/r2_global.py]
+  cast_boxes:
+    steel: G35CrNiMo6-6+QT1
+    properties_source: https://www.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+    proof_Rp02_min_MPa: 650
+    Rm_min_MPa: 800
+    jG: 1.25
+    note: Свойства и Rz унаследованы для отливки. Нужны сертификаты и НК по T-1.7.
+  design_nominal_fillet_R_mm: 15.0
+  global_scope: >
+    Силовые плоскости опор задаются средним перемещением деформируемой кольцевой поверхности.
+    Умноженные на силу веса вводят реакцию обратно в объёмную модель.
+    Присоединения выполнены заодно с коробом. Нагруженных швов и TIE нет.
+    Заходные фаски и литейные галтели в глобальную модель не внесены.
+  section_check:
+    nominal_balance: calc/T-2.2e/fea/r2_sections.py
+    contact_shank_check: calc/T-2.2e/fea/section_check.py
+  contact_scope: >
+    Испытания численной подмодели с трением µ 0,15. Плоская граница отливки.
+    Закалка контакта и выносливость по-прежнему требуют механического испытания пары.
+  node_to_surface: Руководство CCX 2.22, §6.7.6 и §7.22. На квадратичной сетке ведомые поверхности задаются гранями элементов.

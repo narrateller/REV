@@ -1,0 +1,1327 @@
+task: T-2.2e
+status: STOP
+candidate: closed_flanks_shoe_priority
+authority:
+- D-GK-09
+- D-GK-10
+- D-OP-10
+- D-OP-13
+criteria_version: 4
+units: N, mm, MPa, bar, s, kg
+qualification:
+  status: STOP
+  reason: В пределах Δ узла +70 кг ни одно рассчитанное исполнение не подтвердило одновременно Δh ≤ 0,6 мм при
+    перекосе и FKM ≥ 1,0. Выпуск КД не разрешён.
+  C_STR_01_min_factor: 1.5
+  C_FAT_01_min_factor: 1.0
+  cycles_min: 10000000
+  delta_height_300_mm_max: 0.6
+  mesh_spread_limit_fraction: 0.05
+  balance_limit_fraction: 0.001
+  C_STR_01_qualified: null
+  C_FAT_01_qualified: null
+load:
+  roof_x_interval_mm:
+  - 205.0
+  - 220.0
+  roof_length_mm: 15.0
+  maximum_loaded_length_mm: 89.4
+  maximum_released_length_mm: 110.0
+  pressure_steps_bar:
+  - 0
+  - 100
+  - 200
+  - 300
+  - 315
+  proof_bar: 315.0
+  fatigue_range_bar:
+  - 0
+  - 300
+  shoe_and_roof_peaks:
+    nominal:
+      K: 0.6
+      mu: 0.2
+      face_MPa: 168.88888888888889
+      decay_per_mm: 0.0056
+      shoe_contact_x_mm:
+      - 130.6
+      - 205
+      radial_start_MPa: 101.33333333333333
+      radial_end_MPa: 66.80483196541144
+      centroid_x_mm: 165.22427473276937
+      moment_about_shoe_axis_Nm: 55699.659441764255
+      shoe_force_N: 924870.5723550512
+      gate_reaction_N: 921336.7585077295
+      wall_friction_N: 598663.2414922705
+      roof_force_N: 144170.93030971778
+      balance_shoe_force_N: 924870.572355051
+      balance_abs_error_N: 2.3283064365386963e-10
+    300_bar:
+      K: 0.6
+      mu: 0.2
+      face_MPa: 188.88888888888889
+      decay_per_mm: 0.0056
+      shoe_contact_x_mm:
+      - 130.6
+      - 205
+      radial_start_MPa: 113.33333333333333
+      radial_end_MPa: 74.7159304876312
+      centroid_x_mm: 165.22427473276937
+      moment_about_shoe_axis_Nm: 62295.67174407845
+      shoe_force_N: 1034394.7190813073
+      gate_reaction_N: 1030442.4272783817
+      wall_friction_N: 669557.5727216183
+      roof_force_N: 161243.80363586845
+      balance_shoe_force_N: 1034394.7190813071
+      balance_abs_error_N: 2.3283064365386963e-10
+    315_bar:
+      K: 0.6
+      mu: 0.2
+      face_MPa: 198.33333333333334
+      decay_per_mm: 0.0056
+      shoe_contact_x_mm:
+      - 130.6
+      - 205
+      radial_start_MPa: 119.0
+      radial_end_MPa: 78.45172701201277
+      centroid_x_mm: 165.22427473276937
+      moment_about_shoe_axis_Nm: 65410.45533128237
+      shoe_force_N: 1086114.4550353726
+      gate_reaction_N: 1081964.5486423008
+      wall_friction_N: 703035.4513576992
+      roof_force_N: 169305.99381766183
+      balance_shoe_force_N: 1086114.4550353724
+      balance_abs_error_N: 2.3283064365386963e-10
+  dose_limit_kg: 0.85267
+  scale_positive_error_fraction: 0.05
+  main_bore_mm: 280.0
+  main_stroke_mm: 321.0
+  frame_length_mm: 1181.0
+  main_cylinder_body_length_mm: 662.0
+material:
+  moving_crosshead:
+    grade: G35CrNiMo6-6+QT1
+    Rp02_min_MPa: 650
+    Rm_min_MPa: 800
+    jG: 1.25
+  bottom_box:
+    grade: G35CrNiMo6-6+QT1
+    Rp02_min_MPa: 650
+    Rm_min_MPa: 800
+    jG: 1.25
+  posts_sleeves_feet:
+    grade: 34CrNiMo6+QT
+    Rp02_min_MPa: 700
+    Rm_min_MPa: 900
+    jG: 1.0
+    sleeve_blank: Кольцевая поковка. Подтвердить 700/900 МПа сертификатом по фактическому сечению.
+  roof:
+    grade: 34CrNiMo6+QT
+    Rp02_min_MPa: 600
+    Rm_min_MPa: 800
+    jG: 1.0
+  steel_elasticity:
+    E_MPa: 210000.0
+    poisson: 0.3
+    density_kg_m3: 7850.0
+manufacturing:
+  seats: Цельные пяты. Днище с разгрузкой под галтель. Удерживающая арматура вне расчётного силового пути.
+  rings: Общий вал с безлюфтовыми кинематическими связями и контролем каждого кольца.
+  tooth_hardness_HRC:
+  - 52
+  - 57
+  tooth_layer_SHD_min_mm: 6.0
+  roughness_Rz_max_um: 6.3
+  surface_process: Местное индукционное упрочнение площадок пары и финишное совместное шлифование. Контроль сбега
+    слоя и микротвёрдости по ISO 18203.
+  casting_control: УЗК и МПК по T-1.7. Обеспечить доступ к внутренним зонам и подтвердить Rz после доводки.
+  axial_fit_gap_max_mm:
+    front: 0.004
+    rear: 0.002
+  seating_travel_allowance_mm: 0.02
+  tooth_share_limit_at_working_and_proof: 0.4
+  friction_coefficient: 0.15
+  fitting: Подобрать комплект стойка–муфта, шлифовать в сборочных базах. Измерить посадку при рабочей температуре
+    с учётом перекоса, затем проверить доли всех зубьев нагрузочным стендом.
+  wear: Пылесъём, лабиринт и совместимая дозированная смазка. Периодический осмотр наклёпа, трещин и выкрашивания.
+  contact_proof_screens_MPa:
+    teeth: 420
+    heel_cast: 390
+  pulse_analogy_screens_MPa:
+    hardened_teeth: 100
+    steel_cast_heel: 80
+  bench: Представительная пара 0→рабочая нагрузка 10⁷ циклов, 315 бар на проверку смятия. Контролировать наклёп,
+    трещины, выкрашивание, изменение посадки и долей нагрузки.
+controls:
+  actuator:
+    turn_s: 0.08
+    confirmation_s: 0.01
+    command_to_confirm_s: 0.09
+    angle_deg: 60.0
+    stroke_mm: 12.0
+    sleeve_inertia_kg_m2: 0.09251722968320307
+    linkage_inertia_allowance_kg_m2: 0.0025
+    shaft:
+      net_diameter_mm: 30.0
+      effective_path_mm: 750.0
+      elastic_twist_deg: 0.6929685303686506
+      torsion_shear_MPa: 19.53740244772497
+      position_window_half_deg: 1.0
+    stem_peak_speed_mm_s: 300.0
+    worst_residual_shoe_force_N: 2000.0
+    stem_demand_N: 14270.264590473513
+    stem_unloaded_N: 12044.969794180743
+    stem_available_N: 15064.565092493776
+    drive_demand_Nm: 98.11511202829398
+    drive_available_Nm: 103.57632
+    fully_loaded_unlock_diagnostic_Nm: 8308.7755810206
+    hydraulic:
+      bore_mm: 36.0
+      rod_mm: 12.0
+      min_actuator_bar: 185.0
+      gas_shell_L: 0.6
+      precharge_bar: 160.0
+      min_header_bar: 205.0
+      max_header_bar: 240.0
+      available_oil_L: 0.053349901568464066
+      stroke_oil_per_cycle_L: 0.023071856447963435
+      peak_flow_L_min: 18.321768355735674
+      charge:
+        window_s: 0.195
+        flow_L_min: 14.0
+        demand_L: 0.035
+        pump_bar: 248.0
+    screen_pass: true
+  gate_cycle_equivalent: design/params.t22e.yaml
+  engage: После посадки башмака. Разрешать быстрый подвод только в проверенной свободной зоне 4 мм. За её границей
+    требуются закрытые положения всех четырёх муфт и валидная доза.
+  release: После сброса давления, выхода хвоста из окна до x≥220 мм и подтверждения остаточной силы ≤2 кН. Подъём
+    башмака после независимых сигналов полного открытия от всех четырёх муфт.
+  failure: При потере любого сигнала, выходе за окно положения или нехватке заряда блокировать переходы. Зафиксировать
+    положение привода и снять нагрузку по межблокировкам проекта.
+  dose: Весовой контроль каждого цикла. При превышении уставки либо недостоверном измерении главный ход заблокирован.
+hand_screen:
+  static_factor: 2.0684692512064777
+  FKM: 1.1043334834991
+  height_300_mm: 0.5761403041444497
+  delta_height_300_mm:
+    shoe: 0.2094661970099135
+    floor: 0.1270010771364963
+    roof: 0.039448430631169144
+    posts_teeth_contact: 0.20514651261646874
+    seating: 0.02
+    foot_seat_allowance: 0.014526517381571138
+  strength_sections:
+    shoe:
+      stress_315_MPa: 241.7246472038995
+      Rp02_MPa: 500.0
+      Rm_MPa: 750.0
+      static_factor: 2.0684692512064777
+      FKM: 1.1525357273257397
+      allowable_amplitude_MPa: 154.22294740015766
+      equivalent_amplitude_MPa: 133.81185827358723
+    floor:
+      stress_315_MPa: 160.77428856433792
+      Rp02_MPa: 650.0
+      Rm_MPa: 800.0
+      static_factor: 4.042935010344555
+      FKM: 1.1043334834991
+      allowable_amplitude_MPa: 112.44733909331839
+      equivalent_amplitude_MPa: 101.82371609074734
+    roof:
+      stress_315_MPa: 204.2981921957051
+      Rp02_MPa: 600.0
+      Rm_MPa: 800.0
+      static_factor: 2.9368835502236696
+      FKM: 1.425157791184501
+      allowable_amplitude_MPa: 163.60259485356616
+      equivalent_amplitude_MPa: 114.79612704330096
+    front_post:
+      stress_315_MPa: 233.1614310175121
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 3.0022118021201587
+      FKM: 1.3506338466900036
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 134.90054223156056
+    front_foot:
+      stress_315_MPa: 194.126950238405
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 3.6058877921913384
+      FKM: 1.6222153600424054
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 112.31630692364861
+    front_fixed_tooth:
+      stress_315_MPa: 283.2570580751362
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 2.471253513528759
+      FKM: 1.1117665438415816
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 163.88444074347163
+      compliance_mm_N: 1.078464066139713e-07
+    front_rotating_tooth:
+      stress_315_MPa: 147.97010496462337
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 4.730685297326482
+      FKM: 2.128238812496742
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 85.61127501524638
+      compliance_mm_N: 5.6337675096850684e-08
+    rear_post:
+      stress_315_MPa: 125.45716496174893
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 5.579593642287592
+      FKM: 2.5101453597404664
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 72.58593115644045
+    rear_foot:
+      stress_315_MPa: 66.81628648941015
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 10.476487646630055
+      FKM: 4.713158078978843
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 38.65799432601587
+    rear_fixed_tooth:
+      stress_315_MPa: 140.7945426477747
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 4.971783613454308
+      FKM: 2.2367040266805795
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 81.45969967478395
+      compliance_mm_N: 1.9012406860116736e-07
+    rear_rotating_tooth:
+      stress_315_MPa: 66.08723430405752
+      Rp02_MPa: 700.0
+      Rm_MPa: 900.0
+      static_factor: 10.592060741707003
+      FKM: 4.765152056841234
+      allowable_amplitude_MPa: 182.20123827477994
+      equivalent_amplitude_MPa: 38.23618556163328
+      compliance_mm_N: 8.924190975156838e-08
+  support_checks:
+    front:
+      force_315_N: 566892.815666266
+      tooth_force_315_N: 226757.12626650638
+      tooth_pitch_r_mm: 51.0
+      tooth_eccentricity_mm: 5.099999999999999
+      tooth_moment_Nm: 2891.153359897956
+      contact:
+        peak_MPa: 355.466996893539
+        half_width_mm: 18.45946463871593
+        crown_radius_mm: 2995.971842896647
+        footprint_clipped: false
+        net_mean_MPa: 264.58090266237946
+      teeth:
+        fixed_tooth:
+          stress_315_MPa: 283.2570580751362
+          Rp02_MPa: 700.0
+          Rm_MPa: 900.0
+          static_factor: 2.471253513528759
+          FKM: 1.1117665438415816
+          allowable_amplitude_MPa: 182.20123827477994
+          equivalent_amplitude_MPa: 163.88444074347163
+          compliance_mm_N: 1.078464066139713e-07
+        rotating_tooth:
+          stress_315_MPa: 147.97010496462337
+          Rp02_MPa: 700.0
+          Rm_MPa: 900.0
+          static_factor: 4.730685297326482
+          FKM: 2.128238812496742
+          allowable_amplitude_MPa: 182.20123827477994
+          equivalent_amplitude_MPa: 85.61127501524638
+          compliance_mm_N: 5.6337675096850684e-08
+      bearing_shoulder_MPa: 166.82231950093148
+      bearing_foot_MPa: 145.8167135073876
+      bearing_shoulder_min_MPa: 126.11207600740904
+      bearing_foot_min_MPa: 89.14108288992722
+      foot:
+        stress_315_MPa: 194.126950238405
+        Rp02_MPa: 700.0
+        Rm_MPa: 900.0
+        static_factor: 3.6058877921913384
+        FKM: 1.6222153600424054
+        allowable_amplitude_MPa: 182.20123827477994
+        equivalent_amplitude_MPa: 112.31630692364861
+      post:
+        stress_315_MPa: 233.1614310175121
+        Rp02_MPa: 700.0
+        Rm_MPa: 900.0
+        static_factor: 3.0022118021201587
+        FKM: 1.3506338466900036
+        allowable_amplitude_MPa: 182.20123827477994
+        equivalent_amplitude_MPa: 134.90054223156056
+      post_extension_300_mm: 0.10354713714891518
+      tooth_branches_300_mm: 0.035457057664239296
+      pad_compression_300_mm: 0.06614231780331425
+      gap_difference_for_120pct_mm: 0.008864264416059826
+      foot_bearing:
+        active_inner_r_mm: 56.0
+        active_outer_r_mm: 65.0
+        area_mm2: 3421.194399759285
+        pressure_mean_MPa: 165.70026412593
+        pressure_max_MPa: 195.54927244422686
+        pressure_min_MPa: 135.85125580763315
+      worst_fit_gap_mm: 0.004
+      tooth_share_at_300_from_linear_branches: 0.36341667179777865
+      load_to_close_last_tooth_N: 24362.897781072432
+      tooth_design_share: 0.39999999999999997
+      raised_pad_contact_300:
+        peak_MPa: 379.5636371065946
+        half_width_mm: 21.49782913568146
+        crown_radius_mm: 3296.888636997666
+        footprint_clipped: true
+        net_mean_MPa: 307.1714925218063
+      raised_pad_contact_315:
+        peak_MPa: 392.56858565617944
+        half_width_mm: 22.028719672833972
+        crown_radius_mm: 3296.888636997666
+        footprint_clipped: true
+        net_mean_MPa: 322.5300671478966
+      active_tooth_inner_mm: 45.0
+      active_tooth_outer_mm: 62.0
+      integral_contact_screen_MPa: 420.0
+      fatigue_analogy:
+        tooth:
+          cycles_project: 10000000
+          nominal_pressure_300_MPa: 307.1714925218063
+          nominal_pressure_analogy_MPa: 100.0
+          analogy_margin: 0.32555104374765814
+          status: BENCH_TEST_REQUIRED
+        foot:
+          cycles_project: 10000000
+          nominal_pressure_300_MPa: 157.80977535802856
+          nominal_pressure_analogy_MPa: 80.0
+          analogy_margin: 0.5069394454082531
+          status: BENCH_TEST_REQUIRED
+      foot_compression_allowance_300_mm: 0.014526517381571138
+    rear:
+      force_315_N: 128220.43555637253
+      tooth_force_315_N: 51288.17422254901
+      tooth_pitch_r_mm: 36.0
+      tooth_eccentricity_mm: 3.599999999999999
+      tooth_moment_Nm: 461.59356800294097
+      contact:
+        peak_MPa: 280.82955240931767
+        half_width_mm: 7.266655502996635
+        crown_radius_mm: 1492.8276656647656
+        footprint_clipped: false
+        net_mean_MPa: 130.53072927176976
+      teeth:
+        fixed_tooth:
+          stress_315_MPa: 140.7945426477747
+          Rp02_MPa: 700.0
+          Rm_MPa: 900.0
+          static_factor: 4.971783613454308
+          FKM: 2.2367040266805795
+          allowable_amplitude_MPa: 182.20123827477994
+          equivalent_amplitude_MPa: 81.45969967478395
+          compliance_mm_N: 1.9012406860116736e-07
+        rotating_tooth:
+          stress_315_MPa: 66.08723430405752
+          Rp02_MPa: 700.0
+          Rm_MPa: 900.0
+          static_factor: 10.592060741707003
+          FKM: 4.765152056841234
+          allowable_amplitude_MPa: 182.20123827477994
+          equivalent_amplitude_MPa: 38.23618556163328
+          compliance_mm_N: 8.924190975156838e-08
+      bearing_shoulder_MPa: 56.310891751374136
+      bearing_foot_MPa: 43.681470788712716
+      bearing_shoulder_min_MPa: 43.35658626666007
+      bearing_foot_min_MPa: 27.175876864733485
+      foot:
+        stress_315_MPa: 66.81628648941015
+        Rp02_MPa: 700.0
+        Rm_MPa: 900.0
+        static_factor: 10.476487646630055
+        FKM: 4.713158078978843
+        allowable_amplitude_MPa: 182.20123827477994
+        equivalent_amplitude_MPa: 38.65799432601587
+      post:
+        stress_315_MPa: 125.45716496174893
+        Rp02_MPa: 700.0
+        Rm_MPa: 900.0
+        static_factor: 5.579593642287592
+        FKM: 2.5101453597404664
+        allowable_amplitude_MPa: 182.20123827477994
+        equivalent_amplitude_MPa: 72.58593115644045
+      post_extension_300_mm: 0.05423439595094219
+      tooth_branches_300_mm: 0.013645877113912347
+      pad_compression_300_mm: 0.038003205854620185
+      gap_difference_for_120pct_mm: 0.0034114692784780873
+      foot_bearing:
+        active_inner_r_mm: 44.0
+        active_outer_r_mm: 51.0
+        area_mm2: 2089.1591146372125
+        pressure_mean_MPa: 61.374183832157904
+        pressure_max_MPa: 71.30876628892157
+        pressure_min_MPa: 51.43960137539424
+      worst_fit_gap_mm: 0.002
+      tooth_share_at_300_from_linear_branches: 0.37241717740441804
+      load_to_close_last_tooth_N: 7159.067871445467
+      tooth_design_share: 0.39999999999999997
+      raised_pad_contact_300:
+        peak_MPa: 309.0683204775863
+        half_width_mm: 9.146625249122717
+        crown_radius_mm: 1707.356863373147
+        footprint_clipped: false
+        net_mean_MPa: 164.7244656303397
+      raised_pad_contact_315:
+        peak_MPa: 316.700786325165
+        half_width_mm: 9.372501860244343
+        crown_radius_mm: 1707.356863373147
+        footprint_clipped: false
+        net_mean_MPa: 172.9606889118567
+      active_tooth_inner_mm: 33.0
+      active_tooth_outer_mm: 44.0
+      integral_contact_screen_MPa: 420.0
+      fatigue_analogy:
+        tooth:
+          cycles_project: 10000000
+          nominal_pressure_300_MPa: 164.7244656303397
+          nominal_pressure_analogy_MPa: 100.0
+          analogy_margin: 0.607074362738631
+          status: BENCH_TEST_REQUIRED
+        foot:
+          cycles_project: 10000000
+          nominal_pressure_300_MPa: 58.45160364967419
+          nominal_pressure_analogy_MPa: 80.0
+          analogy_margin: 1.3686536383069092
+          status: BENCH_TEST_REQUIRED
+      foot_compression_allowance_300_mm: 0.004120062052248802
+  passes_hand_screen: true
+  contact_pass: true
+  scope: Унаследованный отсев варианта круга 1. Значения не относятся к коробам круга 2.
+mass:
+  round1_accepted_machine_and_station:
+    chamber_rows_kg:
+      front_shanks_two: 13.594653159787281
+      front_integral_feet_two: 5.075337179653918
+      front_fixed_teeth: 5.165105048137592
+      front_rotating_teeth: 5.165105048137592
+      front_rotating_sleeves: 9.570635824490244
+      front_carrier_lands: 4.367552062763406
+      rear_shanks_two: 5.348833240501158
+      rear_integral_feet_two: 3.600382048260616
+      rear_fixed_teeth: 2.115956899972333
+      rear_rotating_teeth: 2.115956899972333
+      rear_rotating_sleeves: 4.905172813572227
+      rear_carrier_lands: 3.229275761188545
+      moving_crosshead: 53.458276508422344
+      bottom_cast_box: 78.63634025107157
+      bottom_end_diaphragms: 9.501388799999999
+      side_walls_and_guides: 9.8439
+      closed_roof_and_side_haunches: 3.3287924999999996
+      inserts_and_retainers: 5.0
+      synchronizer_and_guards: 7.0
+      interfaces_and_local_ribs: 10.0
+      cast_floor_thickening: 1.6955999999999998
+      bayonet_diaphragm_accumulator: 3.3
+      bayonet_cylinder_and_valves_allowance: 3.0
+    chamber_kg: 249.01826404593115
+    delta_chamber_kg: 68.79826404593115
+    reference_machine_kg: 4942.65
+    reference_chamber_kg: 180.22
+    gate_shift:
+      rows_kg:
+        four_smooth_columns: 1.8126204213049708
+        main_cylinder_filled: 11.21820764919063
+        two_rapid_cylinders_filled: 2.0176216884108324
+        translated_gate_cassette_and_plate: 0.0
+      delta_kg: 15.048449758906433
+      frame_axial_length_mm: 1181.0
+      bearing_planes_spacing_mm: 526.0
+      column_smooth_span_mm: 410.0
+      column_smooth_span_diameter_mm: 70.0
+      main_cylinder_body_length_mm: 662.0
+      rear_cover_thickness_mm: 144.0
+      rapid_cylinder_body_length_mm: 436
+      chamber_roof_and_cheeks_accounted_in_replacement: true
+    machine_kg: 5026.496713804838
+    H2_increment_kg:
+    - 5.0
+    - 18.0
+    machine_with_H2_kg:
+    - 5031.496713804838
+    - 5044.496713804838
+    station_reduction_for_limit_kg: 26.496713804837782
+    station_reduction_for_limit_with_H2_kg:
+    - 31.496713804837782
+    - 44.49671380483778
+    station_reduction_for_target_with_H2_kg:
+    - 131.49671380483778
+    - 144.49671380483778
+    station_reduction_D_GK_10_target_kg: 40.0
+    sources:
+      baseline_H2: ops/reports/T-2.2/GK_review.md
+      replaced_chamber: calc/T-2.2d/mass.py
+      gate_shift: calc/T-2.2d/results.json candidates/roof_mm=15/gate_shift
+      original_chamber_rows: calc/T-2.2d/hand.py candidates
+      revised_foot_and_box_rows: calc/T-2.2e/hand.py variant
+  selected_trial_chamber:
+    chamber_rows_kg:
+      front_shanks_two: 11.056984569960322
+      front_integral_feet_two: 5.075337179653918
+      front_fixed_teeth: 5.165105048137592
+      front_rotating_teeth: 5.165105048137592
+      front_rotating_sleeves: 9.570635824490244
+      rear_shanks_two: 3.545485544072523
+      rear_integral_feet_two: 3.4180842230322304
+      rear_fixed_teeth: 1.9984037388627593
+      rear_rotating_teeth: 1.9984037388627593
+      rear_rotating_sleeves: 3.797871358924701
+      side_walls_and_guides: 9.8439
+      inserts_and_retainers: 5.0
+      synchronizer_and_guards: 7.0
+      interfaces_and_local_ribs: 10.0
+      bayonet_diaphragm_accumulator: 3.3
+      bayonet_cylinder_and_valves_allowance: 3.0
+      moving_crosshead_including_ring_seats: 75.8760089900835
+      bottom_box_including_ring_seats_and_roof: 78.551336080585
+    chamber_kg: 243.36266134480314
+    delta_chamber_kg: 63.142661344803145
+    reference_machine_kg: 4942.65
+    reference_chamber_kg: 180.22
+    gate_shift:
+      rows_kg:
+        four_smooth_columns: 1.8126204213049708
+        main_cylinder_filled: 11.21820764919063
+        two_rapid_cylinders_filled: 2.0176216884108324
+        translated_gate_cassette_and_plate: 0.0
+      delta_kg: 15.048449758906433
+      frame_axial_length_mm: 1181.0
+      bearing_planes_spacing_mm: 526.0
+      column_smooth_span_mm: 410.0
+      column_smooth_span_diameter_mm: 70.0
+      main_cylinder_body_length_mm: 662.0
+      rear_cover_thickness_mm: 144.0
+      rapid_cylinder_body_length_mm: 436
+      chamber_roof_and_cheeks_accounted_in_replacement: true
+    machine_kg: 5020.841111103709
+    H2_increment_kg:
+    - 5.0
+    - 18.0
+    machine_with_H2_kg:
+    - 5025.841111103709
+    - 5038.841111103709
+    station_reduction_for_limit_kg: 20.84111110370941
+    station_reduction_for_limit_with_H2_kg:
+    - 25.84111110370941
+    - 38.84111110370941
+    station_reduction_for_target_with_H2_kg:
+    - 125.84111110370941
+    - 138.8411111037094
+    station_reduction_D_GK_10_target_kg: 40.0
+    sources:
+      baseline_H2: ops/reports/T-2.2/GK_review.md
+      replaced_chamber: calc/T-2.2d/mass.py
+      gate_shift: calc/T-2.2d/results.json candidates/roof_mm=15/gate_shift
+      original_chamber_rows: calc/T-2.2d/hand.py candidates
+      revised_foot_and_box_rows: calc/T-2.2e/hand.py variant
+      updated_box_and_support_rows: r2_geometry.py exact OCC volumes; T-2.2d part_volumes
+    accepted_round_one_station_reduction_kg:
+    - 31.496713804837782
+    - 44.49671380483778
+references:
+- calc/T-2.2e/sources.yaml
+- calc/T-2.2e/results.json
+- report.md
+round: 2
+round1_reference_geometry:
+  stations:
+    front:
+      x_mm: 194.0
+      y_mm: 223.89355675444403
+      shank_r_mm: 35.0
+      head_r_mm: 67.0
+      collar_r_mm: 86.0
+      foot_r_mm: 70.0
+      outer_envelope_r_mm: 93.0
+      tooth_height_mm: 70.0
+      post_length_mm: 155.0
+      foot_bearing_z_mm: -65.0
+      working_tooth_z_mm: 90.0
+      gate_swept_clearance_mm: 3.000000000000014
+    rear:
+      x_mm: 38.0
+      y_mm: 130.0
+      shank_r_mm: 23.0
+      head_r_mm: 49.0
+      collar_r_mm: 67.0
+      foot_r_mm: 56.0
+      outer_envelope_r_mm: 74.0
+      tooth_height_mm: 50.0
+      post_length_mm: 155.0
+      foot_bearing_z_mm: -65.0
+      working_tooth_z_mm: 90.0
+      gate_swept_clearance_mm: 102.0
+  shoe_h_mm: 185.0
+  floor_h_mm: 225.0
+  shoe_face_to_box_mm: 35.0
+  shoe_skin_mm: 14.0
+  floor_skin_mm: 14.0
+  roof_depth_mm: 115.0
+  shoe_four_webs_each_mm: 17.0
+  floor_four_webs_each_mm: 22.0
+  floor_local_band:
+    x_interval_mm:
+    - 115.0
+    - 235.0
+    width_mm: 150.0
+    extra_mm: 12.0
+  horizontal_station_clearance_mm: 15.076906827856675
+  effective_span_mm: 413.14794436108025
+  prepress_window_x_interval_mm:
+  - 5.0
+  - 205.0
+  shoe_face_width_mm: 150.0
+  floor_box_axial_width_mm: 280.0
+  shoe_box_axial_width_mm: 200.0
+  chamber_section_mm:
+  - 150.0
+  - 60.0
+  tooth_sector_count: 3
+  tooth_sector_angle_deg: 55.0
+  sleeve_rotation_deg: 60.0
+  foot_thickness_mm: 28.0
+  collar_land_thickness_mm: 22.0
+  axial_gate_motion_outline_x_interval_mm:
+  - 214.0
+  - 274.0
+  gate_face_x_mm: 220.0
+  gate_outline_halfwidth_mm: 130.0
+  gate_swept_z_interval_mm:
+  - -149.0
+  - 188.0
+  gate_running_clearance_min_nominal_mm: 3.0
+  load_fillet_R_mm: 15.0
+  contact_edge_R_mm: 5.0
+  toe_crown_mm: 0.1
+  heel_crown_mm: 0.1
+  raised_tooth_bearing_projection_mm: 8.0
+  fixed_tooth_inner_relief_mm: 4.0
+  sleeve_tooth_inner_relief_mm: 5.0
+  front_rear_side: две зеркальные пары по y
+  y_is_transverse: true
+  z_is_vertical: true
+  crosshead_web_x_mm:
+  - 13.5
+  - 38.0
+  - 144.0
+  - 194.0
+  floor_web_x_mm:
+  - 38.0
+  - 128.0
+  - 171.0
+  - 211.0
+  floor_end_diaphragm_mm: 16.0
+geometry:
+  crosshead: Цельная отливка G35CrNiMo6-6+QT1 с интегральными опорными кольцами, обшивками и диафрагмами.
+  base: Цельная отливка G35CrNiMo6-6+QT1, крыша 15 мм и обе щеки отлиты вместе с основанием.
+  welds: Нагруженные соединения без швов. Сварной ремонт колец, диафрагм и зоны переходов исключён.
+  layout:
+    name: closed_flanks_shoe_priority
+    front_x_mm: 187.0
+    rear_x_mm: 37.0
+    front_shank_mm: 35.0
+    rear_shank_mm: 21.0
+    top_depth_mm: 255.0
+    base_depth_mm: 215.0
+    top_skin_mm: 14.0
+    base_skin_mm: 12.0
+    top_front_webs_mm: &id001
+    - 23.0
+    - 30.0
+    base_front_webs_mm: &id002
+    - 20.0
+    - 22.0
+    rear_web_mm: 9.0
+    longitudinal_mm: 8.0
+    front_ring_web_mm: 22.0
+    rear_ring_web_mm: 12.0
+    close_seats: true
+    pressure_rib_mm: 12.0
+    front_skin_add_mm: 6.0
+    focused_wing: true
+    through_ring: true
+    seat_haunch_mm: 9.0
+    closed_flanks: true
+  stations:
+    front:
+      x_mm: 187.0
+      y_mm: 222.12491519670453
+      shank_r_mm: 35.0
+      head_r_mm: 67.0
+      collar_r_mm: 86.0
+      foot_r_mm: 70.0
+      outer_envelope_r_mm: 93.0
+      tooth_height_mm: 70.0
+      post_length_mm: 113.0
+      foot_bearing_z_mm: -23.0
+      working_tooth_z_mm: 90.0
+      gate_swept_clearance_mm: 3.000000000000014
+      sleeve_shoulder_z_mm: 70.0
+    rear:
+      x_mm: 37.0
+      y_mm: 130.0
+      shank_r_mm: 21.0
+      head_r_mm: 47.0
+      collar_r_mm: 62.0
+      foot_r_mm: 54.0
+      outer_envelope_r_mm: 69.0
+      tooth_height_mm: 50.0
+      post_length_mm: 113.0
+      foot_bearing_z_mm: -23.0
+      working_tooth_z_mm: 90.0
+      gate_swept_clearance_mm: 108.0
+      sleeve_shoulder_z_mm: 70.0
+  ring_seats:
+    front:
+      moving_ring_outer_R_mm: 93.0
+      sleeve_installation_bore_R_mm: 86.5
+      lower_throat_R_mm: 70.0
+      moving_seat_annulus_thickness_mm: 22.0
+      base_ring_outer_R_mm: 82.0
+      heel_installation_bore_R_mm: 70.5
+      cast_seating_throat_R_mm: 51.0
+      loaded_tooth_plane_z_mm: 90.0
+      heel_thickness_mm: 28.0
+      tooth_edge_R_mm: 5.0
+      crown_mm: 0.1
+    rear:
+      moving_ring_outer_R_mm: 69.0
+      sleeve_installation_bore_R_mm: 62.5
+      lower_throat_R_mm: 50.0
+      moving_seat_annulus_thickness_mm: 22.0
+      base_ring_outer_R_mm: 66.0
+      heel_installation_bore_R_mm: 54.5
+      cast_seating_throat_R_mm: 37.0
+      loaded_tooth_plane_z_mm: 90.0
+      heel_thickness_mm: 28.0
+      tooth_edge_R_mm: 5.0
+      crown_mm: 0.1
+  pressure_centroid_xy_mm:
+  - 165.22427473276937
+  - 57.84071221055124
+  pressure_longitudinal_law: Интеграл Janssen из T-2.2d, распределение по x 130,6–205 мм.
+  transverse_skew: Экспоненциальный профиль круга 1 со средним y = 57,841 мм, знак перекоса в модели положительный.
+  load_diaphragms:
+    front_center_x_mm:
+    - 147.0
+    - 192.0
+    rear_center_x_mm:
+    - 16.0
+    - 60.0
+    upper_front_thickness_mm: *id001
+    lower_front_thickness_mm: *id002
+    rear_thickness_mm: 9.0
+    lateral_wall_thickness_mm: 8.0
+    pressure_longitudinal_rib_y_mm:
+    - -71.0
+    - 71.0
+    pressure_longitudinal_rib_mm: 12.0
+    front_flange_haunch_add_mm: 9.0
+    central_skin_width_mm: 216.0
+    central_shoe_face_stock_mm: 35.0
+    central_floor_face_stock_mm: 26.0
+    load_wing_each_side_bend_y_mm: 117.0
+    front_wing_web_offset_at_ring_fraction_outer_R: 0.8
+    geometry_generator: calc/T-2.2e/fea/r2_geometry.py
+  chamber_cross_section_mm:
+  - 150.0
+  - 60.0
+  prepress_window_x_mm:
+  - 5.0
+  - 205.0
+  shoe_working_plane_z_mm: 60.0
+  floor_working_plane_z_mm: 0.0
+  roof_x_mm:
+  - 205.0
+  - 220.0
+  roof_plane_z_mm: 60.0
+  roof_section_depth_mm: 115.0
+  gate_plate_x_mm:
+  - 220.0
+  - 274.0
+  gate_rib_upstream_x_mm: 214.0
+  gate_swept_y_mm:
+  - -130.0
+  - 130.0
+  gate_swept_z_mm:
+  - -149.0
+  - 188.0
+  nominal_station_spacing_clearance_mm: 14.03124722616721
+  casting_fillet_status: Штатный R ≥ 15 для нагруженных переходов обязателен в КД. В глобальном расчёте стыки
+    отливки остроугольные. Номинальные точки вне кромок.
+  rotation_deg: 60.0
+  tooth_sector_count: 3
+  tooth_sector_angle_deg: 55.0
+  assembly: Муфта вынимается вверх через расточку наружного бурта. Снизу доступ к цельной пяте. У верхнего направляющего
+    бурта осевая разгрузка сервисного крепежа.
+fea_screen:
+  status: STOP
+  global_results:
+    mesh_mm:
+    - 24.0
+    - 20.0
+    - 17.0
+    nodes:
+    - 70946
+    - 81968
+    - 98933
+    max_delta_height_300_mm: 1.4002604419166829
+    max_delta_height_xy_mm:
+    - 205.0
+    - 65.0
+    max_delta_height_spread_fraction: 0.01682615192471553
+    delta_height_at_x165_edge_300_mm: 1.187175572754705
+    delta_height_at_x165_spread_fraction: 0.014351101986568483
+    global_box_static_factor_at_points: 1.904538167577969
+    global_box_FKM_at_points: 0.5202282200971038
+    governing_stress_controls:
+      proof: floor_15
+      working: floor_15
+    governing_proof_stress:
+      point_mm:
+      - 212.5
+      - 62.0
+      - 63.0
+      equivalent_MPa: 341.2900886237503
+      range_MPa: 341.2900886237503
+      stress_MPa:
+      - 0.8451805279017757
+      - -316.6322213046557
+      - -335.27668528886807
+      - 17.107060318466267
+      - 53.2169271788192
+      - -3.9214514167999766
+    governing_working_stress:
+      point_mm:
+      - 212.5
+      - 62.0
+      - 63.0
+      equivalent_MPa: 325.03762092319573
+      range_MPa: 325.03762092319573
+      stress_MPa:
+      - 0.8049685313019523
+      - -301.5542104685436
+      - -319.3102844794752
+      - 16.292451785524374
+      - 50.68272349550657
+      - -3.73472119201043
+    maximum_reaction_imbalance_fraction: 4.420406553309187e-07
+    maximum_moment_imbalance_fraction: 2.358489130566378e-06
+    maximum_anchor_resultant_over_shoe_force_fraction: 7.681147990454577e-13
+    point_stress_spreads_fraction:
+      shoe_00:
+        proof_VM: 0.033181619013927244
+        working_VM_range: 0.033183801715495745
+      shoe_01:
+        proof_VM: 0.3735162469453506
+        working_VM_range: 0.3735166344570371
+      shoe_02:
+        proof_VM: 0.2672999848396858
+        working_VM_range: 0.26730076513532597
+      shoe_03:
+        proof_VM: 0.3480260141941406
+        working_VM_range: 0.3480270739811724
+      shoe_04:
+        proof_VM: 0.037979649805744
+        working_VM_range: 0.037979039841329956
+      shoe_05:
+        proof_VM: 0.016224835468125025
+        working_VM_range: 0.01622619550229671
+      shoe_06:
+        proof_VM: 0.09960229699763759
+        working_VM_range: 0.09959978627314452
+      shoe_07:
+        proof_VM: 0.07144197359936388
+        working_VM_range: 0.07144268981036236
+      shoe_08:
+        proof_VM: 0.0514623606275447
+        working_VM_range: 0.05145987764148653
+      shoe_09:
+        proof_VM: 0.04240962455561998
+        working_VM_range: 0.042409563434325184
+      shoe_10:
+        proof_VM: 0.11999587740527246
+        working_VM_range: 0.11999834963159593
+      shoe_11:
+        proof_VM: 0.08365734038769547
+        working_VM_range: 0.08365610841213941
+      shoe_12:
+        proof_VM: 0.024592092960265072
+        working_VM_range: 0.024595282027983716
+      shoe_13:
+        proof_VM: 0.007251812437102929
+        working_VM_range: 0.007252721971905456
+      shoe_14:
+        proof_VM: 0.05770711430375831
+        working_VM_range: 0.0577067470847139
+      shoe_15:
+        proof_VM: 0.04874978167589598
+        working_VM_range: 0.04874946186883503
+      shoe_16:
+        proof_VM: 0.19884813266183268
+        working_VM_range: 0.19884758241689324
+      shoe_17:
+        proof_VM: 0.10043727679620743
+        working_VM_range: 0.10043768772266014
+      shoe_18:
+        proof_VM: 0.02518464620737593
+        working_VM_range: 0.025183359708942726
+      shoe_19:
+        proof_VM: 0.036155962567832385
+        working_VM_range: 0.03615763268227763
+      shoe_20:
+        proof_VM: 0.03026104541648019
+        working_VM_range: 0.03026054437095449
+      shoe_21:
+        proof_VM: 0.01219003829917668
+        working_VM_range: 0.012188111522891214
+      floor_00:
+        proof_VM: 0.0822886178817005
+        working_VM_range: 0.08228721340717421
+      floor_01:
+        proof_VM: 0.18155973425956318
+        working_VM_range: 0.1815602946164092
+      floor_02:
+        proof_VM: 0.1875709233564652
+        working_VM_range: 0.18757473356331247
+      floor_03:
+        proof_VM: 0.014687529435085481
+        working_VM_range: 0.014685713492882595
+      floor_04:
+        proof_VM: 0.05618172811120126
+        working_VM_range: 0.05618357138370209
+      floor_05:
+        proof_VM: 0.1148099541260085
+        working_VM_range: 0.11481244825565723
+      floor_06:
+        proof_VM: 0.2140656655660138
+        working_VM_range: 0.21406606214214427
+      floor_07:
+        proof_VM: 0.10188585518046622
+        working_VM_range: 0.10188650406976556
+      floor_08:
+        proof_VM: 0.015004005382655455
+        working_VM_range: 0.015004762134493825
+      floor_09:
+        proof_VM: 0.09509896379520921
+        working_VM_range: 0.09509966836348518
+      floor_10:
+        proof_VM: 0.031166425283192356
+        working_VM_range: 0.031167666168039083
+      floor_11:
+        proof_VM: 0.1350022237723416
+        working_VM_range: 0.1350037008239776
+      floor_12:
+        proof_VM: 0.023404748260194237
+        working_VM_range: 0.023410209565147992
+      floor_13:
+        proof_VM: 0.00808509178867775
+        working_VM_range: 0.008084758048451726
+      floor_14:
+        proof_VM: 0.0115670264562509
+        working_VM_range: 0.0115667394771133
+      floor_15:
+        proof_VM: 0.015750887377525214
+        working_VM_range: 0.01574983173278596
+      floor_16:
+        proof_VM: 0.07272728835091735
+        working_VM_range: 0.07272662510316229
+      floor_17:
+        proof_VM: 0.056318686463855495
+        working_VM_range: 0.05631887568526419
+      floor_18:
+        proof_VM: 0.03956104019918459
+        working_VM_range: 0.03956060039031002
+      floor_19:
+        proof_VM: 0.021646151023083867
+        working_VM_range: 0.02164659316122382
+      floor_20:
+        proof_VM: 0.01925428719878107
+        working_VM_range: 0.019253478341631897
+      floor_21:
+        proof_VM: 0.036988620254941124
+        working_VM_range: 0.03698850408867285
+      floor_22:
+        proof_VM: 0.004388789045512875
+        working_VM_range: 0.004388078123352528
+      floor_23:
+        proof_VM: 0.00345857465859112
+        working_VM_range: 0.0034584784441395794
+    max_point_stress_spread_fraction: 0.3735166344570371
+    governing_proof_stress_spread_fraction: 0.015750887377525214
+    governing_FKM_stress_spread_fraction: 0.01574983173278596
+    proof_stress_mesh_envelope_spread_fraction: 0.0763374718798449
+    working_stress_mesh_envelope_spread_fraction: 0.0763399120680159
+    manual_comparison_315_bar:
+      shoe_inboard:
+        y_cut_mm: 102.0
+        area_mm2: 19881.113937358037
+        axial_resultant_FEA_N: -4752.244339838063
+        average_shear_hand_MPa: -33.31059214297126
+        average_shear_FEA_MPa: -33.207513469043626
+        bending_hand_Nmm: 73205183.19995566
+        bending_FEA_Nmm: 72169647.05446863
+        shear_error_fraction: 0.0030944713767082637
+        moment_error_fraction: 0.014145667017300117
+      shoe_wing:
+        y_cut_mm: 137.0
+        area_mm2: 23259.182956518034
+        axial_resultant_FEA_N: -11853.170510690046
+        average_shear_hand_MPa: -26.984033313781172
+        average_shear_FEA_MPa: -26.525359700688224
+        bending_hand_Nmm: 50517236.294848084
+        bending_FEA_Nmm: 49055855.74184028
+        shear_error_fraction: 0.016997963490457832
+        moment_error_fraction: 0.028928355155423264
+      floor_wing:
+        y_cut_mm: 137.0
+        area_mm2: 17561.98619495417
+        axial_resultant_FEA_N: -7683.345798448043
+        average_shear_hand_MPa: 36.10843508727512
+        average_shear_FEA_MPa: 35.86642205128869
+        bending_hand_Nmm: -50064486.23773667
+        bending_FEA_Nmm: -48741931.33988758
+        shear_error_fraction: 0.006702396140997974
+        moment_error_fraction: 0.02641702726297428
+    inactive_supports: []
+    solver_pressure_steps_bar:
+    - 0
+    - 100
+    - 200
+    - 300
+    - 315
+  local_results:
+    front:
+      attempts:
+      - mesh_mm: 6.0
+        status: SOLVED
+        recorded_steps: 5
+      - mesh_mm: 5.2
+        status: SOLVED
+        recorded_steps: 5
+      - mesh_mm: 4.8
+        status: SOLVED
+        recorded_steps: 5
+      meshes_complete: 3
+      proof_gauges:
+        tooth_point_xy_mm:
+        - 53.296416347908384
+        - 4.662832236999712
+        heel_point_xy_mm:
+        - 55.26950018737735
+        - 24.607566906085914
+        tooth_point_MPa: 401.2030946181691
+        heel_point_MPa: 294.8965160530368
+        tooth_band_by_sector:
+          '0':
+            pressure_mean_MPa: 280.0546781674096
+            projected_area_mm2: 351.7087285436818
+          '1':
+            pressure_mean_MPa: 268.0654213408278
+            projected_area_mm2: 703.0235444919352
+        heel_band:
+          pressure_mean_MPa: 175.84084785800158
+          projected_area_mm2: 1709.5717970113078
+        highest_tooth_band_mean_MPa: 280.0546781674096
+        hand_tooth_nominal_mean_MPa: 323.97415100461444
+        hand_tooth_Hertz_peak_MPa: 393.818189074826
+        hand_heel_annular_max_MPa: 196.42481731986206
+        tooth_point_to_hand_Hertz_difference_fraction: 0.018752068208662376
+        tooth_strip_to_hand_nominal_difference_fraction: -0.1355647439803903
+      working_gauges:
+        tooth_point_xy_mm:
+        - 53.296416347908384
+        - 4.662832236999712
+        heel_point_xy_mm:
+        - 55.26950018737735
+        - 24.607566906085914
+        tooth_point_MPa: 388.16322897618727
+        heel_point_MPa: 282.70536296750004
+        tooth_band_by_sector:
+          '0':
+            pressure_mean_MPa: 266.74363877376965
+            projected_area_mm2: 351.7087285436818
+          '1':
+            pressure_mean_MPa: 255.45058206560805
+            projected_area_mm2: 703.0235444919352
+        heel_band:
+          pressure_mean_MPa: 167.47985281584792
+          projected_area_mm2: 1709.5717970113078
+        highest_tooth_band_mean_MPa: 266.74363877376965
+        hand_tooth_nominal_mean_MPa: 308.5126521876002
+        hand_tooth_Hertz_peak_MPa: 380.67502455069257
+        hand_heel_annular_max_MPa: 187.05054449221285
+        tooth_point_to_hand_Hertz_difference_fraction: 0.01967085819284553
+        tooth_strip_to_hand_nominal_difference_fraction: -0.1353883321077921
+      proof_gauges_by_mesh:
+      - mesh_mm: 6.0
+        tooth_point_MPa: 405.2354995332611
+        heel_point_MPa: 280.5293689556373
+        highest_tooth_band_mean_MPa: 274.20223428286397
+        heel_band_mean_MPa: 164.606497962263
+      - mesh_mm: 5.2
+        tooth_point_MPa: 401.2677721251127
+        heel_point_MPa: 259.3478197832936
+        highest_tooth_band_mean_MPa: 275.18026990649446
+        heel_band_mean_MPa: 173.24615685611968
+      - mesh_mm: 4.8
+        tooth_point_MPa: 401.2030946181691
+        heel_point_MPa: 294.8965160530368
+        highest_tooth_band_mean_MPa: 280.0546781674096
+        heel_band_mean_MPa: 175.84084785800158
+      spreads_fraction:
+        tooth_point_MPa: 0.010050782182848567
+        heel_point_MPa: 0.12054634196949902
+        highest_tooth_band_mean_MPa: 0.02089750445463784
+        heel_band_mean_MPa: 0.06388930690786225
+      maximum_balance_fraction: 0.00025885170507492243
+      maximum_target_mismatch_fraction: 0.0012521352235147435
+      maximum_target_mismatch_300_315_fraction: 0.00012147321343474692
+      local_static_at_points: 3.8609849102443947
+      local_FKM_at_points: 1.7260602789445718
+      proof_pressure_projected_force_N:
+        LUG: 284852.2228651054
+        HEEL: 284347.1488041274
+      proof_cast_reaction_N: -284715.5
+      section_checks:
+      - z_relative_to_tooth_mm: -33.9
+        area_mm2: 1914.0693115971812
+        hand_MPa: 147.96368718328335
+        FEA_MPa: 148.71103784680352
+        error_fraction: 0.005050905919872211
+      - z_relative_to_tooth_mm: -59.89
+        area_mm2: 1913.432799803714
+        hand_MPa: 147.96368718328335
+        FEA_MPa: 148.4543570814752
+        error_fraction: 0.003316150790322252
+      - z_relative_to_tooth_mm: -80.22999999999999
+        area_mm2: 1913.3795039712538
+        hand_MPa: 147.96368718328335
+        FEA_MPa: 148.1949817427981
+        error_fraction: 0.0015631846158864044
+      current_load_fraction_by_tooth:
+        '0': 0.34110208431559075
+        '1': 0.3294489578422047
+        '2': 0.3294489578422047
+    rear:
+      attempts:
+      - mesh_mm: 6.0
+        status: SOLVED
+        recorded_steps: 5
+      - mesh_mm: 5.6
+        status: SOLVED
+        recorded_steps: 5
+      - mesh_mm: 4.6
+        status: SOLVED
+        recorded_steps: 5
+      meshes_complete: 3
+      proof_gauges:
+        tooth_point_xy_mm:
+        - 36.36110648034871
+        - 3.181184610289523
+        heel_point_xy_mm:
+        - 41.56631832273834
+        - 18.50651725994891
+        tooth_point_MPa: 335.6720093953433
+        heel_point_MPa: 163.52157108360203
+        tooth_band_by_sector:
+          '0':
+            pressure_mean_MPa: 176.4575372964149
+            projected_area_mm2: 137.71041649307983
+          '1':
+            pressure_mean_MPa: 171.8361124994691
+            projected_area_mm2: 275.64098277125936
+        heel_band:
+          pressure_mean_MPa: 75.69207272911069
+          projected_area_mm2: 1000.4684696721374
+        highest_tooth_band_mean_MPa: 176.4575372964149
+        hand_tooth_nominal_mean_MPa: 204.40484845593204
+        hand_tooth_Hertz_peak_MPa: 349.98139588678833
+        hand_heel_annular_max_MPa: 81.57991876398512
+        tooth_point_to_hand_Hertz_difference_fraction: -0.04088613469063884
+        tooth_strip_to_hand_nominal_difference_fraction: -0.13672528499509806
+      working_gauges:
+        tooth_point_xy_mm:
+        - 36.36110648034871
+        - 3.181184610289523
+        heel_point_xy_mm:
+        - 41.56631832273834
+        - 18.50651725994891
+        tooth_point_MPa: 325.72598492846976
+        heel_point_MPa: 156.19949081586807
+        tooth_band_by_sector:
+          '0':
+            pressure_mean_MPa: 168.2411191077397
+            projected_area_mm2: 137.71041649307983
+          '1':
+            pressure_mean_MPa: 163.43916201523695
+            projected_area_mm2: 275.64098277125936
+        heel_band:
+          pressure_mean_MPa: 72.07036314956211
+          projected_area_mm2: 1000.4684696721374
+        highest_tooth_band_mean_MPa: 168.2411191077397
+        hand_tooth_nominal_mean_MPa: 194.64028933190414
+        hand_tooth_Hertz_peak_MPa: 341.519678718121
+        hand_heel_annular_max_MPa: 77.68279036354963
+        tooth_point_to_hand_Hertz_difference_fraction: -0.046245340382528366
+        tooth_strip_to_hand_nominal_difference_fraction: -0.1356305537500928
+      proof_gauges_by_mesh:
+      - mesh_mm: 6.0
+        tooth_point_MPa: 395.27226806520866
+        heel_point_MPa: 231.01000641593495
+        highest_tooth_band_mean_MPa: 175.99838381986663
+        heel_band_mean_MPa: 79.76501185982256
+      - mesh_mm: 5.6
+        tooth_point_MPa: 309.09278767758644
+        heel_point_MPa: 231.09001146904376
+        highest_tooth_band_mean_MPa: 181.09285379062447
+        heel_band_mean_MPa: 81.21998846035308
+      - mesh_mm: 4.6
+        tooth_point_MPa: 335.6720093953433
+        heel_point_MPa: 163.52157108360203
+        highest_tooth_band_mean_MPa: 176.4575372964149
+        heel_band_mean_MPa: 75.69207272911069
+      spreads_fraction:
+        tooth_point_MPa: 0.25673716597001955
+        heel_point_MPa: 0.41320811644413996
+        highest_tooth_band_mean_MPa: 0.028870798316765055
+        heel_band_mean_MPa: 0.07303163372240944
+      maximum_balance_fraction: 0.0005494182932987728
+      maximum_target_mismatch_fraction: 0.010910055556807893
+      maximum_target_mismatch_300_315_fraction: 0.0002101367316052593
+      local_static_at_points: 5.83852493106866
+      local_FKM_at_points: 2.621669169581269
+      proof_pressure_projected_force_N:
+        LUG: 70412.84363196454
+        HEEL: 70250.54062563424
+      proof_cast_reaction_N: -70369.52
+      section_checks:
+      - z_relative_to_tooth_mm: -33.9
+        area_mm2: 688.281427935477
+        hand_MPa: 101.58419003178224
+        FEA_MPa: 102.16442202825002
+        error_fraction: 0.005711833665122876
+      - z_relative_to_tooth_mm: -59.89
+        area_mm2: 688.977971993653
+        hand_MPa: 101.58419003178224
+        FEA_MPa: 102.21111503746202
+        error_fraction: 0.006171482053296253
+      - z_relative_to_tooth_mm: -80.22999999999999
+        area_mm2: 689.1936599147137
+        hand_MPa: 101.58419003178224
+        FEA_MPa: 102.15078926590516
+        error_fraction: 0.0055776320502791705
+      current_load_fraction_by_tooth:
+        '0': 0.345911808404494
+        '1': 0.327044095797753
+        '2': 0.327044095797753

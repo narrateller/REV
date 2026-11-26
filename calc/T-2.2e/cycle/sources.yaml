@@ -1,0 +1,232 @@
+catalogs:
+  parker_pvplus:
+    manufacturer: Parker Hannifin
+    series: PVplus Design 47
+    url: https://www.parker.com/content/dam/Parker-com/Literature/PMDE/Catalogs/Piston_Pumps/PV-/MSG30-3245_UK.pdf
+    graph_copy_url: https://www.lifcohydraulics.com/SpecFiles/FileManager/50c36d01-65e0-4bb5-15d7-08d859ac4ac6/Lifco-PV-Pumps-Catalog.pdf
+    dynamics_copy_url: https://www.parker.com/content/dam/Parker-com/Literature/Germany/CD_Rom-Bauteilfreigabeliste-Mechanik-Hydraulik-UK/MSG30-3245_UK.pdf
+    older_pv092_graph_url: https://www.denison.com.tw/Catalog/parker/axialpiston/PVplus/200702-PVplus/Catalog/200702-PV063-HY30-3243.pdf
+    where: "MSG30-3245/UK, pp. 5, 26, 32–33, 35–39, 61, 63–65. PV092 deadhead endpoints cross-checked on HY30-3243/UK p. 9."
+    reference_speed_rpm: 1500
+    continuous_pressure_bar: 350
+    min_inlet_absolute_bar: 0.8
+    speed_at_1bar_absolute_max_rpm: {PV360: 1750, PV046: 2800, PV270: 1800, PV092: 2300}
+    case_drain_max_continuous_bar: 0.5
+    fdv_min_pilot_bar: 15
+    udm_min_pilot_bar: 25
+    pv360_fdv_onstroke_at_50bar_ms: 255
+    pv360_fdv_onstroke_at_350bar_ms: 154
+    pv360_fdv_destroke_at_50bar_ms: 266
+    pv360_fdv_destroke_at_350bar_ms: 183
+    response_test: "p. 32: standby to 50/350 bar on-stroke, 50/350 bar to standby de-stroke. Values are for PV360 FDV."
+    pq_control_url: https://dev.parker.com/content/dam/Parker-com/Literature/PMDE/Catalogs/Piston_Pumps/PV-/MSG30-3245_UK.pdf
+    pq_control_where: "pp. 32–33, 46: FDV has no pressure compensator; PQDXXA-Z10 closes the displacement loop; UDM adds pressure/power control."
+    pilot_flow_allowance_L_min: 1.2
+    models:
+      PV360:
+        where: "p. 5 technical data and p. 39, 1500 rpm curves. Mineral ISO VG 22, 32 °C, inlet 1 bar abs. Curve read-offs are approximate."
+        displacement_cm3_rev: 360
+        mass_kg: 180
+        full_stroke_power_at_350bar_kW: 338.7
+        full_stroke_power_kW_by_bar: [[0, 5], [50, 45], [100, 95], [150, 140], [200, 185], [250, 230], [300, 275]]
+        zero_stroke_power_kW_by_bar: [[0, 4.5], [25, 5.5], [50, 6], [75, 6.5], [100, 7.5], [125, 8.5], [150, 10], [175, 11.5], [200, 13], [225, 14.5], [250, 16], [275, 18], [300, 20], [325, 22.5], [350, 25]]
+        volumetric_efficiency_by_bar: [[25, 1.00], [50, 0.99], [100, 0.98], [150, 0.97], [200, 0.965], [250, 0.96], [300, 0.95], [350, 0.945]]
+        total_efficiency_by_bar: [[25, 0.71], [50, 0.85], [100, 0.89], [125, 0.905], [175, 0.915], [250, 0.92], [350, 0.915]]
+      PV046:
+        where: "pp. 5, 35. 1500 rpm, 50 °C, 30 mm²/s for plots. Full-stroke rated power from technical table. Rounded graph efficiency used for delivery."
+        displacement_cm3_rev: 46
+        mass_kg: 30
+        full_stroke_eta_v_at_350bar: 0.94
+        full_stroke_power_kW_endpoints: [2, 43.8]
+        zero_stroke_power_kW_endpoints: [1, 5]
+      PV270:
+        where: "pp. 5, 38. 1500 rpm, 50 °C, 30 mm²/s. Use volumetric efficiency instead of the ambiguously scaled flow axis."
+        displacement_cm3_rev: 270
+        mass_kg: 172
+        full_stroke_eta_v_at_350bar: 0.97
+        full_stroke_power_kW_endpoints: [10, 259.6]
+        zero_stroke_power_kW_endpoints: [5, 25]
+      PV092:
+        where: "pp. 5, 36 and HY30-3243/UK p. 9. 1500 rpm, 50 °C, 30 mm²/s. Rounded graph flow of 134 L/min at 350 bar."
+        displacement_cm3_rev: 92
+        full_stroke_eta_v_at_350bar: 0.9710144927536232
+        full_stroke_power_kW_endpoints: [2, 87.5]
+        zero_stroke_power_kW_endpoints: [2, 11]
+
+      PV180:
+        where: "MSG30-3245/UK pp. 5, 37; HY30-3243/UK p. 10 for approximate efficiency/deadhead endpoints. Full-stroke 350 bar endpoint from Design 47 technical table."
+        graph_crosscheck_url: https://www.nexinstrument.com/assets/images/pdf/Series%20PV---%20Parker%20Datasheet.pdf
+        graph_crosscheck_where: "Parker MSG30-3245/UK, PV180 graph p. 36 in the mirror (p. 37 in the main PDF). Approximate graph readings 3/15 kW for deadhead at 0/350 bar; intermediate values use linear interpolation."
+        displacement_cm3_rev: 180
+        mass_kg: 90
+        full_stroke_eta_v_at_350bar: 0.95
+        full_stroke_power_kW_endpoints: [3, 173.1]
+        zero_stroke_power_kW_endpoints: [3, 15]
+
+  hydac_sb330:
+    manufacturer: HYDAC
+    series: SB330
+    model: "SB330 20 L, part 3047174"
+    product_url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    where: "EN 3.000.7, SB series §4.1.6–4.1.7, technical table p. 41. Pilot vessel 3047166 from same table."
+    effective_gas_volume_L: 18.4
+    nominal_volume_L: 20
+    working_pressure_max_bar: 330
+    vertical_discharge_max_L_min: 900
+    mass_kg: 49
+    residual_oil_fraction: 0.10
+    precharge_to_min_pressure_max_ratio: 0.9
+    max_pressure_ratio: 4.0
+    pilot_effective_gas_volume_L: 3.7
+    pilot_mass_kg: 15
+
+  rexroth_2wrce:
+    manufacturer: Bosch Rexroth
+    model: "2WRCE 32/40/50, 4X, L, external pilot"
+    url: https://airlinemedia.airlinehyd.com/Literature/Manufacturer_Catalogs/Bosch%20Rexroth/data%20sheets/2WRCE_2WRCF_re29406_2019-11.pdf
+    where: "RE 29406 2019-11, pp. 2, 6–7 and 13–18. Rated Δp 5 bar, response at pilot 150 bar including the ISO step-response table."
+    working_pressure_max_bar: 420
+    pilot_test_bar: 150
+    main_to_pilot_pressure_min_fraction: {A_to_B: 0.70, B_to_A: 0.35}
+    reference_drop_bar: 5
+    rated_flow_L_min_by_ng: {32: 1100, 40: 1800, 50: 2700}
+    mass_kg_by_ng: {32: 15.6, 40: 21.2, 50: 32.3}
+    iso_response_ms_by_ng: {32: 11, 40: 14, 50: 24}
+    pilot_flow_peak_L_min_by_ng: {32: 78, 40: 78, 50: 95}
+    pilot_volume_mL_by_ng: {32: 5.9, 40: 8.5, 50: 15.3}
+    pilot_steady_average_at_100bar_L_min: 0.4
+    pilot_steady_max_at_100bar_L_min: 0.9
+
+  ie3_motor:
+    manufacturer: MEC MOTORS
+    model: OMT3-IE3 200L-4 B5
+    url: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    where: "p. 1, Specification: S1 at 40 °C, 50 Hz, rated speed and torque, breakdown torque and mass."
+    rated_kW: 30
+    rated_rpm: 1480
+    rated_torque_Nm: 194
+    breakdown_to_rated_torque: 2.3
+    mass_kg: 278
+
+  rexroth_zsf100:
+    manufacturer: Bosch Rexroth
+    model: ZSF NG100 without pre-decompression, passive fill
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20478.pdf
+    where: "RE 20478 (2017-12), p. 6 weight and port ratings, pp. 7 and 15 suction flow, p. 13 counterflange."
+    size_mm: 100
+    mass_kg: 15
+    port_B_max_bar: 350
+    port_A_max_bar: 16
+    suction_drop_budget_bar: 0.3
+    case_2_flow_L_min: 1600
+    counterflange_outer_mm: 295
+
+  rexroth_sfa:
+    manufacturer: Bosch Rexroth
+    model: SFA 80
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20485.pdf
+    where: "RE 20485, pp. 5–6 and 11: port ratings, suction graph and case 2 maximum. 0.4 bar is the graph upper ordinate used as a design allowance; reverse flow needs confirmation."
+    port_B_max_bar: 350
+    port_A_max_bar: 16
+    crack_bar: 0.12
+    case_2_flow_L_min: 1000
+    suction_drop_budget_bar: 0.4
+    mass_kg: 23
+
+  high_pressure_sb330:
+    manufacturer: HYDAC
+    model: SB330 10 L, 3047170
+    url: https://www.hydac.com.au/media/catalog/brochure/e/n/en30000-6-04-21_accumulatortechnology-productcatalogue.pdf
+    where: "EN 3.000.6, SB330 NBR carbon steel table, 10 L slimline row, part 3047170."
+    effective_gas_volume_L: 9.3
+    working_pressure_max_bar: 330
+    vertical_discharge_max_L_min: 600
+    mass_kg: 31
+
+  parker_lac:
+    manufacturer: Parker Olaer
+    model: LAC 078-8 three-phase, 50 Hz
+    url: https://www.parker.com/content/dam/Parker-com/Divisions-2011/Accumulator-and-Cooler-Division---Europe/Support/MSG10-6001_UK_LAC.pdf
+    curve_read_url: https://gsglobalresources.com/uploads/LAC_Air-Oil-Cooler-with-AC-Motor-for-Industrial-Use_HY10-6001.UK_.pdf
+    where_current: "MSG10-6001/UK, p. 9 cooling chart and plus/minus 10% tolerance, p. 10 1.10 kW fan and 136 kg mass table."
+    corroborating_graph_url: https://cdn.pimber.ly/public/asset/raw/5ee8a13150af727432f87049/49665732/61013173d91165001adf609f/TS60442.pdf
+    where: "HY10-6001/UK pp. 6–9, cooling graph, fan table and hydraulic pressure-drop curves. Curve read-off at the label is approximate."
+    fan_kW: 1.10
+    mass_kg: 136
+    chart_flow_L_min: 400
+    chart_capacity_kW_K: 1.75
+    tolerance_fraction: 0.10
+    max_drop_at_400_L_min_approx_bar: 2.0
+    selected_oil_flow_L_min: 250
+    selected_capacity_design_kW_K: 1.40
+    selected_capacity_note: "Design allowance below the graph endpoint. Verify against Parker's selection at 250 L/min with the specified oil."
+
+engineering_inputs:
+  motor_rpm: 1480
+  shaft_limit_kW: 37.5
+  torque_estimate_tolerance: 0.05
+  coupling_loss_allowance_kW: 0.15
+  hp_standby_bar: 25
+  bulk_modulus_Pa: 1400000000
+  oil_density_kg_m3: 870
+  line_drop_inlet_tank_regen_bar: [4, 3, 4]
+  accumulator_precharge_bar_at_operating_temperature: 28
+  accumulator_gas_low_bar: 38
+  accumulator_gas_high_bar: 52
+  accumulator_charge_and_delivery_drop_bar: 3
+  accumulator_branch_flow_L_min: 220
+  accumulator_polytropic_exponent: 1.4
+  pump_model_validation: "Catalogue curves are typical. Bench measure PV180 FDV p/Q and torque including deadhead at 15 and 270?300 bar. FDV slew uses published PV360 times pending a PV180 measurement."
+  hold_s: 0.30
+  valve_allowance_s: 0.07
+  valve_budget_ms: {iso_step_max: 24, plc_two_scans: 20, feedback_and_pilot_allowance: 26}
+  unload_s: 0.20
+  slide_gate_speed_mm_s: 600
+  regen_switch_bar: 120
+  pessimistic_gate_speed_mm_s: 400
+  rapid_approach_m_s: 0.30
+  rapid_eject_m_s: 0.35
+  rapid_return_m_s: 0.35
+  rapid_moving_mass_kg: 400
+  rapid_accel_m_s2: 5
+  gate_moving_mass_kg: 45
+  gate_accel_m_s2: 20
+  rapid_annulus_line_ID_mm: 100
+  rapid_mass_note: "Budget, not a measured mass. Includes assembled ?200 rod, ?280 main piston/punch, guided crosshead and two ?90/50 rod/piston assemblies. Confirm in T-1.5."
+  gate_mass_note: "Budget of 45 kg includes 38 mm plate, rod and attachments. Confirm in T-1.5."
+  regulator_speed_ceiling_rpm: 1500
+  local_exhaust_NG: 50
+  buffer_oil_L: 35
+  buffer_filled_mass_allowance_kg: 48
+  enlarged_piping_mass_allowance_kg: 12
+  annulus_makeup_drop_allowance_bar: 0.20
+  cap_exhaust_restriction_budget_bar: 3.0
+  relief_max_with_tolerance_bar: 315
+  pump_deadhead_sensitivity_kW: 1.0
+  decompression_orifice_diameter_mm: 8.5
+  decompression_discharge_coefficient: 0.62
+  decompression_compliance_multiplier: 2.0
+  decompression_cap_target_bar: 5
+  tank_working_gross_L: {V1: [650, 850.5], V2: [430, 560], V3: [575, 750]}
+  cooler_oil_limit_C: 55
+  ambient_C: 40
+  cooling_circuit_drop_budget_bar: 1.6
+  cooling_circuit_pump_efficiency: 0.65
+  hp_precharge_bar: 150
+  hp_window_bar: [180, 290]
+  hp_assist_L_min: 75
+  hp_assist_threshold_bar: 180
+  hp_delivery_and_charge_drop_bar: 3
+  prefill_auxiliary_cylinders: {count: 2, bore_mm: 90, rod_mm: 50, eta: 0.92, main_float_drag_kN: 8}
+  prefill_fast_to_regen_force_N: 80000
+  prefill_pipe: {inside_diameter_mm: 125, length_m: 1.0, darcy_factor: 0.035, local_K: 2.0, static_head_m: 0.40, tank_gauge_bar: 0.45, cap_min_abs_bar: 0.8}
+  station_mass_allowance_kg: {V2_tank: 115}
+  station_installation_allowance_kg: {skid_and_mounts: 60, manifold_and_small_valves: 75, base_pipes_filters_and_aux_pumps: 45}
+  installed_kW:
+    main_motor: 30
+    pilot_pack: 0.75
+    cooler_fan: 1.10
+    cooler_circulation: 1.10
+    dosing: 0.75
+    controls_and_valves: 0.50
