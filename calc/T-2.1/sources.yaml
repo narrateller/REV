@@ -1,0 +1,96 @@
+catalogs:
+  parker:
+    url: https://www.nexinstrument.com/assets/images/pdf/Series%20PV---%20Parker%20Datasheet.pdf
+    where: "Parker MSG30-3245/UK, p. 4 technical table (PV180 180 cm³/rev, 90 kg, J 0.030 kg·m², 50 rpm min, 15 bar); pp. 31–32 FDV and PV360 response; p. 36 PV180 efficiency, drive power and noise curves. Exact inherited model inputs and alternate edition pagination in cycle/sources.yaml."
+    noise_url: https://www.parker.com/parkerimages/PUMPMOTOR/CAT/ENGLISH/1552a004.pdf
+    noise_where: "HY13-1552-002/US p. A154, PV180 71/75/77 dB(A), 70/207/343 bar at full flow, 1500 rpm, 1 m."
+    noise_dBA_full_stroke_at_bar: [[70, 71], [207, 75], [343, 77]]
+    inertia_kg_m2: 0.030
+    min_rpm: 50
+  rexroth:
+    url: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+    where: "Bosch Rexroth RE 92050/2023-06-15 pp. 8–9, 13. Standard A4VSO 180, ISO VG46 at 50 °C, dashed 1500 rpm curves; rounded engineering read-offs, about ±2 kW and ±5 L/min. Minimum B 15 bar absolute, mass 102 kg dry basic unit, inertia 0.055 kg·m². p. 1 gives qualitative low noise only."
+    displacement_cm3_rev: 180
+    reference_rpm: 1500
+    standby_gauge_bar: 14
+    basic_mass_kg: 102
+    inertia_kg_m2: 0.055
+    min_inlet_absolute_bar: 0.8
+    mass_reference: "Technical table with pressure control, without through drive."
+    # Pressure, full-stroke delivery, full-stroke shaft power, zero-stroke shaft power.
+    curve_bar_L_min_kW_kW:
+      - [0,   270,   2, 2]
+      - [50,  267,  24, 3]
+      - [100, 265,  48, 4]
+      - [150, 263,  72, 5]
+      - [200, 260,  96, 6]
+      - [250, 258, 121, 7]
+      - [300, 255, 145, 8]
+      - [350, 253, 170, 9]
+  dfe1z:
+    url: https://boschrexroth-russia.ru/image/catalog/docs/RE92088_2018-10.pdf
+    where: "Bosch Rexroth RE 92088/10.2018 pp. 2, 4–5, 8–9. DFE1Z external control 20–50 bar, positive swivel only, amplifier VT5041-3x/3 for optional power limitation. NG180 105/110 ms at p=100 bar; no speed guarantee at 20–50 bar external supply."
+    electronics_url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/proportional_electronics/re30242.pdf
+    electronics_where: "RE 30242 p. 2, VT-NE32-1X supply with outputs rated 60 W and 24 W. Upper budget conservatively adds both ratings to the T-1.6 allowance."
+    electronics_power_supply_kW: 0.084
+    pilot_supply_bar_range: [20, 50]
+    onstroke_ms_at_100bar: 105
+    destroke_ms_at_100bar: 110
+  motor:
+    url: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    where: "MEC OMT3-IE3 200L-4, p. 1 at 400 V, 50 Hz, S1, IC411, max. ambient 40 °C."
+    rated_kW: 30
+    rated_rpm: 1480
+    rated_A: 53.8
+    rated_Nm: 194
+    DOL_current_to_rated: 7.8
+    nominal_efficiency: 0.936
+    rotor_inertia_kg_m2: 0.314703
+    mass_kg: 278
+    noise_dB: 76
+  vfd:
+    url: https://library.e.abb.com/public/1f0a1e0c460c4ec381cbb851d21427d7/ACS580_Catalog_3AUA0000145061_RevR_EN%2010-04-2026.pdf
+    manual_url: https://library.e.abb.com/public/831aa160eed447f6a7b787e6881ba12d/EN_ACS580-01_HW_E_A5_screen.pdf
+    where: "ABB ACS580-01-062A-4, 400 V ratings table p. 26 (62 A nominal, 58 A light-duty, 44.6 A heavy-duty, Imax 81 A); hardware manual Technical data (835 W max, R4, 19 kg IP21). Imax overload repetition limits apply separately."
+    nominal_A: 62
+    light_duty_A: 58
+    heavy_duty_A: 44.6
+    peak_A: 81
+    mass_kg: 19
+    max_cabinet_loss_kW: 0.835
+  asa0927_single:
+    url: https://asahydraulik.us/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0927-230400v-150kw-50hz
+    where: "ASA0927AA6A EU, Tech data 1.50 kW / 156.4 kg, Cooling Performance (150/200/250/300 L/min), Pressure Loss (100/300 L/min)."
+    fan_kW: 1.50
+    mass_kg: 156.4
+    flow_L_min_kW_K: [[150, 2.05], [200, 2.24], [250, 2.37], [300, 2.46]]
+    flow_L_min_pressure_drop_bar: [[100, 0.50], [300, 2.20]]
+  cooler:
+    url: https://asahydraulik.us/es/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0567-230400v-075kw-50hz
+    datasheet_url: https://asahydraulics.com/wp-content/uploads/2022/05/ASA-Series-AC.pdf
+    where: "ASA0567AA47, Cooling Performance and Pressure Loss in product sheet; ASA AC catalogue pp. 26–27 tolerance, fan and mass; reused via calc/T-1.6/sources.yaml."
+engineering:
+  nominal_shaft_limit_kW: 36
+  # DFE1Z: port Z tied to a 20–50 bar reducer on AX. Actuator/valve flow is an
+  # unqualified design allowance. Retain entire allowance as an extra packet.
+  dfe1z_response_multiplier: {realistic: 1.0, pessimistic: 1.5}
+  # 2.5 kW of the common 36 kW are reserved for PX at high main demand.
+  dfe1z_main_shaft_limit_kW: 33.5
+  dfe1z_extra_pilot_L_per_cycle: 0.10
+  dfe1z_spare_pilot_sensitivity_L_per_cycle: 0.05
+  dfe1z_adapter_and_regulator_allowance_kg: 7
+  rexroth_curve_read_off_sensitivity: {flow_reduction_L_min: 5, shaft_increase_kW: 2}
+  vfd:
+    min_rpm: 750
+    acceleration_and_deceleration_rad_s2: 380
+    additional_rotating_inertia_kg_m2: 0.015
+    current_pwm_allowance_factor: 1.05
+    current_magnetizing_fraction_assumption: 0.30
+    neutral_motor_cooling_ratio_floor: 0.50
+    cabinet_and_braking_allowance_kg: 5
+  evidence:
+    - "The D1 geometry, timing and low-pressure accumulator are frozen. The T-1.6 pilot and heat calculations are replayed on T-1.7d traces."
+    - "Rexroth p=100 bar time extrapolated at all operating pressures for the screen. External control flow and pump dynamics are acceptance risks."
+    - "Partial stroke uses the same affine loss construction as the base. Map scatter, hot oil and interlocks are screened separately from vendor guarantees."
+    - "Cooling follows D-OP-09 and T-1.6 (15% curve tolerance, 15% fouling, 25 kW minimum after fouling). The 1.25 T-1.6 sizing factor is printed separately."
+

@@ -1,0 +1,85 @@
+{
+  "python_version": "3.13.17",
+  "gate_candidate": "A4VSO180_DFE1Z",
+  "selected": "A4VSO180_DFE1Z",
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "unit": "MPa"
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 306,
+      "unit": "mm"
+    },
+    "G-CYCLE": {
+      "status": "PASS",
+      "value": 5.823772630624717,
+      "unit": "s"
+    }
+  },
+  "gate_command": [
+    "REV_PYTHON",
+    "-B",
+    "ops/gates/calc_gates.py",
+    "--params",
+    "design/params.t21.yaml",
+    "--criteria",
+    "ops/criteria/design_criteria.yaml",
+    "--out",
+    "E:\\Projects\\REV-wt\\T-2.1\\gates.t21.json"
+  ],
+  "gate_exit_code": 0,
+  "deterministic_generation": {
+    "status": "PASS",
+    "command": [
+      "REV_PYTHON",
+      "-B",
+      "calc/T-2.1/study.py"
+    ],
+    "run_count": 2,
+    "sha256": {
+      "calc/T-2.1/results.json": "078ade9ffe34e1ffc1089483737dea06500a811f42c140160e0cc61cf59426e9",
+      "design/params.t21.yaml": "cff4878a768f460f1c34a4561769517d550a4e0d84a5de8f54941dd5e3fdd11c",
+      "metrics.json": "0d7afdaa775efbc117a9bd1b26bd168138f509f322ad2440df50a88cb111615d"
+    }
+  },
+  "test_command": [
+    "REV_PYTHON",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/ops/test_calc_gates.py"
+  ],
+  "test_status": "PASS",
+  "test_summary": "102 passed",
+  "reference_replay": {
+    "status": "PASS",
+    "realistic": 5.550000000000552,
+    "pessimistic": 5.983750000000755,
+    "gate_s": 5.936300932881372,
+    "gate_rms_kW": 29.876016127698243
+  },
+  "model_invariants": {
+    "status": "PASS",
+    "scenario_count": 48,
+    "checks": [
+      "maximum working pressure",
+      "shaft command limit",
+      "interlock order",
+      "periodic LP oil balance",
+      "phase heat ledger closure",
+      "stroke bounds",
+      "time-step convergence",
+      "no press/dwell overlap in gate params"
+    ]
+  },
+  "deliverable_readability": {
+    "status": "PASS",
+    "files_read": 18
+  }
+}
