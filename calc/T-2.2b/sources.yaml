@@ -1,0 +1,108 @@
+task: T-2.2b
+project_inputs:
+  - path: TASK.md
+    where: "D-GK-07, контактные радиусы, коэффициенты и пороги"
+  - path: calc/T-1.2b/results.json
+    where: "shoe_load.samples.upper_dose.reserve.high, mechanical_lock_A"
+  - path: calc/T-1.1/curve.yaml
+    where: "Исходная зависимость p(ρ), использована через интегрированный профиль T-1.2b"
+  - path: design/chamber_lateral.t22.yaml
+    where: "Силы T-2.2, контакты, наследуемые зазоры и интерфейсы"
+  - path: calc/T-2.2/results.json
+    where: "mass.nominal_AB_kg, mass.nominal_reserve_for_T22b_kg"
+  - path: calc/T-1.7c/results.json
+    where: "mass.baseline_rows, точная замещаемая строка 180,22142 кг"
+  - path: ops/reports/D1/D1_package.md
+    where: "§2, агрегированная строка камеры 180 кг"
+  - path: design/frame.t17d.yaml
+    where: "interfaces.layout, columns, geometry и guide_reference_plane"
+  - path: design/slide_gate.t17d.yaml
+    where: "swept_plate_vertical_limits_mm, side_rib_max_front_projection_x_mm и ширина плиты"
+  - path: design/params.t21.yaml
+    where: "precompaction.cylinder, профиль движения кулачка"
+  - path: ops/criteria/design_criteria.yaml
+    where: "v4, C-STR-01, C-FAT-01, C-PROD-01, C-MASS-01"
+materials:
+  34CrNiMo6_QT:
+    url: https://www.stahlwerk-augustfehn.com/wp-content/uploads/2024/01/34CrNiMo6-Technichal-data-sheet_-1.6582-new.pdf
+    where: "с. 2, Mechanical properties, Flat products (QT), EN ISO 683-2"
+    values_by_flat_ruling_section_mm:
+      - {section_mm: [20, 60], Rp02_min_MPa: 800, Rm_min_MPa: 1000, use: "справочно для плоских сечений до 60 мм"}
+      - {section_mm: [60, 100], Rp02_min_MPa: 700, Rm_min_MPa: 900, use: "засов и ярмо с расширением вокруг седла, плоское определяющее сечение по ширине"}
+      - {section_mm: [100, 160], Rp02_min_MPa: 600, Rm_min_MPa: 800, use: "башмак, определяющее сечение по толщине"}
+    check: "Подтвердить фактическую заготовку, определяющее сечение и направление пробы у изготовителя. Для ярма местное расширение по x >60 мм у отверстия требует отдельной проверки свойств."
+  G35CrNiMo6_6_QT1:
+    url: https://www.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+    where: "Steel Castings Handbook Supplement 2, EN 10293, G35CrNiMo6-6, QT1, 100–250 мм"
+    values: {Rp02_min_MPa: 650, Rm_min_MPa: 800}
+    project_analogue: calc/T-1.7/sources.yaml
+    check: "Требуется сертификат для корпуса и места пробы. УЗК и МПК по аналогии T-1.7, необходимы согласование контроля и подтверждение класса FKM."
+  M39_12_9_SG:
+    url: https://media.bossard.com/ca-en/-/media/bossard-group/website/documents/technical-resources/en/f-004-en.pdf
+    where: "таблица свойств ISO 898-1 и таблицы испытательных нагрузок, строка M39"
+    values: {Rp02_min_MPa: 1100, Rm_min_MPa: 1220, proof_MPa: 970, As_mm2: 976}
+    nut_url: https://media.bossard.com/ro-en/-/media/bossard-group/website/documents/technical-resources/en/f-009-en.pdf
+    nut_where: "таблица пробных нагрузок полноопорных гаек, M39 класс 12, 1171 кН"
+    check: "Резьба с крупным шагом P=4 мм, накатка после ТО. Фактические резьбовые допуски, сбег, твёрдость и накатка должны быть квалифицированы."
+  steel_model:
+    project_source: calc/T-1.7/sources.yaml
+    where: steel_model_constants
+    values: {E_MPa: 210000, nu: 0.30, density_kg_m3: 7850}
+contact:
+  project_source: calc/T-1.7b/sources.yaml
+  where: "round 2, engineering_requirement для local bearing screen. T-2.2/sources.yaml применяет тот же коэффициент."
+  values: {multiplier_to_softer_Rp02: 0.60, friction: 0.15, edge_radius_min_mm: 5, shoulder_root_radius_min_mm: 15, crown_mm: 0.10}
+  interpretation: "Проектный экран упругого смятия. Испытание контактной пары на 10^7 и пылезащита остаются задачами квалификации."
+  fastener_seating_url: https://assets.eu.ctfassets.net/0vp0u5uh75zd/7MM4CVEWakvMoaUSg5YsPX/c4b6542d94541de714325d3d8ebb7dc7/053_056_Surface_pressure_mounted_Fastening_EN_01_2025.pdf
+  fastener_seating_where: "с. 53, pG, примечание 1. Табличное 1430 МПа относится к Rm=1100 МПа и не перенесено на расчётное ярмо Rm=1000 МПа."
+fkm:
+  url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+  where: "FKM 7-е изд., гл. 4, локальные напряжения"
+  method_paper: https://doi.org/10.1016/j.ijfatigue.2024.108165
+  method_where: "уравнения (23)–(24), влияние среднего напряжения"
+  gradient_url: https://www.mdpi.com/1996-1944/17/13/3130
+  gradient_where: "§2.1, уравнения (4)–(5), Siebel–Stieler"
+  implementation: calc/T-1.7/frame_fea.py
+  project_values: {ND_cycles: 1000000, assessment_cycles: 10000000, k_D: 15, j: 1.5, j_G_forging: 1.0, j_G_casting: 1.25, Rz_um: 6.3}
+  use: "Номинальный экран n_sigma=1. Локальный n_sigma из внешней нормали градиента диапазона главных напряжений; эквивалент полуразмаха и положительное максимальное главное среднее."
+vdi_2230:
+  url: https://www.vdi.de/mitgliedschaft/vdi-richtlinien/details/vdi-2230-blatt-1-systematische-berechnung-hochbeanspruchter-schraubenverbindungen-zylindrische-einschraubenverbindungen
+  method_url: https://doc.fva-service.de/80/en/root-bolt-connection.html
+  where: "R0–R13, расчётные шаги и оговорки по области применимости"
+  equations_url: https://www.normsplash.com/Samples/DIN/131389157/VDI-2230-Part-1-2015-en-de-2.pdf
+  equations_where: "с. 92–100, (168)–(172) усталость SG/SV, (190)–(193) смятие, (195)–(210) срыв витков"
+  tightening_url: https://www.nord-lock.com/globalassets/mediavalet/web-assets/downloads/tensioning-pdfs/boltight---tsr-user-manual---hs-operations.pdf
+  tightening_where: "§2.4 и §4.1, оценка потери переноса нагрузки при гидронатяжении и осевой доступ"
+  tightening_round_2_url: https://www.nord-lock.com/globalassets/mediavalet/web-assets/downloads/tensioning-pdfs/bt-standard/boltight---standard-range-hydraulic-bolt-tensioning-tools-user-manual.pdf
+  tightening_round_2_where: "§2.4 (выступ ≥2d, посадка реакционного моста) и §4.5, T23 M39 — 791 кН, TOD 136 мм, TH 147 мм"
+  tightening_dimensions_url: https://www.nord-lock.com/globalassets/mediavalet/web-assets/downloads/tensioning-pdfs/bt-standard/boltight---data-sheet---standard-range-hydraulic-bolt-tensioning-tools.pdf
+  tightening_dimensions_where: "Technical & dimensional data, T23 M39 — Min. Bolt Pitch 83 мм и Nearest Obstruction 200 мм"
+  multi_jackbolt_url: https://www.nord-lock.com/globalassets/mediavalet/web-assets/downloads/tensioning-pdfs/superbolt-full-range-brochure---2025.pdf
+  multi_jackbolt_where: "с. 10, CY Metric M39x4 — преднатяг 570 кН, D1 72 мм, Ds 70 мм, L 57 мм, 10 винтов, SW8, 72 Н·м"
+  limits_url: https://www.bossard.com/-/media/bossard-group/website/documents/technical-resources/en/f-079-en.pdf
+  limits_where: "F.089, M39, неблагоприятные границы полей допуска для предварительного расчёта срыва, 6g/6H"
+  lower_anchor: "Сквозная шпилька. Требования к нестандартной гайке: Rm ≥1200 МПа и эффективное зацепление 36 мм. VDI 2230, §5.5.5, (197)–(213), таблица 11, нижний коэффициент τB/Rm=0,65 для улучшенной стали. Для шпильки задано приёмочное ограничение Rm ≤1350 МПа. Усталость сбега и фактические свойства требуют подтверждения."
+  eq_213_erratum_url: https://www.hexagon.de/pdf/info210.pdf
+  eq_213_erratum_where: "Уточнение §5.5.5.2, уравнение (213). Для наружной резьбы использован D1max по уравнению (198)."
+  engineering_screens:
+    preload_after_transfer_before_settlement_N: [535000, 570000]
+    assumed_settlement_mm: 0.04
+    settlement_source: "Проектный бюджет T-1.7 и T-2.2. Подтвердить на пакете."
+    thread_fatigue_divisor_from_T22: 1.35
+    load_introduction: "Две границы податливости по положению приложения силы. Учёт местного изгиба и раскрытия требует проверки реального стыка."
+beam_comparison:
+  method: "Равновесие сил и моментов; EIw''=M; 6M/(bh²); 1,5V/(bh); узловой Эйлер–Бернулли с односторонними опорами."
+  url: https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/
+  where: "Лекции по изгибу балки и напряжениям в сечении."
+calculation_tools:
+  ccx_manual: https://www.dhondt.de/ccx_2.22.pdf
+  where: "*TIE, *CONTACT PAIR, *SURFACE BEHAVIOR, *FRICTION, *EXPANSION, C3D4 и *CONTACT PRINT"
+
+round_2_assumptions:
+  scope: "Расчётные проверки относятся к исследовательской геометрии в статусе HOLD."
+  mesh: "C3D4, Gmsh 4.15.0, CalculiX 2.22, последовательность 36/28/21 мм по объёмному ограничителю, сгущение у кривых."
+  penalty: "Kn 10000 МПа/мм, Kt 400 МПа/мм, μ=0,15. Оценка p/Kn и проба Kn 20000 МПа/мм."
+  tied_joints: "Стойка–ярмо и верхний эквивалент гайки связаны TIE. Нижний анкер заменён общим закреплённым уровнем, его наружная гайка рассчитана отдельно. Раскрытие проверялось вручную и по растягивающим тягам на связанной плоскости."
+  eccentricity: "Модель балки с упругими поворотными опорами по E, I и длине. Диапазон EI/L…4EI/L соответствует свободному или связанному поперечному смещению конца. Изгиб шпильки оценён по КЭ-сечениям упругого эквивалента."
+  clearance: "Размерная цепь худшего сочетания. Допуски стойки, засова, базы, полного хода и температурно-сборочный резерв назначены расчётом."
+  mass_sensitivity: "Плотность 7850 кг/м³. Строка 180,22142 кг является агрегатом, разнесение по деталям отсутствует."

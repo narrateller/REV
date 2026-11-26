@@ -1,0 +1,152 @@
+{
+  "FEA_repeat_at_1e_6": {
+    "max_scaled_numeric_difference": 0.0,
+    "numeric_metric": "max |a-b| / max(1, |a|, |b|)",
+    "repeated": {
+      "portal_0_60": {
+        "byte_identical": true,
+        "max_scaled_numeric_difference": 0.0,
+        "sha256": "03bd5bd4457effa0bcb373f74a460c08acb38f685cdca4e8b9a2df796eab37f7"
+      },
+      "portal_0_64": {
+        "byte_identical": true,
+        "max_scaled_numeric_difference": 0.0,
+        "sha256": "f159856c24818c739eb052a1d7d0da8c0ff71baf872d1ee39299d92c1effe676"
+      },
+      "portal_1_60": {
+        "byte_identical": true,
+        "max_scaled_numeric_difference": 0.0,
+        "sha256": "b969e540459abaf00f798a198bd3b8c641480c1931450d10d81a6350997b540c"
+      },
+      "portal_1_64": {
+        "byte_identical": true,
+        "max_scaled_numeric_difference": 0.0,
+        "sha256": "4c462404acd54b2d4fc2f6d128a4da6cde028c798207ae56dd9b371b8aa469ca"
+      },
+      "portal_2_60": {
+        "byte_identical": true,
+        "max_scaled_numeric_difference": 0.0,
+        "sha256": "2020c3636c2a7b1adc24cb876638fef1f0ca8897e6a2e5b38a5a26044410d940"
+      },
+      "portal_2_64": {
+        "byte_identical": true,
+        "max_scaled_numeric_difference": 0.0,
+        "sha256": "01b66c49a5693e8a61946fce95ec8fc0f0d135d78306c98d39013b3ad3162d51"
+      }
+    },
+    "scope": "Both load splits on all three mesh levels, including 0, 300 and 315 bar",
+    "status": "PASS",
+    "tolerance": 1e-06
+  },
+  "contact_FEA": {
+    "artificial_energy_fractions": {
+      "portal_0_60": 0.00011660247686098372,
+      "portal_0_64": 0.00011598780623770684,
+      "portal_1_60": 0.00011409383099712892,
+      "portal_1_64": 0.00011311527965202814,
+      "portal_2_60": 0.00011224125079737656,
+      "portal_2_64": 0.00011130556198397084
+    },
+    "artificial_force_fractions": {
+      "portal_0_60": 0.00064707295670163,
+      "portal_0_64": 0.0006455191916610099,
+      "portal_1_60": 0.0006413394972059129,
+      "portal_1_64": 0.0006387625915944724,
+      "portal_2_60": 0.0006405769424656891,
+      "portal_2_64": 0.0006380329282678357
+    },
+    "convergence_by_share": {
+      "0.6": {
+        "max_relative_change": 0.49715702605614237,
+        "status": "FAIL"
+      },
+      "0.64": {
+        "max_relative_change": 0.6919237313077894,
+        "status": "FAIL"
+      }
+    },
+    "finest_mesh_geometry_and_load_check": "PASS_DIAGNOSTIC_MESH_AND_LOAD",
+    "global_force_balance_by_case": {
+      "portal_0_60": 1.0760020988639968e-06,
+      "portal_0_64": 2.0315848863312616e-06,
+      "portal_1_60": 1.29287690713278e-06,
+      "portal_1_64": 1.0346607848278579e-06,
+      "portal_2_60": 8.175211517710589e-07,
+      "portal_2_64": 7.307774574270746e-07
+    },
+    "penalty_sensitivity_status": "SOLVED",
+    "pressure_endpoints_bar": [
+      0,
+      100,
+      200,
+      300,
+      315
+    ],
+    "qualification": {
+      "contact_pass": false,
+      "force_balance_pass": true,
+      "product_height_pass_diagnostic": false,
+      "product_width_pass_diagnostic": true,
+      "reason": "Excessive work contact, height and VDI closure/fatigue. Stress peaks and contact are not mesh-qualified.",
+      "solver_reached_315_bar": true,
+      "structural_criteria_qualified": false,
+      "three_mesh_convergence": false,
+      "upper_and_lower_joint_qualified": false,
+      "weak_spring_force_pass": true
+    },
+    "shoe_force_balance_by_case": {
+      "portal_0_60": 1.1952965980966759e-05,
+      "portal_0_64": 1.1901068728837525e-05,
+      "portal_1_60": 1.1349728504819557e-05,
+      "portal_1_64": 1.0720036657224344e-05,
+      "portal_2_60": 9.121881393161796e-06,
+      "portal_2_64": 8.856092766843303e-06
+    },
+    "solved_meshes_by_share": {
+      "0.6": 3,
+      "0.64": 3
+    }
+  },
+  "delivery": {
+    "all_files_readable": true,
+    "calculation_tree_bytes": 1145870,
+    "file_count": 44,
+    "reference_copies": "byte-identical",
+    "status": "PASS",
+    "temporary_files_present": false
+  },
+  "design_approval": "HOLD",
+  "gate_command": "E:/Tools/Python313/python.exe -B ops/gates/calc_gates.py --params design/params.t21.yaml --criteria ops/criteria/design_criteria.yaml --out gates.t22b.json",
+  "gates": {
+    "G-CYCLE": {
+      "status": "PASS",
+      "unit": "s",
+      "value": 5.823772630624717
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "unit": "mm",
+      "value": 306
+    },
+    "G-PFACE": {
+      "status": "PASS",
+      "unit": "MPa",
+      "value": 168.88888888888889
+    }
+  },
+  "hand_and_design_reproduction": {
+    "byte_identical": true,
+    "sha256": {
+      "calc/T-2.2b/results.json": "b9754b1e5d721ccdd22e0a826172ec0a6c385659b2892044b69746a4288d81e8",
+      "design/chamber_lateral.t22b.yaml": "4efa244c7194f2e91cb15f073eb43c10e9c2b9d5d19ef6c9e0d6c00f39df2cb1",
+      "metrics.json": "cd0d7cd52ecb60ebc35bdf3adfe73446ad5753907427e93c072f7e8c1583de37",
+      "report.md": "9811246fc141cb52b8cf4067a942f174fdaa7fef3956653fcc47e1d5dc446258"
+    },
+    "status": "PASS"
+  },
+  "kinematics": {
+    "integrated_layout_status": "OPEN",
+    "status": "PASS_SCALAR_TOLERANCE_SCREEN",
+    "worst_case_lock_to_post_mm": 0.56
+  }
+}

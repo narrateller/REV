@@ -1,0 +1,143 @@
+{
+  "schema": "rev.gate_report/1",
+  "tool": "scope_gate",
+  "tool_version": "1.1.0",
+  "input": "E:\\Projects\\REV-wt\\T-2.2b",
+  "criteria_version": 4,
+  "criteria_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+  "overall": "WARN",
+  "gates": [
+    {
+      "id": "G-SCOPE",
+      "status": "WARN",
+      "value": 0,
+      "threshold": 0,
+      "unit": "paths",
+      "criteria_ids": [],
+      "details": {
+        "checks": {
+          "paths_allowed": true,
+          "protected_hashes_match": true
+        },
+        "task_id": "T-2.2b",
+        "base_commit": "ac849584d2174c5c613f09f23a708c08c26ea1cc",
+        "merge_base_commit": "ac849584d2174c5c613f09f23a708c08c26ea1cc",
+        "allowed_paths": [
+          "calc/T-2.2b/**",
+          "design/chamber_lateral.t22b.yaml",
+          "report.md",
+          "metrics.json",
+          "self_check.json",
+          "gates.t22b.json"
+        ],
+        "allow_protected": [],
+        "always_allowed_paths": [
+          "TASK.md",
+          "metrics.json",
+          "report.md",
+          "self_check.json"
+        ],
+        "changes": {
+          "committed": [],
+          "staged": [],
+          "unstaged": [],
+          "untracked": [
+            "TASK.md",
+            "calc/T-2.2b/assemble.py",
+            "calc/T-2.2b/fea/attempts.json",
+            "calc/T-2.2b/fea/geometry.py",
+            "calc/T-2.2b/fea/mesh_check.json",
+            "calc/T-2.2b/fea/nominal_fea.py",
+            "calc/T-2.2b/fea/penalty_20000_portal_0_64.inp",
+            "calc/T-2.2b/fea/penalty_20000_portal_0_64.json",
+            "calc/T-2.2b/fea/portal.geo",
+            "calc/T-2.2b/fea/portal_0_60.inp",
+            "calc/T-2.2b/fea/portal_0_60.json",
+            "calc/T-2.2b/fea/portal_0_64.inp",
+            "calc/T-2.2b/fea/portal_0_64.json",
+            "calc/T-2.2b/fea/portal_1_60.json",
+            "calc/T-2.2b/fea/portal_1_64.json",
+            "calc/T-2.2b/fea/portal_2_60.json",
+            "calc/T-2.2b/fea/portal_2_64.json",
+            "calc/T-2.2b/fea/replay.json",
+            "calc/T-2.2b/fea/solve.py",
+            "calc/T-2.2b/hand.json",
+            "calc/T-2.2b/hand.py",
+            "calc/T-2.2b/mass.json",
+            "calc/T-2.2b/mass.py",
+            "calc/T-2.2b/reference/chamber_lateral.t22.yaml",
+            "calc/T-2.2b/reference/hand_a_round1.json",
+            "calc/T-2.2b/reference/lateral_fea/contact.py",
+            "calc/T-2.2b/reference/lateral_fea/end_supported.geo",
+            "calc/T-2.2b/reference/lateral_fea/end_supported_0.json",
+            "calc/T-2.2b/reference/lateral_fea/end_supported_0_315.inp",
+            "calc/T-2.2b/reference/lateral_fea/full_travel.geo",
+            "calc/T-2.2b/reference/lateral_fea/full_travel_0.json",
+            "calc/T-2.2b/reference/lateral_fea/full_travel_0_315.inp",
+            "calc/T-2.2b/reference/lateral_fea/local_guide.geo",
+            "calc/T-2.2b/reference/lateral_fea/local_guide_0.json",
+            "calc/T-2.2b/reference/lateral_fea/local_guide_0_315.inp",
+            "calc/T-2.2b/reference/lateral_fea/local_guide_1.json",
+            "calc/T-2.2b/reference/lateral_fea/local_guide_2.json",
+            "calc/T-2.2b/reference/results.t22.json",
+            "calc/T-2.2b/reference/round1_component/component_0.inp",
+            "calc/T-2.2b/reference/round1_component/component_study.json",
+            "calc/T-2.2b/render_report.py",
+            "calc/T-2.2b/results.json",
+            "calc/T-2.2b/sources.yaml",
+            "calc/T-2.2b/vdi.py",
+            "calc/T-2.2b/verify.py",
+            "design/chamber_lateral.t22b.yaml",
+            "gates.t22b.json",
+            "metrics.json",
+            "report.md",
+            "self_check.json"
+          ]
+        },
+        "forbidden_paths": [],
+        "protected_hashes": [
+          {
+            "path": "ops/criteria/design_criteria.yaml",
+            "base_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+            "worktree_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f"
+          },
+          {
+            "path": "ops/gates/calc_gates.py",
+            "base_sha256": "e7d9731cba562c4c060e780ceef5bd5b4ab6732dd1fe6aa24b56130b7a759301",
+            "worktree_sha256": "e7d9731cba562c4c060e780ceef5bd5b4ab6732dd1fe6aa24b56130b7a759301"
+          },
+          {
+            "path": "ops/gates/gate_report.py",
+            "base_sha256": "f4470e0f2b9dcf79e1f3355f286c196f8cc01476880f6ac510553f394ba5cc57",
+            "worktree_sha256": "f4470e0f2b9dcf79e1f3355f286c196f8cc01476880f6ac510553f394ba5cc57"
+          },
+          {
+            "path": "ops/gates/geom_gates.py",
+            "base_sha256": "a590e3738bb0cc8989f8aa0f541746b8a8c25efa2f8720cae5de080f40fec1f7",
+            "worktree_sha256": "a590e3738bb0cc8989f8aa0f541746b8a8c25efa2f8720cae5de080f40fec1f7"
+          },
+          {
+            "path": "ops/gates/roles/w02_legacy.yaml",
+            "base_sha256": "ef65f656f80f06f42c41c89eeceaaf63d18ca2c88940d3200564d227ab35e61d",
+            "worktree_sha256": "ef65f656f80f06f42c41c89eeceaaf63d18ca2c88940d3200564d227ab35e61d"
+          },
+          {
+            "path": "ops/gates/scope_gate.py",
+            "base_sha256": "dab975fb0e1391653b9001a1d3be2fdd52dcdef8eeb3f92c70da9b86be599c5d",
+            "worktree_sha256": "dab975fb0e1391653b9001a1d3be2fdd52dcdef8eeb3f92c70da9b86be599c5d"
+          }
+        ],
+        "ignored_paths": [],
+        "ignored_outside_allowed": [],
+        "warnings": [
+          "Executor metadata is missing"
+        ],
+        "protected_changes": [],
+        "protected_hash_mismatches": [],
+        "reasoning_effort": null,
+        "meta": null,
+        "reasoning_effort_checked": false
+      }
+    }
+  ]
+}
