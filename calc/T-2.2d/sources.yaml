@@ -1,0 +1,106 @@
+task: T-2.2d
+project_inputs:
+  load_and_search_grid:
+    paths: [TASK.md, DECISIONS.md]
+    decision: D-GK-09
+    K: [0.35, 0.45, 0.60]
+    mu: [0.20, 0.25, 0.30]
+    punch_force_N: {nominal: 1520000, '300_bar': 1700000, '315_bar': 1785000}
+    loaded_length_limit_mm: 89.4
+    stop_limit_N: 1150000
+  product_and_raw_material:
+    path: ops/criteria/design_criteria.yaml
+    criteria: [C-PROD-01, C-PROD-02, C-RAW-01]
+  shoe_integral_and_reference_axis:
+    paths: [calc/T-1.2b/shoe_load.py, calc/T-1.2b/results.json, ops/reports/T-1.2b/report.md]
+    axis: axis_A
+  density_and_recovery:
+    paths: [calc/T-1.1/curve.yaml, calc/T-1.1/sources.yaml, calc/T-1.2/geometry.py]
+    axial_springback_fraction: 0.23
+    early_area_growth_fraction: 0.03
+    dose_upper_tolerance_fraction: 0.05
+    note: >
+      Recovery and dosing tolerance are engineering assumptions inherited from T-1.1 and T-1.2.
+      T-1.2's base wall transfer is retained in the calibration of the density envelope.
+      The actual wall transfer in the density inversion uses each K and mu pair.
+  baseline_gates:
+    paths: [design/params.t21.yaml, ops/gates/calc_gates.py]
+    decision: D-GK-06
+round_2:
+  accepted_load:
+    project_source: "Решение ГК, круг 2 в карточке задания. Расчётный снимок round1_load.json."
+    zero_roof_threshold_waived: true
+    dose_setpoint_limit_kg: 0.85267
+  transfer:
+    project_source: calc/T-1.2b/shoe_load.py#isolated_work_zone
+    edge_force_N: 12000
+    interpretation: "Расчётный припуск на кромку и страгивание. Осреднённое напряжение через полное сечение относится к сырью; местное напряжение в кромке требует фактического профиля контакта."
+  rexroth_pump:
+    project_source: calc/T-2.1/sources.yaml
+    url: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+    control_url: https://boschrexroth-russia.ru/image/catalog/docs/RE92088_2018-10.pdf
+    basis: "Bosch Rexroth RE 92050, графики NG180, и RE 92088, времена DFE1Z. Числовая кривая и пилотная модель T-2.1. Условия горячей карты остаются по D-GK-06."
+  statics_and_elasticity:
+    project_source: [calc/T-2.2c/hand.py, calc/T-1.7/sources.yaml]
+    url: https://ocw.mit.edu/courses/2-001-mechanics-materials-i-fall-2006/
+    values: {E_MPa: 210000, nu: 0.30, steel_density_kg_m3: 7850, transverse_load_share: 0.64}
+    assumption: "Номинальная балочная модель, два пролёта по ширине сведены к эффективному пролёту в сечении равнодействующей. Полные номинальные геометрические сечения. Деформации пары опорных плит и поведение детали как пространственного тела требуют КЭ-модели."
+  forging:
+    material: 34CrNiMo6+QT
+    url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+    supplement_url: https://www.saarstahl.com/app/uploads/2024/03/20160318102442-34CrNiMo6-.pdf
+    minimum_Rp02_Rm_MPa: {flat_100_to_160_mm: [600, 800], flat_160_to_250_mm: [500, 750], round_100_to_160_mm: [700, 900], bearing_insert_20_to_60_mm: [800, 1000]}
+    purchasing: "Размеры относятся к определяющему сечению заготовки. Свойства и положение пробы подтвердить сертификатом."
+  casting:
+    material: G35CrNiMo6-6+QT1
+    project_source: calc/T-1.7/sources.yaml
+    url: https://www.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+    minimum_Rp02_Rm_MPa: [650, 800]
+    purchasing: "EN 10293. УЗК и МПК по предпосылкам T-1.7 для jG=1,25."
+  contact:
+    project_source: [calc/T-2.2b/sources.yaml, calc/T-2.2c/sources.yaml, design/slide_gate.t17d.yaml]
+    hertz_url: https://academic.oup.com/jom/article/doi/10.1093/jom/ufaf013/8117592
+    hardened_flank_analogy_url: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_en.pdf
+    values: {mu: 0.15, Rp02_multiplier: 0.60, tooth_screen_MPa: 480, foot_cast_screen_MPa: 390, edge_radius_mm: 5, crown_mm: 0.10, roughness_Rz_um: 6.3, SHD_min_mm: 6, hardness_HRC: [52, 57]}
+    assumptions: "Проектный экран упругого смятия из T-2.2b. Три зуба с номинальными долями 1/3, расчётная доля одного зуба 0,40. Линейный Герц с поправкой на усечение, без подтверждения ресурса пары. Schaeffler, с. 478, приводит 100–170 МПа номинального давления для пульсирующих закалённых шпонок. Условия и вид напряжения у этой аналогии отличаются от контактного пика зуба."
+  FKM:
+    project_source: [calc/T-1.7/frame_fea.py, calc/T-2.2c/hand.py]
+    url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+    values: {N_D_cycles: 1000000, assessment_cycles: 10000000, k_D: 15, j: 1.5, jG_forging: 1.0, jG_casting: 1.25, notch_support: 1.0}
+    where: "FKM, 7-е изд., гл. 4. Номинальная упругая оценка по назначенному сечению и среднему напряжению."
+  bayonet_kinematics:
+    url: https://patents.google.com/patent/EP0904918B1/en
+    project_source: [calc/T-2.2c/hand.py, calc/T-1.2b/results.json]
+    assumptions: "Три сектора 55°, поворот 60°, ход кулачка 12 мм, КПД 0,60, сила на холостые направляющие 3 кН, посадочный ход 0,02 мм. Проверочный зазор 3 мм к движущейся плите — эскизное назначение; размерная цепь требует уточнения."
+  mass:
+    project_source: [ops/reports/T-2.2/GK_review.md, design/frame.t17d.yaml, design/cylinders.t17d.yaml, calc/T-2.2c/sources.yaml]
+    baseline_machine_kg: 4942.65
+    removed_chamber_row_kg: 180.22
+    H2_increment_kg: [5, 18]
+    note: "Оценка объёмов заготовок и отдельных резервов массы без ведомости CAD. Прибавки рамы и продольных цилиндров масштабируются от T-1.7d. H2 считается отдельно."
+literature:
+  - title: Theoretical and experimental analysis of the compaction process in a tapered screw press
+    author: Zhong
+    year: 1991
+    url: https://theses.ncl.ac.uk/jspui/bitstream/10443/1715/1/Zhong%2091.pdf
+    role: Table 5.1 as transcribed in T-1.1, context for K and wall friction.
+  - title: Selection of the Electric Drive for the Wood Waste Compacting Unit
+    author: Wilczyński et al.
+    year: 2022
+    url: https://doi.org/10.3390/en15207488
+    role: Section 2.2, friction coefficient 0.25 for oak sawdust against steel in a separate test.
+  - title: Research on the mechanical behavior of the biomass densification process based on a thick-walled cylinder
+    author: Wang et al.
+    year: 2020
+    url: https://bioresources.cnr.ncsu.edu/resources/research-on-the-mechanical-behavior-of-the-biomass-densification-process-based-on-a-thick-walled-cylinder/
+    role: Figure 8, pressure ratio changes with species and particle size. The ratio is relative to the backstop force.
+  - title: Determination of radial pressure distribution on the wall of the press channel of a novel biomass single die pelletiser
+    author: Trinh et al.
+    year: 2020
+    url: https://link.springer.com/article/10.1007/s00107-020-01585-y
+    role: Measurements establish dependence of the radial pressure profile on the wall material in the tested pelletiser.
+  - title: DEM modelling of wood sawdust compaction and the breakage strength of pellets as determined by a diametral compression test
+    author: Horabik et al.
+    year: 2023
+    url: https://doi.org/10.31545/intagr/156086
+    role: Figure 3, in-die unloading and recovery, basis for the T-1.1 adjustment to early free recovery.

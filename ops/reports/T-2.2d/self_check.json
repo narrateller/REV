@@ -1,0 +1,102 @@
+{
+  "task": "T-2.2d",
+  "round": 2,
+  "status": "STOP_HAND_SCREEN",
+  "python_version": "3.13.17",
+  "deterministic_replay": {
+    "status": "PASS",
+    "runs": 2,
+    "byte_identical": true,
+    "command": [
+      "REV_PYTHON",
+      "-B",
+      "calc/T-2.2d/run.py"
+    ],
+    "outputs": {
+      "calc/T-2.2d/results.json": [
+        "calc/T-2.2d/results.json",
+        "1d906daa5558046db895a57ba23e4b6dfa37f22735d9ec0ca76ec2b6b841b2a2"
+      ],
+      "design/params.t22d.yaml": [
+        "design/params.t22d.yaml",
+        "9d49ec95a72c6dbfddbea4876d805d8a4db6e98bba876234440313f2cced84c2"
+      ],
+      "design/prepress_lock.t22d.yaml": [
+        "design/prepress_lock.t22d.yaml",
+        "8c6565cc83f1a0383a9e5d3d2551d0225e94460be4e46ce96411610f69d138c1"
+      ],
+      "metrics.json": [
+        "metrics.json",
+        "16b1a1f36c5043756d2cd56fa906a9961fe9bfefeb1f05469dbb134958ae1ba1"
+      ],
+      "calc/T-2.2d/fea/status.json": [
+        "calc/T-2.2d/fea/status.json",
+        "f5d83fb9a02990e22d998ccd6863d27e69878ee9f26b3906a9ca4d3cd84301e3"
+      ]
+    }
+  },
+  "shoe_load": {
+    "status": "PASS",
+    "grid_rows": 108,
+    "quadrature_cells": 4096,
+    "max_relative_quadrature_error": 1.104761504500118e-09,
+    "max_balance_error_N": 4.656612873077393e-10
+  },
+  "cycle_geometry": {
+    "status": "PASS",
+    "selected_roof_mm": 15,
+    "manual_stop_confirmed": true,
+    "scope": "Exact replay of imported T-2.1 baseline and consistency of the candidate coordinates"
+  },
+  "gates": {
+    "status": "PASS",
+    "runs": 2,
+    "byte_identical": true,
+    "criteria_version": 4,
+    "command": [
+      "REV_PYTHON",
+      "-B",
+      "ops/gates/calc_gates.py",
+      "--params",
+      "design/params.t22d.yaml",
+      "--criteria",
+      "ops/criteria/design_criteria.yaml",
+      "--out",
+      "E:\\Projects\\REV-wt\\T-2.2d\\gates.t22d.json"
+    ],
+    "values": {
+      "G-PFACE": {
+        "status": "PASS",
+        "value": 168.88888888888889,
+        "unit": "MPa"
+      },
+      "G-DOSE": {
+        "status": "PASS",
+        "value": 321,
+        "unit": "mm"
+      },
+      "G-CYCLE": {
+        "status": "PASS",
+        "value": 5.928629160188188,
+        "unit": "s"
+      }
+    }
+  },
+  "contact_FEA": {
+    "status": "SKIPPED_HAND_STOP",
+    "meshes_run": 0,
+    "replay_tolerance": 1e-06
+  },
+  "VDI2230": {
+    "status": "NOT_APPLICABLE_TO_SCREEN",
+    "threaded_load_path_count": 0
+  },
+  "calc_size": {
+    "status": "PASS",
+    "total_bytes": 521866,
+    "limit_bytes": 5000000
+  },
+  "artifact_readability": "PASS",
+  "temp_directories_created": [],
+  "write_denials": {}
+}
