@@ -28,7 +28,7 @@ codex exec -C "<worktree>" -m gpt-6.2-sol -c model_reasoning_effort=<high|medium
 |---|---|---|---|
 | voh | `%LOCALAPPDATA%\rev-orch\codex\voh` | TECH, HYD, CAD, FEA (high) | 28.11 00:24 |
 | alm | `%LOCALAPPDATA%\rev-orch\codex\alm` | то же (high) | 24.11 06:11, затем еженедельно |
-| bos | `%LOCALAPPDATA%\rev-orch\codex\bos` | интеграция, DOC, EL (medium) | 26.11 23:23 |
+| bos | `%LOCALAPPDATA%\rev-orch\codex\bos` | все роли: TECH, HYD, CAD, FEA (high); интеграция, DOC, EL (medium) — разрешение оператора 26.11 | 26.11 23:23 |
 
 **Запрещено:**
 - `--dangerously-bypass-approvals-and-sandbox`;
