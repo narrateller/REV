@@ -1,0 +1,1777 @@
+{
+  "A": {
+    "integrated_direct": {
+      "added_columns_kg": 33.23137439059113,
+      "additional_unpriced_parts": "adapter if needed, seat sealing, fasteners, support relocation",
+      "cap_primary_velocity_m_s": 1.784489606467401,
+      "cap_volume_status": "manifold and seal volume pending",
+      "cup": {
+        "back_floor_mm": 32.0,
+        "cast_displacement_equal_mass_kg": 32.76507470452264,
+        "cup_ID_mm": 280.0,
+        "cup_OD_mm": 352.0,
+        "integral_cup_and_neck_kg": 32.76507470452264,
+        "isolated_oil_boundary": true,
+        "material": "42CrMo4+QT",
+        "neck_nominal_vm_at_315_bar_MPa": 136.61245806177058,
+        "net_hardware_allowance_kg": 3.0,
+        "status": "UNVERIFIED for seat contact and port fatigue",
+        "through_neck_OD_mm": 160.0,
+        "wall_nominal_vm_at_315_bar_MPa": 148.56172496312294,
+        "yield_min_specification_MPa": 500.0
+      },
+      "current_cast_head_kg": 482.54272309882356,
+      "current_module_excluding_ZSF_and_guards_mm": 1564.0,
+      "direct_candidate_frame_column_length_mm": 1670.0,
+      "inherited_baseline_column_phi": 0.23390761219498885,
+      "integrated_cast_head_kg": 577.7312904969933,
+      "integrated_columns_beyond_prefill_mount_mm": 106.0,
+      "integrated_module_excluding_ZSF_and_guards_mm": 1670.0,
+      "load_capacity_bar": 315.0,
+      "new_inner_end_rearward_shift_mm": 275.0,
+      "nominal_machine_mass_delta_kg": -59.320775650015094,
+      "open_bore_nominal_cap_volume_L": 2.5598214052762893,
+      "removed_forged_rear_cover_kg": 187.740717438776,
+      "rod_side_velocity_m_s": 1.3439173317082165,
+      "service_estimate_hours_two_technicians": {
+        "integrated_cup": {
+          "cup_exchange": 12.0,
+          "piston": 10.0,
+          "rod": 5.0
+        },
+        "integrated_direct": {
+          "cast_pressure_seat": 16.0,
+          "piston": 10.0,
+          "rod": 5.0
+        },
+        "separate": {
+          "piston": 8.0,
+          "rod": 4.0
+        }
+      },
+      "service_times_basis": "planning estimates, pre-staged parts and lifting fixture, lockout and fluid handling included"
+    },
+    "integrated_direct_FEA": [
+      {
+        "axial_port_R_mm": 6.0,
+        "barrel_seat_R_mm": 8.0,
+        "elements": 21807,
+        "level": 0,
+        "mass_kg": 577.7312904969933,
+        "nodes": 38910,
+        "regions": {
+          "barrel_seat_R8": {
+            "G_sigma_per_mm": 0.1303628082403846,
+            "fatigue_factor": 0.8626058024334073,
+            "fatigue_xyz_mm": [
+              170.6998224953656,
+              30.98810497317776,
+              103.8090589499417
+            ],
+            "fixed_preload_1p5_peak_MPa": 353.0457716477886,
+            "fixed_preload_load_to_yield_factor": 4.802714692258552,
+            "n_sigma": 1.0808307956350058,
+            "range_MPa": 85.80754735843463,
+            "static_MPa": 308.3635303042498,
+            "static_factor": 2.1079016683933776,
+            "static_xyz_mm": [
+              170.6998224953656,
+              30.98810497317776,
+              103.8090589499417
+            ]
+          },
+          "cast_global": {
+            "G_sigma_per_mm": 0.08916795484186235,
+            "fatigue_factor": 0.5618646091304524,
+            "fatigue_xyz_mm": [
+              100.0539174865254,
+              40.71540701440006,
+              238.0
+            ],
+            "fixed_preload_1p5_peak_MPa": 543.3063667636931,
+            "fixed_preload_load_to_yield_factor": 1.9182137877671719,
+            "n_sigma": 1.0631260777324516,
+            "range_MPa": 237.0281046833485,
+            "static_MPa": 415.7524578979606,
+            "static_factor": 1.5634303241077447,
+            "static_xyz_mm": [
+              100.0539174865254,
+              40.71540701440006,
+              238.0
+            ]
+          },
+          "prefill_inner_R6": {
+            "G_sigma_per_mm": 0.031492721655287464,
+            "fatigue_factor": 6.294684490667095,
+            "fatigue_xyz_mm": [
+              0.0,
+              65.70389940580947,
+              106.4567228049323
+            ],
+            "fixed_preload_1p5_peak_MPa": 109.84429024177656,
+            "fixed_preload_load_to_yield_factor": 14.930966208111167,
+            "n_sigma": 1.0222951395346438,
+            "range_MPa": 36.52426690460565,
+            "static_MPa": 89.7429349044309,
+            "static_factor": 7.242909992772115,
+            "static_xyz_mm": [
+              65.70389940580945,
+              0.0,
+              106.4567228049323
+            ]
+          },
+          "prefill_outer_R6": {
+            "G_sigma_per_mm": 0.028036586923195567,
+            "fatigue_factor": 0.7395505146625699,
+            "fatigue_xyz_mm": [
+              2.320644954897187e-15,
+              62.22836140246611,
+              233.1480502970953
+            ],
+            "fixed_preload_1p5_peak_MPa": 406.32106272133854,
+            "fixed_preload_load_to_yield_factor": 2.7025374175591956,
+            "n_sigma": 1.0198483835207957,
+            "range_MPa": 188.58917475576067,
+            "static_MPa": 305.00253885885,
+            "static_factor": 2.1311298011876842,
+            "static_xyz_mm": [
+              2.320644954897187e-15,
+              62.22836140246611,
+              233.1480502970953
+            ]
+          }
+        },
+        "valve_tap_model_depth_mm": 55.0,
+        "volume_mm3": 73596342.7384705,
+        "z_seat_mm": 106.0
+      },
+      {
+        "axial_port_R_mm": 6.0,
+        "barrel_seat_R_mm": 8.0,
+        "elements": 28113,
+        "level": 1,
+        "mass_kg": 577.7312904969933,
+        "nodes": 48142,
+        "regions": {
+          "barrel_seat_R8": {
+            "G_sigma_per_mm": 0.11605092174430537,
+            "fatigue_factor": 0.8451737860206376,
+            "fatigue_xyz_mm": [
+              38.92587388963766,
+              169.5658225483631,
+              103.2403507783541
+            ],
+            "fixed_preload_1p5_peak_MPa": 347.3633530897042,
+            "fixed_preload_load_to_yield_factor": 4.892991039187944,
+            "n_sigma": 1.0762648283476226,
+            "range_MPa": 85.04306881216128,
+            "static_MPa": 303.1001660923167,
+            "static_factor": 2.1445055883012163,
+            "static_xyz_mm": [
+              38.92587388963766,
+              169.5658225483631,
+              103.2403507783541
+            ]
+          },
+          "cast_global": {
+            "G_sigma_per_mm": 0.025487720077996275,
+            "fatigue_factor": 0.5650448968949432,
+            "fatigue_xyz_mm": [
+              100.0539174865254,
+              40.71540701440006,
+              238.0
+            ],
+            "fixed_preload_1p5_peak_MPa": 515.2012249567914,
+            "fixed_preload_load_to_yield_factor": 2.0539844201323003,
+            "n_sigma": 1.0180439239827803,
+            "range_MPa": 226.10015105271808,
+            "static_MPa": 393.5456959351875,
+            "static_factor": 1.6516506385755203,
+            "static_xyz_mm": [
+              100.0539174865254,
+              40.71540701440006,
+              238.0
+            ]
+          },
+          "prefill_inner_R6": {
+            "G_sigma_per_mm": 0.03502799937278353,
+            "fatigue_factor": 6.236203993919595,
+            "fatigue_xyz_mm": [
+              65.70389940580945,
+              0.0,
+              106.4567228049323
+            ],
+            "fixed_preload_1p5_peak_MPa": 111.09122541769297,
+            "fixed_preload_load_to_yield_factor": 14.751750432070935,
+            "n_sigma": 1.0247979244913723,
+            "range_MPa": 36.95703342282167,
+            "static_MPa": 90.75805531999649,
+            "static_factor": 7.161898717510171,
+            "static_xyz_mm": [
+              0.0,
+              65.70389940580947,
+              106.4567228049323
+            ]
+          },
+          "prefill_outer_R6": {
+            "G_sigma_per_mm": 0.030121475271614857,
+            "fatigue_factor": 0.737073952573622,
+            "fatigue_xyz_mm": [
+              2.320644954897187e-15,
+              62.22836140246611,
+              233.1480502970953
+            ],
+            "fixed_preload_1p5_peak_MPa": 408.462322630343,
+            "fixed_preload_load_to_yield_factor": 2.6894882699878147,
+            "n_sigma": 1.0213243714379707,
+            "range_MPa": 188.9933170392848,
+            "static_MPa": 306.9323723447152,
+            "static_factor": 2.117730348983802,
+            "static_xyz_mm": [
+              2.320644954897187e-15,
+              62.22836140246611,
+              233.1480502970953
+            ]
+          }
+        },
+        "valve_tap_model_depth_mm": 55.0,
+        "volume_mm3": 73596342.7384705,
+        "z_seat_mm": 106.0
+      },
+      {
+        "axial_port_R_mm": 6.0,
+        "barrel_seat_R_mm": 8.0,
+        "elements": 42036,
+        "level": 2,
+        "mass_kg": 577.7312904969933,
+        "nodes": 68637,
+        "regions": {
+          "barrel_seat_R8": {
+            "G_sigma_per_mm": 0.16578415840596047,
+            "fatigue_factor": 0.8824461284079069,
+            "fatigue_xyz_mm": [
+              171.0743239112821,
+              30.93850002692788,
+              103.4520917076277
+            ],
+            "fixed_preload_1p5_peak_MPa": 352.3372569210713,
+            "fixed_preload_load_to_yield_factor": 4.770658553977315,
+            "n_sigma": 1.0911531149937888,
+            "range_MPa": 86.78304437221594,
+            "static_MPa": 307.1104808939448,
+            "static_factor": 2.1165021724688913,
+            "static_xyz_mm": [
+              171.0743239112821,
+              30.93850002692788,
+              103.4520917076277
+            ]
+          },
+          "cast_global": {
+            "G_sigma_per_mm": 0.07309255991638001,
+            "fatigue_factor": 0.5645126926913061,
+            "fatigue_xyz_mm": [
+              100.0539174865254,
+              40.71540701440006,
+              238.0
+            ],
+            "fixed_preload_1p5_peak_MPa": 535.9176670766506,
+            "fixed_preload_load_to_yield_factor": 1.9513234478633514,
+            "n_sigma": 1.0517455696626463,
+            "range_MPa": 234.8607408634309,
+            "static_MPa": 409.5363513546281,
+            "static_factor": 1.5871606948931092,
+            "static_xyz_mm": [
+              100.0539174865254,
+              40.71540701440006,
+              238.0
+            ]
+          },
+          "prefill_inner_R6": {
+            "G_sigma_per_mm": 0.03427620903233137,
+            "fatigue_factor": 6.225941312568487,
+            "fatigue_xyz_mm": [
+              62.84324702199773,
+              15.36831156746655,
+              107.2006086129083
+            ],
+            "fixed_preload_1p5_peak_MPa": 111.34132903562485,
+            "fixed_preload_load_to_yield_factor": 14.693855816963053,
+            "n_sigma": 1.0242656976891085,
+            "range_MPa": 36.99872724376393,
+            "static_MPa": 91.21172996850936,
+            "static_factor": 7.12627641449637,
+            "static_xyz_mm": [
+              15.38517565458926,
+              62.87556999577725,
+              107.1614919043359
+            ]
+          },
+          "prefill_outer_R6": {
+            "G_sigma_per_mm": 0.032603859664627595,
+            "fatigue_factor": 0.7352669532625733,
+            "fatigue_xyz_mm": [
+              2.320644954897187e-15,
+              62.22836140246611,
+              233.1480502970953
+            ],
+            "fixed_preload_1p5_peak_MPa": 409.92393944443927,
+            "fixed_preload_load_to_yield_factor": 2.6802665328529365,
+            "n_sigma": 1.0230817650042252,
+            "range_MPa": 189.34981643095207,
+            "static_MPa": 308.21990987433935,
+            "static_factor": 2.1088838818524205,
+            "static_xyz_mm": [
+              2.320644954897187e-15,
+              62.22836140246611,
+              233.1480502970953
+            ]
+          }
+        },
+        "valve_tap_model_depth_mm": 55.0,
+        "volume_mm3": 73596342.7384705,
+        "z_seat_mm": 106.0
+      }
+    ],
+    "integrated_mesh_convergence": {
+      "max_change_fraction": 0.056427403963859646,
+      "regions": {
+        "barrel_seat_R8": {
+          "fatigue_factor": {
+            "relative_successive_changes": [
+              0.02062536332893794,
+              0.04223752724091539
+            ],
+            "values": [
+              0.8626058024334073,
+              0.8451737860206376,
+              0.8824461284079069
+            ]
+          },
+          "range_MPa": {
+            "relative_successive_changes": [
+              0.00898931043941856,
+              0.02004971792176171
+            ],
+            "values": [
+              85.80754735843463,
+              85.04306881216128,
+              86.78304437221594
+            ]
+          },
+          "static_MPa": {
+            "relative_successive_changes": [
+              0.01736509840885407,
+              0.013058215369122968
+            ],
+            "values": [
+              308.3635303042498,
+              303.1001660923167,
+              307.1104808939448
+            ]
+          }
+        },
+        "cast_global": {
+          "fatigue_factor": {
+            "relative_successive_changes": [
+              0.005628380650753938,
+              0.0009427674710019573
+            ],
+            "values": [
+              0.5618646091304524,
+              0.5650448968949432,
+              0.5645126926913061
+            ]
+          },
+          "range_MPa": {
+            "relative_successive_changes": [
+              0.048332358823070506,
+              0.037301209978755065
+            ],
+            "values": [
+              237.0281046833485,
+              226.10015105271808,
+              234.8607408634309
+            ]
+          },
+          "static_MPa": {
+            "relative_successive_changes": [
+              0.056427403963859646,
+              0.03904575348817785
+            ],
+            "values": [
+              415.7524578979606,
+              393.5456959351875,
+              409.5363513546281
+            ]
+          }
+        },
+        "prefill_inner_R6": {
+          "fatigue_factor": {
+            "relative_successive_changes": [
+              0.009377579181906,
+              0.0016483742515192685
+            ],
+            "values": [
+              6.294684490667095,
+              6.236203993919595,
+              6.225941312568487
+            ]
+          },
+          "range_MPa": {
+            "relative_successive_changes": [
+              0.011709990714481203,
+              0.0011268987894520438
+            ],
+            "values": [
+              36.52426690460565,
+              36.95703342282167,
+              36.99872724376393
+            ]
+          },
+          "static_MPa": {
+            "relative_successive_changes": [
+              0.011184907080550144,
+              0.004973862996234182
+            ],
+            "values": [
+              89.7429349044309,
+              90.75805531999649,
+              91.21172996850936
+            ]
+          }
+        },
+        "prefill_outer_R6": {
+          "fatigue_factor": {
+            "relative_successive_changes": [
+              0.003359991328279378,
+              0.002457609855890477
+            ],
+            "values": [
+              0.7395505146625699,
+              0.737073952573622,
+              0.7352669532625733
+            ]
+          },
+          "range_MPa": {
+            "relative_successive_changes": [
+              0.002138394573180157,
+              0.0018827554121093383
+            ],
+            "values": [
+              188.58917475576067,
+              188.9933170392848,
+              189.34981643095207
+            ]
+          },
+          "static_MPa": {
+            "relative_successive_changes": [
+              0.006287487602310589,
+              0.004177334066929961
+            ],
+            "values": [
+              305.00253885885,
+              306.9323723447152,
+              308.21990987433935
+            ]
+          }
+        }
+      },
+      "status": "FAIL"
+    },
+    "retained_frame_fatigue_factor": 1.0287260384625356,
+    "retained_frame_mesh_convergence_pass": true,
+    "retained_frame_static_factor": 1.833345284670883,
+    "retained_pressure_boundary": {
+      "cover_fatigue_note": "T-1.6 static cover proof only; no three-grid FKM record for independent rear/forward oil ports.",
+      "cylinder_fatigue_status": "UNVERIFIED",
+      "rear_cover_FEA": [
+        {
+          "assumed_port_R_mm": 6.0,
+          "cover_Rm_min_MPa": 750.0,
+          "cover_Rp02_min_MPa": 500,
+          "elements": 11218,
+          "mass_kg": 186.12989269047245,
+          "nodes": 20571,
+          "regions": {
+            "cover_global": {
+              "G_sigma_per_mm": 0.0030788785825322045,
+              "fatigue_factor": 1.140942679962119,
+              "fatigue_xyz_mm": [
+                40.84594746892051,
+                100.3249875334553,
+                132.0
+              ],
+              "fixed_preload_1p5_peak_MPa": 521.1893105885933,
+              "fixed_preload_load_to_yield_factor": 1.3718074539837275,
+              "n_sigma": 1.0016241075482355,
+              "range_MPa": 153.2792546056575,
+              "static_MPa": 438.55077379253987,
+              "static_factor": 1.1401188411459267,
+              "static_xyz_mm": [
+                41.98358384536756,
+                99.61016322084896,
+                130.4757720283872
+              ]
+            },
+            "prefill_inner_R6": {
+              "G_sigma_per_mm": 0.02769351716124981,
+              "fatigue_factor": 9.622469133113853,
+              "fatigue_xyz_mm": [
+                65.70389940580945,
+                0.0,
+                0.4567228049322809
+              ],
+              "fixed_preload_1p5_peak_MPa": 204.4607904205667,
+              "fixed_preload_load_to_yield_factor": 10.20819603944795,
+              "n_sigma": 1.014608322170919,
+              "range_MPa": 32.523021635568895,
+              "static_MPa": 188.2982955805553,
+              "static_factor": 2.655361263140571,
+              "static_xyz_mm": [
+                5.027222734294138,
+                63.57858862533228,
+                1.73777673242726
+              ]
+            },
+            "prefill_outer_R6": {
+              "G_sigma_per_mm": 0.026429104746434135,
+              "fatigue_factor": 1.4590436704238126,
+              "fatigue_xyz_mm": [
+                2.320644954897187e-15,
+                62.22836140246611,
+                127.1480502970953
+              ],
+              "fixed_preload_1p5_peak_MPa": 398.9908474602221,
+              "fixed_preload_load_to_yield_factor": 2.2078179337432444,
+              "n_sigma": 1.013941344993373,
+              "range_MPa": 135.91022005655026,
+              "static_MPa": 327.6387453188238,
+              "static_factor": 1.5260710375186313,
+              "static_xyz_mm": [
+                2.320644954897187e-15,
+                62.22836140246611,
+                127.1480502970953
+              ]
+            }
+          },
+          "stud_separation_load_fraction": 0.25,
+          "valve_tap_model_depth_mm": 55.0,
+          "volume_mm3": 23710814.3554742
+        },
+        {
+          "assumed_port_R_mm": 6.0,
+          "cover_Rm_min_MPa": 750.0,
+          "cover_Rp02_min_MPa": 500,
+          "elements": 15979,
+          "mass_kg": 186.12989269047245,
+          "nodes": 27742,
+          "regions": {
+            "cover_global": {
+              "G_sigma_per_mm": 0.060478046385303665,
+              "fatigue_factor": 1.1662133521253786,
+              "fatigue_xyz_mm": [
+                42.10574614536223,
+                99.56764324146614,
+                129.8447415727897
+              ],
+              "fixed_preload_1p5_peak_MPa": 510.7122064965568,
+              "fixed_preload_load_to_yield_factor": 1.4332903285556162,
+              "n_sigma": 1.0319021517100948,
+              "range_MPa": 153.04547735864452,
+              "static_MPa": 430.43207966230364,
+              "static_factor": 1.161623456114786,
+              "static_xyz_mm": [
+                42.10574614536223,
+                99.56764324146614,
+                129.8447415727897
+              ]
+            },
+            "prefill_inner_R6": {
+              "G_sigma_per_mm": 0.02952710259987473,
+              "fatigue_factor": 9.728651717167617,
+              "fatigue_xyz_mm": [
+                0.0,
+                65.70389940580947,
+                0.4567228049322791
+              ],
+              "fixed_preload_1p5_peak_MPa": 210.39876641933486,
+              "fixed_preload_load_to_yield_factor": 10.06622977287016,
+              "n_sigma": 1.0155755379513984,
+              "range_MPa": 32.198717216688465,
+              "static_MPa": 193.49574197866536,
+              "static_factor": 2.584036190600667,
+              "static_xyz_mm": [
+                0.0,
+                65.70389940580947,
+                0.4567228049322791
+              ]
+            },
+            "prefill_outer_R6": {
+              "G_sigma_per_mm": 0.0245597548296575,
+              "fatigue_factor": 1.4456600707781417,
+              "fatigue_xyz_mm": [
+                2.320644954897187e-15,
+                62.22836140246611,
+                127.1480502970953
+              ],
+              "fixed_preload_1p5_peak_MPa": 404.0205840900688,
+              "fixed_preload_load_to_yield_factor": 2.1721979173505304,
+              "n_sigma": 1.01295526346117,
+              "range_MPa": 135.98631460636787,
+              "static_MPa": 332.62883753849496,
+              "static_factor": 1.5031769455110315,
+              "static_xyz_mm": [
+                2.320644954897187e-15,
+                62.22836140246611,
+                127.1480502970953
+              ]
+            }
+          },
+          "stud_separation_load_fraction": 0.25,
+          "valve_tap_model_depth_mm": 55.0,
+          "volume_mm3": 23710814.3554742
+        },
+        {
+          "assumed_port_R_mm": 6.0,
+          "cover_Rm_min_MPa": 750.0,
+          "cover_Rp02_min_MPa": 500,
+          "elements": 24537,
+          "mass_kg": 186.12989269047245,
+          "nodes": 40514,
+          "regions": {
+            "cover_global": {
+              "G_sigma_per_mm": 0.08813488220251835,
+              "fatigue_factor": 1.1739298448285744,
+              "fatigue_xyz_mm": [
+                42.82354811506488,
+                99.33731728000275,
+                130.8237960306529
+              ],
+              "fixed_preload_1p5_peak_MPa": 518.5066741438828,
+              "fixed_preload_load_to_yield_factor": 1.3875565868684787,
+              "n_sigma": 1.0464911244828061,
+              "range_MPa": 156.85118015710432,
+              "static_MPa": 436.22126690133933,
+              "static_factor": 1.1462072987676815,
+              "static_xyz_mm": [
+                42.82354811506488,
+                99.33731728000275,
+                130.8237960306529
+              ]
+            },
+            "prefill_inner_R6": {
+              "G_sigma_per_mm": 0.02907361352861704,
+              "fatigue_factor": 9.24241530891734,
+              "fatigue_xyz_mm": [
+                36.70267355263528,
+                55.50969310109521,
+                0.3757262242810833
+              ],
+              "fixed_preload_1p5_peak_MPa": 213.65412711090926,
+              "fixed_preload_load_to_yield_factor": 9.615985627766523,
+              "n_sigma": 1.015336322599468,
+              "range_MPa": 33.88468382775369,
+              "static_MPa": 196.04569554731407,
+              "static_factor": 2.5504258004957268,
+              "static_xyz_mm": [
+                15.37447812597661,
+                62.87112879853311,
+                1.168980561057975
+              ]
+            },
+            "prefill_outer_R6": {
+              "G_sigma_per_mm": 0.001479725150429135,
+              "fatigue_factor": 1.4427945123292434,
+              "fatigue_xyz_mm": [
+                15.36831156739484,
+                62.84324702194847,
+                130.7993913870184
+              ],
+              "fixed_preload_1p5_peak_MPa": 404.1518665195404,
+              "fixed_preload_load_to_yield_factor": 2.1611114795950574,
+              "n_sigma": 1.00078055458236,
+              "range_MPa": 133.4001052829862,
+              "static_MPa": 331.6621479518479,
+              "static_factor": 1.5075582278161936,
+              "static_xyz_mm": [
+                2.320644954897187e-15,
+                62.22836140246611,
+                127.1480502970953
+              ]
+            }
+          },
+          "stud_separation_load_fraction": 0.25,
+          "valve_tap_model_depth_mm": 55.0,
+          "volume_mm3": 23710814.3554742
+        }
+      ],
+      "rear_cover_local_pressure_static_status": "FAIL",
+      "rear_cover_mesh_convergence": {
+        "max_change_fraction": 0.052609236005781046,
+        "regions": {
+          "cover_global": {
+            "fatigue_factor": {
+              "relative_successive_changes": [
+                0.02166899574353595,
+                0.006573214521454364
+              ],
+              "values": [
+                1.140942679962119,
+                1.1662133521253786,
+                1.1739298448285744
+              ]
+            },
+            "range_MPa": {
+              "relative_successive_changes": [
+                0.001527501831793204,
+                0.024263144176843044
+              ],
+              "values": [
+                153.2792546056575,
+                153.04547735864452,
+                156.85118015710432
+              ]
+            },
+            "static_MPa": {
+              "relative_successive_changes": [
+                0.018861731069407684,
+                0.013271217334630879
+              ],
+              "values": [
+                438.55077379253987,
+                430.43207966230364,
+                436.22126690133933
+              ]
+            }
+          },
+          "prefill_inner_R6": {
+            "fatigue_factor": {
+              "relative_successive_changes": [
+                0.010914419298862292,
+                0.052609236005781046
+              ],
+              "values": [
+                9.622469133113853,
+                9.728651717167617,
+                9.24241530891734
+              ]
+            },
+            "range_MPa": {
+              "relative_successive_changes": [
+                0.010071967050673212,
+                0.04975600833803008
+              ],
+              "values": [
+                32.523021635568895,
+                32.198717216688465,
+                33.88468382775369
+              ]
+            },
+            "static_MPa": {
+              "relative_successive_changes": [
+                0.026860779182846954,
+                0.013006934743095609
+              ],
+              "values": [
+                188.2982955805553,
+                193.49574197866536,
+                196.04569554731407
+              ]
+            }
+          },
+          "prefill_outer_R6": {
+            "fatigue_factor": {
+              "relative_successive_changes": [
+                0.009257777755781104,
+                0.0019861168201091945
+              ],
+              "values": [
+                1.4590436704238126,
+                1.4456600707781417,
+                1.4427945123292434
+              ]
+            },
+            "range_MPa": {
+              "relative_successive_changes": [
+                0.0005595750575186778,
+                0.019386861186469474
+              ],
+              "values": [
+                135.91022005655026,
+                135.98631460636787,
+                133.4001052829862
+              ]
+            },
+            "static_MPa": {
+              "relative_successive_changes": [
+                0.015001983161167342,
+                0.0029146816801880757
+              ],
+              "values": [
+                327.6387453188238,
+                332.62883753849496,
+                331.6621479518479
+              ]
+            }
+          }
+        },
+        "status": "FAIL"
+      },
+      "static_T16": {
+        "front_cover": 2.2222164350518954,
+        "front_cover_port_ring": 3.051311348604451,
+        "front_support_average_bearing": 22.69760285066409,
+        "piston": 3.427420685421263,
+        "rear_cover": 1.6282772858038033,
+        "rod": 1.75766410460288,
+        "tie_rods_with_preload": 1.649747906813418,
+        "tube": 1.6362119598896274
+      },
+      "static_minimum_factor": 1.6282772858038033,
+      "tube_FKM_screen": {
+        "closed_end_pressure_increment": {
+          "fatigue_factor_screen": 1.4816138668423509,
+          "range_nominal_MPa": 144.33756729740642,
+          "range_with_T13_detail_factor_MPa": 180.42195912175802
+        },
+        "no_axial_pressure_increment": {
+          "fatigue_factor_screen": 1.4013564909598624,
+          "range_nominal_MPa": 153.87585183445054,
+          "range_with_T13_detail_factor_MPa": 192.34481479306316
+        }
+      },
+      "tube_detail_factor_from_T13": 1.25
+    },
+    "selected": "separate_main_cylinder"
+  },
+  "B": {
+    "base_screen": {
+      "bare_plate_bending_MPa": 2048.8227146814406,
+      "bare_plate_equivalent_shear_MPa": 368.44063231180064,
+      "bare_plate_static_factor_upper_bound": 0.39046814263985125,
+      "bend_moment_Nmm": 88755000.0,
+      "clear_span_mm": 176.0,
+      "fixed_rails_axial_length_mm": 32.0,
+      "fixed_rails_pair_kg": 7.415424,
+      "installed_gate_travel_mm": 80.0,
+      "moving_attachments_allowance_kg": 3.0,
+      "moving_shoe_envelope_mass_kg": 32.049352,
+      "net_mass_change_kg": -1.564304,
+      "open_shoe_minimum_height_from_axis_mm": 37.0,
+      "original_rails_replaced_mass_kg": 36.613656,
+      "shoe_axial_interval_from_punch_home_mm": [
+        243,
+        401.0
+      ],
+      "shoe_beam_bending_MPa": 280.68313107717216,
+      "shoe_beam_equivalent_shear_MPa": 209.87124625355733,
+      "span_between_pad_centres_mm": 258.0,
+      "vertical_reserve_above_relaxed_briquette_envelope_mm": 6.0,
+      "working_gate_travel_mm": 75.0
+    },
+    "contact_screen_limit_MPa": 420.0,
+    "contact_screen_status": "FAIL",
+    "cycle": {
+      "acceleration_m_s2": 20,
+      "added_moving_mass_kg": 29.739611999999997,
+      "closing_force_with_gravity_and_inertia_N": 10227.987833719999,
+      "closing_pressure_mechanical_bar": 20.347935270253803,
+      "closing_supply_L_min": 180.95573684677208,
+      "cycle_comparison": [
+        {
+          "bulk_density_kg_m3": 90,
+          "cycle_T14b_s": 5.438437499999431,
+          "cycle_T17b_s": 5.438437499999431,
+          "delta_cycle_s": 0.0,
+          "peak_T17b_kW": 39.907094594594625,
+          "rms_T17b_kW": 27.704771794819397,
+          "shaft_setting_kW": 37.5
+        },
+        {
+          "bulk_density_kg_m3": 160,
+          "cycle_T14b_s": 5.2374999999996135,
+          "cycle_T17b_s": 5.2374999999996135,
+          "delta_cycle_s": 0.0,
+          "peak_T17b_kW": 39.90709459459461,
+          "rms_T17b_kW": 26.662989797105023,
+          "shaft_setting_kW": 37.5
+        },
+        {
+          "bulk_density_kg_m3": 90,
+          "cycle_T14b_s": 5.496874999999378,
+          "cycle_T17b_s": 5.496874999999378,
+          "delta_cycle_s": 0.0,
+          "peak_T17b_kW": 38.310810810810835,
+          "rms_T17b_kW": 27.27764030046493,
+          "shaft_setting_kW": 36.0
+        },
+        {
+          "bulk_density_kg_m3": 160,
+          "cycle_T14b_s": 5.303749999999553,
+          "cycle_T17b_s": 5.303749999999553,
+          "delta_cycle_s": 0.0,
+          "peak_T17b_kW": 38.31081081081082,
+          "rms_T17b_kW": 26.26581141111281,
+          "shaft_setting_kW": 36.0
+        }
+      ],
+      "drive_bore_mm": 80.0,
+      "drive_rod_mm": 45.0,
+      "mechanical_force_model_source": "T-1.4b x1_calc forces 10/8 kN plus moving weight and inertia",
+      "moving_mass_kg": 74.739612,
+      "opening_force_with_gravity_and_inertia_N": 12227.987833719999,
+      "opening_pressure_mechanical_bar": 35.586646085560595,
+      "opening_supply_L_min": 123.7002107350981,
+      "ramp_distance_mm": 9.0,
+      "ramp_s": 0.03,
+      "reference_moving_mass_kg": 45,
+      "velocity_m_s": 0.6
+    },
+    "fall_path_T17": {
+      "aperture_corner_reserve_mm": 0.2010101267766693,
+      "bearing_area_mm2": 29520.0,
+      "discharge_axial_clearance_mm": 5.674148491103551,
+      "discharge_clear_width_mm": 176.0,
+      "first_closed_outlet_from_punch_home_mm": 433.0,
+      "gross_patch_mm2": 61200.0,
+      "longest_relaxed_briquette_mm": 138.32585150889645,
+      "maximum_leading_edge_from_punch_home_mm": 427.32585150889645,
+      "mean_pressure_MPa": 65.71815718157181,
+      "minimum_260x160_net_footprint_mm2": 28919.36293856408,
+      "minimum_ejected_tail_to_gate_clearance_mm": 5.112642024442092,
+      "open_discharge_bay_mm": 190.0,
+      "pressure_limit_MPa": 480.0,
+      "rail_bearing_area_mm2": 29520.0,
+      "rail_mean_pressure_MPa": 65.71815718157181,
+      "required_area_mm2_at_0p6_Rp02": 4041.6666666666665
+    },
+    "integral_FEA": [
+      {
+        "components": {
+          "blade": {
+            "design_fully_reversed_MPa": 182.20123827477994,
+            "fatigue_factor": 1.103902917660527,
+            "fatigue_positive_mean_MPa": 19.86645164833742,
+            "fatigue_range_MPa": 321.5611611104662,
+            "fatigue_xyz_mm": [
+              101.66666666666667,
+              30.0,
+              181.98585425939925
+            ],
+            "k_R": 0.8851293650723495,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 1.9037061917175169,
+            "static_mises_MPa": 367.70379959129224,
+            "static_xyz_mm": [
+              60.0,
+              15.0,
+              12.666666666666666
+            ]
+          },
+          "left": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.4611039974147253,
+            "fatigue_positive_mean_MPa": 17.055002219767392,
+            "fatigue_range_MPa": 266.0667684812348,
+            "fatigue_xyz_mm": [
+              -93.0,
+              22.0,
+              212.0
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.572510597238456,
+            "static_mises_MPa": 310.980254409364,
+            "static_xyz_mm": [
+              -93.0,
+              33.0,
+              196.0
+            ]
+          },
+          "right": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.3393329286895557,
+            "fatigue_positive_mean_MPa": 17.489884522327593,
+            "fatigue_range_MPa": 290.8152166601262,
+            "fatigue_xyz_mm": [
+              93.0,
+              22.0,
+              212.0
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.411053785378297,
+            "static_mises_MPa": 331.80512390538775,
+            "static_xyz_mm": [
+              93.0,
+              22.0,
+              212.0
+            ]
+          }
+        },
+        "eccentricity_xy_mm": [
+          10.0,
+          10.0
+        ],
+        "elements": 2476,
+        "face_profile": "flat",
+        "fatigue_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0255367,
+          "pressure_max_MPa": 1276.83,
+          "sample_count": 3462,
+          "zero_pressure_samples": 3344
+        },
+        "fatigue_seat_reactions_N": [
+          -778187.2217000001,
+          -921812.5146
+        ],
+        "fitted_plate_tilt_rad_xy": [
+          0.0003011835151515151,
+          0.00260649357575758
+        ],
+        "friction": 0.15,
+        "guide_model": "average",
+        "h_mm": 16.0,
+        "loaded_shoe_rail_gap_samples": [
+          {
+            "max_separation_mm": 0.19757114570995782,
+            "opening_samples_over_0p01_mm": 14,
+            "rail": "left",
+            "sample_count": 56
+          },
+          {
+            "max_separation_mm": 0.19337426581139994,
+            "opening_samples_over_0p01_mm": 14,
+            "rail": "right",
+            "sample_count": 56
+          }
+        ],
+        "max_face_transverse_displacement_mm": 0.2558007681654893,
+        "nodes": 3462,
+        "penalty_MPa_mm": 50000.0,
+        "plate_face_deflection_fatigue_mm": 0.268989,
+        "plate_face_deflection_static_mm": 0.307102,
+        "static_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0229204,
+          "pressure_max_MPa": 1146.02,
+          "sample_count": 3462,
+          "zero_pressure_samples": 3339
+        },
+        "static_contact_face_mean_axial_mm": 0.20323937818181817,
+        "static_seat_reactions_N": [
+          -888023.939,
+          -1051975.891
+        ]
+      },
+      {
+        "components": {
+          "blade": {
+            "design_fully_reversed_MPa": 182.20123827477994,
+            "fatigue_factor": 0.9868016651405421,
+            "fatigue_positive_mean_MPa": 14.898386111865566,
+            "fatigue_range_MPa": 362.87000290238694,
+            "fatigue_xyz_mm": [
+              99.71428571428571,
+              30.0,
+              184.990674624957
+            ],
+            "k_R": 0.8851293650723495,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 1.6939259427808848,
+            "static_mises_MPa": 413.24120631320153,
+            "static_xyz_mm": [
+              99.71428571428571,
+              30.0,
+              184.990674624957
+            ]
+          },
+          "left": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.31796832445406,
+            "fatigue_positive_mean_MPa": 15.392028313617855,
+            "fatigue_range_MPa": 296.7200916953199,
+            "fatigue_xyz_mm": [
+              -93.0,
+              22.0,
+              206.66666666666666
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.3615987973695014,
+            "static_mises_MPa": 338.75356004207435,
+            "static_xyz_mm": [
+              -93.0,
+              22.0,
+              206.66666666666666
+            ]
+          },
+          "right": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.263609706976553,
+            "fatigue_positive_mean_MPa": 16.266888841723958,
+            "fatigue_range_MPa": 309.3781912935705,
+            "fatigue_xyz_mm": [
+              93.0,
+              22.0,
+              206.66666666666666
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.26117580392235,
+            "static_mises_MPa": 353.7982312619299,
+            "static_xyz_mm": [
+              93.0,
+              33.0,
+              196.0
+            ]
+          }
+        },
+        "eccentricity_xy_mm": [
+          10.0,
+          10.0
+        ],
+        "elements": 4608,
+        "face_profile": "flat",
+        "fatigue_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0250032,
+          "pressure_max_MPa": 1250.16,
+          "sample_count": 5967,
+          "zero_pressure_samples": 5831
+        },
+        "fatigue_seat_reactions_N": [
+          -778372.2263,
+          -921627.8721
+        ],
+        "fitted_plate_tilt_rad_xy": [
+          0.00030692068445839884,
+          0.0026832853571428505
+        ],
+        "friction": 0.15,
+        "guide_model": "average",
+        "h_mm": 13.0,
+        "loaded_shoe_rail_gap_samples": [
+          {
+            "max_separation_mm": 0.19826272753397234,
+            "opening_samples_over_0p01_mm": 14,
+            "rail": "left",
+            "sample_count": 63
+          },
+          {
+            "max_separation_mm": 0.19316234088813644,
+            "opening_samples_over_0p01_mm": 14,
+            "rail": "right",
+            "sample_count": 63
+          }
+        ],
+        "max_face_transverse_displacement_mm": 0.2644928791534262,
+        "nodes": 5967,
+        "penalty_MPa_mm": 50000.0,
+        "plate_face_deflection_fatigue_mm": 0.270272,
+        "plate_face_deflection_static_mm": 0.30857,
+        "static_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0242054,
+          "pressure_max_MPa": 1210.27,
+          "sample_count": 5967,
+          "zero_pressure_samples": 5827
+        },
+        "static_contact_face_mean_axial_mm": 0.20537710000000003,
+        "static_seat_reactions_N": [
+          -888235.9652,
+          -1051764.3231
+        ]
+      },
+      {
+        "components": {
+          "blade": {
+            "design_fully_reversed_MPa": 182.20123827477994,
+            "fatigue_factor": 0.9230406669572621,
+            "fatigue_positive_mean_MPa": 13.779477189227306,
+            "fatigue_range_MPa": 388.8596805515398,
+            "fatigue_xyz_mm": [
+              97.11111111111111,
+              30.0,
+              186.80914481470077
+            ],
+            "k_R": 0.8851293650723495,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 1.5796539593250205,
+            "static_mises_MPa": 443.13502705308133,
+            "static_xyz_mm": [
+              97.11111111111111,
+              30.0,
+              186.80914481470077
+            ]
+          },
+          "left": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.2579988861636022,
+            "fatigue_positive_mean_MPa": 16.0802435233723,
+            "fatigue_range_MPa": 310.8876526422276,
+            "fatigue_xyz_mm": [
+              -93.0,
+              24.75,
+              204.0
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.252065391444227,
+            "static_mises_MPa": 355.2294720389838,
+            "static_xyz_mm": [
+              -93.0,
+              24.75,
+              204.0
+            ]
+          },
+          "right": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.1671290072539025,
+            "fatigue_positive_mean_MPa": 16.175193470562018,
+            "fatigue_range_MPa": 335.67113299653766,
+            "fatigue_xyz_mm": [
+              93.0,
+              24.75,
+              204.0
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.090242285625469,
+            "static_mises_MPa": 382.7307511198941,
+            "static_xyz_mm": [
+              93.0,
+              24.75,
+              204.0
+            ]
+          }
+        },
+        "eccentricity_xy_mm": [
+          10.0,
+          10.0
+        ],
+        "elements": 7840,
+        "face_profile": "flat",
+        "fatigue_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0223299,
+          "pressure_max_MPa": 1116.5,
+          "sample_count": 9901,
+          "zero_pressure_samples": 9689
+        },
+        "fatigue_seat_reactions_N": [
+          -778377.25875,
+          -921622.1736000001
+        ],
+        "fitted_plate_tilt_rad_xy": [
+          0.0003131053669467789,
+          0.0026897296638655477
+        ],
+        "friction": 0.15,
+        "guide_model": "average",
+        "h_mm": 10.0,
+        "loaded_shoe_rail_gap_samples": [
+          {
+            "max_separation_mm": 0.19778426421584072,
+            "opening_samples_over_0p01_mm": 18,
+            "rail": "left",
+            "sample_count": 99
+          },
+          {
+            "max_separation_mm": 0.19206787785370238,
+            "opening_samples_over_0p01_mm": 18,
+            "rail": "right",
+            "sample_count": 99
+          }
+        ],
+        "max_face_transverse_displacement_mm": 0.26180195669359707,
+        "nodes": 9901,
+        "penalty_MPa_mm": 50000.0,
+        "plate_face_deflection_fatigue_mm": 0.270874,
+        "plate_face_deflection_static_mm": 0.309239,
+        "static_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0241654,
+          "pressure_max_MPa": 1208.27,
+          "sample_count": 9901,
+          "zero_pressure_samples": 9684
+        },
+        "static_contact_face_mean_axial_mm": 0.20735151764705884,
+        "static_seat_reactions_N": [
+          -888243.93077,
+          -1051755.9985
+        ]
+      }
+    ],
+    "integral_FEA_convergence": {
+      "max_change_fraction": 0.11866746546613006,
+      "regions": {
+        "blade": {
+          "fatigue_factor": {
+            "relative_successive_changes": [
+              0.11866746546613006,
+              0.06907712787288524
+            ],
+            "values": [
+              1.103902917660527,
+              0.9868016651405421,
+              0.9230406669572621
+            ]
+          },
+          "fatigue_range_MPa": {
+            "relative_successive_changes": [
+              0.11383923019680678,
+              0.06683561950236223
+            ],
+            "values": [
+              321.5611611104662,
+              362.87000290238694,
+              388.8596805515398
+            ]
+          },
+          "static_mises_MPa": {
+            "relative_successive_changes": [
+              0.11019570659029543,
+              0.06745984613014791
+            ],
+            "values": [
+              367.70379959129224,
+              413.24120631320153,
+              443.13502705308133
+            ]
+          }
+        },
+        "left": {
+          "fatigue_factor": {
+            "relative_successive_changes": [
+              0.10860327240410429,
+              0.04767050189793162
+            ],
+            "values": [
+              1.4611039974147253,
+              1.31796832445406,
+              1.2579988861636022
+            ]
+          },
+          "fatigue_range_MPa": {
+            "relative_successive_changes": [
+              0.10330720457433921,
+              0.04557132078581396
+            ],
+            "values": [
+              266.0667684812348,
+              296.7200916953199,
+              310.8876526422276
+            ]
+          },
+          "static_mises_MPa": {
+            "relative_successive_changes": [
+              0.0819867564764804,
+              0.04638103900090055
+            ],
+            "values": [
+              310.980254409364,
+              338.75356004207435,
+              355.2294720389838
+            ]
+          }
+        },
+        "right": {
+          "fatigue_factor": {
+            "relative_successive_changes": [
+              0.05992611586863007,
+              0.08266498315353905
+            ],
+            "values": [
+              1.3393329286895557,
+              1.263609706976553,
+              1.1671290072539025
+            ]
+          },
+          "fatigue_range_MPa": {
+            "relative_successive_changes": [
+              0.060000915241726904,
+              0.07832946928813907
+            ],
+            "values": [
+              290.8152166601262,
+              309.3781912935705,
+              335.67113299653766
+            ]
+          },
+          "static_mises_MPa": {
+            "relative_successive_changes": [
+              0.06216285275959974,
+              0.07559497054601912
+            ],
+            "values": [
+              331.80512390538775,
+              353.7982312619299,
+              382.7307511198941
+            ]
+          }
+        }
+      },
+      "status": "FAIL"
+    },
+    "integral_geometry_and_mass": {
+      "closed_face_nominal_thickness_mm": 38.0,
+      "complete_gate_and_rails_delta_kg": -6.874044000000001,
+      "integral_central_axial_thickness_mm": 196.0,
+      "integral_height_mm": 76.0,
+      "integral_transverse_width_mm": 340.0,
+      "moving_mass_delta_kg": 29.739611999999997,
+      "opening_reserve_mm": 6.0,
+      "part_mass_kg": 36.583512,
+      "rail_pair_mass_kg": 7.415424,
+      "transition_width_mm": 30.0
+    },
+    "length_and_density_sensitivity": {
+      "constant_stroke_change_percent_at_40_mm": 0.6726300501945898,
+      "constant_stroke_change_percent_at_69_mm": 0.3910359208113932,
+      "maximum_axial_motion_mm": 0.270874
+    },
+    "local_fatigue_status": "FAIL",
+    "local_static_status": "PASS",
+    "rail_insert_transfer_status": "UNVERIFIED for changed load distribution on the cast seat",
+    "separate_moving_shoe_FEA": [
+      {
+        "components": {
+          "left": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.3717698363220692,
+            "fatigue_positive_mean_MPa": 15.138759944213813,
+            "fatigue_range_MPa": 284.90737111499186,
+            "fatigue_xyz_mm": [
+              -93.0,
+              22.0,
+              206.66666666666666
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.461845268154969,
+            "static_mises_MPa": 324.95949698721734,
+            "static_xyz_mm": [
+              -93.0,
+              22.0,
+              206.66666666666666
+            ]
+          },
+          "plate": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 0.6189073745383801,
+            "fatigue_positive_mean_MPa": 204.54475489613742,
+            "fatigue_range_MPa": 545.9842138811398,
+            "fatigue_xyz_mm": [
+              0.0,
+              10.0,
+              0.0
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 1.2834521795222253,
+            "static_mises_MPa": 623.3188994215632,
+            "static_xyz_mm": [
+              0.0,
+              10.0,
+              0.0
+            ]
+          },
+          "right": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.3005086997491813,
+            "fatigue_positive_mean_MPa": 16.213870267226174,
+            "fatigue_range_MPa": 300.3960260877447,
+            "fatigue_xyz_mm": [
+              93.0,
+              22.0,
+              206.66666666666666
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.3341191368744845,
+            "static_mises_MPa": 342.74171671941497,
+            "static_xyz_mm": [
+              93.0,
+              22.0,
+              206.66666666666666
+            ]
+          },
+          "shoe": {
+            "design_fully_reversed_MPa": 182.20123827477994,
+            "fatigue_factor": 1.1038677509639343,
+            "fatigue_positive_mean_MPa": 12.177244547418004,
+            "fatigue_range_MPa": 324.87803651230456,
+            "fatigue_xyz_mm": [
+              99.71428571428571,
+              30.0,
+              184.76820991253646
+            ],
+            "k_R": 0.8851293650723495,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 1.8924398679780083,
+            "static_mises_MPa": 369.89286256578407,
+            "static_xyz_mm": [
+              99.71428571428571,
+              30.0,
+              184.76820991253646
+            ]
+          }
+        },
+        "eccentricity_xy_mm": [
+          10.0,
+          10.0
+        ],
+        "elements": 5024,
+        "fatigue_seat_reactions_N": [
+          -770114.5867000001,
+          -929885.5149
+        ],
+        "fitted_plate_tilt_rad_xy": [
+          0.0003021023839165128,
+          0.0014552217910282356
+        ],
+        "friction": 0.15,
+        "h_mm": 12.0,
+        "maximum_transverse_displacement_mm": 0.058229127897041356,
+        "nodes": 6678,
+        "penalty_MPa_mm": 50000.0,
+        "plate_face_deflection_fatigue_mm": 0.28275,
+        "plate_face_deflection_static_mm": 0.322501,
+        "static_seat_reactions_N": [
+          -878836.45109,
+          -1061163.4718759998
+        ]
+      }
+    ],
+    "strength_status": "FAIL",
+    "tapered_pad_sensitivity_FEA": [
+      {
+        "components": {
+          "blade": {
+            "design_fully_reversed_MPa": 182.20123827477994,
+            "fatigue_factor": 1.0182800762444606,
+            "fatigue_positive_mean_MPa": 14.224818202952841,
+            "fatigue_range_MPa": 351.744082842035,
+            "fatigue_xyz_mm": [
+              142.66666666666666,
+              30.0,
+              183.26326530612246
+            ],
+            "k_R": 0.8851293650723495,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 1.8550984598646305,
+            "static_mises_MPa": 377.3384621596204,
+            "static_xyz_mm": [
+              142.66666666666666,
+              30.0,
+              183.26326530612246
+            ]
+          },
+          "left": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.468864404987598,
+            "fatigue_positive_mean_MPa": 7.203731449996784,
+            "fatigue_range_MPa": 269.54164813811246,
+            "fatigue_xyz_mm": [
+              -150.6,
+              22.0,
+              212.0
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.79623660684512,
+            "static_mises_MPa": 286.09882226762187,
+            "static_xyz_mm": [
+              -150.6,
+              22.0,
+              212.0
+            ]
+          },
+          "right": {
+            "design_fully_reversed_MPa": 200.60539248338003,
+            "fatigue_factor": 1.30277113024582,
+            "fatigue_positive_mean_MPa": 20.718652533278362,
+            "fatigue_range_MPa": 297.60787967770466,
+            "fatigue_xyz_mm": [
+              165.0,
+              22.0,
+              212.0
+            ],
+            "k_R": 0.8770826851901443,
+            "n_sigma_lower_bound": 1.0,
+            "static_factor": 2.504135418685144,
+            "static_mises_MPa": 319.47154056870414,
+            "static_xyz_mm": [
+              165.0,
+              22.0,
+              212.0
+            ]
+          }
+        },
+        "eccentricity_xy_mm": [
+          10.0,
+          10.0
+        ],
+        "elements": 2476,
+        "face_profile": "slope",
+        "fatigue_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0173971,
+          "pressure_max_MPa": 869.856,
+          "sample_count": 3462,
+          "zero_pressure_samples": 3357
+        },
+        "fatigue_seat_reactions_N": [
+          -780783.2061999999,
+          -919216.917
+        ],
+        "fitted_plate_tilt_rad_xy": [
+          0.0003057224242424242,
+          0.0027390460606060638
+        ],
+        "friction": 0.15,
+        "guide_model": "average",
+        "h_mm": 16.0,
+        "loaded_shoe_rail_gap_samples": [
+          {
+            "max_separation_mm": 0.24529720121736887,
+            "opening_samples_over_0p01_mm": 19,
+            "rail": "left",
+            "sample_count": 56
+          },
+          {
+            "max_separation_mm": 0.2350791506732719,
+            "opening_samples_over_0p01_mm": 17,
+            "rail": "right",
+            "sample_count": 56
+          }
+        ],
+        "max_face_transverse_displacement_mm": 0.2616431876496875,
+        "nodes": 3462,
+        "penalty_MPa_mm": 50000.0,
+        "plate_face_deflection_fatigue_mm": 0.368751,
+        "plate_face_deflection_static_mm": 0.40859,
+        "static_contact": {
+          "normal_gap_max_mm": 0.0,
+          "normal_gap_min_mm": -0.0187221,
+          "pressure_max_MPa": 936.107,
+          "sample_count": 3462,
+          "zero_pressure_samples": 3350
+        },
+        "static_contact_face_mean_axial_mm": 0.29824525454545453,
+        "static_seat_reactions_N": [
+          -889614.7982,
+          -1050384.8476300002
+        ]
+      }
+    ]
+  },
+  "C_CLR_01": {
+    "T17_chamber_guides_SRSS_mm": 0.04299013329183725,
+    "T17_frame_guides_SRSS_mm": 0.17978395973832856,
+    "T17b_status": "UNVERIFIED for revised pad traction",
+    "chamber_mounted_guides_lever_mm": 77.0,
+    "frame_mounted_counterexample_lever_mm": 352.0,
+    "limit_mm": 0.15
+  },
+  "machine_mass": {
+    "direct_integrated_machine_kg": 4906.214631955261,
+    "integrated_cup_machine_kg": 4909.214631955261,
+    "machine_T17_kg": 4972.4094516052755,
+    "machine_T17b_kg": 4965.535407605276,
+    "machine_rows": [
+      {
+        "T17_kg": 1655.3316041305181,
+        "T17b_kg": 1655.3316041305181,
+        "node": "Гидростанция в сборе",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Station rows; manufacturer valve package reconciliation and no credit for common blocks"
+      },
+      {
+        "T17_kg": 733.9322907714237,
+        "T17b_kg": 733.9322907714237,
+        "node": "Главный ГЦ с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, T-1.3 physical cylinder, minus tube annulus at unchanged bore and length"
+      },
+      {
+        "T17_kg": 82.42,
+        "T17b_kg": 82.42,
+        "node": "Два быстрых ГЦ с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-RAPID"
+      },
+      {
+        "T17_kg": 101.34,
+        "T17b_kg": 101.34,
+        "node": "ГЦ подпрессовки с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-PRE"
+      },
+      {
+        "T17_kg": 23.04,
+        "T17b_kg": 23.04,
+        "node": "ГЦ шибера с маслом",
+        "source": "calc/T-1.6/results.json mass.machine_rows, design/cylinders.t13.yaml CY-GATE"
+      },
+      {
+        "T17_kg": 180.22142000000002,
+        "T17b_kg": 180.22142000000002,
+        "node": "Камера, башмак и засовы",
+        "source": "calc/T-1.6/results.json mass.machine_rows, T-1.3 grouping minus estimate for gate plate; no double counting"
+      },
+      {
+        "T17_kg": 20.16508,
+        "T17b_kg": 49.904692,
+        "node": "Плита шибера",
+        "source": "calc/T-1.6/results.json mass.machine_rows, 38 mm from D-GK-01, planform 260×260 mm budget, included in upstream chamber grouping | T-1.7b gate_integral.mass, comparison against T-1.7 rows"
+      },
+      {
+        "T17_kg": 1605.959056703334,
+        "T17b_kg": 1569.345400703334,
+        "node": "Силовая рама",
+        "source": "T-1.7 frame_rows, Gmsh OCC и параметрическая ведомость | T-1.7b gate_integral.mass, comparison against T-1.7 rows"
+      },
+      {
+        "T17_kg": 225,
+        "T17b_kg": 225.0,
+        "node": "Траверса с пуансоном",
+        "source": "calc/T-1.6/results.json mass.machine_rows, T-1.3 remaining moving-mass allowance; planned mass cap"
+      },
+      {
+        "T17_kg": 180,
+        "T17b_kg": 180.0,
+        "node": "Подача и бункер",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Engineering allowance"
+      },
+      {
+        "T17_kg": 90,
+        "T17b_kg": 90.0,
+        "node": "Ограждения",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Engineering allowance"
+      },
+      {
+        "T17_kg": 75,
+        "T17b_kg": 75.0,
+        "node": "Электрика",
+        "source": "calc/T-1.6/results.json mass.machine_rows, Engineering allowance"
+      }
+    ],
+    "margin_to_4750_kg": -215.5354076052763,
+    "margin_to_4850_kg": -115.5354076052763,
+    "margin_to_5000_kg": 34.464592394723695,
+    "status_C_MASS_01_target_4000": "FAIL",
+    "status_limit_5000": "PASS",
+    "status_target_4850": "FAIL",
+    "uncertainty_kg": {
+      "casting_plus_range": [
+        20.0,
+        40.0
+      ],
+      "estimate_items_error_bound": null,
+      "estimate_line_items_unweighed": 345.0,
+      "named_upper_excluding_estimate_line_error": 5088.301987811802,
+      "station_plus_minus": 82.76658020652592
+    }
+  },
+  "result_status": "conditional_D1_candidate",
+  "task": "T-1.7b"
+}

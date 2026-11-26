@@ -1,0 +1,143 @@
+schema_version: 2
+task: T-1.7b
+round: 2
+status: STOP_NO_ACCEPTABLE_GATE
+selected: null
+baseline_frame: design/frame.t17b.yaml
+window_mm:
+- 150
+- 200
+kept_interface:
+  gate_face_x_mm: 205
+  gate_back_x_mm: 243
+  installed_insert_front_x_mm: 433.0
+  open_drop_bay_required_mm: 190.0
+  opening_working_mm: 75.0
+  opening_installed_mm: 80.0
+  rectangular_clear_passage_mm: &id001
+  - 164
+  - 62
+  overtravel_nominal_mm: 59
+  overtravel_maximum_mm: 69
+force_static_N: 1940000.0
+fatigue_force_range_N:
+- 0.0
+- 1700000.0
+cycles: 10000000
+contact_friction_coefficient: 0.15
+local_comparison_only:
+  geometry:
+    gate_face_x_mm: 205
+    gate_back_x_mm: 243
+    installed_insert_front_x_mm: 433.0
+    open_drop_bay_required_mm: 190.0
+    tail_at_minimum_clearance_x_mm: 248.1126420244421
+    head_max_x_mm: 427.32585150889645
+    tail_clearance_original_mm: 5.112642024442096
+    head_clearance_original_mm: 5.674148491103551
+    local_insert_depth_mm: 55.0
+    local_insert_lower_land_end_x_mm: 298.0
+    drop_bay_with_local_insert_mm: 135.0
+    tail_clearance_over_local_insert_mm: -49.887357975557904
+    direct_gate_shift_to_installed_insert_mm: 190.0
+    minimum_nominal_punch_travel_if_moved_mm: 454.0
+    maximum_working_punch_travel_if_moved_mm: 464.0
+    installed_punch_travel_mm: 289
+    opening_working_mm: 75.0
+    opening_installed_mm: 80.0
+    local_blade_open_lower_edge_mm: 32.0
+    local_blade_open_margin_mm: 1.0
+    rectangular_clear_passage_mm: *id001
+    R20_nominal_passage_margin_mm: 0.2010101267766693
+    overtravel_nominal_mm: 59
+    overtravel_maximum_mm: 69
+    local_blade_envelope_mass_kg: 5.643835999999999
+    baseline_blade_envelope_mass_kg: 9.8439
+    local_blade_envelope_mass_delta_kg: -4.200064
+    two_straight_lands_upper_area_mm2: 2640.0
+    two_straight_lands_mean_if_carry_full_force_MPa: 734.8484848484849
+    whole_perimeter_nominal_area_mm2: 6239.362938564083
+    whole_perimeter_mean_if_fully_seated_MPa: 310.9291796457778
+    T12_strip_bending_at_1p7_MN_MPa: 494.4598337950139
+    T12_strip_shear_equivalent_at_1p7_MN_MPa: 387.432417482512
+    T12_strip_bending_at_1p94_MN_MPa: 564.2659279778394
+    T12_strip_shear_equivalent_at_1p94_MN_MPa: 442.12875877416076
+    T12_strip_FKM_factor_without_gradient_credit: 0.649129830243139
+    T12_strip_thickness_for_FKM_1_mm: 47.164779997819835
+    max_blade_thickness_at_original_tail_before_intrusion_mm: 43.112642024442096
+    status: FAIL_GEOMETRY
+  blade_dimensions_mm:
+  - 220.0
+  - 86.0
+  - 38.0
+  insert_dimensions_mm:
+  - 340.0
+  - 180.0
+  - 55.0
+  outlet_mm:
+  - 176.0
+  - 74.0
+  - 20.0
+  blade_and_insert_grade: 34CrNiMo6+QT
+  Rp02_min_MPa: 800.0
+  Rm_min_MPa: 1000.0
+  edge_relief_mm:
+  - 3.0
+  - 0.06
+  proof:
+    C_STR_01: FAIL_LOCAL
+    C_FAT_01: FAIL_LOCAL
+    contact: FAIL_LOCAL
+  pressure_screen_MPa: 480.0
+side_support_baseline:
+  part_and_rails:
+    closed_face_nominal_thickness_mm: 38.0
+    complete_gate_and_rails_delta_kg: -6.874044000000001
+    integral_central_axial_thickness_mm: 196.0
+    integral_height_mm: 76.0
+    integral_transverse_width_mm: 340.0
+    moving_mass_delta_kg: 29.739611999999997
+    opening_reserve_mm: 6.0
+    part_mass_kg: 36.583512
+    rail_pair_mass_kg: 7.415424
+    transition_width_mm: 30.0
+  rail_bearing_dimensions_mm:
+  - 82.0
+  - 180.0
+  rail_count: 2
+  clear_rail_gap_mm: 176.0
+  mean_insert_bearing_at_1p94_MN_MPa: 65.71815718157181
+  local_strength_status: FAIL_FATIGUE
+opening_force_screen:
+  pressure_main_after_decompression_bar: 5.0
+  max_main_hydraulic_normal_force_N: 30787.608
+  T16_dual_channel_gate_open_pressure_permissive_bar: 3.0
+  max_main_normal_force_at_T16_permissive_N: 18472.564800000004
+  provisional_product_normal_force_N: 100000.0
+  product_force_basis: T-1.2b ejection drag magnitude, sensitivity only
+  friction_coefficient: 0.15
+  contact_friction_hydraulic_only_N: 4618.1412
+  extra_opening_drag_N: 19618.141200000002
+  noncontact_drag_N: 10000.0
+  moving_mass_kg: 40.799936
+  gravity_and_inertia_N: 1216.2460921600002
+  opening_force_screen_N: 30834.38729216
+  opening_drive_available_N: 92323.55410737004
+  opening_screen_factor: 2.994175082273951
+  maximum_product_normal_N_for_factor_2: 202182.59841016683
+  drive_eta: 0.92
+  assumed_gate_return_pressure_bar: 5.0
+  supply_pressure_for_factor_2_bar: 203.02887571705585
+  bore_rod_mm:
+  - 80.0
+  - 45.0
+  gate_open_flow_L_min: 123.7002107350981
+  gate_close_flow_L_min: 180.95573684677208
+  ramp_s: 0.03
+  ramp_distance_mm: 9.0
+  speed_m_s: 0.6
+  status: SCREEN_PASS_BRIQUETTE_UNLOAD_FORCE_UNVERIFIED
+cylinder_reference: design/cylinders.t16.yaml CY-GATE
+cylinder_filled_mass_kg: 23.04
+actual_insert_and_cast_transfer: BLOCKED_NO_FEASIBLE_PHYSICAL_LOAD_PATH
+reference_machine_mass_kg: 4972.4094516052755

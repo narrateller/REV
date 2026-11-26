@@ -1,0 +1,108 @@
+{
+  "acl": {
+    "command": "icacls . /T /C",
+    "deny_read_data_count": 0,
+    "objects_checked": 1920,
+    "other_deny_ace_count": 2,
+    "other_deny_scope": ".git sandbox metadata if present; write/delete/read-control flags",
+    "status": "PASS",
+    "unprivileged_access_basis": "No deny ACE covering ReadData and inherited Users read access. Normal file opens tested for all submitted files."
+  },
+  "archive": {
+    "calc_bytes": 4262901,
+    "file_count": 169,
+    "method": "Parse Python, open calculation and deliverable files, inspect decks for embedded mesh, audit size.",
+    "status": "PASS"
+  },
+  "contact_mesh_convergence": "FAIL",
+  "contact_replay": {
+    "absolute_numeric_tolerance": 1e-06,
+    "cases": [
+      "r2_seat_crown_0.json",
+      "r2_seat_crown_1.json",
+      "r2_seat_crown_2.json"
+    ],
+    "status": "PASS"
+  },
+  "contact_runs": 3,
+  "cycle_repeat": {
+    "cases": {
+      "cycle_comparison_r2.json": true,
+      "cycle_comparison_r2_side.json": true
+    },
+    "status": "PASS"
+  },
+  "delivered_results_sha256": "6ba8b2e1aaff85bcc1d2949ee14e6a8839a92afc8df0c467bc150287029e8c8b",
+  "engineering_status": "STOP_NO_ACCEPTABLE_GATE",
+  "force_balance": {
+    "relative_tolerance": 0.003,
+    "status": "PASS"
+  },
+  "gate_criteria_sha256": "1f7cd469428eb9b027484cb5a0bc74776be7d69370e86c14b3040ffbcf9f94af",
+  "gate_input": "design/params.t14b.yaml",
+  "gates": {
+    "G-CYCLE": {
+      "status": "PASS",
+      "unit": "s",
+      "value": 5.752529205651751
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "unit": "mm",
+      "value": 289
+    },
+    "G-PFACE": {
+      "status": "PASS",
+      "unit": "MPa",
+      "value": 168.88888888888889
+    }
+  },
+  "geometry": {
+    "audit": "PASS",
+    "candidate_acceptance": "FAIL",
+    "method": "Check the tail against the fixed lower strip in the actual axial stack."
+  },
+  "open": [
+    "No qualified gate support geometry. Actual insert/cast R20, C-CLR-01 and assembly fatigue proof remain open.",
+    "ZSF flange and cylinder cover require G-FEA and measured transients.",
+    "Cycle sensitivity assumes free discharge; opening block is reproducible geometrical interference."
+  ],
+  "regeneration": {
+    "absolute_numeric_tolerance": 1e-06,
+    "files": {
+      "design/frame.t17b.yaml": {
+        "byte_identical": true,
+        "numeric_equal": true
+      },
+      "design/slide_gate.t17b.yaml": {
+        "byte_identical": true,
+        "numeric_equal": true
+      },
+      "metrics.json": {
+        "byte_identical": true,
+        "numeric_equal": true
+      },
+      "results.json": {
+        "byte_identical": true,
+        "numeric_equal": true
+      }
+    },
+    "status": "PASS"
+  },
+  "round": 2,
+  "scope": {
+    "initial_user_file": "TASK.md, present in worktree before round 2",
+    "out_of_scope_changes": [],
+    "status": "PASS"
+  },
+  "solver_commands": [
+    "python -B calc/T-1.7b/round2_contact.py 0 1 2",
+    "python -B calc/T-1.7b/round2_audit.py"
+  ],
+  "task": "T-1.7b",
+  "tools": {
+    "calculix": "2.22",
+    "gmsh": "4.15.0",
+    "python": "3.13.17"
+  }
+}

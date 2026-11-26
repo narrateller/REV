@@ -1,0 +1,176 @@
+geometry_and_project:
+  pressure_case: TASK.md, GK round-2 decision in the task conversation, and ops/criteria/design_criteria.yaml C-STR-01
+  fatigue_case: TASK.md and DECISIONS.md D-OP-06
+  cylinder_cover: design/cylinders.t16.yaml CY-MAIN
+  chamber_geometry: design/params.t12b.yaml chamber
+  gate_support_strips_round_1_only: calc/T-1.2b/shoe_load.py gate_plate and ops/reports/T-1.2b/report.md
+  chamber_bearing_round_2: GK specifies 260 x 160 mm minimum footprint, less the outlet for the effective area.
+  discharge_open_bay: calc/T-1.2b/results.json axis_A and gate.clearance_cases.upper_dose; preserve the T-1.2b passive drop and CY-MAIN stroke.
+  axial_chamber_reference: calc/T-1.2b/results.json axis_A
+  previous_acceptance_and_defects: ops/reports/T-1.6/GK_review.md
+  previous_mass: calc/T-1.6/results.json mass.machine_rows
+rolled_material:
+  S460NL:
+    standard: EN 10025-3
+    table_4_reference: https://www.normsplash.com/FreeDownload/319443753/DIN-EN-10025-3-2019-de.pdf
+    product_reference: https://www.ancofer.de/wpdata/wp-content/uploads/2024/09/FMD-S460NL.pdf
+    thickness_over_80_to_100_mm: {minimum_yield_MPa: 400, minimum_tensile_MPa: 540}
+    thickness_over_100_to_150_mm: {minimum_yield_MPa: 380, minimum_tensile_MPa: 530}
+    thickness_over_150_to_200_mm: {minimum_yield_MPa: 370, minimum_tensile_MPa: 530}
+    weld_construction: Two 35 mm flanges and 148/88 mm core pieces. Use the lower 380/530 MPa base-metal minima for both ends.
+  adapter_34CrNiMo6_QT:
+    standard: EN ISO 683-2
+    product_reference: https://www.stahlwerk-augustfehn.com/wp-content/uploads/2024/01/34CrNiMo6-Technichal-data-sheet_-1.6582-new.pdf
+    flat_product_thickness_over_20_to_60_mm: {minimum_yield_MPa: 800, minimum_tensile_MPa: 1000}
+    procurement: Confirm the ruling section for the 55 mm backing piece with a certificate for the finished section.
+cast_material:
+  G35CrNiMo6_6_QT1:
+    standard: EN 10293, steel number 1.6579
+    current_standard_grade_reference: https://cdn.standards.iteh.ai/samples/37740/e17c195133c94e8ca3b14cfd6e0b2a51/SIST-EN-10293-2015.pdf
+    mechanical_properties_table_3_p12: https://www.scribd.com/document/1054171749/BS-EN-10293-2015
+    independent_foundry_table: https://www.sfsa.org/wordpress/wp-content/uploads/2021/10/s2.pdf
+    mechanical_properties:
+      ruling_section_over_100_to_150_mm: {minimum_yield_MPa: 650, tensile_range_MPa: [800, 950], minimum_KV_J: 35}
+      ruling_section_over_150_to_250_mm: {minimum_yield_MPa: 650, tensile_range_MPa: [800, 950], minimum_KV_J: 30}
+    procurement: EN 1559-1/-2. Confirm the ruling section, coupon location and properties on the as-delivered casting.
+    UT: {standard: "EN 12680-2:2025", severity_level: 2, extent: "100% ring, roots and bosses"}
+    NDT_standards_reference: https://www.din.de/en/getting-involved/standards-committees/gina/publications
+    MT: {standard: "EN 1369:2012", severity_level: "SM1/LM1/AM1", extent: "100% after dressing and machining"}
+    MT_reference: https://www.narsei.com/wp-content/uploads/2023/12/BS-EN-1369-2012-Founding-Magnetic-particle-testing.pdf
+    FKM_quality_reference: https://edocs.tib.eu/files/e01fn17/880384522.pdf
+    FKM_jG: 1.25
+    quality_note: jG is the NDT-tested normal casting category, conditional on these production controls. Severity classes themselves assign no fatigue divisor.
+    roughness_Rz_um: {machined_end_faces_and_holes: 6.3, other_cast_surfaces: 25}
+fasteners:
+  column_and_nut_material:
+    name: 42CrMo4+QT
+    standard: EN ISO 683-2
+    supplier_reference: https://en.saarstahl.com/app/uploads/2024/03/20160323013851-42CrMo4-42CrMoS4.pdf
+    ruling_section_over_160_to_250_mm: {minimum_yield_MPa: 500, minimum_tensile_MPa: 750}
+  nut_geometry:
+    size: M100x6
+    across_flats_mm: 145
+    height_mm: 80
+    source: https://david-dorfmueller.de/en/hexagon-nut-din-934/DIN934-b00d4effc197
+    note: Manufacturer dimensional configuration. Request proof load, material certificate, tolerances and supplied chamfer geometry.
+  VDI_2230:
+    standard: VDI 2230 Blatt 1:2015
+    standards_publisher: https://www.vdi.de/mitgliedschaft/vdi-richtlinien/details/vdi-2230-blatt-1-systematische-berechnung-hochbeanspruchter-schraubenverbindungen-zylindrische-einschraubenverbindungen
+    worked_method: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_en.pdf
+    method: R2–R9 spring and preload screen. 0.04 mm settlement is an engineering budget; verify after hydraulic tensioning.
+  EN_13001_reference_detail:
+    standard: BS EN 13001-3-1:2012+A2:2018
+    detail: "D.2 2.6, grade 8.8+, rolled above M30; reference only"
+    document: https://pdfcoffee.com/bs-en-13001-3-1-2012-a2-2018-pdf-free.html
+    note: Scope and material applicability require qualification for custom M100, as do M100 rolling and the shoulder and runout.
+fatigue_methods:
+  FKM:
+    publisher: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+    primary_method_paper: https://doi.org/10.1016/j.ijfatigue.2024.108165
+    roughness_formula: https://journals.sagepub.com/doi/10.1177/02670836251362509
+    cast_and_steel_coefficients: https://documentation-be.hexagon.com/bundle/MSC_Fatigue_2021_Theory_Guide/raw/resource/enus/MSC_Fatigue_2021_Theory_Guide.pdf
+    prior_edition_tables_4_2_1_4_3_2_4_4_1: https://www.scribd.com/document/753902327/FKM-Guideline-Analytical-Strength-Assessment-6th
+    independent_gradient_equations_4_5: https://www.mdpi.com/1996-1944/17/13/3130
+    project_constants: {ND_cycles: 1000000, kD: 15, jD: 1.5}
+    public_contents: https://www.vdmashop.de/en/Rechnerischer-Festigkeitsnachweis-fuer-Maschinenbauteile-7.-Auflage-2020/107433
+    local_Woehler_curve_diagram: https://www.limit-fatigue.com/wp-content/uploads/2020/04/LIMIT_2020_FKM_Course_BaseWeld.pdf
+    sections: '7th edition, ch. 4 local stress, 4.3 design factors and 4.4 component strength, S-N curve. kD=15 is the GK round-2 design slope.'
+    method: Conservative distortion-energy amplitude and positive principal-mean envelope, with Siebel-Stieler support from FE stress gradients and full roughness penalty.
+    static_local_proof: https://doi.org/10.1051/metal/2025081
+  IIW:
+    primary: https://link.springer.com/book/10.1007/978-3-319-23757-2
+    document: https://svv.cz/files/IIW182307FatigueRecomm20121017.pdf
+    class: FAT 100 at 2e6 cycles, type a at the flange, full penetration K joint, UT, no lamellar tearing.
+    thickness_reference_mm: 25
+    thickness_exponent: 0.3
+    design_divisor: 1.35
+    note: Retain m=3 to 10^7 as a conservative screen; detail, access and weld execution need approval.
+steel_model_constants:
+  source: calc/T-1.5/sources.yaml and calc/T-1.6/sources.yaml
+  elastic_modulus_MPa: 210000
+  poisson: 0.30
+  density_kg_m3: 7850
+T17b_additions:
+  scope:
+    pressure_body: design/cylinders.t16.yaml, CY-MAIN
+    MA_and_dual_pressure_pickoffs: design/hydraulics/T-1.6_circuit.yaml, CYM, MA, PTA, PTB
+    gate_drive_and_oil: design/cylinders.t16.yaml, CY-GATE; design/hydraulics/T-1.6_circuit.yaml, VG/CYG/RGA/RGB
+    as_built_geometry_unavailable: T-1.2b and T-1.7 give force path sketches and analytical envelopes.
+  manufacturer_references:
+    ZSF:
+      url: https://hyquip.co.uk/modules/teapotknowledgehub/uploads/re_20478_202012-6641ce6d93d31.pdf
+      where: Bosch Rexroth RE 20478, 2020-12, NG100 technical data, application examples and mating dimensions
+      T16_values: "NG100, A 16 bar, B 350 bar, case 2 nominal 1600 L/min at 0.3 bar. T-1.6 governs placement and sizing."
+    ZSF_selector:
+      url: https://www.boschrexroth.com/ics/Projects/GenericSelector/?ProductArea=ZSF_W&c=gb&language=en
+      where: Type code and size, ZSF NG100 F0, 1X
+    static_seals:
+      url: https://www.trelleborg.com/en/seals/products-and-solutions/static-seals/back-up-ring
+      where: Overview and preferred series for external bore sealing
+      assessment: "NBR/backup ring from inherited cylinder specification. HLP46, temperature and actual extrusion gap at 315 bar need seal supplier approval."
+    dynamic_seals:
+      url: https://www.trelleborg.com/seals/-/media/tss-media-repository/tss_website/pdf-and-other-literature/catalogs/hydraulic_complete_gb_en.pdf
+      where: Hydraulic Seals - Linear, Glyd Ring T and rod Stepseal 2K, inherited in calc/T-1.3/sources.yaml
+    cast_boring:
+      url: https://www.fermatmachinery.com/machines/wft-13-15
+      where: WFT 13/15 table capacity and workpiece clamping
+      used_for: Example horizontal boring mill with payload margin, separate fixture/axis-accuracy inquiry.
+    separate_tube_honing:
+      url: https://www.sunnen.com/products/hta-tube-honing-machine
+      where: Specifications, ID 64-533 mm
+      used_for: Separate Ø280 cylinder barrel tooling envelope. A large, irregular, blind cast datum needs a fixture and tool trial.
+    casting_impregnation:
+      url: https://dm.henkel-dam.com/is/content/henkel/sell-sheet-sealing-vacuum-impregnation-cast-metal-parts
+      where: LOCTITE impregnation product sheet, permeability control and resin parameters
+      used_for: Sealing of qualified microporosity. UT and MT acceptance precede sealing, coupon tests required in HLP46.
+    blade_and_rails_34CrNiMo6:
+      url: https://www.stahlwerk-augustfehn.com/wp-content/uploads/2024/01/34CrNiMo6-Technichal-data-sheet_-1.6582-new.pdf
+      where: "Page 2, mechanical properties, flat product t over 20 through 60 and over 60 through 100 mm"
+      flat_20_to_60_mm_min: {Rp02_MPa: 800, Rm_MPa: 1000}
+      flat_60_to_100_mm_min: {Rp02_MPa: 700, Rm_MPa: 900}
+      procurement: "Confirm ruling section and hardness through the finished blank using the material certificate and test coupon."
+    rear_forging_42CrMo4:
+      url: https://en.saarstahl.com/app/uploads/2024/03/20160323013851-42CrMo4-42CrMoS4.pdf
+      where: "Mechanical properties, +QT, minimum 500 MPa yield and 750 MPa tensile screen for 160 < d ≤ 250 mm"
+      procurement: "T-1.6 specifies Rp0.2 ≥500 MPa for forged heads. Rm ≥750 MPa and finished ruling section require an explicit guarantee."
+    calculix:
+      url: https://www.dhondt.de/ccx_2.22.pdf
+      where: "*CONTACT PAIR, *SURFACE BEHAVIOR, *FRICTION, *CONTACT FILE, *SPRING."
+  engineering_assumptions:
+    service_hours: "Planning WBS for two technicians with handling fixtures staged, excludes repair of damaged parts and shop lead time."
+    gate_attachments_mass_allowance_kg: 3
+    assessed_machine_mass_uncertainties:
+      station_fraction: 0.05
+      casting_allowance_kg: [20, 40]
+      estimate_rows_subtotal_kg: 345
+      basis: "ops/reports/T-1.7/GK_review.md M3; T-1.7 machine rows, feeder, guards and electrical 180 + 90 + 75 kg."
+
+round_2:
+  stage_inputs:
+    geometry: 'calc/T-1.2b/results.json, axis_A and gate.clearance_cases; calc/T-1.7/results.json, variants.cast; ops/reports/T-1.7/report.md, zones of the gate and discharge bay.'
+    cover_baseline: 'design/cylinders.t16.yaml, CY-MAIN; retained_cap.py and fea/retained_rear_cap_[0-2].json, round 1.'
+    opening: 'calc/T-1.4b/sources.yaml, decompression_cap_target_bar, gate acceleration; design/hydraulics/T-1.6_interlocks.yaml gate_open (two channels <=3 bar) and T-1.6_circuit.yaml CYG; calc/T-1.2b/shoe_load.py, EJECTION_FORCE_N and gate clearance cases.'
+    springback_limit: 'T-1.2b gives released length and ejection drag after opening, but no springback force versus displacement while the gate remains closed. The 100 kN scenario serves as a sensitivity. The upper bound remains open.'
+    gate_actuator_assumptions: {efficiency: 0.92, adverse_return_bar: 5, additional_opening_friction: '0.15 times the summed pressure and product sensitivity normal forces'}
+  wear_surfaces:
+    url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+    where: 'p. 2, 20–60 mm +QT flats, induction/flame hardening 52–57 HRC attainable.'
+    engineering_requirement: 'Use 0.6 Rp0.2 = 480 MPa as the local bearing screen for the 800 MPa core. No load capacity increase from hardening credited. Qualify a hardened wear track and replaceable counterface with hardness pairing, suitable lubricant, dust exclusion and scuffing tests before freezing surface treatment.'
+  zsf:
+    url: https://hyquip.co.uk/modules/teapotknowledgehub/uploads/re_20478_202012-6641ce6d93d31.pdf
+    where: 'RE 20478 (2020-12) pages 9, 14 and 17. NG100 dimensions, seat rigidity, 8 M27x180 10.9-flZn R913059494, 1150 Nm, manual torque tolerance ±10%, friction 0.09–0.14.'
+    pressure_diameter_sensitivity_mm: '138.5 is catalog D6 near the seal, 188 is the counterflange raised-face OD d4. Confirm the effective projected pressure area at the B seal.'
+    torque_preload:
+      url: https://media.bossard.com/global-en/-/media/bossard-group/website/documents/technical-resources/en/f-047-en.pdf
+      where: 'F.047/F.048, ISO 4762, M27 table dry/lubricated standard geometry, preload and torque for friction 0.08 to 0.14.'
+    grade:
+      url: https://www.iso.org/standard/60610.html
+      where: 'ISO 898-1:2013 Table 3, property class 10.9, 940 MPa minimum Rp0.2 and 830 MPa proof stress.'
+    fatigue:
+      url: https://www.normsplash.com/Samples/DIN/131389157/VDI-2230-Part-1-2015-en-de-2.pdf
+      where: 'VDI 2230-1:2015 §5.5.3, Eq. 170, SV rolled before heat treatment endurance amplitude. Apply project fatigue divisor 1.35 from T-1.7 column calculation.'
+    screen_only: '135 mm grip and 45 mm effective engagement are schematic. Crown or cover thread details cannot be derived from a 55 mm minimum pilot/tap depth.'
+    surge:
+      url: https://www.publications.usace.army.mil/portals/76/publications/engineermanuals/em_1110-1-4008.pdf
+      where: 'EM 1110-1-4008, liquid pipeline hydraulic transients / water hammer, rapid-stop Joukowsky pressure rise.'
+      parameters: '1,293 L/min and ID 130 mm from T-1.6; 870 kg/m³ and 1.4 GPa from T-1.4b model. Rigid-line, instantaneous stop screen; local poppet impact is unquantified.'
