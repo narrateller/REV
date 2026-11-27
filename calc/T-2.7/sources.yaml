@@ -1,0 +1,119 @@
+task: T-2.7
+project:
+  url: file:../T-2.2h/loads.py
+  locator: "WIDTH_MM, HEIGHT_MM, ROOF_LENGTH_MM, LOADED_LENGTH_MM, K_GRID, MU_GRID, janssen()"
+  decision_url: file:../../DECISIONS.md
+  decision_locator: D-GK-15 / D-OP-18
+  K_grid: [0.35, 0.45, 0.60]
+  mu_grid: [0.20, 0.25, 0.30]
+  sensitivity_face_pressure_MPa: [100, 150, 200]
+sources:
+  holm2006:
+    url: https://doi.org/10.1021/ef0503360
+    locator: "Abstract, p. 2686"
+    access: abstract
+  holm2007:
+    url: https://doi.org/10.1021/ef070156l
+    full_text: https://www.academia.edu/15132463/Experimental_Verification_of_Novel_Pellet_Model_Using_a_Single_Pelleter_Unit
+    locator: "pp. 2447–2448, Experimental Section, Eq. (1), Table 1, Fig. 6"
+    access: full_text_copy
+    preparation_pressure_MPa: 440
+    moisture_wet_basis_pct: 12
+    die_temperature: комнатная
+    die_diameter_mm: 15.6
+    mu_assumed: [0.30, 0.40, 0.50]
+    data:
+      pine:
+        material: Стружка сосны обыкновенной
+        fitted_nu_LR: [0.66, 0.49, 0.39]
+        reported_nu_LR_plus_minus: [0.03, 0.03, 0.02]
+      beech:
+        material: Стружка бука европейского
+        fitted_nu_LR: [0.56, 0.42, 0.34]
+        reported_nu_LR_plus_minus: [0.02, 0.02, 0.01]
+  nielsen2009:
+    url: https://wfs.swst.org/index.php/wfs/article/download/469/469/
+    locator: "pp. 417–420, Table 1, Figs. 3–5"
+    access: full_text
+  nielsen2009_orientation:
+    url: https://doi.org/10.1021/ef800923v
+    locator: "Abstract, p. 3211"
+    access: abstract
+  stelte2011:
+    url: https://doi.org/10.1016/j.fuel.2011.05.011
+    full_text: https://backend.orbit.dtu.dk/ws/files/6337845/Fuel%20pellets%20from%20biomass_postprint.pdf
+    locator: "Авторский постпринт, pp. 5–7, §2.3–2.4, Eq. (1), Fig. 1"
+    access: full_text
+    material: Измельчённая ель
+    preparation_pressure_MPa: 200
+    moisture_pct: 8.2
+    die_temperature_C: 20
+    die_diameter_mm: 8
+    particle_size_mm: [1, 2.8]
+    mu_assumed: 0.50
+    fitted_nu_LR: 0.33
+    reported_nu_LR_plus_minus: 0.03
+  repsa2012:
+    url: https://www.iitf.lbtu.lv/conference/proceedings2012/Papers/051_Repsa_E.pdf
+    locator: "pp. 295–299, Eqs. (1)–(2), Figs. 4–6"
+    access: full_text
+    material: Измельчённый тростник обыкновенный
+    max_compaction_pressure_MPa: 218
+    moisture_pct: 8.7
+    die_diameter_mm: 35
+    grind_screen_mm: 3
+    K_assumed_by_authors: 0.45
+    mu_inferred_by_authors: [0.20, 0.24]
+    repetitions_per_length: 11
+  wang2020:
+    url: https://doi.org/10.15376/biores.15.3.4932-4946
+    full_text: https://bioresources.cnr.ncsu.edu/wp-content/uploads/2020/05/BioRes_15_3_4932_Wang_SW_Research_Mechan_Behavior_Biomass_Densif_Thickwalled_Cylinder_17319.pdf
+    locator: "pp. 4935–4940, Eqs. (5)–(8), Fig. 8a"
+    access: full_text
+    material: Древесная стружка из отделочных отходов
+    max_axial_force_N: 20000
+    die_diameter_mm: 20
+  trinh2020:
+    url: https://doi.org/10.1007/s00107-020-01585-y
+    locator: "§2.2.4, Tables 1 and 3, Figs. 11 and 13–14"
+    access: full_text
+    material: Мякина спельты
+    moisture_wet_basis_pct: 20
+    mu_carbon_steel_jenike: 0.299
+    mu_POM_jenike: 0.386
+  oak2022:
+    url: https://doi.org/10.3390/en15207488
+    locator: "§2.1–2.2, Figs. 7–9, Table 1 и абзац после неё"
+    access: full_text
+    material: Дубовые опилки по стальной пластине
+    moisture_pct: 9
+    test_temperature_C: 25
+    compaction_force_N_at_selected_mu: 34000
+    mu_at_selected_force: 0.25
+    mu_limits_in_optimization: [0.18, 0.34]
+  stasiak2020:
+    url: https://doi.org/10.3390/ma13163567
+    locator: "§2–4.1, Figs. 4–5"
+    access: full_text
+    material: Сосновая биомасса разных фракций и пеллеты
+    test_normal_pressure_kPa: [15, 30]
+    mu_across_stainless_and_galvanized_steel: [0.25, 0.62]
+  wilczynski2021:
+    url: https://doi.org/10.1016/j.fuel.2020.119613
+    locator: Abstract and public article preview
+    access: partial_text
+  adam2024:
+    url: https://doi.org/10.1016/j.renene.2024.120773
+    abstract_copy: https://ideas.repec.org/a/eee/renene/v229y2024ics0960148124008413.html
+    locator: Abstract
+    access: abstract
+laboratories:
+  - name: КГАСУ
+    url: https://www.kgasu.ru/science/nis/nauchno-issledovatelskaya-baza/files/pribor_9.pdf
+    locator: Карточка УММ-200
+  - name: Университет Мишкольца, FIEK
+    url: https://fiek.uni-miskolc.hu/laboratoriumivizsgalat/elsodleges-es-masodlagos-nyersanyagok-agglomeralasa/
+    locator: Kísérleti Dugattyús Prés
+  - name: DBFZ
+    url: https://www.dbfz.de/en/working-group-mechanical-benification-processes/portfolio/technical-equipment
+    locator: Briquette press, ATNA / Green Line S50

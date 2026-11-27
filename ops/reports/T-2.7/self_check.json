@@ -1,0 +1,49 @@
+{
+  "task": "T-2.7",
+  "status": "PASS",
+  "cmd_gate": [
+    "E:\\Tools\\Python313\\python.exe",
+    "ops/gates/calc_gates.py",
+    "--params",
+    "calc/T-2.6/params/params.t26a.yaml",
+    "--criteria",
+    "ops/criteria/design_criteria.yaml",
+    "--out",
+    "E:\\Projects\\REV-wt\\T-2.7\\gates.t27.json"
+  ],
+  "gate_exit_code": 1,
+  "gate_overall": "FAIL",
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "unit": "MPa"
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 396,
+      "unit": "mm"
+    },
+    "G-CYCLE": {
+      "status": "FAIL",
+      "value": 8.719438672336503,
+      "unit": "s"
+    }
+  },
+  "checks": {
+    "G-PFACE": true,
+    "G-DOSE": true,
+    "gate_values_match_report": true,
+    "two_fresh_runs_identical_results_json": true,
+    "report_utf8_without_question_mark_or_replacement": true,
+    "copied_model_matches_upstream": true,
+    "axial_force_balance": true,
+    "closed_die_product_recovered_from_pressure_loss": true,
+    "project_inputs_unchanged": true,
+    "calc_directory_size_below_2_MB": true
+  },
+  "calc_cases_checked": 108,
+  "max_axial_balance_error_N": 3.4924596548080444e-10,
+  "results_sha256": "669b0b0dd2bddcd7e60ab73e86eee93f0a7340b9ffcf02cf95f8ac3a5484e12c",
+  "report_bytes": 6312
+}
