@@ -2,7 +2,10 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: REV machine parameters, version 1
 type: object
 additionalProperties: false
-required: [schema_version, product, raw, main_cylinder, chamber, precompaction, drive, cycle]
+required: [schema_version, product, raw, main_cylinder, chamber, precompaction, drive]
+anyOf:
+  - required: [cycle_model]
+  - required: [cycle]
 properties:
   schema_version: {type: integer, const: 1}
   description: {type: string}
@@ -114,6 +117,7 @@ properties:
             type: boolean
             default: false
             description: Заряжать при свободном насосе. Остаток восполняется отдельной фазой после цикла.
+  cycle_model: {$ref: '#/$defs/physical_cycle_model'}
   cycle:
     type: array
     minItems: 1
@@ -196,3 +200,340 @@ $defs:
       rod_mm: {$ref: '#/$defs/positive'}
       stroke_mm: {$ref: '#/$defs/positive'}
       eta: {$ref: '#/$defs/efficiency'}
+  # The reference solver accepts hardware, material laws and controller interlocks only.
+  physical_cycle_model:
+    type: object
+    additionalProperties: false
+    required: [mechanics, material, outlet, process, pump, oil, rapid_pair, valves, tank, lp, mp, pilot]
+    properties:
+      mechanics:
+        type: object
+        additionalProperties: false
+        required: [main_rod_mm, feed_length_mm, roof_mm, main_cushion_mm, shoe_travel_mm, cam_stroke_mm, cam_resistance_N, crosshead_mass_kg,
+          crosshead_accel_m_s2, gate_mass_kg, gate_accel_m_s2, gate_travel_mm, gate_close_inset_mm, gate_mu, gate_residual_N, gate_breakaway_N,
+          gate_close_N, rapid_return_resistance_N, main_guide_N, pre_guide_N, pre_return_resistance_N, die_ejection_N, transfer_edge_N]
+        properties:
+          main_rod_mm: {$ref: '#/$defs/positive'}
+          feed_length_mm: {$ref: '#/$defs/positive'}
+          roof_mm: {$ref: '#/$defs/nonnegative'}
+          main_cushion_mm: {$ref: '#/$defs/nonnegative'}
+          shoe_travel_mm: {$ref: '#/$defs/positive'}
+          cam_stroke_mm: {$ref: '#/$defs/nonnegative'}
+          cam_resistance_N: {$ref: '#/$defs/nonnegative'}
+          crosshead_mass_kg: {$ref: '#/$defs/positive'}
+          crosshead_accel_m_s2: {$ref: '#/$defs/positive'}
+          gate_mass_kg: {$ref: '#/$defs/positive'}
+          gate_accel_m_s2: {$ref: '#/$defs/positive'}
+          gate_travel_mm: {$ref: '#/$defs/positive'}
+          gate_close_inset_mm: {$ref: '#/$defs/nonnegative'}
+          gate_mu: {$ref: '#/$defs/nonnegative'}
+          gate_residual_N: {$ref: '#/$defs/nonnegative'}
+          gate_breakaway_N: {$ref: '#/$defs/nonnegative'}
+          gate_close_N: {$ref: '#/$defs/nonnegative'}
+          rapid_return_resistance_N: {$ref: '#/$defs/positive'}
+          main_guide_N: {$ref: '#/$defs/positive'}
+          pre_guide_N: {$ref: '#/$defs/positive'}
+          pre_return_resistance_N: {$ref: '#/$defs/positive'}
+          die_ejection_N: {$ref: '#/$defs/nonnegative'}
+          transfer_edge_N: {$ref: '#/$defs/nonnegative'}
+      material:
+        type: object
+        additionalProperties: false
+        required: [scale_MPa, exponent, rho_ref_kg_m3, rho_join_kg_m3, density_max_kg_m3, lateral_K, wall_mu, axial_springback]
+        properties:
+          scale_MPa: {$ref: '#/$defs/positive'}
+          exponent: {$ref: '#/$defs/positive'}
+          rho_ref_kg_m3: {$ref: '#/$defs/nonnegative'}
+          rho_join_kg_m3: {$ref: '#/$defs/positive'}
+          density_max_kg_m3: {$ref: '#/$defs/positive'}
+          lateral_K: {$ref: '#/$defs/positive'}
+          wall_mu: {$ref: '#/$defs/positive'}
+          axial_springback: {$ref: '#/$defs/nonnegative'}
+      outlet:
+        type: object
+        additionalProperties: false
+        required: [section_mm, length_mm, transition_mm, overhang_mm, guide_mu, crumbs_N, side_load_to_weight]
+        properties:
+          section_mm: {$ref: '#/$defs/pair'}
+          length_mm: {$ref: '#/$defs/positive'}
+          transition_mm: {$ref: '#/$defs/positive'}
+          overhang_mm: {$ref: '#/$defs/positive'}
+          guide_mu: {$ref: '#/$defs/positive'}
+          crumbs_N: {$ref: '#/$defs/nonnegative'}
+          side_load_to_weight: {$ref: '#/$defs/nonnegative'}
+      process:
+        type: object
+        additionalProperties: false
+        required: [bulk_density_kg_m3, feed_s, hold_s, unload_s, valve_switch_s, handover_interlock_s, gate_release_cap_bar]
+        properties:
+          bulk_density_kg_m3: {$ref: '#/$defs/positive'}
+          feed_s: {$ref: '#/$defs/positive'}
+          hold_s: {$ref: '#/$defs/positive'}
+          unload_s: {$ref: '#/$defs/positive'}
+          valve_switch_s: {$ref: '#/$defs/positive'}
+          handover_interlock_s: {$ref: '#/$defs/nonnegative'}
+          gate_release_cap_bar: {$ref: '#/$defs/nonnegative'}
+      pump:
+        type: object
+        additionalProperties: false
+        required: [curve, map_rpm, motor_rpm, rated_motor_rpm, speed_ceiling_rpm, displacement_cm3_rev, standby_bar, destroke_s,
+          onstroke_s, control_delay_s, line_limit_L_min, delivery_fraction, regulator_fraction, main_shaft_limit_kW, nominal_regulator_kW,
+          combined_shaft_limit_kW, coupling_loss_kW, torque_tolerance]
+        properties:
+          curve:
+            type: array
+            minItems: 2
+            items:
+              type: array
+              minItems: 4
+              maxItems: 4
+              prefixItems:
+              - {$ref: '#/$defs/nonnegative'}
+              - {$ref: '#/$defs/positive'}
+              - {$ref: '#/$defs/positive'}
+              - {$ref: '#/$defs/nonnegative'}
+          map_rpm: {$ref: '#/$defs/positive'}
+          motor_rpm: {$ref: '#/$defs/positive'}
+          rated_motor_rpm: {$ref: '#/$defs/positive'}
+          speed_ceiling_rpm: {$ref: '#/$defs/positive'}
+          displacement_cm3_rev: {$ref: '#/$defs/positive'}
+          standby_bar: {$ref: '#/$defs/positive'}
+          destroke_s: {$ref: '#/$defs/positive'}
+          onstroke_s: {$ref: '#/$defs/positive'}
+          control_delay_s: {$ref: '#/$defs/positive'}
+          line_limit_L_min: {$ref: '#/$defs/positive'}
+          # G-CYCLE reports fractions above unity as qualification failures.
+          delivery_fraction: {$ref: '#/$defs/positive'}
+          regulator_fraction: {$ref: '#/$defs/positive'}
+          main_shaft_limit_kW: {$ref: '#/$defs/positive'}
+          nominal_regulator_kW: {$ref: '#/$defs/positive'}
+          combined_shaft_limit_kW: {$ref: '#/$defs/positive'}
+          coupling_loss_kW: {$ref: '#/$defs/nonnegative'}
+          torque_tolerance: {$ref: '#/$defs/nonnegative'}
+      oil:
+        type: object
+        additionalProperties: false
+        required: [temperature_C, map_temperature_C, viscosity_C_mm2_s, density_kg_m3, bulk_modulus_Pa, cap_dead_L, rod_dead_L]
+        properties:
+          temperature_C: {$ref: '#/$defs/positive'}
+          map_temperature_C: {$ref: '#/$defs/positive'}
+          viscosity_C_mm2_s:
+            type: array
+            minItems: 2
+            items: {$ref: '#/$defs/pair'}
+          density_kg_m3: {$ref: '#/$defs/positive'}
+          bulk_modulus_Pa: {$ref: '#/$defs/positive'}
+          cap_dead_L: {$ref: '#/$defs/nonnegative'}
+          rod_dead_L: {$ref: '#/$defs/nonnegative'}
+      rapid_pair:
+        type: object
+        additionalProperties: false
+        required: [count, bore_mm, rod_mm, eta, float_drag_N, switch_force_N, rapid_regeneration, vr_exhaust_curve, regen_pilot_shift_L]
+        properties:
+          count: {$ref: '#/$defs/count'}
+          bore_mm: {$ref: '#/$defs/positive'}
+          rod_mm: {$ref: '#/$defs/positive'}
+          eta: {$ref: '#/$defs/efficiency'}
+          float_drag_N: {$ref: '#/$defs/nonnegative'}
+          switch_force_N: {$ref: '#/$defs/positive'}
+          rapid_regeneration: {type: boolean}
+          vr_exhaust_curve: {type: boolean}
+          regen_pilot_shift_L: {$ref: '#/$defs/nonnegative'}
+      valves:
+        type: object
+        additionalProperties: false
+        required: [line_loss_bar, main_regen_changeover_bar, cam_metering_L_min, gate_metering_L_min, rapid_feed_metering_L_min,
+          rapid_out_metering_L_min, rapid_back_metering_L_min, pre_metering_L_min, main_metering_L_min, mc_reference_L_min, mc_drop_bar,
+          mf_rated_L_min, mf_rated_drop_bar, mf_exhaust_budget_bar, mf_extra_pilot_shift_L, vr_rated_L_min, vr_rated_drop_bar, zsf_curve_L_min_bar,
+          zsf_max_L_min, fill_pipe]
+        properties:
+          line_loss_bar:
+            type: array
+            minItems: 3
+            maxItems: 3
+            items: {$ref: '#/$defs/nonnegative'}
+          main_regen_changeover_bar: {$ref: '#/$defs/positive'}
+          cam_metering_L_min: {$ref: '#/$defs/positive'}
+          gate_metering_L_min: {$ref: '#/$defs/positive'}
+          rapid_feed_metering_L_min: {$ref: '#/$defs/positive'}
+          rapid_out_metering_L_min: {$ref: '#/$defs/positive'}
+          rapid_back_metering_L_min: {$ref: '#/$defs/positive'}
+          pre_metering_L_min: {$ref: '#/$defs/positive'}
+          main_metering_L_min: {$ref: '#/$defs/positive'}
+          mc_reference_L_min: {$ref: '#/$defs/positive'}
+          mc_drop_bar: {$ref: '#/$defs/positive'}
+          mf_rated_L_min: {$ref: '#/$defs/positive'}
+          mf_rated_drop_bar: {$ref: '#/$defs/positive'}
+          mf_exhaust_budget_bar: {$ref: '#/$defs/positive'}
+          mf_extra_pilot_shift_L: {$ref: '#/$defs/nonnegative'}
+          vr_rated_L_min: {$ref: '#/$defs/positive'}
+          vr_rated_drop_bar: {$ref: '#/$defs/positive'}
+          zsf_curve_L_min_bar:
+            type: array
+            minItems: 2
+            items:
+              type: array
+              minItems: 2
+              maxItems: 2
+              items: {$ref: '#/$defs/nonnegative'}
+          zsf_max_L_min: {$ref: '#/$defs/positive'}
+          fill_pipe:
+            type: object
+            additionalProperties: false
+            required: [cap_ID_mm, annulus_ID_mm, length_m, darcy_factor, local_K, static_head_m]
+            properties:
+              cap_ID_mm: {$ref: '#/$defs/positive'}
+              annulus_ID_mm: {$ref: '#/$defs/positive'}
+              length_m: {$ref: '#/$defs/positive'}
+              darcy_factor: {$ref: '#/$defs/positive'}
+              local_K: {$ref: '#/$defs/nonnegative'}
+              static_head_m: {$ref: '#/$defs/nonnegative'}
+      tank:
+        type: object
+        additionalProperties: false
+        required: [oil_L, gross_L, gauge_bar, band_bar, ambient_bar, minimum_abs_bar, enforce_saturation_reserve, saturation_reserve_bar]
+        properties:
+          oil_L: {$ref: '#/$defs/positive'}
+          gross_L: {$ref: '#/$defs/nonnegative'}
+          gauge_bar: {$ref: '#/$defs/nonnegative'}
+          band_bar: {$ref: '#/$defs/nonnegative'}
+          ambient_bar: {$ref: '#/$defs/positive'}
+          minimum_abs_bar: {$ref: '#/$defs/positive'}
+          enforce_saturation_reserve: {type: boolean}
+          saturation_reserve_bar: {$ref: '#/$defs/nonnegative'}
+      lp:
+        type: object
+        additionalProperties: false
+        required: [shell_L, precharge_bar, low_bar, high_bar, delivery_L_min, exponent, charge_drop_bar, routes]
+        properties:
+          shell_L: {$ref: '#/$defs/positive'}
+          precharge_bar: {$ref: '#/$defs/positive'}
+          low_bar: {$ref: '#/$defs/positive'}
+          high_bar: {$ref: '#/$defs/positive'}
+          delivery_L_min: {$ref: '#/$defs/positive'}
+          exponent: {$ref: '#/$defs/positive'}
+          charge_drop_bar: {$ref: '#/$defs/positive'}
+          routes:
+            type: array
+            minItems: 0
+            items: {enum: [return, pre_up, pre_down, gate_open, gate_close, eject, prefill]}
+      mp:
+        anyOf:
+        - {type: 'null'}
+        - type: object
+          additionalProperties: false
+          required: [shell_L, precharge_bar, low_bar, high_bar, exponent, delivery_L_min, routes, cycle_budget_L, changeover_allowance_s,
+            pilot_shift_L]
+          properties:
+            shell_L: {$ref: '#/$defs/positive'}
+            precharge_bar: {$ref: '#/$defs/positive'}
+            low_bar: {$ref: '#/$defs/positive'}
+            high_bar: {$ref: '#/$defs/positive'}
+            exponent: {$ref: '#/$defs/positive'}
+            delivery_L_min: {$ref: '#/$defs/positive'}
+            routes:
+              type: array
+              minItems: 1
+              items: {enum: [prefill, return]}
+            cycle_budget_L: {$ref: '#/$defs/positive'}
+            changeover_allowance_s: {$ref: '#/$defs/positive'}
+            pilot_shift_L: {$ref: '#/$defs/nonnegative'}
+      pilot:
+        type: object
+        additionalProperties: false
+        required: [precharge_bar, low_bar, high_bar, gas_volume_L, polytropic_exponent, tandem_displacement_cm3_rev, tandem_rpm,
+          vol_efficiency, mech_efficiency, max_load_bar, standby_kW, valve_shift_budget_L, dfe1z_shift_budget_L, reservation_window_s,
+          valve_response_s, hot_leak_factor, charge_headroom_L, reserved_shaft_margin_kW, idle_charge_reserve_s, leak_L_min_at_100_bar,
+          rail_connections]
+        properties:
+          precharge_bar: {$ref: '#/$defs/positive'}
+          low_bar: {$ref: '#/$defs/positive'}
+          high_bar: {$ref: '#/$defs/positive'}
+          gas_volume_L: {$ref: '#/$defs/positive'}
+          polytropic_exponent: {$ref: '#/$defs/positive'}
+          tandem_displacement_cm3_rev: {$ref: '#/$defs/pair'}
+          tandem_rpm: {$ref: '#/$defs/positive'}
+          vol_efficiency: {$ref: '#/$defs/efficiency'}
+          mech_efficiency: {$ref: '#/$defs/efficiency'}
+          max_load_bar: {$ref: '#/$defs/positive'}
+          standby_kW: {$ref: '#/$defs/positive'}
+          valve_shift_budget_L: {$ref: '#/$defs/nonnegative'}
+          dfe1z_shift_budget_L: {$ref: '#/$defs/nonnegative'}
+          reservation_window_s: {$ref: '#/$defs/positive'}
+          valve_response_s: {$ref: '#/$defs/positive'}
+          hot_leak_factor: {$ref: '#/$defs/positive'}
+          charge_headroom_L: {$ref: '#/$defs/positive'}
+          reserved_shaft_margin_kW: {$ref: '#/$defs/nonnegative'}
+          idle_charge_reserve_s: {$ref: '#/$defs/nonnegative'}
+          leak_L_min_at_100_bar:
+            type: array
+            minItems: 1
+            items:
+              type: array
+              minItems: 2
+              maxItems: 2
+              prefixItems:
+              - {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              - {$ref: '#/$defs/nonnegative'}
+          rail_connections:
+            type: object
+            additionalProperties: false
+            required: [pre_down, prefill, closed_ports, regen, press, hold, unload, gate_open, eject, return, gate_close, pre_up,
+              feed, handover_regen_press]
+            properties:
+              pre_down:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              prefill:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              closed_ports:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              regen:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              press:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              hold:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              unload:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              gate_open:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              eject:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              return:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              gate_close:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              pre_up:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              feed:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}
+              handover_regen_press:
+                type: array
+                minItems: 0
+                items: {enum: [XF, XFR, XG, XLR, XM, XMD, XMR, XMT, XN, XP, XPU, XR, XRF]}

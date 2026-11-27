@@ -62,6 +62,13 @@ def test_calibration_cli(tmp_path, path, expected, code):
         assert cycle["main_full_stroke_round_trip_oil_L"] == pytest.approx(208.3, rel=0.01)
         assert cycle["cycle_s"] > 30
         assert cycle["failures"] == ["нет фазы прессования"]
+        reference = json.loads((ROOT / "ops/calibration/w02_04.json").read_bytes())
+        assert reference["verdict"] == "MATCH"
+        for row in report["gates"]:
+            known = reference["gates"][row["id"]]["W02-04 params"]
+            assert row["status"] == known["status"]
+            assert row["value"] == pytest.approx(known["value"], rel=0, abs=1e-9)
+        assert cycle["method"] == "legacy_equivalent"
     else:
         assert report["gates"][2]["details"]["switch_count"] == 10
 
@@ -767,6 +774,12 @@ def test_overlap_calibration_matches_independent_trace(criteria, filename, feed_
     assert gate["value"] == pytest.approx(reference["cycle_s"], rel=0, abs=0.15)
     assert gate["status"] == status
     details = gate["details"]
+    baseline = json.loads((ROOT / "ops/calibration/overlap_calibration.json").read_bytes())
+    known = next(item for item in baseline["cases"] if item["params"].endswith(f"/{filename}.params.yaml"))
+    assert gate["value"] == pytest.approx(known["gate_cycle_s"], rel=0, abs=1e-9)
+    assert gate["status"] == known["gate_status"]
+    assert details["method"] == "legacy_equivalent"
+    assert details["method_warning"]["status"] == "WARN"
     assert {key for key, passed in details["checks"].items() if not passed} == failed_checks
     rows = {row["name"]: row for row in details["phases"]}
     assert rows["pre_up 1"]["motion_start_s"] < rows["return 1"]["motion_end_s"]

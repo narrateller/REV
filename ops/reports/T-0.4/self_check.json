@@ -1,0 +1,400 @@
+{
+  "task": "T-0.4",
+  "python": "3.13.17",
+  "criteria": {
+    "version": 4,
+    "sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+    "identical_to_main": true,
+    "max_cycle_s": 6.0,
+    "max_motor_kW": 30.0,
+    "max_rms_kW": 30.0,
+    "max_peak_kW": 40.0
+  },
+  "gates": {
+    "T-2.2d": {
+      "path": "gates.t04.json",
+      "checks": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 321,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "PASS",
+          "value": 5.623750000000579,
+          "unit": "s",
+          "method": "reference_model",
+          "cycle_model_inputs_qualified": true
+        }
+      },
+      "exit_code": 0,
+      "pface_dose_equal_to_main": true
+    },
+    "A": {
+      "path": "gates.t04.A.json",
+      "checks": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 396,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "PASS",
+          "value": 5.905000000000723,
+          "unit": "s",
+          "method": "reference_model",
+          "cycle_model_inputs_qualified": true
+        }
+      },
+      "exit_code": 0,
+      "pface_dose_equal_to_main": true
+    }
+  },
+  "legacy_calibrations": {
+    "x1_overlap": {
+      "cycle_s": 5.8537710841880894,
+      "status": "PASS",
+      "method": "legacy_equivalent",
+      "identical_to_main": true
+    },
+    "t12b_overlap": {
+      "cycle_s": 6.789299365856619,
+      "status": "FAIL",
+      "method": "legacy_equivalent",
+      "identical_to_main": true
+    },
+    "t12b_overlap_feed064": {
+      "cycle_s": 6.929299365856619,
+      "status": "FAIL",
+      "method": "legacy_equivalent",
+      "identical_to_main": true
+    },
+    "w02_04": {
+      "cycle_s": 59.87518077346884,
+      "status": "FAIL",
+      "method": "legacy_equivalent",
+      "identical_to_main": true,
+      "verdict": "MATCH"
+    }
+  },
+  "physical_calibration": {
+    "nominal": true,
+    "holdout_bounds": true,
+    "holdout_order": true,
+    "grids": true,
+    "inputs_qualified": true,
+    "identical_to_round_1": true
+  },
+  "mutations": {
+    "main_stroke_plus_10pct": {
+      "cycle_s": 6.091875000000819,
+      "delta_s": 0.1868750000000956,
+      "status": "FAIL",
+      "runtime_s": 4.507660699993721,
+      "failed_checks": [
+        "cycle_time_limit",
+        "actuator_travel_limits",
+        "fill_routes_admissible"
+      ],
+      "cycle_model_inputs_qualified": true
+    },
+    "pump_delivery_minus_10pct": {
+      "cycle_s": 6.295000000000923,
+      "delta_s": 0.3900000000001995,
+      "status": "FAIL",
+      "runtime_s": 4.7746847000016714,
+      "failed_checks": [
+        "cycle_time_limit",
+        "pilot_pressure_available",
+        "rms_power_limit"
+      ],
+      "cycle_model_inputs_qualified": true
+    },
+    "pump_limit_minus_2_kW": {
+      "cycle_s": 6.047500000000796,
+      "delta_s": 0.1425000000000729,
+      "status": "FAIL",
+      "runtime_s": 4.47312139999849,
+      "failed_checks": [
+        "cycle_time_limit"
+      ],
+      "cycle_model_inputs_qualified": true
+    },
+    "valve_switch_plus_20_ms": {
+      "cycle_s": 6.045000000000775,
+      "delta_s": 0.14000000000005208,
+      "status": "FAIL",
+      "runtime_s": 4.3613136999993,
+      "failed_checks": [
+        "cycle_time_limit"
+      ],
+      "cycle_model_inputs_qualified": true
+    }
+  },
+  "tests": {
+    "full": {
+      "command": "REV_PYTHON -m pytest -p no:cacheprovider --basetemp tests/.t04-r2-pytest-full tests",
+      "exit_code": 2,
+      "runtime_s": 2.004579799999192,
+      "collecting": "tests/test_operator_rotation.py",
+      "error": "ModuleNotFoundError: No module named 'verify_output'",
+      "test_identical_to_main": true
+    },
+    "ci": {
+      "command": "REV_PYTHON -m pytest -p no:cacheprovider --basetemp tests/.t04-r2-pytest-ci tests/ops",
+      "exit_code": 0,
+      "runtime_s": 135.48923749999813,
+      "passed": 151,
+      "skipped": 1,
+      "skipped_reason": "FreeCAD Python module unavailable in Python 3.13"
+    }
+  },
+  "reproducibility": {
+    "byte_identical": true,
+    "sha256": {
+      "gates.t04.json": "6e4c114a1e1aef8eaec001d0a6f828cb3a1e01bb8a4c029099e6a3aa39ef4a32",
+      "gates.t04.A.json": "d09c2f39b9533927317f049796738934d7db78f4274a620db3f25f80f3c10918",
+      "ops/calibration/cycle_t04.json": "1c80204bd6d7b9e4befaa62da5e4cf9b180c825c7a2650ad0a0fd2115312c1e8",
+      "ops/calibration/cycle_t04/A_combined_and_MP.params.yaml": "16b6d1657efce8aeac357fcd688d569fa6baf3103ec0f5d3599439a391d2a2b0",
+      "ops/calibration/cycle_t04/A_combined_NG50_33_kW.params.yaml": "dd6ee08019c60cbb7d00d5d078b2eefa9c75ee1e143ccd8ff5f5f46351ca590f",
+      "ops/calibration/cycle_t04/A_combined_NG63.params.yaml": "66832ad92416d3e3c20551ec7f119dfb3c4300b7abb1a9757062eb18cb9e79c9",
+      "ops/calibration/cycle_t04/A_combined_no_pilot_reserve.params.yaml": "b928ba39ea2bc92fd399bbbfbd5d245e288dab50aa8ea1d5bb327cbdc649cc00",
+      "ops/calibration/cycle_t04/A_existing.params.yaml": "3597f1fc3b8a1e3418bfc1e610f6e1670da7f3090434b0612e8f3b29606a8d2e",
+      "ops/calibration/cycle_t04/A_prefill_and_LP.params.yaml": "3951fa4dda8ed33bcc3dd72eb6e1af1d6a62e2bca6b49f149e73057720680701",
+      "ops/calibration/cycle_t04/combined.params.yaml": "0906df0bb9e8e89b8fb1a0ce34a1d404495cbd548f4cf7d423d0e91ddfa86ebc",
+      "ops/calibration/cycle_t04/DFE1_minus_5_percent.params.yaml": "112bdfc82cdb289c05185f5e18834202400d8522dcb1b822ced73a72d551142a",
+      "ops/calibration/cycle_t04/legacy_0p45_bar_derated.params.yaml": "dec24a9940afc45852750f95fbcb7806206ed3e5a5ffddc3c3457fbdd9c11c42",
+      "ops/calibration/cycle_t04/valves_85_ms.params.yaml": "4ebc55194bef2fab82eaf77f9164fe17a7019a7c7e5116d2bdff98d2514ec81d"
+    },
+    "runs": [
+      {
+        "run": 1,
+        "gates": {
+          "T-2.2d": {
+            "exit_code": 0,
+            "runtime_s": 4.612726100000145
+          },
+          "A": {
+            "exit_code": 0,
+            "runtime_s": 5.0447322000036365
+          }
+        },
+        "calibration": {
+          "exit_code": 0,
+          "total_runtime_s": 54.08618459999707,
+          "checks": {
+            "nominal": true,
+            "holdout_bounds": true,
+            "holdout_order": true,
+            "grids": true
+          },
+          "runtime_s": {
+            "T-2.2d": 4.118341299996246,
+            "A": 4.361072399995464,
+            "A_existing": 4.481899600003089,
+            "A_prefill_and_LP": 4.407820599997649,
+            "A_combined_no_pilot_reserve": 4.431841000005079,
+            "A_combined_NG50_33_kW": 2.2626004999983707,
+            "A_combined_and_MP": 2.4374365999974543,
+            "A_combined_NG63": 4.291450800003076,
+            "DFE1_minus_5_percent": 4.491116299999703,
+            "valves_85_ms": 4.404440799997246,
+            "combined": 4.507463500005542,
+            "legacy_0p45_bar_derated": 2.371577400001115
+          }
+        }
+      },
+      {
+        "run": 2,
+        "gates": {
+          "T-2.2d": {
+            "exit_code": 0,
+            "runtime_s": 4.54791529999784
+          },
+          "A": {
+            "exit_code": 0,
+            "runtime_s": 4.903061400000297
+          }
+        },
+        "calibration": {
+          "exit_code": 0,
+          "total_runtime_s": 53.76179600000614,
+          "checks": {
+            "nominal": true,
+            "holdout_bounds": true,
+            "holdout_order": true,
+            "grids": true
+          },
+          "runtime_s": {
+            "T-2.2d": 4.051840100000845,
+            "A": 4.338500099998782,
+            "A_existing": 4.475646999999299,
+            "A_prefill_and_LP": 4.377216799999587,
+            "A_combined_no_pilot_reserve": 4.31266190000315,
+            "A_combined_NG50_33_kW": 2.271620100000291,
+            "A_combined_and_MP": 2.44440300000133,
+            "A_combined_NG63": 4.289105399999244,
+            "DFE1_minus_5_percent": 4.448233700000856,
+            "valves_85_ms": 4.387195600000268,
+            "combined": 4.484276999995927,
+            "legacy_0p45_bar_derated": 2.3530650999964564
+          }
+        }
+      }
+    ]
+  },
+  "report": {
+    "encoding": "UTF-8",
+    "question_mark_count": 0,
+    "replacement_character_count": 0
+  },
+  "input_qualification": {
+    "bound_count": 52,
+    "nominal_bound_comparisons": 73,
+    "holdout_qualified": 10,
+    "mutations": {
+      "valve_switch_30_ms": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.process.valve_switch_s"
+        ]
+      },
+      "hold_unload_100_ms": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.process.hold_s",
+          "cycle_model.process.unload_s"
+        ]
+      },
+      "bulk_modulus_times_2": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.oil.bulk_modulus_Pa"
+        ]
+      },
+      "mechanical_loads_halved": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.mechanics.gate_residual_N",
+          "cycle_model.mechanics.gate_breakaway_N",
+          "cycle_model.mechanics.gate_close_N",
+          "cycle_model.mechanics.rapid_return_resistance_N",
+          "cycle_model.mechanics.main_guide_N",
+          "cycle_model.mechanics.pre_guide_N",
+          "cycle_model.mechanics.die_ejection_N",
+          "cycle_model.mechanics.transfer_edge_N",
+          "cycle_model.mechanics.cam_resistance_N",
+          "cycle_model.mechanics.pre_return_resistance_N"
+        ]
+      },
+      "material_resistance_halved": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.material.scale_MPa",
+          "cycle_model.material.lateral_K",
+          "cycle_model.material.wall_mu"
+        ]
+      },
+      "crumbs_load_halved": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.outlet.crumbs_N"
+        ]
+      },
+      "line_losses_halved": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.valves.line_loss_bar[0]",
+          "cycle_model.valves.line_loss_bar[1]",
+          "cycle_model.valves.line_loss_bar[2]"
+        ]
+      },
+      "lp_delivery_360_L_min": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.lp.delivery_L_min"
+        ]
+      },
+      "metering_times_1p3": {
+        "cycle_model_inputs_qualified": false,
+        "gate_status": "FAIL",
+        "cycle_s": null,
+        "violations": [
+          "cycle_model.valves.main_metering_L_min"
+        ]
+      },
+      "valve_switch_85_ms": {
+        "cycle_model_inputs_qualified": true,
+        "gate_status": "FAIL",
+        "cycle_s": 6.010000000000757,
+        "violations": []
+      }
+    },
+    "holdout_cases": [
+      "A_existing",
+      "A_prefill_and_LP",
+      "A_combined_no_pilot_reserve",
+      "A_combined_NG50_33_kW",
+      "A_combined_and_MP",
+      "A_combined_NG63",
+      "DFE1_minus_5_percent",
+      "valves_85_ms",
+      "combined",
+      "legacy_0p45_bar_derated"
+    ],
+    "cli_exit_code_on_violation": 1,
+    "cli_violations": [
+      {
+        "field": "cycle_model.process.valve_switch_s",
+        "actual": 0.03,
+        "operator": ">=",
+        "limit": 0.07,
+        "source": "calc/T-2.6/cycle/sources.yaml engineering_inputs.valve_allowance_s (24 + 20 + 26 ms)",
+        "message": "cycle_model.process.valve_switch_s: 0.03; требуется >= 0.07 (calc/T-2.6/cycle/sources.yaml engineering_inputs.valve_allowance_s (24 + 20 + 26 ms))"
+      },
+      {
+        "field": "cycle_model.process.hold_s",
+        "actual": 0.1,
+        "operator": ">=",
+        "limit": 0.3,
+        "source": "calc/T-2.6/cycle/sources.yaml engineering_inputs.hold_s",
+        "message": "cycle_model.process.hold_s: 0.1; требуется >= 0.3 (calc/T-2.6/cycle/sources.yaml engineering_inputs.hold_s)"
+      },
+      {
+        "field": "cycle_model.process.unload_s",
+        "actual": 0.1,
+        "operator": ">=",
+        "limit": 0.2,
+        "source": "calc/T-2.6/cycle/sources.yaml engineering_inputs.unload_s",
+        "message": "cycle_model.process.unload_s: 0.1; требуется >= 0.2 (calc/T-2.6/cycle/sources.yaml engineering_inputs.unload_s)"
+      }
+    ],
+    "gate_mass_recomputed_kg": 54.311844808818925
+  }
+}

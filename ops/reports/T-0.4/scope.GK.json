@@ -1,0 +1,105 @@
+{
+  "schema": "rev.gate_report/1",
+  "tool": "scope_gate",
+  "tool_version": "1.1.0",
+  "input": ".",
+  "criteria_version": 4,
+  "criteria_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+  "overall": "PASS",
+  "gates": [
+    {
+      "id": "G-SCOPE",
+      "status": "PASS",
+      "value": 0,
+      "threshold": 0,
+      "unit": "paths",
+      "criteria_ids": [],
+      "details": {
+        "checks": {
+          "paths_allowed": true,
+          "protected_hashes_match": true,
+          "reasoning_effort_allowed": true
+        },
+        "task_id": "T-0.4",
+        "base_commit": "13aa3b5c7d1044bf523d8456edfc42b8f2a8f7b2",
+        "merge_base_commit": "13aa3b5c7d1044bf523d8456edfc42b8f2a8f7b2",
+        "allowed_paths": [
+          "ops/gates/**",
+          "ops/calibration/**",
+          "tests/**",
+          "design/params.schema.yaml",
+          "design/params.t22d.yaml",
+          "calc/T-2.6/params/params.t26a.yaml",
+          "report.md",
+          "metrics.json",
+          "self_check.json",
+          "gates.t04.json",
+          "gates.t04.A.json"
+        ],
+        "allow_protected": [
+          "ops/gates/**"
+        ],
+        "always_allowed_paths": [
+          "TASK.md",
+          "metrics.json",
+          "report.md",
+          "self_check.json"
+        ],
+        "changes": {
+          "committed": [],
+          "staged": [],
+          "unstaged": [
+            "calc/T-2.6/params/params.t26a.yaml",
+            "design/params.schema.yaml",
+            "design/params.t22d.yaml",
+            "ops/gates/calc_gates.py",
+            "tests/ops/test_calc_gates.py"
+          ],
+          "untracked": [
+            "TASK.md",
+            "gates.t04.A.json",
+            "gates.t04.json",
+            "metrics.json",
+            "ops/calibration/cycle_t04.json",
+            "ops/calibration/cycle_t04.py",
+            "ops/calibration/cycle_t04/A_combined_NG50_33_kW.params.yaml",
+            "ops/calibration/cycle_t04/A_combined_NG63.params.yaml",
+            "ops/calibration/cycle_t04/A_combined_and_MP.params.yaml",
+            "ops/calibration/cycle_t04/A_combined_no_pilot_reserve.params.yaml",
+            "ops/calibration/cycle_t04/A_existing.params.yaml",
+            "ops/calibration/cycle_t04/A_prefill_and_LP.params.yaml",
+            "ops/calibration/cycle_t04/DFE1_minus_5_percent.params.yaml",
+            "ops/calibration/cycle_t04/combined.params.yaml",
+            "ops/calibration/cycle_t04/legacy_0p45_bar_derated.params.yaml",
+            "ops/calibration/cycle_t04/valves_85_ms.params.yaml",
+            "ops/gates/cycle_model/__init__.py",
+            "ops/gates/cycle_model/drive.py",
+            "ops/gates/cycle_model/hydraulics.py",
+            "ops/gates/cycle_model/inputs.py",
+            "ops/gates/cycle_model/pilot.py",
+            "ops/gates/cycle_model/qualification.py",
+            "report.md",
+            "self_check.json",
+            "tests/ops/test_cycle_model.py"
+          ]
+        },
+        "forbidden_paths": [],
+        "protected_hashes": [
+          {
+            "path": "ops/criteria/design_criteria.yaml",
+            "base_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+            "worktree_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f"
+          }
+        ],
+        "ignored_paths": [],
+        "ignored_outside_allowed": [],
+        "warnings": [],
+        "protected_changes": [],
+        "protected_hash_mismatches": [],
+        "reasoning_effort": "high",
+        "meta": "E:\\Projects\\REV\\ops\\runs\\T-0.4\\20261127T154054.711928Z-ce50bc24\\meta.json",
+        "reasoning_effort_checked": true
+      }
+    }
+  ]
+}

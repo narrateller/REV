@@ -1,0 +1,361 @@
+{
+  "schema": "rev.cycle_calibration/1",
+  "nominal": {
+    "T-2.2d": {
+      "params": "design/params.t22d.yaml",
+      "gate_status": "PASS",
+      "gate": {
+        "cycle_s": 5.623750000000579,
+        "shaft_energy_kJ": 148.85005235007623,
+        "rms_kW": 28.670054409886177,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 5.623750000000579,
+        "shaft_energy_kJ": 148.85005235007628,
+        "rms_kW": 28.616398210805272,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0,
+        "shaft_energy_kJ": -5.684341886080802e-14,
+        "rms_kW": 0.0536561990809048,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0025000000012971313,
+      "motion_elapsed_delta_s": {
+        "pre_down": 0.0,
+        "prefill": 0.0,
+        "regen": 0.0,
+        "press": 0.0,
+        "gate_open": 0.0,
+        "eject": 0.0,
+        "pre_up": 0.0,
+        "return": 0.0,
+        "gate_close": 0.0
+      },
+      "grids": [
+        {
+          "step_s": 0.000625,
+          "cycle_s": 5.623750000000579,
+          "shaft_energy_kJ": 148.85005235007623,
+          "average_kW": 26.46811333186235,
+          "rms_kW": 28.61639821080527,
+          "peak_kW": 38.310810810810814,
+          "integral_P2_kW2_s": 4605.279014088782,
+          "minimum_pilot_bar": 132.76535571063908
+        },
+        {
+          "step_s": 0.0003125,
+          "cycle_s": 5.621249999999282,
+          "shaft_energy_kJ": 148.27856021617887,
+          "average_kW": 26.378218406261563,
+          "rms_kW": 28.670054409886177,
+          "peak_kW": 38.310810810810814,
+          "integral_P2_kW2_s": 4620.510216670228,
+          "minimum_pilot_bar": 132.64509634901094
+        }
+      ]
+    },
+    "A": {
+      "params": "calc/T-2.6/params/params.t26a.yaml",
+      "gate_status": "PASS",
+      "gate": {
+        "cycle_s": 5.905000000000723,
+        "shaft_energy_kJ": 166.16300262517672,
+        "rms_kW": 29.98674972258111,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 5.903749999999025,
+        "shaft_energy_kJ": 166.1278284078058,
+        "rms_kW": 29.986749722581077,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0012500000016979484,
+        "shaft_energy_kJ": 0.035174217370922634,
+        "rms_kW": 3.197442310920451e-14,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0012500000016979484,
+      "motion_elapsed_delta_s": {
+        "pre_down": -0.0006250000000176392,
+        "prefill": -0.0003125000000077094,
+        "regen": 1.3922196728799463e-13,
+        "press": 0.0009374999994653521,
+        "gate_open": -1.1057821325266559e-13,
+        "eject": 0.000625000000021636,
+        "pre_up": 0.0009375000016067503,
+        "return": 1.3482548411047901e-12,
+        "gate_close": 2.362554596402333e-13
+      },
+      "grids": [
+        {
+          "step_s": 0.000625,
+          "cycle_s": 5.905000000000723,
+          "shaft_energy_kJ": 166.05851303024647,
+          "average_kW": 28.12167875194346,
+          "rms_kW": 29.974996398948814,
+          "peak_kW": 38.310810810810814,
+          "integral_P2_kW2_s": 5305.644915836502,
+          "minimum_pilot_bar": 131.67468359158684
+        },
+        {
+          "step_s": 0.0003125,
+          "cycle_s": 5.903749999999025,
+          "shaft_energy_kJ": 166.12782840780778,
+          "average_kW": 28.139373856927413,
+          "rms_kW": 29.98674972258111,
+          "peak_kW": 38.310810810810814,
+          "integral_P2_kW2_s": 5308.6824570009285,
+          "minimum_pilot_bar": 131.67927833731576
+        }
+      ]
+    }
+  },
+  "holdout": {
+    "A_existing": {
+      "params": "ops/calibration/cycle_t04/A_existing.params.yaml",
+      "gate_status": "FAIL",
+      "gate": {
+        "cycle_s": 6.1812500000008646,
+        "shaft_energy_kJ": 168.15096533429815,
+        "rms_kW": 29.24483565770541,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 6.1812500000008646,
+        "shaft_energy_kJ": 168.0626843342068,
+        "rms_kW": 29.2353141999499,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0,
+        "shaft_energy_kJ": 0.08828100009134232,
+        "rms_kW": 0.009521457755507612,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.001562500002090239
+    },
+    "A_prefill_and_LP": {
+      "params": "ops/calibration/cycle_t04/A_prefill_and_LP.params.yaml",
+      "gate_status": "PASS",
+      "gate": {
+        "cycle_s": 5.949375000000746,
+        "shaft_energy_kJ": 164.23929714563414,
+        "rms_kW": 29.463402562936484,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 5.949375000000746,
+        "shaft_energy_kJ": 164.14974112047878,
+        "rms_kW": 29.453126909015772,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0,
+        "shaft_energy_kJ": 0.08955602515536043,
+        "rms_kW": 0.010275653920711392,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.002812500001759588
+    },
+    "A_combined_no_pilot_reserve": {
+      "params": "ops/calibration/cycle_t04/A_combined_no_pilot_reserve.params.yaml",
+      "gate_status": "FAIL",
+      "gate": {
+        "cycle_s": 5.824375000000682,
+        "shaft_energy_kJ": 164.84012741620447,
+        "rms_kW": 30.171766991553437,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 5.823124999999099,
+        "shaft_energy_kJ": 164.80475020242122,
+        "rms_kW": 30.171766991553362,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0012500000015833734,
+        "shaft_energy_kJ": 0.03537721378324932,
+        "rms_kW": 7.460698725481052e-14,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0012500000015833734
+    },
+    "A_combined_NG50_33_kW": {
+      "params": "ops/calibration/cycle_t04/A_combined_NG50_33_kW.params.yaml",
+      "gate_status": "PASS",
+      "gate": {
+        "cycle_s": 5.978750000000761,
+        "shaft_energy_kJ": 166.43119530709026,
+        "rms_kW": 29.762071147808438,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 5.9771874999989585,
+        "shaft_energy_kJ": 166.38769980335255,
+        "rms_kW": 29.762071147808463,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0015625000018024693,
+        "shaft_energy_kJ": 0.04349550373771649,
+        "rms_kW": -2.4868995751603507e-14,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0015625000018024693
+    },
+    "A_combined_and_MP": {
+      "params": "ops/calibration/cycle_t04/A_combined_and_MP.params.yaml",
+      "gate_status": "FAIL",
+      "gate": {
+        "cycle_s": 5.951875000000716,
+        "shaft_energy_kJ": 166.28133557810062,
+        "rms_kW": 29.936135493093705,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 5.951875000000716,
+        "shaft_energy_kJ": 166.28133557810125,
+        "rms_kW": 29.936135493093644,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0,
+        "shaft_energy_kJ": -6.252776074688882e-13,
+        "rms_kW": 6.039613253960852e-14,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0015625000016532553
+    },
+    "A_combined_NG63": {
+      "params": "ops/calibration/cycle_t04/A_combined_NG63.params.yaml",
+      "gate_status": "PASS",
+      "gate": {
+        "cycle_s": 5.875000000000677,
+        "shaft_energy_kJ": 164.98100103528887,
+        "rms_kW": 29.94470601692311,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 5.875000000000677,
+        "shaft_energy_kJ": 164.88285105588463,
+        "rms_kW": 29.934955777256683,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0,
+        "shaft_energy_kJ": 0.09814997940424064,
+        "rms_kW": 0.009750239666427518,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0009375000015445778
+    },
+    "DFE1_minus_5_percent": {
+      "params": "ops/calibration/cycle_t04/DFE1_minus_5_percent.params.yaml",
+      "gate_status": "FAIL",
+      "gate": {
+        "cycle_s": 6.017500000000781,
+        "shaft_energy_kJ": 167.48145865032836,
+        "rms_kW": 29.902160922839855,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 6.013124999998926,
+        "shaft_energy_kJ": 167.35969190634694,
+        "rms_kW": 29.902160922839858,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.004375000001854978,
+        "shaft_energy_kJ": 0.12176674398142495,
+        "rms_kW": -3.552713678800501e-15,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.004375000001854978
+    },
+    "valves_85_ms": {
+      "params": "ops/calibration/cycle_t04/valves_85_ms.params.yaml",
+      "gate_status": "FAIL",
+      "gate": {
+        "cycle_s": 6.010000000000757,
+        "shaft_energy_kJ": 166.7088727457749,
+        "rms_kW": 29.710554808685014,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 6.008749999999083,
+        "shaft_energy_kJ": 166.67419951928173,
+        "rms_kW": 29.710554808684982,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0012500000016739676,
+        "shaft_energy_kJ": 0.03467322649316884,
+        "rms_kW": 3.197442310920451e-14,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0012500000016739676
+    },
+    "combined": {
+      "params": "ops/calibration/cycle_t04/combined.params.yaml",
+      "gate_status": "FAIL",
+      "gate": {
+        "cycle_s": 6.196875000000853,
+        "shaft_energy_kJ": 167.43788929229956,
+        "rms_kW": 29.372565943813104,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 6.1934374999989155,
+        "shaft_energy_kJ": 167.2639679652657,
+        "rms_kW": 29.372565943813104,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0034375000019375435,
+        "shaft_energy_kJ": 0.17392132703386665,
+        "rms_kW": 0.0,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0034375000019375435
+    },
+    "legacy_0p45_bar_derated": {
+      "params": "ops/calibration/cycle_t04/legacy_0p45_bar_derated.params.yaml",
+      "gate_status": "FAIL",
+      "gate": {
+        "cycle_s": 6.458125000001006,
+        "shaft_energy_kJ": 165.7553520822901,
+        "rms_kW": 27.696876226772105,
+        "peak_kW": 38.310810810810814
+      },
+      "ref": {
+        "cycle_s": 6.456874999998522,
+        "shaft_energy_kJ": 165.72326936625294,
+        "rms_kW": 27.696876226772037,
+        "peak_kW": 38.310810810810814
+      },
+      "delta": {
+        "cycle_s": 0.0012500000024839863,
+        "shaft_energy_kJ": 0.03208271603716639,
+        "rms_kW": 6.750155989720952e-14,
+        "peak_kW": 0.0
+      },
+      "integration_delta_s": 0.0012500000024839863
+    }
+  },
+  "checks": {
+    "nominal": true,
+    "holdout_bounds": true,
+    "holdout_order": true,
+    "grids": true
+  },
+  "holdout_summary": {
+    "n": 10,
+    "min_delta_s": 0.0,
+    "max_delta_s": 0.004375000001854978,
+    "order_errors": []
+  }
+}

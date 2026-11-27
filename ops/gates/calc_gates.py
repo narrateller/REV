@@ -9,8 +9,12 @@ from pathlib import Path
 import sys
 
 if __package__:
+    from .cycle_model import evaluate as run_reference_cycle
+    from .cycle_model.qualification import input_violations
     from .gate_report import InputError, error_result, finite_number, load_yaml, read_criteria, result, write_report
 else:
+    from cycle_model import evaluate as run_reference_cycle
+    from cycle_model.qualification import input_violations
     from gate_report import InputError, error_result, finite_number, load_yaml, read_criteria, result, write_report
 
 
@@ -69,6 +73,8 @@ def validate(value, rule, definitions, path="params"):
     if isinstance(value, list):
         if not rule.get("minItems", 0) <= len(value) <= rule.get("maxItems", math.inf):
             raise InputError(f"{path}: invalid number of entries")
+        for index, (child, item_rule) in enumerate(zip(value, rule.get("prefixItems", ()))):
+            validate(child, item_rule, definitions, f"{path}[{index}]")
         if "items" in rule:
             for index, child in enumerate(value):
                 validate(child, rule["items"], definitions, f"{path}[{index}]")
@@ -112,6 +118,9 @@ def validate_params(params):
             raise InputError("precompaction.stroke_mm exceeds cylinder.stroke_mm")
         if precompaction["post_precompaction_density_kg_m3"] < params["raw"]["bulk_density_kg_m3"][1]:
             raise InputError("precompaction density must be at least the maximum bulk density")
+    if "cycle_model" in params:
+        validate_reference_inputs(params)
+        return
     accumulator = params["drive"].get("accumulator")
     if accumulator and accumulator["min_delivery_pressure_bar"] > accumulator["charge_pressure_bar"]:
         raise InputError("accumulator.min_delivery_pressure_bar exceeds charge_pressure_bar")
@@ -143,6 +152,36 @@ def validate_params(params):
         ):
             raise InputError(f"{path}.continues: expected uninterrupted travel in the same hydraulic configuration")
         previous = phase
+
+
+def validate_reference_inputs(params):
+    cfg = params["cycle_model"]
+    if params["precompaction"] is None or "slide_gate_cylinder" not in params["drive"]:
+        raise InputError("cycle_model requires precompaction and a slide-gate cylinder")
+    if "approach_stroke_mm" not in params["chamber"]:
+        raise InputError("cycle_model requires chamber.approach_stroke_mm")
+    if cfg["mechanics"]["main_rod_mm"] >= params["main_cylinder"]["bore_mm"]:
+        raise InputError("cycle_model.mechanics.main_rod_mm must be smaller than the main bore")
+    rapid = cfg["rapid_pair"]
+    if rapid["rod_mm"] >= rapid["bore_mm"]:
+        raise InputError("cycle_model.rapid_pair.rod_mm must be smaller than bore_mm")
+    for name in ("lp", "mp", "pilot"):
+        rail = cfg[name]
+        if rail and not rail["precharge_bar"] < rail["low_bar"] < rail["high_bar"]:
+            raise InputError(f"cycle_model.{name}: expected precharge_bar < low_bar < high_bar")
+    process = cfg["process"]
+    bulk_kg_m3 = process["bulk_density_kg_m3"]
+    bulk_min, bulk_max = params["raw"]["bulk_density_kg_m3"]
+    if not bulk_min <= bulk_kg_m3 <= bulk_max or bulk_kg_m3 >= cfg["material"]["rho_join_kg_m3"]:
+        raise InputError("cycle_model.process: bulk density outside the material or raw input range")
+    pump = cfg["pump"]
+    if cfg["tank"]["band_bar"] > cfg["tank"]["gauge_bar"]:
+        raise InputError("cycle_model.tank: pressure band exceeds nominal tank gauge pressure")
+    for field, points in (("pump.curve", pump["curve"]),
+                          ("oil.viscosity_C_mm2_s", cfg["oil"]["viscosity_C_mm2_s"]),
+                          ("valves.zsf_curve_L_min_bar", cfg["valves"]["zsf_curve_L_min_bar"])):
+        if any(a[0] >= b[0] for a, b in zip(points, points[1:])):
+            raise InputError(f"cycle_model.{field}: curve abscissas must be strictly ascending")
 
 
 def at_most(value, limit):
@@ -680,6 +719,12 @@ def evaluate_serial_phases(cycle, cylinders, drive, positions_mm, power_profile,
 
 
 def evaluate_cycle(params, criteria):
+    if "cycle_model" in params:
+        return evaluate_reference_cycle(params, criteria)
+    return evaluate_legacy_cycle(params, criteria)
+
+
+def evaluate_legacy_cycle(params, criteria):
     perf, power, hyd, face = (criteria[key] for key in CRITERIA_IDS["G-CYCLE"])
     cycle, drive = params["cycle"], params["drive"]
     max_peak_kW = power.get("max_peak_kW", power["max_main_kW"])
@@ -764,6 +809,8 @@ def evaluate_cycle(params, criteria):
         "motor_kW": drive["motor_kW"], "peak_kW": drive_peak_kW, "installed_kW": installed_kW,
         "max_pressure_bar": max_pressure_bar, "actuator_travel_mm": travel_mm, "actuator_limits_mm": limits_mm,
     }
+    details["method"] = "legacy_equivalent"
+    details["method_warning"] = {"status": "WARN", "message": "эквивалент без эталонной модели"}
     main = params["main_cylinder"]
     if "working_range_mm" in main:
         piston_mm2 = piston_area_mm2(main)
@@ -777,6 +824,85 @@ def evaluate_cycle(params, criteria):
     if "max_rms_kW" in power:
         threshold["max_rms_power_kW"] = power["max_rms_kW"]
     return result("G-CYCLE", cycle_s, threshold, "s", CRITERIA_IDS["G-CYCLE"], details, status=status)
+
+
+def evaluate_reference_cycle(params, criteria):
+    perf, power, hyd, face = (criteria[key] for key in CRITERIA_IDS["G-CYCLE"])
+    drive = params["drive"]
+    model = params["cycle_model"]
+    main = params["main_cylinder"]
+    max_peak_kW = power.get("max_peak_kW", power["max_main_kW"])
+    threshold = {
+        "max_cycle_s": perf["max_cycle_s"], "max_average_power_kW": power["max_main_kW"],
+        "max_peak_drive_power_kW": max_peak_kW, "max_installed_kW": power["max_installed_kW"],
+        "max_pressure_bar": hyd["max_working_bar"], "max_relief_bar": hyd["max_relief_bar"],
+        "min_press_force_N": face["nominal_force_min_N"],
+    }
+    if "max_rms_kW" in power:
+        threshold["max_rms_power_kW"] = power["max_rms_kW"]
+    violations = input_violations(params)
+    installed_kW = drive.get("installed_kW")
+    checks = {
+        "working_pressure_limit": at_most(main["p_work_bar"], hyd["max_working_bar"]),
+        "relief_pressure_limit": at_most(main["p_relief_bar"], hyd["max_relief_bar"]),
+        "motor_rating_limit": at_most(drive["motor_kW"], power["max_main_kW"]),
+        "peak_rating_limit": at_most(model["pump"]["combined_shaft_limit_kW"], max_peak_kW),
+        "cycle_model_inputs_qualified": not violations,
+    }
+    warnings = []
+    if installed_kW is not None:
+        checks["installed_power_limit"] = at_most(installed_kW, power["max_installed_kW"])
+    else:
+        warnings.append("установленная мощность не задана")
+    details = {
+        "method": "reference_model", "legacy_cycle_ignored": "cycle" in params,
+        "cycle_model_input_violations": violations, "checks": checks, "warnings": warnings,
+        "motor_kW": drive["motor_kW"], "installed_kW": installed_kW,
+    }
+    if violations:
+        details.update(feasible=False, reason="Входы cycle_model вне квалифицированных диапазонов")
+        return result("G-CYCLE", None, threshold, "s", CRITERIA_IDS["G-CYCLE"], details, status="FAIL")
+
+    process = model["process"]
+    if process["valve_switch_s"] > min(process["hold_s"], process["unload_s"]):
+        raise InputError("cycle_model.process: switching time exceeds hold or unload allowance")
+    pump = model["pump"]
+    if pump["main_shaft_limit_kW"] > pump["combined_shaft_limit_kW"]:
+        raise InputError("cycle_model.pump: main shaft limit exceeds combined shaft limit")
+
+    output = run_reference_cycle(params, hyd["max_working_bar"])
+    details.update(output)
+    checks["model_feasible"] = output["feasible"]
+    if output["feasible"]:
+        cylinders = actuators(params)
+        limits = {name: row.get("working_range_mm", row["stroke_mm"]) for name, row in cylinders.items()}
+        limits["precompaction"] = min(limits["precompaction"], params["precompaction"]["stroke_mm"])
+        details["actuator_limits_mm"] = limits
+        checks.update({
+            "cycle_time_limit": at_most(output["cycle_s"], perf["max_cycle_s"]),
+            "average_power_limit": at_most(output["average_power_kW"], power["max_main_kW"]),
+            "peak_drive_power_limit": at_most(output["peak_drive_power_kW"], max_peak_kW),
+            "working_pressure_limit": checks["working_pressure_limit"] and at_most(
+                output["max_pressure_bar"], hyd["max_working_bar"]),
+            "press_phase_present": "press" in output["phases"],
+            "press_configuration_valid": output["press_configuration_valid"],
+            "press_force_minimum": at_most(face["nominal_force_min_N"], output["press_force_N"]),
+            "actuator_travel_limits": all(at_most(travel, limits[name])
+                                          for name, travel in output["actuator_travel_mm"].items()),
+            "actuators_return_to_start": all(abs(residual) <= 1e-6
+                                             for residual in output["actuator_residual_mm"].values()),
+            "fill_routes_admissible": output["fill"]["admissible"],
+            "accumulator_pressure_covered": output["accumulator_pressure_covered"],
+            "sequence_interlocks": output["interlocks_met"],
+            "pilot_pressure_available": at_most(output["minimum_pilot_setpoint_bar"], output["minimum_pilot_bar"]),
+            "integration_converged": output["integration"]["converged"],
+        })
+        if "max_rms_kW" in power:
+            checks["rms_power_limit"] = at_most(output["rms_power_kW"], power["max_rms_kW"])
+    elif output["required_peak_working_bar"] is not None:
+        checks["working_pressure_limit"] = False
+    status = "FAIL" if not all(checks.values()) else "WARN" if warnings else "PASS"
+    return result("G-CYCLE", output.get("cycle_s"), threshold, "s", CRITERIA_IDS["G-CYCLE"], details, status=status)
 
 
 GATES = {"G-PFACE": evaluate_pface, "G-DOSE": evaluate_dose, "G-CYCLE": evaluate_cycle}

@@ -1294,3 +1294,167 @@ cycle:
 - name: feed
   actuator: none
   dwell_s: 0.64
+
+cycle_model:
+  mechanics:  # Physical geometry from T-1.2b and T-1.7d, updated by T-2.2d/f.
+    main_rod_mm: 200  # design/params.t12b.yaml, actual CYM rod; the top-level rod is a legacy proxy
+    feed_length_mm: 200  # T-1.2b axis_A, width of the metered plug along CYM
+    roof_mm: 15  # T-2.6/sources.yaml study, T-2.2d/f roof geometry
+    main_cushion_mm: 25.0  # T-1.7d working_trial.geometry, difference between installed and nominal endpoints
+    shoe_travel_mm: 257.0  # T-1.2b working shoe position
+    cam_stroke_mm: 12
+    cam_resistance_N: 15593.727049292605  # T-2.2f/candidates.py drive key inertia and contact; base T-1.2b mechanical_lock_A
+    crosshead_mass_kg: 408.87814083904476  # T-2.6/cycle/sources.yaml 400 kg + T-1.7d moving rods + roof extension steel
+    crosshead_accel_m_s2: 5  # T-2.6/cycle/sources.yaml, commissioning bound
+    gate_mass_kg: 54.311844808818925  # calc/T-1.7d/study.py case_setup.moving_mass_kg при round2.py TRIAL: 45 кг + Δ массы плиты + Δ массы штока Ø45 мм.
+    gate_accel_m_s2: 40.0  # calc/T-1.7d/round2.py OPTIONS.gate_accel_m_s2 (проектный предел разгона).
+    gate_travel_mm: 100.0  # calc/T-1.7d/round2.py TRIAL.travel_mm → working_trial.geometry.gate_working_travel_mm.
+    gate_close_inset_mm: 10.0
+    gate_mu: 0.15  # T-2.6/cycle/evaluate.py gate guide friction
+    gate_residual_N: 100000  # T-2.6/sources.yaml residual load case
+    gate_breakaway_N: 10000  # T-2.6/cycle/x1_calc.py nominal guide resistance
+    gate_close_N: 8000  # T-2.6/cycle/x1_calc.py nominal guide resistance
+    rapid_return_resistance_N: 40000  # T-2.6/cycle/x1_calc.py nominal crosshead return resistance
+    main_guide_N: 8000  # T-2.6/cycle/x1_calc.py regeneration guide resistance
+    pre_guide_N: 5000  # T-1.2 precompaction shoe guides
+    pre_return_resistance_N: 6443.106909  # T-2.6/cycle/compare.py and drive.py, guide and extra shoe gravity
+    die_ejection_N: 100000  # T-1.2b shoe_load residual product drag
+    transfer_edge_N: 12000  # T-1.2b closed_zone_B / T-2.2d transfer_screen
+  material:  # T-1.1/curve.yaml power fit and base Janssen parameters, T-1.2/geometry.py.
+    scale_MPa: 56.89401598364152
+    exponent: 4.052507610637413
+    rho_ref_kg_m3: 90
+    rho_join_kg_m3: 400
+    density_max_kg_m3: 1457
+    lateral_K: 0.45
+    wall_mu: 0.25
+    axial_springback: 0.23
+  outlet:  # T-1.7d/stack.py free guide load and working_trial.geometry.
+    section_mm: [158.0, 65.0]
+    length_mm: 205.0
+    transition_mm: 5.0
+    overhang_mm: 110
+    guide_mu: 0.5
+    crumbs_N: 5000
+    side_load_to_weight: 2.0
+  process:  # T-2.6/cycle/sources.yaml and design/hydraulics/T-1.6_interlocks.yaml.
+    bulk_density_kg_m3: 90
+    feed_s: 0.64  # T-2.6/sources.yaml, dose delivery process window
+    hold_s: 0.3
+    unload_s: 0.2
+    valve_switch_s: 0.07
+    handover_interlock_s: 0.02  # T-1.6 interlocks 90 ms less nominal valve allowance 70 ms
+    gate_release_cap_bar: 5.0  # T-1.6 interlocks, 3 bar instrument threshold plus up to 2 bar error
+  pump:  # T-2.1/sources.yaml, Rexroth RE 92050/92088, MEC OMT3-IE3 and T-2.6 regulator settings.
+    curve: [[0, 270, 2, 2], [50, 267, 24, 3], [100, 265, 48, 4], [150, 263, 72, 5], [200, 260, 96, 6], [250, 258, 121, 7], [300, 255, 145, 8], [350, 253, 170, 9]]  # [bar, full-flow L/min, full-swash kW, zero-swash kW] from RE 92050
+    map_rpm: 1500
+    motor_rpm: 1480
+    rated_motor_rpm: 1480
+    speed_ceiling_rpm: 1500
+    displacement_cm3_rev: 180
+    standby_bar: 14
+    destroke_s: 0.11
+    onstroke_s: 0.105
+    control_delay_s: 0.01  # T-2.6/cycle/drive.py PV180Drive, inherited control feedback delay budget
+    line_limit_L_min: 265  # design/hydraulics/T-1.6_circuit.yaml P1
+    delivery_fraction: 1.0
+    regulator_fraction: 1.0
+    main_shaft_limit_kW: 33.5  # T-2.6/run.py Scenario, main regulator
+    nominal_regulator_kW: 33.5
+    combined_shaft_limit_kW: 36
+    coupling_loss_kW: 0.15
+    torque_tolerance: 0.05
+  oil:  # T-2.6/sources.yaml round2.oil (Shell Tellus S2 MX 46), T-2.6/cycle/sources.yaml.
+    temperature_C: 50
+    map_temperature_C: 50
+    viscosity_C_mm2_s: [[40, 46], [100, 6.9]]
+    density_kg_m3: 870
+    bulk_modulus_Pa: 1400000000
+    cap_dead_L: 0.8  # T-2.6 inventory and X-1 pressure-side compliance
+    rod_dead_L: 0.4  # T-2.6/cycle/x1_calc.py return-port dead oil allowance
+  rapid_pair:  # T-2.6/cycle/sources.yaml and T-2.6/sources.yaml LC25.
+    count: 2
+    bore_mm: 90
+    rod_mm: 50
+    eta: 0.92
+    float_drag_N: 8000
+    switch_force_N: 80000
+    rapid_regeneration: false
+    vr_exhaust_curve: false
+    regen_pilot_shift_L: 0.0
+  valves:  # Паспортные данные клапанов и расходы из ограничений скорости.
+    line_loss_bar: [4, 3, 4]  # T-2.6/cycle/sources.yaml inlet, tank and regen drop budgets
+    main_regen_changeover_bar: 120
+    cam_metering_L_min: 220.89323345553234  # Ограничение скорости 0.30 м/с × площадь поршня башмака Ø125 мм, привод кулачка (0.01227185 м²); calc/T-1.2b/shoe_load.py design_lock.cam_stem_speed_mm_s.
+    gate_metering_L_min: 309.1798410030395  # Ограничение скорости 1.00 м/с × площадь поршня шибера Ø81 мм (0.00515300 м²); calc/T-1.7d/round2.py OPTIONS.gate_speed_m_s.
+    rapid_feed_metering_L_min: 229.0221044466959  # Ограничение скорости 0.30 м/с × площадь поршней 2 × Ø90 мм (без регенерации) (0.01272345 м²); calc/T-2.6/cycle/sources.yaml engineering_inputs.rapid_approach_m_s.
+    rapid_out_metering_L_min: 267.19245518781185  # Ограничение скорости 0.35 м/с × площадь поршней 2 × Ø90 мм (0.01272345 м²); calc/T-2.6/cycle/sources.yaml engineering_inputs.rapid_eject_m_s.
+    rapid_back_metering_L_min: 184.7256480310798  # Ограничение скорости 0.35 м/с × площадь колец 2 × Ø90/50 мм (0.00879646 м²); calc/T-2.6/cycle/sources.yaml engineering_inputs.rapid_return_m_s.
+    pre_metering_L_min: 478.6020058203201  # Ограничение скорости 0.65 м/с × площадь поршня башмака Ø125 мм (0.01227185 м²); calc/T-2.6/cycle/x1_calc.py motions.
+    main_metering_L_min: 886.6831105491832  # Ограничение скорости 0.24 м/с × площадь поршня CYM Ø280 мм (0.06157522 м²); calc/T-2.6/cycle/x1_calc.py motions.
+    mc_reference_L_min: 633.3450789637023  # Ограничение скорости 0.35 м/с × площадь кольца CYM Ø280/200 мм (0.03015929 м²); calc/T-2.6/cycle/sources.yaml engineering_inputs.rapid_return_m_s (опорный расход подпитки).
+    mc_drop_bar: 0.2
+    mf_rated_L_min: 2700
+    mf_rated_drop_bar: 5
+    mf_exhaust_budget_bar: 3.0
+    mf_extra_pilot_shift_L: 0.0
+    vr_rated_L_min: 400
+    vr_rated_drop_bar: 5
+    zsf_curve_L_min_bar: [[0, 0.135], [1600, 0.3], [1900, 0.4]]
+    zsf_max_L_min: 1600
+    fill_pipe: {cap_ID_mm: 125, annulus_ID_mm: 100, length_m: 1.0, darcy_factor: 0.035, local_K: 2.0, static_head_m: 0.4}
+  tank:  # T-2.6/sources.yaml regulated TF and legacy case, ZSF and gas release assumptions.
+    oil_L: 35
+    gross_L: 0
+    gauge_bar: 0.45
+    band_bar: 0.0
+    ambient_bar: 1.01325
+    minimum_abs_bar: 0.8
+    enforce_saturation_reserve: false
+    saturation_reserve_bar: 0.02
+  lp:  # HYDAC SB330 3047174, T-2.6/cycle/sources.yaml and T-1.7d LP routing.
+    shell_L: 18.4
+    precharge_bar: 28
+    low_bar: 38
+    high_bar: 52
+    delivery_L_min: 180.0
+    exponent: 1.4
+    charge_drop_bar: 3
+    routes: [return, pre_up, pre_down, gate_open, gate_close]
+  mp: null  # No MP vessel. Optional trial topology in T-2.6/sources.yaml.
+  pilot:  # T-1.6 circuit AX/PX/PXA and sources.yaml pilot budgets, T-2.1 DFE1Z actuation.
+    precharge_bar: 100
+    low_bar: 120
+    high_bar: 150
+    gas_volume_L: 9.3
+    polytropic_exponent: 1.4
+    tandem_displacement_cm3_rev: [4, 8]
+    tandem_rpm: 1450
+    vol_efficiency: 0.85
+    mech_efficiency: 0.75
+    max_load_bar: 160
+    standby_kW: 0.38
+    valve_shift_budget_L: 0.3
+    dfe1z_shift_budget_L: 0.1
+    reservation_window_s: 0.16  # AX controller scheduling window; T-2.6 study / T-1.6 revision
+    valve_response_s: 0.05
+    hot_leak_factor: 1.1
+    charge_headroom_L: 0.05
+    reserved_shaft_margin_kW: 0.3
+    idle_charge_reserve_s: 0.0  # T-2.6/run.py Scenario AX quiet charging allowance
+    leak_L_min_at_100_bar: [[XF, 0.9], [XFR, 0.9], [XG, 0.17], [XLR, 0.9], [XM, 0.9], [XMD, 0.9], [XMR, 0.9], [XMT, 0.9], [XN, 0.9], [XP, 2.7], [XPU, 2.7], [XR, 0.17]]  # T-1.6 circuit valve count times catalogue maximum leakage per rail
+    rail_connections:  # T-1.6_interlocks.yaml XG commands with optional LP routing
+      pre_down: [XP]
+      prefill: [XF, XR]
+      closed_ports: [XF, XFR, XM, XRF]
+      regen: [XF, XFR, XM, XMR, XRF]
+      press: [XF, XFR, XM, XMT, XRF]
+      hold: [XF, XFR, XRF]
+      unload: [XMD, XMT, XRF]
+      gate_open: [XG]
+      eject: [XF, XR]
+      return: [XFR, XLR, XR]
+      gate_close: [XG]
+      pre_up: [XPU]
+      feed: []
+      handover_regen_press: [XF, XFR, XM, XMR, XMT, XRF]
