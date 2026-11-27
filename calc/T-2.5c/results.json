@@ -1,0 +1,1408 @@
+{
+  "metrics": {
+    "status": "STOP_MASS",
+    "mass_acceptance": false,
+    "station_t25b_kg": 1686.1873123970388,
+    "station_t25c_kg": 1654.1873123970388,
+    "credited_measures_kg": 32.0,
+    "credited_measures": [
+      {
+        "id": "motor",
+        "measure": "Мотор Al IM B5",
+        "status": "зачтено",
+        "credited_delta_kg": -32,
+        "credited_saving_kg": 32,
+        "potential_delta_kg": -71,
+        "ledger_ids": [
+          "T25-M1"
+        ],
+        "reason": "Паспорт IM B5, посадка FF350 и вал 55×110 совпадают с интерфейсом. Колокол и полумуфты сохраняются. G-CYCLE на модели 1480 об/мин проходит.",
+        "source_ids": [
+          "abb_bdk",
+          "abb_catalog",
+          "bell_dims",
+          "omec"
+        ]
+      }
+    ],
+    "not_credited_measures": [
+      {
+        "id": "tf",
+        "measure": "Предохранитель TF",
+        "status": "не зачтено",
+        "credited_delta_kg": 0,
+        "credited_saving_kg": 0,
+        "potential_delta_kg": -19.056191272114845,
+        "ledger_ids": [
+          "T16-15",
+          "T16-18"
+        ],
+        "reason": "Пара 642 DN65 не покрывает приток. Для тройки расчёт дросселирования даёт запас, но не подтверждены совместное открытие при 1,9 бар, допустимое противодавление и масса фланцевого коллектора с опорами. Для LESER нет согласованного исполнения клапана и обвязки.",
+        "source_ids": [
+          "circuit",
+          "baseline_results",
+          "goetze_455",
+          "goetze_455_install",
+          "goetze_642",
+          "goetze_642_install",
+          "goetze_851",
+          "leser_441",
+          "leser_engineering",
+          "iso_4126",
+          "hlp46"
+        ]
+      },
+      {
+        "id": "db",
+        "measure": "Шесть DB30 → картриджи",
+        "status": "не зачтено",
+        "credited_delta_kg": 0,
+        "credited_saving_kg": 0,
+        "potential_delta_kg": -11.881779730594703,
+        "ledger_ids": [
+          "T16-08"
+        ],
+        "reason": "RPIC имеет два порта и чувствителен к сливу 1:1. Расчётные давления сетей TR/TRF/TEM не подтверждают допустимый сдвиг уставок. Для Parker R4V06 с Y1 имеется кривая корпусного клапана. Для Rexroth R900519773 с Y опубликована полость, нужны Δp(Q) блока, рабочий чертёж блока и масса точного исполнения.",
+        "source_ids": [
+          "db30",
+          "rexroth_dbc",
+          "sun_rpic",
+          "sun_cavity",
+          "parker_r4v",
+          "parker_r4v_service",
+          "parker_r4v_tuv",
+          "circuit",
+          "baseline_results"
+        ]
+      },
+      {
+        "id": "tank_walls",
+        "measure": "Стенки T0 3 мм и рёбра",
+        "status": "не зачтено",
+        "credited_delta_kg": 0,
+        "credited_saving_kg": 0,
+        "potential_delta_kg": -8.917599999999993,
+        "ledger_ids": [
+          "T16-02"
+        ],
+        "reason": "Расчёт полосы и частот сухих пластин выполнен. Нужны чертёж швов, рёбер и проушин, реакции опор, проверка залитой сборки и размещения рёбер в пределах габарита. Прогиб при транспортном сценарии превышает толщину стенки, линейный скрининг не квалифицирует оболочку.",
+        "source_ids": [
+          "earlier_tank",
+          "steel",
+          "leissa",
+          "transport"
+        ]
+      },
+      {
+        "id": "tank_base",
+        "measure": "T0 как основание",
+        "status": "не зачтено",
+        "credited_delta_kg": 0,
+        "credited_saving_kg": 0,
+        "potential_delta_kg": -7.9630399999999995,
+        "ledger_ids": [
+          "T16-06"
+        ],
+        "reason": "Нет геометрии плиты, швов, проушин и опор бака, распределения массы привода с колоколом и точного артикула полумуфт. Прогиб и соосность для пути мотор–насос–колокол–бак не подтверждены.",
+        "source_ids": [
+          "earlier_tank",
+          "transport",
+          "bell_dims",
+          "couplings"
+        ]
+      }
+    ],
+    "machine_A_kg_range": [
+      5126.89979007864,
+      5170.254707843668
+    ],
+    "missing_to_5000_kg": 170.25470784366826,
+    "missing_to_5080_kg": 90.25470784366826,
+    "machine_A_all_measures_kg_range": [
+      5040.08117907593,
+      5083.436096840958
+    ],
+    "machine_A_all_measures_with_qualified_motor_kg_range": [
+      5079.081179075931,
+      5122.436096840958
+    ],
+    "all_measures_t25b_potential_saving_kg": 118.81861100270955,
+    "all_measures_with_qualified_motor_potential_saving_kg": 79.81861100270953,
+    "machine_A_variants": {
+      "with_collar_and_gross_old_front_removal": {
+        "t22i_before_station_kg": 5223.275449245492,
+        "t25_corrected_kg": 5253.275449245492,
+        "t25b_kg": 5158.89979007864,
+        "missing_to_5000_kg": 126.89979007863985,
+        "missing_to_5080_kg": 46.89979007863985,
+        "t25c_kg": 5126.89979007864,
+        "outside_station_kg": 3472.712477681601,
+        "all_measures_t25b_potentials_kg": 5040.08117907593,
+        "all_measures_with_qualified_motor_kg": 5079.081179075931
+      },
+      "with_end_collar": {
+        "t22i_before_station_kg": 5266.630367010521,
+        "t25_corrected_kg": 5296.630367010521,
+        "t25b_kg": 5202.254707843668,
+        "missing_to_5000_kg": 170.25470784366826,
+        "missing_to_5080_kg": 90.25470784366826,
+        "t25c_kg": 5170.254707843668,
+        "outside_station_kg": 3516.0673954466292,
+        "all_measures_t25b_potentials_kg": 5083.436096840958,
+        "all_measures_with_qualified_motor_kg": 5122.436096840958
+      },
+      "without_end_collar": {
+        "t22i_before_station_kg": 5232.173995825275,
+        "t25_corrected_kg": 5262.173995825275,
+        "t25b_kg": 5167.798336658422,
+        "missing_to_5000_kg": 135.79833665842216,
+        "missing_to_5080_kg": 55.79833665842216,
+        "t25c_kg": 5135.798336658422,
+        "outside_station_kg": 3481.611024261383,
+        "all_measures_t25b_potentials_kg": 5048.979725655712,
+        "all_measures_with_qualified_motor_kg": 5087.979725655712
+      }
+    },
+    "motor_model": "ABB M3AA 200MLA 4",
+    "motor_order_number": "3GAA202410-BDK",
+    "motor_kg": 246,
+    "motor_rated_rpm": 1481,
+    "cycle_gate_s": 5.905000000000723,
+    "rms_kW": 29.98674972258111,
+    "tf_capacity_L_min": null,
+    "tf_capacity_screen_L_min": 1714.4089280379062,
+    "tf_required_L_min": 1588.6405730672866,
+    "installed_kW": 32.603,
+    "installed_with_air_option_kW": 34.103,
+    "pc_branch_dp_bar": [
+      1.33,
+      1.36
+    ]
+  },
+  "measures": [
+    {
+      "id": "motor",
+      "measure": "Мотор Al IM B5",
+      "status": "зачтено",
+      "credited_delta_kg": -32,
+      "credited_saving_kg": 32,
+      "potential_delta_kg": -71,
+      "ledger_ids": [
+        "T25-M1"
+      ],
+      "reason": "Паспорт IM B5, посадка FF350 и вал 55×110 совпадают с интерфейсом. Колокол и полумуфты сохраняются. G-CYCLE на модели 1480 об/мин проходит.",
+      "source_ids": [
+        "abb_bdk",
+        "abb_catalog",
+        "bell_dims",
+        "omec"
+      ]
+    },
+    {
+      "id": "tf",
+      "measure": "Предохранитель TF",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -19.056191272114845,
+      "ledger_ids": [
+        "T16-15",
+        "T16-18"
+      ],
+      "reason": "Пара 642 DN65 не покрывает приток. Для тройки расчёт дросселирования даёт запас, но не подтверждены совместное открытие при 1,9 бар, допустимое противодавление и масса фланцевого коллектора с опорами. Для LESER нет согласованного исполнения клапана и обвязки.",
+      "source_ids": [
+        "circuit",
+        "baseline_results",
+        "goetze_455",
+        "goetze_455_install",
+        "goetze_642",
+        "goetze_642_install",
+        "goetze_851",
+        "leser_441",
+        "leser_engineering",
+        "iso_4126",
+        "hlp46"
+      ]
+    },
+    {
+      "id": "db",
+      "measure": "Шесть DB30 → картриджи",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -11.881779730594703,
+      "ledger_ids": [
+        "T16-08"
+      ],
+      "reason": "RPIC имеет два порта и чувствителен к сливу 1:1. Расчётные давления сетей TR/TRF/TEM не подтверждают допустимый сдвиг уставок. Для Parker R4V06 с Y1 имеется кривая корпусного клапана. Для Rexroth R900519773 с Y опубликована полость, нужны Δp(Q) блока, рабочий чертёж блока и масса точного исполнения.",
+      "source_ids": [
+        "db30",
+        "rexroth_dbc",
+        "sun_rpic",
+        "sun_cavity",
+        "parker_r4v",
+        "parker_r4v_service",
+        "parker_r4v_tuv",
+        "circuit",
+        "baseline_results"
+      ]
+    },
+    {
+      "id": "tank_walls",
+      "measure": "Стенки T0 3 мм и рёбра",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -8.917599999999993,
+      "ledger_ids": [
+        "T16-02"
+      ],
+      "reason": "Расчёт полосы и частот сухих пластин выполнен. Нужны чертёж швов, рёбер и проушин, реакции опор, проверка залитой сборки и размещения рёбер в пределах габарита. Прогиб при транспортном сценарии превышает толщину стенки, линейный скрининг не квалифицирует оболочку.",
+      "source_ids": [
+        "earlier_tank",
+        "steel",
+        "leissa",
+        "transport"
+      ]
+    },
+    {
+      "id": "tank_base",
+      "measure": "T0 как основание",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -7.9630399999999995,
+      "ledger_ids": [
+        "T16-06"
+      ],
+      "reason": "Нет геометрии плиты, швов, проушин и опор бака, распределения массы привода с колоколом и точного артикула полумуфт. Прогиб и соосность для пути мотор–насос–колокол–бак не подтверждены.",
+      "source_ids": [
+        "earlier_tank",
+        "transport",
+        "bell_dims",
+        "couplings"
+      ]
+    }
+  ],
+  "qualification": {
+    "motor": {
+      "baseline": {
+        "model": "OMEC OMT3-IE3-200L-4 IM B5",
+        "exact_mass_kg": 278,
+        "rated_rpm": 1480,
+        "rated_Nm": 194,
+        "breakdown_ratio": 2.3,
+        "efficiency_pct": 93.6,
+        "current_400V_A": 53.8,
+        "source_ids": [
+          "omec"
+        ],
+        "breakdown_Nm": 446.2
+      },
+      "interface": {
+        "flange_OD_PCD_register_mm": [
+          400,
+          350,
+          300
+        ],
+        "shaft_D_L_mm": [
+          55,
+          110
+        ],
+        "shaft_key_mm": 16,
+        "flange_holes": 4,
+        "bolt_mm": 16
+      },
+      "candidates": [
+        {
+          "model": "ABB M3AA 200MLA 4",
+          "order_number": "3GAA202410-BDK",
+          "mount": "IM B5 / IM3001",
+          "exact_mass_kg": 246,
+          "rated_rpm": 1481,
+          "rated_Nm": 193.42,
+          "breakdown_ratio": 3.2,
+          "efficiency_pct": 93.6,
+          "current_400V_A": 55.1,
+          "duty": "S1",
+          "rating": {
+            "power_kW": 30,
+            "voltage_V": 400,
+            "frequency_Hz": 50,
+            "poles": 4,
+            "IE": 3,
+            "housing": "Al"
+          },
+          "flange_OD_PCD_register_mm": [
+            400,
+            350,
+            300
+          ],
+          "flange_holes": 4,
+          "flange_hole_diameter_mm": 19,
+          "shaft_D_L_mm": [
+            55,
+            110
+          ],
+          "shaft_key_mm": 16,
+          "bell_and_coupling_delta_kg": 0,
+          "source_ids": [
+            "abb_bdk",
+            "abb_catalog",
+            "bell_dims",
+            "omec"
+          ],
+          "breakdown_Nm": 618.944,
+          "mass_difference_kg": -32,
+          "gate": {
+            "status": "PASS",
+            "method": "reference_model",
+            "cycle_s": 5.905000000000723,
+            "rms_kW": 29.98674972258111
+          },
+          "gate_source_id": "reference_gate",
+          "credited": true,
+          "reason": "Паспорт IM B5, посадка FF350 и вал 55×110 совпадают с интерфейсом. Колокол и полумуфты сохраняются. G-CYCLE на модели 1480 об/мин проходит."
+        },
+        {
+          "model": "WEG W21 Aluminium Multimounting",
+          "order_number": "12840024",
+          "mount": "B5T",
+          "exact_mass_kg": 208,
+          "rated_rpm": 1475,
+          "rated_Nm": 194,
+          "breakdown_ratio": 3.4,
+          "efficiency_pct": 93.6,
+          "current_400V_A": 57.1,
+          "source_ids": [
+            "weg",
+            "weg_gate"
+          ],
+          "breakdown_Nm": 659.6,
+          "mass_difference_kg": -70,
+          "gate": {
+            "status": "FAIL",
+            "method": "reference_model",
+            "cycle_s": 5.906250000000724,
+            "rms_kW": 30.07545446926927
+          },
+          "gate_source_id": "weg_gate",
+          "credited": false,
+          "reason": "Прежний G-CYCLE при 1475 об/мин дал 30,075 кВт RMS. Повтор прогона исключён карточкой."
+        },
+        {
+          "model": "Brook Crompton JP-DA200LA-D",
+          "order_number": "200J910402",
+          "mount": "IM B5",
+          "exact_mass_kg": null,
+          "family_mass_kg": 207,
+          "rated_rpm": 1475,
+          "rated_Nm": 194,
+          "breakdown_ratio": 2.6,
+          "efficiency_pct": 93.6,
+          "current_400V_A": 53.3,
+          "source_ids": [
+            "brook",
+            "brook_b5"
+          ],
+          "breakdown_Nm": 504.40000000000003,
+          "mass_difference_kg": null,
+          "credited": false,
+          "reason": "Обороты ниже 1480. Для индивидуального прогона требуется точная масса исполнения. 207 кг указаны в таблице семейства. Масса точного исполнения IM B5 отсутствует."
+        },
+        {
+          "model": "Omega 3MAS 200L4",
+          "order_number": "3M0SA3E-20LA40CL0",
+          "mount": "IM B35",
+          "exact_mass_kg": 223,
+          "rated_rpm": null,
+          "synchronous_rpm": 1500,
+          "rated_Nm": 194.3,
+          "breakdown_ratio": 3.2,
+          "efficiency_pct": 93.6,
+          "current_400V_A": 53.18,
+          "source_ids": [
+            "omega",
+            "omega_drawing"
+          ],
+          "breakdown_Nm": 621.7600000000001,
+          "mass_difference_kg": -55,
+          "credited": false,
+          "reason": "В паспорте указаны синхронные 1500 об/мин. Номинальные обороты при нагрузке не опубликованы, посадка лап IM B35 не квалифицирована."
+        }
+      ],
+      "selected": {
+        "model": "ABB M3AA 200MLA 4",
+        "order_number": "3GAA202410-BDK",
+        "mount": "IM B5 / IM3001",
+        "exact_mass_kg": 246,
+        "rated_rpm": 1481,
+        "rated_Nm": 193.42,
+        "breakdown_ratio": 3.2,
+        "efficiency_pct": 93.6,
+        "current_400V_A": 55.1,
+        "duty": "S1",
+        "rating": {
+          "power_kW": 30,
+          "voltage_V": 400,
+          "frequency_Hz": 50,
+          "poles": 4,
+          "IE": 3,
+          "housing": "Al"
+        },
+        "flange_OD_PCD_register_mm": [
+          400,
+          350,
+          300
+        ],
+        "flange_holes": 4,
+        "flange_hole_diameter_mm": 19,
+        "shaft_D_L_mm": [
+          55,
+          110
+        ],
+        "shaft_key_mm": 16,
+        "bell_and_coupling_delta_kg": 0,
+        "source_ids": [
+          "abb_bdk",
+          "abb_catalog",
+          "bell_dims",
+          "omec"
+        ],
+        "breakdown_Nm": 618.944,
+        "mass_difference_kg": -32,
+        "gate": {
+          "status": "PASS",
+          "method": "reference_model",
+          "cycle_s": 5.905000000000723,
+          "rms_kW": 29.98674972258111
+        },
+        "gate_source_id": "reference_gate",
+        "credited": true,
+        "reason": "Паспорт IM B5, посадка FF350 и вал 55×110 совпадают с интерфейсом. Колокол и полумуфты сохраняются. G-CYCLE на модели 1480 об/мин проходит."
+      },
+      "reference_pump_rpm": 1480
+    },
+    "tf": {
+      "credited": false,
+      "reason": "Пара 642 DN65 не покрывает приток. Для тройки расчёт дросселирования даёт запас, но не подтверждены совместное открытие при 1,9 бар, допустимое противодавление и масса фланцевого коллектора с опорами. Для LESER нет согласованного исполнения клапана и обвязки.",
+      "source_ids": [
+        "circuit",
+        "baseline_results",
+        "goetze_455",
+        "goetze_455_install",
+        "goetze_642",
+        "goetze_642_install",
+        "goetze_851",
+        "leser_441",
+        "leser_engineering",
+        "iso_4126",
+        "hlp46"
+      ],
+      "set_bar": 1.9,
+      "TF_design_bar": 3,
+      "TF_nominal_gauge_bar": 0.6,
+      "relieving_bar": 2.09,
+      "backpressure_budget_bar": 0.2,
+      "cold_screen_C": 0,
+      "cold_screen_viscosity_mm2_s": 580,
+      "cold_screen_qualification": "0 °C и 580 мм²/с как сценарий T-2.5 для выбранного HLP46. Нижний допуск пуска и партия масла требуют подтверждения.",
+      "required_L_min": 1588.6405730672866,
+      "TET_nominal_header_ID_screen_mm": 130,
+      "TET_velocity_at_required_m_s": 1.9947928994082837,
+      "TET_dynamic_head_at_required_bar": 0.017309514395154227,
+      "TET_max_total_loss_coefficient_at_zero_static_head": 11.554339159045947,
+      "retained": {
+        "model": "455 DN65/100 F, герметичный корпус",
+        "original_booked_L_min": 1293,
+        "qualified_capacity_L_min": null,
+        "screen": {
+          "ideal_L_min": 1846.3974363120537,
+          "reynolds": 1063.1469136104047,
+          "viscosity_Kv": 0.9285156566628592,
+          "corrected_L_min": 1714.4089280379062
+        },
+        "metal_bellows_backpressure_limit_bar": 0.57,
+        "exact_balanced_bellows_in_baseline_confirmed": false
+      },
+      "goetze_642_one": {
+        "ideal_L_min": 857.9035100766757,
+        "reynolds": 574.4264047327356,
+        "viscosity_Kv": 0.8784282880418444,
+        "corrected_L_min": 753.6067116617435
+      },
+      "goetze_642_pair_screen_L_min": 1507.213423323487,
+      "goetze_642_pair_t25b_screen_L_min": 1541.1347708567132,
+      "goetze_642_triple_screen_L_min": 2260.8201349852307,
+      "goetze_642_triple_threaded_bare_kg": 26.700000000000003,
+      "goetze_642_triple_flanged_bare_kg": 36.0,
+      "goetze_851_triple_screen_L_min": 1264.9289039305868
+    },
+    "db": {
+      "credited": false,
+      "reason": "RPIC имеет два порта и чувствителен к сливу 1:1. Расчётные давления сетей TR/TRF/TEM не подтверждают допустимый сдвиг уставок. Для Parker R4V06 с Y1 имеется кривая корпусного клапана. Для Rexroth R900519773 с Y опубликована полость, нужны Δp(Q) блока, рабочий чертёж блока и масса точного исполнения.",
+      "source_ids": [
+        "db30",
+        "rexroth_dbc",
+        "sun_rpic",
+        "sun_cavity",
+        "parker_r4v",
+        "parker_r4v_service",
+        "parker_r4v_tuv",
+        "circuit",
+        "baseline_results"
+      ],
+      "branches": [
+        {
+          "id": "RGA",
+          "required_L_min": 181,
+          "crack_target_bar": 300,
+          "limit_peak_bar": 315,
+          "main_return": "TR",
+          "pilot_return": "DR",
+          "main_return_network_design_bar": 10,
+          "pilot_return_network_design_bar": 0.5,
+          "sun_capacity_covers_flow": true,
+          "sun_remaining_override_bar_at_return_design_pressure": 5,
+          "parker_TUV_body_approx_override_bar": 10.944186046511629,
+          "external_drain_remaining_override_bar_at_DR_design_pressure": 14.5
+        },
+        {
+          "id": "RGB",
+          "required_L_min": 125,
+          "crack_target_bar": 300,
+          "limit_peak_bar": 315,
+          "main_return": "TR",
+          "pilot_return": "DR",
+          "main_return_network_design_bar": 10,
+          "pilot_return_network_design_bar": 0.5,
+          "sun_capacity_covers_flow": true,
+          "sun_remaining_override_bar_at_return_design_pressure": 5,
+          "parker_TUV_body_approx_override_bar": 7.558139534883721,
+          "external_drain_remaining_override_bar_at_DR_design_pressure": 14.5
+        },
+        {
+          "id": "RRA",
+          "required_L_min": 270,
+          "crack_target_bar": 300,
+          "limit_peak_bar": 315,
+          "main_return": "TR",
+          "pilot_return": "DR",
+          "main_return_network_design_bar": 10,
+          "pilot_return_network_design_bar": 0.5,
+          "sun_capacity_covers_flow": true,
+          "sun_remaining_override_bar_at_return_design_pressure": 5,
+          "parker_TUV_body_approx_override_bar": 16.325581395348838,
+          "external_drain_remaining_override_bar_at_DR_design_pressure": 14.5
+        },
+        {
+          "id": "RRB",
+          "required_L_min": 186,
+          "crack_target_bar": 300,
+          "limit_peak_bar": 315,
+          "main_return": "TR",
+          "pilot_return": "DR",
+          "main_return_network_design_bar": 10,
+          "pilot_return_network_design_bar": 0.5,
+          "sun_capacity_covers_flow": true,
+          "sun_remaining_override_bar_at_return_design_pressure": 5,
+          "parker_TUV_body_approx_override_bar": 11.246511627906976,
+          "external_drain_remaining_override_bar_at_DR_design_pressure": 14.5
+        },
+        {
+          "id": "RV0",
+          "required_L_min": 265,
+          "crack_target_bar": 300,
+          "limit_peak_bar": 315,
+          "main_return": "TRF",
+          "pilot_return": "DR",
+          "main_return_network_design_bar": 5,
+          "pilot_return_network_design_bar": 0.5,
+          "sun_capacity_covers_flow": true,
+          "sun_remaining_override_bar_at_return_design_pressure": 10,
+          "parker_TUV_body_approx_override_bar": 16.023255813953487,
+          "external_drain_remaining_override_bar_at_DR_design_pressure": 14.5
+        },
+        {
+          "id": "RVM",
+          "required_L_min": 265,
+          "crack_target_bar": 298,
+          "limit_peak_bar": 315,
+          "main_return": "TEM",
+          "pilot_return": "DR",
+          "main_return_network_design_bar": 5,
+          "pilot_return_network_design_bar": 0.5,
+          "sun_capacity_covers_flow": true,
+          "sun_remaining_override_bar_at_return_design_pressure": 12,
+          "parker_TUV_body_approx_override_bar": 16.023255813953487,
+          "external_drain_remaining_override_bar_at_DR_design_pressure": 16.5
+        }
+      ],
+      "retained_DB30_kg_each": 4.4,
+      "retained_DB30_total_kg": 26.400000000000002,
+      "sun_RPIC": {
+        "max_bar": 350,
+        "max_L_min": 380,
+        "cavity": "T-16A",
+        "exact_model_kg": 0.54,
+        "tank_pressure_factor": 1,
+        "previous_housing_kg_each": 1.8797033782342163,
+        "previous_housing_volume_cm3_each": 239.45265964767088,
+        "previous_assembly_screen_kg": 14.5182202694053,
+        "previous_assembly_screen_delta_kg": -11.881779730594703
+      },
+      "parker_R4V06": {
+        "max_bar": 350,
+        "nominal_body_L_min": 200,
+        "TUV_max_in_260_to_300_bar_range_L_min": 430,
+        "TUV_curve_at_300_bar_approx_end": {
+          "flow_L_min": 430,
+          "pressure_bar": 326
+        },
+        "drain": "Y1",
+        "cavity": null,
+        "exact_cartridge_kg": null
+      },
+      "rexroth_DBC30": {
+        "model": "DBC30-2-5X/350Y",
+        "order_number": "R900519773",
+        "drain": "Y",
+        "family_kg": 1.5,
+        "exact_mass_kg": null,
+        "cavity_source_id": "db30",
+        "break_even_housing_and_mount_kg": 2.9000000000000004,
+        "break_even_net_steel_cm3_before_mounts": 369.4267515923567
+      },
+      "open_prototype_item": "Осциллограммы сброса и проверка пиков 315 бар на первом образце по D-OP-11."
+    },
+    "tank": {
+      "walls": {
+        "credited": false,
+        "reason": "Расчёт полосы и частот сухих пластин выполнен. Нужны чертёж швов, рёбер и проушин, реакции опор, проверка залитой сборки и размещения рёбер в пределах габарита. Прогиб при транспортном сценарии превышает толщину стенки, линейный скрининг не квалифицирует оболочку.",
+        "source_ids": [
+          "earlier_tank",
+          "steel",
+          "leissa",
+          "transport"
+        ],
+        "nominal_oil_L": 190,
+        "tank_dims_mm": [
+          900,
+          700,
+          400
+        ],
+        "proposed_wall_mm": 3,
+        "proposed_shell_kg": 85.83840000000001,
+        "rib_projection_growth_mm_per_axis": 60,
+        "oil_depth_mm": 301.58730158730157,
+        "nominal_hydrostatics": {
+          "pressure_kPa": 2.573957142857143,
+          "bending_MPa": 34.31942857142858,
+          "edge_reaction_strip_N_per_m": 514.7914285714286,
+          "deflection_mm": 1.8158427815570677,
+          "yield_to_bending": 6.847433357198753
+        },
+        "flooded_transport": {
+          "pressure_kPa": 9.558864000000002,
+          "bending_MPa": 127.45152000000003,
+          "edge_reaction_strip_N_per_m": 1911.7728000000004,
+          "deflection_mm": 6.743466666666669,
+          "yield_to_bending": 1.8438383473182582
+        },
+        "motor_excitation_Hz": [
+          24.666666666666668,
+          49.333333333333336
+        ],
+        "dry_panel_modes": [
+          {
+            "panel": "long_wall",
+            "f11_dry_Hz": 55.20410386168839,
+            "f21_dry_Hz": 82.52159855613213,
+            "f12_dry_Hz": 193.49892075230983
+          },
+          {
+            "panel": "short_wall",
+            "f11_dry_Hz": 61.15076937340403,
+            "f21_dry_Hz": 106.30826060299471,
+            "f12_dry_Hz": 199.44558626402548
+          },
+          {
+            "panel": "cover_or_bottom",
+            "f11_dry_Hz": 32.2111048551264,
+            "f21_dry_Hz": 68.63443111438471,
+            "f12_dry_Hz": 92.42109316124728
+          }
+        ],
+        "vertical_lift_reaction_per_leg_N": 10547.92539749972,
+        "sling_tension_N": 14917.019152043722,
+        "transport_station_forward_N": 12982.062027691962,
+        "transport_station_lateral_N": 8113.788767307476
+      },
+      "base": {
+        "credited": false,
+        "reason": "Нет геометрии плиты, швов, проушин и опор бака, распределения массы привода с колоколом и точного артикула полумуфт. Прогиб и соосность для пути мотор–насос–колокол–бак не подтверждены.",
+        "source_ids": [
+          "earlier_tank",
+          "transport",
+          "bell_dims",
+          "couplings"
+        ],
+        "drive_mass_without_bell_kg": 355,
+        "drive_weight_lower_bound_N": 3482.55,
+        "drive_lift_lower_bound_N": 4527.3150000000005,
+        "drive_transport_forward_lower_bound_N": 2786.0400000000004,
+        "drive_transport_lateral_lower_bound_N": 1741.275,
+        "plate_deflection_mm": null,
+        "exact_coupling_alignment_limit_mm": null
+      }
+    },
+    "cooling_KD": {
+      "pc_branch_dp_bar": [
+        1.33,
+        1.36
+      ],
+      "pc_branch_temp_C": [
+        42,
+        45
+      ],
+      "pc_cold_dp_bar": 2.07,
+      "pc_cold_C": 20,
+      "candidate_CB_crack_bar": 1.5,
+      "model": "Bowman GL180-1428-3",
+      "installed_kW": 32.603,
+      "installed_with_air_option_kW": 34.103,
+      "installed_limit_kW": 34.2,
+      "pc_motor_kW": 0.55,
+      "pc_flow_L_min": 180,
+      "pc_estimated_efficiency": 0.72,
+      "pc_branch_design_dp_limit_bar": 1.25,
+      "pc_required_shaft_kW": [
+        0.5541666666666667,
+        0.5666666666666668
+      ],
+      "pc_cold_shaft_kW": 0.8624999999999999,
+      "pc_shaft_kW_at_candidate_CB_bar": 0.625,
+      "pc_max_dp_bar_for_motor_at_nominal_flow": 1.32,
+      "pc_min_efficiency_at_candidate_CB_bar": 0.8181818181818182,
+      "existing_CB_crack_bar": 3,
+      "candidate_CB_qualified": false,
+      "source_ids": [
+        "baseline",
+        "baseline_review",
+        "baseline_inputs",
+        "circuit",
+        "bowman_profile",
+        "bowman_manual"
+      ]
+    }
+  },
+  "mass_rows": [
+    {
+      "id": "T25-M1",
+      "part": "ABB M3AA 200MLA 4 3GAA202410-BDK IM B5",
+      "mass_kg": 246,
+      "source": "https://www.electricautomationnetwork.com/PDF/PIM/ABB/EN_3GAA202410-BDK.pdf",
+      "replaces_or_adjusts": "T16-01",
+      "basis": "Масса нетто точного артикула IM3001. Колокол и муфта учтены в T16-06."
+    },
+    {
+      "id": "T25-P1",
+      "part": "Rexroth A4VSO180 /30 без проходного вала",
+      "mass_kg": 102,
+      "source": "https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf",
+      "replaces_or_adjusts": "T16-01"
+    },
+    {
+      "id": "T25-P1_DFE1Z",
+      "part": "Резерв на регулятор DFE1Z и адаптер",
+      "mass_kg": 7,
+      "source": "calc/T-2.1/results.json",
+      "replaces_or_adjusts": "T16-01"
+    },
+    {
+      "id": "T16-02",
+      "part": "Основной бак",
+      "mass_kg": 94.756,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Envelope 900×700×400 mm, sheet 4 mm and 15 kg for baffles, fittings and mounts"
+    },
+    {
+      "id": "T16-03",
+      "part": "Основное масло",
+      "mass_kg": 165.3,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Initial main tank inventory × oil density; cylinder fill already carried with cylinders"
+    },
+    {
+      "id": "T25-AX",
+      "part": "AX — HYDAC SB330 10 L 3047170",
+      "mass_kg": 31,
+      "source": "https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf",
+      "replaces_or_adjusts": "T16-04",
+      "pressure_bar": 330
+    },
+    {
+      "id": "T16-06",
+      "part": "Рама станции",
+      "mass_kg": 42.35456,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "2×900 + 4×700 mm RHS 80×40×4, 10 kg feet/motor plate/mounting hardware, transport to verify",
+      "composition": "RHS 80×40×4, опоры, колокол/муфта и крепёж в ведомости."
+    },
+    {
+      "id": "T16-07",
+      "part": "Картриджи 2WRCE",
+      "mass_kg": 262.9,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Circuit inventory × masses in RE 29406, NG32/40/50",
+      "composition": "MF NG50, MBT NG40, LR NG32 и остальные 2WRCE; штатные массы корпусов относятся к ведомости T-1.6."
+    },
+    {
+      "id": "T16-08",
+      "part": "Коллекторы, малая арматура и защита",
+      "mass_kg": 128,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Project allowance including DB, gate valve, LC/LFA, SAF bodies, sensors and safety cartridges",
+      "composition": "В том числе SAF32E SAL/SAX 24,8 кг за пару до адаптеров. T-2.6 считает ранний корпус MF 32 кг уже учтённым. Привязку корпуса к этой строке проверить при деталировке."
+    },
+    {
+      "id": "T16-09",
+      "part": "Фильтры, трубы, вспомогательные насосы",
+      "mass_kg": 75,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Project allowance for wider return and separate cooling loop",
+      "composition": "F1, FX, F2, линии станции, вспомогательные насосы и PC. Строка проектного резерва."
+    },
+    {
+      "id": "T16-10",
+      "part": "ZSF NG100",
+      "mass_kg": 15,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "RE 20478 and T-1.4b"
+    },
+    {
+      "id": "T25-TF_dry",
+      "part": "TF 80 л, разделитель и регулятор",
+      "mass_kg": 36.92307692307692,
+      "source": "calc/T-2.6/inventory.csv",
+      "replaces_or_adjusts": "T16-11",
+      "basis": "Проектный резерв, масса сосуда и мембраны уточняется заказом."
+    },
+    {
+      "id": "T25-TF_oil",
+      "part": "Масло TF 55 л",
+      "mass_kg": 47.85,
+      "source": "calc/T-2.6/inventory.csv",
+      "replaces_or_adjusts": "T16-11"
+    },
+    {
+      "id": "T16-12",
+      "part": "Местные линии наполнения",
+      "mass_kg": 24,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Engineering allowance for Ø125/100 and matching supports as already reserved in T-1.4b",
+      "composition": "Две местные линии наполнения 133×4 и 108×4, крепёж по унаследованной строке."
+    },
+    {
+      "id": "T16-13",
+      "part": "Клапаны плавания и подпитки",
+      "mass_kg": 28.400000000000002,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "RE 21040 and RE 21010. Both check inserts in the shared manifold with its own cover allowance.",
+      "composition": "Седла плавания и подпитки, включая MC по ведомости T-2.6 без добавочной массы."
+    },
+    {
+      "id": "T16-14",
+      "part": "Седло регенерации",
+      "mass_kg": 9.3,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "RE 21010 LC/LFA NG40",
+      "composition": "LC/LFA NG40, седло регенерации."
+    },
+    {
+      "id": "T16-15",
+      "part": "Масляный предохранительный TF",
+      "mass_kg": 48.5,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Goetze Series 455 DN65/100 gastight catalogued mass",
+      "composition": "Goetze 455 DN65/100 F, уставка 1,9 бар."
+    },
+    {
+      "id": "T16-16",
+      "part": "monitored_unloader_and_adapter",
+      "mass_kg": 13.881044130518074,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Round-two engineering allowance; weigh actual procurement assembly; separate 2 m steel Ø16/12 drain and fittings",
+      "composition": "Контролируемый разгрузчик ZU/ZUP, адаптер, отдельный дренаж."
+    },
+    {
+      "id": "T16-17",
+      "part": "float_common_cover_and_mounts",
+      "mass_kg": 26.0,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Two standard LFA NG50 (RE 21010 p. 6); retain predecessor allowance for mounts",
+      "composition": "Крышки LFA NG50 и их крепления."
+    },
+    {
+      "id": "T16-18",
+      "part": "TF_relief_flange_and_return_support",
+      "mass_kg": 5,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Round-two engineering allowance; weigh actual procurement assembly",
+      "composition": "Фланец штатного RTF и опоры возврата."
+    },
+    {
+      "id": "T16-19",
+      "part": "emergency_dump_poppets_and_returns",
+      "mass_kg": 22,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Round-two engineering allowance; weigh actual procurement assembly",
+      "composition": "Аварийные клапаны ME1/ME2/MEB и раздельные возвраты."
+    },
+    {
+      "id": "T16-20",
+      "part": "pilot_tandem_and_feedback",
+      "mass_kg": 23,
+      "source": "calc/T-1.6/results.json#mass.station_rows",
+      "basis": "Round-two engineering allowance; weigh actual procurement assembly",
+      "composition": "Тандем PX/PXA и контроль состояний."
+    },
+    {
+      "id": "T26-RA_RB_sensors",
+      "part": "Rexroth HM20-2X/400-C-K35-N",
+      "qty": 2,
+      "dry_kg": 0.12,
+      "oil_kg": 0.0,
+      "mass_kg": 0.12,
+      "source": "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/proportional_electronics/re30272-2.pdf",
+      "basis": "catalogue",
+      "ledger_source": "calc/T-2.6/inventory.csv"
+    },
+    {
+      "id": "T26-regen_valves",
+      "part": "Rexroth LC25 + LFA25, bridge RB→RA and cutoff RB→tank",
+      "qty": 2,
+      "dry_kg": 5.6,
+      "oil_kg": 0.0,
+      "mass_kg": 5.6,
+      "source": "https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf",
+      "basis": "catalogue",
+      "ledger_source": "calc/T-2.6/inventory.csv"
+    },
+    {
+      "id": "T26-regen_pilots",
+      "part": "Rexroth 4WE6, 24 V DC single coil",
+      "qty": 2,
+      "dry_kg": 2.9,
+      "oil_kg": 0.0,
+      "mass_kg": 2.9,
+      "source": "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/directional_valves/re23178.pdf",
+      "basis": "catalogue",
+      "ledger_source": "calc/T-2.6/inventory.csv"
+    },
+    {
+      "id": "T26-regen_housings",
+      "part": "Parker CB025A16510W ISO 7368 (fit/pilot port routing to verify)",
+      "qty": 2,
+      "dry_kg": 22,
+      "oil_kg": 0.0,
+      "mass_kg": 22.0,
+      "source": "https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf",
+      "basis": "catalogue",
+      "ledger_source": "calc/T-2.6/inventory.csv"
+    },
+    {
+      "id": "T26-regen_routes",
+      "part": "STAUFF E355 38×5, 2030043517",
+      "qty": 1,
+      "dry_kg": 4.884,
+      "oil_kg": 0.6428452551481579,
+      "mass_kg": 5.526845255148158,
+      "source": "https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf",
+      "basis": "catalogue unit mass, layout length",
+      "ledger_source": "calc/T-2.6/inventory.csv"
+    },
+    {
+      "id": "T26-lp_eject_route",
+      "part": "STAUFF E355 38×5, 2030043517, LR→RA",
+      "qty": 1,
+      "dry_kg": 4.884,
+      "oil_kg": 0.6428452551481579,
+      "mass_kg": 5.526845255148158,
+      "source": "https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf",
+      "basis": "catalogue unit mass, layout length",
+      "ledger_source": "calc/T-2.6/inventory.csv"
+    },
+    {
+      "id": "T26-MF_housing",
+      "part": "MF housing with RE 29406 installation bore",
+      "qty": 1,
+      "dry_kg": 48.3246,
+      "oil_kg": 0.0,
+      "mass_kg": 16.324599999999997,
+      "source": "https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf",
+      "basis": "Double-B casting/blank envelopes RE 29406 page 32, adds space for both Ø70 radial ports. Use gross blank mass for new housing and CB050 as previous single-B housing estimate. Parker mass of the single-port block is a proxy, with fit and CAD to verify.",
+      "ledger_source": "calc/T-2.6/inventory.csv",
+      "composition": "Разность 48,3246 и 32 кг. Базовый корпус учтён в смете узла."
+    },
+    {
+      "id": "T25B-HX",
+      "part": "Bowman GL180-1428-3 с водой",
+      "mass_kg": 24.7848,
+      "source": "https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf",
+      "basis": "Сухой 21 кг и 3,8 л воды. Заполнение маслом учтено отдельной строкой.",
+      "category": "cooler",
+      "mass_basis": "catalogue"
+    },
+    {
+      "id": "T25B-HX_oil",
+      "part": "Масло в кожухе охладителя",
+      "mass_kg": 4.176,
+      "source": "https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf",
+      "basis": "4,8 л × плотность HLP46. Учтено сверх заправки T0 190 л.",
+      "category": "oil",
+      "mass_basis": "catalogue"
+    },
+    {
+      "id": "T25B-HX_mount",
+      "part": "Опоры GL180, крепёж и развязка вибраций",
+      "mass_kg": 4.0,
+      "source": "https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf",
+      "basis": "Две сборки примерно по 2 кг с опорными пластинами, M10, накладками и вибропрокладками.",
+      "category": "mount",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-WV",
+      "part": "Danfoss EV220B 25 032U7125 EPDM NC",
+      "mass_kg": 1.325,
+      "source": "https://designcenter.danfoss.com/en-us/products/climate-solutions-for-heating/solenoid-valves-fluid-controls/solenoid-valves-fluid-controls/ev220b/p/032U7125?tab=attribute-details",
+      "basis": "Нетто корпуса без катушки.",
+      "category": "water",
+      "mass_basis": "catalogue"
+    },
+    {
+      "id": "T25B-WV_coil",
+      "part": "Катушка BB024DS, IP-разъём и крепёж",
+      "mass_kg": 0.6,
+      "source": "https://designcenter.danfoss.com/tr-tr/products/sensing-solutions/valves/coils-for-solenoid-valves/ba-bd-bb-be-bf-bg-bn-bo-bj-bx-by-bq-am-az-as-ap/p/018F7397",
+      "basis": "Резерв на катушку типоразмера BB, герметичный разъём и провод к клеммнику.",
+      "category": "water",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-WS",
+      "part": "Spirax Sarco Fig 3616, DN40 PN16 mesh 40",
+      "mass_kg": 9.0,
+      "source": "https://content.spiraxsarco.com/-/media/spiraxsarco/international/documents/en/ti/fig_3616-ti-p160-05-en.ashx",
+      "basis": "Масса типоразмера DN40. Сопрягаемые фланцы посчитаны с трубами.",
+      "category": "water",
+      "mass_basis": "catalogue"
+    },
+    {
+      "id": "T25B-WB",
+      "part": "Два шаровых крана DN40",
+      "mass_kg": 4.0,
+      "source": "TASK.md",
+      "basis": "По 2 кг на полнопроходной резьбовой кран с ручкой. Фланцы границы отдельно.",
+      "category": "water",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-WF",
+      "part": "ifm SM9500, расход и температура на возврате",
+      "mass_kg": 2.751,
+      "source": "https://media.ifm.com/dam/fa354e68-9821-4699-93d1-4698b4db4a19/Original/SM9500-01_EN-GB.pdf",
+      "basis": "Паспортная масса DN40.",
+      "category": "water",
+      "mass_basis": "catalogue"
+    },
+    {
+      "id": "T25B-WT",
+      "part": "Pt100 на входе воды, гильза и два отбора давления аппарата",
+      "mass_kg": 1.2,
+      "source": "TASK.md",
+      "basis": "0,6 кг на датчик с гильзой и по 0,3 кг на два измерительных порта с заглушками.",
+      "category": "water",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-WP",
+      "part": "Трубопровод воды DN40 с заполнением",
+      "mass_kg": 7.637651626680146,
+      "source": "calc/T-1.6/sources.yaml",
+      "basis": "2,0 м трубы 48,3×2 мм. Сталь 4.567 кг, вода 3.070 кг.",
+      "category": "water",
+      "mass_basis": "масса по геометрии"
+    },
+    {
+      "id": "T25B-WI",
+      "part": "Фланцы границы и фильтра, фитинги, переходы и хомуты",
+      "mass_kg": 8.0,
+      "source": "TASK.md",
+      "basis": "Четыре ответных фланца DN40 примерно по 1 кг, 4 кг на переходы, колена, опоры и отборы Δp фильтра.",
+      "category": "water",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-WD",
+      "part": "Слив воды и ручной воздухоотводчик",
+      "mass_kg": 1.0,
+      "source": "https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf",
+      "basis": "Два малых клапана и отвод в нижней точке. Доступ с сервисной стороны.",
+      "category": "water",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-WW",
+      "part": "Вода в арматуре и расходомере",
+      "mass_kg": 2.5,
+      "source": "TASK.md",
+      "basis": "Резерв 2,5 л на полости DN40, грязевик и клапаны сверх трубы и аппарата.",
+      "category": "water",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-PC_oil",
+      "part": "Ветка PC, переходы G1½, линии и контроль потока",
+      "mass_kg": 8.0,
+      "source": "design/hydraulics/T-1.6_circuit.yaml",
+      "basis": "Резерв на 1,2 м трубы с проходом 50 мм, два перехода, крепления и малопотерные датчики. PC, CB, CD и общий FT остаются в T16-09.",
+      "category": "oil",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-PC_fill",
+      "part": "Дополнительное масло в местных линиях PC",
+      "mass_kg": 2.04988920646734,
+      "source": "calc/T-1.6/sources.yaml",
+      "basis": "Заполнение 1,2 м при проходе 50 мм.",
+      "category": "oil",
+      "mass_basis": "масса по геометрии"
+    },
+    {
+      "id": "T25B-AO",
+      "part": "Присоединения воздушной опции и трасса кабеля",
+      "mass_kg": 9.0,
+      "source": "https://asahydraulics.com/wp-content/uploads/2022/05/ASA-Series-AC.pdf",
+      "basis": "Резерв на два тройника, две глухие ответные части, крепёж, короткие отводы и кабельную подготовку.",
+      "category": "air_option_interface",
+      "mass_basis": "проектный резерв"
+    },
+    {
+      "id": "T25B-LP",
+      "part": "LP, Parker EHV 20-330/90-A25GC-200",
+      "mass_kg": 49.0,
+      "source": "https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/accumulator/bladder_accumulator/CADE_EHV_catalogue.pdf",
+      "replaces": "T25-ALP",
+      "basis": "Сосуд 20 л / 330 бар, точный артикул 10837101125"
+    },
+    {
+      "id": "T25B-LP_fit",
+      "part": "Резерв на крепление и стыковку LP G2 с SAF32E",
+      "mass_kg": 3.0,
+      "source": "https://www.parker.com/parkerimages/Parker.com/Divisions-2011/Accumulator%20and%20Cooler%20Division%20-%20Europe/MSG10-4082_2020_FastTrack_Distribution_English.pdf",
+      "basis": "Два хомута и переходник/уплотнения. Резерв сверх имеющегося SAF32E."
+    }
+  ],
+  "gates": {
+    "G-PFACE": {
+      "value": 168.88888888888889,
+      "unit": "MPa",
+      "status": "PASS"
+    },
+    "G-DOSE": {
+      "value": 396,
+      "unit": "mm",
+      "status": "PASS"
+    },
+    "G-CYCLE": {
+      "value": 5.905000000000723,
+      "unit": "s",
+      "status": "PASS",
+      "method": "reference_model",
+      "input": "calc/T-2.6/params/params.t26a.yaml",
+      "rms_kW": 29.98674972258111,
+      "gate_report": "gates.t25c.json"
+    }
+  },
+  "sources": {
+    "baseline": {
+      "url": "design/hydraulics/station.t25b.yaml",
+      "where": "Построчная исходная ведомость и гидравлическая конфигурация"
+    },
+    "baseline_metrics": {
+      "url": "ops/reports/T-2.5b/metrics.json",
+      "where": "Три исходных варианта T-2.2i"
+    },
+    "baseline_results": {
+      "url": "calc/T-2.5b/results.json",
+      "where": "Условные меры и расчётные данные TF из T-2.6"
+    },
+    "earlier_tank": {
+      "url": "calc/T-2.5/results.json",
+      "where": "Разделы tank.structure и measures",
+      "предыдущая геометрия и расчётные нагрузки": null
+    },
+    "baseline_review": {
+      "url": "ops/reports/T-2.5b/GK_review.md",
+      "where": "Δp ветви PC при 42–45 °C и при холодном пуске"
+    },
+    "baseline_inputs": {
+      "url": "calc/T-2.5b/sources.yaml",
+      "where": "Расход масла и принятый нижний КПД PC"
+    },
+    "decisions": {
+      "url": "DECISIONS.md",
+      "where": "D-OP-11/19/20/21 и D-GK-18/19/20"
+    },
+    "criteria": {
+      "url": "ops/criteria/design_criteria.yaml",
+      "where": "C-MASS-01, C-PWR-01, C-HYD-01"
+    },
+    "circuit": {
+      "url": "design/hydraulics/T-1.6_circuit.yaml",
+      "where": "RTF, RGA/RGB/RRA/RRB/RV0/RVM, TR/TRF/TEM/DR, PC/CB"
+    },
+    "interlocks": {
+      "url": "design/hydraulics/T-1.6_interlocks.yaml",
+      "where": "Защиты и разрешения PC и TF"
+    },
+    "t26_inventory": {
+      "url": "calc/T-2.6/inventory.csv",
+      "where": "Ведомость эталонной гидравлики T-2.6"
+    },
+    "reference_gate": {
+      "url": "gates.t25c.json",
+      "where": "Свежий G-CYCLE на params.t26a.yaml"
+    },
+    "weg_gate": {
+      "url": "ops/reports/T-2.5b/gates.GK.weg1475.json",
+      "where": "Контроль ГК при 1475 об/мин из T-2.5b"
+    },
+    "omec": {
+      "url": "https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf",
+      "where": "Паспорт IM B5 и чертёж базового мотора"
+    },
+    "abb_bdk": {
+      "url": "https://www.electricautomationnetwork.com/PDF/PIM/ABB/EN_3GAA202410-BDK.pdf",
+      "where": "Лист ABB для точного артикула IM3001, масса нетто и данные 400 В 50 Гц"
+    },
+    "abb_catalog": {
+      "url": "https://library.e.abb.com/public/58d7dab0323045e787c050c15e34f2fb/9AAU00000000058%20Process%20performance%20Aluminum%20motors%20EN%2001-2025.pdf?x-sign=pphqHiaUecFL6Osc5pgGg8dM72O5OXZeZ4%2BFJtdJg28%2F9YZ6ASkhxaUVNjGgKcjC",
+      "where": "ABB 01-2025, 3GAA202410-••K, Tmax/Tn и габарит IEC 200 IM B5"
+    },
+    "bell_dims": {
+      "url": "https://www.mpfiltri.com/FilesProdotti/rl1vm4_LMC-LDCEN.pdf",
+      "where": "Колокол LMC/LDC для IEC 200 B5"
+    },
+    "couplings": {
+      "url": "https://www.mpfiltri.com/wp-content/uploads/2025/10/CAT_PT_EN-1.pdf",
+      "where": "Допуски SGE по типоразмерам, радиальный, угловой и осевой"
+    },
+    "weg": {
+      "url": "https://www.cenov-distribution.fr/wp-content/uploads/2025/05/weg_12840024_allDocuments.pdf",
+      "where": "Паспорт WEG 12840024, B5T, строка 400 В 50 Гц"
+    },
+    "brook": {
+      "url": "https://brookcrompton.com/ukanditaly/wp-content/uploads/2023/11/2022-05_Series_30_Cat_iss1-3.pdf",
+      "where": "JP-DA200LA, таблица Series 30, масса семейства"
+    },
+    "brook_b5": {
+      "url": "https://brookcromptonmotors.com/products/brook-crompton-we3-we4/",
+      "where": "200J910402, JP-DA200LA-D, B5 D Flange Mounted"
+    },
+    "omega": {
+      "url": "https://omegamotor.com.tr/en/product/detail/836",
+      "where": "3M0SA3E-20LA40CL0, паспорт исполнения IMB35 с лапами, опубликована синхронная частота"
+    },
+    "omega_drawing": {
+      "url": "https://omegamotor.com.tr/files/technical_document/A-200L-B35-L.PDF",
+      "where": "Чертёж A-200L B35-L"
+    },
+    "goetze_455": {
+      "url": "https://www.goetze-group.com/Series/455/goetze-455-datasheet-en.pdf",
+      "where": "Таблица DN65/100, d₀, Kdr(F), массы и варианты сильфона, жидкость при +10 %"
+    },
+    "goetze_455_install": {
+      "url": "https://www.goetze-group.com/DAM/assembly-instructions/goetze-455-355-255-assembly-instruction.pdf",
+      "where": "Раздел Blow off line / counterpressure, металлический сильфон и 30 % от уставки"
+    },
+    "goetze_642": {
+      "url": "https://www.goetze-group.com/Series/642/goetze-642-datasheet-en.pdf",
+      "where": "DN65, таблицы присоединений, масс и воды при +10 %"
+    },
+    "goetze_642_install": {
+      "url": "https://www.goetze-group.com/DAM/assembly-instructions/goetze-642-6420-645-6450-442-4420-445-4450-assembly-instruction.pdf",
+      "where": "Требования к входу и выпуску"
+    },
+    "goetze_851": {
+      "url": "https://www.goetze-group.com/Series/851/goetze-851-datasheet-en.pdf",
+      "where": "DN50 F, таблица жидкостей и исполнение tb с сильфоном"
+    },
+    "leser_441": {
+      "url": "https://www.leser.com/-/media/files/catalogue/english/leser-safety-relief-valve-high_performance_extended_catalog_en_07_2016.pdf",
+      "where": "Type 441/442, DN и таблицы для воды"
+    },
+    "leser_engineering": {
+      "url": "https://www.leser.com/-/media/files/engineering/leser_engineering.pdf",
+      "where": "LID 1757.07, 22.12.2021, формулы 7.5.7-1/2 (жидкость) и 7.4.6-2 (Kv, API RP 520)"
+    },
+    "iso_4126": {
+      "url": "https://www.iso.org/obp/ui/#iso:std:iso:4126:-7:ed-2:v1:en",
+      "where": "ISO 4126-7:2013, расчёт пропускной способности"
+    },
+    "hlp46": {
+      "url": "https://www.epc.shell.com/DocumentManagement/BlobDocumentDownload?DocId=72792289",
+      "where": "Shell Tellus S2 M 46, §9.2, 580 мм²/с при 0 °C из входов T-2.5"
+    },
+    "db30": {
+      "url": "https://device.report/m/243f441d86e129325758e54161c0343432c0f720809b6edae1b2fdf9d511a710",
+      "where": "Лист Bosch Rexroth RE 25802, DB30, коды X/Y, P(Q), масса"
+    },
+    "rexroth_dbc": {
+      "url": "https://buyrexroth.com/product/bosch-rexroth/R900519773",
+      "where": "DBC30-2-5X/350Y, идентификация точного артикула. Полость и масса семейства в RE 25802, с. 7 и 14"
+    },
+    "sun_rpic": {
+      "url": "https://hydnet.se/wp-content/uploads/RPIC.pdf",
+      "where": "Лист Sun RPIC, полость T-16A, P(Q), масса и обратное давление"
+    },
+    "sun_cavity": {
+      "url": "https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/uk_bm_geninfo.pdf",
+      "where": "Каталог Sun №999-901-191, с. 258, упрощённый чертёж полости T-16A"
+    },
+    "parker_r4v": {
+      "url": "https://www.parker.com/content/dam/Parker-com/Literature/Industrial-Systems-Division-Europe/Catalogues/Industrial-Valves-UK/10/R4V-UK.pdf",
+      "where": "MSG11-3500/UK, P(Q) с дренажем Y1, масло HLP46 50 °C"
+    },
+    "parker_r4v_service": {
+      "url": "https://www.parker.com/content/dam/Parker-com/Literature/Hydraulic-Valve-Division/hydraulicvalve/Service-Installation/Denison-Service-Literature---new/S3-ML2400-A---R4V.pdf",
+      "where": "S3-ML2400-A, коды картриджа, дренаж 2, порт G или E"
+    },
+    "parker_r4v_tuv": {
+      "url": "https://www.parker.com/content/dam/Parker-com/Literature/Industrial-Systems-Division-Europe/Catalogues/Industrial-Valves-UK/04/R4V-R6V-TUEV-UK.pdf",
+      "where": "R4V06, паспортная P(Q) внешнего дренажа"
+    },
+    "steel": {
+      "url": "https://industry.arcelormittal.com/catalogue/A30/EN",
+      "where": "S235JR EN 10025-2, E и плотность по расчёту T-2.5"
+    },
+    "leissa": {
+      "url": "https://ntrs.nasa.gov/api/citations/19700009156/downloads/19700009156.pdf",
+      "where": "A. W. Leissa, Vibration of Plates, NASA SP-160, 1969, §4.1.1, шарнирный прямоугольник"
+    },
+    "transport": {
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A02014L0047-20220927",
+      "where": "Директива 2014/47/EU, приложение III, 0,8g вперёд, 0,5g поперёк"
+    },
+    "bowman_profile": {
+      "url": "https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf",
+      "where": "GL180, типовая точка 150 л/мин воды и 60 °C масла, график и масса"
+    },
+    "bowman_manual": {
+      "url": "https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf",
+      "where": "Эксплуатация и требования к воде"
+    }
+  }
+}

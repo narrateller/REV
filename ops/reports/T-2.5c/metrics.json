@@ -1,0 +1,180 @@
+{
+  "status": "STOP_MASS",
+  "mass_acceptance": false,
+  "station_t25b_kg": 1686.1873123970388,
+  "station_t25c_kg": 1654.1873123970388,
+  "credited_measures_kg": 32.0,
+  "credited_measures": [
+    {
+      "id": "motor",
+      "measure": "Мотор Al IM B5",
+      "status": "зачтено",
+      "credited_delta_kg": -32,
+      "credited_saving_kg": 32,
+      "potential_delta_kg": -71,
+      "ledger_ids": [
+        "T25-M1"
+      ],
+      "reason": "Паспорт IM B5, посадка FF350 и вал 55×110 совпадают с интерфейсом. Колокол и полумуфты сохраняются. G-CYCLE на модели 1480 об/мин проходит.",
+      "source_ids": [
+        "abb_bdk",
+        "abb_catalog",
+        "bell_dims",
+        "omec"
+      ]
+    }
+  ],
+  "not_credited_measures": [
+    {
+      "id": "tf",
+      "measure": "Предохранитель TF",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -19.056191272114845,
+      "ledger_ids": [
+        "T16-15",
+        "T16-18"
+      ],
+      "reason": "Пара 642 DN65 не покрывает приток. Для тройки расчёт дросселирования даёт запас, но не подтверждены совместное открытие при 1,9 бар, допустимое противодавление и масса фланцевого коллектора с опорами. Для LESER нет согласованного исполнения клапана и обвязки.",
+      "source_ids": [
+        "circuit",
+        "baseline_results",
+        "goetze_455",
+        "goetze_455_install",
+        "goetze_642",
+        "goetze_642_install",
+        "goetze_851",
+        "leser_441",
+        "leser_engineering",
+        "iso_4126",
+        "hlp46"
+      ]
+    },
+    {
+      "id": "db",
+      "measure": "Шесть DB30 → картриджи",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -11.881779730594703,
+      "ledger_ids": [
+        "T16-08"
+      ],
+      "reason": "RPIC имеет два порта и чувствителен к сливу 1:1. Расчётные давления сетей TR/TRF/TEM не подтверждают допустимый сдвиг уставок. Для Parker R4V06 с Y1 имеется кривая корпусного клапана. Для Rexroth R900519773 с Y опубликована полость, нужны Δp(Q) блока, рабочий чертёж блока и масса точного исполнения.",
+      "source_ids": [
+        "db30",
+        "rexroth_dbc",
+        "sun_rpic",
+        "sun_cavity",
+        "parker_r4v",
+        "parker_r4v_service",
+        "parker_r4v_tuv",
+        "circuit",
+        "baseline_results"
+      ]
+    },
+    {
+      "id": "tank_walls",
+      "measure": "Стенки T0 3 мм и рёбра",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -8.917599999999993,
+      "ledger_ids": [
+        "T16-02"
+      ],
+      "reason": "Расчёт полосы и частот сухих пластин выполнен. Нужны чертёж швов, рёбер и проушин, реакции опор, проверка залитой сборки и размещения рёбер в пределах габарита. Прогиб при транспортном сценарии превышает толщину стенки, линейный скрининг не квалифицирует оболочку.",
+      "source_ids": [
+        "earlier_tank",
+        "steel",
+        "leissa",
+        "transport"
+      ]
+    },
+    {
+      "id": "tank_base",
+      "measure": "T0 как основание",
+      "status": "не зачтено",
+      "credited_delta_kg": 0,
+      "credited_saving_kg": 0,
+      "potential_delta_kg": -7.9630399999999995,
+      "ledger_ids": [
+        "T16-06"
+      ],
+      "reason": "Нет геометрии плиты, швов, проушин и опор бака, распределения массы привода с колоколом и точного артикула полумуфт. Прогиб и соосность для пути мотор–насос–колокол–бак не подтверждены.",
+      "source_ids": [
+        "earlier_tank",
+        "transport",
+        "bell_dims",
+        "couplings"
+      ]
+    }
+  ],
+  "machine_A_kg_range": [
+    5126.89979007864,
+    5170.254707843668
+  ],
+  "missing_to_5000_kg": 170.25470784366826,
+  "missing_to_5080_kg": 90.25470784366826,
+  "machine_A_all_measures_kg_range": [
+    5040.08117907593,
+    5083.436096840958
+  ],
+  "machine_A_all_measures_with_qualified_motor_kg_range": [
+    5079.081179075931,
+    5122.436096840958
+  ],
+  "all_measures_t25b_potential_saving_kg": 118.81861100270955,
+  "all_measures_with_qualified_motor_potential_saving_kg": 79.81861100270953,
+  "machine_A_variants": {
+    "with_collar_and_gross_old_front_removal": {
+      "t22i_before_station_kg": 5223.275449245492,
+      "t25_corrected_kg": 5253.275449245492,
+      "t25b_kg": 5158.89979007864,
+      "missing_to_5000_kg": 126.89979007863985,
+      "missing_to_5080_kg": 46.89979007863985,
+      "t25c_kg": 5126.89979007864,
+      "outside_station_kg": 3472.712477681601,
+      "all_measures_t25b_potentials_kg": 5040.08117907593,
+      "all_measures_with_qualified_motor_kg": 5079.081179075931
+    },
+    "with_end_collar": {
+      "t22i_before_station_kg": 5266.630367010521,
+      "t25_corrected_kg": 5296.630367010521,
+      "t25b_kg": 5202.254707843668,
+      "missing_to_5000_kg": 170.25470784366826,
+      "missing_to_5080_kg": 90.25470784366826,
+      "t25c_kg": 5170.254707843668,
+      "outside_station_kg": 3516.0673954466292,
+      "all_measures_t25b_potentials_kg": 5083.436096840958,
+      "all_measures_with_qualified_motor_kg": 5122.436096840958
+    },
+    "without_end_collar": {
+      "t22i_before_station_kg": 5232.173995825275,
+      "t25_corrected_kg": 5262.173995825275,
+      "t25b_kg": 5167.798336658422,
+      "missing_to_5000_kg": 135.79833665842216,
+      "missing_to_5080_kg": 55.79833665842216,
+      "t25c_kg": 5135.798336658422,
+      "outside_station_kg": 3481.611024261383,
+      "all_measures_t25b_potentials_kg": 5048.979725655712,
+      "all_measures_with_qualified_motor_kg": 5087.979725655712
+    }
+  },
+  "motor_model": "ABB M3AA 200MLA 4",
+  "motor_order_number": "3GAA202410-BDK",
+  "motor_kg": 246,
+  "motor_rated_rpm": 1481,
+  "cycle_gate_s": 5.905000000000723,
+  "rms_kW": 29.98674972258111,
+  "tf_capacity_L_min": null,
+  "tf_capacity_screen_L_min": 1714.4089280379062,
+  "tf_required_L_min": 1588.6405730672866,
+  "installed_kW": 32.603,
+  "installed_with_air_option_kW": 34.103,
+  "pc_branch_dp_bar": [
+    1.33,
+    1.36
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "python": "3.13.17",
+  "gate_command": [
+    "E:/Tools/Python313/python.exe",
+    "-B",
+    "ops/gates/calc_gates.py",
+    "--params",
+    "calc/T-2.6/params/params.t26a.yaml",
+    "--criteria",
+    "ops/criteria/design_criteria.yaml",
+    "--out",
+    "gates.t25c.json"
+  ],
+  "reference_gate_repeat_sha256": "d09c2f39b9533927317f049796738934d7db78f4274a620db3f25f80f3c10918",
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "unit": "MPa"
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 396,
+      "unit": "mm"
+    },
+    "G-CYCLE": {
+      "status": "PASS",
+      "value": 5.905000000000723,
+      "unit": "s"
+    }
+  },
+  "cycle_method": "reference_model",
+  "cycle_rms_kW": 29.98674972258111,
+  "candidate_params_requested": false,
+  "mass_command": [
+    "E:/Tools/Python313/python.exe",
+    "-B",
+    "calc/T-2.5c/mass.py"
+  ],
+  "reproducibility_two_runs": {
+    "status": "PASS",
+    "sha256": {
+      "calc/T-2.5c/results.json": "3bd97052590a4d077d8e9131eba34ceeed6006052715afe3595120e2cb43eeb4",
+      "design/hydraulics/station.t25c.yaml": "414fa31c4315404aba47e2599b8ef595212d7ec576ee3826003fd1a7a38fb221",
+      "metrics.json": "b2b24acc3dbc4b7615597c7246ea170bf5a93aa4f386f04d6b4751a0f5928fb3",
+      "report.md": "26dd3537bd6c3494c4350e87dd221c6f4e7b0d55db5bf7a37a4e6bc4485f5f89"
+    }
+  },
+  "utf8_report": {
+    "status": "PASS",
+    "question_marks": 0,
+    "replacement_characters": 0,
+    "word_count": 1056
+  },
+  "baseline_comparison": {
+    "status": "PASS",
+    "station_tolerance_kg": 0.01,
+    "changed_ledger_rows": [
+      "T25-M1"
+    ],
+    "ledger_row_count": 47,
+    "machine_variants_reconciled": true,
+    "no_double_count": true
+  },
+  "preserved_design": {
+    "status": "PASS",
+    "cooling": true,
+    "TF_T0": true,
+    "pump_regulator": true,
+    "protected_inputs_sha256": {
+      "calc/T-2.6/params/params.t26a.yaml": "f52f583f544da29b5d42ff714b17ede0989e82e8a93fd36995c36cd4a89b1121",
+      "ops/criteria/design_criteria.yaml": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+      "ops/gates/calc_gates.py": "273ddfa532f7a137e62d1a3a67b08d02a1b7db38a182c74245585daad30c4186",
+      "ops/gates/cycle_model/qualification.py": "72a2fd251c03ffeaba37adeb510180e73fd159f43a9f6b470662a9d47e844dfb",
+      "design/hydraulics/station.t25b.yaml": "2c60443c7232b42f0f4a4ea7711098c90d27c50d6d3e2c92f32d92003d8268b1",
+      "calc/T-2.5b/results.json": "da0d86ed6b6b72922789badc0e9ddfc595b305dcd44fddc5693a30673ff4b3bb",
+      "design/hydraulics/T-1.6_circuit.yaml": "b18d60fec59e623d93f30ab7393ac943fafbaf20846048eff2b727e34630640e",
+      "design/hydraulics/T-1.6_interlocks.yaml": "def1e81d2ec642b57c434b0738d96794f24e85aa4c638e28e92c05093fd3ce8c"
+    }
+  },
+  "installed_power": {
+    "status": "PASS",
+    "base_kW": 32.603,
+    "with_air_kW": 34.103,
+    "limit_kW": 34.2
+  },
+  "qualification_open_items": {
+    "tf_passport_capacity": "OPEN",
+    "pc_branch_at_42_to_45_C": "OPEN",
+    "C-MASS-01": "STOP_MASS"
+  },
+  "scope": {
+    "status": "PASS",
+    "new_calc_size_bytes": 115185,
+    "temporary_directories": [],
+    "existing_untracked_input": "TASK.md"
+  }
+}

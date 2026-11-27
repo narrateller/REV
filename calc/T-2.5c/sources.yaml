@@ -1,0 +1,164 @@
+references:
+  baseline: {url: design/hydraulics/station.t25b.yaml, where: Построчная исходная ведомость и гидравлическая конфигурация}
+  baseline_metrics: {url: ops/reports/T-2.5b/metrics.json, where: Три исходных варианта T-2.2i}
+  baseline_results: {url: calc/T-2.5b/results.json, where: Условные меры и расчётные данные TF из T-2.6}
+  earlier_tank: {url: calc/T-2.5/results.json, where: Разделы tank.structure и measures, предыдущая геометрия и расчётные нагрузки}
+  baseline_review: {url: ops/reports/T-2.5b/GK_review.md, where: Δp ветви PC при 42–45 °C и при холодном пуске}
+  baseline_inputs: {url: calc/T-2.5b/sources.yaml, where: Расход масла и принятый нижний КПД PC}
+  decisions: {url: DECISIONS.md, where: 'D-OP-11/19/20/21 и D-GK-18/19/20'}
+  criteria: {url: ops/criteria/design_criteria.yaml, where: 'C-MASS-01, C-PWR-01, C-HYD-01'}
+  circuit: {url: design/hydraulics/T-1.6_circuit.yaml, where: 'RTF, RGA/RGB/RRA/RRB/RV0/RVM, TR/TRF/TEM/DR, PC/CB'}
+  interlocks: {url: design/hydraulics/T-1.6_interlocks.yaml, where: Защиты и разрешения PC и TF}
+  t26_inventory: {url: calc/T-2.6/inventory.csv, where: Ведомость эталонной гидравлики T-2.6}
+  reference_gate: {url: gates.t25c.json, where: Свежий G-CYCLE на params.t26a.yaml}
+  weg_gate: {url: ops/reports/T-2.5b/gates.GK.weg1475.json, where: Контроль ГК при 1475 об/мин из T-2.5b}
+  omec: {url: 'https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf', where: Паспорт IM B5 и чертёж базового мотора}
+  abb_bdk: {url: 'https://www.electricautomationnetwork.com/PDF/PIM/ABB/EN_3GAA202410-BDK.pdf', where: 'Лист ABB для точного артикула IM3001, масса нетто и данные 400 В 50 Гц'}
+  abb_catalog: {url: 'https://library.e.abb.com/public/58d7dab0323045e787c050c15e34f2fb/9AAU00000000058%20Process%20performance%20Aluminum%20motors%20EN%2001-2025.pdf?x-sign=pphqHiaUecFL6Osc5pgGg8dM72O5OXZeZ4%2BFJtdJg28%2F9YZ6ASkhxaUVNjGgKcjC', where: 'ABB 01-2025, 3GAA202410-••K, Tmax/Tn и габарит IEC 200 IM B5'}
+  bell_dims: {url: 'https://www.mpfiltri.com/FilesProdotti/rl1vm4_LMC-LDCEN.pdf', where: Колокол LMC/LDC для IEC 200 B5}
+  couplings: {url: 'https://www.mpfiltri.com/wp-content/uploads/2025/10/CAT_PT_EN-1.pdf', where: 'Допуски SGE по типоразмерам, радиальный, угловой и осевой'}
+  weg: {url: 'https://www.cenov-distribution.fr/wp-content/uploads/2025/05/weg_12840024_allDocuments.pdf', where: 'Паспорт WEG 12840024, B5T, строка 400 В 50 Гц'}
+  brook: {url: 'https://brookcrompton.com/ukanditaly/wp-content/uploads/2023/11/2022-05_Series_30_Cat_iss1-3.pdf', where: 'JP-DA200LA, таблица Series 30, масса семейства'}
+  brook_b5: {url: 'https://brookcromptonmotors.com/products/brook-crompton-we3-we4/', where: '200J910402, JP-DA200LA-D, B5 D Flange Mounted'}
+  omega: {url: 'https://omegamotor.com.tr/en/product/detail/836', where: '3M0SA3E-20LA40CL0, паспорт исполнения IMB35 с лапами, опубликована синхронная частота'}
+  omega_drawing: {url: 'https://omegamotor.com.tr/files/technical_document/A-200L-B35-L.PDF', where: Чертёж A-200L B35-L}
+  goetze_455: {url: 'https://www.goetze-group.com/Series/455/goetze-455-datasheet-en.pdf', where: 'Таблица DN65/100, d₀, Kdr(F), массы и варианты сильфона, жидкость при +10 %'}
+  goetze_455_install: {url: 'https://www.goetze-group.com/DAM/assembly-instructions/goetze-455-355-255-assembly-instruction.pdf', where: 'Раздел Blow off line / counterpressure, металлический сильфон и 30 % от уставки'}
+  goetze_642: {url: 'https://www.goetze-group.com/Series/642/goetze-642-datasheet-en.pdf', where: 'DN65, таблицы присоединений, масс и воды при +10 %'}
+  goetze_642_install: {url: 'https://www.goetze-group.com/DAM/assembly-instructions/goetze-642-6420-645-6450-442-4420-445-4450-assembly-instruction.pdf', where: Требования к входу и выпуску}
+  goetze_851: {url: 'https://www.goetze-group.com/Series/851/goetze-851-datasheet-en.pdf', where: 'DN50 F, таблица жидкостей и исполнение tb с сильфоном'}
+  leser_441: {url: 'https://www.leser.com/-/media/files/catalogue/english/leser-safety-relief-valve-high_performance_extended_catalog_en_07_2016.pdf', where: 'Type 441/442, DN и таблицы для воды'}
+  leser_engineering: {url: 'https://www.leser.com/-/media/files/engineering/leser_engineering.pdf', where: 'LID 1757.07, 22.12.2021, формулы 7.5.7-1/2 (жидкость) и 7.4.6-2 (Kv, API RP 520)'}
+  iso_4126: {url: 'https://www.iso.org/obp/ui/#iso:std:iso:4126:-7:ed-2:v1:en', where: 'ISO 4126-7:2013, расчёт пропускной способности'}
+  hlp46: {url: 'https://www.epc.shell.com/DocumentManagement/BlobDocumentDownload?DocId=72792289', where: 'Shell Tellus S2 M 46, §9.2, 580 мм²/с при 0 °C из входов T-2.5'}
+  db30: {url: 'https://device.report/m/243f441d86e129325758e54161c0343432c0f720809b6edae1b2fdf9d511a710', where: 'Лист Bosch Rexroth RE 25802, DB30, коды X/Y, P(Q), масса'}
+  rexroth_dbc: {url: 'https://buyrexroth.com/product/bosch-rexroth/R900519773', where: 'DBC30-2-5X/350Y, идентификация точного артикула. Полость и масса семейства в RE 25802, с. 7 и 14'}
+  sun_rpic: {url: 'https://hydnet.se/wp-content/uploads/RPIC.pdf', where: 'Лист Sun RPIC, полость T-16A, P(Q), масса и обратное давление'}
+  sun_cavity: {url: 'https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/uk_bm_geninfo.pdf', where: 'Каталог Sun №999-901-191, с. 258, упрощённый чертёж полости T-16A'}
+  parker_r4v: {url: 'https://www.parker.com/content/dam/Parker-com/Literature/Industrial-Systems-Division-Europe/Catalogues/Industrial-Valves-UK/10/R4V-UK.pdf', where: 'MSG11-3500/UK, P(Q) с дренажем Y1, масло HLP46 50 °C'}
+  parker_r4v_service: {url: 'https://www.parker.com/content/dam/Parker-com/Literature/Hydraulic-Valve-Division/hydraulicvalve/Service-Installation/Denison-Service-Literature---new/S3-ML2400-A---R4V.pdf', where: 'S3-ML2400-A, коды картриджа, дренаж 2, порт G или E'}
+  parker_r4v_tuv: {url: 'https://www.parker.com/content/dam/Parker-com/Literature/Industrial-Systems-Division-Europe/Catalogues/Industrial-Valves-UK/04/R4V-R6V-TUEV-UK.pdf', where: 'R4V06, паспортная P(Q) внешнего дренажа'}
+  steel: {url: 'https://industry.arcelormittal.com/catalogue/A30/EN', where: 'S235JR EN 10025-2, E и плотность по расчёту T-2.5'}
+  leissa: {url: 'https://ntrs.nasa.gov/api/citations/19700009156/downloads/19700009156.pdf', where: 'A. W. Leissa, Vibration of Plates, NASA SP-160, 1969, §4.1.1, шарнирный прямоугольник'}
+  transport: {url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A02014L0047-20220927', where: 'Директива 2014/47/EU, приложение III, 0,8g вперёд, 0,5g поперёк'}
+  bowman_profile: {url: 'https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf', where: 'GL180, типовая точка 150 л/мин воды и 60 °C масла, график и масса'}
+  bowman_manual: {url: 'https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf', where: Эксплуатация и требования к воде}
+
+motor:
+  interface: {flange_OD_PCD_register_mm: [400, 350, 300], shaft_D_L_mm: [55, 110], shaft_key_mm: 16, flange_holes: 4, bolt_mm: 16}
+  omec:
+    model: OMEC OMT3-IE3-200L-4 IM B5
+    exact_mass_kg: 278
+    rated_rpm: 1480
+    rated_Nm: 194
+    breakdown_ratio: 2.3
+    efficiency_pct: 93.6
+    current_400V_A: 53.8
+    source_ids: [omec]
+  candidates:
+    - model: ABB M3AA 200MLA 4
+      order_number: 3GAA202410-BDK
+      mount: IM B5 / IM3001
+      exact_mass_kg: 246
+      rated_rpm: 1481
+      rated_Nm: 193.42
+      breakdown_ratio: 3.2
+      efficiency_pct: 93.6
+      current_400V_A: 55.1
+      duty: S1
+      rating: {power_kW: 30, voltage_V: 400, frequency_Hz: 50, poles: 4, IE: 3, housing: Al}
+      flange_OD_PCD_register_mm: [400, 350, 300]
+      flange_holes: 4
+      flange_hole_diameter_mm: 19
+      shaft_D_L_mm: [55, 110]
+      shaft_key_mm: 16
+      bell_and_coupling_delta_kg: 0
+      source_ids: [abb_bdk, abb_catalog, bell_dims, omec]
+    - model: WEG W21 Aluminium Multimounting
+      order_number: '12840024'
+      mount: B5T
+      exact_mass_kg: 208
+      rated_rpm: 1475
+      rated_Nm: 194
+      breakdown_ratio: 3.4
+      efficiency_pct: 93.6
+      current_400V_A: 57.1
+      source_ids: [weg, weg_gate]
+    - model: Brook Crompton JP-DA200LA-D
+      order_number: '200J910402'
+      mount: IM B5
+      exact_mass_kg: null
+      family_mass_kg: 207
+      rated_rpm: 1475
+      rated_Nm: 194
+      breakdown_ratio: 2.6
+      efficiency_pct: 93.6
+      current_400V_A: 53.3
+      source_ids: [brook, brook_b5]
+    - model: Omega 3MAS 200L4
+      order_number: 3M0SA3E-20LA40CL0
+      mount: IM B35
+      exact_mass_kg: 223
+      rated_rpm: null
+      synchronous_rpm: 1500
+      rated_Nm: 194.3
+      breakdown_ratio: 3.2
+      efficiency_pct: 93.6
+      current_400V_A: 53.18
+      source_ids: [omega, omega_drawing]
+
+tf:
+  overpressure_fraction: 0.10
+  cold_screen_C: 0
+  cold_viscosity_mm2_s: 580
+  water_density_kg_m3: 1000
+  goetze_642_water_set_bar: 2
+  goetze_642_water_m3_h: 51.8
+  goetze_642_orifice_mm: 48
+  goetze_642_threaded_kg: 8.9
+  goetze_642_flanged_kg: 12.0
+  goetze_455_orifice_mm: 59
+  goetze_455_Kdr: 0.54
+  goetze_455_bellows_backpressure_fraction: 0.30
+  goetze_851_orifice_mm: 30.3
+  goetze_851_Kdr: 0.54
+
+cartridges:
+  tags: [RGA, RGB, RRA, RRB, RV0, RVM]
+  reference_DB30_subplate_kg: 4.4
+  sun_RPIC: {max_bar: 350, max_L_min: 380, cavity: T-16A, exact_model_kg: 0.54, tank_pressure_factor: 1}
+  parker_R4V06:
+    max_bar: 350
+    nominal_body_L_min: 200
+    TUV_max_in_260_to_300_bar_range_L_min: 430
+    TUV_curve_at_300_bar_approx_end: {flow_L_min: 430, pressure_bar: 326}
+    drain: Y1
+    cavity: null
+    exact_cartridge_kg: null
+  rexroth_DBC30:
+    model: DBC30-2-5X/350Y
+    order_number: R900519773
+    drain: Y
+    family_kg: 1.5
+    exact_mass_kg: null
+    cavity_source_id: db30
+
+tank:
+  density_kg_m3: 7850
+  steel_E_GPa: 210
+  steel_poisson_ratio: 0.3
+  steel_yield_MPa: 235
+  standard_gravity_m_s2: 9.81
+  candidate_wall_mm: 3
+  transport_forward_g: 0.8
+  transport_lateral_g: 0.5
+  lift_dynamic_factor: 1.3
+  effective_sling_legs: 2
+  sling_angle_from_vertical_deg: 45
+
+cooling:
+  pc_branch_dp_bar: [1.33, 1.36]
+  pc_branch_temp_C: [42, 45]
+  pc_cold_dp_bar: 2.07
+  pc_cold_C: 20
+  candidate_CB_crack_bar: 1.5
