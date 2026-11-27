@@ -1,0 +1,628 @@
+schema_version: 1
+task: T-2.2g
+status: STOP_FEA
+qualified: false
+project_basis:
+- D-GK-05
+- D-GK-11
+- D-GK-12
+- D-GK-13
+- D-OP-16
+fixed_working_roof_length_mm: 90.0
+working_section_yz_mm:
+- 150.0
+- 60.0
+loading:
+  js_formula: F(x)=F0*exp(-K*mu*P/A*(x-x_punch)); p_lat=K*F(x)/A
+  closure_long_length_mm: 89.4
+  section_area_mm2: 9000.0
+  wall_perimeter_mm: 420.0
+  K_range:
+  - 0.35
+  - 0.6
+  mu_range:
+  - 0.2
+  - 0.3
+  analysis_steps_bar:
+  - 0
+  - 100
+  - 200
+  - 300
+  - 315
+  main_force_T26_eta_by_bar_N:
+    '0': 0.0
+    '100': 578807.0304973836
+    '200': 1157614.0609947671
+    '300': 1736421.0914921507
+    '315': 1823242.146066758
+  main_force_project_315_N: 1785000.0
+  roof_long_proof_load:
+    K: 0.6
+    mu: 0.2
+    length_mm: 89.4
+    punch_x_mm: 205.6
+    main_force_N: 1823242.146066758
+    face_MPa: 202.58246067408425
+    decay_mm_inv: 0.0056
+    gate_force_N: 1105144.7426525152
+    wall_friction_N: 718097.4034142429
+    axial_balance_error_N: 0.0
+    roof:
+      interval_x_mm:
+      - 205.6
+      - 295.0
+      inlet_MPa: 121.54947640445054
+      integral_MPa_mm: 8548.77861207432
+      centroid_x_mm: 246.58572010989695
+      normal_force_N: 1282316.791811148
+    shoe:
+      interval_x_mm: null
+      integral_MPa_mm: 0.0
+      centroid_x_mm: null
+      normal_force_N: 0.0
+    floor_normal_force_N: 1282316.791811148
+    each_side_normal_force_N: 512926.7167244592
+    basis: T-2.6_eta
+  transition_max_shoe_proof_load:
+    label: compression
+    material_case: low
+    bulk_kg_m3: 90
+    K: 0.6
+    mu: 0.2
+    punch_mm: 179.6936936936937
+    length_mm: 115.30630630630631
+    main_force_N: 724611.0452812231
+    shoe:
+      force_N: 170971.600719046
+      centroid_x_mm: 192.04808923466646
+      peak_MPa: 48.307403018748204
+      interval_mm:
+      - 179.6936936936937
+      - 205.0
+    roof:
+      force_N: 444575.9365947883
+      centroid_x_mm: 246.23590683252124
+      peak_MPa: 41.92446325857048
+      interval_mm:
+      - 205.0
+      - 295.0
+  roof_long_peak_pressure_MPa: 121.54947640445054
+  roof_long_315_normal_force_N: 1282316.791811148
+  wall_long_315_friction_N: 718097.4034142429
+  gate_max_315_thrust_N: 1639486.7784433544
+  prepress_shoe_300_N: 162830.09592290095
+  prepress_shoe_315_N: 170971.600719046
+  transfer_advance_N: 35251.41004986859
+  blocking_dose_setpoint_kg: 0.853
+  dose_setpoint_upper_tolerance_fraction: 0.05
+  x_earlier_proof_centroid_mm: 165.2
+  roof_proof_transverse_eccentricity_mm: 27.72
+reference_layout_for_manual_screen:
+  material: forged
+  roof_wall_mm: 56.0
+  roof_band_mm: 120.0
+  floor_band_mm: 120.0
+  key_depth_mm: 58.0
+  shoe_depth_mm: 74.0
+  roof_width_mm: 262.0
+  stations: &id002
+    rear:
+      x_mm: 55.0
+      key_width_mm: 42.0
+      key_depth_mm: 38.0
+      leg_width_mm: 16.0
+      cap_depth_mm: 36.0
+      return_depth_mm: 42.0
+    front:
+      x_mm: 169.0
+      key_width_mm: 70.0
+      key_depth_mm: 58.0
+      leg_width_mm: 21.0
+      cap_depth_mm: 54.0
+      return_depth_mm: 57.0
+  shoe_abs_y_max_mm: 132.0
+  structural_fillet_R_mm: 15.0
+  working_bore_corner_R_mm: 1.0
+  key_cam:
+    input_stroke_mm: 12.0
+    key_stroke_mm: 54.0
+    motion_s: 0.08
+    residual_load_limit_N: 2000.0
+    efficiency_assumed: 0.6
+    drag_N_per_key_assumed: 600.0
+roof_and_floor_trial:
+  outer_working_band_span_mm: 262.0
+  roof_wall_mm: 56.0
+  roof_and_floor_section_depth_mm:
+  - 120.0
+  - 120.0
+  integral_closed_ring: true
+  roof_axis_interval_x_mm:
+  - 205.0
+  - 295.0
+  root_radius_R_mm: 15.0
+  working_bore_corner_R_mm: 1.0
+  material:
+    url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+    specification_url: https://www.iso.org/standard/70643.html
+    grade: 34CrNiMo6+QT
+    max_flat_blank_for_certified_700_900_mm: 100
+    lower_limits_Rp02_Rm_MPa:
+      flat_8_to_20_mm:
+      - 900
+      - 1100
+      flat_20_to_60_mm:
+      - 800
+      - 1000
+      flat_60_to_100_mm:
+      - 700
+      - 900
+      flat_100_to_160_mm:
+      - 600
+      - 800
+    requirement: Проверить фактическое определяющее плоское сечение заготовки и свойства сердцевины сертификатом
+      EN 10204 3.1.
+  forging_mass_depth_axis_mm: 90.0
+  alternate_cast_material: &id001
+    url: https://cdn.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+    project: design/frame.t17d.yaml
+    grade: G35CrNiMo6-6+QT1
+    lower_limits_Rp02_Rm_MPa:
+    - 650
+    - 800
+  cast_trial_minimum_wall_mm: 64.0
+  structural_variant_series:
+    ring_three_meshes:
+      mesh_file: calc/T-2.2g/fea/ring_three_meshes.json
+      layout:
+        material: forged
+        roof_wall_mm: 104.0
+        roof_band_mm: 172.0
+        floor_band_mm: 172.0
+        key_depth_mm: 58.0
+        shoe_depth_mm: 74.0
+        roof_width_mm: 358.0
+        stations:
+          rear:
+            x_mm: 55.0
+            key_width_mm: 42.0
+            key_depth_mm: 38.0
+            leg_width_mm: 16.0
+            cap_depth_mm: 36.0
+            return_depth_mm: 42.0
+          front:
+            x_mm: 169.0
+            key_width_mm: 70.0
+            key_depth_mm: 58.0
+            leg_width_mm: 21.0
+            cap_depth_mm: 54.0
+            return_depth_mm: 57.0
+        shoe_abs_y_max_mm: 132.0
+        structural_fillet_R_mm: 15.0
+        working_bore_corner_R_mm: 1.0
+        key_cam:
+          input_stroke_mm: 12.0
+          key_stroke_mm: 54.0
+          motion_s: 0.08
+          residual_load_limit_N: 2000.0
+          efficiency_assumed: 0.6
+          drag_N_per_key_assumed: 600.0
+      internal_root_radius_mm: 30.0
+    ring_screen_r1:
+      mesh_file: calc/T-2.2g/fea/ring_screen_r1.json
+      layout:
+        material: forged
+        roof_wall_mm: 56.0
+        roof_band_mm: 120.0
+        floor_band_mm: 120.0
+        key_depth_mm: 58.0
+        shoe_depth_mm: 74.0
+        roof_width_mm: 262.0
+        stations:
+          rear:
+            x_mm: 55.0
+            key_width_mm: 42.0
+            key_depth_mm: 38.0
+            leg_width_mm: 16.0
+            cap_depth_mm: 36.0
+            return_depth_mm: 42.0
+          front:
+            x_mm: 169.0
+            key_width_mm: 70.0
+            key_depth_mm: 58.0
+            leg_width_mm: 21.0
+            cap_depth_mm: 54.0
+            return_depth_mm: 57.0
+        shoe_abs_y_max_mm: 132.0
+        structural_fillet_R_mm: 15.0
+        working_bore_corner_R_mm: 1.0
+        key_cam:
+          input_stroke_mm: 12.0
+          key_stroke_mm: 54.0
+          motion_s: 0.08
+          residual_load_limit_N: 2000.0
+          efficiency_assumed: 0.6
+          drag_N_per_key_assumed: 600.0
+      internal_root_radius_mm: 1.0
+    ring_screen_r15:
+      mesh_file: calc/T-2.2g/fea/ring_screen_r15.json
+      layout:
+        material: forged
+        roof_wall_mm: 68.0
+        roof_band_mm: 132.0
+        floor_band_mm: 132.0
+        key_depth_mm: 58.0
+        shoe_depth_mm: 74.0
+        roof_width_mm: 286.0
+        stations:
+          rear:
+            x_mm: 55.0
+            key_width_mm: 42.0
+            key_depth_mm: 38.0
+            leg_width_mm: 16.0
+            cap_depth_mm: 36.0
+            return_depth_mm: 42.0
+          front:
+            x_mm: 169.0
+            key_width_mm: 70.0
+            key_depth_mm: 58.0
+            leg_width_mm: 21.0
+            cap_depth_mm: 54.0
+            return_depth_mm: 57.0
+        shoe_abs_y_max_mm: 132.0
+        structural_fillet_R_mm: 15.0
+        working_bore_corner_R_mm: 1.0
+        key_cam:
+          input_stroke_mm: 12.0
+          key_stroke_mm: 54.0
+          motion_s: 0.08
+          residual_load_limit_N: 2000.0
+          efficiency_assumed: 0.6
+          drag_N_per_key_assumed: 600.0
+      internal_root_radius_mm: 15.0
+    ring_screen_liner:
+      mesh_file: calc/T-2.2g/fea/ring_screen_liner.json
+      layout:
+        material: forged
+        roof_wall_mm: 68.0
+        roof_band_mm: 132.0
+        floor_band_mm: 132.0
+        key_depth_mm: 58.0
+        shoe_depth_mm: 74.0
+        roof_width_mm: 286.0
+        stations:
+          rear:
+            x_mm: 55.0
+            key_width_mm: 42.0
+            key_depth_mm: 38.0
+            leg_width_mm: 16.0
+            cap_depth_mm: 36.0
+            return_depth_mm: 42.0
+          front:
+            x_mm: 169.0
+            key_width_mm: 70.0
+            key_depth_mm: 58.0
+            leg_width_mm: 21.0
+            cap_depth_mm: 54.0
+            return_depth_mm: 57.0
+        shoe_abs_y_max_mm: 132.0
+        structural_fillet_R_mm: 15.0
+        working_bore_corner_R_mm: 1.0
+        key_cam:
+          input_stroke_mm: 12.0
+          key_stroke_mm: 54.0
+          motion_s: 0.08
+          residual_load_limit_N: 2000.0
+          efficiency_assumed: 0.6
+          drag_N_per_key_assumed: 600.0
+      internal_root_radius_mm: 15.0
+    ring_screen_r22_elastic:
+      mesh_file: calc/T-2.2g/fea/ring_screen_r22_elastic.json
+      layout:
+        material: forged
+        roof_wall_mm: 82.0
+        roof_band_mm: 148.0
+        floor_band_mm: 148.0
+        key_depth_mm: 58.0
+        shoe_depth_mm: 74.0
+        roof_width_mm: 314.0
+        stations:
+          rear:
+            x_mm: 55.0
+            key_width_mm: 42.0
+            key_depth_mm: 38.0
+            leg_width_mm: 16.0
+            cap_depth_mm: 36.0
+            return_depth_mm: 42.0
+          front:
+            x_mm: 169.0
+            key_width_mm: 70.0
+            key_depth_mm: 58.0
+            leg_width_mm: 21.0
+            cap_depth_mm: 54.0
+            return_depth_mm: 57.0
+        shoe_abs_y_max_mm: 132.0
+        structural_fillet_R_mm: 15.0
+        working_bore_corner_R_mm: 1.0
+        key_cam:
+          input_stroke_mm: 12.0
+          key_stroke_mm: 54.0
+          motion_s: 0.08
+          residual_load_limit_N: 2000.0
+          efficiency_assumed: 0.6
+          drag_N_per_key_assumed: 600.0
+      internal_root_radius_mm: 22.0
+    ring_screen_mass_limit:
+      mesh_file: calc/T-2.2g/fea/ring_screen_mass_limit.json
+      layout:
+        material: forged
+        roof_wall_mm: 104.0
+        roof_band_mm: 172.0
+        floor_band_mm: 172.0
+        key_depth_mm: 58.0
+        shoe_depth_mm: 74.0
+        roof_width_mm: 358.0
+        stations:
+          rear:
+            x_mm: 55.0
+            key_width_mm: 42.0
+            key_depth_mm: 38.0
+            leg_width_mm: 16.0
+            cap_depth_mm: 36.0
+            return_depth_mm: 42.0
+          front:
+            x_mm: 169.0
+            key_width_mm: 70.0
+            key_depth_mm: 58.0
+            leg_width_mm: 21.0
+            cap_depth_mm: 54.0
+            return_depth_mm: 57.0
+        shoe_abs_y_max_mm: 132.0
+        structural_fillet_R_mm: 15.0
+        working_bore_corner_R_mm: 1.0
+        key_cam:
+          input_stroke_mm: 12.0
+          key_stroke_mm: 54.0
+          motion_s: 0.08
+          residual_load_limit_N: 2000.0
+          efficiency_assumed: 0.6
+          drag_N_per_key_assumed: 600.0
+      internal_root_radius_mm: 30.0
+    ring_screen_saddles:
+      mesh_file: calc/T-2.2g/fea/ring_screen_saddles.json
+      layout:
+        material: forged
+        roof_wall_mm: 104.0
+        roof_band_mm: 172.0
+        floor_band_mm: 172.0
+        key_depth_mm: 58.0
+        shoe_depth_mm: 74.0
+        roof_width_mm: 358.0
+        stations:
+          rear:
+            x_mm: 55.0
+            key_width_mm: 42.0
+            key_depth_mm: 38.0
+            leg_width_mm: 16.0
+            cap_depth_mm: 36.0
+            return_depth_mm: 42.0
+          front:
+            x_mm: 169.0
+            key_width_mm: 70.0
+            key_depth_mm: 58.0
+            leg_width_mm: 21.0
+            cap_depth_mm: 54.0
+            return_depth_mm: 57.0
+        shoe_abs_y_max_mm: 132.0
+        structural_fillet_R_mm: 15.0
+        working_bore_corner_R_mm: 1.0
+        key_cam:
+          input_stroke_mm: 12.0
+          key_stroke_mm: 54.0
+          motion_s: 0.08
+          residual_load_limit_N: 2000.0
+          efficiency_assumed: 0.6
+          drag_N_per_key_assumed: 600.0
+      internal_root_radius_mm: 30.0
+  receiver_trial_bore_yz_mm:
+  - 174.0
+  - 84.0
+  receiver_trial_nominal_radial_liner_mm: 12.0
+  receiver_contact_scheme: Four separate backed strips, with a relief off each inside structural corner.
+  no_welding_in_force_path: true
+open_window_casting:
+  material: *id001
+  bottom_x_mm:
+  - -4.0
+  - 205.0
+  window_x_mm:
+  - 5.0
+  - 205.0
+  window_width_mm: 150.0
+  floor_top_z_mm: -30.0
+  rear_floor_depth_mm: 45.0
+  forward_floor_depth_mm: 70.0
+  floor_transition_x_mm:
+  - 104.0
+  - 138.0
+  floor_body_width_mm: 218.0
+  sidewall_abs_y_mm:
+  - 75.0
+  - 106.0
+  sidewall_z_mm:
+  - -30.0
+  - 30.0
+  front_shoulder_x_mm: 205.0
+  lower_fitted_shoulders_abs_y_mm:
+  - 82.0
+  - 109.0
+  lower_fitted_shoulders_z_mm:
+  - -70.0
+  - -40.0
+  attachment_status: Boundary and transverse keys require assembly verification.
+shoe_lock:
+  mechanism: Four captive sliding keys, in two cam-driven left/right pairs. Upper and lower strips hold each
+    key against overturning.
+  material_keys: 34CrNiMo6+QT, подтверждение R_p0,2/R_m 800/1000 МПа в плоской заготовке
+  pulsating_contact_screen_without_surface_hardness_credit_MPa: 70.0
+  material_shoe: 34CrNiMo6+QT, 700/900 MPa at the governing flat section
+  shoe_face_x_mm:
+  - 5.2
+  - 204.8
+  shoe_working_width_mm: 149.6
+  shoe_depth_mm: 74.0
+  shoe_wing_abs_y_mm: 132.0
+  key_geometry_by_station: *id002
+  key_closed_abs_y_mm:
+  - 82.0
+  - 246.0
+  key_park_abs_y_mm: &id003
+  - 136.0
+  - 300.0
+  upper_forged_land_abs_y_mm:
+  - 135.0
+  - 198.0
+  lower_forged_land_abs_y_mm:
+  - 206.0
+  - 246.0
+  lower_cast_return_start_abs_y_mm: 178.0
+  lower_rear_heel_z_mm: 29.98
+  wear_land_depth_mm: 12.0
+  wear_land_radius_R_mm: 5.0
+  wear_land_crown_mm: 0.1
+  capacity_and_stroke:
+    input_stroke_mm: 12.0
+    key_stroke_mm: 54.0
+    motion_s: 0.08
+    residual_load_limit_N: 2000.0
+    efficiency_assumed: 0.6
+    drag_N_per_key_assumed: 600.0
+    key_moving_mass_kg: 14.5630688
+    inertia_N: 491.50357199999996
+    drag_N: 3000.0
+    stem_force_screen_N: 26186.276790000004
+    prior_T26_stem_force_N: 31672.44772222222
+    movement_peak_key_speed_mm_s: 1350.0
+    source: T-2.2f cam assumptions retained in calc/T-2.6/run.py
+  front_peak_side_N: 132256.58745263357
+  rear_reverse_reaction_N: -38186.43603108144
+  cam_status: Prove timing and K-drive force with an unloaded lock under T-2.6 hydraulic interlocks.
+  service_logic: Unlock only below the residual-load limit and after punch clearance; verify both lateral positions.
+    No weld carries operating force.
+interfaces:
+  axes: X towards gate, Y across 150 mm width, Z up, Z=0 at channel centre
+  window_x_mm:
+  - 5.0
+  - 205.0
+  window_xy_mm:
+  - 200.0
+  - 150.0
+  working_channel_yz_mm:
+  - 150.0
+  - 60.0
+  roof_x_mm:
+  - 205.0
+  - 295.0
+  gate_plane_nominal_mm: 295.0
+  gate_plane_delta_mm: 90.0
+  gate_blade_back_x_mm: 349.0
+  gate_wing_min_x_mm: 289.0
+  gate_plate_width_mm: 260.0
+  gate_plate_thickness_mm: 54.0
+  gate_plate_swept_z_mm:
+  - -149.0
+  - 188.0
+  gate_sweep_y_mm:
+  - -130.0
+  - 130.0
+  gate_travel_mm: 100.0
+  gate_housing_pocket_yz_R_mm:
+  - 340.2
+  - 180.2
+  - 12.0
+  gate_close_permission_max_punch_x_mm: 285.0
+  gate_wing_relief_min_axial_clearance_mm: 0.65
+  gate_wing_relief_max_axial_depth_mm: 6.800000000000001
+  gate_wing_relief_start_abs_y_mm: 77.5
+  gate_wing_relief_runout_mm: 25.0
+  clearance_gate_wing_to_shoe_x_mm: 84.0
+  cassette_yzx_R_mm:
+  - 340.0
+  - 180.0
+  - 55.0
+  - 12.0
+  cassette_x_mm:
+  - 349.0
+  - 404.0
+  traverse_x_mm:
+  - 349.0
+  - 554.0
+  traverse_window_yz_R_mm:
+  - 176.0
+  - 74.0
+  - 20.0
+  column_bearing_pitch_mm: 540.0
+  column_hole_mm: 104.0
+  column_smooth_span_mm: 485.0
+  column_D_mm: 70.0
+  column_preload_N: 735000.0
+  column_axial_stiffness_each_N_mm: 1666339.6085277821
+  frame_axial_length_mm: 1256.0
+  inner_bearing_planes_spacing_mm: 601.0
+  main_body_mm: 737.0
+  main_rear_cover_thickness_mm: 144.0
+  main_bore_and_rod_geometry_mm:
+  - 280
+  - 200
+  rapid_body_mm: 511.0
+  main_installed_stroke_mm: 396.0
+  main_working_stroke_mm: 371.0
+  main_overrun_mm:
+  - 166.0
+  - 176.0
+  min_relaxed_tail_after_axial_allowance_mm: 5.112642024442096
+  shoe_sweep_y_mm:
+  - -132.0
+  - 132.0
+  key_closed_abs_y_mm:
+  - 82.0
+  - 246.0
+  key_park_abs_y_mm: *id003
+  key_park_to_shoe_clearance_mm: 4.0
+  closed_cheek_to_shoe_clearance_mm: 3.0
+  lock_top_z_mm: 228.0
+  lock_to_column_z_clearance_mm: 7.0
+  lock_to_frame_each_side_mm: 70.0
+  lock_x_max_mm: 225.8
+  lock_side_x_relief: Cheeks extend across the roof entry only in outboard region |Y| >= 135 mm. Trim at X
+    = 205 mm where closed-ring outline intersects.
+cassette:
+  geometry_yzx_R_mm:
+  - 340.0
+  - 180.0
+  - 55.0
+  - 12.0
+  passage_yz_R_mm:
+  - 158.0
+  - 65.0
+  - 3.0
+  lower_land_mm: 35.0
+  material: 34CrNiMo6+QT, 800/1000 MPa; selectively hardened bearing tracks only on the cassette
+  cassette_surface_HRC:
+  - 52
+  - 57
+  cassette_SHD_min_mm: 6.0
+  plate_hardening: QT only; optional nitriding under D-GK-05
+  seat_Rz_um: 6.3
+  static_pressure_screens_MPa:
+  - 480.0
+  - 390.0
+  system_axial_load_path: Blade to cassette, machined casting pocket, chamber traverse and four PRELOAD columns.
+analytical_artifacts:
+  load_code: calc/T-2.2g/loads.py
+  ring_geometry_code: calc/T-2.2g/fea/ring.py
+  window_geometry_code: calc/T-2.2g/fea/window_geometry.py
+  hand_and_mass_code:
+  - calc/T-2.2g/hand.py
+  - calc/T-2.2g/mass.py
+sources: calc/T-2.2g/sources.yaml

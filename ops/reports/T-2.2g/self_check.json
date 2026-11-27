@@ -1,0 +1,101 @@
+{
+  "G_CYCLE_disposition": "Informational under D-GK-13 / D-OP-16. The reference simulation is T-2.6.",
+  "ccx_version": "2.22",
+  "engineering_acceptance": {
+    "C_FAT_01_open_casting": false,
+    "C_FAT_01_roof": false,
+    "C_STR_01_roof": false,
+    "cassette_contact_peak_convergence": false,
+    "cassette_static_contact_screen": true,
+    "fixed_roof_gauge_convergence": false,
+    "geometry_full_assembly_and_clearance": "OPEN",
+    "hand_FE_membrane_sections_within_15_pct": false,
+    "real_roof_support_model": "OPEN",
+    "roof_delta_h": true,
+    "shoe_delta_h_reinforced": false,
+    "shoe_latch_local_contact": "DIAGNOSTIC_ONLY",
+    "station_grading_D_OP_16": false
+  },
+  "gate_exit_codes": [
+    1,
+    1
+  ],
+  "gates": {
+    "G-CYCLE": {
+      "status": "FAIL",
+      "unit": "s",
+      "value": 8.719438672336503
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "unit": "mm",
+      "value": 396
+    },
+    "G-PFACE": {
+      "status": "PASS",
+      "unit": "MPa",
+      "value": 168.88888888888889
+    }
+  },
+  "gmsh_version": "4.15.0",
+  "python_version": "3.13.17",
+  "qualification_status": "STOP_FEA",
+  "task": "T-2.2g",
+  "verification": {
+    "analytic_Janssen_balance_abs_error_N": 2.3283064365386963e-10,
+    "artifacts_byte_identical": {
+      "calc/T-2.2g/results.json": true,
+      "design/chamber_roof.t22g.yaml": true,
+      "metrics.json": true
+    },
+    "cassette_contact_meshes_completed": [
+      0,
+      1,
+      2
+    ],
+    "criteria_sha_unchanged": true,
+    "failed_fea_attempts": [
+      "fea/r2_aligned_t22g_replay_2_static_failure.json"
+    ],
+    "gate_metrics_agree_abs": 0.0,
+    "gate_output_identical": true,
+    "key_contact_target_force_relative_error_max": 0.11720439114157634,
+    "key_proof_contact_target_force_relative_error": 0.03346730262454166,
+    "package_bytes": 3044223,
+    "primary_gates_pass": true,
+    "protected_existing_paths_changed": [],
+    "report_body_words": 924,
+    "report_utf8_roundtrip": true,
+    "ring_C3D10_positive_jacobians": true,
+    "ring_max_vector_force_balance_fraction": 5.1235236907375427e-08,
+    "ring_mesh_size_below_half_thinnest_solid_wall": true,
+    "roof_FEA_independent_replay": {
+      "absolute_error_max": 1.005810265833854e-19,
+      "paths": [
+        "ring_three_meshes.json",
+        "ring_replay.json"
+      ],
+      "roof_mesh_levels": 3,
+      "same_structure_after_default_metadata_normalization": true,
+      "status": "PASS",
+      "tolerance_absolute": 1e-06
+    },
+    "shipped_solids_or_meshes": 0,
+    "solver_temporary_paths_remaining": [],
+    "static_step_envelope_bar": [
+      0,
+      100,
+      200,
+      300,
+      315
+    ],
+    "test_nominal_geometry": {
+      "gate_nominal_wings_clearance_mm": 0.65,
+      "parked_key_to_shoe_mm": 4.0,
+      "roof_match": true,
+      "section_match": true,
+      "stroke_match": true
+    },
+    "window_unilateral_reactions_pass": true
+  }
+}

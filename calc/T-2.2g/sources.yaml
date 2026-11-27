@@ -1,0 +1,92 @@
+task: T-2.2g
+project:
+  criteria: ops/criteria/design_criteria.yaml
+  decisions: [D-GK-05, D-GK-10, D-GK-11, D-GK-12, D-GK-13, D-OP-10, D-OP-16]
+  geometry: [design/frame.t17d.yaml, design/slide_gate.t17d.yaml, design/cylinders.t17d.yaml,
+             design/main_cylinder_rear.t22.yaml, design/prepress_lock.t22d.yaml]
+  cycle: [calc/T-2.6/params/params.t26a.yaml, calc/T-2.6/results.json, ops/reports/T-2.6/GK_review.md]
+  predecessor: [calc/T-2.2f/sources.yaml, calc/T-2.2f/results.json, ops/reports/T-2.2f/GK_review.md]
+  method: [ops/reports/T-2.2e/GK_review.md, calc/T-2.2e/fea/README.md, calc/T-1.7d/fea/frame_fea.py,
+            calc/T-1.7d/fea/r2_strength.py]
+analogs:
+  ruf:
+    url: https://www.ruf-briquetter.com/briquetting/the-briquetting-process-explained/
+    scope: Раздельная предварительная подпрессовка и окончательное сжатие в матрице. Матрица смещается для выброса.
+  weima:
+    url: https://weima.com/us/briquetting-machines/th-1500/
+    catalog_url: https://weima.com/wp-content/uploads/2021/10/WEIMA_catalog_compressing_web_EN.pdf
+    scope: Вертикальная подпрессовка, горизонтальное перемещение и окончательное сжатие в закрытой матрице при сечении 150 × 60 мм. Длины и силовые сечения REV из аналога не выводятся.
+loads:
+  url: https://arxiv.org/abs/cond-mat/0511618
+  method: Осевой баланс элемента, dF/dx = −KμPF/A, p⊥ = KF/A. Гравитационный член пренебрежимо мал в фазе силового прессования.
+  project: [calc/T-2.2g/prior/round1_load.json, calc/T-2.2d/results.json, calc/T-1.1/curve.yaml]
+  K: [0.35, 0.45, 0.60]
+  mu: [0.20, 0.25, 0.30]
+  max_loaded_length_mm: 89.4
+  min_loaded_length_mm_basis: C-PROD-02 / 1,23 по T-1.1 и T-1.7d
+  dose_setpoint_max_kg: 0.853
+  dose_tolerance_fraction: 0.05
+  proof_longitudinal_shoe_centroid_mm: 165.2
+  lateral_skew_share_legacy: 0.64
+  lateral_roof_eccentricity_mm: 27.72
+  force_uncertainty: "Схема T-2.2f даёт 1,785 МН при 315 бар. Для крыши, торца и контакта дополнительно использован больший расчётный гидравлический предел T-2.6 с КПД 0,94. Огибающая башмака сохранена по решению D-GK-12 и эталону T-2.6."
+materials:
+  forging:
+    url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+    specification_url: https://www.iso.org/standard/70643.html
+    grade: 34CrNiMo6+QT
+    max_flat_blank_for_certified_700_900_mm: 100
+    lower_limits_Rp02_Rm_MPa:
+      flat_8_to_20_mm: [900, 1100]
+      flat_20_to_60_mm: [800, 1000]
+      flat_60_to_100_mm: [700, 900]
+      flat_100_to_160_mm: [600, 800]
+    requirement: Проверить фактическое определяющее плоское сечение заготовки и свойства сердцевины сертификатом EN 10204 3.1.
+  casting:
+    url: https://cdn.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+    project: design/frame.t17d.yaml
+    grade: G35CrNiMo6-6+QT1
+    lower_limits_Rp02_Rm_MPa: [650, 800]
+  elastic_constants:
+    project: calc/T-2.2f/hand.py
+    E_MPa: 210000
+    nu: 0.30
+    density_kg_m3: 7850
+fatigue:
+  guideline_url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+  authors_url: https://doi.org/10.1016/j.ijfatigue.2024.108165
+  coefficient_project: [calc/T-2.2f/hand.py, calc/T-1.7d/fea/frame_fea.py, calc/T-1.7d/fea/r2_strength.py]
+  cycles: 10000000
+  Rz_um: 6.3
+  jG_cast: 1.25
+  jG_forged: 1.0
+  fatigue_safety: 1.5
+  note: Номинальные формулы исходного отбора. Локальный экран использует размах Мизеса и положительное главное среднее. Поправка на градиент записывается вместе с вариантом без кредита градиента.
+contact:
+  equivalent_cylinder_Hertz_url: https://doi.org/10.1093/jom/ufaf013
+  static_gate_project: design/slide_gate.t17d.yaml
+  static_rule_project: "0,60 × Rp0,2 более мягкого участника, экран проекта."
+  static_gate_seat_MPa: 480
+  static_seat_cast_MPa: 390
+  pulsating_url: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_de.pdf
+  location: STT, с. 478, Passfederverbindungen, среднее давление на рабочую поверхность.
+  range_pulsating_MPa: {unhardened_steel: [70, 150], hardened_steel: [100, 170], cast_steel: [80, 100]}
+  note: Экран для повторного контакта по аналогии с гранями шпонок. Применимость к кассете и к конкретной паре замка проверяется отдельно от предела упругой прочности.
+  crown_mm: 0.10
+  edge_R_mm: 5
+  structural_root_R_mm: 15
+  gate_pair_friction: 0.15
+fea:
+  gmsh_url: https://gmsh.info/doc/texinfo/gmsh.html
+  ccx_url: https://www.dhondt.de/
+  executables: E:/Tools/FreeCAD-1.1/bin
+  roof_scope: C3D10 со ступенями давления и чувствительностью к замыканию осевого трения. Радиальная подкладка передаёт давление на плоские посадки.
+  cassette_scope: Локальное воспроизведение решения T-1.7d с податливым торцом и изменённой максимальной реакцией шибера.
+mass:
+  baseline_kg: 4942.65
+  replaced_chamber_kg: 180.22
+  hydraulic_delta_kg_from_T26: 76.23136743337324
+  H2_delta_kg: [5, 18]
+  H2_source: calc/T-2.2f/mass.py
+  roof_blank_and_gross: Расчёт объёмов с единицей мм³, ρ = 7850 кг/м³. Массу ведомости CAD требуется подтвердить.
+
