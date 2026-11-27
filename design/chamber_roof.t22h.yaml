@@ -1,0 +1,359 @@
+schema_version: 1
+task: T-2.2h
+status: STOP
+qualified: false
+project_basis:
+- D-GK-12
+- D-GK-13
+- D-GK-14
+- D-OP-16
+- D-OP-17
+units:
+  length: mm
+  force: N
+  stress: MPa
+  mass: kg
+axes: X points to gate, Y spans 150 mm width, Z points up, Z 0 at bore centre
+working_chamber:
+  section_yz_mm:
+  - 150.0
+  - 60.0
+  roof_x_mm:
+  - 205.0
+  - 295.0
+  working_corner_R_mm: 1.0
+  window_xy_mm:
+  - 200.0
+  - 150.0
+  window_x_mm:
+  - 5.0
+  - 205.0
+  punch_clearance_per_side_mm: 0.2
+  roof_length_mm: 90.0
+  maximum_loaded_length_mm: 89.4
+  dose_block_setpoint_kg: 0.853
+  dose_upper_tolerance_fraction: 0.05
+ring_trial:
+  outer_width_height_mm:
+  - 406.0
+  - 530.0
+  outer_corner_R_mm: 179.0
+  aperture_width_height_mm:
+  - 224.0
+  - 112.0
+  inner_corner_R_mm: 37.0
+  lamella_x_intervals_mm:
+  - - 205.0
+    - 250.0
+  - - 250.0
+    - 295.0
+  lamella_material: 34CrNiMo6+QT
+  lamella_min_Rp02_Rm_MPa:
+  - 800.0
+  - 1000.0
+  max_ruling_flat_blank_mm: 60.0
+  see_material_certificate: EN 10204 3.1
+  liners:
+    top_and_floor_working_abs_Z_mm: 30.0
+    replaceable_thickness_mm: 12.0
+    wear_strip_y_mm:
+    - -75.0
+    - 75.0
+    working_width_mm: 150.0
+    full_flat_backing_seat_y_mm:
+    - -75.0
+    - 75.0
+    bedding_abs_Z_mm: 56.0
+    stiff_backing_beyond_wear_strip_mm: 14.0
+    side_seat_abs_Y_mm: 112.0
+    side_seat_z_mm:
+    - -19.0
+    - 19.0
+    contact_qualification: open
+  axial_stop:
+    rails_x_mm:
+    - 295.0
+    - 349.0
+    rails_abs_y_mm:
+    - 172.0
+    - 201.0
+    rails_z_mm:
+    - -95.0
+    - 95.0
+    through_path: rails to X=349 and front traverse
+    bearing_axis: X
+    end_contact_and_seam_qualification: open
+    force_and_moment_cases:
+    - friction_315_N: 718097.4034142429
+      roof_or_floor_315_N: 256463.3583622296
+      side_each_315_N: 102585.34334489185
+      bore_centroid_xyz_mm:
+      - 246.58572010989695
+      - 19.799999999999997
+      - 0.0
+      rail_bearing_x_mm: 349.0
+      rail_y_centres_mm:
+      - -186.5
+      - 186.5
+      rail_net_area_each_mm2: 5510.0
+      mean_rail_reactions_315_N:
+      - 320929.85830872465
+      - 397167.54510551825
+      reaction_imbalance_N: 0.0
+      upper_half_couple_Nmm: 9360912.580221381
+      upper_half_bore_friction_z_mm: 21.428571428571427
+      upper_half_support_z_mm: 47.5
+      extra_axial_bending_from_backing_per_top_Nmm: 6668047.31741797
+      extra_axial_bending_from_backing_per_side_Nmm: 3795657.7037609983
+      nominal_max_rail_pressure_315_MPa: 72.08122415708135
+      nominal_max_rail_pressure_300_MPa: 68.64878491150606
+      required_area_per_rail_at_cyclic_screen_mm2: 4728.18506077998
+      cast_cyclic_screen_MPa: 80.0
+      cast_static_screen_MPa: 390.0
+    - friction_315_N: 962829.9310483439
+      roof_or_floor_315_N: 343867.8325172657
+      side_each_315_N: 137547.13300690628
+      bore_centroid_xyz_mm:
+      - 244.75723597768928
+      - 19.8
+      - 0.0
+      rail_bearing_x_mm: 349.0
+      rail_y_centres_mm:
+      - -186.5
+      - 186.5
+      rail_net_area_each_mm2: 5510.0
+      mean_rail_reactions_315_N:
+      - 430304.9584604797
+      - 532524.9725878641
+      reaction_imbalance_N: 0.0
+      upper_half_couple_Nmm: 12551175.886880197
+      upper_half_bore_friction_z_mm: 21.42857142857143
+      upper_half_support_z_mm: 47.5
+      extra_axial_bending_from_backing_per_top_Nmm: 8940563.645448908
+      extra_axial_bending_from_backing_per_side_Nmm: 5089243.921255533
+      nominal_max_rail_pressure_315_MPa: 96.64700046966682
+      nominal_max_rail_pressure_300_MPa: 92.04476235206364
+      required_area_per_rail_at_cyclic_screen_mm2: 6339.583006998382
+      cast_cyclic_screen_MPa: 80.0
+      cast_static_screen_MPa: 390.0
+  machined_slide_gate_wing_relief:
+    location: roof end, across the swept blade height
+    start_abs_Y_mm: 77.5
+    blend_to_zero_abs_Y_mm: 164.0
+    nominal_roof_end_X_mm: 295.0
+    nominal_target_gap_mm: 0.65
+    source: calc/T-2.2h/fea/ring.py
+window_trial:
+  body_x_mm:
+  - -4.0
+  - 205.0
+  working_floor_z_mm: -30.0
+  floor_cast_half_width_mm: 109.0
+  sidewall_abs_y_mm:
+  - 75.0
+  - 106.0
+  floor_depth_rear_front_mm:
+  - 45.0
+  - 100.0
+  floor_taper_x_mm:
+  - 90.0
+  - 126.0
+  material: G35CrNiMo6-6+QT1
+  minimum_Rp02_Rm_MPa:
+  - 650.0
+  - 800.0
+  front_gusset:
+    X_mm:
+    - 183.8
+    - 205.0
+    abs_Y_mm:
+    - 110.0
+    - 155.0
+    Z_mm:
+    - -115.0
+    - 60.0
+    fillet_R_mm: 15.0
+  shoe_working_x_mm:
+  - 5.2
+  - 204.8
+  shoe_width_mm: 149.6
+  shoe_depth_mm: 74.0
+  shoe_max_abs_Y_mm: 132.0
+  station_geometry:
+    rear:
+      x_mm: 55.0
+      key_width_mm: 42.0
+      key_depth_mm: 38.0
+      leg_width_mm: 16.0
+      cap_depth_mm: 36.0
+      return_depth_mm: 42.0
+    front:
+      x_mm: 148.0
+      key_width_mm: 70.0
+      key_depth_mm: 66.0
+      leg_width_mm: 21.0
+      cap_depth_mm: 54.0
+      return_depth_mm: 74.0
+  key_closed_abs_y_mm:
+  - 82.0
+  - 246.0
+  key_park_abs_y_mm:
+  - 136.0
+  - 300.0
+  upper_seat_abs_y_mm:
+  - 135.0
+  - 198.0
+  lower_seat_abs_y_mm:
+  - 206.0
+  - 246.0
+  cam_and_release:
+    input_stroke_mm: 12.0
+    key_stroke_mm: 54.0
+    motion_s: 0.08
+    residual_load_limit_N: 2000.0
+    efficiency_assumed: 0.6
+    drag_N_per_key_assumed: 600.0
+loads:
+  shoe_300_315_bar_N:
+  - 162830.09592290095
+  - 170971.600719046
+  transfer_N: 35251.41004986859
+  transverse_roof_eccentricity_mm: 27.72
+  proof_roof_normal_N: 1282316.791811148
+  proof_friction_envelope_N: 962829.9310483439
+  parameters_K:
+  - 0.35
+  - 0.6
+  parameters_mu:
+  - 0.2
+  - 0.3
+  analysis_steps_bar:
+  - 0
+  - 100
+  - 200
+  - 300
+  - 315
+interfaces:
+  axes: X towards gate, Y across 150 mm width, Z up, Z=0 at channel centre
+  window_x_mm:
+  - 5.0
+  - 205.0
+  window_xy_mm:
+  - 200.0
+  - 150.0
+  working_channel_yz_mm:
+  - 150.0
+  - 60.0
+  roof_x_mm:
+  - 205.0
+  - 295.0
+  gate_plane_nominal_mm: 295.0
+  gate_plane_delta_mm: 90.0
+  gate_blade_back_x_mm: 349.0
+  gate_wing_min_x_mm: 289.0
+  gate_plate_width_mm: 260.0
+  gate_plate_thickness_mm: 54.0
+  gate_plate_swept_z_mm:
+  - -149.0
+  - 188.0
+  gate_sweep_y_mm:
+  - -130.0
+  - 130.0
+  gate_travel_mm: 100.0
+  gate_housing_pocket_yz_R_mm:
+  - 340.2
+  - 180.2
+  - 12.0
+  gate_close_permission_max_punch_x_mm: 285.0
+  gate_wing_relief_min_axial_clearance_mm: 0.65
+  gate_wing_relief_max_axial_depth_mm: 6.800000000000001
+  gate_wing_relief_start_abs_y_mm: 77.5
+  gate_wing_relief_runout_mm: 25.0
+  clearance_gate_wing_to_shoe_x_mm: 84.0
+  cassette_yzx_R_mm:
+  - 340.0
+  - 180.0
+  - 55.0
+  - 12.0
+  cassette_x_mm:
+  - 349.0
+  - 404.0
+  traverse_x_mm:
+  - 349.0
+  - 554.0
+  traverse_window_yz_R_mm:
+  - 176.0
+  - 74.0
+  - 20.0
+  column_bearing_pitch_mm: 540.0
+  column_hole_mm: 104.0
+  column_smooth_span_mm: 485.0
+  column_D_mm: 70.0
+  column_preload_N: 735000.0
+  column_axial_stiffness_each_N_mm: 1666339.6085277821
+  frame_axial_length_mm: 1256.0
+  inner_bearing_planes_spacing_mm: 601.0
+  main_body_mm: 737.0
+  main_rear_cover_thickness_mm: 144.0
+  main_bore_and_rod_geometry_mm:
+  - 280
+  - 200
+  rapid_body_mm: 511.0
+  main_installed_stroke_mm: 396.0
+  main_working_stroke_mm: 371.0
+  min_relaxed_tail_after_axial_allowance_mm: 5.112642024442096
+  shoe_sweep_y_mm:
+  - -132.0
+  - 132.0
+  key_closed_abs_y_mm:
+  - 82.0
+  - 246.0
+  key_park_abs_y_mm:
+  - 136.0
+  - 300.0
+  key_park_to_shoe_clearance_mm: 4.0
+  closed_cheek_to_shoe_clearance_mm: 3.0
+  lock_top_z_mm: 236.0
+  lock_to_frame_each_side_mm: 70.0
+  lock_x_max_mm: 204.8
+  punch_face_ejection_end_x_mm:
+  - 371.0
+  - 381.0
+  punch_overtravel_from_new_gate_mm:
+  - 76
+  - 86
+  gate_projection_params_ejection_overtravel_mm: 166
+  lock_cut_to_roof_clearance_mm: 0.19999999999998863
+  shoe_face_x_mm:
+  - 5.2
+  - 204.8
+  axial_rails_abs_y_mm:
+  - 172.0
+  - 201.0
+  axial_rails_z_mm:
+  - -95.0
+  - 95.0
+  axial_rails_x_mm:
+  - 295.0
+  - 349.0
+  axial_rail_to_gate_sweep_in_Y_mm: 42.0
+  axial_rail_to_gate_housing_pocket_half_width_mm: 1.9000000000000057
+  roof_to_column_axial_zone_transverse_clearance_mm: 32.0
+  lock_max_z_by_region_mm:
+    at_cast_cap_abs_y_135_to_198_mm: 236.0
+    at_moving_key_abs_y_up_to_300_mm: 170.0
+    at_outer_lower_return_abs_y_178_to_246_mm: 92.0
+  lock_cap_horizontal_clearance_to_column_mm: 37.0
+  parked_key_vertical_clearance_to_column_mm: 65.0
+  geometry_clearances_scope: Nominal dimensional screen. Mating tolerances, contact features, assembly and service
+    remain open.
+machine_before_station_kg:
+- 5228.293497825274
+- 5241.293497825274
+reference_sources: calc/T-2.2h/sources.yaml
+analysis_results: calc/T-2.2h/results.json
+open_items:
+- C3D10 assembly with compression contacts and actual lamella joint
+- joint and rail connections and station mass after redesign
+- window stiffness and cast cheek fatigue
+- confirmed production tolerances and swept volumes

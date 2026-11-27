@@ -1,0 +1,81 @@
+task: T-2.2h
+project_versions:
+  url: file:../../DECISIONS.md
+  applicable: [D-GK-11, D-GK-12, D-GK-13, D-GK-14, D-OP-10, D-OP-16, D-OP-17]
+  criteria_url: file:../../ops/criteria/design_criteria.yaml
+loads:
+  janssen_url: https://arxiv.org/abs/cond-mat/0511618
+  inherited_envelope_url: file:../T-2.2g/loads.py
+  density_transition_url: file:../T-2.2g/prior/hand.py
+  hydraulic_url: file:../T-2.6/results.json
+  note: Janssen is the model form. Feedstock K and mu are the project envelope from T-2.2g.
+  K: [0.35, 0.45, 0.60]
+  mu: [0.20, 0.25, 0.30]
+  transverse_proof_eccentricity_mm: 27.72
+  proof_shoe_x_mm: 165.2
+  full_width_skew_distribution: >
+    Nonnegative quadratic with prescribed resultant and first moment on
+    the full width. Compression there is a prescribed material traction.
+    The true liner backing contact, including separation, remains open.
+hand:
+  curvature_url: https://www.usbr.gov/tsc/techreferences/hydraulics_lab/pubs/EM/EM14.pdf
+  reference: Engineering Monograph 14, equations 1–4, curved beam and inner-fibre Kt.
+  elasticity_url: https://archive.nptel.ac.in/content/storage2/courses/105106049/lecnotes/mainch10.html
+  note: Winkler–Bach is the reduced model. Accuracy decreases for compact, strongly curved members.
+axial_stop:
+  abutment_principle_url: https://www.skf.com/group/products/super-precision-bearings/principles/bearing-selection-process/bearing-interfaces/axial-location-of-bearing-rings
+  face_support_url: https://www.skf.com/caribbean/products/rolling-bearings/roller-bearings/cylindrical-roller-thrust-bearings/design-considerations
+  note: Analogy for direct end bearing and fillet clearance. It supplies no permissible pressure for this press.
+materials:
+  forging_url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+  forging_standard_url: https://www.iso.org/standard/70643.html
+  product: 34CrNiMo6+QT, flat ruling section before heat treatment
+  grades_Rp02_Rm_MPa:
+    flat_above_20_to_60_mm: [800, 1000]
+    flat_above_60_to_100_mm: [700, 900]
+  acceptance: >
+    EN 10204 3.1, confirm ruling section in the actual blank and tensile properties
+    in the core. The two-plate candidate needs both parts at or below 60 mm
+    before heat treatment and has open fatigue questions at the joint.
+  casting_url: https://cdn.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+  casting_grade: G35CrNiMo6-6+QT1
+  casting_Rp02_Rm_MPa: [650, 800]
+  elastic_constants_url: file:../T-2.2g/sources.yaml
+  E_MPa: 210000
+  poisson_ratio: 0.30
+  density_kg_m3: 7850
+fatigue:
+  guideline_url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+  authors_url: https://doi.org/10.1016/j.ijfatigue.2024.108165
+  gradient_url: https://www.mdpi.com/2226-4310/12/11/1026
+  project_screen_url: file:../T-2.2g/fea/fkm.py
+  cycles: 10000000
+  Rz_um: 6.3
+  jG_forged: 1.0
+  jG_cast: 1.25
+  project_fatigue_safety: 1.5
+  note: >
+    Retained the project conservative FKM screen and its scalar mixed-state
+    demand. Hand screen has no local notch support. Diagnostic FEA publishes
+    both with and without the inherited stress-gradient support.
+contact:
+  static_project_url: file:../../design/slide_gate.t17d.yaml
+  static_screen_factor_of_lower_Rp02: 0.6
+  pulsating_url: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_de.pdf
+  location: Schaeffler STT p. 478, mean bearing pressure for keyed joints.
+  cyclic_analogy_MPa: {unhardened_forging: 70, hardened_forging: 100, cast_steel: 80}
+  caveat: Cyclic comparison is a keyed-joint screen. Actual contact peaks and pair life need separate verification.
+solvers:
+  gmsh_url: https://gmsh.info/doc/texinfo/gmsh.html
+  ccx_url: https://www.dhondt.de/
+  gmsh_version: 4.15.0
+  ccx_version: '2.22'
+  retained_utilities_url: file:../T-2.2g/fea/solver.py
+  key_flexibility_url: file:../T-2.2g/fea/window.py
+  key_stiffness_multiplier: [0.5, 1.0, 2.0]
+  key_model: Beam bending plus Timoshenko shear and bearing strip compression with project elastic constants.
+analogues:
+  ruf_url: https://www.ruf-briquetter.com/briquetting/the-briquetting-process-explained/
+  weima_url: https://weima.com/en/weimapedia/
+  note: Manufacturer process sequence supports separation of precompaction and final die compression.
+
