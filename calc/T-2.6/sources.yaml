@@ -1,0 +1,197 @@
+project:
+  geometry_and_limits:
+    url: ../../DECISIONS.md
+    reference: D-GK-06, D-GK-10, D-GK-12, D-OP-15
+  criteria:
+    url: ../../ops/criteria/design_criteria.yaml
+  base_projection:
+    url: ../../design/params.t22d.yaml
+  base_transfer:
+    url: ../T-2.2d/results.json
+    reference: "transfer, A4VSO replay and the 15 mm roof. T-2.2f imports the same transfer table."
+  scheme_A:
+    url: ../T-2.2f/results.json
+    reference: "series.A_90.hand: shoe loads, 12 mm cam, 80 ms stroke, filled mass inventory."
+  drive_data:
+    url: ../T-2.1/sources.yaml
+    reference: "Curve points, pilot envelope and 180 cm³/rev A4VSO DFE1Z at 1480 rpm."
+  simulation_data:
+    url: cycle/sources.yaml
+    reference: "Inherited T-2.1 oil, valve and prefill inputs, regulator timing, cylinder efficiency and acceleration."
+  circuit:
+    url: ../../design/hydraulics/T-1.6_circuit.yaml
+    interlocks_url: ../../design/hydraulics/T-1.6_interlocks.yaml
+  pilot:
+    url: ../T-1.6/sources.yaml
+    reference: "Tandem PX/PXA, AX pilot load and hot leakage allowance. Use the inherited 50 ms charge response."
+  mass:
+    url: ../../design/frame.t17d.yaml
+    reference: "Existing 10 kg planning line for accumulator plumbing. Use as a preliminary allowance for new routing and small valve blocks, pending a COTS/CAD inventory."
+
+catalogs:
+  a4vso:
+    url: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+    reference: "Rexroth RE 92050, pp. 8–9 and 13, NG180 performance curves and technical data."
+  dfe1z:
+    url: https://boschrexroth-russia.ru/image/catalog/docs/RE92088_2018-10.pdf
+    reference: "Rexroth RE 92088, pp. 2–5, external pilot Z and pump response. External-pilot response requires confirmation."
+  zsf:
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20478.pdf
+    reference: "Rexroth RE 20478, pp. 6–7 and 15, NG100 case 2."
+    case_2_flow_L_min: 1600
+    cap_side_max_bar: 350
+    buffer_side_max_bar: 16
+  wrce:
+    url: https://store.livhaven.com/uploads/rexroth_pdfs/RE_29406_2021-06.pdf
+    reference: "Rexroth RE 29406 (2021-06), pp. 7–10, 32. Linear characteristic L and closed WK with monitor E. The parenthetical flow applies to two opposite maximum-size radial B bores."
+    working_max_bar: 420
+    rated_drop_bar: 5
+    mbt_NG40_L_min: 1800
+    mf_NG50_single_B_L_min: 2700
+    mf_NG50_double_B_L_min: 3900
+    mf_NG63_single_B_L_min: 4500
+    mf_NG50_WK_E_kg: 35
+    mf_NG63_WK_E_kg: 65.4
+    mf_NG50_pilot_mL: 22.4
+    mf_NG63_pilot_mL: 42.7
+  wrle:
+    url: https://importtehsnab.ru/upload/catalog_docs/Bosch%20Rexroth/eng/4WRLE.pdf
+    reference: "Rexroth RE 29123, 4WRLE25 E1, 400 L/min at 5 bar per edge."
+    rated_flow_L_min: 400
+    rated_drop_bar: 5
+    pressure_max_bar: 350
+  regen:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/uk_stanas_regen.pdf
+    component_url: https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf
+    reference: "Sun regenerative circuits downstream of directional valve. Rexroth RE 21010, LC/LFA NG25 directional cartridges. Check pressure drop, cover variant and command sequence."
+    lc25_nominal_pressure_max_bar: 420
+    lc25_no_damping_flow_at_10_bar_L_min: 800
+    lc25_E_pilot_mL: 7.21
+  pilot_coil:
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/directional_valves/re23178.pdf
+    reference: "RE 23178, technical data, WE6 continuous 24 V DC."
+    power_W_per_coil: 30
+  lp:
+    url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    technology_url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    reference: "HYDAC SB330 20 L, 18.4 L effective gas volume. Use inherited settings 28/38/52 bar."
+  mp:
+    url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047166
+    safety_block_url: https://catalog.hydac.com/en-us/item/safety-and-shut-off-blocks/type-saf-safety---shut-off-blocks/2078081
+    reference: "HYDAC SB330 4 L vertical; SAF20 with G1¼ adapter S12 is a candidate. Verify the combined charge/discharge pressure loss with the supplier."
+    nominal_L: 4
+    shell_L: 3.7
+    dry_kg: 14
+    max_pressure_bar: 330
+    catalog_flow_L_min: 600
+
+study:
+  feed_s: 0.64
+  residual_gate_force_N: 100000
+  roof_mm: 90
+  shoe_screen_N: 163000
+  base_roof_mm: 15
+  buffer_A_L: 55
+  # Commanded trial setpoints. The model preserves deceleration, load and pump limits.
+  rapid_approach_m_s: 0.42
+  rapid_eject_m_s: 0.42
+  rapid_return_m_s: 0.43
+  rapid_approach_switch_N: 75000
+  main_regen_switch_bar: 116
+  ax_block_s: 0.10
+  ax_idle_reserve_s: 0.035
+  aux_controls_allowance_W: 24
+  added_regen_coils_count: 2
+  mp:
+    precharge_bar: 75
+    low_bar: 88
+    high_bar: 105
+    delivery_L_min: 160
+    cycle_budget_L: 0.18
+    tail_changeover_allowance_s: 0.09
+    additional_coils_count: 2
+
+round2:
+  pump_guard:
+    url: ../T-2.1/sources.yaml
+    hot_reserve_url: ../../DECISIONS.md#d-gk-06
+    curve_shaft_uncertainty_kW: 2
+    curve_delivery_uncertainty_L_min: 5
+    hot_deadhead_reserve_kW: 1.5
+    reference: "Worst-direction engineering read-off uncertainty in RE 92050 data in T-2.1, plus allowable hot zero-swash loss from D-GK-06. Apply the entire uncertainty to metered delivery to retain a conservative scalar envelope without using trajectory data."
+  suction:
+    url: https://www.excellenthydraulics.in/pdf/bosch-rexroth/val/re20478_2017-12.pdf
+    gas_url: https://www.btpco.com/download/training/hydraulic%20oil/Rexroth%20Oil%20catalogs/Rexroth%20Mineral%20Oils.pdf
+    circuit_url: ../../design/hydraulics/T-1.6_circuit.yaml
+    reference: "RE 20478 pp. 6–7 and 15, A→B NG100. Graph edges 0.135 bar at zero and 0.40 at about 1900 L/min. The 1600/0.30 case-2 anchor is an upper design allowance. Linear interpolation on the rising convex curve is conservative in the design interval. RE 90220 §3.1.6 and §2 for dissolved air. Hydrostatic head, Darcy/local and inertial line losses are carried separately. The original 0.8 bar abs floor comes from T-1.3 and is retained as a second check."
+    intake_curve_L_min_bar: [[0, 0.135], [1600, 0.30], [1900, 0.40]]
+    case_2_flow_L_min: 1600
+    ambient_absolute_bar: 1.01325
+    regulated_tank_gauge_bar: 0.60
+    tank_regulation_band_bar: 0.05
+    legacy_tank_gauge_bar: 0.45
+    derated_saturation_reserve_bar: 0.02
+  oil:
+    url: https://www.shell.com.mx/business-customers/lubricants-for-business/factory/tellus-s2-mx/_jcr_content/root/main/section_copy/simple_copy/text.multi.stream/1717497765142/188f844eff57707ae55d1bb69fe76f5984c1286d/tellus-s2-mx-46.pdf
+    model_url: https://store.astm.org/d0341-20r25.html
+    pump_catalogue_temperature_C: 50
+    viscosity_C_mm2_s: [[40, 46], [100, 6.9]]
+    hot_C: 55
+    reference: "Shell Tellus S2 MX 46, p. 2, ASTM D445. 55 °C is D-OP-09. ASTM D341 viscosity interpolation. Apply first-order laminar leakage scaling to A4VSO catalogue flow deficit; retain catalogue shaft losses. Hot supplier map and combined air/temperature test required."
+  adverse:
+    url: ../../TASK.md
+    valve_s: [0.080, 0.085]
+    unload_s: 0.25
+    regulator_fraction: 0.95
+    rpm: [1465, 1470]
+  inventory:
+    tf_url: ../T-1.6/sources.yaml
+    station_url: ../T-2.1/station_mass.py
+    tf_base_shell_membrane_regulator_kg: 30
+    tf_base_oil_L: 42
+    tf_base_gross_L: 65
+    tf_A_gross_L: 80
+    cap_dead_volume_L: 0.8
+    steel_density_kg_m3: 7850
+    steel_density_url: ../T-2.2f/sources.yaml
+    tf_shell_mass_method: "Proportional-to-gross-volume allowance from T-1.6; the vessel and membrane are to order."
+    mf_block_envelope_mm: [190, 180, 180]
+    mf_reference_block_kg: 32
+    mf_reference_block_NG63_kg: 63
+    mf_block_method: "Double-B casting/blank envelopes RE 29406 page 32, adds space for both Ø70 radial ports. Use gross blank mass for new housing and CB050 as previous single-B housing estimate. Parker mass of the single-port block is a proxy, with fit and CAD to verify."
+    parts:
+      ZSF: {model: "Rexroth ZSF NG100, without pre-decompression", unit_kg: 15, pressure_bar: 350, ref: zsf, section: existing}
+      MF: {model: "Rexroth 2WRCE NG50 2K7L WK E", unit_kg: 35, pressure_bar: 420, ref: wrce, section: existing}
+      MBT: {model: "Rexroth 2WRCE NG40 1K8L WK E", unit_kg: 23.9, pressure_bar: 420, ref: wrce, section: existing}
+      LR: {model: "Rexroth 2WRCE NG32 1K1L K", unit_kg: 15.6, pressure_bar: 420, ref: wrce, section: existing}
+      MC: {model: "Rexroth LC80 A00 + LFA80", unit_kg: 40, pressure_bar: 420, ref: lc, section: existing}
+      VR: {model: "Rexroth 4WRLE25 E1-400", unit_kg: 19, pressure_bar: 350, ref: wrle, section: existing}
+      SAL_SAX: {model: "HYDAC SAF32E with G2/G1¼ adapters to verify", unit_kg: 12.4, qty: 2, ref: saf, section: existing}
+      GA_LP: {model: "HYDAC SB330 20 L 3047174", unit_kg: 63, pressure_bar: 330, ref: lp, section: existing}
+      AX: {model: "HYDAC SB330 10 L 3047170", unit_kg: 31, pressure_bar: 330, ref: ax, section: existing}
+      cap_fill_pipe: {model: "EN 10220 133×4 (ID 125)", kg_per_m: 12.7, length_m: 1, od_mm: 133, id_mm: 125, ref: pipe_large, section: existing}
+      annular_fill_pipe: {model: "EN 10220 108×4 (ID 100), PF side", kg_per_m: 10.3, length_m: 1, od_mm: 108, id_mm: 100, ref: pipe_large, section: existing}
+      PF_sensor: {model: "ifm PI1705, −1…4 bar", unit_kg: 0.3599, ref: pf_sensor, section: existing}
+      RA_RB_sensors: {model: "Rexroth HM20-2X/400-C-K35-N", unit_kg: 0.06, qty: 2, ref: hm20, section: revised}
+      regen_valves: {model: "Rexroth LC25 + LFA25, bridge RB→RA and cutoff RB→tank", unit_kg: 2.8, qty: 2, pressure_bar: 420, ref: lc, section: regen}
+      regen_pilots: {model: "Rexroth 4WE6, 24 V DC single coil", unit_kg: 1.45, qty: 2, pressure_bar: 350, ref: pilot_coil, section: regen}
+      regen_housings: {model: "Parker CB025A16510W ISO 7368 (fit/pilot port routing to verify)", unit_kg: 11, qty: 2, pressure_bar: 420, ref: cb, section: regen}
+      regen_routes: {model: "STAUFF E355 38×5, 2030043517", kg_per_m: 4.07, length_m: 1.2, od_mm: 38, id_mm: 28, pressure_bar: 371, ref: pipe_hp, section: regen}
+      lp_eject_route: {model: "STAUFF E355 38×5, 2030043517, LR→RA", kg_per_m: 4.07, length_m: 1.2, od_mm: 38, id_mm: 28, pressure_bar: 371, ref: pipe_hp, section: lp_eject}
+      LRC: {model: "Rexroth LC32 + LFA32 (moved to RA for LP ejection)", unit_kg: 5.1, pressure_bar: 420, ref: lc, section: existing}
+      mp_vessel: {model: "HYDAC SB330 4 L 3047166", unit_kg: 14, pressure_bar: 330, ref: mp, section: mp}
+      mp_SAF: {model: "HYDAC SAF20E with S12; relief set for the MP rail", unit_kg: 7.2, pressure_bar: 400, ref: saf, section: mp}
+      mp_valves: {model: "Rexroth LC25 + LFA25, charge and discharge", unit_kg: 2.8, qty: 2, pressure_bar: 420, ref: lc, section: mp}
+      mp_pilot: {model: "Rexroth 4WE6, 24 V DC single coil", unit_kg: 1.45, qty: 2, pressure_bar: 350, ref: pilot_coil, section: mp}
+      mp_housings: {model: "Parker CB025A16510W (fit/pilot port routing to verify)", unit_kg: 11, qty: 2, pressure_bar: 420, ref: cb, section: mp}
+      mp_route: {model: "STAUFF E355 38×5, 2030043517", kg_per_m: 4.07, length_m: 1.2, od_mm: 38, id_mm: 28, pressure_bar: 371, ref: pipe_hp, section: mp}
+    extra_sources:
+      lc: {url: "https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf", reference: "RE 21010, p. 8, insert and cover masses, p. 9 oil data"}
+      wrle: {url: "https://store.livhaven.com/uploads/rexroth_pdfs/RE%2029123_2023-03.pdf", reference: "Bosch Rexroth RE 29123 p. 10"}
+      saf: {url: "https://www.hydac.com.au/media/productattach/e/n/en3551-25-05-24_saf-dsv.pdf?20260211=", reference: "HYDAC EN 3551 §3.1.2–3.1.3"}
+      ax: {url: "https://www.hydac.com.au/media/catalog/brochure/e/n/en30000-6-04-21_accumulatortechnology-productcatalogue.pdf", reference: "HYDAC EN 3.000.6, SB330 standard table, 3047170"}
+      hm20: {url: "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/proportional_electronics/re30272-2.pdf", reference: "Rexroth RE 30272, 0.06 kg, 4–20 mA"}
+      pf_sensor: {url: "https://media.ifm.com/dam/a8954022-2041-425a-8712-86ccfa92bed3/Original/PI1705-01_EN-GB.pdf", reference: "ifm PI1705, product data"}
+      cb: {url: "https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf", reference: "Parker MSG14-3200/US, pp. 40–41; CB025A16510W and comparable CB050A16810W/CB063A17010W"}
+      pipe_hp: {url: "https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf", reference: "STAUFF Tube E355, 2030043517, 371 bar, length allowances for the two local branches"}
+      pipe_large: {url: "https://www.rff.de/_uploads/files/produkte/kataloge/rff_Basics-2019_E.pdf", reference: "rff Basics EN 10220 table; ID adopted in the T-2.1 prefill model, 1 m length"}

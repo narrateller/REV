@@ -1,0 +1,119 @@
+{
+  "task": "T-2.6",
+  "status": "PASS",
+  "python_version": "3.13.17",
+  "gate_checks": {
+    "gates.t26.json": {
+      "command": "E:/Tools/Python313/python.exe -B ops/gates/calc_gates.py --params design/params.t26_base.yaml --criteria ops/criteria/design_criteria.yaml --out gates.t26.json",
+      "exit_code": 0,
+      "status": "PASS",
+      "gates": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 321,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "PASS",
+          "value": 5.629253561100996,
+          "unit": "s"
+        }
+      }
+    },
+    "calc/T-2.6/gates.t26a.json": {
+      "command": "E:/Tools/Python313/python.exe -B ops/gates/calc_gates.py --params design/params.t26a.yaml --criteria ops/criteria/design_criteria.yaml --out calc/T-2.6/gates.t26a.json",
+      "exit_code": 0,
+      "status": "PASS",
+      "gates": {
+        "G-PFACE": {
+          "status": "PASS",
+          "value": 168.88888888888889,
+          "unit": "MPa"
+        },
+        "G-DOSE": {
+          "status": "PASS",
+          "value": 396,
+          "unit": "mm"
+        },
+        "G-CYCLE": {
+          "status": "PASS",
+          "value": 5.884539612636964,
+          "unit": "s"
+        }
+      }
+    }
+  },
+  "reproducibility": {
+    "command": "E:/Tools/Python313/python.exe -B calc/T-2.6/run.py",
+    "runs": 2,
+    "byte_identical": true,
+    "sha256": {
+      "calc/T-2.6/results.json": "359f2c532f8270e81ef1639079974a3ff67e1a8a1abddfac5fbd4dcc0665011c",
+      "design/params.t26_base.yaml": "d1dfa2b2a050831e28e7c17eaadeec4663aff211344423bc52c6160a932e0cb7",
+      "design/params.t26a.yaml": "f488c2d3f5efec8d11beaf751eeeaf9548ed28c7da86feccb47f0bd8ed520556",
+      "metrics.json": "b6e11bdc8f37700f7a126e3b362896f0860154e79948522c9888ee1396d4994e"
+    }
+  },
+  "tests": {
+    "module": "tests/ops/test_calc_gates.py",
+    "selection": "(test_cycle or test_dose) and not w02",
+    "exit_code": 0,
+    "passed": 28,
+    "deselected": 74,
+    "independent_checks": [
+      "conservative phase table",
+      "CLI results match the reference generator",
+      "rail volume and gas energy closure",
+      "shaft energy and RMS",
+      "C-PWR-01 and C-HYD-01",
+      "shoe force and physical strokes",
+      "package scope, encoding and compilation"
+    ]
+  },
+  "phase_minimum_conservative_margin_s": 0.0,
+  "base_gate_minus_reference_s": 0.005503561100416832,
+  "selected_gate_minus_reference_s": 0.009539612637832207,
+  "selected_reference_margins": {
+    "reference_time_s": 0.025000000000868994,
+    "gate_time_s": 0.06546038736303661,
+    "rms_kW": 0.10367039884276252,
+    "peak_kW": 1.689189189189186,
+    "average_kW": 2.0351531600410233,
+    "installed_kW": 0.1319999999999979
+  },
+  "sensitivity": {
+    "pessimistic_reference_cycle_s": 6.231249999998934,
+    "pessimistic_meets_reference_limit": false
+  },
+  "report_utf8_read_pass": true,
+  "temporary_artifacts": {
+    "pytest_temp_removed": true,
+    "package_cache_or_temp_files": 0
+  },
+  "scope": {
+    "protected_paths_compared_to_HEAD": [
+      "ops/criteria/design_criteria.yaml",
+      "ops/gates/calc_gates.py",
+      "ops/gates/gate_report.py",
+      "design/hydraulics",
+      "DECISIONS.md",
+      "AGENTS.md",
+      "PLAN.md",
+      "CLAUDE.md",
+      "design/params.t22d.yaml",
+      "calc/T-2.1",
+      "calc/T-2.2d",
+      "calc/T-2.2f"
+    ],
+    "diff": [],
+    "preexisting_untracked": [
+      "TASK.md"
+    ],
+    "package_size_bytes": 756590
+  }
+}
