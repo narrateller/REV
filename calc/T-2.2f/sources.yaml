@@ -1,0 +1,95 @@
+task: T-2.2f
+project:
+  binding: [DECISIONS.md, ops/criteria/design_criteria.yaml, TASK.md]
+  load:
+    decisions: [D-GK-09, D-GK-10, D-GK-11]
+    paths: [calc/T-2.2f/round1_load.json, calc/T-2.2f/prepress_lock.t22d.yaml, calc/T-2.2d/results.json, calc/T-1.1/curve.yaml, calc/T-1.2b/results.json]
+    use: "P = 420 мм, S = 9000 мм², L ≤ 89,4 мм, сетка K × μ, уставка дозы ≤ 0,853 кг при ±5 %. До упора — остаточное усилие и сопротивление входа T-2.2d. После упора — Janssen, с огибающей формы кривой уплотнения T-1.1 по 6 ветвям, привязанной к проектным 1,785 МН и 89,4 мм. Это модель чувствительности переноса, требуется измерение K и трения."
+    project_accepted_relief_bar: 315
+    project_accepted_working_bar: 300
+    proof_station_centroid_x_mm: 165.2
+    skew_project_source: "calc/T-2.2e/sources.yaml, calc/T-2.2e/fea/README.md; перекос 64/36, C переносит эксцентриситет 0,14 × 444 мм на опоры ±270 мм"
+  geometry_and_mass:
+    paths: [design/slide_gate.t17d.yaml, design/frame.t17d.yaml, design/cylinders.t17d.yaml, design/main_cylinder_rear.t22.yaml, calc/T-2.2b/mass.py, calc/T-2.2d/mass.py, ops/reports/T-2.2/GK_review.md]
+    chamber_baseline_kg: 180.22
+    machine_baseline_kg: 4942.65
+    H2_kg: [5, 18]
+    steel_density_kg_m3: 7850
+    allowances: "5, 7, 10 кг для вкладышей, привода и присоединений по T-2.2d. Резерв изменения ветвей 10 кг по строке увеличенных портов и линии ГА НД T-1.7d. Для X ≥ 75 мм прибавка заполненного буфера 5/35 от строки 48 кг T-2.1."
+analogs:
+  RUF:
+    url: https://www.ruf-briquetter.com/briquetting/the-briquetting-process-explained/
+    patent_url: https://patents.google.com/patent/DE3333766A1/en
+    scope: Раздельная предварительная подпрессовка и окончательное прессование в матрице. Смещение матрицы для выброса не переносится.
+  WEIMA:
+    url: https://weima.com/en/briquetting-machines/th-1500/
+    process_diagram_url: https://weima.com/wp-content/uploads/2021/10/WEIMA_catalog_compressing_web_EN.pdf
+    scope: Закрытая матрица и вертикальная башня подпрессовки. Каталог показывает горизонтальную подачу к неподвижному противоупору в фазе сжатия.
+  HOLZMAG:
+    url: https://patents.google.com/patent/EP0246388A1/en
+    scope: Подпрессовочный пуансон остаётся границей камеры при ходе двух торцевых штампов. Это аналог удержания башмака, а не схема A.
+  wedge:
+    url: https://patents.google.com/patent/DE3201025A1/en
+    scope: Клин с гидроприводом и быстрым расцеплением. Расчётные ригели REV держат вертикальную реакцию через плоские опоры, геометрия самоторможения патента не кредитуется.
+materials:
+  forged:
+    urls:
+    - https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+    - https://www.saarstahl.com/app/uploads/2024/03/20160318102442-34CrNiMo6-.pdf
+    min_Rp02_Rm_MPa_by_flat_section:
+      up_to_60_mm: [800, 1000]
+      60_to_100_mm: [700, 900]
+      100_to_160_mm: [600, 800]
+      above_160_mm_screen_only: [500, 750]
+    note: "Выше 160 мм — предпосылка T-2.2e для цены исполнения, не паспортная гарантия. При дальнейшем выборе нужен сертификат на фактическое определяющее сечение."
+  cast:
+    grade: G35CrNiMo6-6+QT1
+    standard_url: https://cdn.standards.iteh.ai/samples/37740/e17c195133c94e8ca3b14cfd6e0b2a51/SIST-EN-10293-2015.pdf
+    project_source: [calc/T-1.7/sources.yaml, calc/T-2.2e/sources.yaml]
+    min_Rp02_Rm_MPa: [650, 800]
+    note: "Свойства действуют при подтверждении пробой из определяющей толщины. Для литья jG = 1,25 и требование чистоты Rz ≤ 6,3 мкм."
+elasticity:
+  url: https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/13534abb67b86d2fb8ee11a1f4f2b8c4_MIT3_11F99_bdisp.pdf
+  project_source: calc/T-2.2e/sources.yaml
+  E_MPa: 210000
+  poisson: 0.30
+  rectangular_shear_factor: 0.8333333333333334
+  shear_lag: "Нагрузка распространяется 1:1 от чистого пятна до средней плоскости. Эффективная ширина ограничена реальным поясом. Для нижней границы использована полная ширина и нулевой поворот опор."
+  seating_allowance_mm: 0.020
+  seating_source: "calc/T-2.2d/hand.py. Посадка и выпуклость — эскизная оценка, отдельная от упругости деталей."
+strength:
+  url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+  project_source: [calc/T-1.7/frame_fea.py, calc/T-2.2e/sources.yaml, calc/T-2.2d/hand.py]
+  rules: {R: 0, cycles: 10000000, ND_cycles: 1000000, kD: 15, jD: 1.5, jG_cast: 1.25, jG_forge: 1.0, notch_support: 1.0}
+  Rz_um: 6.3
+  alternating_fraction_Rm: {cast: 0.34, forged: 0.40}
+  roughness_coefficient: {cast: 0.20, forged: 0.22}
+  mean_stress_slope: {per_MPa: 0.00035, intercept_cast: 0.05, intercept_forged: -0.10}
+  note: Сравнение номинальных размахов. Кредит от наклёпа, закалки или поддержки надреза не даётся. Квалификация соединений и галтелей требует объёмного расчёта после выбора.
+contact:
+  Hertz_url: https://academic.oup.com/jom/article/doi/10.1093/jom/ufaf013/8117592
+  static_project_source: [calc/T-2.2d/hand.py, calc/T-2.2e/sources.yaml]
+  static_rule: "0,60 × Rp0,2 мягкой стороны, 390 МПа для литого основания. Это проектный экран, а не табличное требование Hertz."
+  pulsating_url: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_en.pdf
+  pulsating_location: "STT, стр. 478, допустимое давление граней шпонок"
+  pulsating_ranges_MPa: {cast_steel: [80, 100], hardened_steel: [100, 170]}
+  pulsating_used_MPa: {cast_steel: 80, hardened_steel: 100}
+  crown_mm: 0.10
+  min_edge_radius_mm: 5
+  min_root_radius_mm: 15
+  friction_assumed: 0.15
+  note: "Пульсирующий экран по нижней границе аналога. Не S–N характеристика пары. Для дальнейшего выбора нужны полосовые давления, качание пятна и стенд 10⁷."
+cycle:
+  pump_url: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+  regulator_url: https://boschrexroth-russia.ru/image/catalog/docs/RE92088_2018-10.pdf
+  pump_choice: "A4VSO180 DFE1Z, 180 см³/об, RE 92050, стр. 8–9 и 13, фактические кривые T-2.1 при 1500 об/мин"
+  pump_project_source: [calc/T-2.1/sources.yaml, calc/T-2.1/pumps.py]
+  bladder_url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+  bladder_part_url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+  accumulator: {part: 3047174, category_volume_L: 20, gas_volume_L: 18.4, dry_mass_kg: 49, rated_pressure_bar: 330, vertical_delivery_max_L_min: 900, exponent: 1.4}
+  settings: "База 28/38/52 бар. Повышенные уставки 57/70/85 и 65/80/105 бар проверены как отдельные сценарии по остаточному объёму, отношению давлений и recharge между циклами. Совместимость низконапорных ветвей требует редуцирования и отдельной проверки. Время разгрузки, выдержки и дозирования унаследовано."
+  regen_url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/us_assm_regen.pdf
+  regen_note: "У каждой Ø90/50 быстрой пары действующая площадь при регенерации — площадь штока. Уменьшаются внешний расход и доступное усилие. Сравнение с обычной подачей учитывает характеристику насоса."
+  pin_drive_project_sources: [calc/T-1.2b/results.json, calc/T-2.2d/hand.py, calc/T-2.2e/cycle/bayonet.py]
+  pin_drive_assumptions: "0,6 кН на один разгруженный ригель по аналогу, совокупный КПД 0,60, 12 мм входного хода, пик 0,30 м/с, треугольная траектория. Отпирание при остаточной силе ≤ 2 кН требует контроля."
+  circuit_inputs: [design/hydraulics/T-1.6_circuit.yaml, design/hydraulics/T-1.6_interlocks.yaml, design/params.t22d.yaml]

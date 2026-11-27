@@ -1,0 +1,117 @@
+{
+  "schema": "rev.gate_report/1",
+  "tool": "scope_gate",
+  "tool_version": "1.1.0",
+  "input": "E:\\Projects\\REV-wt\\T-2.2f",
+  "criteria_version": 4,
+  "criteria_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+  "overall": "WARN",
+  "gates": [
+    {
+      "id": "G-SCOPE",
+      "status": "WARN",
+      "value": 0,
+      "threshold": 0,
+      "unit": "paths",
+      "criteria_ids": [],
+      "details": {
+        "checks": {
+          "paths_allowed": true,
+          "protected_hashes_match": true
+        },
+        "task_id": "T-2.2f",
+        "base_commit": "4a2f9c79bbdabdef6fbe09c602c12337c89fbbd0",
+        "merge_base_commit": "4a2f9c79bbdabdef6fbe09c602c12337c89fbbd0",
+        "allowed_paths": [
+          "calc/T-2.2f/**",
+          "design/prepress_lock.t22f.yaml",
+          "design/params.t22f.yaml",
+          "report.md",
+          "metrics.json",
+          "self_check.json",
+          "gates.t22f.json"
+        ],
+        "allow_protected": [],
+        "always_allowed_paths": [
+          "TASK.md",
+          "metrics.json",
+          "report.md",
+          "self_check.json"
+        ],
+        "changes": {
+          "committed": [],
+          "staged": [],
+          "unstaged": [],
+          "untracked": [
+            "TASK.md",
+            "calc/T-2.2f/candidates.py",
+            "calc/T-2.2f/check.py",
+            "calc/T-2.2f/cycle/compare.py",
+            "calc/T-2.2f/cycle/drive.py",
+            "calc/T-2.2f/cycle/evaluate.py",
+            "calc/T-2.2f/cycle/make_params_t14b.py",
+            "calc/T-2.2f/cycle/roof_cycle.py",
+            "calc/T-2.2f/cycle/sources.yaml",
+            "calc/T-2.2f/cycle/x1_calc.py",
+            "calc/T-2.2f/fea/status.json",
+            "calc/T-2.2f/hand.py",
+            "calc/T-2.2f/load.py",
+            "calc/T-2.2f/mass.py",
+            "calc/T-2.2f/prepress_lock.t22d.yaml",
+            "calc/T-2.2f/report.py",
+            "calc/T-2.2f/results.json",
+            "calc/T-2.2f/round1_load.json",
+            "calc/T-2.2f/sources.yaml",
+            "gates.t22f.json",
+            "metrics.json",
+            "report.md",
+            "self_check.json"
+          ]
+        },
+        "forbidden_paths": [],
+        "protected_hashes": [
+          {
+            "path": "ops/criteria/design_criteria.yaml",
+            "base_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+            "worktree_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f"
+          },
+          {
+            "path": "ops/gates/calc_gates.py",
+            "base_sha256": "e7d9731cba562c4c060e780ceef5bd5b4ab6732dd1fe6aa24b56130b7a759301",
+            "worktree_sha256": "e7d9731cba562c4c060e780ceef5bd5b4ab6732dd1fe6aa24b56130b7a759301"
+          },
+          {
+            "path": "ops/gates/gate_report.py",
+            "base_sha256": "f4470e0f2b9dcf79e1f3355f286c196f8cc01476880f6ac510553f394ba5cc57",
+            "worktree_sha256": "f4470e0f2b9dcf79e1f3355f286c196f8cc01476880f6ac510553f394ba5cc57"
+          },
+          {
+            "path": "ops/gates/geom_gates.py",
+            "base_sha256": "a590e3738bb0cc8989f8aa0f541746b8a8c25efa2f8720cae5de080f40fec1f7",
+            "worktree_sha256": "a590e3738bb0cc8989f8aa0f541746b8a8c25efa2f8720cae5de080f40fec1f7"
+          },
+          {
+            "path": "ops/gates/roles/w02_legacy.yaml",
+            "base_sha256": "ef65f656f80f06f42c41c89eeceaaf63d18ca2c88940d3200564d227ab35e61d",
+            "worktree_sha256": "ef65f656f80f06f42c41c89eeceaaf63d18ca2c88940d3200564d227ab35e61d"
+          },
+          {
+            "path": "ops/gates/scope_gate.py",
+            "base_sha256": "dab975fb0e1391653b9001a1d3be2fdd52dcdef8eeb3f92c70da9b86be599c5d",
+            "worktree_sha256": "dab975fb0e1391653b9001a1d3be2fdd52dcdef8eeb3f92c70da9b86be599c5d"
+          }
+        ],
+        "ignored_paths": [],
+        "ignored_outside_allowed": [],
+        "warnings": [
+          "Executor metadata is missing"
+        ],
+        "protected_changes": [],
+        "protected_hash_mismatches": [],
+        "reasoning_effort": null,
+        "meta": null,
+        "reasoning_effort_checked": false
+      }
+    }
+  ]
+}
