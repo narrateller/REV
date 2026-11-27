@@ -1,0 +1,318 @@
+task: T-2.2i
+schema_version: 1
+status: STOP_HAND_SCREEN
+qualified: false
+selected_variant: null
+project_basis:
+- D-GK-13
+- D-OP-16
+- D-GK-15
+- D-OP-17
+- D-OP-18
+units:
+  length: mm
+  force: N
+  stress: MPa
+  mass: kg
+axes: X towards the gate, Y across the 150 mm bore, Z up from the bore centre
+working_chamber:
+  section_yz_mm:
+  - 150.0
+  - 60.0
+  roof_x_mm:
+  - 205.0
+  - 295.0
+  working_corner_R_mm: 1.0
+  window_xy_mm:
+  - 200.0
+  - 150.0
+  window_x_mm:
+  - 5.0
+  - 205.0
+  punch_clearance_per_side_mm: 0.2
+  roof_length_mm: 90.0
+  maximum_loaded_length_mm: 89.4
+  dose_block_setpoint_kg: 0.853
+  dose_upper_tolerance_fraction: 0.05
+main_cylinder:
+  bore_and_rod_mm:
+  - 280
+  - 200
+  installed_stroke_mm: 396.0
+  working_stroke_mm: 371.0
+  body_length_mm: 737.0
+slide_gate:
+  face_x_mm: 295.0
+  back_x_mm: 349.0
+  wing_min_x_mm: 289.0
+  width_mm: 260.0
+  thickness_mm: 54.0
+  swept_z_mm:
+  - -149.0
+  - 188.0
+  nominal_sweep_y_mm:
+  - -130.0
+  - 130.0
+  travel_mm: 100.0
+  pocket_yz_R_mm:
+  - 340.2
+  - 180.2
+  - 12.0
+  wing_relief:
+    location: roof end, across the swept blade height
+    start_abs_Y_mm: 77.5
+    blend_to_zero_abs_Y_mm: 164.0
+    nominal_roof_end_X_mm: 295.0
+    nominal_target_gap_mm: 0.65
+    source: calc/T-2.2h/fea/ring.py
+columns:
+  pitch_mm: 540.0
+  smooth_span_mm: 485.0
+  diameter_mm: 70.0
+  preload_N: 735000.0
+shoe:
+  face_x_mm:
+  - 5.2
+  - 204.8
+  sweep_y_mm:
+  - -132.0
+  - 132.0
+  face_width_mm: 149.6
+  depth_mm: 74.0
+  rear_station:
+    x_mm: 55.0
+    key_width_mm: 42.0
+    key_depth_mm: 38.0
+    leg_width_mm: 16.0
+    cap_depth_mm: 36.0
+    return_depth_mm: 42.0
+window_casting:
+  body_x_mm:
+  - -4.0
+  - 205.0
+  working_floor_z_mm: -30.0
+  floor_cast_half_width_mm: 109.0
+  sidewall_abs_y_mm:
+  - 75.0
+  - 106.0
+  floor_depth_rear_front_mm:
+  - 45.0
+  - 100.0
+  floor_taper_x_mm:
+  - 90.0
+  - 126.0
+  material: G35CrNiMo6-6+QT1
+  minimum_Rp02_Rm_MPa:
+  - 650.0
+  - 800.0
+ring_reference_geometry:
+  outer_width_height_mm:
+  - 406.0
+  - 530.0
+  outer_corner_R_mm: 179.0
+  inner_corner_R_mm: 37.0
+  lamella_x_intervals_mm:
+  - - 205.0
+    - 250.0
+  - - 250.0
+    - 295.0
+  lamella_material: 34CrNiMo6+QT
+  lamella_min_Rp02_Rm_MPa:
+  - 800.0
+  - 1000.0
+  max_ruling_flat_blank_mm: 60.0
+support_trials:
+  key_x192:
+    geometry:
+      name: key_x192
+      kind: key
+      x_mm: 192.0
+      width_mm: 24.0
+      height_mm: 66.0
+      bearing_length_mm: 40.0
+      y_mm: 107.0
+      travel_mm: 54.0
+      moving_length_mm: 164.0
+      cheek_leg_mm: 21.0
+    interfaces:
+      front_cheek_end_x_mm: 225.8
+      roof_clearance_x_mm: -20.80000000000001
+      gate_clearance_x_mm: 63.19999999999999
+      park_clearance_mm: 4.0
+      shoe_wing_to_cheek_y_mm: 3.0
+      cap_to_column_y_mm: 37.0
+    rejection_reasons:
+    - geometry_interference
+    - key_FKM
+    - opening
+    - bearing
+    - drive
+  nose_x225:
+    geometry:
+      name: nose_x225
+      kind: nose
+      x_mm: 225.0
+      width_mm: 52.0
+      height_mm: 60.0
+      bearing_length_mm: 40.0
+      y_mm: 106.0
+      travel_mm: 44.8
+      moving_length_mm: 74.0
+      cheek_leg_mm: 21.0
+    interfaces:
+      slot_x_mm:
+      - 205.0
+      - 245.0
+      slot_abs_y_mm:
+      - 80.0
+      - 132.0
+      slot_z_mm:
+      - 104.0
+      - 164.0
+      park_clearance_mm: 4.799999999999997
+      gate_clearance_x_mm: 44.0
+      slot_to_working_y_mm: 5.0
+      slot_to_column_y_mm: 103.0
+      lamella_web_to_joint_mm: 5.0
+    rejection_reasons:
+    - integral_socket_ring_FKM
+    - drive_and_release
+    - unclosed_mass_ledger
+  clevis_x182:
+    geometry:
+      name: clevis_x182
+      kind: clevis
+      x_mm: 182.0
+      width_mm: 52.0
+      height_mm: 38.0
+      bearing_length_mm: 20.0
+      y_mm: 106.0
+      travel_mm: 36.0
+      moving_length_mm: 79.0
+      cheek_leg_mm: 10.0
+    interfaces:
+      clevis_end_x_mm: 202.0
+      roof_clearance_x_mm: 3.0
+      gate_clearance_x_mm: 87.0
+      park_clearance_mm: 6.0
+      tongue_to_column_y_mm: 103.0
+    rejection_reasons:
+    - cast_FKM
+    - bearing
+    - drive
+shortened_nose_geometry:
+  name: nose_x225
+  kind: nose
+  x_mm: 223.5
+  width_mm: 56.0
+  height_mm: 60.0
+  bearing_length_mm: 37.0
+  y_mm: 104.0
+  travel_mm: 41.8
+  moving_length_mm: 71.0
+  cheek_leg_mm: 21.0
+ring_and_backing_screen:
+  pulsating_skew_e_mm: 27.72
+  working_wear_width_mm: 150.0
+  full_flat_bedding_width_mm: 180.0
+  minimum_kern_width_mm: 166.32
+  bedding_abs_z_mm: 56.0
+  wear_thickness_mm: 12.0
+  aperture_width_height_mm:
+  - 254.0
+  - 112.0
+  side_seats_abs_y_mm: 127.0
+  side_seats_abs_z_mm:
+  - 0.0
+  - 19.0
+axial_stop_trial:
+  x_mm:
+  - 295.0
+  - 349.0
+  abs_y_mm:
+  - 172.0
+  - 203.0
+  z_mm:
+  - -110.0
+  - 110.0
+  net_contact_area_mm2: 6820.0
+  min_315_N: 430577.54516481946
+  max_315_N: 532252.3858835244
+  mean_300_MPa: 74.32654460040838
+  screen_300_MPa: 80.0
+  clearance_to_pocket_y_mm: 1.9000000000000057
+  upper_thrust_couple_315_Nmm: 16161788.128311485
+  mass_delta_kg: 1.1106179999999997
+gate_end_collar_trial:
+  model: open concentric cylinders; scalar FKM mean-only, no hoop-range reduction credit
+  end_reference_FKM_no_gradient: 0.8375577135998254
+  end_reference_vm_315_MPa: 397.7685298397868
+  reconstructed_uniaxial_range_315_MPa: 402.3807003383423
+  required_bore_compression_MPa: 155.62771658634247
+  range_reduction_needed_without_preload_fraction: 0.16244228640017455
+  maximum_FKM_if_tensile_mean_zero: 1.0469471419997818
+  x_mm:
+  - 260.0
+  - 288.0
+  a_mm: 93.1730363646803
+  b_mm: 268.28605714219884
+  c_mm: 331.1163971786434
+  radial_wall_mm: 62.83034003644454
+  cold_radial_interference_mm: 0.7277590178284543
+  temperature_to_just_clear_cold_fit_K: 224.1837463151272
+  cold_fit_pressure_MPa: 93.43558307742052
+  proof_fit_pressure_MPa: 98.90435112012429
+  proof_collar_vm_MPa: 533.3333333333333
+  nominal_collar_static: 1.5000000000000002
+  collar_nominal_FKM_cold: 1.5451534926350954
+  cold_collar_inner_hoop_MPa: 450.5855174305658
+  clearance_to_gate_wing_x_mm: 1.0
+  clearance_to_column_radial_mm: 15.721264662092267
+  collar_gross_kg: 26.005516738554725
+  rounding_fill_gross_kg: 8.450854446692
+  slip_sensitivity:
+  - collar_minus_core_K: 0.0
+    effective_radial_interference_mm: 0.7277590178284543
+    fit_pressure_MPa: 93.43558307742052
+    bore_mean_MPa: -20.891107729620302
+    scalar_FKM_mean_only: 1.0469471419997818
+    minimum_mu_if_holding_full_axial_reaction: 0.2183238995419502
+  - collar_minus_core_K: 20.0
+    effective_radial_interference_mm: 0.6628337920000422
+    fit_pressure_MPa: 85.09995798298736
+    bore_mean_MPa: -1.933358247203529
+    scalar_FKM_mean_only: 1.0469471419997818
+    minimum_mu_if_holding_full_axial_reaction: 0.23970894154279582
+  - collar_minus_core_K: 40.0
+    effective_radial_interference_mm: 0.5979085661716301
+    fit_pressure_MPa: 76.76433288855422
+    bore_mean_MPa: 17.024391235213216
+    scalar_FKM_mean_only: 1.0241973515401148
+    minimum_mu_if_holding_full_axial_reaction: 0.26573826783662285
+  - collar_minus_core_K: 60.0
+    effective_radial_interference_mm: 0.5329833403432179
+    fit_pressure_MPa: 68.42870779412105
+    bore_mean_MPa: 35.982140717630045
+    scalar_FKM_mean_only: 1.0
+    minimum_mu_if_holding_full_axial_reaction: 0.2981091052429733
+  ideal_half_split_force_N: 514037.1098637709
+  min_ideal_wrap_area_each_side_mm2: 963.8195809945704
+  known_unknowns:
+  - temperature gradients and local slip
+  - stress tensors and contact at slot
+  - shape effects on band pressure and winding seats
+  - tie joints holes and actual stiffness distribution
+limits:
+  design_opening_300_mm: 0.6
+  minimum_hand_FKM: 1.15
+  minimum_FEA_FKM: 1.0
+  minimum_FEA_static: 1.5
+  static_proof_bar: 315
+  fatigue_pressure_bar:
+  - 0
+  - 300
+  fatigue_cycles: 10000000
+  station_reduction_max_kg: 230.0
+  H2_kg: 18.0
+analysis_data: calc/T-2.2i/results.json
+sources: calc/T-2.2i/sources.yaml

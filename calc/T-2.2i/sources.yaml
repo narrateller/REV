@@ -1,0 +1,85 @@
+﻿task: T-2.2i
+project:
+  decisions_url: file:../../DECISIONS.md
+  criteria_url: file:../../ops/criteria/design_criteria.yaml
+  previous_review_url: file:../../ops/reports/T-2.2h/GK_review.md
+  previous_design_url: file:../../design/chamber_roof.t22h.yaml
+  cycle_url: file:../../calc/T-2.6/results.json
+  cam_input_url: file:../../calc/T-1.2b/results.json
+  cam_power_path_url: file:../../calc/T-2.6/cycle/drive.py
+  cam_note: >-
+    T-2.6 repeats the 15.594 kN equivalent stem load and 12 mm cam stroke.
+    The screened friction coefficient is 0.15 per the frame interface
+    assuming comparable steel contact. 0.30 is a sensitivity, not a
+    measured friction coefficient for this joint.
+  frame_url: file:../../design/frame.t17d.yaml
+  gate_url: file:../../design/slide_gate.t17d.yaml
+  mechanics_correction: 1.23
+  correction_basis: Diagnostic T-2.2h manual to FEA gap, applied as a hand demand factor.
+load:
+  method_url: https://arxiv.org/abs/cond-mat/0511618
+  model_url: file:../T-2.2h/loads.py
+  transition_url: file:../T-2.2h/prior/hand.py
+  old_skew_url: file:../T-2.2h/fea/window.py
+  note: The project envelope governs. RUF and WEIMA establish the process architecture.
+  ruf_url: https://www.ruf-briquetter.com/briquetting/the-briquetting-process-explained/
+  ruf_patent_url: https://patents.google.com/patent/EP0367859A1/en
+  weima_patent_url: https://patents.google.com/patent/US9144950B2/en
+  weima_catalog_url: https://weima.com/wp-content/uploads/2025/02/WEIMA_Catalog_Compressing_US_web.pdf
+materials:
+  forging_url: https://www.stahlwerk-augustfehn.de/wp-content/uploads/2024/01/34CrNiMo6-Technisches-Datenblatt_-1.6582-neu.pdf
+  forging: 34CrNiMo6+QT
+  forging_min_Rp02_Rm_MPa: [800, 1000]
+  forging_ruling_flat_blank_max_mm: 60
+  casting_url: https://cdn.sfsa.org/wp-content/uploads/2021/10/s2.pdf
+  casting_local_screen_url: file:../T-2.2h/sources.yaml
+  casting: G35CrNiMo6-6+QT1
+  casting_min_Rp02_Rm_MPa: [650, 800]
+  elastic_url: file:../T-2.2h/sources.yaml
+  E_MPa: 210000
+  poisson_ratio: 0.30
+  density_kg_m3: 7850
+  thermal_expansion_url: https://einsal.com/en/materials/material-database/material/1.6582
+  thermal_expansion_per_K: 0.0000121
+  thermal_expansion_basis_C: [20, 100]
+  temperature_difference_sensitivity_K: [0, 20, 40, 60]
+  temperature_note: Parametric collar-to-core differences. The project has no measured operating gradient here.
+section_analysis:
+  curvature_url: https://www.usbr.gov/tsc/techreferences/hydraulics_lab/pubs/EM/EM14.pdf
+  local_model_url: file:../T-2.2h/hand.py
+  elastic_shear_section: Rectangular section with Timoshenko 5/6 equivalent shear area.
+  strip_width: Approximate 1 to 1 stress diffusion over half the wall height, clipped to the machined axial bounds.
+  strip_width_status: Diagnostic modeling assumption.
+  fit_url: https://doi.org/10.3390/app112311428
+  fit_edge_effect_url: https://doi.org/10.3390/app121910037
+  winding_url: https://doi.org/10.3389/fmech.2022.1086124
+  tie_joint_url: https://www.vdi.de/fileadmin/pages/vdi_de/redakteure/richtlinien/inhaltsverzeichnisse/2360550.pdf
+fatigue:
+  publisher_url: https://www.vdmashop.de/en/Analytical-Strength-Assessment-7th.-Ed.-2020-EN/107457
+  authors_url: https://doi.org/10.1016/j.ijfatigue.2024.108165
+  forged_M_parameters_primary_research_url: https://doi.org/10.1111/ffe.13552
+  retained_screen_url: file:../T-2.2h/fea/fkm.py
+  note: >-
+    M = 0.00035 Rm - 0.10 for wrought steel, 0.00035 Rm + 0.05 for the
+    project cast-steel screen. Rm in MPa. The hand diagnostic combines
+    von Mises amplitude and tensile principal mean conservatively and
+    leaves out stress gradient support at the new notch.
+  surface_Rz_um: 6.3
+  fatigue_safety: 1.5
+  cast_quality_factor: 1.25
+  cycles: 10000000
+contact:
+  source_url: https://www.schaeffler.com/remotemedien/media/_shared_media/08_media_library/01_publications/schaeffler_2/catalogue_1/downloads_6/stt_de_de.pdf
+  previous_screen_url: file:../T-2.2h/sources.yaml
+  mean_screen_MPa:
+    unhardened_forging: 70
+    hardened_forging: 100
+    cast_steel: 80
+  note: >-
+    Project screen based on pulsating keyed-joint pressures. The mean
+    footprint comparison cannot qualify edge pressure or actual material pair.
+software:
+  gmsh_url: https://gmsh.info/doc/texinfo/gmsh.html
+  calculix_url: https://www.dhondt.de/
+  geometry_replay_url: file:../T-2.2h/fea/window_geometry.py
+
