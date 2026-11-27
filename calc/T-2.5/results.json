@@ -1,0 +1,3384 @@
+{
+  "task": "T-2.5",
+  "metrics": {
+    "task": "T-2.5",
+    "round": 2,
+    "status": "STOP",
+    "stop_reason": "MASS_REDUCTION_BELOW_170_KG",
+    "station_base_kg": 1780.5629715638913,
+    "station_card_base_kg": 1731.5629715638913,
+    "station_t25_kg": 1780.5629715638913,
+    "reduction_kg": 0.0,
+    "mass_acceptance_minimum_kg": 170,
+    "mass_reduction_target_kg": 230,
+    "group_reduction_kg": {
+      "A": 0.0,
+      "B": 132.81861100270953,
+      "C": 230.6285799654193
+    },
+    "cumulative_reduction_kg": {
+      "A": 0.0,
+      "A_B": 132.81861100270953,
+      "A_B_C": 363.44719096812884
+    },
+    "groups_B_and_C_basis": "Известные оценки. C — верхняя оценка экономии при внешней воде, без остаточной массы арматуры и воды.",
+    "accumulators_correction_kg": 30,
+    "machine_A_kg_range": [
+      5223.275449245492,
+      5266.630367010522
+    ],
+    "machine_A_corrected_kg_range": [
+      5253.275449245492,
+      5296.630367010522
+    ],
+    "machine_A_after_groups_kg_range": {
+      "A": {
+        "machine_A_kg_range": [
+          5223.275449245492,
+          5266.630367010522
+        ],
+        "machine_A_corrected_kg_range": [
+          5253.275449245492,
+          5296.630367010522
+        ]
+      },
+      "A_B": {
+        "machine_A_kg_range": [
+          5090.456838242782,
+          5133.811756007812
+        ],
+        "machine_A_corrected_kg_range": [
+          5120.456838242782,
+          5163.811756007812
+        ]
+      },
+      "A_B_C": {
+        "machine_A_kg_range": [
+          4859.828258277364,
+          4903.183176042393
+        ],
+        "machine_A_corrected_kg_range": [
+          4889.828258277364,
+          4933.183176042393
+        ]
+      }
+    },
+    "heat_nominal_kW": 20.00513366358588,
+    "heat_adverse_kW": 19.34282391303092,
+    "cooling_required_kW": 26.43,
+    "cooling_dirty_kW": 26.48994642857142,
+    "cooling_reduction_kg": 0.0,
+    "installed_kW": 34.068000000000005,
+    "oil_volume_L": 190,
+    "T0_sizing_screen_minimum_L": 205.32024908168015,
+    "TF_gross_L": 80,
+    "TF_oil_L": 55,
+    "TF_nominal_gauge_bar": 0.6,
+    "TF_half_band_bar": 0.050000000000000044,
+    "cycle_nominal_s": 5.903749999999025,
+    "cycle_adverse_s": 6.1934374999989155,
+    "rms_kW": 29.986749722581077,
+    "rms_adverse_kW": 29.372565943813104,
+    "peak_kW": 38.310810810810814
+  },
+  "station_mass": {
+    "T16_kg": 1655.3316041305181,
+    "T26_delta_kg": 76.23136743337324,
+    "csv_roundoff_kg": -4.3337323063497024e-07,
+    "station_base_kg": 1780.5629715638913,
+    "T16_rows": [
+      {
+        "id": "T16-01",
+        "part": "Мотор, насос, муфта",
+        "mass_kg": 368,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "T-1.4b mass breakdown; OMEC and Parker data sheets; coupling in skid hardware"
+      },
+      {
+        "id": "T16-02",
+        "part": "Основной бак",
+        "mass_kg": 94.756,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Envelope 900×700×400 mm, sheet 4 mm and 15 kg for baffles, fittings and mounts"
+      },
+      {
+        "id": "T16-03",
+        "part": "Основное масло",
+        "mass_kg": 165.3,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Initial main tank inventory × oil density; cylinder fill already carried with cylinders"
+      },
+      {
+        "id": "T16-04",
+        "part": "ГА обоих контуров",
+        "mass_kg": 64,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "HYDAC SB330 table and T-1.4b mass breakdown"
+      },
+      {
+        "id": "T16-05",
+        "part": "Охладитель с вентилятором",
+        "mass_kg": 173.4,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "asa ASA0567AA47 EU × 2; 8 kg for removable mats, branch instruments and mounts"
+      },
+      {
+        "id": "T16-06",
+        "part": "Рама станции",
+        "mass_kg": 42.35456,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "2×900 + 4×700 mm RHS 80×40×4, 10 kg feet/motor plate/mounting hardware, transport to verify"
+      },
+      {
+        "id": "T16-07",
+        "part": "Картриджи 2WRCE",
+        "mass_kg": 262.9,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Circuit inventory × masses in RE 29406, NG32/40/50"
+      },
+      {
+        "id": "T16-08",
+        "part": "Коллекторы, малая арматура и защита",
+        "mass_kg": 128,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Project allowance including DB, gate valve, LC/LFA, SAF bodies, sensors and safety cartridges"
+      },
+      {
+        "id": "T16-09",
+        "part": "Фильтры, трубы, вспомогательные насосы",
+        "mass_kg": 75,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Project allowance for wider return and separate cooling loop"
+      },
+      {
+        "id": "T16-10",
+        "part": "ZSF NG100",
+        "mass_kg": 15,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "RE 20478 and T-1.4b"
+      },
+      {
+        "id": "T16-11",
+        "part": "Локальный бак и его масло",
+        "mass_kg": 66.53999999999999,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Separated 65 L vessel assembly estimated at 30 kg; 42 L of oil"
+      },
+      {
+        "id": "T16-12",
+        "part": "Местные линии наполнения",
+        "mass_kg": 24,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Engineering allowance for Ø125/100 and matching supports as already reserved in T-1.4b"
+      },
+      {
+        "id": "T16-13",
+        "part": "Клапаны плавания и подпитки",
+        "mass_kg": 28.400000000000002,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "RE 21040 and RE 21010. Both check inserts in the shared manifold with its own cover allowance."
+      },
+      {
+        "id": "T16-14",
+        "part": "Седло регенерации",
+        "mass_kg": 9.3,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "RE 21010 LC/LFA NG40"
+      },
+      {
+        "id": "T16-15",
+        "part": "Масляный предохранительный TF",
+        "mass_kg": 48.5,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Goetze Series 455 DN65/100 gastight catalogued mass"
+      },
+      {
+        "id": "T16-16",
+        "part": "monitored_unloader_and_adapter",
+        "mass_kg": 13.881044130518074,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly; separate 2 m steel Ø16/12 drain and fittings"
+      },
+      {
+        "id": "T16-17",
+        "part": "float_common_cover_and_mounts",
+        "mass_kg": 26.0,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Two standard LFA NG50 (RE 21010 p. 6); retain predecessor allowance for mounts"
+      },
+      {
+        "id": "T16-18",
+        "part": "TF_relief_flange_and_return_support",
+        "mass_kg": 5,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly"
+      },
+      {
+        "id": "T16-19",
+        "part": "emergency_dump_poppets_and_returns",
+        "mass_kg": 22,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly"
+      },
+      {
+        "id": "T16-20",
+        "part": "pilot_tandem_and_feedback",
+        "mass_kg": 23,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly"
+      }
+    ],
+    "T26_rows": [
+      {
+        "id": "T26-ZSF",
+        "part": "Rexroth ZSF NG100, without pre-decompression",
+        "qty": 1,
+        "dry_kg": 15,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20478.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-MF",
+        "part": "Rexroth 2WRCE NG50 2K7L WK E",
+        "qty": 1,
+        "dry_kg": 35,
+        "oil_kg": 0.0,
+        "mass_kg": 0,
+        "source": "https://store.livhaven.com/uploads/rexroth_pdfs/RE_29406_2021-06.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-MBT",
+        "part": "Rexroth 2WRCE NG40 1K8L WK E",
+        "qty": 1,
+        "dry_kg": 23.9,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://store.livhaven.com/uploads/rexroth_pdfs/RE_29406_2021-06.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-LR",
+        "part": "Rexroth 2WRCE NG32 1K1L K",
+        "qty": 1,
+        "dry_kg": 15.6,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://store.livhaven.com/uploads/rexroth_pdfs/RE_29406_2021-06.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-MC",
+        "part": "Rexroth LC80 A00 + LFA80",
+        "qty": 1,
+        "dry_kg": 40,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-VR",
+        "part": "Rexroth 4WRLE25 E1-400",
+        "qty": 1,
+        "dry_kg": 19,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://store.livhaven.com/uploads/rexroth_pdfs/RE%2029123_2023-03.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-SAL_SAX",
+        "part": "HYDAC SAF32E with G2/G1¼ adapters to verify",
+        "qty": 2,
+        "dry_kg": 24.8,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://www.hydac.com.au/media/productattach/e/n/en3551-25-05-24_saf-dsv.pdf?20260211=",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-GA_LP",
+        "part": "HYDAC SB330 20 L 3047174",
+        "qty": 1,
+        "dry_kg": 63,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-AX",
+        "part": "HYDAC SB330 10 L 3047170",
+        "qty": 1,
+        "dry_kg": 31,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://www.hydac.com.au/media/catalog/brochure/e/n/en30000-6-04-21_accumulatortechnology-productcatalogue.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-cap_fill_pipe",
+        "part": "EN 10220 133×4 (ID 125)",
+        "qty": 1,
+        "dry_kg": 12.7,
+        "oil_kg": 10.676506283684063,
+        "mass_kg": 0.0,
+        "source": "https://www.rff.de/_uploads/files/produkte/kataloge/rff_Basics-2019_E.pdf",
+        "basis": "catalogue unit mass, layout length",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-annular_fill_pipe",
+        "part": "EN 10220 108×4 (ID 100), PF side",
+        "qty": 1,
+        "dry_kg": 10.3,
+        "oil_kg": 6.8329640215578005,
+        "mass_kg": 0.0,
+        "source": "https://www.rff.de/_uploads/files/produkte/kataloge/rff_Basics-2019_E.pdf",
+        "basis": "catalogue unit mass, layout length",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-PF_sensor",
+        "part": "ifm PI1705, −1…4 bar",
+        "qty": 1,
+        "dry_kg": 0.3599,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://media.ifm.com/dam/a8954022-2041-425a-8712-86ccfa92bed3/Original/PI1705-01_EN-GB.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-RA_RB_sensors",
+        "part": "Rexroth HM20-2X/400-C-K35-N",
+        "qty": 2,
+        "dry_kg": 0.12,
+        "oil_kg": 0.0,
+        "mass_kg": 0.12,
+        "source": "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/proportional_electronics/re30272-2.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_valves",
+        "part": "Rexroth LC25 + LFA25, bridge RB→RA and cutoff RB→tank",
+        "qty": 2,
+        "dry_kg": 5.6,
+        "oil_kg": 0.0,
+        "mass_kg": 5.6,
+        "source": "https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_pilots",
+        "part": "Rexroth 4WE6, 24 V DC single coil",
+        "qty": 2,
+        "dry_kg": 2.9,
+        "oil_kg": 0.0,
+        "mass_kg": 2.9,
+        "source": "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/directional_valves/re23178.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_housings",
+        "part": "Parker CB025A16510W ISO 7368 (fit/pilot port routing to verify)",
+        "qty": 2,
+        "dry_kg": 22,
+        "oil_kg": 0.0,
+        "mass_kg": 22.0,
+        "source": "https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_routes",
+        "part": "STAUFF E355 38×5, 2030043517",
+        "qty": 1,
+        "dry_kg": 4.884,
+        "oil_kg": 0.6428452551481579,
+        "mass_kg": 5.526845255148158,
+        "source": "https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf",
+        "basis": "catalogue unit mass, layout length",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-lp_eject_route",
+        "part": "STAUFF E355 38×5, 2030043517, LR→RA",
+        "qty": 1,
+        "dry_kg": 4.884,
+        "oil_kg": 0.6428452551481579,
+        "mass_kg": 5.526845255148158,
+        "source": "https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf",
+        "basis": "catalogue unit mass, layout length",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-LRC",
+        "part": "Rexroth LC32 + LFA32 (moved to RA for LP ejection)",
+        "qty": 1,
+        "dry_kg": 5.1,
+        "oil_kg": 0.0,
+        "mass_kg": 0.0,
+        "source": "https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-MF_housing",
+        "part": "MF housing with RE 29406 installation bore",
+        "qty": 1,
+        "dry_kg": 48.3246,
+        "oil_kg": 0.0,
+        "mass_kg": 16.324599999999997,
+        "source": "https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf",
+        "basis": "Double-B casting/blank envelopes RE 29406 page 32, adds space for both Ø70 radial ports. Use gross blank mass for new housing and CB050 as previous single-B housing estimate. Parker mass of the single-port block is a proxy, with fit and CAD to verify.",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-TF",
+        "part": "REV separated reservoir with N2 regulation",
+        "qty": 1,
+        "dry_kg": 36.92307692307692,
+        "oil_kg": 47.85,
+        "mass_kg": 18.233076923076922,
+        "source": "calc/T-1.6/sources.yaml",
+        "basis": "Proportional-to-gross-volume allowance from T-1.6; the vessel and membrane are to order.",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      }
+    ],
+    "accumulators": {
+      "T16_booked_LP_kg": 49,
+      "T16_booked_AX_kg": 15,
+      "T16_kg": 64,
+      "T16_LP_part_no": "3047174",
+      "T16_booked_AX_part_no": "3047166",
+      "T16_circuit_AX_part_no": "3047170",
+      "LP_design_kg": 63,
+      "AX_design_kg": 31,
+      "LP_catalogue_weight_disagreement_kg": 14,
+      "AX_legacy_to_actual_kg": 16,
+      "total_correction_kg": 30,
+      "LP_design_part_no": "3047174",
+      "AX_design_part_no": "3047170",
+      "SAL_and_SAX_dry_kg": 24.8,
+      "SAL_SAX_booked_in": "T16-08",
+      "source_legacy": "calc/T-1.4b/sources.yaml",
+      "source_T26": "calc/T-2.6/inventory.csv",
+      "source_LP_part": "https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174",
+      "source_HYDAC_catalogue": "https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf"
+    },
+    "reference_mass_checks": {
+      "A4VSO_package_delta_vs_T16_kg": 19.0,
+      "A4VSO_source": "calc/T-2.1/results.json",
+      "T21_machine_reference_kg": 4942.331604130518,
+      "A4VSO_package_included_in_4942p65_kg": true
+    },
+    "card_station_base_kg": 1731.5629715638913,
+    "baseline_motor_kg": 278,
+    "installed_rows": [
+      {
+        "id": "T25-M1",
+        "part": "OMEC OMT3-IE3-200L-4 B5",
+        "mass_kg": 278,
+        "source": "https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf",
+        "replaces_or_adjusts": "T16-01"
+      },
+      {
+        "id": "T25-P1",
+        "part": "Rexroth A4VSO180 /30 без проходного вала",
+        "mass_kg": 102,
+        "source": "https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf",
+        "replaces_or_adjusts": "T16-01"
+      },
+      {
+        "id": "T25-P1_DFE1Z",
+        "part": "Резерв на регулятор DFE1Z и адаптер",
+        "mass_kg": 7,
+        "source": "calc/T-2.1/results.json",
+        "replaces_or_adjusts": "T16-01"
+      },
+      {
+        "id": "T16-02",
+        "part": "Основной бак",
+        "mass_kg": 94.756,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Envelope 900×700×400 mm, sheet 4 mm and 15 kg for baffles, fittings and mounts"
+      },
+      {
+        "id": "T16-03",
+        "part": "Основное масло",
+        "mass_kg": 165.3,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Initial main tank inventory × oil density; cylinder fill already carried with cylinders"
+      },
+      {
+        "id": "T25-ALP",
+        "part": "LP — HYDAC SB330 20 L 3047174",
+        "mass_kg": 63,
+        "source": "https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174",
+        "replaces_or_adjusts": "T16-04",
+        "pressure_bar": 330
+      },
+      {
+        "id": "T25-AX",
+        "part": "AX — HYDAC SB330 10 L 3047170",
+        "mass_kg": 31,
+        "source": "https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf",
+        "replaces_or_adjusts": "T16-04",
+        "pressure_bar": 330
+      },
+      {
+        "id": "T25-E1_E2",
+        "part": "2 × ASA0567AA47 0,75 кВт 50 Гц",
+        "mass_kg": 165.4,
+        "source": "https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf",
+        "replaces_or_adjusts": "T16-05",
+        "qty": 2,
+        "unit_mass_kg": 82.7
+      },
+      {
+        "id": "T25-E_hardware",
+        "part": "Датчики ветвей, крепления и съёмные маты",
+        "mass_kg": 8.0,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "replaces_or_adjusts": "T16-05"
+      },
+      {
+        "id": "T16-06",
+        "part": "Рама станции",
+        "mass_kg": 42.35456,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "2×900 + 4×700 mm RHS 80×40×4, 10 kg feet/motor plate/mounting hardware, transport to verify",
+        "composition": "RHS 80×40×4, опоры, колокол/муфта и крепёж в ведомости."
+      },
+      {
+        "id": "T16-07",
+        "part": "Картриджи 2WRCE",
+        "mass_kg": 262.9,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Circuit inventory × masses in RE 29406, NG32/40/50",
+        "composition": "MF NG50, MBT NG40, LR NG32 и остальные 2WRCE; штатные массы корпусов относятся к ведомости T-1.6."
+      },
+      {
+        "id": "T16-08",
+        "part": "Коллекторы, малая арматура и защита",
+        "mass_kg": 128,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Project allowance including DB, gate valve, LC/LFA, SAF bodies, sensors and safety cartridges",
+        "composition": "В том числе SAF32E SAL/SAX 24,8 кг за пару до адаптеров. T-2.6 считает ранний корпус MF 32 кг уже учтённым. Привязку корпуса к этой строке проверить при деталировке."
+      },
+      {
+        "id": "T16-09",
+        "part": "Фильтры, трубы, вспомогательные насосы",
+        "mass_kg": 75,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Project allowance for wider return and separate cooling loop",
+        "composition": "F1, FX, F2, линии станции, вспомогательные насосы и PC. Строка проектного резерва."
+      },
+      {
+        "id": "T16-10",
+        "part": "ZSF NG100",
+        "mass_kg": 15,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "RE 20478 and T-1.4b"
+      },
+      {
+        "id": "T25-TF_dry",
+        "part": "TF 80 л, разделитель и регулятор",
+        "mass_kg": 36.92307692307692,
+        "source": "calc/T-2.6/inventory.csv",
+        "replaces_or_adjusts": "T16-11",
+        "basis": "Проектный резерв, масса сосуда и мембраны уточняется заказом."
+      },
+      {
+        "id": "T25-TF_oil",
+        "part": "Масло TF 55 л",
+        "mass_kg": 47.85,
+        "source": "calc/T-2.6/inventory.csv",
+        "replaces_or_adjusts": "T16-11"
+      },
+      {
+        "id": "T16-12",
+        "part": "Местные линии наполнения",
+        "mass_kg": 24,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Engineering allowance for Ø125/100 and matching supports as already reserved in T-1.4b",
+        "composition": "Две местные линии наполнения 133×4 и 108×4, крепёж по унаследованной строке."
+      },
+      {
+        "id": "T16-13",
+        "part": "Клапаны плавания и подпитки",
+        "mass_kg": 28.400000000000002,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "RE 21040 and RE 21010. Both check inserts in the shared manifold with its own cover allowance.",
+        "composition": "Седла плавания и подпитки, включая MC по ведомости T-2.6 без добавочной массы."
+      },
+      {
+        "id": "T16-14",
+        "part": "Седло регенерации",
+        "mass_kg": 9.3,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "RE 21010 LC/LFA NG40",
+        "composition": "LC/LFA NG40, седло регенерации."
+      },
+      {
+        "id": "T16-15",
+        "part": "Масляный предохранительный TF",
+        "mass_kg": 48.5,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Goetze Series 455 DN65/100 gastight catalogued mass",
+        "composition": "Goetze 455 DN65/100 F, уставка 1,9 бар."
+      },
+      {
+        "id": "T16-16",
+        "part": "monitored_unloader_and_adapter",
+        "mass_kg": 13.881044130518074,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly; separate 2 m steel Ø16/12 drain and fittings",
+        "composition": "Контролируемый разгрузчик ZU/ZUP, адаптер, отдельный дренаж."
+      },
+      {
+        "id": "T16-17",
+        "part": "float_common_cover_and_mounts",
+        "mass_kg": 26.0,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Two standard LFA NG50 (RE 21010 p. 6); retain predecessor allowance for mounts",
+        "composition": "Крышки LFA NG50 и их крепления."
+      },
+      {
+        "id": "T16-18",
+        "part": "TF_relief_flange_and_return_support",
+        "mass_kg": 5,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly",
+        "composition": "Фланец штатного RTF и опоры возврата."
+      },
+      {
+        "id": "T16-19",
+        "part": "emergency_dump_poppets_and_returns",
+        "mass_kg": 22,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly",
+        "composition": "Аварийные клапаны ME1/ME2/MEB и раздельные возвраты."
+      },
+      {
+        "id": "T16-20",
+        "part": "pilot_tandem_and_feedback",
+        "mass_kg": 23,
+        "source": "calc/T-1.6/results.json#mass.station_rows",
+        "basis": "Round-two engineering allowance; weigh actual procurement assembly",
+        "composition": "Тандем PX/PXA и контроль состояний."
+      },
+      {
+        "id": "T26-RA_RB_sensors",
+        "part": "Rexroth HM20-2X/400-C-K35-N",
+        "qty": 2,
+        "dry_kg": 0.12,
+        "oil_kg": 0.0,
+        "mass_kg": 0.12,
+        "source": "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/proportional_electronics/re30272-2.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_valves",
+        "part": "Rexroth LC25 + LFA25, bridge RB→RA and cutoff RB→tank",
+        "qty": 2,
+        "dry_kg": 5.6,
+        "oil_kg": 0.0,
+        "mass_kg": 5.6,
+        "source": "https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_pilots",
+        "part": "Rexroth 4WE6, 24 V DC single coil",
+        "qty": 2,
+        "dry_kg": 2.9,
+        "oil_kg": 0.0,
+        "mass_kg": 2.9,
+        "source": "https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/directional_valves/re23178.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_housings",
+        "part": "Parker CB025A16510W ISO 7368 (fit/pilot port routing to verify)",
+        "qty": 2,
+        "dry_kg": 22,
+        "oil_kg": 0.0,
+        "mass_kg": 22.0,
+        "source": "https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf",
+        "basis": "catalogue",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-regen_routes",
+        "part": "STAUFF E355 38×5, 2030043517",
+        "qty": 1,
+        "dry_kg": 4.884,
+        "oil_kg": 0.6428452551481579,
+        "mass_kg": 5.526845255148158,
+        "source": "https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf",
+        "basis": "catalogue unit mass, layout length",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-lp_eject_route",
+        "part": "STAUFF E355 38×5, 2030043517, LR→RA",
+        "qty": 1,
+        "dry_kg": 4.884,
+        "oil_kg": 0.6428452551481579,
+        "mass_kg": 5.526845255148158,
+        "source": "https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf",
+        "basis": "catalogue unit mass, layout length",
+        "ledger_source": "calc/T-2.6/inventory.csv"
+      },
+      {
+        "id": "T26-MF_housing",
+        "part": "MF housing with RE 29406 installation bore",
+        "qty": 1,
+        "dry_kg": 48.3246,
+        "oil_kg": 0.0,
+        "mass_kg": 16.324599999999997,
+        "source": "https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf",
+        "basis": "Double-B casting/blank envelopes RE 29406 page 32, adds space for both Ø70 radial ports. Use gross blank mass for new housing and CB050 as previous single-B housing estimate. Parker mass of the single-port block is a proxy, with fit and CAD to verify.",
+        "ledger_source": "calc/T-2.6/inventory.csv",
+        "composition": "Разность 48,3246 и 32 кг. Базовый корпус учтён в смете узла."
+      }
+    ]
+  },
+  "machine_mass": {
+    "machine_reference_kg": 4942.65,
+    "station_booked_in_machine_reference_kg": 1674.3316041305181,
+    "station_booked_in_machine_with_T26_delta_kg": 1750.5629715638913,
+    "machine_reference_plus_hydraulics_kg": 5018.881367433373,
+    "exact_machine_reference_kg": 4942.654131609759,
+    "T17c_machine_kg": 4884.882412051302,
+    "T17d_machine_kg": 4923.405700364904,
+    "machine_A_kg_range": [
+      5223.275449245492,
+      5266.630367010522
+    ],
+    "A_variants": {
+      "with_collar_and_gross_old_front_removal": {
+        "machine_before_lightening_kg": 5223.275449245492,
+        "structural_and_H2_delta_kg": 204.39408181211917,
+        "needed_to_machine_limit_kg": 223.27544924549238,
+        "reference_difference_kg": 0.0,
+        "machine_with_GA_correction_kg": 5253.275449245492
+      },
+      "with_end_collar": {
+        "machine_before_lightening_kg": 5266.630367010522,
+        "structural_and_H2_delta_kg": 247.7489995771482,
+        "needed_to_machine_limit_kg": 266.6303670105217,
+        "reference_difference_kg": 9.094947017729282e-13,
+        "machine_with_GA_correction_kg": 5296.630367010522
+      },
+      "without_end_collar": {
+        "machine_before_lightening_kg": 5232.173995825275,
+        "structural_and_H2_delta_kg": 213.29262839190147,
+        "needed_to_machine_limit_kg": 232.1739958252747,
+        "reference_difference_kg": 0.0,
+        "machine_with_GA_correction_kg": 5262.173995825275
+      }
+    },
+    "station_booked_in_machine_with_GA_correction_kg": 1780.5629715638913,
+    "machine_reference_plus_hydraulics_and_GA_kg": 5048.881367433373,
+    "machine_A_corrected_kg_range": [
+      5253.275449245492,
+      5296.630367010522
+    ]
+  },
+  "tank": {
+    "nominal_oil_L": 190,
+    "density_kg_m3": 870,
+    "tank_dims_mm": [
+      900,
+      700,
+      400
+    ],
+    "gross_L": 252.0,
+    "low_trip_L": 130,
+    "high_trip_L": 205,
+    "reserve_L": 10,
+    "stop": {
+      "source": "design/hydraulics/T-1.6_interlocks.yaml",
+      "cases": {
+        "nominal": {
+          "running_T0_L_range": [
+            166.90249195100398,
+            192.26735833333308
+          ],
+          "worst_stop": {
+            "phase": "neutral",
+            "oil_after_stop_upper_L": 201.38745388049105,
+            "decompression_oil_bound_L": 0.7303122451563834,
+            "T0_offset_with_LP_dump_L": 6.439145692627625,
+            "trigger_s": 0.0003125,
+            "main_position_mm": 0.0,
+            "MA_MB_oil_L": 16.229161003475188
+          },
+          "stop_trigger_samples": 18830,
+          "stop_phases": [
+            {
+              "phase": "neutral",
+              "oil_after_stop_upper_L": 201.38745388049105,
+              "decompression_oil_bound_L": 0.7303122451563834,
+              "T0_offset_with_LP_dump_L": 6.439145692627625,
+              "trigger_s": 0.0003125,
+              "main_position_mm": 0.0,
+              "MA_MB_oil_L": 16.229161003475188
+            },
+            {
+              "phase": "pre_down",
+              "oil_after_stop_upper_L": 201.3872653073977,
+              "decompression_oil_bound_L": 0.7303122451563834,
+              "T0_offset_with_LP_dump_L": 6.438957119534292,
+              "trigger_s": 0.0703125,
+              "main_position_mm": 0.0,
+              "MA_MB_oil_L": 16.229161003475188
+            },
+            {
+              "phase": "prefill",
+              "oil_after_stop_upper_L": 200.72490401447232,
+              "decompression_oil_bound_L": 0.7303125498892404,
+              "T0_offset_with_LP_dump_L": 5.776595521876005,
+              "trigger_s": 0.6765625,
+              "main_position_mm": 0.00021555440235162054,
+              "MA_MB_oil_L": 16.229167775316455
+            },
+            {
+              "phase": "close_prefill_and_compress",
+              "oil_after_stop_upper_L": 200.3336592628742,
+              "decompression_oil_bound_L": 0.9503877226631435,
+              "T0_offset_with_LP_dump_L": 5.165275597503986,
+              "trigger_s": 1.21125,
+              "main_position_mm": 155.67155599337823,
+              "MA_MB_oil_L": 21.11972717029208
+            },
+            {
+              "phase": "regen",
+              "oil_after_stop_upper_L": 200.33365097937795,
+              "decompression_oil_bound_L": 0.9503880678088209,
+              "T0_offset_with_LP_dump_L": 5.1652669688620545,
+              "trigger_s": 1.2578125,
+              "main_position_mm": 155.67180013400323,
+              "MA_MB_oil_L": 21.11973484019602
+            },
+            {
+              "phase": "press",
+              "oil_after_stop_upper_L": 199.00254090861458,
+              "decompression_oil_bound_L": 1.0058509874239596,
+              "T0_offset_with_LP_dump_L": 3.7786939784835596,
+              "trigger_s": 1.7196875,
+              "main_position_mm": 194.90379042314893,
+              "MA_MB_oil_L": 22.35224416497688
+            },
+            {
+              "phase": "press/interlock",
+              "oil_after_stop_upper_L": 198.04749191867572,
+              "decompression_oil_bound_L": 1.0456446953380778,
+              "T0_offset_with_LP_dump_L": 2.783851280630583,
+              "trigger_s": 2.61875,
+              "main_position_mm": 223.05208072753547,
+              "MA_MB_oil_L": 23.23654878529062
+            },
+            {
+              "phase": "lp_charge",
+              "oil_after_stop_upper_L": 201.38745388049088,
+              "decompression_oil_bound_L": 0.7303122451564282,
+              "T0_offset_with_LP_dump_L": 6.439145692627398,
+              "trigger_s": 5.2640625,
+              "main_position_mm": 3.171862772433087e-11,
+              "MA_MB_oil_L": 16.229161003476182
+            },
+            {
+              "phase": "gate_open",
+              "oil_after_stop_upper_L": 198.09572465759064,
+              "decompression_oil_bound_L": 1.0502617948869564,
+              "T0_offset_with_LP_dump_L": 2.8274669199966143,
+              "trigger_s": 3.6184375,
+              "main_position_mm": 226.31801057620834,
+              "MA_MB_oil_L": 23.33915099748792
+            },
+            {
+              "phase": "eject",
+              "oil_after_stop_upper_L": 198.09572427916746,
+              "decompression_oil_bound_L": 1.050262007749998,
+              "T0_offset_with_LP_dump_L": 2.827466328710389,
+              "trigger_s": 3.68875,
+              "main_position_mm": 226.3181611460095,
+              "MA_MB_oil_L": 23.339155727777733
+            },
+            {
+              "phase": "pre_up",
+              "oil_after_stop_upper_L": 197.96480513310428,
+              "decompression_oil_bound_L": 1.2548011386732196,
+              "T0_offset_with_LP_dump_L": 2.492008051723979,
+              "trigger_s": 4.2403125,
+              "main_position_mm": 371.0000000000143,
+              "MA_MB_oil_L": 27.88446974829377
+            },
+            {
+              "phase": "return/interlock",
+              "oil_after_stop_upper_L": 197.96753351921325,
+              "decompression_oil_bound_L": 1.2548011386732196,
+              "T0_offset_with_LP_dump_L": 2.4947364378329437,
+              "trigger_s": 4.245,
+              "main_position_mm": 371.0000000000143,
+              "MA_MB_oil_L": 27.88446974829377
+            },
+            {
+              "phase": "return",
+              "oil_after_stop_upper_L": 201.38745388049088,
+              "decompression_oil_bound_L": 0.7303122451564282,
+              "T0_offset_with_LP_dump_L": 6.439145692627398,
+              "trigger_s": 5.19375,
+              "main_position_mm": 3.171862772433087e-11,
+              "MA_MB_oil_L": 16.229161003476182
+            }
+          ]
+        },
+        "adverse": {
+          "running_T0_L_range": [
+            166.8510501191412,
+            192.17332651050558
+          ],
+          "worst_stop": {
+            "phase": "neutral",
+            "oil_after_stop_upper_L": 201.38745388049105,
+            "decompression_oil_bound_L": 0.7303122451563834,
+            "T0_offset_with_LP_dump_L": 6.439145692627625,
+            "trigger_s": 0.0003125,
+            "main_position_mm": 0.0,
+            "MA_MB_oil_L": 16.229161003475188
+          },
+          "stop_trigger_samples": 19755,
+          "stop_phases": [
+            {
+              "phase": "neutral",
+              "oil_after_stop_upper_L": 201.38745388049105,
+              "decompression_oil_bound_L": 0.7303122451563834,
+              "T0_offset_with_LP_dump_L": 6.439145692627625,
+              "trigger_s": 0.0003125,
+              "main_position_mm": 0.0,
+              "MA_MB_oil_L": 16.229161003475188
+            },
+            {
+              "phase": "pre_down",
+              "oil_after_stop_upper_L": 201.38726531187342,
+              "decompression_oil_bound_L": 0.7303122451563834,
+              "T0_offset_with_LP_dump_L": 6.438957124009983,
+              "trigger_s": 0.0853125,
+              "main_position_mm": 0.0,
+              "MA_MB_oil_L": 16.229161003475188
+            },
+            {
+              "phase": "prefill",
+              "oil_after_stop_upper_L": 200.72490401534844,
+              "decompression_oil_bound_L": 0.7303125493964153,
+              "T0_offset_with_LP_dump_L": 5.776595523244966,
+              "trigger_s": 0.7090625,
+              "main_position_mm": 0.000215205799898484,
+              "MA_MB_oil_L": 16.229167764364785
+            },
+            {
+              "phase": "close_prefill_and_compress",
+              "oil_after_stop_upper_L": 200.3336592628742,
+              "decompression_oil_bound_L": 0.9503877226631435,
+              "T0_offset_with_LP_dump_L": 5.165275597503982,
+              "trigger_s": 1.2615625,
+              "main_position_mm": 155.67155599337823,
+              "MA_MB_oil_L": 21.11972717029208
+            },
+            {
+              "phase": "regen",
+              "oil_after_stop_upper_L": 200.33365097937795,
+              "decompression_oil_bound_L": 0.9503880678088209,
+              "T0_offset_with_LP_dump_L": 5.16526696886205,
+              "trigger_s": 1.3084375,
+              "main_position_mm": 155.67180013400323,
+              "MA_MB_oil_L": 21.11973484019602
+            },
+            {
+              "phase": "press",
+              "oil_after_stop_upper_L": 199.00254092271098,
+              "decompression_oil_bound_L": 1.0058509868366108,
+              "T0_offset_with_LP_dump_L": 3.7786939931673214,
+              "trigger_s": 1.798125,
+              "main_position_mm": 194.9037900076847,
+              "MA_MB_oil_L": 22.352244151924687
+            },
+            {
+              "phase": "press/interlock",
+              "oil_after_stop_upper_L": 198.0814953409278,
+              "decompression_oil_bound_L": 1.0442278860775764,
+              "T0_offset_with_LP_dump_L": 2.8192715121431666,
+              "trigger_s": 2.6821875,
+              "main_position_mm": 222.04989318430376,
+              "MA_MB_oil_L": 23.205064135057256
+            },
+            {
+              "phase": "lp_charge",
+              "oil_after_stop_upper_L": 201.38745388048903,
+              "decompression_oil_bound_L": 0.7303122451564237,
+              "T0_offset_with_LP_dump_L": 6.439145692625558,
+              "trigger_s": 5.56875,
+              "main_position_mm": 2.8535396268125623e-11,
+              "MA_MB_oil_L": 16.229161003476083
+            },
+            {
+              "phase": "gate_open",
+              "oil_after_stop_upper_L": 198.0957246575887,
+              "decompression_oil_bound_L": 1.0502617948869584,
+              "T0_offset_with_LP_dump_L": 2.827466919994694,
+              "trigger_s": 3.840625,
+              "main_position_mm": 226.31801057620976,
+              "MA_MB_oil_L": 23.339150997487963
+            },
+            {
+              "phase": "eject",
+              "oil_after_stop_upper_L": 198.0957242825867,
+              "decompression_oil_bound_L": 1.0502620058255971,
+              "T0_offset_with_LP_dump_L": 2.827466334054032,
+              "trigger_s": 3.9259375,
+              "main_position_mm": 226.3181597847744,
+              "MA_MB_oil_L": 23.33915568501327
+            },
+            {
+              "phase": "pre_up",
+              "oil_after_stop_upper_L": 201.38745388048903,
+              "decompression_oil_bound_L": 0.7303122451564237,
+              "T0_offset_with_LP_dump_L": 6.439145692625558,
+              "trigger_s": 5.4834375,
+              "main_position_mm": 2.8535396268125623e-11,
+              "MA_MB_oil_L": 16.229161003476083
+            },
+            {
+              "phase": "return/interlock",
+              "oil_after_stop_upper_L": 197.97882841514456,
+              "decompression_oil_bound_L": 1.2548011386732152,
+              "T0_offset_with_LP_dump_L": 2.5060313337642848,
+              "trigger_s": 4.5046875,
+              "main_position_mm": 371.00000000001114,
+              "MA_MB_oil_L": 27.88446974829367
+            },
+            {
+              "phase": "return",
+              "oil_after_stop_upper_L": 201.35494172675752,
+              "decompression_oil_bound_L": 0.7303122451564237,
+              "T0_offset_with_LP_dump_L": 6.406633538894015,
+              "trigger_s": 5.4534375,
+              "main_position_mm": 2.8535396268125623e-11,
+              "MA_MB_oil_L": 16.229161003476083
+            }
+          ]
+        }
+      },
+      "min_running_L": 166.8510501191412,
+      "max_stopped_L": 201.38745388049105,
+      "headroom_to_high_trip_L": 3.6125461195089485,
+      "max_nominal_initial_at_high_trip_L": 193.61254611950895,
+      "headroom_to_rim_L": 50.61254611950895,
+      "ax_discharge_bound_L": 3.079470198675497,
+      "nominal_braking_coast_m": 0.01849,
+      "nominal_braking_cap_volume_bound_L": 1.1385257440315553,
+      "control_sequence": "Снять момент P1, открыть ZU, закрыть MF/MBT и BAL, разрядить LP/AX через SAL/SAX, разгрузить MA/MB через аварийные линии в T0.",
+      "limitations": "Достоверны позиции штатного цикла и маршруты стопа. Объём после стопа — огибающая чувствительности, без измеренной задержки, остановочного перемещения, волны уровня, расширения и гравитационного дренажа. Массовый слив TF через RTF относится к отдельному отказу."
+    },
+    "suction": {
+      "provisional_required_oil_L": 205.32024908168015,
+      "min_pump_inlet_absolute_bar": 0.8,
+      "combined_P1_and_pilot_flow_L_min": 282.4,
+      "velocity_m_s": 0.5992714123886832,
+      "Froude": 0.6050469234011137,
+      "mouth_diameter_mm": 100.0,
+      "mouth_elevation_mm": 50,
+      "submergence_mm": 239.16079238225612,
+      "running_depth_mm": 264.84293669704954,
+      "available_loss_at_zero_flange_elevation_bar": 0.22260355011828303,
+      "cold_oil_DN100_Re": 103.32265730839366,
+      "cold_oil_DN100_straight_loss_bar_per_m": 0.009676555350122544,
+      "cold_oil_straight_equivalent_length_limit_m": 23.004420691446153,
+      "head_shortfall_at_min_running_mm": 24.31785568520658,
+      "flange_budget_rule": "Из бюджета вычесть ρg·z фланца над дном и потери сапуна. Сравнить с ΣK·ρv²/2, распределёнными и ускорительными потерями, холодной вязкостью и загрязнением.",
+      "qualified": false
+    },
+    "deaeration": {
+      "target_s": 30,
+      "main_and_pilot_mean_L_min": 180.5849321660541,
+      "level_with_separate_cooling_path_L": 113.44141596388583,
+      "level_with_shared_path_L": 203.44141596388585,
+      "estimated_residence_shared_min_level_s": 27.763398062729493,
+      "level_penalty_L": 23.148949880858783,
+      "construction": "Сохранить раздельные подуровневые диффузоры, перегородку и затопленный всас. Проверить эффективный объём, работу сетки при холодном масле и время до появления пузырей на всасе."
+    },
+    "level_minimum_initial_L": 153.1489498808588,
+    "sizing_screen_minimum_initial_L": 205.32024908168015,
+    "determining_screen": "заглубление всаса",
+    "reduced_oil_approved": false,
+    "structure": {
+      "side_sheet_mm": 3,
+      "cover_and_bottom_sheet_mm": 4,
+      "material": "S235JR",
+      "proposed_shell_kg": 85.83840000000001,
+      "side_sheet_savings_kg": 10.048000000000002,
+      "ribs_kg": 1.1304,
+      "ribs": {
+        "count": 4,
+        "section_mm": [
+          30,
+          3
+        ],
+        "length_each_mm": 400.0,
+        "included_in_bending_stiffness": false,
+        "layout": "Одно наружное ребро на стенку, смонтированное на ребро. Сверить место в пределах рамы.",
+        "potential_total_projection_growth_per_axis_mm": 60
+      },
+      "baffles_mounts_fittings_kg": 15,
+      "oil_depth_m": 0.30158730158730157,
+      "static": {
+        "pressure_kPa": 3.4138800000000007,
+        "bending_MPa": 45.518400000000014,
+        "deflection_mm": 2.408380952380953,
+        "yield_to_bending": 5.162747372491123
+      },
+      "flooded_transport": {
+        "pressure_kPa": 9.558864000000002,
+        "bending_MPa": 127.45152000000003,
+        "deflection_mm": 6.743466666666669,
+        "yield_to_bending": 1.8438383473182582
+      },
+      "lift": {
+        "screen_dynamic_factor": 1.3,
+        "effective_sling_legs": 2,
+        "vertical_per_leg_N": 11353.759788177154,
+        "sling_tension_N": 16056.64107636641,
+        "load_path": "Стропы за раму станции, бак опирается на её поперечины.",
+        "single_center_loaded_RHS_tank_weight_bound_N": 3202.7680152000007,
+        "RHS_strong_axis_stress_MPa": 31.517162157734532,
+        "RHS_weak_axis_stress_MPa": 48.725345650384845
+      },
+      "transport": {
+        "station_forward_N": 13973.85820083342,
+        "station_lateral_N": 8733.661375520887,
+        "nominal_transport_state": "T0 осушен, крепление за раму станции."
+      },
+      "pending": "Нужны замкнутые швы 3/4 мм, расчёт опор, проушин и креплений с фактическим центром тяжести, проверка вибраций, испытание на герметичность. Перегородки, крепление к днищу и посадки сохраняются."
+    },
+    "thermal": {
+      "oil_only_heat_capacity_kJ_K": 314.07,
+      "starting_oil_C": 40,
+      "heating_to_limit_without_cooling_s": 235.4920531510987,
+      "rise_after_10_min_dirty_K": 10.939857106627837,
+      "steady_oil_dirty_C": 51.327958165673465
+    },
+    "TF": {
+      "gross_L": 80,
+      "initial_oil_L": 55,
+      "min_initial_oil_L": 50.21638521836939,
+      "initial_margin_L": 4.783614781630611,
+      "nominal_gauge_bar": 0.6,
+      "regulation_half_band_bar": 0.050000000000000044,
+      "max_gauge_bar": 0.65,
+      "min_gauge_bar": 0.5499999999999999,
+      "separator": "Эластичный разделитель масла и азота, двухстороннее регулирование.",
+      "balance_nominal_L_min": 50,
+      "main_pump_inlet_is_separate": true
+    }
+  },
+  "heat": {
+    "cases": {
+      "nominal": {
+        "reference": {
+          "cycle_s": 5.903749999999025,
+          "shaft_energy_kJ": 166.1278284078058,
+          "integral_P2_kW2_s": 5308.682457000904,
+          "rms_kW": 29.986749722581077,
+          "peak_kW": 38.310810810810814,
+          "average_kW": 28.139373856927374,
+          "shaft_tolerance_multiplier": 1.0641891891891893,
+          "shaft_energy_kJ_by_header_phase": {
+            "neutral": 6.944055593312639,
+            "pre_down": 8.865083661718382,
+            "prefill": 14.424824919022848,
+            "close_prefill_and_compress": 0.5236041553983283,
+            "regen": 12.21444404870964,
+            "press": 41.731510383389605,
+            "lp_charge": 27.43732919097715,
+            "gate_open": 3.9922596135245914,
+            "eject": 10.489286644308603,
+            "pre_up": 3.4834621043316183,
+            "return": 35.25575187689617,
+            "handover": 0.7662162162162158
+          },
+          "integral_P2_kW2_s_by_header_phase": {
+            "neutral": 74.26839605707875,
+            "pre_down": 160.10261999995825,
+            "prefill": 476.54593794993855,
+            "close_prefill_and_compress": 6.063944027730733,
+            "regen": 395.025595547605,
+            "press": 1510.9145476128554,
+            "lp_charge": 839.0798666371857,
+            "gate_open": 107.66233021332037,
+            "eject": 306.1715405177935,
+            "pre_up": 93.82777499805186,
+            "return": 1309.665538939751,
+            "handover": 29.354364499634762
+          },
+          "pilot": {
+            "minimum_pilot_pressure_bar": 131.6792783373158,
+            "required_hot_oil_L_per_cycle": 0.8718010625000707,
+            "actual_delivery_L_per_cycle": 0.8710746245370363,
+            "available_charge_L_per_cycle": 0.8833996245370364,
+            "capacity_margin_L_per_cycle": 0.011598562036965633,
+            "last_cycle_inventory_change_L": -0.0007264379630340656,
+            "ax_usable_minimum_L": 0.5206713515122858,
+            "maximum_hot_connected_leak_L_min": 9.471000000000002,
+            "charge_stage_s": {
+              "PX": 5.683749999999996,
+              "PXA": 3.1837819444444455
+            },
+            "pilot_heat_kW": 4.331045953738988,
+            "pilot_incremental_shaft_kJ": 23.3259875493827,
+            "average_shaft_kW": 28.139373856927374,
+            "maximum_average_shaft_kW": 28.139373856927374,
+            "rms_shaft_kW": 29.986749722581077,
+            "peak_shaft_kW": 38.310810810810814,
+            "pilot_horizon_cycles": 200,
+            "highest_rms_pilot_cycle": 2,
+            "settled_end_inventory_range_L": [
+              1.0598099439815933,
+              1.0761943865717682
+            ],
+            "hot_balance_pass": true,
+            "reservation_s": 0.1,
+            "total_shift_budget_L": 0.42884
+          },
+          "charge": {
+            "volume_L": {
+              "lp_charge": 3.6370458333334255
+            },
+            "shaft_kJ": {
+              "lp_charge": 21.667322011923062
+            },
+            "peak_flow_L_min": {
+              "lp_charge": 263.7283165370562
+            }
+          }
+        },
+        "operating_point": {
+          "valve_s": 0.07,
+          "unload_s": 0.2,
+          "regulator_fraction": 1.0,
+          "rpm": 1480,
+          "oil_C": 50.0,
+          "tank_gauge_bar": null,
+          "viscosity_mm2_s": 30.09668395472232,
+          "viscosity_at_map_mm2_s": 30.09668395472232,
+          "leakage_multiplier": 1.0,
+          "programmed_main_limit_kW": 33.25
+        },
+        "accumulators": {
+          "lp": {
+            "effective_gas_volume_L": 18.4,
+            "precharge_bar": 28,
+            "minimum_setpoint_bar": 38,
+            "high_setpoint_bar": 52,
+            "minimum_cycle_gas_bar": 40.56544784785643,
+            "maximum_delivery_L_min": 180.0,
+            "useful_volume_L": 2.9297767116896383,
+            "peak_deficit_L": 2.2673583333333336,
+            "initial_oil_L": 6.439145692627625,
+            "delivered_L": 3.63704583333383,
+            "recharged_L": 3.6370458333334255,
+            "volume_balance_L": -4.0456527017340704e-13,
+            "delivered_L_by_motion": {
+              "pre_down": 1.3696875000000002,
+              "eject": 0.4318263710929647,
+              "pre_up": 1.381336700961273,
+              "gate_close": 0.45419526127944454
+            },
+            "peak_actual_delivery_L_min": 180.0,
+            "charge_s_by_window": {
+              "hold": 0.22999999999999649,
+              "unload": 0.13468749999999846,
+              "feed": 0.5690625000000015
+            },
+            "peak_actual_charge_L_min": 263.7283165370562,
+            "shaft_charge_kJ": 21.667322011923062,
+            "hydraulic_charge_kJ": 18.083002747567896,
+            "hydraulic_delivered_kJ": 5.743361366077974,
+            "gas_stored_kJ": 16.993137236475352,
+            "gas_released_kJ": 16.99313720688269,
+            "gas_balance_kJ": 2.959266254265458e-08,
+            "charge_and_delivery_loss_kJ": 12.339641381489923
+          }
+        },
+        "sources_kW": {
+          "pump_zero_stroke_internal_losses_and_coupling": 3.3204737552663954,
+          "pilot_charge_leakage_and_return": 4.331045953738988,
+          "decompression": 1.2151446527813732,
+          "normal_spill_and_transition_bypass": 0.5221110495426399,
+          "working_line_and_valve_drops": 2.7466859282671363,
+          "accumulator_paths": 2.090136164555064,
+          "cylinder_friction_and_braking": 0.9253360976584432,
+          "prefill_and_rapid_float": 1.0595696840160471,
+          "shaft_tolerance_and_extra_handover": 1.8192519496277373,
+          "cooling_circulation": 0.55,
+          "inherited_worst_duty_allowance": 1.4253784281320563
+        },
+        "heat_kW": 20.00513366358588,
+        "decompression": {
+          "cap_volume_L": 14.735580388264985,
+          "oil_elastic_release_L": 0.27269086088705397,
+          "effective_release_L": 0.545381721774108,
+          "estimated_orifice_time_s": 0.1163673629632058,
+          "available_orifice_time_s": 0.13,
+          "peak_orifice_flow_L_min": 517.1441282463476,
+          "oil_elastic_energy_kJ": 3.5869551219284235,
+          "effective_release_energy_kJ": 7.173910243856848
+        },
+        "main_delivery_mean_L_min": 163.1849321660541,
+        "main_delivery_peak_L_min": 265.0,
+        "T16_proportional_sensitivity_heat_kW": 21.1794960635798
+      },
+      "adverse": {
+        "reference": {
+          "cycle_s": 6.1934374999989155,
+          "shaft_energy_kJ": 167.2639679652657,
+          "integral_P2_kW2_s": 5343.3735254430385,
+          "rms_kW": 29.372565943813104,
+          "peak_kW": 38.310810810810814,
+          "average_kW": 27.006645011804178,
+          "shaft_tolerance_multiplier": 1.0641891891891893,
+          "shaft_energy_kJ_by_header_phase": {
+            "neutral": 6.55370907967916,
+            "pre_down": 8.283337005160007,
+            "prefill": 13.889110738893704,
+            "close_prefill_and_compress": 0.47558605943625437,
+            "regen": 12.36770542807726,
+            "press": 44.84843250775385,
+            "lp_charge": 26.122728958221906,
+            "gate_open": 3.7459607993181177,
+            "eject": 10.524473669689371,
+            "pre_up": 4.241133915512231,
+            "return": 35.445573587307614,
+            "handover": 0.7662162162162158
+          },
+          "integral_P2_kW2_s_by_header_phase": {
+            "neutral": 56.892740655972254,
+            "pre_down": 149.53555225514057,
+            "prefill": 439.1819683676456,
+            "close_prefill_and_compress": 4.895021459921172,
+            "regen": 408.8773629922469,
+            "press": 1640.5050260145376,
+            "lp_charge": 780.2034817304122,
+            "gate_open": 97.74379956633962,
+            "eject": 307.7061800163527,
+            "pre_up": 105.37559190580399,
+            "return": 1323.102435979031,
+            "handover": 29.354364499634762
+          },
+          "pilot": {
+            "minimum_pilot_pressure_bar": 134.70203058843825,
+            "required_hot_oil_L_per_cycle": 0.9006269921875751,
+            "actual_delivery_L_per_cycle": 0.8997249999999997,
+            "available_charge_L_per_cycle": 1.1437856770833332,
+            "capacity_margin_L_per_cycle": 0.24315868489575812,
+            "last_cycle_inventory_change_L": -0.0009019921875754733,
+            "ax_usable_minimum_L": 0.6428328703917298,
+            "maximum_hot_connected_leak_L_min": 9.471000000000002,
+            "charge_stage_s": {
+              "PX": 2.2000000000000006,
+              "PXA": 5.1999999999999975
+            },
+            "pilot_heat_kW": 4.317716332812634,
+            "pilot_incremental_shaft_kJ": 24.387999999999977,
+            "average_shaft_kW": 27.006645011804178,
+            "maximum_average_shaft_kW": 27.113173707991184,
+            "rms_shaft_kW": 29.372565943813104,
+            "peak_shaft_kW": 38.310810810810814,
+            "pilot_horizon_cycles": 200,
+            "highest_rms_pilot_cycle": 8,
+            "settled_end_inventory_range_L": [
+              1.1367305229176787,
+              1.1545498328158423
+            ],
+            "hot_balance_pass": true,
+            "reservation_s": 0.1,
+            "total_shift_budget_L": 0.42884
+          },
+          "charge": {
+            "volume_L": {
+              "lp_charge": 3.5505140105078685
+            },
+            "shaft_kJ": {
+              "lp_charge": 21.198526044370475
+            },
+            "peak_flow_L_min": {
+              "lp_charge": 260.43965436965726
+            }
+          }
+        },
+        "operating_point": {
+          "valve_s": 0.085,
+          "unload_s": 0.25,
+          "regulator_fraction": 0.95,
+          "rpm": 1465,
+          "oil_C": 55,
+          "tank_gauge_bar": null,
+          "viscosity_mm2_s": 24.852997523077082,
+          "viscosity_at_map_mm2_s": 30.09668395472232,
+          "leakage_multiplier": 1.2109880881280517,
+          "programmed_main_limit_kW": 31.5875
+        },
+        "accumulators": {
+          "lp": {
+            "effective_gas_volume_L": 18.4,
+            "precharge_bar": 28,
+            "minimum_setpoint_bar": 38,
+            "high_setpoint_bar": 52,
+            "minimum_cycle_gas_bar": 40.953099301296106,
+            "maximum_delivery_L_min": 180.0,
+            "useful_volume_L": 2.9297767116896383,
+            "peak_deficit_L": 2.173326510507773,
+            "initial_oil_L": 6.439145692627625,
+            "delivered_L": 3.550514010507714,
+            "recharged_L": 3.5505140105078685,
+            "volume_balance_L": 1.545430450278218e-13,
+            "delivered_L_by_motion": {
+              "pre_down": 1.3771875,
+              "eject": 0.39277218609007036,
+              "pre_up": 1.2953204249410282,
+              "gate_close": 0.48523389947655426
+            },
+            "peak_actual_delivery_L_min": 180.0,
+            "charge_s_by_window": {
+              "hold": 0.2149999999999968,
+              "unload": 0.15531249999999808,
+              "feed": 0.5331249999999959
+            },
+            "peak_actual_charge_L_min": 260.43965436965726,
+            "shaft_charge_kJ": 21.198526044370475,
+            "hydraulic_charge_kJ": 17.707205668149278,
+            "hydraulic_delivered_kJ": 5.651937202853514,
+            "gas_stored_kJ": 16.643263835615276,
+            "gas_released_kJ": 16.64326380741005,
+            "gas_balance_kJ": 2.82052248223863e-08,
+            "charge_and_delivery_loss_kJ": 12.055268465295764
+          }
+        },
+        "sources_kW": {
+          "pump_zero_stroke_internal_losses_and_coupling": 3.3654989444183645,
+          "pilot_charge_leakage_and_return": 4.317716332812633,
+          "decompression": 1.1583083293983518,
+          "normal_spill_and_transition_bypass": 0.4020272899987633,
+          "working_line_and_valve_drops": 2.540266033482122,
+          "accumulator_paths": 1.9464584029947627,
+          "cylinder_friction_and_braking": 0.8819357165845257,
+          "prefill_and_rapid_float": 1.0100101150628868,
+          "shaft_tolerance_and_extra_handover": 1.745224320146452,
+          "cooling_circulation": 0.55,
+          "inherited_worst_duty_allowance": 1.4253784281320563
+        },
+        "heat_kW": 19.34282391303092,
+        "decompression": {
+          "cap_volume_L": 14.735580388264985,
+          "oil_elastic_release_L": 0.27269086088705397,
+          "effective_release_L": 0.545381721774108,
+          "estimated_orifice_time_s": 0.1163673629632058,
+          "available_orifice_time_s": 0.13,
+          "peak_orifice_flow_L_min": 517.1441282463476,
+          "oil_elastic_energy_kJ": 3.5869551219284235,
+          "effective_release_energy_kJ": 7.173910243856848
+        },
+        "main_delivery_mean_L_min": 155.55229967641847,
+        "main_delivery_peak_L_min": 262.6827700059725,
+        "T16_proportional_sensitivity_heat_kW": 20.749930335830815
+      }
+    },
+    "trajectories": {
+      "nominal": {
+        "start_full_LP_oil_L": 6.439145692627625,
+        "sampled_LP_oil_L_range": [
+          4.171787359294329,
+          6.439145692627659
+        ],
+        "running_T0_offset_L_range": [
+          -13.097508048996005,
+          2.2673583333330694
+        ],
+        "unbalanced_TF_net_gain_per_cycle_L": 2.2194238271958513,
+        "main_closed_port_entry_compression_L": 0.045529911031923595,
+        "stop_trigger_samples": 18830,
+        "max_sampled_post_LP_points_by_phase": {
+          "neutral": {
+            "T0_offset_with_LP_dump_L": 6.439145692627625,
+            "trigger_s": 0.0003125,
+            "main_position_mm": 0.0,
+            "MA_MB_oil_L": 16.229161003475188
+          },
+          "pre_down": {
+            "T0_offset_with_LP_dump_L": 6.438957119534292,
+            "trigger_s": 0.0703125,
+            "main_position_mm": 0.0,
+            "MA_MB_oil_L": 16.229161003475188
+          },
+          "prefill": {
+            "T0_offset_with_LP_dump_L": 5.776595521876005,
+            "trigger_s": 0.6765625,
+            "main_position_mm": 0.00021555440235162054,
+            "MA_MB_oil_L": 16.229167775316455
+          },
+          "close_prefill_and_compress": {
+            "T0_offset_with_LP_dump_L": 5.165275597503986,
+            "trigger_s": 1.21125,
+            "main_position_mm": 155.67155599337823,
+            "MA_MB_oil_L": 21.11972717029208
+          },
+          "regen": {
+            "T0_offset_with_LP_dump_L": 5.1652669688620545,
+            "trigger_s": 1.2578125,
+            "main_position_mm": 155.67180013400323,
+            "MA_MB_oil_L": 21.11973484019602
+          },
+          "press": {
+            "T0_offset_with_LP_dump_L": 3.7786939784835596,
+            "trigger_s": 1.7196875,
+            "main_position_mm": 194.90379042314893,
+            "MA_MB_oil_L": 22.35224416497688
+          },
+          "press/interlock": {
+            "T0_offset_with_LP_dump_L": 2.783851280630583,
+            "trigger_s": 2.61875,
+            "main_position_mm": 223.05208072753547,
+            "MA_MB_oil_L": 23.23654878529062
+          },
+          "lp_charge": {
+            "T0_offset_with_LP_dump_L": 6.439145692627398,
+            "trigger_s": 5.2640625,
+            "main_position_mm": 3.171862772433087e-11,
+            "MA_MB_oil_L": 16.229161003476182
+          },
+          "gate_open": {
+            "T0_offset_with_LP_dump_L": 2.8274669199966143,
+            "trigger_s": 3.6184375,
+            "main_position_mm": 226.31801057620834,
+            "MA_MB_oil_L": 23.33915099748792
+          },
+          "eject": {
+            "T0_offset_with_LP_dump_L": 2.827466328710389,
+            "trigger_s": 3.68875,
+            "main_position_mm": 226.3181611460095,
+            "MA_MB_oil_L": 23.339155727777733
+          },
+          "pre_up": {
+            "T0_offset_with_LP_dump_L": 2.492008051723979,
+            "trigger_s": 4.2403125,
+            "main_position_mm": 371.0000000000143,
+            "MA_MB_oil_L": 27.88446974829377
+          },
+          "return/interlock": {
+            "T0_offset_with_LP_dump_L": 2.4947364378329437,
+            "trigger_s": 4.245,
+            "main_position_mm": 371.0000000000143,
+            "MA_MB_oil_L": 27.88446974829377
+          },
+          "return": {
+            "T0_offset_with_LP_dump_L": 6.439145692627398,
+            "trigger_s": 5.19375,
+            "main_position_mm": 3.171862772433087e-11,
+            "MA_MB_oil_L": 16.229161003476182
+          }
+        },
+        "sampled_motion_names": [
+          "eject",
+          "prefill",
+          "press",
+          "regen",
+          "return"
+        ]
+      },
+      "adverse": {
+        "start_full_LP_oil_L": 6.439145692627625,
+        "sampled_LP_oil_L_range": [
+          4.265819182119972,
+          6.439145692627751
+        ],
+        "running_T0_offset_L_range": [
+          -13.148949880858783,
+          2.1733265105055857
+        ],
+        "unbalanced_TF_net_gain_per_cycle_L": 2.2194238271958655,
+        "main_closed_port_entry_compression_L": 0.045529911031923595,
+        "stop_trigger_samples": 19755,
+        "max_sampled_post_LP_points_by_phase": {
+          "neutral": {
+            "T0_offset_with_LP_dump_L": 6.439145692627625,
+            "trigger_s": 0.0003125,
+            "main_position_mm": 0.0,
+            "MA_MB_oil_L": 16.229161003475188
+          },
+          "pre_down": {
+            "T0_offset_with_LP_dump_L": 6.438957124009983,
+            "trigger_s": 0.0853125,
+            "main_position_mm": 0.0,
+            "MA_MB_oil_L": 16.229161003475188
+          },
+          "prefill": {
+            "T0_offset_with_LP_dump_L": 5.776595523244966,
+            "trigger_s": 0.7090625,
+            "main_position_mm": 0.000215205799898484,
+            "MA_MB_oil_L": 16.229167764364785
+          },
+          "close_prefill_and_compress": {
+            "T0_offset_with_LP_dump_L": 5.165275597503982,
+            "trigger_s": 1.2615625,
+            "main_position_mm": 155.67155599337823,
+            "MA_MB_oil_L": 21.11972717029208
+          },
+          "regen": {
+            "T0_offset_with_LP_dump_L": 5.16526696886205,
+            "trigger_s": 1.3084375,
+            "main_position_mm": 155.67180013400323,
+            "MA_MB_oil_L": 21.11973484019602
+          },
+          "press": {
+            "T0_offset_with_LP_dump_L": 3.7786939931673214,
+            "trigger_s": 1.798125,
+            "main_position_mm": 194.9037900076847,
+            "MA_MB_oil_L": 22.352244151924687
+          },
+          "press/interlock": {
+            "T0_offset_with_LP_dump_L": 2.8192715121431666,
+            "trigger_s": 2.6821875,
+            "main_position_mm": 222.04989318430376,
+            "MA_MB_oil_L": 23.205064135057256
+          },
+          "lp_charge": {
+            "T0_offset_with_LP_dump_L": 6.439145692625558,
+            "trigger_s": 5.56875,
+            "main_position_mm": 2.8535396268125623e-11,
+            "MA_MB_oil_L": 16.229161003476083
+          },
+          "gate_open": {
+            "T0_offset_with_LP_dump_L": 2.827466919994694,
+            "trigger_s": 3.840625,
+            "main_position_mm": 226.31801057620976,
+            "MA_MB_oil_L": 23.339150997487963
+          },
+          "eject": {
+            "T0_offset_with_LP_dump_L": 2.827466334054032,
+            "trigger_s": 3.9259375,
+            "main_position_mm": 226.3181597847744,
+            "MA_MB_oil_L": 23.33915568501327
+          },
+          "pre_up": {
+            "T0_offset_with_LP_dump_L": 6.439145692625558,
+            "trigger_s": 5.4834375,
+            "main_position_mm": 2.8535396268125623e-11,
+            "MA_MB_oil_L": 16.229161003476083
+          },
+          "return/interlock": {
+            "T0_offset_with_LP_dump_L": 2.5060313337642848,
+            "trigger_s": 4.5046875,
+            "main_position_mm": 371.00000000001114,
+            "MA_MB_oil_L": 27.88446974829367
+          },
+          "return": {
+            "T0_offset_with_LP_dump_L": 6.406633538894015,
+            "trigger_s": 5.4534375,
+            "main_position_mm": 2.8535396268125623e-11,
+            "MA_MB_oil_L": 16.229161003476083
+          }
+        },
+        "sampled_motion_names": [
+          "eject",
+          "prefill",
+          "press",
+          "regen",
+          "return"
+        ]
+      }
+    },
+    "motor_trials": {
+      "brook": {
+        "limits": {
+          "cycle_nominal_s": 5.904,
+          "cycle_adverse_s": 6.193,
+          "rms_nominal_kW": 29.987
+        },
+        "sync_rpm": 1500.0,
+        "adverse_incremental_speed_drop_rpm": 15,
+        "nominal": {
+          "rpm": 1475,
+          "slip_fraction": 0.016666666666666666,
+          "cycle_s": 5.904687499999024,
+          "rms_kW": 29.97384820417041,
+          "average_kW": 28.12830794602976,
+          "peak_kW": 38.310810810810814,
+          "peak_Nm": 248.02799651792395,
+          "pullout_Nm": 504.40000000000003,
+          "pullout_to_peak_ratio": 2.0336413916222926,
+          "integration": [
+            {
+              "step_s": 0.00125,
+              "reference_cycle_s": 5.913749999999874
+            },
+            {
+              "step_s": 0.000625,
+              "reference_cycle_s": 5.906250000000724
+            },
+            {
+              "step_s": 0.0003125,
+              "reference_cycle_s": 5.904687499999024
+            }
+          ]
+        },
+        "adverse": {
+          "rpm": 1460,
+          "slip_fraction": 0.02666666666666667,
+          "cycle_s": 6.196874999998912,
+          "rms_kW": 29.338383510856108,
+          "average_kW": 27.12394340270974,
+          "peak_kW": 38.310810810810814,
+          "peak_Nm": 250.5762293588615,
+          "pullout_Nm": 504.40000000000003,
+          "pullout_to_peak_ratio": 2.012960292724439,
+          "integration": [
+            {
+              "step_s": 0.00125,
+              "reference_cycle_s": 6.221249999999837
+            },
+            {
+              "step_s": 0.000625,
+              "reference_cycle_s": 6.200625000000855
+            },
+            {
+              "step_s": 0.0003125,
+              "reference_cycle_s": 6.196874999998912
+            }
+          ]
+        },
+        "cycle_power_pass": false
+      },
+      "abb": {
+        "limits": {
+          "cycle_nominal_s": 5.904,
+          "cycle_adverse_s": 6.193,
+          "rms_nominal_kW": 29.987
+        },
+        "sync_rpm": 1500.0,
+        "adverse_incremental_speed_drop_rpm": 15,
+        "nominal": {
+          "rpm": 1484,
+          "slip_fraction": 0.010666666666666666,
+          "cycle_s": 5.902812499999026,
+          "rms_kW": 29.997148632172177,
+          "average_kW": 28.148604306164227,
+          "peak_kW": 38.310810810810814,
+          "peak_Nm": 246.52378360103629,
+          "pullout_Nm": 636.9,
+          "pullout_to_peak_ratio": 2.583523547694417,
+          "integration": [
+            {
+              "step_s": 0.00125,
+              "reference_cycle_s": 5.914999999999874
+            },
+            {
+              "step_s": 0.000625,
+              "reference_cycle_s": 5.903125000000722
+            },
+            {
+              "step_s": 0.0003125,
+              "reference_cycle_s": 5.902812499999026
+            }
+          ]
+        },
+        "adverse": {
+          "rpm": 1469,
+          "slip_fraction": 0.020666666666666667,
+          "cycle_s": 6.190312499998918,
+          "rms_kW": 29.380353588732163,
+          "average_kW": 27.16609423194163,
+          "peak_kW": 38.310810810810814,
+          "peak_Nm": 249.0410448359005,
+          "pullout_Nm": 636.9,
+          "pullout_to_peak_ratio": 2.5574097652042442,
+          "integration": [
+            {
+              "step_s": 0.00125,
+              "reference_cycle_s": 6.2037499999998404
+            },
+            {
+              "step_s": 0.000625,
+              "reference_cycle_s": 6.193125000000851
+            },
+            {
+              "step_s": 0.0003125,
+              "reference_cycle_s": 6.190312499998918
+            }
+          ]
+        },
+        "cycle_power_pass": false
+      }
+    },
+    "heat_factor": 1.25,
+    "worst_heat_kW": 20.00513366358588,
+    "cooling_required_kW": 26.43,
+    "proportional_sensitivity_required_kW": 26.474370079474753,
+    "cooling_dirty_kW": 26.48994642857142,
+    "cooling_margin_kW": 0.05994642857142196,
+    "cooling_sensitivity_margin_kW": 0.015576349096669162,
+    "cooling_raw_kW": 36.66428571428571,
+    "air_C": 40,
+    "oil_limit_C": 55,
+    "fouling_fraction": 0.15,
+    "catalog_tolerance_fraction": 0.15,
+    "flow_L_min": 180,
+    "branch_flow_L_min_range": [
+      78,
+      102
+    ],
+    "installed_kW": 34.068000000000005,
+    "fan_kW": 1.5,
+    "fan_limit_kW": 1.631999999999998,
+    "installed_limit_kW": 34.2,
+    "circulation_kW": 0.55,
+    "cooler_candidate_asa0927_dirty_at_base_flow_kW": 23.45235,
+    "dirty_capacity_kW_per_K": 1.765996428571428,
+    "cooler_source": "https://asahydraulik.us/es/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0567-230400v-075kw-50hz",
+    "thermal_method": "calc/T-1.6/heat_balance.py"
+  },
+  "cooling_selection": {
+    "baseline": {
+      "model": "2 × ASA0567AA47",
+      "per_module_W_H_D_mm": [
+        920,
+        860,
+        543
+      ],
+      "port": "2 × ASA Connector NG40",
+      "mass_modules_kg": 165.4,
+      "hardware_kg": 8.0,
+      "fitted_mass_kg": 173.4,
+      "maximum_branch_drop_bar": 0.58,
+      "total_flow_L_min": 180,
+      "fan_kW": 1.5,
+      "source": "https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf"
+    },
+    "station_hardware_assumption": "Для сравнения массы оставлен существующий резерв крепежа, веточной КИП и матов 8 кг.",
+    "branch_changes_require_confirmation": "При одном аппарате проверить новый коллектор, отсутствие воздушной рециркуляции и 180 л/мин при Δp всей ветви ≤ 1,25 бар. Для двух — баланс потоков и запас по месту.",
+    "allowed_fan_increase_kW": 0.1319999999999979,
+    "minimum_coefficient_kW_K_with_15pct_tolerance": 2.4387543252595156,
+    "alternatives": [
+      {
+        "model": "ASA0927AA6A",
+        "source": "https://asahydraulik.us/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0927-230400v-150kw-50hz",
+        "curve_source": "https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf",
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 32.46,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 23.45235,
+          "coefficient_kW_K": 2.164,
+          "coefficient_basis": "Считывание кривой в указанной точке."
+        },
+        "mass_modules_kg": 156.4,
+        "mass_with_equal_hardware_kg": 164.4,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.5,
+        "installed_kW": 34.068000000000005,
+        "per_module_W_H_D_mm": [
+          1170,
+          1100,
+          664
+        ],
+        "ports": "2 × ASA Connector NG40",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": "140,5 кг на странице ASA и 156,4 кг в таблице. Принята большая масса."
+      },
+      {
+        "model": "ASA0727AA6A",
+        "source": "https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 31.5,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 22.75875,
+          "coefficient_kW_K": 2.1,
+          "coefficient_basis": "Округлённая вверх оценка кривой ASA 0727 1,5 кВт при 180 л/мин."
+        },
+        "mass_modules_kg": 134.6,
+        "mass_with_equal_hardware_kg": 142.6,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.5,
+        "installed_kW": 34.068000000000005,
+        "per_module_W_H_D_mm": [
+          1012,
+          960,
+          640
+        ],
+        "ports": "2 × ASA Connector NG40",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "Parker LAC 078-8",
+        "source": "https://www.parker.com/content/dam/Parker-com/Literature/Literature-Files/cz/images/download/Olaer/lac_parker_cz.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 27.0,
+          "tolerance_fraction": 0.1,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 20.655,
+          "coefficient_kW_K": 1.8,
+          "coefficient_basis": "График 180 л/мин, округлено вверх примерно до 1,8 кВт/К."
+        },
+        "mass_modules_kg": 136,
+        "mass_with_equal_hardware_kg": 144.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.1,
+        "installed_kW": 33.668000000000006,
+        "per_module_W_H_D_mm": [
+          1022,
+          1052,
+          713
+        ],
+        "ports": "G2",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "Parker LAC 056-6",
+        "source": "https://www.parker.com/content/dam/Parker-com/Literature/Literature-Files/cz/images/download/Olaer/lac_parker_cz.pdf",
+        "curve_source": "https://www.parker.com/content/dam/Parker-com/Divisions-2011/Accumulator-and-Cooler-Division---Europe/Support/MSG10-6001_UK_LAC.pdf",
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 30.0,
+          "tolerance_fraction": 0.1,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 22.95,
+          "coefficient_kW_K": 2.0,
+          "coefficient_basis": "Верхняя оценка при 180 л/мин по кривой LAC 56-6 семейства 50 Гц."
+        },
+        "mass_modules_kg": 75,
+        "mass_with_equal_hardware_kg": 83.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.5,
+        "installed_kW": 34.068000000000005,
+        "per_module_W_H_D_mm": [
+          868,
+          898,
+          668
+        ],
+        "ports": "G1¼",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": "Коллектор потребуется переразвести для одной ветви."
+      },
+      {
+        "model": "2 × Parker LAC 058-8",
+        "source": "https://www.parker.com/content/dam/Parker-com/Literature/Literature-Files/cz/images/download/Olaer/lac_parker_cz.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            90,
+            90
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 33.0,
+          "tolerance_fraction": 0.1,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 25.244999999999997,
+          "coefficient_kW_K": 2.2,
+          "coefficient_basis": "Верхнее считывание 1,1 кВт/К на аппарат при 90 л/мин."
+        },
+        "mass_modules_kg": 160,
+        "mass_with_equal_hardware_kg": 168.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.5,
+        "installed_kW": 34.068000000000005,
+        "per_module_W_H_D_mm": [
+          868,
+          898,
+          652
+        ],
+        "ports": "G2",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "Parker LAC 112-8",
+        "source": "https://www.parker.com/content/dam/Parker-com/Literature/Literature-Files/cz/images/download/Olaer/lac_parker_cz.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 39.75,
+          "tolerance_fraction": 0.1,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 30.408749999999998,
+          "coefficient_kW_K": 2.65,
+          "coefficient_basis": "Приблизительное считывание при 180 л/мин. Отсев по мощности."
+        },
+        "mass_modules_kg": 168,
+        "mass_with_equal_hardware_kg": 176.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 2.2,
+        "installed_kW": 34.76800000000001,
+        "per_module_W_H_D_mm": [
+          1185,
+          1215,
+          805
+        ],
+        "ports": "G2",
+        "fails": [
+          "мощность",
+          "масса"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "HYDAC AC-LN10L, 50 Гц, 1,1 кВт",
+        "source": "https://www.hydac.com.au/media/productattach/e/5/e5814-1-1-08-16_ac-ln_8-14_einzel.pdf?20260209=",
+        "curve_source": "https://www.hydac.com.au/ac-ln-low-noise-air-cooler.html",
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 31.087500000000002,
+          "tolerance_fraction": 0.05,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 25.10315625,
+          "coefficient_kW_K": 2.0725000000000002,
+          "coefficient_basis": "Верхняя оценка для 180 л/мин по максимуму во всём диапазоне 50–360 л/мин версии B."
+        },
+        "mass_modules_kg": 129,
+        "mass_with_equal_hardware_kg": 137.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.1,
+        "installed_kW": 33.668000000000006,
+        "per_module_W_H_D_mm": [
+          930,
+          1030,
+          766
+        ],
+        "ports": "G1½",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "2 × HYDAC AC-LN8L",
+        "source": "https://www.hydac.com.au/media/productattach/e/5/e5814-1-1-08-16_ac-ln_8-14_einzel.pdf?20260209=",
+        "curve_source": "https://www.hydac.com.au/ac-ln-low-noise-air-cooler.html",
+        "heat_point": {
+          "oil_flow_L_min": [
+            90,
+            90
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 30.150000000000002,
+          "tolerance_fraction": 0.05,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 24.346125,
+          "coefficient_kW_K": 2.0100000000000002,
+          "coefficient_basis": "Верхняя оценка по максимуму каждого аппарата на 200 л/мин."
+        },
+        "mass_modules_kg": 144,
+        "mass_with_equal_hardware_kg": 152.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.5,
+        "installed_kW": 34.068000000000005,
+        "per_module_W_H_D_mm": [
+          705,
+          725,
+          596
+        ],
+        "ports": "G1¼",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "KTR OAC1000-03-8",
+        "source": "https://www.ktr.com/fileadmin/ktr/media/Tools_Downloads/kataloge/cooling_systems_ktr-kat00ek04.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 24.0,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 17.34,
+          "coefficient_kW_K": 1.6,
+          "coefficient_basis": "Считывание T-1.5 по графику 750 об/мин на 180 л/мин как верхняя оценка исполнения 700 об/мин."
+        },
+        "mass_modules_kg": 154,
+        "mass_with_equal_hardware_kg": 162.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.5,
+        "installed_kW": 34.068000000000005,
+        "per_module_W_H_D_mm": [
+          995,
+          1270,
+          null
+        ],
+        "ports": "G3",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "Emmegi HPA 52 245203",
+        "source": "https://johydraulics.dk/upload_dir/docs/Emmegi---Luftoliekoeler-Series-HPA---Store-koelere-med-mange-konfigurationsmuligheder.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 21.535714285714285,
+          "tolerance_fraction": 0.05,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 17.390089285714282,
+          "coefficient_kW_K": 1.4357142857142857,
+          "coefficient_basis": "Считывание кривой в указанной точке."
+        },
+        "mass_modules_kg": 95,
+        "mass_with_equal_hardware_kg": 103.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.1,
+        "installed_kW": 33.668000000000006,
+        "per_module_W_H_D_mm": [
+          725,
+          940,
+          623
+        ],
+        "ports": "G1½",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "2 × Emmegi HPA 42 Compact 2K4203",
+        "source": "https://it.emmegi.group/en/products/air-oil-exchangers/hpa-compact/",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            90,
+            90
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 31.5,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 22.75875,
+          "coefficient_kW_K": 2.1,
+          "coefficient_basis": "Округлённая вверх оценка кривой при 90 л/мин на аппарат."
+        },
+        "mass_modules_kg": 118,
+        "mass_with_equal_hardware_kg": 126.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.58,
+        "installed_kW": 34.148,
+        "per_module_W_H_D_mm": [
+          606,
+          920,
+          415
+        ],
+        "ports": "G1¼",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "2 × Emmegi HPA 50 Compact 2K5003",
+        "source": "https://it.emmegi.group/en/products/air-oil-exchangers/hpa-compact/",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            90,
+            90
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 31.575,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 22.812937499999997,
+          "coefficient_kW_K": 2.105,
+          "coefficient_basis": "Скрининг по хорде между опубликованными точками 80 и 280 л/мин. Для зачёта при равных ветвях нужно 1,22 кВт/К на аппарат при 90 л/мин."
+        },
+        "mass_modules_kg": 164,
+        "mass_with_equal_hardware_kg": 172.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.16,
+        "installed_kW": 33.728,
+        "per_module_W_H_D_mm": [
+          725,
+          940,
+          443
+        ],
+        "ports": "G1½",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": "Паспортная нижняя граница 80 л/мин. Действующий разброс 78–102 выходит за неё. Необходимы подбор и подтверждение новой балансировки."
+      },
+      {
+        "model": "2 × Emmegi HPA 50 2P Compact 2K8703",
+        "source": "https://it.emmegi.group/en/products/air-oil-exchangers/hpa-compact/",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            90,
+            90
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 33.3,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 24.059249999999995,
+          "coefficient_kW_K": 2.2199999999999998,
+          "coefficient_basis": "Считывание кривой в указанной точке."
+        },
+        "mass_modules_kg": 164,
+        "mass_with_equal_hardware_kg": 172.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.16,
+        "installed_kW": 33.728,
+        "per_module_W_H_D_mm": [
+          725,
+          940,
+          443
+        ],
+        "ports": "G1¼",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": "При 90 л/мин Δp каждой матрицы около 1,15 бар уже при 30 мм²/с."
+      },
+      {
+        "model": "Emmegi HPA 42/2 Compact 2K4303",
+        "source": "https://it.emmegi.group/en/products/air-oil-exchangers/hpa-compact/",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 31.5,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 22.75875,
+          "coefficient_kW_K": 2.1,
+          "coefficient_basis": "Верхнее округление кривой на 180 л/мин."
+        },
+        "mass_modules_kg": 123,
+        "mass_with_equal_hardware_kg": 131.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.58,
+        "installed_kW": 34.148,
+        "per_module_W_H_D_mm": [
+          1165,
+          920,
+          415
+        ],
+        "ports": "G1½",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "Emmegi HPA 50/2 Compact 2K8803",
+        "source": "https://it.emmegi.group/en/products/air-oil-exchangers/hpa-compact/",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 34.5,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 24.92625,
+          "coefficient_kW_K": 2.3,
+          "coefficient_basis": "Считывание в районе 180 л/мин. Отсев по сухой массе."
+        },
+        "mass_modules_kg": 176,
+        "mass_with_equal_hardware_kg": 184.0,
+        "bare_mass_below_reference": false,
+        "fan_kW": 1.16,
+        "installed_kW": 33.728,
+        "per_module_W_H_D_mm": [
+          1430,
+          940,
+          440
+        ],
+        "ports": "G1½",
+        "fails": [
+          "тепло",
+          "масса"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "Emmegi HPA 135 Larger",
+        "source": "https://it.emmegi.group/wp-content/uploads/sites/8/2024/11/HPA-LARGER.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 27.0,
+          "tolerance_fraction": 0.05,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 21.8025,
+          "coefficient_kW_K": 1.8,
+          "coefficient_basis": "Считывание кривой в указанной точке."
+        },
+        "mass_modules_kg": 126,
+        "mass_with_equal_hardware_kg": 134.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 3.0,
+        "installed_kW": 35.568000000000005,
+        "per_module_W_H_D_mm": [
+          1025,
+          900,
+          780
+        ],
+        "ports": "SAE 3″ / M54×2",
+        "fails": [
+          "тепло",
+          "мощность"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "Emmegi HPA 180 Larger",
+        "source": "https://it.emmegi.group/wp-content/uploads/sites/8/2024/11/HPA-LARGER.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 42.75,
+          "tolerance_fraction": 0.05,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 34.520624999999995,
+          "coefficient_kW_K": 2.85,
+          "coefficient_basis": "Считывание кривой в указанной точке."
+        },
+        "mass_modules_kg": 200,
+        "mass_with_equal_hardware_kg": 208.0,
+        "bare_mass_below_reference": false,
+        "fan_kW": 7.5,
+        "installed_kW": 40.068000000000005,
+        "per_module_W_H_D_mm": [
+          1025,
+          1173,
+          790
+        ],
+        "ports": "SAE 3″ / M54×2",
+        "fails": [
+          "мощность",
+          "масса"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "AKG T8 5208.203.0000",
+        "source": "https://www.akg-turkey.com/fileadmin/user_upload/Brochures/Standardcooler/AKG_T_Oil_Air_Cooling_Systems.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 26.25,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 18.965625,
+          "coefficient_kW_K": 1.75,
+          "coefficient_basis": "Верхнее считывание кривой T8 при 180 л/мин."
+        },
+        "mass_modules_kg": 89,
+        "mass_with_equal_hardware_kg": 97.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 1.1,
+        "installed_kW": 33.668000000000006,
+        "per_module_W_H_D_mm": [
+          722,
+          960,
+          590
+        ],
+        "ports": "G1¼",
+        "fails": [
+          "тепло"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "AKG T8S 5208.231.0000",
+        "source": "https://www.akg-turkey.com/fileadmin/user_upload/Brochures/Standardcooler/AKG_T_Oil_Air_Cooling_Systems.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 31.5,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 22.75875,
+          "coefficient_kW_K": 2.1,
+          "coefficient_basis": "Верхнее считывание кривой T8S при 180 л/мин."
+        },
+        "mass_modules_kg": 89,
+        "mass_with_equal_hardware_kg": 97.0,
+        "bare_mass_below_reference": true,
+        "fan_kW": 2.2,
+        "installed_kW": 34.76800000000001,
+        "per_module_W_H_D_mm": [
+          722,
+          960,
+          590
+        ],
+        "ports": "G1¼",
+        "fails": [
+          "тепло",
+          "мощность"
+        ],
+        "auxiliary_note": null
+      },
+      {
+        "model": "AKG T9L 5209.223.0000",
+        "source": "https://www.akg-turkey.com/fileadmin/user_upload/Brochures/Standardcooler/AKG_T_Oil_Air_Cooling_Systems.pdf",
+        "curve_source": null,
+        "heat_point": {
+          "oil_flow_L_min": [
+            180
+          ],
+          "oil_inlet_C": 55,
+          "air_inlet_C": 40,
+          "raw_kW": 31.5,
+          "tolerance_fraction": 0.15,
+          "fouling_fraction": 0.15,
+          "dirty_kW": 22.75875,
+          "coefficient_kW_K": 2.1,
+          "coefficient_basis": "Верхнее считывание кривой T9L при 180 л/мин. Отсев по массе."
+        },
+        "mass_modules_kg": 190,
+        "mass_with_equal_hardware_kg": 198.0,
+        "bare_mass_below_reference": false,
+        "fan_kW": 1.5,
+        "installed_kW": 34.068000000000005,
+        "per_module_W_H_D_mm": [
+          995,
+          1352,
+          650
+        ],
+        "ports": "G1½",
+        "fails": [
+          "тепло",
+          "масса"
+        ],
+        "auxiliary_note": null
+      }
+    ],
+    "thermal_mass_power_candidates": [],
+    "recommended": "2 × ASA0567AA47 с параллельными ветвями",
+    "reduction_kg": 0.0
+  },
+  "measures": [
+    {
+      "measure": "Parker PWO B25TH×50 и вода от площадки",
+      "group": "C",
+      "delta_kg": -148.9858625266433,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T25-E1_E2"
+      ],
+      "checked": "79 кВт в каталожной точке ΔT 40 K при 150 л/мин масла. Вычтена масса аппарата и 2 м мокрых водяных линий.",
+      "pending": "Недостающая масса включает воду в аппарате, фитинги, крепёж и арматуру. При автономном контуре добавить насос, сухую градирню, бак и всё заполнение. Нужны вода и график при 55 °C и 180 л/мин.",
+      "source_ids": [
+        "pwo",
+        "pwo_selection",
+        "water_tube",
+        "water_properties",
+        "decisions"
+      ],
+      "evidence": {
+        "boundary": "Площадка подаёт и принимает воду; внешнее хозяйство вне контура массы машины.",
+        "bare_heat_exchanger_kg": 11.15,
+        "retained_mount_and_instrument_allowance_kg": 8.0,
+        "water_pipe_length_m": 2,
+        "pipe_OD_mm": 33.7,
+        "pipe_wall_mm": 2.6,
+        "water_pipe_dry_kg": 3.988258156917551,
+        "water_inside_pipes_L": 1.275879316439155,
+        "water_pipes_wet_kg": 5.264137473356707,
+        "minimum_water_flow_at_10_K_L_min": 37.9377990430622,
+        "remaining_water_circuit_mass_kg": null,
+        "subtotal_direction": "верхняя оценка экономии, вычесть положительную недостающую массу"
+      }
+    },
+    {
+      "measure": "Brook Crompton JP-DA200LA, заказное IM B5",
+      "group": "B",
+      "delta_kg": -71,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T25-M1"
+      ],
+      "checked": "IE3, Al, 30 кВт S1, 400 В 50 Гц. По B5 совпадают центрирование Ø300, PCD 350 и вал Ø55×110.",
+      "pending": "Цикл превышает предел. Оценка Δм по 207 кг семейства, нужен паспорт 4P IM B5, масса и комплектовочный чертёж с колоколом и полумуфтой.",
+      "source_ids": [
+        "brook",
+        "brook_mount",
+        "omec",
+        "bell",
+        "a4vso"
+      ],
+      "evidence": {
+        "replay": {
+          "limits": {
+            "cycle_nominal_s": 5.904,
+            "cycle_adverse_s": 6.193,
+            "rms_nominal_kW": 29.987
+          },
+          "sync_rpm": 1500.0,
+          "adverse_incremental_speed_drop_rpm": 15,
+          "nominal": {
+            "rpm": 1475,
+            "slip_fraction": 0.016666666666666666,
+            "cycle_s": 5.904687499999024,
+            "rms_kW": 29.97384820417041,
+            "average_kW": 28.12830794602976,
+            "peak_kW": 38.310810810810814,
+            "peak_Nm": 248.02799651792395,
+            "pullout_Nm": 504.40000000000003,
+            "pullout_to_peak_ratio": 2.0336413916222926,
+            "integration": [
+              {
+                "step_s": 0.00125,
+                "reference_cycle_s": 5.913749999999874
+              },
+              {
+                "step_s": 0.000625,
+                "reference_cycle_s": 5.906250000000724
+              },
+              {
+                "step_s": 0.0003125,
+                "reference_cycle_s": 5.904687499999024
+              }
+            ]
+          },
+          "adverse": {
+            "rpm": 1460,
+            "slip_fraction": 0.02666666666666667,
+            "cycle_s": 6.196874999998912,
+            "rms_kW": 29.338383510856108,
+            "average_kW": 27.12394340270974,
+            "peak_kW": 38.310810810810814,
+            "peak_Nm": 250.5762293588615,
+            "pullout_Nm": 504.40000000000003,
+            "pullout_to_peak_ratio": 2.012960292724439,
+            "integration": [
+              {
+                "step_s": 0.00125,
+                "reference_cycle_s": 6.221249999999837
+              },
+              {
+                "step_s": 0.000625,
+                "reference_cycle_s": 6.200625000000855
+              },
+              {
+                "step_s": 0.0003125,
+                "reference_cycle_s": 6.196874999998912
+              }
+            ]
+          },
+          "cycle_power_pass": false
+        },
+        "family_mass_kg": 207,
+        "exact_mounted_motor_kg": null,
+        "motor_B5_flange_OD_mm": 400,
+        "motor_B5_PCD_mm": 350,
+        "motor_B5_register_mm": 300,
+        "motor_B5_clearance_mm": 18.5,
+        "OMEC_B5_clearance_mm": 19,
+        "motor_shaft_D_L_mm": [
+          55,
+          110
+        ],
+        "pump_counter_side": "RE 92050, NG180, ISO 3019-2, посадка Ø160, 4 отверстия по Ø200. Подтвердить выбранный код вала P Ø50×80 или Z, вылеты и допустимую соосность муфты.",
+        "installation_type": "B5 для сохранения текущих опор. B35 возможен после проверки лап и плоскости опирания."
+      }
+    },
+    {
+      "measure": "Интегрированная задняя крышка",
+      "group": "C",
+      "delta_kg": -69.642717438776,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "машина, силовая часть"
+      ],
+      "checked": "Оценка T-1.6 для прежней геометрии.",
+      "pending": "Решение оператора по D-OP-19 и новая проверка силовой части, герметичности, усталости и обслуживаемости.",
+      "source_ids": [
+        "t16",
+        "decisions"
+      ],
+      "evidence": null
+    },
+    {
+      "measure": "ABB M3AA 200MLA 4, альтернативный мотор",
+      "group": "B",
+      "delta_kg": -32,
+      "counted_in_group_subtotal": false,
+      "ledger_ids": [
+        "T25-M1"
+      ],
+      "checked": "400 В, 50 Гц, 1484 об/мин по типовому протоколу, 30 кВт S1 IE3.",
+      "pending": "RMS выше предела. 246 кг по таблице семейства. Подтвердить массу B5/B35 и чертёж. Альтернатива Brook вне суммы B.",
+      "source_ids": [
+        "abb",
+        "abb_family",
+        "bell"
+      ],
+      "evidence": {
+        "limits": {
+          "cycle_nominal_s": 5.904,
+          "cycle_adverse_s": 6.193,
+          "rms_nominal_kW": 29.987
+        },
+        "sync_rpm": 1500.0,
+        "adverse_incremental_speed_drop_rpm": 15,
+        "nominal": {
+          "rpm": 1484,
+          "slip_fraction": 0.010666666666666666,
+          "cycle_s": 5.902812499999026,
+          "rms_kW": 29.997148632172177,
+          "average_kW": 28.148604306164227,
+          "peak_kW": 38.310810810810814,
+          "peak_Nm": 246.52378360103629,
+          "pullout_Nm": 636.9,
+          "pullout_to_peak_ratio": 2.583523547694417,
+          "integration": [
+            {
+              "step_s": 0.00125,
+              "reference_cycle_s": 5.914999999999874
+            },
+            {
+              "step_s": 0.000625,
+              "reference_cycle_s": 5.903125000000722
+            },
+            {
+              "step_s": 0.0003125,
+              "reference_cycle_s": 5.902812499999026
+            }
+          ]
+        },
+        "adverse": {
+          "rpm": 1469,
+          "slip_fraction": 0.020666666666666667,
+          "cycle_s": 6.190312499998918,
+          "rms_kW": 29.380353588732163,
+          "average_kW": 27.16609423194163,
+          "peak_kW": 38.310810810810814,
+          "peak_Nm": 249.0410448359005,
+          "pullout_Nm": 636.9,
+          "pullout_to_peak_ratio": 2.5574097652042442,
+          "integration": [
+            {
+              "step_s": 0.00125,
+              "reference_cycle_s": 6.2037499999998404
+            },
+            {
+              "step_s": 0.000625,
+              "reference_cycle_s": 6.193125000000851
+            },
+            {
+              "step_s": 0.0003125,
+              "reference_cycle_s": 6.190312499998918
+            }
+          ]
+        },
+        "cycle_power_pass": false
+      }
+    },
+    {
+      "measure": "Два Goetze 642 DN65 FKM вместо RTF",
+      "group": "B",
+      "delta_kg": -19.056191272114845,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T16-15",
+        "T16-18"
+      ],
+      "checked": "2 × 8,9 кг для резьбовой версии. Каталог 51,8 м³/ч воды на клапан при уставке 2 бар и +10 %. Пересчёт на HLP46 и общий слив выполнен.",
+      "pending": "Подтвердить HLP46 во всём диапазоне температур, режим 0,2 бар на выходе, открытие пары на импульсе и сброс в отдельный TET. Пересчитать массу при фланцевом исполнении.",
+      "source_ids": [
+        "t16",
+        "goetze",
+        "goetze_install",
+        "t26"
+      ],
+      "evidence": {
+        "original_requirement_L_min": 1293,
+        "conservative_T26_cap_feed_L_min": 1588.6405730672866,
+        "two_valves_at_2p09_bar_L_min": 1544.2263181380163,
+        "extrapolated_two_valves_at_3_bar_L_min": 1879.5724185274235,
+        "one_valve_catalog_water_m3_h": 51.8,
+        "temperature_viscosity_screen_factor": 0.9,
+        "total_backpressure_budget_bar": 0.2,
+        "common_header_ID_mm": 129.7,
+        "common_header_velocity_m_s": 2.004031603683015,
+        "common_header_dynamic_head_bar": 0.01747022060823738,
+        "max_total_K_at_zero_static_head": 11.448052344897011,
+        "catalogue_outlet_condition": "Свободный сброс по руководству. Допуск 0,2 бар должен подтвердить поставщик."
+      }
+    },
+    {
+      "measure": "LP Parker EHV 20-330/90-A25HC-200",
+      "group": "B",
+      "delta_kg": -14,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T25-ALP"
+      ],
+      "checked": "330 бар, номинальные 20 л, G2, 49 кг. При фиксированных уставках расчётный полезный объём уменьшается.",
+      "pending": "Подтвердить SAF32E, подвес и штуцер. Перезапуск цикла с 17,8 л газа, проверка давления и расхода на сбросе. Для AX в этой линейке экономии нет.",
+      "source_ids": [
+        "parker_accumulator",
+        "ax_lp",
+        "t26"
+      ],
+      "evidence": {
+        "reference_gas_L": 18.4,
+        "candidate_gas_L": 17.8,
+        "reference_usable_L": 2.9297767116896383,
+        "candidate_usable_L": 2.8342405145693244,
+        "nominal_peak_deficit_L": 2.2673583333333336,
+        "adverse_peak_deficit_L": 2.173326510507773
+      }
+    },
+    {
+      "measure": "Возврат к Parker PV180 FDV",
+      "group": "C",
+      "delta_kg": -12,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T25-P1"
+      ],
+      "checked": "Сравнены мотор и насос по T-2.1. Отдельный резерв DFE1Z в сумме оставлен.",
+      "pending": "Требуется решение по регулятору и отдельный цикл с реальной настройкой; масса окончательной обвязки открыта.",
+      "source_ids": [
+        "t21_mass",
+        "decisions"
+      ],
+      "evidence": null
+    },
+    {
+      "measure": "Шесть DB30 → Sun RPIC",
+      "group": "B",
+      "delta_kg": -11.881779730594703,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T16-08"
+      ],
+      "checked": "125–270 л/мин против 380 л/мин по каталогу, рабочий предел 350 бар. Противодавление порта 2 прибавляется 1:1.",
+      "pending": "Нужны Δp(Q) и противодавление каждой ветви на горячем/холодном масле, сверка наружного пилотного слива DB, динамические пики ≤315 бар. Ведомость плит общих блоков должна исключить эти шесть корпусов.",
+      "source_ids": [
+        "t16",
+        "sun",
+        "circuit"
+      ],
+      "evidence": {
+        "catalog_max_L_min": 380,
+        "catalog_max_bar": 350,
+        "tank_backpressure_per_bar": 1,
+        "ports": [
+          {
+            "id": "RGA",
+            "required_L_min": 181,
+            "passes_catalog_max_flow": true,
+            "return_net": "TR",
+            "existing_external_pilot_return_net": "DR",
+            "assumed_crack_bar": 300,
+            "allowed_flow_override_plus_backpressure_bar": 15
+          },
+          {
+            "id": "RGB",
+            "required_L_min": 125,
+            "passes_catalog_max_flow": true,
+            "return_net": "TR",
+            "existing_external_pilot_return_net": "DR",
+            "assumed_crack_bar": 300,
+            "allowed_flow_override_plus_backpressure_bar": 15
+          },
+          {
+            "id": "RRA",
+            "required_L_min": 270,
+            "passes_catalog_max_flow": true,
+            "return_net": "TR",
+            "existing_external_pilot_return_net": "DR",
+            "assumed_crack_bar": 300,
+            "allowed_flow_override_plus_backpressure_bar": 15
+          },
+          {
+            "id": "RRB",
+            "required_L_min": 186,
+            "passes_catalog_max_flow": true,
+            "return_net": "TR",
+            "existing_external_pilot_return_net": "DR",
+            "assumed_crack_bar": 300,
+            "allowed_flow_override_plus_backpressure_bar": 15
+          },
+          {
+            "id": "RV0",
+            "required_L_min": 265,
+            "passes_catalog_max_flow": true,
+            "return_net": "TRF",
+            "existing_external_pilot_return_net": "DR",
+            "assumed_crack_bar": 300,
+            "allowed_flow_override_plus_backpressure_bar": 15
+          },
+          {
+            "id": "RVM",
+            "required_L_min": 265,
+            "passes_catalog_max_flow": true,
+            "return_net": "TEM",
+            "existing_external_pilot_return_net": "DR",
+            "assumed_crack_bar": 298,
+            "allowed_flow_override_plus_backpressure_bar": 17
+          }
+        ],
+        "local_housing_kg_each": 1.8797033782342163
+      }
+    },
+    {
+      "measure": "T0, стенки 3 мм и четыре ребра",
+      "group": "B",
+      "delta_kg": -8.917599999999993,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T16-02"
+      ],
+      "checked": "S235JR, дно и крышка 4 мм, внутренние перегородки сохранены. Скрининг стенки и нагрузок рамы.",
+      "pending": "Нужны размерный эскиз, герметичность, проверка переменной нагрузки швов, креплений к раме и ванны при перевозке.",
+      "source_ids": [
+        "tank_structure",
+        "lifting",
+        "transport",
+        "t16_inputs"
+      ],
+      "evidence": {
+        "side_sheet_mm": 3,
+        "cover_and_bottom_sheet_mm": 4,
+        "material": "S235JR",
+        "proposed_shell_kg": 85.83840000000001,
+        "side_sheet_savings_kg": 10.048000000000002,
+        "ribs_kg": 1.1304,
+        "ribs": {
+          "count": 4,
+          "section_mm": [
+            30,
+            3
+          ],
+          "length_each_mm": 400.0,
+          "included_in_bending_stiffness": false,
+          "layout": "Одно наружное ребро на стенку, смонтированное на ребро. Сверить место в пределах рамы.",
+          "potential_total_projection_growth_per_axis_mm": 60
+        },
+        "baffles_mounts_fittings_kg": 15,
+        "oil_depth_m": 0.30158730158730157,
+        "static": {
+          "pressure_kPa": 3.4138800000000007,
+          "bending_MPa": 45.518400000000014,
+          "deflection_mm": 2.408380952380953,
+          "yield_to_bending": 5.162747372491123
+        },
+        "flooded_transport": {
+          "pressure_kPa": 9.558864000000002,
+          "bending_MPa": 127.45152000000003,
+          "deflection_mm": 6.743466666666669,
+          "yield_to_bending": 1.8438383473182582
+        },
+        "lift": {
+          "screen_dynamic_factor": 1.3,
+          "effective_sling_legs": 2,
+          "vertical_per_leg_N": 11353.759788177154,
+          "sling_tension_N": 16056.64107636641,
+          "load_path": "Стропы за раму станции, бак опирается на её поперечины.",
+          "single_center_loaded_RHS_tank_weight_bound_N": 3202.7680152000007,
+          "RHS_strong_axis_stress_MPa": 31.517162157734532,
+          "RHS_weak_axis_stress_MPa": 48.725345650384845
+        },
+        "transport": {
+          "station_forward_N": 13973.85820083342,
+          "station_lateral_N": 8733.661375520887,
+          "nominal_transport_state": "T0 осушен, крепление за раму станции."
+        },
+        "pending": "Нужны замкнутые швы 3/4 мм, расчёт опор, проушин и креплений с фактическим центром тяжести, проверка вибраций, испытание на герметичность. Перегородки, крепление к днищу и посадки сохраняются."
+      }
+    },
+    {
+      "measure": "T0 как основание, две поперечины",
+      "group": "B",
+      "delta_kg": -7.9630399999999995,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T16-06"
+      ],
+      "checked": "Оценка RHS и четырёх накладок T-1.6.",
+      "pending": "При совместном применении с тонкими стенками проверить единый расчёт опор, вибрации, прогиб, подъём и предельную соосность муфты.",
+      "source_ids": [
+        "t16",
+        "bell"
+      ],
+      "evidence": {
+        "added_plates_kg": 1.884,
+        "delta_kg": -7.9630399999999995,
+        "replaced_RHS_kg": 9.84704
+      }
+    },
+    {
+      "measure": "Объём T0 и воздушные охладители",
+      "group": "B",
+      "delta_kg": 0,
+      "counted_in_group_subtotal": true,
+      "ledger_ids": [
+        "T16-03",
+        "T25-E1_E2",
+        "T25-E_hardware"
+      ],
+      "checked": "Расчётный уровень, всас, нагрев и каталог охладителей проверены. В исполнении 190 л и пара ASA0567AA47.",
+      "pending": "Всас и деаэрацию квалифицировать на фактической геометрии. Подходящий более лёгкий охладитель среди проверенных вариантов не подтверждён.",
+      "source_ids": [
+        "iso4413",
+        "asa_0567",
+        "parker_lac",
+        "hydac_cooling",
+        "emmegi",
+        "akg"
+      ],
+      "evidence": {
+        "tank_screen_L": 205.32024908168015,
+        "cooler_reduction_kg": 0.0
+      }
+    },
+    {
+      "measure": "Общие блоки",
+      "group": "B",
+      "delta_kg": null,
+      "counted_in_group_subtotal": false,
+      "ledger_ids": [
+        "T16-08",
+        "T26-MF_housing",
+        "T26-regen_housings"
+      ],
+      "checked": "Раздельные клапаны и их наружные порты видны по ведомости.",
+      "pending": "Размерный эскиз и масса; посадки, каналы, потери, масло и 315 бар. Отдельные корпуса шести RPIC исключить из расчёта общей плиты.",
+      "source_ids": [
+        "t16",
+        "t26_inventory",
+        "circuit"
+      ],
+      "evidence": null
+    }
+  ],
+  "reference_model": "A_combined_NG50_33p25_kW_50ms_AX",
+  "sources": {
+    "decisions": {
+      "url": "DECISIONS.md",
+      "where": "D-GK-02; D-GK-06; D-OP-09; D-OP-16; D-OP-17; D-OP-19"
+    },
+    "criteria": {
+      "url": "ops/criteria/design_criteria.yaml",
+      "where": "v4"
+    },
+    "t16": {
+      "url": "calc/T-1.6/results.json",
+      "where": "mass.station_rows; heat_balance; mass.round1_uncredited_options"
+    },
+    "thermal_method": {
+      "url": "calc/T-1.6/heat_balance.py",
+      "where": "heat_sources and evaluate_heat"
+    },
+    "t16_inputs": {
+      "url": "calc/T-1.6/sources.yaml",
+      "where": "reservoir properties and cooler operating point"
+    },
+    "circuit": {
+      "url": "design/hydraulics/T-1.6_circuit.yaml",
+      "where": "TF; LT; SAL; SAX; station and cooling branches"
+    },
+    "interlocks": {
+      "url": "design/hydraulics/T-1.6_interlocks.yaml",
+      "where": "safe states and accumulator discharge"
+    },
+    "t26": {
+      "url": "calc/T-2.6/results.json",
+      "where": "variants[selected], selected_sensitivity.combined"
+    },
+    "t26_inputs": {
+      "url": "calc/T-2.6/sources.yaml",
+      "where": "round2.suction; inventory; oil; adverse"
+    },
+    "t26_inventory": {
+      "url": "calc/T-2.6/inventory.csv",
+      "where": "selected round-two inventory; sum delta_kg only"
+    },
+    "t26_energy": {
+      "url": "calc/T-2.6/energy.py",
+      "where": "shaft_balance; gas_balance"
+    },
+    "t26_replay": {
+      "url": "calc/T-2.6/run.py",
+      "where": "HydraulicStudy.replay"
+    },
+    "t21_mass": {
+      "url": "calc/T-2.1/results.json",
+      "where": "PV180 and A4VSO180_DFE1Z station ledgers"
+    },
+    "t17c_mass": {
+      "url": "calc/T-1.7c/results.json",
+      "where": "mass.baseline_rows; mass.nominal_kg"
+    },
+    "t17d_mass": {
+      "url": "calc/T-1.7d/results.json",
+      "where": "working_trial.mass"
+    },
+    "t22": {
+      "url": "design/main_cylinder_rear.t22.yaml",
+      "where": "mass.nominal_machine_AB_kg"
+    },
+    "t22_ledger": {
+      "url": "calc/T-2.2/results.json",
+      "where": "mass.baseline_T21_kg and nominal_AB_kg"
+    },
+    "t22i": {
+      "url": "calc/T-2.2i/results.json",
+      "where": "variants.nose_x225.mass"
+    },
+    "t22i_review": {
+      "url": "ops/reports/T-2.2i/GK_review.md",
+      "where": "gross front casting credit is optimistic"
+    },
+    "t16_review": {
+      "url": "ops/reports/T-1.6/GK_review.md",
+      "where": "accepted cooling point and margin"
+    },
+    "t26_review": {
+      "url": "ops/reports/T-2.6/GK_review.md",
+      "where": "reference cycle and advisory G-CYCLE"
+    },
+    "asa_0567": {
+      "url": "https://asahydraulik.us/es/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0567-230400v-075kw-50hz",
+      "curve_url": "https://asahydraulics.com/wp-content/uploads/2022/05/ASA-Series-AC.pdf",
+      "where": "ASA0567AA47, 50 Hz, cooling and oil pressure-drop tables; use the common segment for both branches."
+    },
+    "asa_0927": {
+      "url": "https://asahydraulik.us/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0927-230400v-150kw-50hz",
+      "curve_url": "https://asahydraulics.com/wp-content/uploads/2022/06/ASA-Standard-Ranges.pdf",
+      "where": "ASA0927AA6A at 150 and 200 L/min. Product page lists 140.5 kg; the range table lists 156.4 kg.",
+      "mass_kg_range": [
+        140.5,
+        156.4
+      ],
+      "fan_kW": 1.5,
+      "performance_points_L_min_kW_K": [
+        [
+          150,
+          2.05
+        ],
+        [
+          200,
+          2.24
+        ]
+      ]
+    },
+    "omec": {
+      "url": "https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf",
+      "where": "OMT3-IE3-200L-4, 30 kW S1, 1480 rpm, IP55, B5, cast iron."
+    },
+    "brook": {
+      "url": "https://brookcrompton.com/ukanditaly/wp-content/uploads/2023/11/2022-05_Series_30_Cat_iss1-3.pdf",
+      "where": "Series 30 JP-DA200LA, 30 kW IE3 aluminium; 1475 rpm and 207 kg in performance table. B5 order-specific mass and bellhousing fit require confirmation.",
+      "family_reference_mass_kg": 207,
+      "mounted_B5_B35_mass_kg": null,
+      "rated_rpm": 1475,
+      "rated_Nm": 194,
+      "pullout_ratio": 2.6,
+      "frequency_Hz": 50,
+      "poles": 4,
+      "B5_flange_PCD_mm": 350,
+      "B5_flange_register_mm": 300,
+      "B5_flange_OD_mm": 400,
+      "B5_flange_bolt_clearance_mm": 18.5,
+      "shaft_D_L_mm": [
+        55,
+        110
+      ]
+    },
+    "abb": {
+      "url": "https://library.e.abb.com/public/7950d3d0f6c64994822e519131c69461/M3AA%20200MLA%204%20K%20400V%2050Hz%2030kW%20Ex%20tc.pdf",
+      "where": "Типовой протокол 3GAA202410-ADK. При 400 В 50 Гц 1484 об/мин, IE3, 30 кВт S1. В протоколе 1481 об/мин при 380 В. Mk/Mn взято из каталога семейства.",
+      "family_reference_mass_kg": 246,
+      "mounted_B5_B35_mass_kg": null,
+      "rated_rpm": 1484,
+      "rated_Nm": 193,
+      "pullout_ratio": 3.3,
+      "frequency_Hz": 50,
+      "poles": 4
+    },
+    "a4vso": {
+      "url": "https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf",
+      "where": "Bosch Rexroth RE 92050, NG180 mass without through drive, installation and minimum absolute inlet pressure without charge pump.",
+      "min_inlet_absolute_bar": 0.8
+    },
+    "ax_lp": {
+      "url": "https://www.hydac.com.au/media/catalog/brochure/e/n/en30000-6-04-21_accumulatortechnology-productcatalogue.pdf",
+      "lp_url": "https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174",
+      "where": "HYDAC SB330 standard table. LP 3047174 and AX 3047170."
+    },
+    "iso4413": {
+      "url": "https://www.iso.org/standard/44781.html",
+      "where": "hydraulic-system safety standard, reservoir section 5.4.5; the 30 s target is a project input from T-1.6."
+    },
+    "parker_diffuser": {
+      "url": "https://www.parker.com/content/dam/Parker-com/Literature/EMHFF/HFD_Catalog/HFD_Catalog_Reservoir_Accessories.pdf",
+      "where": "submerged return diffuser and aeration mitigation."
+    },
+    "sun": {
+      "url": "https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/Intl_SC2009relief.pdf",
+      "where": "RPIC catalogue; T-1.6 allowance requires dynamic qualification at 315 bar."
+    },
+    "goetze": {
+      "url": "https://www.goetze-group.com/Series/642/goetze-642-datasheet-en.pdf",
+      "where": "review reference for the conditional TF relief pair; hydraulic calculation and allowances in T-1.6 sources."
+    },
+    "pwo": {
+      "url": "https://hymatik.com/en/pdfdownload/25081",
+      "where": "Parker CADE Fast Track table, 50832505 PWO B25THx50/1P-SC-S, bare empty mass and capacity at catalogue conditions.",
+      "bare_mass_kg": 11.15,
+      "rated_kW_at_40_K": 79,
+      "rated_oil_flow_L_min": 150
+    },
+    "brook_mount": {
+      "url": "https://brookcromptonmotors.com/products/brook-crompton-we3-we4/",
+      "where": "200J910401 указан как B3. Заказная масса IM B5/B35 для четырёхполюсного JP-DA200LA не подтверждена."
+    },
+    "bell": {
+      "url": "https://www.mpfiltri.com/product/bell-housing/",
+      "where": "LMC/LDC или набор ISO/SAE. Проверка стыковки по фланцу и валу на обеих сторонах, подбор муфты и проверка осевой длины."
+    },
+    "legacy_accumulators": {
+      "url": "calc/T-1.4b/sources.yaml",
+      "where": "hydac_sb330.mass_kg 49 для 3047174 и pilot_mass_kg 15 для 3047166. Сумму перенёс T-1.5, затем T-1.6."
+    },
+    "modern_accumulators": {
+      "url": "https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf",
+      "where": "EN 3.000.7. Для 3047174 в общей таблице 49 кг, в карточке изделия HYDAC 63 кг. Для 3047170 31 кг."
+    },
+    "parker_accumulator": {
+      "url": "https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/accumulator/bladder_accumulator/CADE_EHV_catalogue.pdf",
+      "where": "EHV 20-330/90-A25HC-200, номинально 20 л, 17,8 л эффективного газа, 49 кг, 330 бар, G2, до 1200 л/мин. EHV 10 того же исполнения 9,2 л и 31 кг.",
+      "effective_gas_volume_L": 17.8,
+      "mass_kg": 49
+    },
+    "suction_screen": {
+      "url": "https://govtribe.com/file/government-file/fairbanks-submersible-pump-spec-sheet-dot-pdf",
+      "where": "Fairbanks, корреляция S/D=1+2,3Fr для типового свободного всаса. ID 100 мм по DN100, ось 50 мм над дном по принятому эскизу. Проверочная геометрия, местные сопротивления не измерены.",
+      "assumed_clear_mouth_ID_mm": 100,
+      "assumed_mouth_elevation_mm": 50,
+      "vortex_Froude_multiplier": 2.3
+    },
+    "tank_structure": {
+      "url": "https://industry.arcelormittal.com/catalogue/A30/EN",
+      "where": "Выбран S235JR по EN 10025-2. E и плотность унаследованы из T-1.6. 3 мм стенка и рёбра 30 × 3 мм приняты для проверки, днище, крышка и перегородки сохранены.",
+      "steel_grade": "S235JR",
+      "steel_yield_MPa": 235,
+      "side_sheet_mm": 3,
+      "rib_count": 4,
+      "rib_width_mm": 30,
+      "rib_thickness_mm": 3,
+      "transport_forward_g": 0.8,
+      "transport_lateral_g": 0.5,
+      "lift_dynamic_factor": 1.3,
+      "effective_lift_legs": 2,
+      "sling_angle_from_vertical_deg": 45
+    },
+    "transport": {
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A02014L0047-20220927",
+      "where": "Приложение III, 0,8g вперёд, 0,5g поперёк. Крепления рассчитываются с установленной массой."
+    },
+    "lifting": {
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/design-of-below-the-hook-lifting-devices/2020/pdf",
+      "where": "Ограничения на грузовую геометрию и класс подъёмной оснастки. 1,3 и две ветви под 45° — явно принятые условия скрининга креплений, без заявления нормативного соответствия."
+    },
+    "parker_lac": {
+      "url": "https://www.parker.com/content/dam/Parker-com/Literature/Literature-Files/cz/images/download/Olaer/lac_parker_cz.pdf",
+      "curve_en_url": "https://www.parker.com/content/dam/Parker-com/Divisions-2011/Accumulator-and-Cooler-Division---Europe/Support/MSG10-6001_UK_LAC.pdf",
+      "where": "Кривые ±10%, таблицы мощности, массы, присоединений. Перенос графика с округлением вверх для отсева без ложного отказа."
+    },
+    "hydac_cooling": {
+      "url": "https://www.hydac.com.au/media/productattach/e/5/e5814-1-1-08-16_ac-ln_8-14_einzel.pdf?20260209=",
+      "readable_url": "https://niehues.shop/var/assets/manuals/DT1002872.pdf",
+      "where": "HYDAC E 5.814, 400 В, версия B. Кривая минерального масла ±5% при ETD 40 K. Применимость линейного пересчёта на 15 K требует подтверждения производителя."
+    },
+    "ktr_cooling": {
+      "url": "https://www.ktr.com/fileadmin/ktr/media/Tools_Downloads/kataloge/cooling_systems_ktr-kat00ek04.pdf",
+      "where": "OAC1000-03-8, график 750 об/мин как верхняя оценка исполнения 700 об/мин. Считывание 1,60 кВт/К при 180 л/мин из T-1.5."
+    },
+    "emmegi": {
+      "url": "https://it.emmegi.group/wp-content/uploads/sites/8/2024/11/HPA-LARGER.pdf",
+      "where": "HPA Larger, G.03–G.05, кривые 50 Гц, ±5%, сухая масса. При 180 л/мин округление считывания ~0,1 кВт/К."
+    },
+    "akg": {
+      "url": "https://www.akg-turkey.com/fileadmin/user_upload/Brochures/Standardcooler/AKG_T_Oil_Air_Cooling_Systems.pdf",
+      "where": "AKG-Line T, стр. 4–9, массы/вентиляторы и графики T1–T11. В серии T8S и старшие превышают лимит по мощности или массе."
+    },
+    "goetze_install": {
+      "url": "https://www.goetze-group.com/DAM/assembly-instructions/goetze-642-6420-645-6450-442-4420-445-4450-assembly-instruction.pdf",
+      "where": "Проверка допустимого противодавления зависит от исполнения и уставки. У 642 FKM получить письменное подтверждение для общей линии."
+    },
+    "pwo_selection": {
+      "url": "https://hymatik.com/da/pdfdownload/25898",
+      "where": "Габарит B25T, крепёж и порты. Водяную обвязку считать по границе поставки, включая воду."
+    },
+    "water_tube": {
+      "url": "https://www.rff.de/_uploads/files/produkte/kataloge/rff_Basics-2019_E.pdf",
+      "where": "EN 10220, труба Ø33,7×2,6. Для сценария подключения к внешнему контуру приняты две трассы по 1 м, масса из геометрии и плотности."
+    },
+    "water_properties": {
+      "url": "https://webbook.nist.gov/chemistry/fluid/",
+      "where": "Вода около комнатной температуры. Для скрининга округлено до 1000 кг/м³ и 4,18 кДж/(кг·К)."
+    },
+    "emmegi_standard": {
+      "url": "https://johydraulics.dk/upload_dir/docs/Emmegi---Luftoliekoeler-Series-HPA---Store-koelere-med-mange-konfigurationsmuligheder.pdf",
+      "where": "Каталог Emmegi HPA, страницы 18–23, кривые AC 50 Гц и массы 244203, 245003, 245203."
+    },
+    "emmegi_compact": {
+      "url": "https://it.emmegi.group/en/products/air-oil-exchangers/hpa-compact/",
+      "catalogue_url": "https://johydraulics.dk/upload_dir/docs/Emmegi---Luftoliekoeler-Series-HPA-Compact---Kompakte-koelere.pdf",
+      "where": "HPA 42 COMPACT 2K4203, 0,79 кВт 50 Гц, 59 кг, кривая 40–200 л/мин."
+    },
+    "hydac_cooling_current": {
+      "url": "https://www.hydac.com.au/ac-ln-low-noise-air-cooler.html",
+      "where": "Пункт 3805063. Максимум 82,9 кВт при 40 K в рекомендованном диапазоне 50–360 л/мин."
+    },
+    "asa_ports": {
+      "url": "https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf",
+      "where": "ASA-Connector NG40, два на аппарат. B × A × L для сравнения габарита аппаратов."
+    },
+    "oil_cold": {
+      "url": "https://www.epc.shell.com/DocumentManagement/BlobDocumentDownload?DocId=72792289",
+      "where": "Shell Tellus S2 M 46, паспорт безопасности, раздел 9.2, 580 мм²/с при 0 °C для иллюстрации запаса прямого участка.",
+      "viscosity_at_0_C_mm2_s": 580
+    },
+    "abb_family": {
+      "url": "https://library.e.abb.com/public/7f63595b46d943c99e3875f44b46c545/Moteurs%20Process%20Performance_Catalogue_FR.pdf",
+      "where": "Строка 3GAA202410-••K, 1484 об/мин, 193 Н·м, Mk/Mn 3,3, 246 кг для семейства. Масса заказного фланцевого исполнения открыта."
+    },
+    "parker_lac_curves": {
+      "url": "https://www.parker.com/content/dam/Parker-com/Divisions-2011/Accumulator-and-Cooler-Division---Europe/Support/MSG10-6001_UK_LAC.pdf",
+      "where": "MSG10-6001, стр. 9, полные кривые 50 Гц, в том числе LAC 056-6. Допуск кривой ±10%."
+    }
+  },
+  "gates": {
+    "G-PFACE": {
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "unit": "MPa"
+    },
+    "G-DOSE": {
+      "status": "PASS",
+      "value": 396,
+      "unit": "mm"
+    },
+    "G-CYCLE": {
+      "status": "FAIL",
+      "value": 8.719438672336503,
+      "unit": "s"
+    }
+  }
+}

@@ -1,0 +1,429 @@
+schema_version: 1
+task: T-2.5
+round: 2
+status: STOP
+recommended_execution: Эталонная станция T-2.6 схемы A с уточнённой ведомостью
+mass_acceptance: false
+mass_kg: 1780.5629715638913
+credited_reduction_kg: 0.0
+mass_rows:
+- id: T25-M1
+  part: OMEC OMT3-IE3-200L-4 B5
+  mass_kg: 278
+  source: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+  replaces_or_adjusts: T16-01
+- id: T25-P1
+  part: Rexroth A4VSO180 /30 без проходного вала
+  mass_kg: 102
+  source: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+  replaces_or_adjusts: T16-01
+- id: T25-P1_DFE1Z
+  part: Резерв на регулятор DFE1Z и адаптер
+  mass_kg: 7
+  source: calc/T-2.1/results.json
+  replaces_or_adjusts: T16-01
+- id: T16-02
+  part: Основной бак
+  mass_kg: 94.756
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Envelope 900×700×400 mm, sheet 4 mm and 15 kg for baffles, fittings and mounts
+- id: T16-03
+  part: Основное масло
+  mass_kg: 165.3
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Initial main tank inventory × oil density; cylinder fill already carried
+    with cylinders
+- id: T25-ALP
+  part: LP — HYDAC SB330 20 L 3047174
+  mass_kg: 63
+  source: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+  replaces_or_adjusts: T16-04
+  pressure_bar: 330
+- id: T25-AX
+  part: AX — HYDAC SB330 10 L 3047170
+  mass_kg: 31
+  source: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+  replaces_or_adjusts: T16-04
+  pressure_bar: 330
+- id: T25-E1_E2
+  part: 2 × ASA0567AA47 0,75 кВт 50 Гц
+  mass_kg: 165.4
+  source: https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf
+  replaces_or_adjusts: T16-05
+  qty: 2
+  unit_mass_kg: 82.7
+- id: T25-E_hardware
+  part: Датчики ветвей, крепления и съёмные маты
+  mass_kg: 8.0
+  source: calc/T-1.6/results.json#mass.station_rows
+  replaces_or_adjusts: T16-05
+- id: T16-06
+  part: Рама станции
+  mass_kg: 42.35456
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: 2×900 + 4×700 mm RHS 80×40×4, 10 kg feet/motor plate/mounting hardware, transport
+    to verify
+  composition: RHS 80×40×4, опоры, колокол/муфта и крепёж в ведомости.
+- id: T16-07
+  part: Картриджи 2WRCE
+  mass_kg: 262.9
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Circuit inventory × masses in RE 29406, NG32/40/50
+  composition: MF NG50, MBT NG40, LR NG32 и остальные 2WRCE; штатные массы корпусов
+    относятся к ведомости T-1.6.
+- id: T16-08
+  part: Коллекторы, малая арматура и защита
+  mass_kg: 128
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Project allowance including DB, gate valve, LC/LFA, SAF bodies, sensors and
+    safety cartridges
+  composition: В том числе SAF32E SAL/SAX 24,8 кг за пару до адаптеров. T-2.6 считает
+    ранний корпус MF 32 кг уже учтённым. Привязку корпуса к этой строке проверить
+    при деталировке.
+- id: T16-09
+  part: Фильтры, трубы, вспомогательные насосы
+  mass_kg: 75
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Project allowance for wider return and separate cooling loop
+  composition: F1, FX, F2, линии станции, вспомогательные насосы и PC. Строка проектного
+    резерва.
+- id: T16-10
+  part: ZSF NG100
+  mass_kg: 15
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: RE 20478 and T-1.4b
+- id: T25-TF_dry
+  part: TF 80 л, разделитель и регулятор
+  mass_kg: 36.92307692307692
+  source: calc/T-2.6/inventory.csv
+  replaces_or_adjusts: T16-11
+  basis: Проектный резерв, масса сосуда и мембраны уточняется заказом.
+- id: T25-TF_oil
+  part: Масло TF 55 л
+  mass_kg: 47.85
+  source: calc/T-2.6/inventory.csv
+  replaces_or_adjusts: T16-11
+- id: T16-12
+  part: Местные линии наполнения
+  mass_kg: 24
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Engineering allowance for Ø125/100 and matching supports as already reserved
+    in T-1.4b
+  composition: Две местные линии наполнения 133×4 и 108×4, крепёж по унаследованной
+    строке.
+- id: T16-13
+  part: Клапаны плавания и подпитки
+  mass_kg: 28.400000000000002
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: RE 21040 and RE 21010. Both check inserts in the shared manifold with its
+    own cover allowance.
+  composition: Седла плавания и подпитки, включая MC по ведомости T-2.6 без добавочной
+    массы.
+- id: T16-14
+  part: Седло регенерации
+  mass_kg: 9.3
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: RE 21010 LC/LFA NG40
+  composition: LC/LFA NG40, седло регенерации.
+- id: T16-15
+  part: Масляный предохранительный TF
+  mass_kg: 48.5
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Goetze Series 455 DN65/100 gastight catalogued mass
+  composition: Goetze 455 DN65/100 F, уставка 1,9 бар.
+- id: T16-16
+  part: monitored_unloader_and_adapter
+  mass_kg: 13.881044130518074
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly; separate
+    2 m steel Ø16/12 drain and fittings
+  composition: Контролируемый разгрузчик ZU/ZUP, адаптер, отдельный дренаж.
+- id: T16-17
+  part: float_common_cover_and_mounts
+  mass_kg: 26.0
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Two standard LFA NG50 (RE 21010 p. 6); retain predecessor allowance for mounts
+  composition: Крышки LFA NG50 и их крепления.
+- id: T16-18
+  part: TF_relief_flange_and_return_support
+  mass_kg: 5
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly
+  composition: Фланец штатного RTF и опоры возврата.
+- id: T16-19
+  part: emergency_dump_poppets_and_returns
+  mass_kg: 22
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly
+  composition: Аварийные клапаны ME1/ME2/MEB и раздельные возвраты.
+- id: T16-20
+  part: pilot_tandem_and_feedback
+  mass_kg: 23
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly
+  composition: Тандем PX/PXA и контроль состояний.
+- id: T26-RA_RB_sensors
+  part: Rexroth HM20-2X/400-C-K35-N
+  qty: 2
+  dry_kg: 0.12
+  oil_kg: 0.0
+  mass_kg: 0.12
+  source: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/proportional_electronics/re30272-2.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_valves
+  part: Rexroth LC25 + LFA25, bridge RB→RA and cutoff RB→tank
+  qty: 2
+  dry_kg: 5.6
+  oil_kg: 0.0
+  mass_kg: 5.6
+  source: https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_pilots
+  part: Rexroth 4WE6, 24 V DC single coil
+  qty: 2
+  dry_kg: 2.9
+  oil_kg: 0.0
+  mass_kg: 2.9
+  source: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/directional_valves/re23178.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_housings
+  part: Parker CB025A16510W ISO 7368 (fit/pilot port routing to verify)
+  qty: 2
+  dry_kg: 22
+  oil_kg: 0.0
+  mass_kg: 22.0
+  source: https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_routes
+  part: STAUFF E355 38×5, 2030043517
+  qty: 1
+  dry_kg: 4.884
+  oil_kg: 0.6428452551481579
+  mass_kg: 5.526845255148158
+  source: https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf
+  basis: catalogue unit mass, layout length
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-lp_eject_route
+  part: STAUFF E355 38×5, 2030043517, LR→RA
+  qty: 1
+  dry_kg: 4.884
+  oil_kg: 0.6428452551481579
+  mass_kg: 5.526845255148158
+  source: https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf
+  basis: catalogue unit mass, layout length
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-MF_housing
+  part: MF housing with RE 29406 installation bore
+  qty: 1
+  dry_kg: 48.3246
+  oil_kg: 0.0
+  mass_kg: 16.324599999999997
+  source: https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf
+  basis: Double-B casting/blank envelopes RE 29406 page 32, adds space for both Ø70
+    radial ports. Use gross blank mass for new housing and CB050 as previous single-B
+    housing estimate. Parker mass of the single-port block is a proxy, with fit and
+    CAD to verify.
+  ledger_source: calc/T-2.6/inventory.csv
+  composition: Разность 48,3246 и 32 кг. Базовый корпус учтён в смете узла.
+base_reconciliation:
+  T16_kg: 1655.3316041305181
+  T26_delta_kg: 76.23136743337324
+  T21_drive_delta_kg: 19.0
+  T16_GA_correction:
+    T16_booked_LP_kg: 49
+    T16_booked_AX_kg: 15
+    T16_kg: 64
+    T16_LP_part_no: '3047174'
+    T16_booked_AX_part_no: '3047166'
+    T16_circuit_AX_part_no: '3047170'
+    LP_design_kg: 63
+    AX_design_kg: 31
+    LP_catalogue_weight_disagreement_kg: 14
+    AX_legacy_to_actual_kg: 16
+    total_correction_kg: 30
+    LP_design_part_no: '3047174'
+    AX_design_part_no: '3047170'
+    SAL_and_SAX_dry_kg: 24.8
+    SAL_SAX_booked_in: T16-08
+    source_legacy: calc/T-1.4b/sources.yaml
+    source_T26: calc/T-2.6/inventory.csv
+    source_LP_part: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    source_HYDAC_catalogue: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+  machine_mass_after_group_A_kg_range:
+  - 5253.275449245492
+  - 5296.630367010522
+hydraulics:
+  reference_configuration: A_combined_NG50_33p25_kW_50ms_AX
+  reference_cycle_source: calc/T-2.6/results.json
+  circuit_source: design/hydraulics/T-1.6_circuit.yaml
+  interlocks_source: design/hydraulics/T-1.6_interlocks.yaml
+  main_drive:
+    motor: OMEC OMT3-IE3-200L-4 IM B5
+    rated_kW: 30
+    duty: S1
+    frequency_Hz: 50
+    rated_rpm: 1480
+    IP: IP55
+    IE: IE3
+    cooling: IC411
+    motor_source: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    pump: Bosch Rexroth A4VSO 180 /30
+    regulator: DFE1Z, внешний пилот
+    pump_source: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+    main_pump_suction_port: SAE J518 3″
+    mount: IEC 200 B5 Ø400 / PCD350 / посадка Ø300, вал Ø55×110. Колокол к ISO 3019-2
+      NG180.
+  rapid_regeneration:
+    MF: 2WRCE NG50 Double-B, два канала B
+    MBT: 2WRCE NG40
+    bridge: LC25/LFA25 RB→RA, отсечка RB→бак
+    LP_delivery: LR/LRC → RA на выбросе
+    main_filling: ZSF NG100, свободное наполнение при прямом ходе. MF в TF на возврате.
+    stop: Снятие момента P1, ZU открыт, MF/MBT закрыты, SAL/SAX в сброс, BAL закрыт.
+    main_working_limit_bar: 300
+    relief_limit_bar: 315
+  accumulators:
+    LP:
+      model: HYDAC SB330 3047174
+      nominal_L: 20
+      effective_gas_L: 18.4
+      precharge_bar: 28
+      operating_bar_range:
+      - 38
+      - 52
+      relief_bar: 60
+      vessel_rated_bar: 330
+      safety_block: SAL SAF32E Y
+    AX:
+      model: HYDAC SB330 3047170
+      nominal_L: 10
+      effective_gas_L: 9.3
+      precharge_bar: 100
+      operating_bar_range:
+      - 120
+      - 150
+      relief_bar: 160
+      vessel_rated_bar: 330
+      safety_block: SAX SAF32E Y
+reservoirs:
+  T0:
+    nominal_oil_L: 190
+    density_kg_m3: 870
+    tank_dims_mm:
+    - 900
+    - 700
+    - 400
+    gross_L: 252.0
+    low_trip_L: 130
+    high_trip_L: 205
+    sizing_screen_minimum_initial_L: 205.32024908168015
+    determining_screen: заглубление всаса
+    suction:
+      provisional_required_oil_L: 205.32024908168015
+      min_pump_inlet_absolute_bar: 0.8
+      combined_P1_and_pilot_flow_L_min: 282.4
+      velocity_m_s: 0.5992714123886832
+      Froude: 0.6050469234011137
+      mouth_diameter_mm: 100.0
+      mouth_elevation_mm: 50
+      submergence_mm: 239.16079238225612
+      running_depth_mm: 264.84293669704954
+      available_loss_at_zero_flange_elevation_bar: 0.22260355011828303
+      cold_oil_DN100_Re: 103.32265730839366
+      cold_oil_DN100_straight_loss_bar_per_m: 0.009676555350122544
+      cold_oil_straight_equivalent_length_limit_m: 23.004420691446153
+      head_shortfall_at_min_running_mm: 24.31785568520658
+      flange_budget_rule: Из бюджета вычесть ρg·z фланца над дном и потери сапуна.
+        Сравнить с ΣK·ρv²/2, распределёнными и ускорительными потерями, холодной вязкостью
+        и загрязнением.
+      qualified: false
+    deaeration:
+      target_s: 30
+      main_and_pilot_mean_L_min: 180.5849321660541
+      level_with_separate_cooling_path_L: 113.44141596388583
+      level_with_shared_path_L: 203.44141596388585
+      estimated_residence_shared_min_level_s: 27.763398062729493
+      level_penalty_L: 23.148949880858783
+      construction: Сохранить раздельные подуровневые диффузоры, перегородку и затопленный
+        всас. Проверить эффективный объём, работу сетки при холодном масле и время
+        до появления пузырей на всасе.
+    thermal:
+      oil_only_heat_capacity_kJ_K: 314.07
+      starting_oil_C: 40
+      heating_to_limit_without_cooling_s: 235.4920531510987
+      rise_after_10_min_dirty_K: 10.939857106627837
+      steady_oil_dirty_C: 51.327958165673465
+    shell_sheet_mm: 4
+    source: calc/T-1.6/sources.yaml
+    support: Рама 2×900 + 4×700, RHS 80×40×4. Отдельные опоры, подуровневые возвраты
+      и перегородка.
+  TF:
+    gross_L: 80
+    initial_oil_L: 55
+    min_initial_oil_L: 50.21638521836939
+    initial_margin_L: 4.783614781630611
+    nominal_gauge_bar: 0.6
+    regulation_half_band_bar: 0.050000000000000044
+    max_gauge_bar: 0.65
+    min_gauge_bar: 0.5499999999999999
+    separator: Эластичный разделитель масла и азота, двухстороннее регулирование.
+    balance_nominal_L_min: 50
+    main_pump_inlet_is_separate: true
+    vessel_basis: Мембранный, через двухсторонний регулятор N₂. Сохраняются LSF, PTF,
+      BAL и штатный RTF.
+    relief: Goetze 455 DN65/100 F, 1,9 бар, отдельная линия TET, предел бака 3 бар.
+    source: calc/T-2.6/run.py
+cooling:
+  model: 2 × ASA0567AA47
+  per_module_W_H_D_mm:
+  - 920
+  - 860
+  - 543
+  port: 2 × ASA Connector NG40
+  mass_modules_kg: 165.4
+  hardware_kg: 8.0
+  fitted_mass_kg: 173.4
+  maximum_branch_drop_bar: 0.58
+  total_flow_L_min: 180
+  fan_kW: 1.5
+  source: https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf
+  air_C: 40
+  oil_limit_C: 55
+  flow_L_min: 180
+  branch_flow_L_min_range:
+  - 78
+  - 102
+  fouling_fraction: 0.15
+  catalog_tolerance_fraction: 0.15
+  circulation_kW: 0.55
+  installed_kW: 34.068000000000005
+  worst_heat_kW: 20.00513366358588
+  heat_factor: 1.25
+  cooling_required_kW: 26.43
+  cooling_dirty_kW: 26.48994642857142
+  circuit: Отдельная циркуляция PC 0,55 кВт, E1/E2 параллельно, FT1/FT2 и CD; предельный
+    Δp ветви 1,25 бар.
+  physical_cooler_location: Унаследованная компоновка, совместный габарит с воздуховодом
+    и зазорами подлежит проверке.
+cycle:
+  nominal_s: 5.903749999999025
+  adverse_s: 6.1934374999989155
+  nominal_rms_kW: 29.986749722581077
+  adverse_rms_kW: 29.372565943813104
+  peak_kW: 38.310810810810814
+balance_of_measures:
+  A_credited_kg: 0.0
+  B_conditional_kg: 132.81861100270953
+  C_operator_upper_savings_kg: 230.6285799654193
+open_items:
+- Подтвердить растарировку T0, раздельные пути деаэрации, заглубление и давление на
+  фланце S насоса.
+- На безопасной остановке измерить ход, время разряда SAL/SAX, порядок WK и волну
+  уровня.
+- Подтвердить паспорт TF 80 л и совместимость корпуса MF Double-B, арматуры, колокола
+  и опор.
+- Взвесить станцию и проверить габарит, крепления и доступ на стадии компоновки.

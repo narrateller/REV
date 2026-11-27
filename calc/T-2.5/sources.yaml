@@ -1,0 +1,182 @@
+sources:
+  decisions: {url: DECISIONS.md, where: D-GK-02; D-GK-06; D-OP-09; D-OP-16; D-OP-17; D-OP-19}
+  criteria: {url: ops/criteria/design_criteria.yaml, where: v4}
+  t16: {url: calc/T-1.6/results.json, where: mass.station_rows; heat_balance; mass.round1_uncredited_options}
+  thermal_method: {url: calc/T-1.6/heat_balance.py, where: heat_sources and evaluate_heat}
+  t16_inputs: {url: calc/T-1.6/sources.yaml, where: reservoir properties and cooler operating point}
+  circuit: {url: design/hydraulics/T-1.6_circuit.yaml, where: TF; LT; SAL; SAX; station and cooling branches}
+  interlocks: {url: design/hydraulics/T-1.6_interlocks.yaml, where: safe states and accumulator discharge}
+  t26: {url: calc/T-2.6/results.json, where: 'variants[selected], selected_sensitivity.combined'}
+  t26_inputs: {url: calc/T-2.6/sources.yaml, where: round2.suction; inventory; oil; adverse}
+  t26_inventory: {url: calc/T-2.6/inventory.csv, where: selected round-two inventory; sum delta_kg only}
+  t26_energy: {url: calc/T-2.6/energy.py, where: shaft_balance; gas_balance}
+  t26_replay: {url: calc/T-2.6/run.py, where: HydraulicStudy.replay}
+  t21_mass: {url: calc/T-2.1/results.json, where: PV180 and A4VSO180_DFE1Z station ledgers}
+  t17c_mass: {url: calc/T-1.7c/results.json, where: mass.baseline_rows; mass.nominal_kg}
+  t17d_mass: {url: calc/T-1.7d/results.json, where: working_trial.mass}
+  t22: {url: design/main_cylinder_rear.t22.yaml, where: mass.nominal_machine_AB_kg}
+  t22_ledger: {url: calc/T-2.2/results.json, where: mass.baseline_T21_kg and nominal_AB_kg}
+  t22i: {url: calc/T-2.2i/results.json, where: variants.nose_x225.mass}
+  t22i_review: {url: ops/reports/T-2.2i/GK_review.md, where: gross front casting credit is optimistic}
+  t16_review: {url: ops/reports/T-1.6/GK_review.md, where: accepted cooling point and margin}
+  t26_review: {url: ops/reports/T-2.6/GK_review.md, where: reference cycle and advisory G-CYCLE}
+  asa_0567:
+    url: https://asahydraulik.us/es/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0567-230400v-075kw-50hz
+    curve_url: https://asahydraulics.com/wp-content/uploads/2022/05/ASA-Series-AC.pdf
+    where: ASA0567AA47, 50 Hz, cooling and oil pressure-drop tables; use the common segment for both branches.
+  asa_0927:
+    url: https://asahydraulik.us/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0927-230400v-150kw-50hz
+    curve_url: https://asahydraulics.com/wp-content/uploads/2022/06/ASA-Standard-Ranges.pdf
+    where: ASA0927AA6A at 150 and 200 L/min. Product page lists 140.5 kg; the range table lists 156.4 kg.
+    mass_kg_range: [140.5, 156.4]
+    fan_kW: 1.5
+    performance_points_L_min_kW_K: [[150, 2.05], [200, 2.24]]
+  omec:
+    url: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    where: OMT3-IE3-200L-4, 30 kW S1, 1480 rpm, IP55, B5, cast iron.
+  brook:
+    url: https://brookcrompton.com/ukanditaly/wp-content/uploads/2023/11/2022-05_Series_30_Cat_iss1-3.pdf
+    where: Series 30 JP-DA200LA, 30 kW IE3 aluminium; 1475 rpm and 207 kg in performance table. B5 order-specific mass and bellhousing fit require confirmation.
+    family_reference_mass_kg: 207
+    mounted_B5_B35_mass_kg: null
+    rated_rpm: 1475
+    rated_Nm: 194
+    pullout_ratio: 2.6
+    frequency_Hz: 50
+    poles: 4
+    B5_flange_PCD_mm: 350
+    B5_flange_register_mm: 300
+    B5_flange_OD_mm: 400
+    B5_flange_bolt_clearance_mm: 18.5
+    shaft_D_L_mm: [55, 110]
+  abb:
+    url: https://library.e.abb.com/public/7950d3d0f6c64994822e519131c69461/M3AA%20200MLA%204%20K%20400V%2050Hz%2030kW%20Ex%20tc.pdf
+    where: "Типовой протокол 3GAA202410-ADK. При 400 В 50 Гц 1484 об/мин, IE3, 30 кВт S1. В протоколе 1481 об/мин при 380 В. Mk/Mn взято из каталога семейства."
+    family_reference_mass_kg: 246
+    mounted_B5_B35_mass_kg: null
+    rated_rpm: 1484
+    rated_Nm: 193
+    pullout_ratio: 3.3
+    frequency_Hz: 50
+    poles: 4
+  a4vso:
+    url: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+    where: Bosch Rexroth RE 92050, NG180 mass without through drive, installation and minimum absolute inlet pressure without charge pump.
+    min_inlet_absolute_bar: 0.8
+  ax_lp:
+    url: https://www.hydac.com.au/media/catalog/brochure/e/n/en30000-6-04-21_accumulatortechnology-productcatalogue.pdf
+    lp_url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    where: HYDAC SB330 standard table. LP 3047174 and AX 3047170.
+  iso4413:
+    url: https://www.iso.org/standard/44781.html
+    where: hydraulic-system safety standard, reservoir section 5.4.5; the 30 s target is a project input from T-1.6.
+  parker_diffuser:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/EMHFF/HFD_Catalog/HFD_Catalog_Reservoir_Accessories.pdf
+    where: submerged return diffuser and aeration mitigation.
+  sun:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/Intl_SC2009relief.pdf
+    where: RPIC catalogue; T-1.6 allowance requires dynamic qualification at 315 bar.
+  goetze:
+    url: https://www.goetze-group.com/Series/642/goetze-642-datasheet-en.pdf
+    where: review reference for the conditional TF relief pair; hydraulic calculation and allowances in T-1.6 sources.
+  pwo:
+    url: https://hymatik.com/en/pdfdownload/25081
+    where: Parker CADE Fast Track table, 50832505 PWO B25THx50/1P-SC-S, bare empty mass and capacity at catalogue conditions.
+    bare_mass_kg: 11.15
+    rated_kW_at_40_K: 79
+    rated_oil_flow_L_min: 150
+  brook_mount:
+    url: https://brookcromptonmotors.com/products/brook-crompton-we3-we4/
+    where: "200J910401 указан как B3. Заказная масса IM B5/B35 для четырёхполюсного JP-DA200LA не подтверждена."
+  bell:
+    url: https://www.mpfiltri.com/product/bell-housing/
+    where: "LMC/LDC или набор ISO/SAE. Проверка стыковки по фланцу и валу на обеих сторонах, подбор муфты и проверка осевой длины."
+  legacy_accumulators:
+    url: calc/T-1.4b/sources.yaml
+    where: "hydac_sb330.mass_kg 49 для 3047174 и pilot_mass_kg 15 для 3047166. Сумму перенёс T-1.5, затем T-1.6."
+  modern_accumulators:
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    where: "EN 3.000.7. Для 3047174 в общей таблице 49 кг, в карточке изделия HYDAC 63 кг. Для 3047170 31 кг."
+  parker_accumulator:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/accumulator/bladder_accumulator/CADE_EHV_catalogue.pdf
+    where: "EHV 20-330/90-A25HC-200, номинально 20 л, 17,8 л эффективного газа, 49 кг, 330 бар, G2, до 1200 л/мин. EHV 10 того же исполнения 9,2 л и 31 кг."
+    effective_gas_volume_L: 17.8
+    mass_kg: 49
+  suction_screen:
+    url: https://govtribe.com/file/government-file/fairbanks-submersible-pump-spec-sheet-dot-pdf
+    where: "Fairbanks, корреляция S/D=1+2,3Fr для типового свободного всаса. ID 100 мм по DN100, ось 50 мм над дном по принятому эскизу. Проверочная геометрия, местные сопротивления не измерены."
+    assumed_clear_mouth_ID_mm: 100
+    assumed_mouth_elevation_mm: 50
+    vortex_Froude_multiplier: 2.3
+  tank_structure:
+    url: https://industry.arcelormittal.com/catalogue/A30/EN
+    where: "Выбран S235JR по EN 10025-2. E и плотность унаследованы из T-1.6. 3 мм стенка и рёбра 30 × 3 мм приняты для проверки, днище, крышка и перегородки сохранены."
+    steel_grade: S235JR
+    steel_yield_MPa: 235
+    side_sheet_mm: 3
+    rib_count: 4
+    rib_width_mm: 30
+    rib_thickness_mm: 3
+    transport_forward_g: 0.8
+    transport_lateral_g: 0.5
+    lift_dynamic_factor: 1.3
+    effective_lift_legs: 2
+    sling_angle_from_vertical_deg: 45
+  transport:
+    url: https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A02014L0047-20220927
+    where: "Приложение III, 0,8g вперёд, 0,5g поперёк. Крепления рассчитываются с установленной массой."
+  lifting:
+    url: https://www.asme.org/codes-standards/find-codes-standards/design-of-below-the-hook-lifting-devices/2020/pdf
+    where: "Ограничения на грузовую геометрию и класс подъёмной оснастки. 1,3 и две ветви под 45° — явно принятые условия скрининга креплений, без заявления нормативного соответствия."
+  parker_lac:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Literature-Files/cz/images/download/Olaer/lac_parker_cz.pdf
+    curve_en_url: https://www.parker.com/content/dam/Parker-com/Divisions-2011/Accumulator-and-Cooler-Division---Europe/Support/MSG10-6001_UK_LAC.pdf
+    where: "Кривые ±10%, таблицы мощности, массы, присоединений. Перенос графика с округлением вверх для отсева без ложного отказа."
+  hydac_cooling:
+    url: https://www.hydac.com.au/media/productattach/e/5/e5814-1-1-08-16_ac-ln_8-14_einzel.pdf?20260209=
+    readable_url: https://niehues.shop/var/assets/manuals/DT1002872.pdf
+    where: "HYDAC E 5.814, 400 В, версия B. Кривая минерального масла ±5% при ETD 40 K. Применимость линейного пересчёта на 15 K требует подтверждения производителя."
+  ktr_cooling:
+    url: https://www.ktr.com/fileadmin/ktr/media/Tools_Downloads/kataloge/cooling_systems_ktr-kat00ek04.pdf
+    where: "OAC1000-03-8, график 750 об/мин как верхняя оценка исполнения 700 об/мин. Считывание 1,60 кВт/К при 180 л/мин из T-1.5."
+  emmegi:
+    url: https://it.emmegi.group/wp-content/uploads/sites/8/2024/11/HPA-LARGER.pdf
+    where: "HPA Larger, G.03–G.05, кривые 50 Гц, ±5%, сухая масса. При 180 л/мин округление считывания ~0,1 кВт/К."
+  akg:
+    url: https://www.akg-turkey.com/fileadmin/user_upload/Brochures/Standardcooler/AKG_T_Oil_Air_Cooling_Systems.pdf
+    where: "AKG-Line T, стр. 4–9, массы/вентиляторы и графики T1–T11. В серии T8S и старшие превышают лимит по мощности или массе."
+  goetze_install:
+    url: https://www.goetze-group.com/DAM/assembly-instructions/goetze-642-6420-645-6450-442-4420-445-4450-assembly-instruction.pdf
+    where: "Проверка допустимого противодавления зависит от исполнения и уставки. У 642 FKM получить письменное подтверждение для общей линии."
+  pwo_selection:
+    url: https://hymatik.com/da/pdfdownload/25898
+    where: "Габарит B25T, крепёж и порты. Водяную обвязку считать по границе поставки, включая воду."
+  water_tube:
+    url: https://www.rff.de/_uploads/files/produkte/kataloge/rff_Basics-2019_E.pdf
+    where: "EN 10220, труба Ø33,7×2,6. Для сценария подключения к внешнему контуру приняты две трассы по 1 м, масса из геометрии и плотности."
+  water_properties:
+    url: https://webbook.nist.gov/chemistry/fluid/
+    where: "Вода около комнатной температуры. Для скрининга округлено до 1000 кг/м³ и 4,18 кДж/(кг·К)."
+  emmegi_standard:
+    url: https://johydraulics.dk/upload_dir/docs/Emmegi---Luftoliekoeler-Series-HPA---Store-koelere-med-mange-konfigurationsmuligheder.pdf
+    where: "Каталог Emmegi HPA, страницы 18–23, кривые AC 50 Гц и массы 244203, 245003, 245203."
+  emmegi_compact:
+    url: https://it.emmegi.group/en/products/air-oil-exchangers/hpa-compact/
+    catalogue_url: https://johydraulics.dk/upload_dir/docs/Emmegi---Luftoliekoeler-Series-HPA-Compact---Kompakte-koelere.pdf
+    where: "HPA 42 COMPACT 2K4203, 0,79 кВт 50 Гц, 59 кг, кривая 40–200 л/мин."
+  hydac_cooling_current:
+    url: https://www.hydac.com.au/ac-ln-low-noise-air-cooler.html
+    where: "Пункт 3805063. Максимум 82,9 кВт при 40 K в рекомендованном диапазоне 50–360 л/мин."
+  asa_ports:
+    url: https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf
+    where: "ASA-Connector NG40, два на аппарат. B × A × L для сравнения габарита аппаратов."
+  oil_cold:
+    url: https://www.epc.shell.com/DocumentManagement/BlobDocumentDownload?DocId=72792289
+    where: "Shell Tellus S2 M 46, паспорт безопасности, раздел 9.2, 580 мм²/с при 0 °C для иллюстрации запаса прямого участка."
+    viscosity_at_0_C_mm2_s: 580
+  abb_family:
+    url: https://library.e.abb.com/public/7f63595b46d943c99e3875f44b46c545/Moteurs%20Process%20Performance_Catalogue_FR.pdf
+    where: "Строка 3GAA202410-••K, 1484 об/мин, 193 Н·м, Mk/Mn 3,3, 246 кг для семейства. Масса заказного фланцевого исполнения открыта."
+  parker_lac_curves:
+    url: https://www.parker.com/content/dam/Parker-com/Divisions-2011/Accumulator-and-Cooler-Division---Europe/Support/MSG10-6001_UK_LAC.pdf
+    where: "MSG10-6001, стр. 9, полные кривые 50 Гц, в том числе LAC 056-6. Допуск кривой ±10%."

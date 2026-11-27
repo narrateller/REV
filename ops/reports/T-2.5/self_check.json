@@ -1,0 +1,66 @@
+{
+  "task": "T-2.5",
+  "round": 2,
+  "status": "STOP",
+  "python": "3.13.17",
+  "gates": {
+    "command": [
+      "E:\\Tools\\Python313\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "ops/gates/calc_gates.py",
+      "--params",
+      "calc/T-2.6/params/params.t26a.yaml",
+      "--criteria",
+      "ops/criteria/design_criteria.yaml",
+      "--out",
+      "E:\\Projects\\REV-wt\\T-2.5\\gates.t25.json"
+    ],
+    "exit_code": 1,
+    "overall": "FAIL",
+    "statuses": {
+      "G-PFACE": "PASS",
+      "G-DOSE": "PASS",
+      "G-CYCLE": "FAIL"
+    },
+    "required_gate_outcome": "PASS",
+    "G_CYCLE_role": "advisory_D-GK-13_D-OP-16"
+  },
+  "checks": {
+    "build_command": [
+      "E:\\Tools\\Python313\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "E:\\Projects\\REV-wt\\T-2.5\\calc\\T-2.5\\mass.py"
+    ],
+    "build_runs": 2,
+    "two_runs_identical_sha256": {
+      "calc/T-2.5/results.json": "1883638e1bbc78335a96a90fea184d575d5661f7859f8e3b97feb2467da09a76",
+      "design/hydraulics/station.t25.yaml": "d1effc502c62bdd9b0f5ef90dd1acce3ee9b055472f02f66e41278ef4e87f3df",
+      "metrics.json": "d008f0e3caf58aad50997ed7af1df5b41f846e6527e291078ebd9ed81f24cbaf",
+      "report.md": "a2ac89c13ee2758923de49f1dec43e2e67ef5bbafb1398bbc576525faa74b69a"
+    },
+    "protected_inputs_unchanged": true,
+    "installed_rows_reconciled": "PASS",
+    "same_GA_correction_in_station_and_machine": "PASS",
+    "mass_acceptance": "FAIL_BELOW_170_KG",
+    "group_totals_without_double_counting": "PASS",
+    "reference_nominal_and_adverse_replay": "PASS",
+    "T26_TF_setpoint_and_fill": "PASS",
+    "motor_catalogue_cases_replayed": "PASS",
+    "proposed_motor_substitutions": "GROUP_B_LIMIT_EXCEEDED",
+    "inherited_cooling_at_40_air_55_oil": "PASS",
+    "replacement_coolers": "NONE_QUALIFIED",
+    "installed_power_limit": "PASS",
+    "tank_trajectory_and_minimum_screen": "RUN",
+    "physical_stop_deaeration_suction_qualification": "OPEN",
+    "tank_support_and_envelope": "UNVERIFIED",
+    "fixture_CAD": "NOT_RUN_NONDIMENSIONED_BASE",
+    "report_utf8_and_no_question_marks": "PASS",
+    "report_lines": 64,
+    "calculation_tree_bytes": 434493,
+    "calculation_tree_has_no_temp_directories": true
+  }
+}
