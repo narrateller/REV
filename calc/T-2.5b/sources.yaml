@@ -1,0 +1,210 @@
+sources:
+  task: {url: TASK.md, where: Расчётные температуры и минимальные сопротивления загрязнения}
+  decisions: {url: DECISIONS.md, where: D-OP-09/11/16/17/19/20 и D-GK-02/18/19}
+  criteria: {url: ops/criteria/design_criteria.yaml, where: v4}
+  baseline: {url: design/hydraulics/station.t25.yaml, where: Построчная ведомость и мощности}
+  t25: {url: calc/T-2.5/results.json, where: station_mass, section: 'machine_mass, heat, tank, measures'}
+  t25_metrics: {url: ops/reports/T-2.5/metrics.json, where: Поправка ГА и диапазон масс}
+  t22i: {url: calc/T-2.2i/results.json, where: variants.nose_x225.mass}
+  t26: {url: calc/T-2.6/results.json, where: 'variants[selected].prefill.cap_exhaust и selected_sensitivity'}
+  model: {url: calc/T-2.6/params/params.t26a.yaml, where: cycle_model и мощность}
+  t04: {url: ops/reports/T-0.4/GK_review.md, where: Квалификация эталонного гейта}
+  circuit: {url: design/hydraulics/T-1.6_circuit.yaml, where: PC E1/E2 TT FT1 FT2 FT CD CB RTF DB и ГА}
+  interlocks: {url: design/hydraulics/T-1.6_interlocks.yaml, where: Разрешения контура PC}
+  inventory: {url: calc/T-2.6/inventory.csv, where: Состав станции и ГА}
+  t16: {url: calc/T-1.6/sources.yaml, where: 'revision.cooling, project.cooling_circuit_max_total_dp_bar и масса стали'}
+  bowman_profile:
+    url: https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf
+    where: Стр. 1–2, 3-pass, ISO VG 46, тепло, перепады, детали и объёмы полостей
+  bowman_catalog:
+    url: https://ej-bowman.com/wp-content/uploads/2018/12/Bowman-Hydraulic-Oil-Cooler-Brochure-2018_Aug_web.pdf
+    where: GL180-1428-3, стандартные материалы, пределы давления масла и воды
+  bowman_manual:
+    url: https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf
+    where: Разд. 2–6, pH 7,2–7,8, скорость, пуск, слив и обслуживание
+  htri_tema:
+    url: https://gc.htri.net/f-2
+    where: Отчёт совместного комитета HTRI/TEMA о методе сопротивлений загрязнения. Численные минимумы приняты из TASK.md.
+  tema: {url: https://tema.org/standards/, where: 'RGP-T-2, сопротивления загрязнения'}
+  water: {url: https://www.iapws.org/relguide/IF97-Rev.html, where: Округлённые плотность и теплоёмкость воды при 30 °C}
+  oil: {url: calc/T-1.6/sources.yaml, where: 'Плотность HLP46 870 кг/м³. cp 1,98 кДж/(кг·К) принято для расчёта. Проверяется диапазон 1,8–2,2.'}
+  parker_pwo:
+    url: https://www.parker.com/parkerimages/Parker.com/Divisions-2011/Accumulator%20and%20Cooler%20Division%20-%20Europe/MSG10-4082_2020_FastTrack_Distribution_English.pdf
+    where: 50832505, 79 кВт при 150 л/мин, масса и габариты
+  parker_curves:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/cooler/water-oil-cooler/PWO_Water-Oil-Coolers--EMDC.-HY10-6010.UK.pdf
+    where: B25T, ISO VG 46, расход масла к воде 2 к 1, графики тепла и перепада давления масла, материалы
+  emmegi:
+    url: https://it.emmegi.group/wp-content/uploads/sites/8/2026/01/Shell-e-tubes-1.pdf
+    where: Q.2–Q.3 и Q.12, MG 130-995-4, режим и поправки, CuDHP, график потерь на масле 32 сСт
+  ktr:
+    url: https://www.ktr.com/dam/jcr%3Ad89672a3-ae44-4cf8-b5ee-359ff85d7b7c/KTR-CATALOGUE-COOLING-SYSTEMS.PDF
+    where: Стр. 48–50. TAK/TP-D1, материалы, тепловая точка, оба перепада, площадь и сухая масса.
+  water_valve:
+    url: https://designcenter.danfoss.com/en-us/products/climate-solutions-for-heating/solenoid-valves-fluid-controls/solenoid-valves-fluid-controls/ev220b/p/032U7125?tab=attribute-details
+    where: EV220B 25, EPDM, NC, G1, Kv 11, масса 1,325 кг, минимум Δp 0,3 бар
+  coil:
+    url: https://designcenter.danfoss.com/tr-tr/products/sensing-solutions/valves/coils-for-solenoid-valves/ba-bd-bb-be-bf-bg-bn-bo-bj-bx-by-bq-am-az-as-ap/p/018F7397
+    where: BB024DS 24 V DC, 18 W
+  strainer:
+    url: https://content.spiraxsarco.com/-/media/spiraxsarco/international/documents/en/ti/fig_3616-ti-p160-05-en.ashx
+    where: Fig 3616 DN40 PN16, 9,0 кг, mesh 40, Kvs 29
+  water_flowmeter:
+    url: https://media.ifm.com/dam/fa354e68-9821-4699-93d1-4698b4db4a19/Original/SM9500-01_EN-GB.pdf
+    where: SM9500, DN40, 5–300 л/мин, 2,751 кг, расход и температура
+  asa:
+    url: https://asahydraulics.com/wp-content/uploads/2022/05/ASA-Series-AC.pdf
+    where: ASA0567AA47, 0,75 кВт и 82,7 кг на модуль
+  lp_parker:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/accumulator/bladder_accumulator/CADE_EHV_catalogue.pdf
+    where: EHV 20-330/90-A25GC-200, 10837101125, 330 бар, 49 кг, 17,8 л эффективного газа, G2, минеральное масло
+  lp_parker_fasttrack:
+    url: https://www.parker.com/parkerimages/Parker.com/Divisions-2011/Accumulator%20and%20Cooler%20Division%20-%20Europe/MSG10-4082_2020_FastTrack_Distribution_English.pdf
+    where: Стр. 7, семейство 10837101125, размеры и арматура крепления
+  lp_hydac_63:
+    url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    where: Точное обозначение HYDAC 3047174, 63 кг
+  lp_hydac_49:
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    where: Общая таблица SB330 приводит 49 кг для того же артикула, исходная ведомость сохраняет 63 кг
+  brook:
+    url: https://brookcrompton.com/ukanditaly/wp-content/uploads/2023/11/2022-05_Series_30_Cat_iss1-3.pdf
+    where: JP-DA200LA, 207 кг для семейства, 1475 об/мин, Mk/Mn 2,6
+  brook_mount:
+    url: https://brookcromptonmotors.com/products/brook-crompton-we3-we4/
+    where: Опубликованный заказной артикул 200J910401 IM B3
+  siemens:
+    url: https://cache.industry.siemens.com/dl/files/197/109749197/att_1160579/v1/Motors-D81-1-complete-English-09-2023.pdf
+    where: SIMOTICS GP 1LE1083-2AB5, 1470 об/мин, 189 кг для IM B3, масса IM B5 отсутствует
+  weg_passport:
+    url: https://www.cenov-distribution.fr/wp-content/uploads/2025/05/weg_12840024_allDocuments.pdf
+    where: Паспорт WEG 12840024. B5T, 208 кг, S1, 30 кВт, 400/690 В 50 Гц, 1475 об/мин, 194 Н·м, Mk/Mn 3,4.
+  weg_family:
+    url: https://static.weg.net/medias/downloadcenter/h7e/he5/WEG-WMO-w21-aluminium-multimounting-european-market-50035487-brochure-english-web.pdf
+    where: W21 Aluminium Multimounting IE3, электрическая строка 30 кВт и чертёж FF-350 для IEC 200M/L
+  bell_dimensions:
+    url: https://www.mpfiltri.com/FilesProdotti/rl1vm4_LMC-LDCEN.pdf
+    where: Сторона IEC 200, вал Ø55×110, фланец Ø400, PCD 350, посадка 300
+  omec:
+    url: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    where: Принятый мотор и посадочные размеры IEC 200 B5
+  bell: {url: https://www.mpfiltri.com/product/bell-housing/, where: Геометрия насоса, motor_side: Посадка двигателя и муфты}
+  goetze:
+    url: https://www.goetze-group.com/Series/642/goetze-642-datasheet-en.pdf
+    where: Стр. 3 и 5, DN65 резьба 8,9 кг и 51,8 м³/ч воды при 2 бар
+  sun:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/Intl_SC2009relief.pdf
+    where: RPIC, 380 л/мин, 350 бар, два порта, зависимость от противодавления
+  sun_drain:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/TT_US_Relief.pdf
+    where: Семейство RV*D с внешним дренажем отдельно от порта выхода
+  tank_method:
+    url: calc/T-2.5/tank.py
+    where: Скрининг гидростатики, рёбер, подъёма и транспортировки. Совместной проверки нагрузочного пути и соосности нет.
+
+inputs:
+  heat_nominal_kW: 20.01
+  heat_adverse_kW: 19.34
+  heat_independent_kW: 19.8
+  heat_margin: 1.25
+  heat_floor_kW: 25.0
+  oil_inlet_C: 55
+  water_inlet_C: 30
+  water_max_rise_K: 10
+  water_flow_L_min: 150
+  oil_flow_L_min: 180
+  water_density_kg_m3: 996
+  water_cp_kJ_kg_K: 4.18
+  oil_density_kg_m3: 870
+  oil_cp_kJ_kg_K: 1.98
+  oil_cp_range_kJ_kg_K: [1.8, 2.2]
+  catalog_factor: 0.85
+  fouling_factor: 0.85
+  water_fouling_m2_K_W: 0.00035
+  oil_fouling_m2_K_W: 0.000176
+  oil_dp_limit_bar: 1.25
+  common_oil_dp_budget_bar: 0.72
+  pc_motor_kW: 0.55
+  pc_efficiency_floor: 0.72
+  water_equipment_power_budget_kW: 0.035
+  catalog_bowman:
+    model: Bowman GL180-1428-3
+    type: Кожухотрубный, 3 хода воды
+    dry_kg: 21.0
+    water_volume_L: 3.8
+    oil_volume_L: 4.8
+    tube_area_m2: 2.1
+    tube_count: 217
+    material: CuNi 90/10, торцевые крышки из чугуна, уплотнения NBR
+    length_mm: 630
+    body_diameter_mm: 162
+    tube_bundle_extraction_reserve_mm: 500
+    oil_and_water_connections: G 1½ BSP
+    catalogue_hot_inlet_C: 60
+    catalogue_cold_inlet_C: 30
+    catalogue_heat_points_L_min_kW: [[160, 42.5], [200, 47.7]]
+    catalogue_oil_dp_points_L_min_kPa: [[150, 30.7], [200, 51.8]]
+    catalogue_water_dp_points_L_min_kPa: [[145, 40.9], [175, 57.7]]
+    freshwater_flow_range_L_min: [100, 320]
+    max_water_working_bar: 16
+    max_oil_working_bar: 20
+  water_quality_project:
+    pH_range: [7.2, 7.8]
+    pH_target_range: [7.4, 7.6]
+    hardness_max_mg_L_as_CaCO3: 150
+    chlorides_max_mg_L: 100
+    suspended_solids_max_mg_L: 10
+    filtration_max_um: 500
+    conductivity_min_uS_cm: 20
+    freeze_drain_trigger_C: 5
+  water_pressure:
+    valve_Kv_m3_h: 11
+    valve_min_dp_bar: 0.3
+    strainer_Kv_m3_h: 29
+    strainer_dirty_dp_limit_bar: 0.30
+    flowmeter_and_water_line_dp_budget_bar: 0.25
+    cooler_dirty_dp_limit_bar: 0.65
+    supply_gauge_max_bar: 3.0
+    return_gauge_range_bar: [0.0, 0.8]
+    interface_differential_min_bar: 1.9
+  oil_local_line:
+    length_m: 1.2
+    pipe_ID_mm: 50
+    adapter_ID_mm: 38
+    darcy_friction_bound: 0.05
+    fittings_K_at_adapter: 2.4
+  water_line:
+    total_length_m: 2.0
+    OD_mm: 48.3
+    wall_mm: 2.0
+    density_kg_m3: 7850
+  components:
+    valve_body_kg: 1.325
+    strainer_kg: 9.0
+    flowmeter_kg: 2.751
+    lp_catalog_kg: 49.0
+    lp_mount_and_connection_reserve_kg: 3.0
+  weg_candidate:
+    model: WEG W21 Aluminium Multimounting IE3 B5T
+    order_number: '12840024'
+    dry_kg: 208
+    rated_kW: 30
+    rated_rpm: 1475
+    nominal_voltage_V: 400
+    frequency_Hz: 50
+    full_load_Nm: 194
+    pullout_ratio: 3.4
+    flange_OD_PCD_register_mm: [400, 350, 300]
+    shaft_D_L_mm: [55, 110]
+  lp_candidate:
+    order_number: '10837101125'
+    model: Parker EHV 20-330/90-A25GC-200
+    nominal_L: 20
+    effective_gas_L: 17.8
+    working_rating_bar: 330
+    max_catalogue_flow_L_min: 900
+  air_local_reserve:
+    stack_partition_mm: 100
+    lateral_clearance_each_mm: 40
+    end_clearance_each_mm: 50
+    plenum_each_mm: 120

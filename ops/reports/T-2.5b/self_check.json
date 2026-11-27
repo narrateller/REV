@@ -1,0 +1,72 @@
+{
+  "task": "T-2.5b",
+  "python_version": "3.13.17",
+  "gate_command": [
+    "E:\\Tools\\Python313\\python.exe",
+    "-B",
+    "ops/gates/calc_gates.py",
+    "--params",
+    "calc/T-2.6/params/params.t26a.yaml",
+    "--criteria",
+    "ops/criteria/design_criteria.yaml",
+    "--out",
+    "gates.t25b.json"
+  ],
+  "gates": {
+    "G-PFACE": {
+      "value": 168.88888888888889,
+      "unit": "MPa",
+      "status": "PASS"
+    },
+    "G-DOSE": {
+      "value": 396,
+      "unit": "mm",
+      "status": "PASS"
+    },
+    "G-CYCLE": {
+      "value": 5.905000000000723,
+      "unit": "s",
+      "status": "PASS",
+      "method": "reference_model",
+      "input": "calc/T-2.6/params/params.t26a.yaml",
+      "rms_kW": 29.98674972258111
+    }
+  },
+  "motor_candidate_diagnostic": {
+    "order_number": "12840024",
+    "gate_method": "reference_model",
+    "gate_status": "FAIL",
+    "cycle_s": 5.906250000000724,
+    "rms_kW": 30.07545446926927,
+    "failed_gate_checks": [
+      "rms_power_limit"
+    ]
+  },
+  "tests": {
+    "baseline_within_0p1_kg_all_three_variants": "PASS",
+    "single_removal_each_and_ledger_closed": "PASS",
+    "heat_both_methods_and_oil_pc_design": "PASS",
+    "site_water_pressure_and_temperature_rise_at_design": "PASS",
+    "installed_power_with_air_option": "PASS",
+    "air_local_reserve_inside_envelope": "PASS",
+    "air_whole_machine_collision_check": "NOT_VERIFIED",
+    "bowman_site_chemistry_confirmation": "PENDING",
+    "mass_upper_limit_5000_kg": "FAIL",
+    "report_utf8_no_question_or_replacement_marks": "PASS",
+    "calc_size_limit_and_no_temporary_files": "PASS"
+  },
+  "double_run_identical_bytes": {
+    "calc/T-2.5b/results.json": true,
+    "design/hydraulics/station.t25b.yaml": true,
+    "metrics.json": true,
+    "report.md": true,
+    "docs/site/cooling_water_requirements.md": true
+  },
+  "sha256": {
+    "calc/T-2.5b/results.json": "da0d86ed6b6b72922789badc0e9ddfc595b305dcd44fddc5693a30673ff4b3bb",
+    "design/hydraulics/station.t25b.yaml": "2c60443c7232b42f0f4a4ea7711098c90d27c50d6d3e2c92f32d92003d8268b1",
+    "metrics.json": "fc3bd38b29faeeb6b41332e197405a06c1e3852417f9d433e115aa7190424133",
+    "report.md": "81d8683eebc59e4c6e28f12fcb66287af3569d51ded674ee1cb9d536b7cf20c5",
+    "docs/site/cooling_water_requirements.md": "b625cb19d607fbec9e5a9e3eb5ee48103dc7bf5da976faf6ee8496a7e4d2cb25"
+  }
+}

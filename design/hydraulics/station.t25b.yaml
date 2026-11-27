@@ -1,0 +1,1278 @@
+schema_version: 1
+task: T-2.5b
+status: STOP_MASS
+mass_acceptance: false
+mass_kg: 1686.1873123970388
+credited_reduction_kg: 94.37565916685253
+mass_rows:
+- id: T25-M1
+  part: OMEC OMT3-IE3-200L-4 B5
+  mass_kg: 278
+  source: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+  replaces_or_adjusts: T16-01
+- id: T25-P1
+  part: Rexroth A4VSO180 /30 без проходного вала
+  mass_kg: 102
+  source: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+  replaces_or_adjusts: T16-01
+- id: T25-P1_DFE1Z
+  part: Резерв на регулятор DFE1Z и адаптер
+  mass_kg: 7
+  source: calc/T-2.1/results.json
+  replaces_or_adjusts: T16-01
+- id: T16-02
+  part: Основной бак
+  mass_kg: 94.756
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Envelope 900×700×400 mm, sheet 4 mm and 15 kg for baffles, fittings and mounts
+- id: T16-03
+  part: Основное масло
+  mass_kg: 165.3
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Initial main tank inventory × oil density; cylinder fill already carried with cylinders
+- id: T25-AX
+  part: AX — HYDAC SB330 10 L 3047170
+  mass_kg: 31
+  source: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+  replaces_or_adjusts: T16-04
+  pressure_bar: 330
+- id: T16-06
+  part: Рама станции
+  mass_kg: 42.35456
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: 2×900 + 4×700 mm RHS 80×40×4, 10 kg feet/motor plate/mounting hardware, transport to verify
+  composition: RHS 80×40×4, опоры, колокол/муфта и крепёж в ведомости.
+- id: T16-07
+  part: Картриджи 2WRCE
+  mass_kg: 262.9
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Circuit inventory × masses in RE 29406, NG32/40/50
+  composition: MF NG50, MBT NG40, LR NG32 и остальные 2WRCE; штатные массы корпусов относятся к ведомости T-1.6.
+- id: T16-08
+  part: Коллекторы, малая арматура и защита
+  mass_kg: 128
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Project allowance including DB, gate valve, LC/LFA, SAF bodies, sensors and safety cartridges
+  composition: В том числе SAF32E SAL/SAX 24,8 кг за пару до адаптеров. T-2.6 считает ранний корпус MF 32 кг
+    уже учтённым. Привязку корпуса к этой строке проверить при деталировке.
+- id: T16-09
+  part: Фильтры, трубы, вспомогательные насосы
+  mass_kg: 75
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Project allowance for wider return and separate cooling loop
+  composition: F1, FX, F2, линии станции, вспомогательные насосы и PC. Строка проектного резерва.
+- id: T16-10
+  part: ZSF NG100
+  mass_kg: 15
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: RE 20478 and T-1.4b
+- id: T25-TF_dry
+  part: TF 80 л, разделитель и регулятор
+  mass_kg: 36.92307692307692
+  source: calc/T-2.6/inventory.csv
+  replaces_or_adjusts: T16-11
+  basis: Проектный резерв, масса сосуда и мембраны уточняется заказом.
+- id: T25-TF_oil
+  part: Масло TF 55 л
+  mass_kg: 47.85
+  source: calc/T-2.6/inventory.csv
+  replaces_or_adjusts: T16-11
+- id: T16-12
+  part: Местные линии наполнения
+  mass_kg: 24
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Engineering allowance for Ø125/100 and matching supports as already reserved in T-1.4b
+  composition: Две местные линии наполнения 133×4 и 108×4, крепёж по унаследованной строке.
+- id: T16-13
+  part: Клапаны плавания и подпитки
+  mass_kg: 28.400000000000002
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: RE 21040 and RE 21010. Both check inserts in the shared manifold with its own cover allowance.
+  composition: Седла плавания и подпитки, включая MC по ведомости T-2.6 без добавочной массы.
+- id: T16-14
+  part: Седло регенерации
+  mass_kg: 9.3
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: RE 21010 LC/LFA NG40
+  composition: LC/LFA NG40, седло регенерации.
+- id: T16-15
+  part: Масляный предохранительный TF
+  mass_kg: 48.5
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Goetze Series 455 DN65/100 gastight catalogued mass
+  composition: Goetze 455 DN65/100 F, уставка 1,9 бар.
+- id: T16-16
+  part: monitored_unloader_and_adapter
+  mass_kg: 13.881044130518074
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly; separate 2 m steel Ø16/12 drain
+    and fittings
+  composition: Контролируемый разгрузчик ZU/ZUP, адаптер, отдельный дренаж.
+- id: T16-17
+  part: float_common_cover_and_mounts
+  mass_kg: 26.0
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Two standard LFA NG50 (RE 21010 p. 6); retain predecessor allowance for mounts
+  composition: Крышки LFA NG50 и их крепления.
+- id: T16-18
+  part: TF_relief_flange_and_return_support
+  mass_kg: 5
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly
+  composition: Фланец штатного RTF и опоры возврата.
+- id: T16-19
+  part: emergency_dump_poppets_and_returns
+  mass_kg: 22
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly
+  composition: Аварийные клапаны ME1/ME2/MEB и раздельные возвраты.
+- id: T16-20
+  part: pilot_tandem_and_feedback
+  mass_kg: 23
+  source: calc/T-1.6/results.json#mass.station_rows
+  basis: Round-two engineering allowance; weigh actual procurement assembly
+  composition: Тандем PX/PXA и контроль состояний.
+- id: T26-RA_RB_sensors
+  part: Rexroth HM20-2X/400-C-K35-N
+  qty: 2
+  dry_kg: 0.12
+  oil_kg: 0.0
+  mass_kg: 0.12
+  source: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/proportional_electronics/re30272-2.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_valves
+  part: Rexroth LC25 + LFA25, bridge RB→RA and cutoff RB→tank
+  qty: 2
+  dry_kg: 5.6
+  oil_kg: 0.0
+  mass_kg: 5.6
+  source: https://boschrexroth.africa/public/front_end/pdfs/products/f22bdb50be8e4bd3925a023acf68d873.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_pilots
+  part: Rexroth 4WE6, 24 V DC single coil
+  qty: 2
+  dry_kg: 2.9
+  oil_kg: 0.0
+  mass_kg: 2.9
+  source: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/directional_valves/re23178.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_housings
+  part: Parker CB025A16510W ISO 7368 (fit/pilot port routing to verify)
+  qty: 2
+  dry_kg: 22
+  oil_kg: 0.0
+  mass_kg: 22.0
+  source: https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf
+  basis: catalogue
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-regen_routes
+  part: STAUFF E355 38×5, 2030043517
+  qty: 1
+  dry_kg: 4.884
+  oil_kg: 0.6428452551481579
+  mass_kg: 5.526845255148158
+  source: https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf
+  basis: catalogue unit mass, layout length
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-lp_eject_route
+  part: STAUFF E355 38×5, 2030043517, LR→RA
+  qty: 1
+  dry_kg: 4.884
+  oil_kg: 0.6428452551481579
+  mass_kg: 5.526845255148158
+  source: https://oilsolutions.com.au/wp-content/uploads/Stauff/STAUFF-Catalogue-2.4-STAUFF-Tube-English.pdf
+  basis: catalogue unit mass, layout length
+  ledger_source: calc/T-2.6/inventory.csv
+- id: T26-MF_housing
+  part: MF housing with RE 29406 installation bore
+  qty: 1
+  dry_kg: 48.3246
+  oil_kg: 0.0
+  mass_kg: 16.324599999999997
+  source: https://www.thehopegroup.com/wp-content/uploads/2022/09/Cat_MSG14-3200_Slip-In_Cartridge_Valves.pdf
+  basis: Double-B casting/blank envelopes RE 29406 page 32, adds space for both Ø70 radial ports. Use gross
+    blank mass for new housing and CB050 as previous single-B housing estimate. Parker mass of the single-port
+    block is a proxy, with fit and CAD to verify.
+  ledger_source: calc/T-2.6/inventory.csv
+  composition: Разность 48,3246 и 32 кг. Базовый корпус учтён в смете узла.
+- &id001
+  id: T25B-HX
+  part: Bowman GL180-1428-3 с водой
+  mass_kg: 24.7848
+  source: https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf
+  basis: Сухой 21 кг и 3,8 л воды. Заполнение маслом учтено отдельной строкой.
+  category: cooler
+  mass_basis: catalogue
+- &id002
+  id: T25B-HX_oil
+  part: Масло в кожухе охладителя
+  mass_kg: 4.176
+  source: https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf
+  basis: 4,8 л × плотность HLP46. Учтено сверх заправки T0 190 л.
+  category: oil
+  mass_basis: catalogue
+- &id003
+  id: T25B-HX_mount
+  part: Опоры GL180, крепёж и развязка вибраций
+  mass_kg: 4.0
+  source: https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf
+  basis: Две сборки примерно по 2 кг с опорными пластинами, M10, накладками и вибропрокладками.
+  category: mount
+  mass_basis: проектный резерв
+- &id004
+  id: T25B-WV
+  part: Danfoss EV220B 25 032U7125 EPDM NC
+  mass_kg: 1.325
+  source: https://designcenter.danfoss.com/en-us/products/climate-solutions-for-heating/solenoid-valves-fluid-controls/solenoid-valves-fluid-controls/ev220b/p/032U7125?tab=attribute-details
+  basis: Нетто корпуса без катушки.
+  category: water
+  mass_basis: catalogue
+- &id005
+  id: T25B-WV_coil
+  part: Катушка BB024DS, IP-разъём и крепёж
+  mass_kg: 0.6
+  source: https://designcenter.danfoss.com/tr-tr/products/sensing-solutions/valves/coils-for-solenoid-valves/ba-bd-bb-be-bf-bg-bn-bo-bj-bx-by-bq-am-az-as-ap/p/018F7397
+  basis: Резерв на катушку типоразмера BB, герметичный разъём и провод к клеммнику.
+  category: water
+  mass_basis: проектный резерв
+- &id006
+  id: T25B-WS
+  part: Spirax Sarco Fig 3616, DN40 PN16 mesh 40
+  mass_kg: 9.0
+  source: https://content.spiraxsarco.com/-/media/spiraxsarco/international/documents/en/ti/fig_3616-ti-p160-05-en.ashx
+  basis: Масса типоразмера DN40. Сопрягаемые фланцы посчитаны с трубами.
+  category: water
+  mass_basis: catalogue
+- &id007
+  id: T25B-WB
+  part: Два шаровых крана DN40
+  mass_kg: 4.0
+  source: TASK.md
+  basis: По 2 кг на полнопроходной резьбовой кран с ручкой. Фланцы границы отдельно.
+  category: water
+  mass_basis: проектный резерв
+- &id008
+  id: T25B-WF
+  part: ifm SM9500, расход и температура на возврате
+  mass_kg: 2.751
+  source: https://media.ifm.com/dam/fa354e68-9821-4699-93d1-4698b4db4a19/Original/SM9500-01_EN-GB.pdf
+  basis: Паспортная масса DN40.
+  category: water
+  mass_basis: catalogue
+- &id009
+  id: T25B-WT
+  part: Pt100 на входе воды, гильза и два отбора давления аппарата
+  mass_kg: 1.2
+  source: TASK.md
+  basis: 0,6 кг на датчик с гильзой и по 0,3 кг на два измерительных порта с заглушками.
+  category: water
+  mass_basis: проектный резерв
+- &id010
+  id: T25B-WP
+  part: Трубопровод воды DN40 с заполнением
+  mass_kg: 7.637651626680146
+  source: calc/T-1.6/sources.yaml
+  basis: 2,0 м трубы 48,3×2 мм. Сталь 4.567 кг, вода 3.070 кг.
+  category: water
+  mass_basis: масса по геометрии
+- &id011
+  id: T25B-WI
+  part: Фланцы границы и фильтра, фитинги, переходы и хомуты
+  mass_kg: 8.0
+  source: TASK.md
+  basis: Четыре ответных фланца DN40 примерно по 1 кг, 4 кг на переходы, колена, опоры и отборы Δp фильтра.
+  category: water
+  mass_basis: проектный резерв
+- &id012
+  id: T25B-WD
+  part: Слив воды и ручной воздухоотводчик
+  mass_kg: 1.0
+  source: https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf
+  basis: Два малых клапана и отвод в нижней точке. Доступ с сервисной стороны.
+  category: water
+  mass_basis: проектный резерв
+- &id013
+  id: T25B-WW
+  part: Вода в арматуре и расходомере
+  mass_kg: 2.5
+  source: TASK.md
+  basis: Резерв 2,5 л на полости DN40, грязевик и клапаны сверх трубы и аппарата.
+  category: water
+  mass_basis: проектный резерв
+- &id014
+  id: T25B-PC_oil
+  part: Ветка PC, переходы G1½, линии и контроль потока
+  mass_kg: 8.0
+  source: design/hydraulics/T-1.6_circuit.yaml
+  basis: Резерв на 1,2 м трубы с проходом 50 мм, два перехода, крепления и малопотерные датчики. PC, CB, CD
+    и общий FT остаются в T16-09.
+  category: oil
+  mass_basis: проектный резерв
+- &id015
+  id: T25B-PC_fill
+  part: Дополнительное масло в местных линиях PC
+  mass_kg: 2.04988920646734
+  source: calc/T-1.6/sources.yaml
+  basis: Заполнение 1,2 м при проходе 50 мм.
+  category: oil
+  mass_basis: масса по геометрии
+- &id016
+  id: T25B-AO
+  part: Присоединения воздушной опции и трасса кабеля
+  mass_kg: 9.0
+  source: https://asahydraulics.com/wp-content/uploads/2022/05/ASA-Series-AC.pdf
+  basis: Резерв на два тройника, две глухие ответные части, крепёж, короткие отводы и кабельную подготовку.
+  category: air_option_interface
+  mass_basis: проектный резерв
+- &id017
+  id: T25B-LP
+  part: LP, Parker EHV 20-330/90-A25GC-200
+  mass_kg: 49.0
+  source: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/accumulator/bladder_accumulator/CADE_EHV_catalogue.pdf
+  replaces: T25-ALP
+  basis: Сосуд 20 л / 330 бар, точный артикул 10837101125
+- &id018
+  id: T25B-LP_fit
+  part: Резерв на крепление и стыковку LP G2 с SAF32E
+  mass_kg: 3.0
+  source: https://www.parker.com/parkerimages/Parker.com/Divisions-2011/Accumulator%20and%20Cooler%20Division%20-%20Europe/MSG10-4082_2020_FastTrack_Distribution_English.pdf
+  basis: Два хомута и переходник/уплотнения. Резерв сверх имеющегося SAF32E.
+base_reconciliation:
+  station_t25_kg: 1780.5629715638913
+  removed_rows:
+  - id: T25-E1_E2
+    part: 2 × ASA0567AA47 0,75 кВт 50 Гц
+    mass_kg: 165.4
+    source: https://www.asahydraulik.com/sites/default/files/2021-07/ASA-Standard-Ranges-2019.pdf
+    replaces_or_adjusts: T16-05
+    qty: 2
+    unit_mass_kg: 82.7
+  - id: T25-E_hardware
+    part: Датчики ветвей, крепления и съёмные маты
+    mass_kg: 8.0
+    source: calc/T-1.6/results.json#mass.station_rows
+    replaces_or_adjusts: T16-05
+  - id: T25-ALP
+    part: LP — HYDAC SB330 20 L 3047174
+    mass_kg: 63
+    source: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    replaces_or_adjusts: T16-04
+    pressure_bar: 330
+  added_rows:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - *id009
+  - *id010
+  - *id011
+  - *id012
+  - *id013
+  - *id014
+  - *id015
+  - *id016
+  - *id017
+  - *id018
+  t25_machine_A_corrected_kg_range:
+  - 5253.275449245492
+  - 5296.630367010521
+  machine_A_variants:
+    with_collar_and_gross_old_front_removal:
+      t22i_before_station_kg: 5223.275449245492
+      t25_corrected_kg: 5253.275449245492
+      t25b_kg: 5158.89979007864
+      missing_to_5000_kg: 158.89979007863985
+      missing_to_5080_kg: 78.89979007863985
+    with_end_collar:
+      t22i_before_station_kg: 5266.630367010521
+      t25_corrected_kg: 5296.630367010521
+      t25b_kg: 5202.254707843668
+      missing_to_5000_kg: 202.25470784366826
+      missing_to_5080_kg: 122.25470784366826
+    without_end_collar:
+      t22i_before_station_kg: 5232.173995825275
+      t25_corrected_kg: 5262.173995825275
+      t25b_kg: 5167.798336658422
+      missing_to_5000_kg: 167.79833665842216
+      missing_to_5080_kg: 87.79833665842216
+hydraulics:
+  reference_configuration: A_combined_NG50_33p25_kW_50ms_AX
+  reference_cycle_source: calc/T-2.6/results.json
+  circuit_source: design/hydraulics/T-1.6_circuit.yaml
+  interlocks_source: design/hydraulics/T-1.6_interlocks.yaml
+  main_drive:
+    motor: OMEC OMT3-IE3-200L-4 IM B5
+    rated_kW: 30
+    duty: S1
+    frequency_Hz: 50
+    rated_rpm: 1480
+    IP: IP55
+    IE: IE3
+    cooling: IC411
+    motor_source: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    pump: Bosch Rexroth A4VSO 180 /30
+    regulator: DFE1Z, внешний пилот
+    pump_source: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+    main_pump_suction_port: SAE J518 3″
+    mount: IEC 200 B5 Ø400 / PCD350 / посадка Ø300, вал Ø55×110. Колокол к ISO 3019-2 NG180.
+  rapid_regeneration:
+    MF: 2WRCE NG50 Double-B, два канала B
+    MBT: 2WRCE NG40
+    bridge: LC25/LFA25 RB→RA, отсечка RB→бак
+    LP_delivery: LR/LRC → RA на выбросе
+    main_filling: ZSF NG100, свободное наполнение при прямом ходе. MF в TF на возврате.
+    stop: Снятие момента P1, ZU открыт, MF/MBT закрыты, SAL/SAX в сброс, BAL закрыт.
+    main_working_limit_bar: 300
+    relief_limit_bar: 315
+  accumulators:
+    LP:
+      model: Parker EHV 20-330/90-A25GC-200
+      nominal_L: 20
+      effective_gas_L: 17.8
+      precharge_bar: 28
+      operating_bar_range:
+      - 38
+      - 52
+      relief_bar: 60
+      vessel_rated_bar: 330
+      safety_block: SAL SAF32E Y
+      order_number: '10837101125'
+      source: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/accumulator/bladder_accumulator/CADE_EHV_catalogue.pdf
+      interface_confirmation: Чертёж кронштейна и стыка SAF32E/G2 до заказа
+    AX:
+      model: HYDAC SB330 3047170
+      nominal_L: 10
+      effective_gas_L: 9.3
+      precharge_bar: 100
+      operating_bar_range:
+      - 120
+      - 150
+      relief_bar: 160
+      vessel_rated_bar: 330
+      safety_block: SAX SAF32E Y
+reservoirs:
+  T0:
+    nominal_oil_L: 190
+    density_kg_m3: 870
+    tank_dims_mm:
+    - 900
+    - 700
+    - 400
+    gross_L: 252.0
+    low_trip_L: 130
+    high_trip_L: 205
+    sizing_screen_minimum_initial_L: 205.32024908168015
+    determining_screen: заглубление всаса
+    suction:
+      provisional_required_oil_L: 205.32024908168015
+      min_pump_inlet_absolute_bar: 0.8
+      combined_P1_and_pilot_flow_L_min: 282.4
+      velocity_m_s: 0.5992714123886832
+      Froude: 0.6050469234011137
+      mouth_diameter_mm: 100.0
+      mouth_elevation_mm: 50
+      submergence_mm: 239.16079238225612
+      running_depth_mm: 264.84293669704954
+      available_loss_at_zero_flange_elevation_bar: 0.22260355011828303
+      cold_oil_DN100_Re: 103.32265730839366
+      cold_oil_DN100_straight_loss_bar_per_m: 0.009676555350122544
+      cold_oil_straight_equivalent_length_limit_m: 23.004420691446153
+      head_shortfall_at_min_running_mm: 24.31785568520658
+      flange_budget_rule: Из бюджета вычесть ρg·z фланца над дном и потери сапуна. Сравнить с ΣK·ρv²/2, распределёнными
+        и ускорительными потерями, холодной вязкостью и загрязнением.
+      qualified: false
+    deaeration:
+      target_s: 30
+      main_and_pilot_mean_L_min: 180.5849321660541
+      level_with_separate_cooling_path_L: 113.44141596388583
+      level_with_shared_path_L: 203.44141596388585
+      estimated_residence_shared_min_level_s: 27.763398062729493
+      level_penalty_L: 23.148949880858783
+      construction: Сохранить раздельные подуровневые диффузоры, перегородку и затопленный всас. Проверить
+        эффективный объём, работу сетки при холодном масле и время до появления пузырей на всасе.
+    thermal:
+      oil_only_heat_capacity_kJ_K: 314.07
+      starting_oil_C: 40
+      heating_to_limit_without_cooling_s: 235.4920531510987
+      rise_after_10_min_dirty_K: 10.939857106627837
+      steady_oil_dirty_C: 51.327958165673465
+    shell_sheet_mm: 4
+    source: calc/T-1.6/sources.yaml
+    support: Рама 2×900 + 4×700, RHS 80×40×4. Отдельные опоры, подуровневые возвраты и перегородка.
+  TF:
+    gross_L: 80
+    initial_oil_L: 55
+    min_initial_oil_L: 50.21638521836939
+    initial_margin_L: 4.783614781630611
+    nominal_gauge_bar: 0.6
+    regulation_half_band_bar: 0.050000000000000044
+    max_gauge_bar: 0.65
+    min_gauge_bar: 0.5499999999999999
+    separator: Эластичный разделитель масла и азота, двухстороннее регулирование.
+    balance_nominal_L_min: 50
+    main_pump_inlet_is_separate: true
+    vessel_basis: Мембранный, через двухсторонний регулятор N₂. Сохраняются LSF, PTF, BAL и штатный RTF.
+    relief: Goetze 455 DN65/100 F, 1,9 бар, отдельная линия TET, предел бака 3 бар.
+    source: calc/T-2.6/run.py
+cooling:
+  selected:
+    model: Bowman GL180-1428-3
+    type: Кожухотрубный, 3 хода воды
+    dry_kg: 21.0
+    water_volume_L: 3.8
+    oil_volume_L: 4.8
+    tube_area_m2: 2.1
+    tube_count: 217
+    material: CuNi 90/10, торцевые крышки из чугуна, уплотнения NBR
+    length_mm: 630
+    body_diameter_mm: 162
+    tube_bundle_extraction_reserve_mm: 500
+    oil_and_water_connections: G 1½ BSP
+    catalogue_hot_inlet_C: 60
+    catalogue_cold_inlet_C: 30
+    catalogue_heat_points_L_min_kW:
+    - - 160
+      - 42.5
+    - - 200
+      - 47.7
+    catalogue_oil_dp_points_L_min_kPa:
+    - - 150
+      - 30.7
+    - - 200
+      - 51.8
+    catalogue_water_dp_points_L_min_kPa:
+    - - 145
+      - 40.9
+    - - 175
+      - 57.7
+    freshwater_flow_range_L_min:
+    - 100
+    - 320
+    max_water_working_bar: 16
+    max_oil_working_bar: 20
+    catalogue_water_flow_L_min: 150
+    catalogue_oil_flow_L_min: 180
+    catalogue_heat_kW: 45.1
+    catalogue_delta_K: 30
+    wet_with_water_kg: 24.7848
+    oil_fill_kg: 4.176
+    source_ids:
+    - bowman_profile
+    - bowman_catalog
+    - bowman_manual
+  heat:
+    source_ids:
+    - t25
+    - task
+    - bowman_profile
+    - htri_tema
+    - tema
+    - oil
+    - water
+    nominal_kW: 20.01
+    adverse_kW: 19.34
+    independent_kW: 19.8
+    multiplier: 1.25
+    required_kW: 25.012500000000003
+    oil_inlet_max_C: 55
+    water_inlet_design_C: 30
+    clean_kW_at_design: 37.583333333333336
+    method_a_kW: 27.153958333333332
+    method_b_kW: 27.317360217273368
+    catalog_factor: 0.85
+    fouling_factor: 0.85
+    water_fouling_m2_K_W: 0.00035
+    oil_fouling_m2_K_W: 0.000176
+    tema:
+      counterflow:
+        clean_U_W_m2_K: 917.7401870793242
+        dirty_U_W_m2_K: 618.9524449300052
+        dirty_kW_K: 1.0926944086909347
+      one_shell_pass:
+        clean_U_W_m2_K: 928.5466099684622
+        dirty_U_W_m2_K: 623.8490525399097
+        dirty_kW_K: 1.0950607174810543
+    tema_oil_cp_sensitivity_kW:
+      '1.8': 27.324540952809922
+      '2.2': 27.31176550280196
+    dirty_kW: 27.153958333333332
+    thermal_screen_pass: true
+    water_inlet_max_C: 31.971589470534525
+    water_rise_at_required_K: 2.4031532829884132
+    water_rise_at_dirty_design_K: 2.6089005143380537
+    water_rise_at_clean_design_K: 3.6109349679419434
+    water_min_heat_balance_L_min: 36.047299244826206
+    water_flow_design_L_min: 150
+    curve:
+    - water_inlet_C: 15
+      method_a_kW: 43.446333333333335
+      method_b_kW: 43.70777634763739
+      dirty_kW: 43.446333333333335
+    - water_inlet_C: 16
+      method_a_kW: 42.360175
+      method_b_kW: 42.61508193894645
+      dirty_kW: 42.360175
+    - water_inlet_C: 17
+      method_a_kW: 41.27401666666667
+      method_b_kW: 41.52238753025552
+      dirty_kW: 41.27401666666667
+    - water_inlet_C: 18
+      method_a_kW: 40.18785833333333
+      method_b_kW: 40.42969312156458
+      dirty_kW: 40.18785833333333
+    - water_inlet_C: 19
+      method_a_kW: 39.1017
+      method_b_kW: 39.33699871287365
+      dirty_kW: 39.1017
+    - water_inlet_C: 20
+      method_a_kW: 38.015541666666664
+      method_b_kW: 38.24430430418271
+      dirty_kW: 38.015541666666664
+    - water_inlet_C: 21
+      method_a_kW: 36.929383333333334
+      method_b_kW: 37.15160989549178
+      dirty_kW: 36.929383333333334
+    - water_inlet_C: 22
+      method_a_kW: 35.843225
+      method_b_kW: 36.05891548680084
+      dirty_kW: 35.843225
+    - water_inlet_C: 23
+      method_a_kW: 34.75706666666667
+      method_b_kW: 34.96622107810991
+      dirty_kW: 34.75706666666667
+    - water_inlet_C: 24
+      method_a_kW: 33.67090833333334
+      method_b_kW: 33.87352666941898
+      dirty_kW: 33.67090833333334
+    - water_inlet_C: 25
+      method_a_kW: 32.58475
+      method_b_kW: 32.78083226072804
+      dirty_kW: 32.58475
+    - water_inlet_C: 26
+      method_a_kW: 31.498591666666666
+      method_b_kW: 31.688137852037105
+      dirty_kW: 31.498591666666666
+    - water_inlet_C: 27
+      method_a_kW: 30.412433333333333
+      method_b_kW: 30.59544344334617
+      dirty_kW: 30.412433333333333
+    - water_inlet_C: 28
+      method_a_kW: 29.326275
+      method_b_kW: 29.50274903465524
+      dirty_kW: 29.326275
+    - water_inlet_C: 29
+      method_a_kW: 28.240116666666665
+      method_b_kW: 28.410054625964303
+      dirty_kW: 28.240116666666665
+    - water_inlet_C: 30
+      method_a_kW: 27.153958333333332
+      method_b_kW: 27.317360217273368
+      dirty_kW: 27.153958333333332
+    - water_inlet_C: 31
+      method_a_kW: 26.0678
+      method_b_kW: 26.224665808582433
+      dirty_kW: 26.0678
+    - water_inlet_C: 32
+      method_a_kW: 24.98164166666667
+      method_b_kW: 25.131971399891498
+      dirty_kW: 24.98164166666667
+    - water_inlet_C: 33
+      method_a_kW: 23.895483333333335
+      method_b_kW: 24.039276991200563
+      dirty_kW: 23.895483333333335
+    - water_inlet_C: 34
+      method_a_kW: 22.809325
+      method_b_kW: 22.946582582509627
+      dirty_kW: 22.809325
+    - water_inlet_C: 35
+      method_a_kW: 21.723166666666668
+      method_b_kW: 21.853888173818696
+      dirty_kW: 21.723166666666668
+  oil_pressure:
+    catalogue_cooler_dp_bar: 0.4336
+    inherited_common_dp_budget_bar: 0.72
+    new_pipe_dp_bar: 0.01218577717124359
+    new_fittings_dp_bar: 0.07305145306615249
+    total_dp_bar: 1.2388372302373962
+    limit_dp_bar: 1.25
+    pc_motor_kW: 0.55
+    shaft_required_kW: 0.5161821792655817
+    pass_at_design_point: true
+  water_pressure: &id019
+    valve_Kv_m3_h: 11
+    valve_min_dp_bar: 0.3
+    strainer_Kv_m3_h: 29
+    strainer_dirty_dp_limit_bar: 0.3
+    flowmeter_and_water_line_dp_budget_bar: 0.25
+    cooler_dirty_dp_limit_bar: 0.65
+    supply_gauge_max_bar: 3.0
+    return_gauge_range_bar:
+    - 0.0
+    - 0.8
+    interface_differential_min_bar: 1.9
+    valve_open_dp_bar: 0.6667438016528927
+    strainer_clean_dp_bar: 0.09592865636147443
+    cooler_clean_dp_bar: 0.43700000000000006
+    interface_clean_dp_budget_bar: 1.4496724580143672
+    interface_dirty_dp_budget_bar: 1.8667438016528926
+    interface_design_supply_range_bar:
+    - 1.9
+    - 3.0
+    budget_pass: true
+  alternatives:
+  - model: KTR TAK/TP-D1 (industrial)
+    type: Кожухотрубный
+    material: Трубки и крышки из латуни CW614N
+    dry_kg: 20
+    wet_with_water_kg: null
+    wet_upper_bound_box_kg: 42.131119999999996
+    catalogue_heat_kW: 40
+    catalogue_delta_K: 32.740237625295094
+    catalogue_oil_flow_L_min: 180
+    catalogue_water_flow_L_min: 90
+    catalogue_oil_dp_bar: 0.4
+    catalogue_water_dp_bar: 0.07
+    catalogue_tube_area_m2: 1.58
+    catalogue_oil_inlet_C_back_calculated: 57.740237625295094
+    catalogue_oil_outlet_C: 50
+    catalogue_water_inlet_C: 25
+    method_a_kW_at_design_delta_original_flows: 22.067646798073227
+    method_b_kW_at_design_delta_original_flows: 21.713302857083693
+    source_ids:
+    - ktr
+    finding: По каталогу масло 0.40 бар, вода 0.07 бар. Приведение к ΔT 25 K даёт 21.71 кВт с загрязнением
+      при 90 л/мин воды. Водяная полость и точка при 150 л/мин требуют данных поставщика.
+  - model: Parker PWO B25TH×50/1P-SC-S, 50832505
+    type: Паяный пластинчатый
+    material: Нержавеющая сталь AISI 316/304, медная пайка
+    dry_kg: 11.15
+    wet_with_water_kg: null
+    wet_upper_bound_box_kg: 20.009028970400003
+    catalogue_heat_kW: 79
+    catalogue_delta_K: 40
+    catalogue_oil_flow_L_min: 150
+    catalogue_water_flow_L_min: 75
+    method_a_kW_at_design_delta_original_flows: 35.6734375
+    catalogue_oil_dp_chart_available: true
+    oil_dp_bar_at_design: null
+    water_dp_bar_at_design: null
+    source_ids:
+    - parker_pwo
+    - parker_curves
+    finding: Нужен подбор 180 л/мин масла и 150 л/мин воды с Δp обеих сторон, площадью и водяным объёмом. Каталожная
+      серия точек ограничена соотношением расходов 2:1.
+  - model: EMMEGI MG 130-995-4
+    type: Кожухотрубный, 4 хода воды
+    material: Трубки CuDHP, торцы CuZn40
+    dry_kg: 32
+    wet_with_water_kg: null
+    catalogue_capacity_L_side_unspecified: 9.2
+    catalogue_heat_kW: 40.36049390625
+    catalogue_heat_HP: 54.875
+    catalogue_delta_K: 35
+    catalogue_oil_flow_L_min: 180
+    catalogue_water_flow_L_min: 54.875
+    method_a_kW_at_design_delta_original_flows: 20.828897748046874
+    catalogue_oil_dp_chart_available: true
+    oil_dp_bar_at_design: null
+    water_dp_bar_at_design: null
+    source_ids:
+    - emmegi
+    finding: Линейный скрининг между краями таблицы при 32 сСт. Нужны точка при полном расходе воды, её Δp,
+      объём трубной стороны и площадь; 9,2 л в таблице без обозначения стороны.
+  circuit: T0 → PC → CP → GL180 → CF → FT → CT → CD → T0. CB остаётся. TT на входе масла. Сохраняются контроль
+    суммарного расхода и подтверждения работоспособности ветвей охлаждения в выбранном режиме. Схему сигналов
+    водяной ветви проверить при наладке.
+  installed_base_kW: 32.603
+  installed_with_air_option_kW: 34.103
+  installed_water_electrical_reserve_kW: 0.035
+site_water:
+  boundary: Два фланца DN40 PN16 W-IN/W-OUT на сервисном краю станции. Заказчик обеспечивает подготовку воды,
+    подачу, возврат и регулирование внешнего расхода.
+  inlet_C: 30
+  maximum_temperature_rise_K: 10
+  design_L_min: 150
+  pressure: *id019
+  quality:
+    pH_range:
+    - 7.2
+    - 7.8
+    pH_target_range:
+    - 7.4
+    - 7.6
+    hardness_max_mg_L_as_CaCO3: 150
+    chlorides_max_mg_L: 100
+    suspended_solids_max_mg_L: 10
+    filtration_max_um: 500
+    conductivity_min_uS_cm: 20
+    freeze_drain_trigger_C: 5
+  quality_confirmation: Bowman публикует pH и режим потока. Численные пределы химии и взвеси являются проектными
+    до письменного согласования анализа воды с Bowman.
+  control:
+    valve: Danfoss EV220B 25, 032U7125, EPDM NC, катушка 24 V DC
+    oil_open_C: 45
+    oil_close_C: 42
+    oil_hard_limit_C: 55
+    interlock: При запросе охлаждения проверять поток воды после открытия клапана. Потерю потока, обрыв TT
+      и перегрев использовать для блокировки новых циклов и штатной остановки. Контроль потока масла PC сохраняется
+      при закрытом водяном клапане.
+  freeze: При длительной остановке или риске замерзания закрыть подачу, сбросить давление, открыть воздухоотводчик
+    и полностью опорожнить трубную сторону и низкие точки.
+  source_ids:
+  - bowman_profile
+  - bowman_manual
+  - water_valve
+  - strainer
+  - water_flowmeter
+air_option:
+  model: 2 × ASA0567AA47
+  module_W_H_D_mm:
+  - 920
+  - 860
+  - 543
+  fan_kW: 1.5
+  rated_dirty_kW: 26.48994642857142
+  rated_oil_inlet_C: 55
+  rated_air_inlet_C: 40
+  branch_flow_L_min_range:
+  - 78
+  - 102
+  installation: Две матрицы одна над другой вдоль боковой панели станции. Потоки воздуха разделены, маты извлекаются
+    с сервисной стороны.
+  reserve_box_XYZ_mm:
+  - 1000
+  - 783
+  - 1920
+  reserve_lower_XYZ_mm:
+  - 550
+  - 1117
+  - 100
+  reserve_upper_XYZ_mm:
+  - 1550
+  - 1900
+  - 2020
+  machine_limit_XYZ_mm:
+  - 2100
+  - 1900
+  - 2200
+  fits_outer_box: true
+  whole_machine_collision_verified: false
+  oil_connections: Два заглушённых отвода CP/CF, разъёмные фланцы, место под кабели двух вентиляторов. Подключение
+    воздушной сборки вместо водяной ветви при остановленной машине. Сохраняются FT1/FT2 и параллельная гидравлика
+    исходной опции.
+  base_mass_row: T25B-AO
+  source_ids:
+  - asa
+  - baseline
+  - criteria
+  - t16
+cycle:
+  G-PFACE:
+    value: 168.88888888888889
+    unit: MPa
+    status: PASS
+  G-DOSE:
+    value: 396
+    unit: mm
+    status: PASS
+  G-CYCLE:
+    value: 5.905000000000723
+    unit: s
+    status: PASS
+    method: reference_model
+    input: calc/T-2.6/params/params.t26a.yaml
+    rms_kW: 29.98674972258111
+measures:
+- measure: Мотор IM B5 из алюминиевого сплава
+  status: не зачтено
+  reason: WEG 12840024, B5T, 208 кг, 1475 об/мин при 400 В. Цикл 5,90625 с, RMS 30,075 кВт превышает 30,0.
+    Для Brook и Siemens точная масса IM B5 не подтверждена. Сохранён OMEC 1480 об/мин.
+  t25_potential_delta_kg: -71
+  credited_saving_kg: 0
+  ledger_ids:
+  - T25-M1
+  source_ids:
+  - weg_passport
+  - weg_family
+  - bell_dimensions
+  - brook
+  - brook_mount
+  - siemens
+  - omec
+  evidence:
+    model: WEG W21 Aluminium Multimounting IE3 B5T
+    order_number: '12840024'
+    dry_kg: 208
+    rated_kW: 30
+    rated_rpm: 1475
+    nominal_voltage_V: 400
+    frequency_Hz: 50
+    full_load_Nm: 194
+    pullout_ratio: 3.4
+    flange_OD_PCD_register_mm:
+    - 400
+    - 350
+    - 300
+    shaft_D_L_mm:
+    - 55
+    - 110
+    potential_delta_kg: -70
+    pullout_Nm: 659.6
+    nominal_interface_match: true
+    assembly_fit_verified: false
+    gate_method: reference_model
+    gate_status: FAIL
+    cycle_s: 5.906250000000724
+    rms_kW: 30.07545446926927
+    failed_gate_checks:
+    - rms_power_limit
+    new_motor_parameters_used: false
+- measure: TF, два Goetze 642 DN65 FKM
+  status: не зачтено
+  reason: Расчётный расход пары при +10 % и противодавлении 0,2 бар меньше притока. Нужна характеристика HLP46
+    и общего слива на допустимом превышении. Оставлен исходный RTF. Его подтверждение на обновлённый приток
+    остаётся открытым.
+  t25_potential_delta_kg: -19.056191272114845
+  credited_saving_kg: 0
+  ledger_ids:
+  - T16-15
+  - T16-18
+  source_ids:
+  - goetze
+  - t26
+  - circuit
+  - t25
+  evidence:
+    water_catalogue_pair_L_min: 1726.6666666666667
+    dry_pair_valves_kg: 17.8
+    set_bar: 1.9
+    screen_inlet_bar: 2.09
+    backpressure_bar: 0.2
+    oil_viscosity_screen_factor_from_t25: 0.9
+    max_gross_TF_inlet_L_min: 1588.6405730672866
+    calculated_HLP46_pair_L_min: 1541.1347708567132
+    required_capacity_factor_vs_ideal_oil: 0.9277426885682092
+    retained_RTF_circuit_booked_flow_L_min: 1293
+- measure: LP, Parker EHV 20-330/90-A25GC-200
+  status: зачтено
+  reason: Точный артикул и масса подтверждены. Полезный объём превышает дефицит эталонных сценариев. Уставки
+    и схема LP/SAF32E сохраняются. В зачёте учтено 3 кг на крепление и стыковку G2.
+  t25_potential_delta_kg: -14
+  credited_saving_kg: 11.0
+  ledger_ids:
+  - T25-ALP
+  source_ids:
+  - lp_parker
+  - lp_parker_fasttrack
+  - lp_hydac_63
+  - lp_hydac_49
+  - t25
+  - model
+  evidence:
+    order_number: '10837101125'
+    model: Parker EHV 20-330/90-A25GC-200
+    nominal_L: 20
+    effective_gas_L: 17.8
+    working_rating_bar: 330
+    max_catalogue_flow_L_min: 900
+    old_kg: 63
+    catalogue_dry_kg: 49.0
+    mount_and_connection_reserve_kg: 3.0
+    vessel_saving_kg: 14.0
+    available_usable_L: 2.834240514569325
+    max_deficit_L: 2.2673583333333336
+    sensitivity_cycle_s: 5.905000000000723
+    sensitivity_rms_kW: 29.97644389606792
+    sensitivity_lp_assist_L: 3.6352416666666065
+    reference_parameters_changed: false
+- measure: Шесть DB30 → Sun RPIC
+  status: условно
+  reason: 350 бар и 380 л/мин покрывают статические номиналы. Два порта RPIC не воспроизводят внешний Y→DR.
+    Нужны точное исполнение с дренажем, подтверждение P(Q) при противодавлении и масса корпусов. Динамические
+    пики ≤315 бар проверяются на первом образце.
+  t25_potential_delta_kg: -11.881779730594703
+  credited_saving_kg: 0
+  ledger_ids:
+  - T16-08
+  source_ids:
+  - circuit
+  - sun
+  - sun_drain
+  - decisions
+  evidence:
+    catalog_max_L_min: 380
+    catalog_max_bar: 350
+    tank_backpressure_per_bar: 1
+    ports:
+    - id: RGA
+      required_L_min: 181
+      passes_catalog_max_flow: true
+      return_net: TR
+      existing_external_pilot_return_net: DR
+      assumed_crack_bar: 300
+      allowed_flow_override_plus_backpressure_bar: 15
+    - id: RGB
+      required_L_min: 125
+      passes_catalog_max_flow: true
+      return_net: TR
+      existing_external_pilot_return_net: DR
+      assumed_crack_bar: 300
+      allowed_flow_override_plus_backpressure_bar: 15
+    - id: RRA
+      required_L_min: 270
+      passes_catalog_max_flow: true
+      return_net: TR
+      existing_external_pilot_return_net: DR
+      assumed_crack_bar: 300
+      allowed_flow_override_plus_backpressure_bar: 15
+    - id: RRB
+      required_L_min: 186
+      passes_catalog_max_flow: true
+      return_net: TR
+      existing_external_pilot_return_net: DR
+      assumed_crack_bar: 300
+      allowed_flow_override_plus_backpressure_bar: 15
+    - id: RV0
+      required_L_min: 265
+      passes_catalog_max_flow: true
+      return_net: TRF
+      existing_external_pilot_return_net: DR
+      assumed_crack_bar: 300
+      allowed_flow_override_plus_backpressure_bar: 15
+    - id: RVM
+      required_L_min: 265
+      passes_catalog_max_flow: true
+      return_net: TEM
+      existing_external_pilot_return_net: DR
+      assumed_crack_bar: 298
+      allowed_flow_override_plus_backpressure_bar: 17
+    local_housing_kg_each: 1.8797033782342163
+    static_pressure_margin_bar: 35
+- measure: T0, стенки 3 мм с рёбрами
+  status: не зачтено
+  reason: Скрининг T-2.5 охватывает гидростатику, подъём и транспорт. Для облегчения требуются расчёт швов,
+    креплений, совместной работы стенок и проверка соосности. Сохранена оболочка 4 мм.
+  t25_potential_delta_kg: -8.917599999999993
+  credited_saving_kg: 0
+  ledger_ids:
+  - T16-02
+  source_ids:
+  - tank_method
+  - t25
+  - baseline
+  evidence:
+    side_sheet_mm: 3
+    cover_and_bottom_sheet_mm: 4
+    material: S235JR
+    proposed_shell_kg: 85.83840000000001
+    side_sheet_savings_kg: 10.048000000000002
+    ribs_kg: 1.1304
+    ribs:
+      count: 4
+      section_mm:
+      - 30
+      - 3
+      length_each_mm: 400.0
+      included_in_bending_stiffness: false
+      layout: Одно наружное ребро на стенку, смонтированное на ребро. Сверить место в пределах рамы.
+      potential_total_projection_growth_per_axis_mm: 60
+    baffles_mounts_fittings_kg: 15
+    oil_depth_m: 0.30158730158730157
+    static:
+      pressure_kPa: 3.4138800000000007
+      bending_MPa: 45.518400000000014
+      deflection_mm: 2.408380952380953
+      yield_to_bending: 5.162747372491123
+    flooded_transport:
+      pressure_kPa: 9.558864000000002
+      bending_MPa: 127.45152000000003
+      deflection_mm: 6.743466666666669
+      yield_to_bending: 1.8438383473182582
+    lift:
+      screen_dynamic_factor: 1.3
+      effective_sling_legs: 2
+      vertical_per_leg_N: 11353.759788177154
+      sling_tension_N: 16056.64107636641
+      load_path: Стропы за раму станции, бак опирается на её поперечины.
+      single_center_loaded_RHS_tank_weight_bound_N: 3202.7680152000007
+      RHS_strong_axis_stress_MPa: 31.517162157734532
+      RHS_weak_axis_stress_MPa: 48.725345650384845
+    transport:
+      station_forward_N: 13973.85820083342
+      station_lateral_N: 8733.661375520887
+      nominal_transport_state: T0 осушен, крепление за раму станции.
+    pending: Нужны замкнутые швы 3/4 мм, расчёт опор, проушин и креплений с фактическим центром тяжести, проверка
+      вибраций, испытание на герметичность. Перегородки, крепление к днищу и посадки сохраняются.
+- measure: T0 как основание станции
+  status: не зачтено
+  reason: Требуется общий расчёт нагрузок на раму и привод, подъёма, транспорта и соосности. Сохранена самостоятельная
+    рама.
+  t25_potential_delta_kg: -7.9630399999999995
+  credited_saving_kg: 0
+  ledger_ids:
+  - T16-06
+  source_ids:
+  - tank_method
+  - t25
+  - baseline
+  evidence: {}
+open_items:
+- Подтвердить растарировку T0, раздельные пути деаэрации, заглубление и давление на фланце S насоса.
+- На безопасной остановке измерить ход, время разряда SAL/SAX, порядок WK и волну уровня.
+- Подтвердить паспорт TF 80 л и совместимость корпуса MF Double-B, арматуры, колокола и опор.
+- Взвесить станцию и проверить габарит, крепления и доступ на стадии компоновки.
+- Подбор поставщика GL180 на фактическое HLP46 (горячий режим и холодный пуск), сверка потерь PC на сборке.
+- Анализ воды, подтверждение совместимости материалов и режимов Bowman.
+- Проверка взаимных коллизий и притока воздуха, доступа к извлечению трубного пучка и матов.
+- Унаследованный RTF с исходной заявкой 1293 л/мин проверить против потока T-2.6.
+sources:
+  task:
+    url: TASK.md
+    where: Расчётные температуры и минимальные сопротивления загрязнения
+  decisions:
+    url: DECISIONS.md
+    where: D-OP-09/11/16/17/19/20 и D-GK-02/18/19
+  criteria:
+    url: ops/criteria/design_criteria.yaml
+    where: v4
+  baseline:
+    url: design/hydraulics/station.t25.yaml
+    where: Построчная ведомость и мощности
+  t25:
+    url: calc/T-2.5/results.json
+    where: station_mass
+    section: machine_mass, heat, tank, measures
+  t25_metrics:
+    url: ops/reports/T-2.5/metrics.json
+    where: Поправка ГА и диапазон масс
+  t22i:
+    url: calc/T-2.2i/results.json
+    where: variants.nose_x225.mass
+  t26:
+    url: calc/T-2.6/results.json
+    where: variants[selected].prefill.cap_exhaust и selected_sensitivity
+  model:
+    url: calc/T-2.6/params/params.t26a.yaml
+    where: cycle_model и мощность
+  t04:
+    url: ops/reports/T-0.4/GK_review.md
+    where: Квалификация эталонного гейта
+  circuit:
+    url: design/hydraulics/T-1.6_circuit.yaml
+    where: PC E1/E2 TT FT1 FT2 FT CD CB RTF DB и ГА
+  interlocks:
+    url: design/hydraulics/T-1.6_interlocks.yaml
+    where: Разрешения контура PC
+  inventory:
+    url: calc/T-2.6/inventory.csv
+    where: Состав станции и ГА
+  t16:
+    url: calc/T-1.6/sources.yaml
+    where: revision.cooling, project.cooling_circuit_max_total_dp_bar и масса стали
+  bowman_profile:
+    url: https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf
+    where: Стр. 1–2, 3-pass, ISO VG 46, тепло, перепады, детали и объёмы полостей
+  bowman_catalog:
+    url: https://ej-bowman.com/wp-content/uploads/2018/12/Bowman-Hydraulic-Oil-Cooler-Brochure-2018_Aug_web.pdf
+    where: GL180-1428-3, стандартные материалы, пределы давления масла и воды
+  bowman_manual:
+    url: https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf
+    where: Разд. 2–6, pH 7,2–7,8, скорость, пуск, слив и обслуживание
+  htri_tema:
+    url: https://gc.htri.net/f-2
+    where: Отчёт совместного комитета HTRI/TEMA о методе сопротивлений загрязнения. Численные минимумы приняты
+      из TASK.md.
+  tema:
+    url: https://tema.org/standards/
+    where: RGP-T-2, сопротивления загрязнения
+  water:
+    url: https://www.iapws.org/relguide/IF97-Rev.html
+    where: Округлённые плотность и теплоёмкость воды при 30 °C
+  oil:
+    url: calc/T-1.6/sources.yaml
+    where: Плотность HLP46 870 кг/м³. cp 1,98 кДж/(кг·К) принято для расчёта. Проверяется диапазон 1,8–2,2.
+  parker_pwo:
+    url: https://www.parker.com/parkerimages/Parker.com/Divisions-2011/Accumulator%20and%20Cooler%20Division%20-%20Europe/MSG10-4082_2020_FastTrack_Distribution_English.pdf
+    where: 50832505, 79 кВт при 150 л/мин, масса и габариты
+  parker_curves:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/cooler/water-oil-cooler/PWO_Water-Oil-Coolers--EMDC.-HY10-6010.UK.pdf
+    where: B25T, ISO VG 46, расход масла к воде 2 к 1, графики тепла и перепада давления масла, материалы
+  emmegi:
+    url: https://it.emmegi.group/wp-content/uploads/sites/8/2026/01/Shell-e-tubes-1.pdf
+    where: Q.2–Q.3 и Q.12, MG 130-995-4, режим и поправки, CuDHP, график потерь на масле 32 сСт
+  ktr:
+    url: https://www.ktr.com/dam/jcr%3Ad89672a3-ae44-4cf8-b5ee-359ff85d7b7c/KTR-CATALOGUE-COOLING-SYSTEMS.PDF
+    where: Стр. 48–50. TAK/TP-D1, материалы, тепловая точка, оба перепада, площадь и сухая масса.
+  water_valve:
+    url: https://designcenter.danfoss.com/en-us/products/climate-solutions-for-heating/solenoid-valves-fluid-controls/solenoid-valves-fluid-controls/ev220b/p/032U7125?tab=attribute-details
+    where: EV220B 25, EPDM, NC, G1, Kv 11, масса 1,325 кг, минимум Δp 0,3 бар
+  coil:
+    url: https://designcenter.danfoss.com/tr-tr/products/sensing-solutions/valves/coils-for-solenoid-valves/ba-bd-bb-be-bf-bg-bn-bo-bj-bx-by-bq-am-az-as-ap/p/018F7397
+    where: BB024DS 24 V DC, 18 W
+  strainer:
+    url: https://content.spiraxsarco.com/-/media/spiraxsarco/international/documents/en/ti/fig_3616-ti-p160-05-en.ashx
+    where: Fig 3616 DN40 PN16, 9,0 кг, mesh 40, Kvs 29
+  water_flowmeter:
+    url: https://media.ifm.com/dam/fa354e68-9821-4699-93d1-4698b4db4a19/Original/SM9500-01_EN-GB.pdf
+    where: SM9500, DN40, 5–300 л/мин, 2,751 кг, расход и температура
+  asa:
+    url: https://asahydraulics.com/wp-content/uploads/2022/05/ASA-Series-AC.pdf
+    where: ASA0567AA47, 0,75 кВт и 82,7 кг на модуль
+  lp_parker:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/accumulator/bladder_accumulator/CADE_EHV_catalogue.pdf
+    where: EHV 20-330/90-A25GC-200, 10837101125, 330 бар, 49 кг, 17,8 л эффективного газа, G2, минеральное
+      масло
+  lp_parker_fasttrack:
+    url: https://www.parker.com/parkerimages/Parker.com/Divisions-2011/Accumulator%20and%20Cooler%20Division%20-%20Europe/MSG10-4082_2020_FastTrack_Distribution_English.pdf
+    where: Стр. 7, семейство 10837101125, размеры и арматура крепления
+  lp_hydac_63:
+    url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    where: Точное обозначение HYDAC 3047174, 63 кг
+  lp_hydac_49:
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    where: Общая таблица SB330 приводит 49 кг для того же артикула, исходная ведомость сохраняет 63 кг
+  brook:
+    url: https://brookcrompton.com/ukanditaly/wp-content/uploads/2023/11/2022-05_Series_30_Cat_iss1-3.pdf
+    where: JP-DA200LA, 207 кг для семейства, 1475 об/мин, Mk/Mn 2,6
+  brook_mount:
+    url: https://brookcromptonmotors.com/products/brook-crompton-we3-we4/
+    where: Опубликованный заказной артикул 200J910401 IM B3
+  siemens:
+    url: https://cache.industry.siemens.com/dl/files/197/109749197/att_1160579/v1/Motors-D81-1-complete-English-09-2023.pdf
+    where: SIMOTICS GP 1LE1083-2AB5, 1470 об/мин, 189 кг для IM B3, масса IM B5 отсутствует
+  weg_passport:
+    url: https://www.cenov-distribution.fr/wp-content/uploads/2025/05/weg_12840024_allDocuments.pdf
+    where: Паспорт WEG 12840024. B5T, 208 кг, S1, 30 кВт, 400/690 В 50 Гц, 1475 об/мин, 194 Н·м, Mk/Mn 3,4.
+  weg_family:
+    url: https://static.weg.net/medias/downloadcenter/h7e/he5/WEG-WMO-w21-aluminium-multimounting-european-market-50035487-brochure-english-web.pdf
+    where: W21 Aluminium Multimounting IE3, электрическая строка 30 кВт и чертёж FF-350 для IEC 200M/L
+  bell_dimensions:
+    url: https://www.mpfiltri.com/FilesProdotti/rl1vm4_LMC-LDCEN.pdf
+    where: Сторона IEC 200, вал Ø55×110, фланец Ø400, PCD 350, посадка 300
+  omec:
+    url: https://omec-poznan.pl/wp-content/uploads/2024/09/30kW_4P_B5-OMT3-IE3-200L-4.pdf
+    where: Принятый мотор и посадочные размеры IEC 200 B5
+  bell:
+    url: https://www.mpfiltri.com/product/bell-housing/
+    where: Геометрия насоса
+    motor_side: Посадка двигателя и муфты
+  goetze:
+    url: https://www.goetze-group.com/Series/642/goetze-642-datasheet-en.pdf
+    where: Стр. 3 и 5, DN65 резьба 8,9 кг и 51,8 м³/ч воды при 2 бар
+  sun:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/Intl_SC2009relief.pdf
+    where: RPIC, 380 л/мин, 350 бар, два порта, зависимость от противодавления
+  sun_drain:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/TT_US_Relief.pdf
+    where: Семейство RV*D с внешним дренажем отдельно от порта выхода
+  tank_method:
+    url: calc/T-2.5/tank.py
+    where: Скрининг гидростатики, рёбер, подъёма и транспортировки. Совместной проверки нагрузочного пути и
+      соосности нет.
