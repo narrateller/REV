@@ -1,0 +1,78 @@
+id: T-0.4
+stage: S2-tool
+role: TOOL-CALC            # TOOLS: инструмент гейта, изменение ops/gates/** разрешено (allow_protected)
+backend: bos               # резерв: alm, voh; запуск строго по одному (песочница Windows, 1909)
+effort: high
+objective: >
+  Методика гейта G-CYCLE на эталонной модели цикла (D-GK-12, D-GK-13, D-OP-16). Сейчас G-CYCLE считает «эквивалент» —
+  список фаз в params со скоростями и давлениями, подобранными по выходам модели: v1 (design/params.t22d.yaml) завышает цикл
+  на 0,3–0,9 с (ГА снимается со всей фазы со смешанным давлением, добавочный ход на насосных скоростях), физический эквивалент
+  T-2.6 круга 2 даёт 7,82 с для T-2.2d (эталон 5,624) и 8,72 с для A (эталон 5,904). Нужен гейт, который сам считает движения
+  из физических входов params (цилиндры, клапаны, насос и его регулятор, предел мощности на валу, ГА, ход и сопротивление
+  прессования, блокировки последовательности) — эталонной моделью T-2.6 или её проверенным сокращением — и даёт цикл,
+  энергию и RMS не ниже эталона и близко к нему. Пороги и критерии не меняются.
+inputs:
+  - DECISIONS.md                           # D-GK-12, D-GK-13, D-OP-15, D-OP-16
+  - ops/reports/T-2.6/GK_review.md, ops/reports/T-2.6/report.md, ops/reports/T-2.2f/GK_review.md
+  - calc/T-2.6/run.py, calc/T-2.6/energy.py, calc/T-2.6/cycle/*.py   # эталонная модель (только читать); x1_calc.Model/simulate/periodic_run, drive.A4VSO180/PV180, operating_point, pilot_control, projection (что делал эквивалент)
+  - calc/T-2.6/results.json                # эталонные числа — читать скриптом по ключам, файл 0,7 МБ целиком не читать
+  - calc/T-2.6/params/params.t26a.yaml, design/params.t22d.yaml   # действующие эквиваленты (v1 и физ. круга 2)
+  - ops/gates/calc_gates.py, design/params.schema.yaml, tests/ops/test_calc_gates.py
+  - ops/criteria/design_criteria.yaml      # v4: C-PERF-01 max_cycle_s 6,0 (цель задач 5,95); C-PWR-01 RMS ≤ 30, пик ≤ 40, мотор 30
+  - ops/calibration/                       # w02_04 (MATCH), x1_overlap, t12b_overlap* — вердикты сохранить
+reference_values:                          # эталон T-2.6 (calc/T-2.6/results.json) — только для сравнения, не входы гейта
+  T-2.2d: {key: base.reference, cycle_s: 5.62375, shaft_energy_kJ: 148.85, rms_kW: 28.616, peak_kW: 38.31}
+  A: {key: variants.A_combined_NG50_33p25_kW_50ms_AX.reference, cycle_s: 5.90375, shaft_energy_kJ: 166.13, rms_kW: 29.987, peak_kW: 38.31}
+  holdout: "variants.* (остальные 11 вариантов A, 5,823–6,181 с) и selected_sensitivity.* (10 случаев, 5,906–6,457 с; combined 6,193)"
+methods:
+  - "Разбор эталона: какие физические входы определяют цикл (геометрия и ходы цилиндров, площади, клапаны и их Δp(Q)/время переключения, кривая насоса и регулятора DFE1Z, предел мощности на валу, проскальзывание мотора, вязкость масла, ГА (V0, p0, окно), регенерация, наполнительный клапан, LP-выталкивание, пилот, блокировки и стартовые условия фаз, кривая сопротивления прессования и подпрессовки по ходу) и откуда они берутся (calc/T-1.1, calc/T-1.2b, design/*.yaml, каталоги в sources.yaml). Таблица «вход | значение | источник» в report.md."
+  - "Входы гейта: новый раздел params `cycle_model` (схема в design/params.schema.yaml) — только физические величины и логика последовательности (блокировки по положению/давлению), каждая с источником в комментарии. Запрещено во входах: длительности фаз, моменты команд, скорости по фазам, энергии, давления по фазам и любые числа, полученные из выходов эталона (results.json, events, phase_table). Допустимы глобальные технологические и паспортные времена (переключение клапанов, выдержка под давлением, разгрузка) — с источником."
+  - "Движок: ops/gates/ (например ops/gates/cycle_model/ или функция в calc_gates.py) — перенос ядра эталона (x1_calc + привод A4VSO180 + operating_point + пилот) в замороженную копию либо проверенное сокращение (разбиение фаз по давлению с окном ГА, ступенчатая интеграция). Гейт не импортирует и не читает calc/**. Шаг интегрирования — сходящийся (две сетки, разница ≤ 0,005 с) или численная поправка в сторону увеличения цикла по единому глобальному правилу. Никаких коэффициентов «на схему»: все постоянные — глобальные, в коде гейта, с обоснованием."
+  - "Совместимость: если в params нет `cycle_model` — прежний путь (эквивалент `cycle`) без изменения чисел, в details `method: legacy_equivalent` и WARN «эквивалент без эталонной модели»; при наличии `cycle_model` — `method: reference_model`, и G-CYCLE берёт цикл, энергию, среднюю, RMS и пик только из него. Проверки C-PWR-01, C-HYD-01, ход/возврат/давление — как сейчас, на новых величинах."
+  - "Параметры: в design/params.t22d.yaml и calc/T-2.6/params/params.t26a.yaml добавить `cycle_model` (T-2.2d = base эталона, A = A_combined_NG50_33p25_kW_50ms_AX). Числа G-PFACE и G-DOSE на этих файлах — без изменений. Старый список `cycle` либо оставить (тогда он игнорируется при наличии cycle_model, в details указано), либо удалить, если G-PFACE/G-DOSE от него не зависят."
+  - "Сравнение: ops/calibration/cycle_t04.py → ops/calibration/cycle_t04.json — гейт против эталона на T-2.2d и A (цикл, энергия, RMS, пик), затем контрольная выборка: не менее 8 случаев из variants.* и selected_sensitivity.* (обязательно A_existing, A_prefill_and_LP, A_combined_no_pilot_reserve, A_combined_NG50_33_kW, DFE1_minus_5_percent, valves_85_ms, combined, legacy_0p45_bar_derated). Для каждого — params, отличающийся от A только физическим полем, которое меняет этот случай в calc/T-2.6/run.py (Scenario) или в чувствительности. Эталонные числа сравнения читаются из results.json только скриптом сравнения, не гейтом."
+  - "Противоподгонка: (а) тест, что cycle_model не содержит ключей времени/скорости по фазам (кроме перечня глобальных паспортных времён); (б) мутации: +10 % хода главного цилиндра, −10 % подачи насоса, −2 кВт предела мощности, +20 мс переключения клапанов — гейт меняется в ту же сторону, что эталон (если эталон для мутации не посчитан — физический знак и порядок по оценке объём/подача); (в) отчёт, чем гейт отличается от эталона (каждое упрощение, его знак и величина в секундах на T-2.2d и A)."
+deliverables:
+  - ops/gates/calc_gates.py
+  - ops/gates/cycle_model/**              # если движок вынесен
+  - design/params.schema.yaml
+  - design/params.t22d.yaml               # + cycle_model
+  - calc/T-2.6/params/params.t26a.yaml    # + cycle_model
+  - ops/calibration/cycle_t04.py, ops/calibration/cycle_t04.json, ops/calibration/cycle_t04/*.params.yaml   # контрольная выборка
+  - tests/ops/test_calc_gates.py, tests/ops/test_cycle_model.py
+  - report.md                             # методика, таблица входов с источниками, сравнение, упрощения, время счёта
+  - metrics.json                          # {T-2.2d, A}: gate/ref cycle_s, energy_kJ, rms_kW, peak_kW, delta; holdout: n, max/min delta; runtime_s
+  - self_check.json
+  - gates.t04.json, gates.t04.A.json
+acceptance:
+  - "консервативность на T-2.2d и A: 0 ≤ гейт − эталон ≤ 0,10 с; энергия на валу и RMS гейта ≥ эталона (допуск округления 0,1 кДж / 0,01 кВт)"
+  - "контрольная выборка (≥ 8 случаев, не участвовавших в настройке): −0,02 ≤ гейт − эталон ≤ 0,15 с в каждом; порядок случаев, различающихся по эталону > 0,03 с, совпадает"
+  - "входы гейта независимы: cycle_model — только физические величины с источником; тест (а) зелёный; гейт не читает calc/**"
+  - "мутации (б) — знак совпадает во всех четырёх"
+  - "пороги и критерии не меняются: ops/criteria/** без изменений, C-PERF-01 6,0 с, C-PWR-01 как в v4"
+  - "калибровки: w02_04 MATCH; x1_overlap и t12b_overlap* — время и статус G-CYCLE как в main (путь legacy_equivalent)"
+  - "pytest tests зелёный (REV_PYTHON -m pytest -p no:cacheprovider --basetemp <внутри worktree>); время гейта ≤ 60 с на один params на этой машине, весь набор тестов укладывается в CI (timeout 5 мин; долгую выборку — маркером, вне CI)"
+  - "гейты G-PFACE, G-DOSE, G-CYCLE: REV_PYTHON ops/gates/calc_gates.py --params design/params.t22d.yaml --criteria ops/criteria/design_criteria.yaml --out <worktree>/gates.t04.json и то же на calc/T-2.6/params/params.t26a.yaml → gates.t04.A.json; G-PFACE/G-DOSE — значения как в main; G-CYCLE — method reference_model, значения по п. 1 (статус любой, писать как есть)"
+  - "self_check: двойной прогон даёт одинаковые gates.t04*.json и cycle_t04.json; report.md пишется из Python в UTF-8 и проверяется чтением на отсутствие «?»"
+allowed_paths:
+  - ops/gates/**
+  - ops/calibration/**
+  - tests/**
+  - design/params.schema.yaml
+  - design/params.t22d.yaml
+  - calc/T-2.6/params/params.t26a.yaml
+  - report.md
+  - metrics.json
+  - self_check.json
+  - gates.t04.json
+  - gates.t04.A.json
+allow_protected: ["ops/gates/**"]
+forbidden: [git commit, git push, изменение ops/criteria/**, изменение calc/** кроме calc/T-2.6/params/params.t26a.yaml, изменение design/** кроме перечисленных, изменение ops/run_task.py и ops/lib/**, изменение .github/**, сеть, входы гейта из выходов эталона, коэффициенты под конкретную схему, ослабление проверок G-CYCLE, запись в DECISIONS.md и PLAN.md]
+gates: [G-PFACE, G-DOSE, G-CYCLE]
+gate_inputs: {params: design/params.t22d.yaml}
+timebox_min: 180
+stop_and_ask_if:
+  - "0 ≤ гейт − эталон ≤ 0,10 с на T-2.2d и A не достигается без коэффициентов под схему — дай лучший честный вариант, таблицу расхождений по фазам, параметры и критерии не трогай"
+  - "в эталоне T-2.6 найдена ошибка, меняющая 5,624 / 5,904 с или энергию/RMS больше чем на 0,02 с / 1 % — опиши, calc/T-2.6 не исправляй"
+  - "для входа эталона нет физического источника (число существует только как выход модели) — перечисли такие входы"
+  - "гейт на A даёт FAIL только из-за консервативности (цикл 5,95–6,0 или RMS 30,0–30,1) — не подгоняй, запиши как есть"
