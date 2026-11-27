@@ -11,11 +11,38 @@ from itertools import combinations, product
 from pathlib import Path
 
 
-TOOL_VERSION = "1.1.0"
+TOOL_VERSION = "1.2.0"
 DEFAULT_FREECADCMD = "E:/Tools/FreeCAD-1.1/bin/freecadcmd.exe"
 DEFAULT_DENSITY_KG_M3 = 7850
 CONTACT_TOL_MM = 0.01
 GEOMETRY_TOL_MM = 1e-7
+# Ignore face-intersection slivers smaller than a square micrometre.
+CONTACT_AREA_TOL_MM2 = 1e-6
+WALL_SAMPLES_MIN = 8
+ARC_STEP_DEG = 5
+# Only these FreeCAD properties supply geometry to the result.
+# App::Link.LinkedObject is handled separately because source visibility matters.
+GEOMETRY_OPERANDS = {
+    "PartDesign::Body": ("Group",),
+    "Part::Cut": ("Base", "Tool"),
+    "Part::Fuse": ("Base", "Tool"),
+    "Part::Common": ("Base", "Tool"),
+    "Part::MultiFuse": ("Shapes",),
+    "Part::MultiCommon": ("Shapes",),
+    "Part::Extrusion": ("Base",),
+    "Part::Revolution": ("Source",),
+    "Part::Mirroring": ("Source",),
+    "Part::Scale": ("Base",),
+    "Part::Offset": ("Source",),
+    "Part::Offset2D": ("Source",),
+    "Part::Thickness": ("Faces",),  # LinkSub: Faces[0] is the source object.
+    "Part::Fillet": ("Base",),
+    "Part::Chamfer": ("Base",),
+    "Part::Compound": ("Links",),
+    "Part::Loft": ("Sections",),
+    "Part::Sweep": ("Sections", "Spine"),
+}
+REFERENCE_PROPERTIES = ("Support", "AttachmentSupport", "PlacementRelTo", "RevPair")
 ROLES = {"machine", "moving", "punch", "chamber_liner", "feed_path", "hopper"}
 GATE_SPECS = {
     "G-ENV": ("C-ENV-01", "mm"),
@@ -79,13 +106,21 @@ def parent_groups(obj):
             yield from parent_groups(parent)
 
 
+def linked_objects(value):
+    """Read a Link, LinkList, LinkSub (object, subnames), or LinkSubList."""
+    if hasattr(value, "Name"):
+        yield value
+    elif isinstance(value, (tuple, list)):
+        for item in value:
+            yield from linked_objects(item)
+
+
 def consumed_objects(objects):
-    """Find components whose geometry is already represented by a result."""
+    """Find geometric operands and unclassified references in the document."""
     consumed = set()
+    unclassified = {}
     for obj in objects:
-        if obj.isDerivedFrom("PartDesign::Body"):
-            consumed.update(child.Name for child in obj.Group)
-        elif obj.TypeId == "App::Link":
+        if obj.TypeId == "App::Link" or obj.isDerivedFrom("App::Link"):
             source = obj.LinkedObject
             if source and source.Document == obj.Document and not source.Visibility:
                 consumed.add(source.Name)
@@ -93,19 +128,30 @@ def consumed_objects(objects):
                     consumed.update(
                         child.Name for child in objects if source in parent_groups(child)
                     )
-        elif obj.isDerivedFrom("Part::Feature") and not obj.Shape.isNull():
-            # OutList includes inputs to booleans, transforms and generated solids.
-            # Attachment and pairing links are references to independent geometry.
-            references = set()
-            for key in ("Support", "AttachmentSupport", "PlacementRelTo", "RevPair"):
-                value = getattr(obj, key, None)
-                if isinstance(value, (list, tuple)):
-                    value = value[0] if value else None
-                if hasattr(value, "Name"):
-                    references.add(value.Name)
-            consumed.update(child.Name for child in obj.OutList
-                            if hasattr(child, "Shape") and child.Name not in references)
-    return consumed
+            continue
+        properties = GEOMETRY_OPERANDS.get(obj.TypeId)
+        if properties is None:
+            properties = next((keys for type_id, keys in GEOMETRY_OPERANDS.items()
+                               if obj.isDerivedFrom(type_id)), None)
+        if properties is not None:
+            if obj.isDerivedFrom("PartDesign::Body") or not obj.Shape.isNull():
+                consumed.update(source.Name for key in properties
+                                for source in linked_objects(getattr(obj, key, None))
+                                if source.Document == obj.Document)
+            continue
+        dependencies = obj.OutList
+        if dependencies:
+            properties = REFERENCE_PROPERTIES + (("Group",) if is_group(obj) else ())
+            if obj.TypeId.startswith("TechDraw::") and obj.isDerivedFrom("TechDraw::DrawViewPart"):
+                # FreeCAD documents Source as the "3D Shape to view".
+                properties += ("Source",)
+            references = {source.Name for key in properties
+                          for source in linked_objects(getattr(obj, key, None))}
+            unclassified[obj.Name] = {
+                child.Name for child in dependencies
+                if child.Document == obj.Document and child.Name not in references
+            }
+    return consumed, unclassified
 
 
 def body_metadata(obj, role_map):
@@ -139,7 +185,7 @@ def body_metadata(obj, role_map):
 
 
 def read_bodies(doc, role_map):
-    consumed = consumed_objects(doc.Objects)
+    consumed, unclassified = consumed_objects(doc.Objects)
     bodies = []
     non_solids = []
     for obj in doc.Objects:
@@ -175,7 +221,13 @@ def read_bodies(doc, role_map):
             obj.Name, obj.Label, shape, roles, group_names, material, density_kg_m3, note,
             (pair.strip() or None) if pair else None, getattr(obj, "RevStrokeAxis", None),
         ))
-    return bodies, non_solids
+    machine_names = {body.name for body in bodies if "machine" in body.roles}
+    unknown_dependencies = [
+        {"object": obj.Name, "type": obj.TypeId, "links": sorted(links)}
+        for obj in doc.Objects
+        if (links := unclassified.get(obj.Name, set()) & machine_names)
+    ]
+    return bodies, non_solids, unknown_dependencies
 
 
 def placed_shapes(app, bodies, configured_poses):
@@ -272,13 +324,41 @@ def distance(first, second):
     return number(first.distToShape(second)[0], "distance_mm")
 
 
-def contact_area(path, liner):
-    # A solid-solid common omits coincident faces when the common volume is zero.
-    box = path.BoundBox
-    return math.fsum(
-        number(face.common(path).Area, "contact_area_mm2")
-        for face in liner.Faces if box.intersect(face.BoundBox)
-    )
+def contact_area(part, path, body, tolerance_mm):
+    # Sum the union of contact patches on each body face. Two path faces
+    # projected onto the same patch contribute its area only once.
+    path_faces = [(face, face.BoundBox, isinstance(face.Surface, part.Plane))
+                  for face in path.Faces]
+    areas_mm2 = []
+    for face in body.Faces:
+        box = face.BoundBox
+        box.enlarge(tolerance_mm)
+        planar = isinstance(face.Surface, part.Plane)
+        if planar:
+            normal = face.normalAt(0, 0)
+        patches = []
+        for path_face, path_box, path_planar in path_faces:
+            if not box.intersect(path_box):
+                continue
+            aligned = path_face
+            if planar and path_planar:
+                if not math.isclose(abs(normal.dot(path_face.normalAt(0, 0))), 1,
+                                    rel_tol=0, abs_tol=1e-12):
+                    continue
+                offset_mm = normal.dot(path_face.CenterOfMass - face.CenterOfMass)
+                if abs(offset_mm) > tolerance_mm:
+                    continue
+                if offset_mm:
+                    aligned = path_face.copy()
+                    aligned.translate(normal * -offset_mm)
+            patch = face.common(aligned)
+            if patch.Area > 0:
+                patches.append(patch)
+        if patches:
+            union = patches[0].fuse(patches[1:]) if len(patches) > 1 else patches[0]
+            areas_mm2.append(number(union.Area, "contact_area_mm2"))
+    area_mm2 = math.fsum(areas_mm2)
+    return area_mm2 if area_mm2 >= CONTACT_AREA_TOL_MM2 else 0
 
 
 def feed_path_is_connected(path, tolerance_mm):
@@ -293,7 +373,7 @@ def feed_path_is_connected(path, tolerance_mm):
     return not unreached
 
 
-def feed(bodies, machine, nominal, threshold):
+def feed(part, bodies, machine, nominal, threshold):
     paths = [body for body in bodies if "feed_path" in body.roles]
     if not paths:
         notes = {body.name: body.feed_absence_note for body in machine
@@ -319,10 +399,9 @@ def feed(bodies, machine, nominal, threshold):
                     continue
                 shape = nominal[other.name]
                 gap_mm = distance(path, shape)
+                area_mm2 = contact_area(part, path, shape, tolerance_mm) if gap_mm <= tolerance_mm else 0
                 candidate = {"body": other.name, "distance_mm": gap_mm,
-                             "touches": gap_mm <= tolerance_mm}
-                if role == "chamber_liner":
-                    candidate["contact_area_mm2"] = contact_area(path, shape)
+                             "touches": area_mm2 > 0, "contact_area_mm2": area_mm2}
                 candidates.append(candidate)
             connection[role] = candidates
         connection["window_area_mm2"] = math.fsum(
@@ -403,11 +482,51 @@ def axial_interval(app, shape, axis):
     return box.XMin, box.XMax
 
 
+def wall_sample_parameters(part, edge):
+    start, end = edge.FirstParameter, edge.LastParameter
+    if isinstance(edge.Curve, (part.Circle, part.Ellipse)):
+        count = max(WALL_SAMPLES_MIN, math.ceil(math.degrees(end - start) / ARC_STEP_DEG))
+        # Use the centre of each angular interval, including on periodic edges.
+        return [start + (end - start) * (i + 0.5) / count for i in range(count)]
+    return [start + (end - start) * i / (WALL_SAMPLES_MIN + 1)
+            for i in range(1, WALL_SAMPLES_MIN + 1)]
+
+
+def ray_clearance(part, bore, punch_profile, axis, edge, parameter, point, reach_mm):
+    # OCCT may omit an intersection at the origin of a ray when the
+    # profiles touch. Test the wall point itself before tracing the ray.
+    if distance(part.Vertex(point), punch_profile) <= GEOMETRY_TOL_MM:
+        return 0
+    normal = axis.cross(edge.tangentAt(parameter))
+    normal.normalize()
+    line = part.makeLine(point - normal * reach_mm, point + normal * reach_mm)
+    # Find the interval of the normal inside the opening and incident to this
+    # wall point. In concave bores an outward ray could otherwise hit a remote lobe.
+    inner_end = next((
+        opposite.Point
+        for segment in bore.common(line).Edges
+        for wall_end, opposite in (segment.Vertexes, list(reversed(segment.Vertexes)))
+        if (wall_end.Point - point).Length <= GEOMETRY_TOL_MM
+    ), None)
+    if inner_end is None:
+        return None
+    inward = inner_end - point
+    inward.normalize()
+    ray = part.makeLine(point, inner_end)
+    intersections = punch_profile.section(ray)
+    hits_mm = [(vertex.Point - point).dot(inward) for vertex in intersections.Vertexes]
+    nearest_mm = min((hit for hit in hits_mm if hit >= -GEOMETRY_TOL_MM), default=None)
+    if nearest_mm is None:
+        return None
+    return 0 if nearest_mm <= GEOMETRY_TOL_MM else nearest_mm
+
+
 def side_gap(part, punch_shape, liner_shape, axis, section_mm):
     punch_wires = punch_shape.slice(axis, section_mm)
     liner_wires = liner_shape.slice(axis, section_mm)
+    section = {"section_mm": section_mm, "wall_edges": []}
     if not punch_wires or not liner_wires:
-        return None
+        return dict(section, reason="профиль пуансона или вкладыша отсутствует в сечении")
     punch_profile = part.makeCompound(punch_wires)
     faces = [(wire, part.Face(wire)) for wire in liner_wires if wire.isClosed()]
     bore_wires = [
@@ -415,17 +534,43 @@ def side_gap(part, punch_shape, liner_shape, axis, section_mm):
         if any(outer.Area > face.Area and outer.isInside(wire.Vertexes[0].Point, GEOMETRY_TOL_MM, False)
                for _, outer in faces)
     ]
-    if bore_wires:
-        # Keep only bores containing the entire section of the punch.
-        profiles = [part.Face(wire) for wire in punch_wires if wire.isClosed()]
-        liner_wires = [
-            wire for wire, bore in bore_wires
-            if profiles and all(face.cut(bore).Area <= GEOMETRY_TOL_MM ** 2 for face in profiles)
-        ]
-        if not liner_wires:
-            return None
-    gap_mm = distance(punch_profile, part.makeCompound(liner_wires))
-    return 0 if gap_mm <= GEOMETRY_TOL_MM else gap_mm
+    if not bore_wires:
+        return dict(section, reason="замкнутый контур отверстия не найден в сечении")
+    profiles = [part.Face(wire) for wire in punch_wires if wire.isClosed()]
+    # Measure the inner contours that contain the entire punch section.
+    bores = [(wire, bore) for wire, bore in bore_wires
+             if profiles and all(face.cut(bore).Area <= GEOMETRY_TOL_MM ** 2 for face in profiles)]
+    if not bores:
+        return dict(section, reason="пуансон не в камере в номинальной позе")
+    walls = section["wall_edges"]
+    for wire, bore in bores:
+        reach_mm = wire.BoundBox.DiagonalLength
+        for edge in wire.Edges:
+            ends = [edge.valueAt(edge.FirstParameter), edge.valueAt(edge.LastParameter)]
+            hits = []
+            missed_point_mm = None
+            count = 0
+            for parameter in wall_sample_parameters(part, edge):
+                point = edge.valueAt(parameter)
+                if any((point - end).Length <= GEOMETRY_TOL_MM for end in ends):
+                    continue
+                count += 1
+                point_mm = [point.x, point.y, point.z]
+                gap_mm = ray_clearance(part, bore, punch_profile, axis, edge, parameter, point, reach_mm)
+                if gap_mm is None:
+                    if missed_point_mm is None:
+                        missed_point_mm = point_mm
+                else:
+                    hits.append((gap_mm, point_mm))
+            largest_mm, max_point_mm = max(hits, key=lambda hit: hit[0], default=(None, None))
+            wall = {"sample_count": count, "clearance_mm": largest_mm, "max_point_mm": max_point_mm,
+                    "min_side_mm": min((hit[0] for hit in hits), default=None)}
+            if missed_point_mm is not None:
+                wall["missed_point_mm"] = missed_point_mm
+            if count < WALL_SAMPLES_MIN:
+                wall["insufficient_samples"] = True
+            walls.append(wall)
+    return section
 
 
 def measure_clearance(app, part, punch, liner, nominal, max_mm):
@@ -446,22 +591,35 @@ def measure_clearance(app, part, punch, liner, nominal, max_mm):
     elif overlap_mm <= GEOMETRY_TOL_MM:
         result["reason"] = "пуансон не в камере в номинальной позе"
     else:
-        # Sample just inside the entry side, or at mid-depth if fully inserted.
-        before_mm = liner_min_mm - punch_min_mm
-        after_mm = punch_max_mm - liner_max_mm
-        if max(before_mm, after_mm) <= GEOMETRY_TOL_MM:
-            section_mm = (start_mm + end_mm) / 2
+        # Stay inside the intersecting axial intervals so coplanar end faces
+        # do not enter the sections. The middle plane also covers full insertion.
+        inset_mm = min(0.01, overlap_mm / 4)
+        positions_mm = (start_mm + inset_mm, (start_mm + end_mm) / 2, end_mm - inset_mm)
+        sections = [side_gap(part, punch_shape, liner_shape, axis, section_mm)
+                    for section_mm in positions_mm]
+        walls = [(section["section_mm"], wall) for section in sections for wall in section["wall_edges"]]
+        result.update(sections=sections, section_count=len(sections),
+                      sample_count=sum(wall["sample_count"] for _, wall in walls))
+        measured = [(section_mm, wall) for section_mm, wall in walls if wall["clearance_mm"] is not None]
+        result["min_side_mm"] = min((wall["min_side_mm"] for _, wall in measured), default=None)
+        missed = next(((section_mm, wall["missed_point_mm"]) for section_mm, wall in walls
+                       if "missed_point_mm" in wall), None)
+        section_error = next((section["reason"] for section in sections if "reason" in section), None)
+        if missed is not None:
+            result.update(missed_ray={"section_mm": missed[0], "point_mm": missed[1]},
+                          reason="нормаль к стенке не пересекает профиль пуансона")
+        elif section_error is not None:
+            result["reason"] = section_error
+        elif any("insufficient_samples" in wall for _, wall in walls):
+            result["reason"] = "недостаточно точек для измерения зазора на ребре отверстия"
         else:
-            inset_mm = min(0.01, overlap_mm / 2)
-            section_mm = start_mm + inset_mm if before_mm >= after_mm else end_mm - inset_mm
-        gap_mm = side_gap(part, punch_shape, liner_shape, axis, section_mm)
-        result.update(section_mm=section_mm, clearance_mm=gap_mm)
-        if gap_mm is None:
-            result["reason"] = "пуансон не в камере в номинальной позе"
-        elif gap_mm <= max_mm:
-            result["status"] = "PASS"
-        else:
-            result["reason"] = "боковой зазор больше допустимого"
+            section_mm, worst = max(measured, key=lambda item: item[1]["clearance_mm"])
+            gap_mm = worst["clearance_mm"]
+            result.update(section_mm=section_mm, clearance_mm=gap_mm, max_point_mm=worst["max_point_mm"])
+            if gap_mm <= max_mm:
+                result["status"] = "PASS"
+            else:
+                result["reason"] = "боковой зазор больше допустимого"
     return result
 
 
@@ -527,7 +685,7 @@ def gate_template(gate_id, criteria):
 def run_gates(app, part, model, role_map, configured_poses, gates):
     doc = app.openDocument(str(model.resolve()))
     try:
-        bodies, non_solids = read_bodies(doc, role_map)
+        bodies, non_solids, unknown_dependencies = read_bodies(doc, role_map)
         machine = [body for body in bodies if "machine" in body.roles]
         poses = placed_shapes(app, bodies, configured_poses)
         nominal = poses["nominal"]
@@ -535,7 +693,7 @@ def run_gates(app, part, model, role_map, configured_poses, gates):
             "G-ENV": lambda limit: envelope(app, machine, poses, limit),
             "G-MASS": lambda limit: mass(machine, limit),
             "G-COLL": lambda limit: collision(machine, poses, limit),
-            "G-FEED": lambda limit: feed(bodies, machine, nominal, limit),
+            "G-FEED": lambda limit: feed(part, bodies, machine, nominal, limit),
             "G-CLEAR": lambda limit: clearance(app, part, machine, nominal, limit),
         }
         for gate in gates:
@@ -553,6 +711,10 @@ def run_gates(app, part, model, role_map, configured_poses, gates):
             if non_solids:
                 gate["details"]["bodies_without_solids"] = non_solids
                 if gate["status"] == "PASS":
+                    gate["status"] = "WARN"
+            if gate_id in {"G-MASS", "G-COLL"}:
+                gate["details"]["unknown_dependencies"] = unknown_dependencies
+                if unknown_dependencies and gate["status"] == "PASS":
                     gate["status"] = "WARN"
     finally:
         app.closeDocument(doc.Name)

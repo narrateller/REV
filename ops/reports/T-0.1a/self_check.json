@@ -1,0 +1,111 @@
+{
+  "task_id": "T-0.1a",
+  "tool_version": "1.2.0",
+  "freecad_version": "1.1.4",
+  "python_version": "3.13.17",
+  "pytest": {
+    "command": "& $env:REV_PYTHON -B -m pytest -p no:cacheprovider --basetemp .pytest-t01a tests/ops",
+    "exit_code": 0,
+    "passed": 151,
+    "skipped": 1,
+    "runtime_s": 135.06,
+    "skip_reason": "FreeCAD CAD test runs in freecadcmd"
+  },
+  "cad_tests": {
+    "command": "& $env:REV_FREECADCMD tests/ops/test_geom_gates.py",
+    "main": {
+      "commit": "a595920fb80ac51a1f504e22c90e6470f0dc0a24",
+      "geom_gates_unchanged": true,
+      "exit_code": 1,
+      "failed_cases": [
+        "SquareCentred",
+        "SquareTouch",
+        "SquareWideOffset",
+        "CircleCentred",
+        "CircleTouch",
+        "CircleOffset",
+        "TiltedPunch",
+        "SquareMissedRay",
+        "LinerEdge",
+        "LinerPoint",
+        "HopperEdge",
+        "FaceGap",
+        "UserLink",
+        "ExpressionLink",
+        "UnknownDependency",
+        "check_consuming_types"
+      ]
+    },
+    "runs": [
+      {
+        "exit_code": 0,
+        "runtime_s": 30.742100599999997,
+        "passed_checks": 22,
+        "report_count": 32,
+        "checks_sha256": "653b8c71c9b74438dcb622c48f068b94efc8d6bd455ee3d6547e584acca5988a",
+        "normalized_reports_sha256": "940571eaa8c33fd39bca9fbeea1fc9e21c3da89cf430ec3c23a0c9596f4907c6"
+      },
+      {
+        "exit_code": 0,
+        "runtime_s": 30.2394659,
+        "passed_checks": 22,
+        "report_count": 32,
+        "checks_sha256": "653b8c71c9b74438dcb622c48f068b94efc8d6bd455ee3d6547e584acca5988a",
+        "normalized_reports_sha256": "940571eaa8c33fd39bca9fbeea1fc9e21c3da89cf430ec3c23a0c9596f4907c6"
+      }
+    ],
+    "check_results_identical": true,
+    "normalized_reports_identical": true,
+    "raw_reports_from_independently_generated_fixtures_identical": false,
+    "normalization": "Scratch paths replaced and floats formatted to 14 significant digits for report fingerprints only.",
+    "regenerated_geometry_inputs_max_observed_volume_delta_mm3": 5.7e-14,
+    "geometry_inputs_same_fcstd_byte_identical_report_pairs": 3
+  },
+  "calibration": {
+    "command": "& $env:REV_FREECADCMD ops/gates/geom_gates.py",
+    "args": "REV_GATE_ARGS with W02 model, ops/gates/roles/w02_legacy.yaml, design_criteria.yaml and report output.",
+    "models": {
+      "W02-A-V1": {
+        "report": "ops/calibration/w02_A_V1.json",
+        "model_sha256": "d52c72f474523c0247d144bdd0661d28b5231ecf7d0e304531a1df61e4a5fede",
+        "exit_codes": [
+          1,
+          1
+        ],
+        "report_sha256_by_run": [
+          "cddf9382bdc2cb9b098136794c96758db180e3532a15a7f8f5fd276a9be719d4",
+          "cddf9382bdc2cb9b098136794c96758db180e3532a15a7f8f5fd276a9be719d4"
+        ],
+        "report_bytes_identical": true,
+        "gate_statuses_and_values_equal_to_main": true,
+        "feed_failure_details_equal_to_main": true
+      },
+      "W02-B-V1": {
+        "report": "ops/calibration/w02_B_V1.json",
+        "model_sha256": "8fd8f334baca963cbac4c44f08d66fb70737f8b8036e0a84cce866eb13003e46",
+        "exit_codes": [
+          1,
+          1
+        ],
+        "report_sha256_by_run": [
+          "3ed9b8c6f6edde61defb3f3a2695477c2d2401cdc66b2606e72de350de25f37d",
+          "3ed9b8c6f6edde61defb3f3a2695477c2d2401cdc66b2606e72de350de25f37d"
+        ],
+        "report_bytes_identical": true,
+        "gate_statuses_and_values_equal_to_main": true,
+        "feed_failure_details_equal_to_main": true
+      }
+    },
+    "verdict": "MATCH"
+  },
+  "criteria": {
+    "path": "ops/criteria/design_criteria.yaml",
+    "version": 4,
+    "sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+    "unchanged": true,
+    "contact_tol_mm": 0.01,
+    "geometry_tol_mm": 1e-07,
+    "max_clearance_mm": 0.3,
+    "max_common_volume_mm3": 0
+  }
+}

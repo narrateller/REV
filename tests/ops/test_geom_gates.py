@@ -45,6 +45,8 @@ def run_command(raw_args):
 
 
 def run_gate(workdir, model, exit_code, overall, roles=None, poses=None, gates=None, criteria=CRITERIA):
+    import yaml
+
     out = workdir / "gate_report.json"
     out.unlink(missing_ok=True)
     args = {"model": str(model), "roles": str(roles) if roles else None,
@@ -62,7 +64,7 @@ def run_gate(workdir, model, exit_code, overall, roles=None, poses=None, gates=N
     assert report["tool"] == "geom_gates"
     assert report["tool_version"] == geom_gates.TOOL_VERSION
     assert report["input"] == str(model)
-    assert report["criteria_version"] == 1
+    assert report["criteria_version"] == yaml.safe_load(criteria.read_bytes())["version"]
     assert report["criteria_sha256"] == hashlib.sha256(criteria.read_bytes()).hexdigest()
     assert report["freecad_version"] == "1.1.4"
     assert report["overall"] == overall
@@ -71,7 +73,25 @@ def run_gate(workdir, model, exit_code, overall, roles=None, poses=None, gates=N
         {"id", "status", "value", "threshold", "unit", "criteria_ids", "details"} <= gate.keys()
         for gate in report["gates"]
     )
+    print(f"REPORT {model.name} {report_digest(report, workdir)}", flush=True)
     return {gate["id"]: gate for gate in report["gates"]}
+
+
+def report_digest(report, workdir):
+    def normalize(value):
+        if isinstance(value, dict):
+            return {key: normalize(item) for key, item in value.items()}
+        if isinstance(value, list):
+            return [normalize(item) for item in value]
+        if isinstance(value, str):
+            return value.replace(str(workdir), "<scratch>")
+        if isinstance(value, float):
+            # Regenerated OCCT offsets can differ in the last bits of their volumes.
+            return float(format(value, ".14g"))
+        return value
+
+    canonical = json.dumps(normalize(report), sort_keys=True)
+    return hashlib.sha256(canonical.encode()).hexdigest()
 
 
 def feature(container, name, shape):
@@ -227,6 +247,8 @@ def check_collision_and_envelope(app, part, workdir):
 
 
 def check_mass_and_exit_codes(app, part, workdir):
+    import yaml
+
     doc = app.newDocument("CubeFixture")
     feature(doc, "Cube", part.makeBox(1000, 1000, 1000))
     model = workdir / "Cube.FCStd"
@@ -238,7 +260,12 @@ def check_mass_and_exit_codes(app, part, workdir):
     assert report["G-CLEAR"]["status"] == "FAIL"
     roles = workdir / "cube_roles.yaml"
     roles.write_text("Cube: {density_kg_m3: 4500}\n", encoding="utf-8")
-    report = run_gate(workdir, model, 0, "WARN", roles=roles, gates=["G-MASS"])
+    # Keep the 4500 kg warning fixture independent of the project mass target.
+    criteria = yaml.safe_load(CRITERIA.read_bytes())
+    criteria["criteria"]["C-MASS-01"]["target_kg"] = 4000
+    test_criteria = workdir / "mass_criteria.yaml"
+    test_criteria.write_text(yaml.safe_dump(criteria, allow_unicode=True), encoding="utf-8")
+    report = run_gate(workdir, model, 0, "WARN", roles=roles, gates=["G-MASS"], criteria=test_criteria)
     assert report["G-MASS"]["status"] == "WARN"
     assert math.isclose(report["G-MASS"]["value"], 4500, abs_tol=1e-8)
     report = run_gate(workdir, workdir / "Missing.FCStd", 2, "FAIL", gates=["G-MASS"])
@@ -351,6 +378,177 @@ def check_geometry_inputs(app, part, workdir):
     assert gate["details"]["bodies_without_solids"] == [{"name": "Shell", "label": "Shell"}]
 
 
+def evaluate_fixture(app, part, doc, workdir, *gate_ids):
+    model = workdir / f"{doc.Name}.FCStd"
+    save(app, doc, model)
+    criteria = geom_gates.read_yaml(CRITERIA.read_bytes(), "criteria")["criteria"]
+    gates = [geom_gates.gate_template(gate_id, criteria) for gate_id in gate_ids]
+    geom_gates.run_gates(app, part, model, {}, {}, gates)
+    print(f"REPORT {model.name} {report_digest(gates, workdir)}", flush=True)
+    return gates
+
+
+def check_side_clearance(app, part, workdir, case):
+    doc = app.newDocument(case)
+    point = app.Vector
+    tolerance_mm = 1e-6
+    if case.startswith("Circle"):
+        punch_radius_mm, offset_mm, max_mm, min_mm = {
+            "CircleCentred": (24.9, 0, 0.1, 0.1),
+            "CircleTouch": (24.9, 0.1, 0.2, 0),
+            "CircleOffset": (24.8, 0.15, 0.35, 0.05),
+        }[case]
+        bore = part.makeCylinder(25, 8, point(0, 0, -1))
+        liner_shape = part.makeBox(60, 60, 6, point(-30, -30, 0)).cut(bore)
+        punch_shape = part.makeCylinder(punch_radius_mm, 5, point(offset_mm, 0, -2))
+        tolerance_mm = 0.002
+    elif case == "TiltedPunch":
+        bore = part.makeBox(8, 10, 10, point(-1, 5, 5))
+        liner_shape = part.makeBox(6, 20, 20).cut(bore)
+        # An inclined side of a tapered punch opens from 0.05 to 0.50 mm
+        # while the opposite side remains 0.05 mm from the wall.
+        section = [point(-1, 4.975, 5.05), point(7, 5.575, 5.05),
+                   point(7, 14.95, 5.05), point(-1, 14.95, 5.05)]
+        punch_shape = part.Face(part.makePolygon([*section, section[0]])).extrude(point(0, 0, 9.9))
+        max_mm, min_mm, tolerance_mm = 0.5, 0.05, 0.01
+    else:
+        bore_width_mm, width_mm, height_mm, side_mm, max_mm, min_mm = {
+            "SquareCentred": (10, 9.8, 9.8, 0.1, 0.1, 0.1),
+            "SquareTouch": (10, 9.6, 9.6, 0, 0.4, 0),
+            "SquareWideOffset": (1000, 960, 999.8, 0, 40, 0),
+            "SquareMissedRay": (10, 1, 1, 4.5, None, None),
+        }[case]
+        bore = part.makeBox(8, bore_width_mm, bore_width_mm, point(-1, 5, 5))
+        liner_shape = part.makeBox(6, bore_width_mm + 10, bore_width_mm + 10).cut(bore)
+        punch_shape = part.makeBox(5, width_mm, height_mm,
+                                   point(-2, 5 + side_mm, 5 + (bore_width_mm - height_mm) / 2))
+    liner = feature(doc, "Liner", liner_shape)
+    set_role(liner, "chamber_liner")
+    liner.addProperty("App::PropertyString", "RevStrokeAxis")
+    liner.RevStrokeAxis = "Z" if case.startswith("Circle") else "X"
+    set_role(feature(doc, "Punch", punch_shape), "punch")
+    gate, = evaluate_fixture(app, part, doc, workdir, "G-CLEAR")
+    pair, = gate["details"]["pairs"]
+    if case == "SquareMissedRay":
+        assert gate["status"] == "FAIL" and pair["clearance_mm"] is None, pair
+        assert pair["missed_ray"]["point_mm"] and pair["reason"], pair
+        return
+    expected = "PASS" if max_mm <= 0.3 else "FAIL"
+    assert gate["status"] == pair["status"] == expected, gate
+    assert math.isclose(gate["value"], max_mm, abs_tol=tolerance_mm), pair
+    assert math.isclose(pair["clearance_mm"], max_mm, abs_tol=tolerance_mm), pair
+    assert "min_side_mm" in pair and math.isclose(pair["min_side_mm"], min_mm, abs_tol=tolerance_mm), pair
+    assert pair["section_count"] >= 3
+    points_per_section = 72 if case.startswith("Circle") else 32
+    assert pair["sample_count"] >= points_per_section * pair["section_count"], pair
+    assert len(pair["max_point_mm"]) == 3 and "section_mm" in pair, pair
+    if case == "TiltedPunch":
+        assert gate["value"] >= 0.45 and pair["section_mm"] > 5.9, pair
+
+
+def check_feed_contact(app, part, workdir, case):
+    doc = app.newDocument(case)
+    point = app.Vector
+    set_role(feature(doc, "Liner", part.makeBox(10, 10, 10)), "chamber_liner")
+    if case == "LinerPoint":
+        path_shape = part.makeCone(0, 1, 2, point(10, 3, 3), point(1, 0, 0))
+    elif case == "FaceGap":
+        path_shape = part.makeBox(2, 5, 4, point(10.005, 7, 6))
+    else:
+        path_shape = part.makeBox(2, 2, 2, point(10, 10 if case == "LinerEdge" else 3, 3))
+    if case == "HopperEdge":
+        hopper = feature(doc, "Hopper", part.makeBox(2, 2, 2, point(12, 5, 3)))
+        set_role(hopper, "hopper")
+    set_role(feature(doc, "Feed", path_shape), "feed_path")
+    gate, = evaluate_fixture(app, part, doc, workdir, "G-FEED")
+    connection = gate["details"]["connections"]["Feed"]
+    if case == "FaceGap":
+        assert gate["status"] == "WARN" and math.isclose(gate["value"], 12, abs_tol=1e-6), gate
+        assert connection["chamber_liner"][0]["touches"]
+        assert math.isclose(connection["chamber_liner"][0]["distance_mm"], 0.005, abs_tol=1e-8)
+    else:
+        role = "hopper" if case == "HopperEdge" else "chamber_liner"
+        assert gate["status"] == "FAIL" and role in connection.get("missing_contact", []), gate
+        candidate, = connection[role]
+        assert candidate["contact_area_mm2"] == 0 and not candidate["touches"], candidate
+        assert gate["value"] == (4 if case == "HopperEdge" else 0), gate
+
+
+def check_referenced_body(app, part, workdir, case):
+    doc = app.newDocument(case)
+    independent = feature(doc, "Independent", part.makeBox(10, 10, 10))
+    independent.addProperty("App::PropertyFloat", "Size")
+    independent.Size = 5
+    offset_mm = 5 if case == "UserLink" else 20
+    type_id = "Part::FeaturePython" if case == "UnknownDependency" else "Part::Feature"
+    referring = doc.addObject(type_id, "Referring")
+    referring.Shape = part.makeBox(10, 10, 10, app.Vector(offset_mm, 0, 0))
+    if case == "ExpressionLink":
+        referring.addProperty("App::PropertyFloat", "Dimension")
+        referring.setExpression("Dimension", "Independent.Size")
+    else:
+        referring.addProperty("App::PropertyLink", "Reference")
+        referring.Reference = independent
+    mass, collision = evaluate_fixture(app, part, doc, workdir, "G-MASS", "G-COLL")
+    assert math.isclose(mass["value"], 0.0157, abs_tol=1e-12), mass
+    assert {body["name"] for body in mass["details"]["bodies"]} == {"Independent", "Referring"}
+    dependencies = [{"object": "Referring", "type": type_id, "links": ["Independent"]}]
+    assert mass["status"] == "WARN" and mass["details"].get("unknown_dependencies") == dependencies, mass
+    assert collision["details"].get("unknown_dependencies") == dependencies, collision
+    if case == "UserLink":
+        assert collision["status"] == "FAIL" and math.isclose(collision["value"], 500, abs_tol=1e-8)
+        assert collision["details"]["pairs"][0]["bodies"] == ["Independent", "Referring"]
+    else:
+        assert collision["status"] == "WARN" and collision["value"] == 0, collision
+
+
+def check_consuming_types(app, part, workdir):
+    doc = app.newDocument("ConsumingTypes")
+    point = app.Vector
+    cut = doc.addObject("Part::Cut", "Cut")
+    cut.Base = feature(doc, "CutBase", part.makeBox(4, 4, 4))
+    cut.Tool = feature(doc, "CutTool", part.makeBox(2, 2, 2))
+    fuse = doc.addObject("Part::MultiFuse", "MultiFuse")
+    fuse.Shapes = [feature(doc, "FuseLeft", part.makeBox(4, 4, 4, point(10, 0, 0))),
+                   feature(doc, "FuseRight", part.makeBox(4, 4, 4, point(12, 0, 0)))]
+    compound = doc.addObject("Part::Compound", "Compound")
+    compound.Links = [feature(doc, "First", part.makeBox(2, 2, 2, point(20, 0, 0))),
+                      feature(doc, "Second", part.makeBox(2, 2, 2, point(24, 0, 0)))]
+    body = doc.addObject("PartDesign::Body", "Body")
+    tip = body.newObject("PartDesign::Feature", "Tip")
+    tip.Shape = part.makeBox(2, 2, 2, point(30, 0, 0))
+    body.Tip = tip
+    mass, collision = evaluate_fixture(app, part, doc, workdir, "G-MASS", "G-COLL")
+    assert {item["name"] for item in mass["details"]["bodies"]} == {"Cut", "MultiFuse", "Compound", "Body"}
+    assert math.isclose(mass["value"], (56 + 96 + 16 + 8) * 7850e-9, abs_tol=1e-12), mass
+    for gate in (mass, collision):
+        assert gate["status"] == "PASS" and gate["details"].get("unknown_dependencies") == [], gate
+
+
+def check_counterexamples(app, part, workdir):
+    failures = []
+    groups = (
+        (check_side_clearance, ("SquareCentred", "SquareTouch", "SquareWideOffset",
+                                "CircleCentred", "CircleTouch", "CircleOffset", "TiltedPunch",
+                                "SquareMissedRay")),
+        (check_feed_contact, ("LinerEdge", "LinerPoint", "HopperEdge", "FaceGap")),
+        (check_referenced_body, ("UserLink", "ExpressionLink", "UnknownDependency")),
+        (check_consuming_types, (None,)),
+    )
+    for check, cases in groups:
+        for case in cases:
+            label = case or check.__name__
+            try:
+                check(app, part, workdir, *([case] if case else []))
+            except Exception:
+                failures.append(label)
+                print(f"FAIL {label}", flush=True)
+                traceback.print_exc()
+            else:
+                print(f"PASS {label}", flush=True)
+    return failures
+
+
 def check_invalid_args(workdir):
     out = workdir / "args_error.json"
     for raw_args, fragment in ((None, "REV_GATE_ARGS is missing"), ("{", "Expecting")):
@@ -365,6 +563,7 @@ def check_invalid_args(workdir):
 
 
 def check_freecad(app, part, workdir):
+    failures = check_counterexamples(app, part, workdir)
     check_all_gates(app, part, workdir)
     print("PASS all five gates, role precedence, window area, liner and hopper contacts", flush=True)
     check_collision_and_envelope(app, part, workdir)
@@ -378,6 +577,7 @@ def check_freecad(app, part, workdir):
     print("PASS consumed extrusion, mirror, scale, offset and thickness inputs, shell warning", flush=True)
     check_invalid_args(workdir)
     print("PASS missing and invalid REV_GATE_ARGS diagnostics", flush=True)
+    assert not failures, ", ".join(failures)
 
 
 def test_freecad_geometry(tmp_path):
