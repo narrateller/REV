@@ -1,0 +1,26 @@
+element,before,after,delta_station_kg,delta_installed_kW,source,basis
+PC,KF125,"KRACHT KF 180, SAE 3 inch, DIN F, without D-valve",2.6,0,https://www.kracht-media.eu/wp-content/uploads/KF25-630-EN-08-2024.pdf,"С. 23, масса корпуса с портом SAE без D-клапана. Кандидат."
+MPC,"0,55 кВт, вес из прокси ABB","ABB M3AA 100LC 6 (3GAA103530-••J, IE3)",19.5,0.95,https://new.abb.com/docs/librariesprovider9/documentation-meps/1txh000065l0303_offre-process-performance.pdf,"С. 91, 6 полюсов IE3. Базовая строка T16-09, прокси в sources.yaml."
+PC-VFD,Нет отдельной строки,"ABB ACS180-04S-04A0-4, R1",1.24,0,https://library.e.abb.com/public/97413d87ab064a0cb0a32c0363da81c4/EN_ACS180_HW_E.pdf,Масса ПЧ. Потери и снабжение энкодером в КД.
+RGC,Нет отдельной строки,CXHAXAN,0.42,0,https://www.wojanis.com/customer/docs/skudocs/cxhaxan.pdf,Каталожная масса вставки.
+RGC-BODY,Нет отдельной строки,"IAX/S, T-16A G1, 350 бар",2.33,0,https://www.hydraspecma.com/store/se/en/find/item/IAX_S/sun-steel-valve-block-t16a-1,Каталожная масса корпуса-кандидата. Сверить потери при 222 л/мин.
+XZD,Внешний пилот без отдельной строки,PRFB-CBN,0.36,0,https://paro.nl/library/storage/datasheets/Sun/Cartridges/Sun_PRFB.pdf/datasheet.html,Масса вставки T-2A.
+PTZ,Нет отдельной строки,ifm PT5402,0.059,0,https://media.ifm.com/dam/96fda789-9689-4c83-a08a-0f0bb39f3f5c/Original/PT5402-01_EN-GB.pdf,Масса датчика-кандидата без переходника.
+RVZ,Нет отдельной строки,"Sun RDBA, пружина D",0.1,0,https://staging-hydnet.demoplatsen.com/wp-content/uploads/RDBA.pdf,Масса вставки-кандидата. Настройка P–Q ≤ 50 бар и корпус открыты.
+LG,Арматура T-2.9,Исключена,-15.6,0,calc/T-2.9/circuit_changes.csv,check_circuit: подача VG от P1
+GHC,Арматура T-2.9,Исключена,-0.42,0,calc/T-2.9/circuit_changes.csv,HP подаёт к VG напрямую
+LGC,Арматура T-2.9,Исключена,-0.42,0,calc/T-2.9/circuit_changes.csv,ветка LP→VG снята
+XGLG,Арматура T-2.9,Исключена,,0,calc/T-2.9/circuit_changes.csv,пилот LG снят
+RVGH,Арматура T-2.9,Исключена,,0,calc/T-2.9/circuit_changes.csv,карман GH за отсечкой снят
+LG block and lines,Арматура T-2.9,Исключена,,0,calc/T-2.9/circuit_changes.csv,"LG0, XLG, GH и их отдельный блок сняты"
+VG,P от GH,P от HP,0,0,DECISIONS.md#D-GK-23,Шибер только от P1.
+"LG0, XLG, GH",Карманы и линии LG,Исключены,,0,DECISIONS.md#D-GK-23,Масса см. отдельный блок LG.
+ALP,"Parker EHV 49 кг, 17,8 л",Та же паспортная строка; LP отключён от шибера,0,0,calc/T-2.9b/sources.yaml#parker_lp,MSG10-4082/UK с. 5.
+CB,Уставка открыта,"Цель 1,70 бар, допуск 1,65–1,75 бар",,0,calc/T-2.9b/pc_select.py,Кандидат. Требуется перепад ≤2 бар при полном расходе.
+"TT, TT_VALID, TT_MIN",Температура охлаждения,Гистерезис 31/30 °C и диагностика,0,0,DECISIONS.md#D-GK-23,Ограничение потока ZSF 1005 л/мин в прогреве.
+P1 / pre_up,35 бар приведённого,P1 ≥45 бар и 35 бар приведённого,0,0,calc/T-2.9b/unlock.py,Контроль до освобождения носа.
+TF → ZSF.A / PF,"Цель 0,5 м","Сталь ≤0,5 м",0,0,DECISIONS.md#D-GK-23,Требование к компоновке по кавитации и всплескам. Масса до проверки компоновки.
+P1 → MA → CYM,Жёсткие трубы в описании,Тракт и карманы MF/MC/ZSF только сталь,0,0,DECISIONS.md#D-GK-23,Податливость масляного столба.
+params.lp.routes,"pre_up, pre_down, gate_open, gate_close, eject","pre_up, pre_down, eject",0,0,calc/T-2.9/results.json#mass_alternative_disable_LP_on_slide_gate,Маршруты D-GK-23.
+params.oil.bulk_modulus_Pa,"1,40 ГПа","1.400 ГПа, масло + сталь",0,0,calc/T-2.9b/oil_modulus.py,Предел квалификации при достаточном K_eff.
+params.gate_release_cap_bar,"5 бар, 3 + погрешность","5 бар, 3 действительных + 2 запаса",0,0,ops/gates/cycle_model/inputs.py,Число в расчёте нагрузки VG; 3 бар по двум верхним оценкам датчиков.

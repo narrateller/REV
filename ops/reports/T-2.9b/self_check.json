@@ -1,0 +1,102 @@
+{
+  "blockers": [
+    "HOLD_PC",
+    "STOP_MASS"
+  ],
+  "calc_total_bytes": 478018,
+  "checks": [
+    {
+      "argv_after_python": [
+        "calc/T-2.9b/run.py"
+      ],
+      "exit_code": 0,
+      "name": "Build 1",
+      "status": "PASS",
+      "stdout": "HOLD_PC_AND_MASS ['HOLD_PC', 'STOP_MASS']"
+    },
+    {
+      "argv_after_python": [
+        "calc/T-2.9b/run.py"
+      ],
+      "exit_code": 0,
+      "name": "Build 2",
+      "status": "PASS",
+      "stdout": "HOLD_PC_AND_MASS ['HOLD_PC', 'STOP_MASS']"
+    },
+    {
+      "argv_after_python": [
+        "calc/T-2.9b/check_circuit.py",
+        "--circuit",
+        "design/hydraulics/T-2.9b_circuit.yaml",
+        "--interlocks",
+        "design/hydraulics/T-2.9b_interlocks.yaml",
+        "--out",
+        "temporary file in calc/T-2.9b"
+      ],
+      "exit_code": 0,
+      "name": "check_circuit",
+      "status": "PASS",
+      "stdout": "125 reference rows; 14 physical phases\n203/203 mutations rejected"
+    },
+    {
+      "argv_after_python": [
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "calc/T-2.9b/test_interlocks.py"
+      ],
+      "exit_code": 0,
+      "name": "test_interlocks",
+      "status": "PASS",
+      "stdout": "172 passed"
+    },
+    {
+      "argv_after_python": [
+        "ops/gates/calc_gates.py",
+        "--params",
+        "calc/T-2.9b/params/params.t29b.yaml",
+        "--criteria",
+        "ops/criteria/design_criteria.yaml",
+        "--out",
+        "gates.t29b.json"
+      ],
+      "exit_code": 0,
+      "name": "G-PFACE, G-DOSE, G-CYCLE",
+      "status": "PASS",
+      "stdout": ""
+    }
+  ],
+  "circuit_defects": 0,
+  "gate_cycle": {
+    "K_Pa": 1400000000,
+    "card_pass": true,
+    "cycle_s": 5.930625000000736,
+    "gate_status": "PASS",
+    "method": "reference_model",
+    "rms_kW": 29.786076644594278
+  },
+  "gate_status": {
+    "G-CYCLE": "PASS",
+    "G-DOSE": "PASS",
+    "G-PFACE": "PASS"
+  },
+  "inherited_mutations_preserved": 186,
+  "inherited_mutations_removed": [],
+  "mutations_rejected": 203,
+  "mutations_total": 203,
+  "params_conservative_diff_check": "PASS",
+  "product_sha256": {
+    "calc/T-2.9b/params/params.t29b.yaml": "e916d451ebea42d4c9264cfd6518ae4456fe7de281c11b4c43a6ce60e4fb3561",
+    "calc/T-2.9b/results.json": "8b8bd65ee449842d4569da6c1154acc88bf66aded9503d914f4a8c1d050151e4",
+    "design/hydraulics/T-2.9b_circuit.svg": "2e464111e1cc67598bf889a36dceb867c338a60daae6ca2043cdfbcc341306c7",
+    "design/hydraulics/station.t29b.yaml": "2a83c4ee4220e0c93a4b5d1d07594e4a70beabc0f2feb477033cd847b80792c7"
+  },
+  "python_version": "3.13.17",
+  "report_utf8_no_question_marks": true,
+  "svg_parse": "PASS",
+  "task": "T-2.9b",
+  "task_status": "HOLD_PC_AND_MASS",
+  "two_builds_byte_identical": true
+}

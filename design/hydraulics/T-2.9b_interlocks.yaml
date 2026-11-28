@@ -1,0 +1,1118 @@
+schema_version: 1
+reference: calc/T-2.9b/params/params.t29b.yaml
+fill_isolation: На силовых фазах оставить пилот у MF/MBT и снять отдельное питание WK. Закрытие разрешается по E и LVDT обеих
+  ступеней. При stop снять команды WK одновременно с ME. Пилот держит WK в закрытом положении до снижения давления. Измерить
+  порядок закрытия и разряда SAX на стенде. Потеря пилота сама переводит установку в stop.
+low_pressure_opening: Проверка entry_conditions при нулевой скорости перед каждым открытием MF/MBT, включая повтор после прерывания.
+  В ходе движения контролировать PTF <1,2 бар. При превышении снять разрешения WK, закрыть MF/MBT, снять подачу и перейти
+  в stop.
+position_origin: 'Пуансон: x=0 в начале цикла. Координаты берутся из модели T-2.6 A; башмак y=0 в верхнем положении.'
+guard_library:
+  service: &id002
+  - guard_ok
+  - tank_level_ok
+  - filters_ok
+  - cool_flow_ok
+  - zu_closed
+  - oil_C <= 55
+  - pilot_bar >= 120
+  - limit_bar < 298
+  - selected_cooling_ok
+  - dfe_z_bar >= 20
+  - dfe_z_bar <= 50
+  press_chain: &id003
+  - nose1_seated
+  - nose2_seated
+  - gate_closed
+  - zsf_closed
+  - mf_locked
+  - mbt_locked
+  - dumps_ready
+  fill_chain: &id009
+  - prefill_bar >= 0.55
+  - prefill_bar < 1.2
+  - prefill_level_ok
+  - swash_ok
+  cap_safe: &id008
+  - cap1_bar <= 3
+  - cap2_bar <= 3
+guard_policy: Оба канала cap*_bar показывают независимые верхние оценки действительного давления с учётом погрешности. Разрешение
+  при обеих оценках ≤ 3 бар. В cycle_model 5 бар задаёт нагрузку на шибер с запасом 2 бар относительно 3 бар. Отказ фиксируется,
+  сброс вручную.
+mechanical_permissions:
+  eject:
+    conditions:
+    - gate_open
+    enforcement: live_stop_on_loss
+  gate_close:
+    conditions:
+    - ram_mm <= 285
+    enforcement: live_stop_on_loss
+  feed:
+    conditions: &id010
+    - nose1_clear
+    - nose2_clear
+    enforcement: live_stop_on_loss
+  press:
+    conditions:
+    - nose1_seated
+    - nose2_seated
+    - gate_closed
+    - zsf_closed
+    - mf_locked
+    - mbt_locked
+    enforcement: live_stop_on_loss
+  pre_down:
+    conditions: &id001
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    enforcement: live_stop_on_loss
+  pre_up:
+    conditions: *id001
+    enforcement: live_stop_on_loss
+safety_outputs:
+  required_architecture: 'ISO 13849-1 категория 3 как проектное требование, PLr по оценке риска. Два отдельных канала: снятие
+    момента M1 с обратной связью и гидравлический ZUP/ZU с QM. Дополнительно снять разрешение MP и проверять его кромку. Анализ
+    отказов, CCF, DC, MTTFd и подтверждение PL на D1.'
+  channels:
+    1:
+      output: M1
+      feedback: m1_off_confirmed
+    2:
+      output: ZUP
+      hydraulic_output: ZU
+      feedback: zu_closed
+      pressure_feedback: header_bar
+  motor_off_proof:
+    conditions:
+    - m1_off_confirmed
+  start_proof:
+    conditions:
+    - zu_closed
+    - mp_closed
+    - dumps_ready
+    - mf_locked
+    - mbt_locked
+    sequence: Снять момент и оставить все движения запрещёнными. При контролируемой проверке с закрытыми потребителями и малой
+      подачей снять ток ZUP, убедиться в смене QM и спаде P0, затем подтвердить закрытие. Защёлкнуть ошибку при расхождении.
+      После старта тандем PX/PXA заряжает AX при разгруженном P1. При разгруженном P1 подтвердить давление Z 20…50 бар по
+      PTZ до допуска рабочих фаз.
+  emergency_reset:
+    conditions:
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    - main_b_bar <= 3
+    - lp_bar <= 3
+    - pilot_bar <= 3
+    sequence: Снять разрешения движения и дозирования. Проверка остаточного давления до отдельного ручного сброса ошибки.
+      Не инициировать движение на подтверждении.
+transitions:
+  pre_down_to_prefill: Два независимых подтверждения посадки носа; шибер закрыт.
+  prefill_to_closed_ports: Торможение пары VR/RG по эталонному профилю. До MP подтвердить останов и затворы ZSF/MF/MBT и плавание
+    RA/RB.
+  closed_ports_to_regen: Подтвердить ZSF, оба клапана плавания и сближение давлений A/B. Открыть MR, проток MB→MR→MRC→MA.
+    Этап неподвижного сжатия масла ограничен по времени и давлению MB.
+  regen_to_press: Действует только специальное окно handover_regen_press. Сначала удержать пуансон, убрать подачу MP. Открыть
+    кромку MT до ухода MR в ноль. Подтвердить закрытие MR и готовность MT, затем подать MP.
+  press_to_hold: После задания усилия по PTA/PTB закрыть MP, затем MT, когда пуансон неподвижен. MHOLD и MRC удерживают обратный
+    поток. Заряд LCH.
+  hold_to_unload: По выдержке 0,30 с открыть MD, фиксировать по обоим датчикам ≤3 бар показания. ME1/ME2 в штатном режиме
+    закрыты.
+  eject_to_return: Остановить пару, закрыть MBT, проверить оба cap_safe и давление MB, подтвердить WK MBT. Разрешить WK MF
+    после проверки давления, затем открыть MF до вытеснения MA. MBT остаётся закрыт.
+  tail: Начать pre_up при ram_mm >= 295 и открытом шибере. Закрыть шибер на возврате при ram_mm <= 285. Разрешение хода башмака
+    защёлкивать до окончания, cap_safe контролировать непрерывно. До команды PPB подтвердить P1 ≥ 45 бар.
+floating_routes: &id004
+- - CYR1.A
+  - T0.RF
+  - - RFA
+- - CYR2.A
+  - T0.RF
+  - - RFA
+- - CYR1.B
+  - T0.RF
+  - - RFB
+- - CYR2.B
+  - T0.RF
+  - - RFB
+- - T0.RF
+  - CYR1.A
+  - - RCA
+- - T0.RF
+  - CYR2.A
+  - - RCA
+- - T0.RF
+  - CYR1.B
+  - - RCB
+- - T0.RF
+  - CYR2.B
+  - - RCB
+switching_windows:
+  handover_regen_press:
+    from: regen
+    to: press
+    common_conditions: *id002
+    additional_conditions: *id003
+    entry_conditions:
+    - header_bar >= 119
+    - float_a_open
+    - float_b_open
+    continuation_conditions:
+    - main_b_bar <= 145
+    - mp_closed
+    - float_a_open
+    - float_b_open
+    exit_conditions:
+    - mr_edge_pct <= 0
+    - mt_edge_pct >= 5
+    - main_b_bar <= 145
+    on_loss: stop
+    timeout_s: 0.08
+    modeled_switch_budget_s: 0.09
+    max_edge_overlap_s: 0.04
+    sequence:
+    - Довести подачу MP до нуля с упреждением, подтвердить mp_closed. До закрытия MR открыть MT (кривые LVDT с учётом фактического
+      перекрытия).
+    - При открытой MT закрыть MR. MHOLD и MRC удерживают MA. Если MT не вышел на 5% до ухода MR в ноль, перекрытие кромок
+      >40 мс, давление MB >145 бар или окно просрочено, аварийный сброс.
+    - Подачу MP разрешить только после закрытия MR и подтверждения MT. Пороги 5% и времени задать по измеренным кромкам и
+      подтвердить на стенде.
+    commands:
+      XGFR: open
+      XGF: open
+      XGM: open
+      XGMT: open
+      XGMR: open
+      XGRF: open
+      RFA: float
+      RFB: float
+      MP: closed
+      MR: open
+      MT: open
+    floating_routes: *id004
+    routes:
+    - - CYM.B
+      - T0.T
+      - - MT
+        - F2
+    forbidden_routes:
+    - - CYM.A
+      - T0.T
+    - - CYM.A
+      - TF.A
+    - - P1.P
+      - CYM.A
+defaults:
+  hydraulic: Некомандуемые элементы принимают состояния circuit.yaml. ME1/ME2/MEB закрыты под током, ГА в service. XV открывается
+    на уставке и при stop.
+  common_commands:
+    P1: run
+    PC: run
+    PX: run
+    PXA: run
+    ZU: closed
+    ZUP: close
+    ME1: closed
+    ME2: closed
+    MEB1: closed
+    MEB2: closed
+    MEB: closed
+    SAL: service
+    SAX: service
+    XV: closed
+    XVA: closed
+  common_routes:
+  - - T0.S
+    - P1.S
+  - - P1.S
+    - P1.P
+  - - P1.P
+    - F1.A
+  - - ZU.P
+    - ZU.X
+    - - ZUP
+  - - T0.C
+    - PC.S
+  - - T0.S
+    - PX.S
+  - - PX.S
+    - SAX.A
+    - - PX
+      - XC
+      - FX
+      - SAX
+  - - PXA.S
+    - SAX.A
+    - - PXA
+      - XCA
+      - FX
+      - SAX
+  - - PC.S
+    - T0.R
+    - - PC
+      - WCP
+      - GL
+      - WCF
+      - FT
+      - CD
+  - - AX.A
+    - P1.Z
+    - - SAX
+      - XZD
+faults:
+  stop:
+    commands: &id005
+      P1: 'off'
+      PX: 'off'
+      PXA: 'off'
+      ZU: open
+      ZUP: vent
+      ME1: open
+      ME2: open
+      MEB1: open
+      MEB2: open
+      MEB: open
+      MP: closed
+      MR: closed
+      MT: closed
+      MF: closed
+      MBT: closed
+      VG: center
+      VR: center
+      PL1: closed
+      XPL: vent
+      SAL: bleed
+      SAX: bleed
+      XV: open
+      XVA: open
+      RG: closed
+      RT: closed
+    lock_release_commands: &id006 []
+    actions: Аппаратно снять питание WK MF/MBT и пропорциональных ступеней. Раздельно снять момент M1 и питание ZUP. Независимые
+      электрические ветви MA и MB выпускают энергию. Разрядить ГА НД и пилота. Движения, дозатор и повторный пуск запрещены.
+      PL1 удерживает башмак.
+    routes: &id007
+    - - CYM.A
+      - T0.EA
+      - - ME1
+        - OE1
+    - - CYM.A
+      - T0.EA
+      - - MEB1
+    - - CYM.A
+      - T0.EB
+      - - ME2
+        - OE2
+    - - CYM.A
+      - T0.EB
+      - - MEB2
+    - - CYM.B
+      - T0.ER
+      - - MEB
+    - - ALP.A
+      - T0.T
+      - - SAL
+        - F2
+    - - AX.A
+      - T0.T
+      - - SAX
+        - F2
+    - - P1.P
+      - T0.U
+      - - ZU
+    - - ZU.X
+      - T0.DZ
+      - - ZUP
+    - - PX.P
+      - T0.T
+      - - XV
+        - F2
+    - - PXA.P
+      - T0.T
+      - - XVA
+        - F2
+  nose_loss:
+    commands: *id005
+    lock_release_commands: *id006
+    actions: Потеря любого подтверждения посадки снимает момент M1, ZUP и силовые разрешения. Башмак удерживается PL1.
+    routes: *id007
+    applies:
+    - closed_ports
+    - regen
+    - handover_regen_press
+    - press
+    - hold
+    - prefill
+    - unload
+    - gate_open
+    sensors:
+    - nose1_seated
+    - nose2_seated
+operating_branches:
+  pilot_idle:
+    conditions:
+    - pilot_bar >= 150
+    commands:
+      XV: open
+      XVA: open
+    routes:
+    - - PX.P
+      - T0.T
+      - - XV
+        - F2
+    - - PXA.P
+      - T0.T
+      - - XVA
+        - F2
+  pilot_main_priority:
+    conditions:
+    - pilot_margin_px_low
+    commands:
+      XV: open
+    routes:
+    - - PX.P
+      - T0.T
+      - - XV
+        - F2
+    note: Разгрузить PX, когда EC1 не подтверждает запас на его включение. Предусмотреть время возврата XV перед нагрузкой
+      P1.
+  pilot_booster_priority:
+    conditions:
+    - pilot_margin_pxa_low
+    commands:
+      XVA: open
+    routes:
+    - - PXA.P
+      - T0.T
+      - - XVA
+        - F2
+    note: Проверять суммарный запас двух секций. При потере разрешения обе секции разгружаются. AX изолирован обратными клапанами.
+  relief_pre_A:
+    conditions:
+    - pre_a_bar >= 132
+    commands:
+      RVA: relief
+    routes:
+    - - PCY.A
+      - T0.EP
+      - - RVA
+  relief_pre_B:
+    conditions:
+    - pre_b_bar >= 294
+    commands:
+      RVP: relief
+    routes:
+    - - PCY.B
+      - T0.EQ
+      - - RVP
+  transition_unload:
+    conditions:
+    - swash_ok
+    - header_bar >= 15
+    commands:
+      XGN: open
+      ZN: open
+    routes:
+    - - P1.P
+      - T0.T
+      - - ZN
+        - F2
+  fill_balance_in:
+    conditions:
+    - prefill_bar >= 0.44
+    - prefill_low
+    commands:
+      BAL: fill
+    routes:
+    - - PC.P
+      - TF.A
+      - - BAL
+  fill_balance_out:
+    conditions:
+    - prefill_bar >= 0.44
+    - prefill_high
+    commands:
+      BAL: drain
+    routes:
+    - - TF.A
+      - T0.T
+      - - BAL
+        - F2
+    note: Только при верхнем уровне TF, нижний/верхний контакты входят в LSF.
+  relief_tank_oil:
+    actuation: mechanical
+    conditions:
+    - prefill_bar >= 1.9
+    commands:
+      RTF: relief
+    routes:
+    - - TF.A
+      - T0.ET
+      - - RTF
+  cool_water:
+    entry_conditions:
+    - oil_C >= 45
+    continuation_conditions:
+    - water_flow_ok
+    exit_conditions:
+    - oil_C <= 42
+    commands:
+      WV: open
+    routes:
+    - - WBR.IN
+      - WBR.OUT
+      - - WF
+        - WV
+        - WFT
+        - GL
+    on_missing_flow_after_proven_valve_response: inhibit_cycle_and_stop
+  cool_air:
+    conditions:
+    - cooler_1_flow_ok
+    - cooler_2_flow_ok
+    - cool_flow_ok
+    commands:
+      WCP: closed
+      WCF: closed
+      ACP: open
+      ACF: open
+      CAPA: open
+      CAPB: open
+    routes:
+    - - PC.S
+      - T0.R
+      - - PC
+        - ACP
+        - CAPA
+        - E1
+        - FT1
+        - CAPB
+        - ACF
+        - FT
+        - CD
+    - - PC.S
+      - T0.R
+      - - PC
+        - ACP
+        - CAPA
+        - E2
+        - FT2
+        - CAPB
+        - ACF
+        - FT
+        - CD
+    forbidden_routes:
+    - - PC.S
+      - GL.A
+  cool_bypass:
+    commands:
+      CB: relief
+    routes:
+    - - PC.S
+      - T0.R
+      - - PC
+        - CB
+        - CD
+  relief_dfe_Z:
+    actuation: mechanical
+    commands:
+      RVZ: relief
+    routes:
+    - - P1.Z
+      - T0.EZ
+      - - RVZ
+permitted_overlaps:
+- - eject
+  - pre_up
+- - return
+  - pre_up
+- - return
+  - gate_close
+- - return
+  - gate_close
+  - pre_up
+- - gate_close
+  - pre_up
+phases:
+  pre_down:
+    reference_pattern: pre_down \d+
+    common_conditions: *id002
+    conditions:
+    - gate_closed
+    - ram_mm <= 1
+    - pre_b_bar < 294
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    - pre_a_bar <= 132
+    on_loss: stop
+    commands:
+      XGP: open
+      XPL: open
+      PL1: open
+      PPA: open
+      PBT: open
+    routes:
+    - - P1.P
+      - PCY.A
+      - - PPA
+    - - PCY.B
+      - T0.T
+      - - PL1
+        - PBT
+    optional_lp:
+      conditions:
+      - lp_bar >= 38
+      - lp_bar >= pre_a_bar + 3
+      commands:
+        PBA: open
+      routes:
+      - - ALP.A
+        - PCY.A
+        - - SAL
+          - PBA
+          - PAA
+  prefill:
+    reference_pattern: prefill \d+
+    common_conditions: *id002
+    additional_conditions:
+    - prefill_bar >= 0.55
+    - prefill_bar < 1.2
+    - prefill_level_ok
+    - swash_ok
+    - oil_tt_valid
+    conditions:
+    - gate_closed
+    - dumps_ready
+    - header_bar < 120
+    - nose1_seated
+    - nose2_seated
+    - rg_open_proven
+    - rt_closed_proven
+    - rapid_hydraulics_proven
+    entry_conditions:
+    - main_b_bar <= 3
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    on_loss: nose_loss_if_nose_signal_else_stop
+    commands:
+      XGR: open
+      XGF: open
+      VR: extend
+      MBT: open
+      RG: open
+      RT: closed
+    lock_release_commands:
+    - MBT
+    routes:
+    - - P1.P
+      - CYR1.A
+      - - RC
+        - VR
+    - - P1.P
+      - CYR2.A
+      - - RC
+        - VR
+    - - CYR1.B
+      - CYR1.A
+      - - RG
+        - RGC
+    - - CYR2.B
+      - CYR2.A
+      - - RG
+        - RGC
+    - - TF.A
+      - CYM.A
+      - - ZSF
+    - - CYM.B
+      - TF.A
+      - - MBT
+    transfer_subphase:
+      ram_start_mm: 5
+      ram_end_mm: 95
+      nominal_axial_resistance_kN: 35.2514
+      roof: fixed
+    forbidden_routes:
+    - - CYR1.B
+      - T0.T
+    temperature_mode: rapid_approach_temperature_modes
+  closed_ports:
+    reference_pattern: regen port compression
+    common_conditions: *id002
+    conditions:
+    - gate_closed
+    - dumps_ready
+    - mf_locked
+    - mbt_locked
+    - float_a_open
+    - float_b_open
+    - header_bar < 120
+    - main_b_bar <= 145
+    - nose1_seated
+    - nose2_seated
+    - zsf_closed
+    timeout_s: 0.1
+    on_loss: nose_loss_if_nose_signal_else_stop
+    commands:
+      XGFR: open
+      XGF: open
+      XGM: open
+      XGRF: open
+      VR: center
+      RFA: float
+      RFB: float
+      MP: open
+    floating_routes: *id004
+    routes:
+    - - P1.P
+      - CYM.A
+      - - MP
+        - MHOLD
+    forbidden_routes:
+    - - CYM.B
+      - T0.T
+    - - CYM.B
+      - TF.A
+  regen:
+    reference_pattern: regen (?:[2-9]|1[0-8])
+    common_conditions: *id002
+    additional_conditions: *id003
+    conditions:
+    - header_bar <= 120
+    - main_b_bar <= 145
+    - float_a_open
+    - float_b_open
+    entry_conditions:
+    - cap1_bar <= main_b_bar + 10
+    - main_b_bar <= cap1_bar + 10
+    on_loss: nose_loss_if_nose_signal_else_stop
+    commands:
+      XGFR: open
+      XGF: open
+      XGM: open
+      XGRF: open
+      VR: center
+      RFA: float
+      RFB: float
+      MP: open
+      XGMR: open
+      MR: open
+    floating_routes: *id004
+    routes:
+    - - P1.P
+      - CYM.A
+      - - MP
+        - MHOLD
+    - - CYM.B
+      - CYM.A
+      - - MR
+        - MRC
+  press:
+    reference_pattern: press \d+
+    common_conditions: *id002
+    additional_conditions: *id003
+    conditions:
+    - header_bar < 298
+    - mr_edge_pct <= 0
+    - mt_edge_pct >= 5
+    - float_a_open
+    - float_b_open
+    on_loss: nose_loss_if_nose_signal_else_stop
+    commands:
+      XGFR: open
+      XGF: open
+      XGM: open
+      XGRF: open
+      VR: center
+      RFA: float
+      RFB: float
+      MP: open
+      XGMT: open
+      MT: open
+    floating_routes: *id004
+    routes:
+    - - P1.P
+      - CYM.A
+      - - MP
+        - MHOLD
+    - - CYM.B
+      - T0.T
+      - - MT
+  hold:
+    reference_pattern: hold
+    common_conditions: *id002
+    additional_conditions: *id003
+    conditions:
+    - cap1_bar >= 260
+    - cap2_bar >= 260
+    on_loss: nose_loss_if_nose_signal_else_stop
+    commands:
+      XGFR: open
+      XGF: open
+      LCH: charge
+      RFA: float
+      RFB: float
+      XGRF: open
+      VR: center
+    floating_routes: *id004
+    routes:
+    - - P1.P
+      - ALP.A
+      - - LCH
+        - LCC
+        - SAL
+    forbidden_routes:
+    - - CYM.A
+      - T0.T
+    - - CYM.A
+      - T0.E
+    - - CYM.A
+      - TF.A
+    - - CYM.A
+      - P1.P
+  unload:
+    reference_pattern: unload
+    common_conditions: *id002
+    conditions:
+    - gate_closed
+    - nose1_seated
+    - nose2_seated
+    on_loss: nose_loss_if_nose_signal_else_stop
+    commands:
+      XGMT: open
+      XGMD: open
+      MD: open
+      MT: open
+      LCH: charge
+      RFA: float
+      RFB: float
+      XGRF: open
+      VR: center
+    floating_routes: *id004
+    routes:
+    - - CYM.A
+      - T0.E
+      - - MD
+        - OR8
+    - - CYM.B
+      - T0.T
+      - - MT
+        - F2
+    - - P1.P
+      - ALP.A
+      - - LCH
+        - LCC
+        - SAL
+  gate_open:
+    reference_pattern: gate_open \d+
+    common_conditions: *id002
+    additional_conditions: *id008
+    conditions:
+    - nose1_seated
+    - nose2_seated
+    on_loss: nose_loss_if_nose_signal_else_stop
+    commands:
+      XGG: open
+      VG: retract
+    routes:
+    - - P1.P
+      - CYG.B
+      - - VG
+    - - CYG.A
+      - T0.T
+      - - VG
+    forbidden_routes:
+    - - ALP.A
+      - CYG.B
+    notes: P1→F1→HP→VG. Подтвердить декомпрессию HP после остановки с фактическим исполнением F1.
+  eject:
+    reference_pattern: eject \d+
+    common_conditions: *id002
+    additional_conditions:
+    - prefill_bar >= 0.55
+    - prefill_bar < 1.2
+    - prefill_level_ok
+    - swash_ok
+    - oil_tt_valid
+    conditions:
+    - gate_open
+    - rapid_hydraulics_proven
+    entry_conditions:
+    - main_b_bar <= 3
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    on_loss: stop
+    commands:
+      XGR: open
+      XGF: open
+      VR: extend
+      MBT: open
+      RT: open
+    lock_release_commands:
+    - MBT
+    routes:
+    - - P1.P
+      - CYR1.A
+      - - RC
+        - VR
+    - - P1.P
+      - CYR2.A
+      - - RC
+        - VR
+    - - CYR1.B
+      - T0.T
+      - - VR
+    - - CYR2.B
+      - T0.T
+      - - VR
+    - - TF.A
+      - CYM.A
+      - - ZSF
+    - - CYM.B
+      - TF.A
+      - - MBT
+    optional_lp:
+      conditions:
+      - lp_bar >= 38
+      commands:
+        XGLR: open
+        LR: open
+      routes:
+      - - ALP.A
+        - CYR1.A
+        - - SAL
+          - LR
+          - LRC
+      - - ALP.A
+        - CYR2.A
+        - - SAL
+          - LR
+          - LRC
+    temperature_mode: rapid_approach_temperature_modes
+  return:
+    reference_pattern: return (?:[1-9]|10)
+    common_conditions: *id002
+    additional_conditions: *id009
+    conditions:
+    - ram_mm <= 396
+    - rapid_hydraulics_proven
+    entry_conditions:
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    - main_b_bar <= 3
+    on_loss: stop
+    commands:
+      XGR: open
+      XGFR: open
+      VR: retract
+      MF: open
+      RT: open
+    lock_release_commands:
+    - MF
+    routes:
+    - - P1.P
+      - CYR1.B
+      - - RC
+        - VR
+    - - P1.P
+      - CYR2.B
+      - - RC
+        - VR
+    - - CYR1.A
+      - T0.T
+      - - VR
+    - - CYR2.A
+      - T0.T
+      - - VR
+    - - CYM.A
+      - TF.A
+      - - MF
+    - - TF.A
+      - CYM.B
+      - - MC
+  gate_close:
+    reference_pattern: gate_close [1-9]
+    common_conditions: *id002
+    conditions:
+    - ram_mm <= 285
+    on_loss: stop
+    commands:
+      XGG: open
+      VG: extend
+    routes:
+    - - P1.P
+      - CYG.A
+      - - VG
+    - - CYG.B
+      - T0.T
+      - - VG
+    forbidden_routes:
+    - - ALP.A
+      - CYG.A
+    notes: P1→F1→HP→VG. Подтвердить декомпрессию HP после остановки с фактическим исполнением F1.
+  pre_up:
+    reference_pattern: pre_up [12]
+    common_conditions: *id002
+    conditions:
+    - pre_a_bar < 294
+    - pre_b_bar < 294
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    entry_conditions:
+    - ram_mm >= 295
+    - gate_open
+    - shoe_mm >= 12
+    - cap1_bar <= 3
+    - cap2_bar <= 3
+    - header_bar >= 45
+    movement_window:
+      position_sensor: shoe_mm
+      origin: latch_at_motion_command
+      direction: decreasing
+      release_travel_mm: 12
+      timeout_s: 0.25
+      require_by_deadline: *id010
+      behavior: Разрешить отрыв при безопасном давлении ГЦ. Контролировать усилие отрыва по PTPB/PTPA и освобождение носа
+        до 12 мм / 0,25 с. При несовпадении останов.
+    on_loss: stop
+    commands:
+      XGPU: open
+      PPB: open
+      PAT: open
+    routes:
+    - - P1.P
+      - PCY.B
+      - - PPB
+    - - PCY.A
+      - T0.T
+      - - PAT
+    optional_lp:
+      conditions:
+      - lp_bar >= 38
+      - lp_bar >= pre_b_bar + 3
+      commands:
+        PBB: open
+      routes:
+      - - ALP.A
+        - PCY.B
+        - - SAL
+          - PBB
+          - PAB
+    unlock_pressure:
+      source: P1
+      assist: LP
+      stage: first_12_mm
+      minimum_net_equivalent_bar: 35.0
+      fallback: stop_if_no_motion_or_bad_pressure
+      reference: calc/T-2.9b/unlock.py
+      header_min_bar: 45
+      controls_until: both_nose_clear_proven
+      live_conditions:
+      - header_bar >= 45
+  feed:
+    reference_pattern: feed
+    common_conditions: *id002
+    conditions:
+    - gate_closed
+    - ram_mm <= 1
+    - shoe_mm <= 1
+    - nose1_clear
+    - nose2_clear
+    - doser_ready
+    on_loss: stop
+    commands:
+      LCH: charge
+    routes:
+    - - P1.P
+      - ALP.A
+      - - LCH
+        - LCC
+        - SAL
+  pilot_reserve:
+    reference_pattern: pilot_reserve
+    common_conditions: *id002
+    conditions:
+    - ram_mm <= 1
+    - shoe_mm <= 1
+    - gate_closed
+    - nose1_clear
+    - nose2_clear
+    commands: {}
+    on_loss: stop
+    routes:
+    - - PXA.S
+      - SAX.A
+      - - PXA
+        - XCA
+        - FX
+        - SAX
+geometry:
+  gate_face_x_mm: 295
+  gate_close_x_mm: 285.0
+  installed_main_stroke_mm: 396
+  roof_X_mm: 90
+cooling_changeover:
+  conditions:
+  - m1_off_confirmed
+  mode: manual
+  sequence: Остановить PC, отключить и сбросить давление. Для воды закрыть ACP/ACF, закрыть заглушками, открыть WCP/WCF. Для
+    воздуха подключить модуль, закрыть WCP/WCF, открыть ACP/ACF и разъёмы. Проверить выбранный режим и поток перед циклом.
+cooling_run_proof:
+  water:
+    oil_guards:
+    - cool_flow_ok
+    - oil_C <= 55
+    on_demand_water_guards:
+    - water_flow_ok
+  air:
+    oil_guards:
+    - cool_flow_ok
+    - cooler_1_flow_ok
+    - cooler_2_flow_ok
+    - oil_C <= 55
+  common: Режим подтверждают при включении PC по фиксации отсечек и запертому ключу переключения.
+  invalid_signal: inhibit_cycle_and_stop
+commissioning_conditions:
+  rapid_hydraulics_proven: До разрешения быстрого хода подтвердить p(A), минимальное p(CYM.A), Q(t), границы уровня/подпора
+    TF при штатном и аварийном остановах; C-SAFE-01.
+  nose: На месте установить две раздельные мишени, диагностировать расхождение и переходы обоих каналов на каждом цикле. Уточнить
+    испытанием 12 мм и остаточную нагрузку на нос.
+  cap_pressure: Ввести обе оценки верхней границы действительного давления с учётом погрешности. На режимах с открытием MF/MBT
+    и началом pre_up проверить время подтверждения на гидросборке.
+  TT: Подтвердить диагностику TT, границы 31/30 °C и ограничение потока ZSF в прогреве. До готовности PC тепловой режим подлежит
+    проверке отдельно.
+gate_cap_pressure:
+  true_pressure_max_bar: 3
+  independent_upper_bound_guards:
+  - cap1_bar <= 3
+  - cap2_bar <= 3
+  gate_load_model_bound_bar: 5.0
+  model_margin_bar: 2.0
+rapid_approach_temperature_modes:
+  sensor_valid: oil_tt_valid
+  full_speed_conditions:
+  - oil_tt_valid
+  - oil_rapid_min_C >= 30
+  enter_full_speed:
+  - oil_tt_valid
+  - oil_rapid_min_C >= 31
+  falling_below_30: revoke_full_speed_and_limit_flow
+  invalid_signal: inhibit_rapid_approach
+  initial_mode: warmup
+  warmup_max_ZSF_L_min: 1005
+  applies_to:
+  - prefill
+  - eject
+pc_warmup_strategy:
+  status: HOLD_PC
+  entry_conditions:
+  - oil_tt_valid
+  - oil_rapid_min_C >= 29
+  trip_conditions:
+  - oil_rapid_min_C < 27
+  - invalid TT
+  - overspeed
+  - overload
+  preheat: Прогрев от M1/P1 на разгрузке с открытым ZU. Силовые перемещения заблокированы.
+  oil_flow_proof: После пуска подтвердить общий поток. Для воздушного тракта одновременно FT1 и FT2.
+  cb_design_requirement: На разгоне и полном перепуске поддерживать фактический перепад PC ≤2 бар.
+  proof_required: Для допуска проверить CB и всю ветвь на стенде.

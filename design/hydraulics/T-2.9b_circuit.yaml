@@ -1,0 +1,4312 @@
+schema_version: 1
+status: HOLD_PC_AND_MASS
+design_limits:
+  main_manifold_budgets_bar:
+    inlet: 2.5
+    return: 1.5
+    regeneration_without_MRC: 2.0
+  cooling_option:
+    model: 2 × ASA0567AA47
+    module_W_H_D_mm:
+    - 920
+    - 860
+    - 543
+    fan_kW: 1.5
+    rated_dirty_kW: 26.48994642857142
+    rated_oil_inlet_C: 55
+    rated_air_inlet_C: 40
+    branch_flow_L_min_range:
+    - 78
+    - 102
+    installation: Две матрицы одна над другой вдоль боковой панели станции. Потоки воздуха разделены, маты извлекаются с сервисной
+      стороны.
+    reserve_box_XYZ_mm:
+    - 1000
+    - 783
+    - 1920
+    reserve_lower_XYZ_mm:
+    - 550
+    - 1117
+    - 100
+    reserve_upper_XYZ_mm:
+    - 1550
+    - 1900
+    - 2020
+    machine_limit_XYZ_mm:
+    - 2100
+    - 1900
+    - 2200
+    fits_outer_box: true
+    whole_machine_collision_verified: false
+    oil_connections: Два заглушённых отвода CP/CF, разъёмные фланцы, место под кабели двух вентиляторов. Подключение воздушной
+      сборки вместо водяной ветви при остановленной машине. Сохраняются FT1/FT2 и параллельная гидравлика исходной опции.
+    base_mass_row: T25B-AO
+    source_ids:
+    - asa
+    - baseline
+    - criteria
+    - t16
+  roof_X_mm: 90
+  transfer_force_kN: 35.2514
+  shoe_working_force_kN: 163
+  shoe_at_relief_force_kN: 170.972
+  main_stroke_mm: 396
+  tf_to_zsf_A:
+    max_length_m: 0.5
+    material: steel
+    flexible_hose_allowed: false
+  main_compressible_tract:
+    lines:
+    - P0
+    - HP
+    - MH
+    - MA
+    - MB
+    - MRA
+    - D1
+    - D2
+    - D3
+    pockets:
+    - MF
+    - MC
+    - ZSF
+    material: steel
+    flexible_hose_allowed: false
+  rapid_approach_temperature_modes:
+    sensor_valid: oil_tt_valid
+    full_speed_conditions:
+    - oil_tt_valid
+    - oil_rapid_min_C >= 30
+    enter_full_speed:
+    - oil_tt_valid
+    - oil_rapid_min_C >= 31
+    falling_below_30: revoke_full_speed_and_limit_flow
+    invalid_signal: inhibit_rapid_approach
+    initial_mode: warmup
+    warmup_max_ZSF_L_min: 1005
+    applies_to:
+    - prefill
+    - eject
+  pre_up_P1_min_bar: 45
+drawing_basis: ISO 1219-1/-2, упрощённые символы и перекрёстные ссылки линий
+cleanliness_ISO_4406: 16/14/11 в рабочем масле и пилоте, по пробам; 3 µm напор/пилот, 10 µm слив
+sections:
+  station: Насосная станция
+  main: Главный цилиндр и декомпрессия
+  fill: Наполнение и слив главного ГЦ
+  rapid: Быстрые цилиндры
+  pre: Подпрессовка и нос башмака
+  gate: Шибер
+  lp: ГА НД
+  pilot: Внешний пилот
+  cool: Бак, фильтрация и охлаждение
+  water: Вода площадки и охладитель
+  air: Опция масло–воздух
+functions:
+  cutoff_relief_unload:
+  - PS300
+  - RV0
+  - ZU
+  - ZN
+  - ZUP
+  - ZZU
+  - ZMP
+  - ZKM
+  prefill_and_deaeration:
+  - ZSF
+  - TF
+  - NG1
+  - NR1
+  - DEA
+  - BAL
+  - PTF
+  - LSF
+  - ZSC
+  - RTF
+  - ZMF
+  - ZMBT
+  - MF
+  - MBT
+  - ZQF
+  regeneration_direct:
+  - MP
+  - MR
+  - MT
+  - MRC
+  - RMR
+  - ZMR
+  - ZMT
+  hold_decompression:
+  - MHOLD
+  - MD
+  - OR8
+  - PTA
+  - PTB
+  - LCH
+  - RVM
+  - RVB
+  independent_fault_dump:
+  - ME1
+  - OE1
+  - ME2
+  - OE2
+  - DRY
+  - ZA1
+  - ZA2
+  - MEB1
+  - MEB2
+  - MEB
+  - RVB
+  - RVM
+  rapid_drive:
+  - CYR1
+  - CYR2
+  - VR
+  - RC
+  - MF
+  - MBT
+  - MC
+  - RFA
+  - RFB
+  - RCA
+  - RCB
+  - ZFA
+  - ZFB
+  - RG
+  - RGC
+  - RT
+  - ZRG
+  - ZRT
+  precompaction_local_reliefs:
+  - PCY
+  - PPA
+  - PPB
+  - PAT
+  - PBT
+  - RVA
+  - RVP
+  - PL1
+  - XB
+  - ZA1
+  - ZA2
+  - ZB1
+  - ZB2
+  - XPL
+  slide_gate:
+  - VG
+  - CYG
+  - ZG1
+  - ZG2
+  tail_priority:
+  - PRIO
+  - XM1
+  - LR
+  - PBA
+  - PBB
+  lp_accumulator_safety:
+  - ALP
+  - SAL
+  - LCH
+  - LCC
+  - LRC
+  - PTL
+  external_pilot:
+  - PX
+  - FX
+  - XC
+  - XV
+  - AX
+  - SAX
+  - PTX
+  - XGM
+  - XGF
+  - XGR
+  - XGP
+  - XGG
+  - XGN
+  - XGPU
+  - XGMR
+  - XGMD
+  - XGRF
+  - PXA
+  - XCA
+  - XVA
+  - RVY
+  - XGFR
+  - XGMT
+  - XGLR
+  - XZD
+  - PTZ
+  - RVZ
+  conditioning:
+  - F1
+  - F2
+  - FX
+  - FD1
+  - PC
+  - E1
+  - E2
+  - FT1
+  - FT2
+  - CB
+  - CD
+  - TT
+  - FT
+  - T0
+  - LT
+  - GL
+  - WF
+  - WBR
+  - WV
+  - WFT
+  - WCP
+  - WCF
+  - ACP
+  - ACF
+  - CAPA
+  - CAPB
+  - ZCOOL
+  pump_30_kW:
+  - M1
+  - P1
+  - EC1
+  - ZS1
+  - PT0
+elements:
+  PX_OK:
+    section: pilot
+    type: controller
+    label: Запрет заряда PX от EC1
+    manufacturer: Проект REV
+    series: EC1
+    size: Дискретный выход
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: pilot_margin_px_low
+  PXA_OK:
+    section: pilot
+    type: controller
+    label: Запрет заряда PXA от EC1
+    manufacturer: Проект REV
+    series: EC1
+    size: Дискретный выход
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: pilot_margin_pxa_low
+  M1:
+    section: station
+    type: motor
+    label: Главный двигатель
+    manufacturer: ABB
+    series: M3AA 200MLA 4 / 3GAA202410-BDK
+    size: 30 кВт S1, 400 В, 1481 об/мин, IM B5
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: ABB_T25C
+    ports: {}
+    states: {}
+  P1:
+    section: station
+    type: variable_pump
+    label: Главный насос
+    manufacturer: Bosch Rexroth
+    series: A4VSO180 /30 DFE1Z
+    size: 180 см³/об
+    DN_mm: 50
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DFE1Z
+    ports:
+      S: S0
+      P: P0
+      L: DR
+      Z: XZ
+    states:
+      run:
+      - S>P
+    drive: M1
+    L_max_bar: 0.5
+    driven_auxiliary:
+    - PX
+    - PXA
+    note: Внешнее Z от AX через XZD. Нужен проходной привод PX/PXA, предварительно U04 RE 92050; стыковку и массу подтвердить.
+    port_rated_bar:
+      Z: 50
+      L: 4
+    pre_up_pressure_min_bar: 45
+    pre_up_note: Держать P1 ≥ 45 бар до подтверждения освобождения носа на первых 12 мм.
+  EC1:
+    section: station
+    type: controller
+    label: Мощность и положение шайбы
+    manufacturer: Bosch Rexroth
+    series: DFE1Z + VT5041-3X/3
+    size: DFE1Z
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: DFE1Z
+    ports: {}
+    states: {}
+    setpoint:
+      shaft_kW: 33.25
+      combined_shaft_kW: 36
+    signals:
+    - P1
+    - PT0
+    - ZS1
+    control_law: Ограничение T-2.6 33,25 кВт главного насоса / 36 кВт в сумме на переходах. AX заряжается по приоритету; блокировать
+      движение при потере Z.
+  ZS1:
+    section: station
+    type: position_sensor
+    label: Обратная связь шайбы
+    manufacturer: Проект REV
+    series: FDV LVDT
+    size: шкала 0–100%
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: swash_ok
+  PT0:
+    section: station
+    type: pressure_sensor
+    label: Давление на выходе PV180
+    manufacturer: ifm
+    series: PN2020
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: P0
+    states: {}
+    sensor: header_bar
+  PS300:
+    section: station
+    type: pressure_sensor
+    label: Независимая отсечка
+    manufacturer: ifm
+    series: PN2020
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: P0
+    states: {}
+    sensor: limit_bar
+    setpoint:
+      maximum_actual_trip_bar: 300
+      indicated_trip_bar: 298
+    action: Независимая отсечка 300 бар. Два выхода снимают момент M1 и питание ZUP; MP и движения запрещены.
+  RV0:
+    section: station
+    type: pressure_relief
+    label: Главный предохранительный
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: P0
+      T: TRF
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+      initial_crack_target_bar: 300
+    default_state: closed
+    catalog_max_L_min: 650
+  ZU:
+    section: station
+    type: poppet_2_2
+    label: Контролируемый НО сброс насоса
+    manufacturer: Bosch Rexroth
+    series: LC 32 + LFA32 E QMG24 + M-3SEW
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: LC_MON
+    ports:
+      P: P0
+      T: TZU
+      X: XZU
+      Y: DR
+    states:
+      open:
+      - P>T
+    default_state: open
+    note: При снятии питания ZUP соединяет камеру с дренажем и P0 открывает седло. Под током ZUP подаёт P0 в камеру для закрытия.
+      Контроль QM и падения давления по PT0.
+    monitoring: ZZU
+    independent_of: DBW
+  ZN:
+    section: station
+    type: proportional_2_2
+    label: Рабочая разгрузка с подпором FDV
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: P0
+      A: TR
+      X: XN
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    setpoint:
+      regulated_bar: 15
+    note: По PT0 модулировать сброс остаточного расхода с удержанием 15 бар на P0 для FDV. При пуске ZN закрыт до набора подпора,
+      при аварии открывается независимый ZU.
+    closing_variant: K
+  F1:
+    section: station
+    type: filter
+    label: Напорный фильтр
+    manufacturer: HYDAC
+    series: DF ON 330TF3
+    size: 330 L/min, 3 µm
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: DF
+    ports:
+      P: P0
+      A: HP
+    states:
+      through:
+      - P>A
+    default_state: through
+  MP:
+    section: main
+    type: proportional_2_2
+    label: Подача в поршневую полость
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: HP
+      A: MH
+      X: XM
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1800
+    default_state: closed
+    closing_variant: K
+    proposed_block: Главный
+  MR:
+    section: main
+    type: proportional_2_2
+    label: Регенерация MB→MA через MRC
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 300
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: MB
+      A: MRA
+      X: XMR
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1800
+    default_state: closed
+    note: Высокое давление в B во время MB→MA. Седло MRC отделяет порт A от давления MA при прессовании и выдержке.
+    closing_variant: K
+    proposed_block: Главный
+  MT:
+    section: main
+    type: proportional_2_2
+    label: Прямой ход, слив штоковой
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 135
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: MB
+      A: TR
+      X: XMT
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1800
+    default_state: closed
+    closing_variant: K
+    proposed_block: Главный
+  MHOLD:
+    section: main
+    type: pilot_check
+    label: Герметичное отделение от подачи
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN40, седло
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      P: MH
+      A: MA
+    states:
+      feed:
+      - P>A
+    default_state: feed
+    note: Седельный обратный клапан P→A с герметичным запиранием A→P; серийный вкладыш LC/LFA, см. источник LC.
+    catalog_source: LC
+  MD:
+    section: main
+    type: proportional_2_2
+    label: Штатная декомпрессия
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 600
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: MA
+      A: D1
+      X: XMD
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+    proposed_block: Главный
+  OR8:
+    section: main
+    type: orifice
+    label: Штатный дроссель
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø8,5 мм
+    DN_mm: 8.5
+    Q_L_min: 600
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: D1
+      T: TRF
+    states:
+      through:
+      - A>T
+    default_state: through
+    note: Size check includes tolerance, pressure drop of MD and return to T0.
+  ME1:
+    section: main
+    type: poppet_2_2
+    label: Аварийный сброс 1, NO
+    manufacturer: Sun Hydraulics
+    series: DFFA-8DN + DTAF H
+    size: T-18A / T-8A
+    DN_mm: 32
+    Q_L_min: 360
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: SUN_NO
+    ports:
+      '1': MA
+      '2': D2
+    states:
+      open:
+      - 1>2
+    default_state: open
+    catalog_max_L_min: 480
+    note: НО пилот разгружает седло. MEB опорожняет полость ниже порога открытия DFFA.
+  OE1:
+    section: main
+    type: orifice
+    label: Аварийный дроссель 1
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø6,5 ±0,1 мм
+    DN_mm: 6.5
+    Q_L_min: 360
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: D2
+      T: TEA
+    states:
+      through:
+      - A>T
+    default_state: through
+  ME2:
+    section: main
+    type: poppet_2_2
+    label: Аварийный сброс 2, NO
+    manufacturer: Sun Hydraulics
+    series: DFFA-8DN + DTAF H
+    size: T-18A / T-8A
+    DN_mm: 32
+    Q_L_min: 360
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: SUN_NO
+    ports:
+      '1': MA
+      '2': D3
+    states:
+      open:
+      - 1>2
+    default_state: open
+    catalog_max_L_min: 480
+    note: НО пилот разгружает седло. MEB опорожняет полость ниже порога открытия DFFA.
+  OE2:
+    section: main
+    type: orifice
+    label: Аварийный дроссель 2
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø6,5 ±0,1 мм
+    DN_mm: 6.5
+    Q_L_min: 360
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: D3
+      T: TEB
+    states:
+      through:
+      - A>T
+    default_state: through
+  RVM:
+    section: main
+    type: pressure_relief
+    label: Защита запертой поршневой
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: MA
+      T: TEM
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+      initial_crack_target_bar: 298
+    default_state: closed
+    catalog_max_L_min: 650
+    note: Независимый сброс через собственный диффузор, без элемента фильтра на пути; провести проверку пика при запирании.
+  RVB:
+    section: main
+    type: pressure_relief
+    label: Защита запертой штоковой
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 635
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: MB
+      T: TER
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+    catalog_max_L_min: 650
+  CYM:
+    section: main
+    type: cylinder
+    label: Главный цилиндр
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø280/200 × 396
+    DN_mm: 124
+    Q_L_min: 1293
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: MA
+      B: MB
+    states: {}
+    upstream_id: CY-MAIN
+    bore_mm: 280
+    rod_mm: 200
+    stroke_mm: 396
+    geometry: design/cylinders.t16.yaml
+    port_locations:
+      A: rear_cover
+      B: front_cover
+  PTA:
+    section: main
+    type: pressure_sensor
+    label: Поршневая, канал 1
+    manufacturer: ifm
+    series: PN2020
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: MA
+    states: {}
+    sensor: cap1_bar
+  PTB:
+    section: main
+    type: pressure_sensor
+    label: Поршневая, канал 2
+    manufacturer: ifm
+    series: PN2020 (отдельный отбор)
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: MA
+    states: {}
+    sensor: cap2_bar
+  XM1:
+    section: main
+    type: position_sensor
+    label: Координата пуансона
+    manufacturer: Проект REV
+    series: линейный датчик
+    size: ход 0…396 мм
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: ram_mm
+  DRY:
+    section: main
+    type: position_sensor
+    label: Пружинные сбросы закрыты
+    manufacturer: Проект REV
+    series: контроль токов + тест давлением
+    size: 2 канала
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: dumps_ready
+  ZSF:
+    section: fill
+    type: check_valve
+    label: Пассивное наполнение A→B
+    manufacturer: Bosch Rexroth
+    series: ZSF 100-1X без преддекомпрессии
+    size: NG100
+    DN_mm: 100
+    Q_L_min: 1552
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: ZSF
+    ports:
+      A: PF
+      B: MA
+    states:
+      fill:
+      - A>B
+    default_state: fill
+    plugged_ports:
+    - P
+    - X
+    port_design_bar:
+      A: 3
+      B: 315
+    port_rated_bar:
+      A: 16
+      B: 350
+    note: 'RE 20478, случай 2, 1600 л/мин при 0,30 бар. A: 16 бар; B: 350 бар. Труба TF→A ID125, целевая длина 0,5 м.'
+    mounting_case: 2
+    catalog_max_L_min: 1600
+  ZSC:
+    section: fill
+    type: position_sensor
+    label: Подтверждение закрытия ZSF
+    manufacturer: Проект REV
+    series: датчик положения тарелки или диагностический узел по согласованию
+    size: 1 дискрет
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: zsf_closed
+  MF:
+    section: fill
+    type: proportional_2_2
+    label: Слив поршневой при возврате
+    manufacturer: Bosch Rexroth
+    series: 2WRCE NG50–2K7L Double-B WK E, внеш. X/Y
+    size: NG50
+    DN_mm: 50
+    Q_L_min: 1589
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: MA
+      A: PF
+      X: XFR
+      Y: DR
+      B2: MA
+    states:
+      open:
+      - B>A
+      - B2>A
+    catalog_flow_at_5bar_L_min: 3900
+    default_state: closed
+    closing_variant: WK
+    monitoring: ZMF
+    catalogue_mass_extra_kg: 2.7
+    independent_enable: lock_release_commands MF
+    note: WK без тока принудительно запирает главную кромку при рабочем пилоте. E контролирует положение отсечки; дополнительно
+      сверять LVDT главной кромки. Отдельные электрические выходы на ступени. Разрешение только после проверки давления; потеря
+      подтверждения под прессом вызывает stop.
+    proposed_block: Наполнение
+    dual_radial_B_ports: true
+  MBT:
+    section: fill
+    type: proportional_2_2
+    label: Слив штоковой в контур наполнения
+    manufacturer: Bosch Rexroth
+    series: 2WRCE NG40–1K8L WK E, внеш. X/Y
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 760
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: MB
+      A: PF
+      X: XF
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1800
+    default_state: closed
+    closing_variant: WK
+    monitoring: ZMBT
+    catalogue_mass_extra_kg: 2.7
+    independent_enable: lock_release_commands MBT
+    note: WK без тока принудительно запирает главную кромку при рабочем пилоте. E контролирует положение отсечки; дополнительно
+      сверять LVDT главной кромки. Отдельные электрические выходы на ступени. Разрешение только после проверки давления; потеря
+      подтверждения под прессом вызывает stop.
+    proposed_block: Наполнение
+  MC:
+    section: fill
+    type: check_valve
+    label: Подпитка штоковой PF→B
+    manufacturer: Bosch Rexroth
+    series: LC80 A00 + LFA80
+    size: NG80
+    DN_mm: 80
+    Q_L_min: 779
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: LC
+    ports:
+      A: PF
+      B: MB
+    states:
+      check:
+      - A>B
+    default_state: check
+    catalog_source: LC
+    note: Выбрать монтаж и положение по каталогу. Цель ≤0,19 бар при 633 л/мин. Обратный поток MB→PF закрыт.
+  TF:
+    section: fill
+    type: pressurized_tank
+    label: Локальный бак с разделителем
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: 80 л / 55 л
+    DN_mm: 125
+    Q_L_min: 1589
+    p_design_bar: 3
+    p_rated_bar: 3
+    source: project
+    ports:
+      A: PF
+      G: NG
+      V: BV
+    states: {}
+    setpoint:
+      oil_gauge_bar: 0.6
+      band_bar: 0.05
+      max_bar: 3
+    note: Эластичный разделитель, двунаправленное регулирование N₂. Газовый расход до 811 л/мин при TF, подтверждение по переходу.
+  NG1:
+    section: fill
+    type: gas_source
+    label: Азот и регулятор подпора
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: 0,60 ± 0,05 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 3
+    p_rated_bar: 3
+    source: project
+    ports:
+      A: NG
+    states: {}
+    setpoint:
+      outlet_gauge_bar: 0.6
+      band_bar: 0.05
+    note: Проход и расход регулятора квалифицировать в обоих направлениях.
+  NR1:
+    section: fill
+    type: pressure_relief
+    label: Предохранительный на стороне N₂
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN15
+    DN_mm: 15
+    Q_L_min: 0
+    p_design_bar: 3
+    p_rated_bar: 3
+    source: project
+    ports:
+      P: NG
+      T: AIR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_bar: 1
+  DEA:
+    section: fill
+    type: deaerator
+    label: Сепаратор воздуха, дегазация в T0
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN15
+    DN_mm: 15
+    Q_L_min: 10
+    p_design_bar: 3
+    p_rated_bar: 3
+    source: project
+    ports:
+      P: BV
+      T: BVOUT
+    states:
+      through:
+      - P>T
+    note: На стоянке/по уровню; с отсечкой и обратным клапаном от подсоса. Циклическое удаление воздуха с возвратом масла.
+  BAL:
+    section: fill
+    type: level_valve
+    label: Баланс объёма по уровню TF
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN25, до 50 л/мин
+    DN_mm: 25
+    Q_L_min: 50
+    p_design_bar: 10
+    p_rated_bar: 10
+    source: project
+    ports:
+      P: CP
+      A: PF
+      T: TR
+    states:
+      fill:
+      - P>A
+      drain:
+      - A>T
+    default_state: closed
+    note: Переток только по команде уровня; резервуар PF развязан от общего слива. Фактический средний переток измерить, B‑ветвь
+      прямого хода уходит в T0.
+  PTF:
+    section: fill
+    type: pressure_sensor
+    label: Фактический подпор масла
+    manufacturer: ifm
+    series: PI1705
+    size: −1…4 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 3
+    p_rated_bar: 30
+    source: PI1705
+    ports:
+      M: PF
+    states: {}
+    sensor: prefill_bar
+    port_design_bar:
+      M: 3
+    note: Шкала −1…4 бар, отсечка при 1,2 бар. Паспортное допустимое давление 30 бар.
+  LSF:
+    section: fill
+    type: position_sensor
+    label: Уровень TF в рабочем диапазоне
+    manufacturer: Проект REV
+    series: указатель положения мембраны
+    size: min/max
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: prefill_level_ok
+  CYR1:
+    section: rapid
+    type: cylinder
+    label: Быстрый ГЦ 1
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø90/50 × 289
+    DN_mm: 22
+    Q_L_min: 134
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: RA
+      B: RB
+    states: {}
+    upstream_id: CY-RAPID
+  CYR2:
+    section: rapid
+    type: cylinder
+    label: Быстрый ГЦ 2
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø90/50 × 289
+    DN_mm: 22
+    Q_L_min: 134
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: RA
+      B: RB
+    states: {}
+    upstream_id: CY-RAPID
+  RRA:
+    section: rapid
+    type: pressure_relief
+    label: Защита A быстрого хода
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 270
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: RA
+      T: TR
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+    catalog_max_L_min: 650
+  RRB:
+    section: rapid
+    type: pressure_relief
+    label: Защита B быстрого хода
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 186
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: RB
+      T: TR
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+    catalog_max_L_min: 650
+  PPA:
+    section: pre
+    type: proportional_2_2
+    label: Вниз, подача к A
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: HP
+      A: PA
+      X: XP
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+    proposed_block: Подпрессовка
+    note: Ограничить фактическое pA ≤132 бар при опускании (162 кН по полной площади). Задать показание с учётом ошибки PTPA.
+  PPB:
+    section: pre
+    type: proportional_2_2
+    label: Вверх, подача к B
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: HP
+      A: PB
+      X: XPU
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+    proposed_block: Подпрессовка
+  PAT:
+    section: pre
+    type: proportional_2_2
+    label: Вверх, слив из A
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 480
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: PA
+      A: TR
+      X: XPU
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+    proposed_block: Подпрессовка
+  PBT:
+    section: pre
+    type: proportional_2_2
+    label: Вниз, слив из B
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 383
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: PBRET
+      A: TR
+      X: XP
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+    proposed_block: Подпрессовка
+  PBA:
+    section: pre
+    type: proportional_2_2
+    label: ГА НД к A башмака
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 220
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: LP
+      A: PA0
+      X: XP
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+    proposed_block: Подпрессовка
+  PBB:
+    section: pre
+    type: proportional_2_2
+    label: ГА НД к B башмака
+    manufacturer: Bosch Rexroth
+    series: 2WRCE 4X H K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 220
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: LP
+      A: PB0
+      X: XPU
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+    proposed_block: Подпрессовка
+  PAA:
+    section: pre
+    type: check_valve
+    label: Отсечка обратного потока из A
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: LC/LFA NG32
+    DN_mm: 32
+    Q_L_min: 220
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: PA0
+      B: PA
+    states:
+      check:
+      - A>B
+    default_state: check
+    catalog_source: LC
+  PAB:
+    section: pre
+    type: check_valve
+    label: Отсечка обратного потока из B
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: LC/LFA NG32
+    DN_mm: 32
+    Q_L_min: 220
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: PB0
+      B: PB
+    states:
+      check:
+      - A>B
+    default_state: check
+    catalog_source: LC
+  RVA:
+    section: pre
+    type: pressure_relief
+    label: Локальный сброс A
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 480
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: PA
+      T: TEP
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 139
+      note: Предел 171 кН из площади Ø125 без зачёта трения; подобрать пружину и характеристику с учётом противодавления.
+    default_state: closed
+    catalog_max_L_min: 650
+    note: Отдельный аварийный слив через диффузор, чтобы загрязнение F2 не повысило пиковое давление.
+  RVP:
+    section: pre
+    type: pressure_relief
+    label: Локальный сброс B
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 480
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: PB
+      T: TEQ
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      initial_actual_crack_target_bar: 294
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+    catalog_max_L_min: 650
+    note: Отдельный аварийный слив через диффузор, чтобы загрязнение F2 не повысило пиковое давление.
+  PCY:
+    section: pre
+    type: cylinder
+    label: Цилиндр башмака с носом
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø125/56 × 392
+    DN_mm: 32
+    Q_L_min: 480
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: PA
+      B: PB
+    states: {}
+    upstream_id: CY-PRE
+    note: Силовая геометрия заморожена D-OP-19.
+  PL1:
+    section: pre
+    type: load_hold
+    label: Отсечка опускания башмака
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: LC/LFA NG40, седло
+    DN_mm: 40
+    Q_L_min: 383
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: PB
+      T: PBRET
+      X: XPB
+    states:
+      open:
+      - A>T
+    default_state: closed
+    catalog_source: LC
+    note: Держит поршневую/штоковую нагрузку через отсечку B. Порт X управляется отдельным пилотным разрешением, испытать
+      остановку/удержание.
+  XB:
+    section: pre
+    type: position_sensor
+    label: Положение башмака
+    manufacturer: Проект REV
+    series: контроль положения
+    size: ход 0…392 мм
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: shoe_mm
+    note: 'shoe_mm: положительное вниз, ноль вверху; отдельно контролируются посадка и отход самого носа.'
+  ZA1:
+    section: pre
+    type: position_sensor
+    label: Посадка носа 1
+    manufacturer: Schmersal
+    series: AZ 16-12ZVRK-M16
+    size: НЗ контакт прямого размыкания
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: SCHMERSAL
+    ports: {}
+    states: {}
+    sensor: nose1_seated
+    note: Отдельная мишень на носе и независимый ввод; крепление вне силового сечения.
+  ZA2:
+    section: pre
+    type: position_sensor
+    label: Посадка носа 2
+    manufacturer: Schmersal
+    series: AZ 16-12ZVRK-M16
+    size: НЗ контакт прямого размыкания
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: SCHMERSAL
+    ports: {}
+    states: {}
+    sensor: nose2_seated
+    note: Отдельная мишень на носе и независимый ввод; крепление вне силового сечения.
+  ZB1:
+    section: pre
+    type: position_sensor
+    label: Нос освобождён 1
+    manufacturer: Schmersal
+    series: AZ 16-12ZVRK-M16
+    size: НЗ контакт прямого размыкания
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: SCHMERSAL
+    ports: {}
+    states: {}
+    sensor: nose1_clear
+    note: Отдельная мишень на носе и независимый ввод; крепление вне силового сечения.
+  ZB2:
+    section: pre
+    type: position_sensor
+    label: Нос освобождён 2
+    manufacturer: Schmersal
+    series: AZ 16-12ZVRK-M16
+    size: НЗ контакт прямого размыкания
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: SCHMERSAL
+    ports: {}
+    states: {}
+    sensor: nose2_clear
+    note: Отдельная мишень на носе и независимый ввод; крепление вне силового сечения.
+  PTPA:
+    section: pre
+    type: pressure_sensor
+    label: Давление A башмака
+    manufacturer: ifm
+    series: PN2020
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: PA
+    states: {}
+    sensor: pre_a_bar
+  PTPB:
+    section: pre
+    type: pressure_sensor
+    label: Давление B башмака
+    manufacturer: ifm
+    series: PN2020
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: PB
+    states: {}
+    sensor: pre_b_bar
+  VG:
+    section: gate
+    type: directional_4_3
+    label: Привод шибера
+    manufacturer: Bosch Rexroth
+    series: 4WRLE 25 E1-400LJ-4X/MXY
+    size: NG25
+    DN_mm: 25
+    Q_L_min: 181
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: WRLE
+    ports:
+      P: HP
+      T: TR
+      A: GA
+      B: GB
+      X: XG
+      Y: DR
+    states:
+      extend:
+      - P>A
+      - B>T
+      retract:
+      - P>B
+      - A>T
+    default_state: center
+    port_rated_bar:
+      X: 350
+      Y: 10
+    note: Открытие и закрытие от P1 по HP, без подпитки ГА НД (D-GK-23).
+  CYG:
+    section: gate
+    type: cylinder
+    label: Цилиндр шибера
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: Ø80/45 × 80
+    DN_mm: 20
+    Q_L_min: 181
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: GA
+      B: GB
+    states: {}
+    upstream_id: CY-GATE
+  RGA:
+    section: gate
+    type: pressure_relief
+    label: Защита A шибера
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 181
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: GA
+      T: TR
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+    catalog_max_L_min: 650
+  RGB:
+    section: gate
+    type: pressure_relief
+    label: Защита B шибера
+    manufacturer: Bosch Rexroth
+    series: DB 30 5X /350 XY
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 125
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: DB
+    ports:
+      P: GB
+      T: TR
+      Y: DR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+    catalog_max_L_min: 650
+  ZG1:
+    section: gate
+    type: position_sensor
+    label: Шибер закрыт
+    manufacturer: Проект REV
+    series: контроль положения
+    size: 2 дискр. канала
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: gate_closed
+  ZG2:
+    section: gate
+    type: position_sensor
+    label: Шибер открыт
+    manufacturer: Проект REV
+    series: контроль положения
+    size: дискрет
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: gate_open
+  PRIO:
+    section: rapid
+    type: controller
+    label: Арбитраж потоков хвоста
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: 4 команды скорости
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sequence:
+    - eject
+    - return
+    - gate_close
+    - pre_up
+    note: 'Порядок T-2.6: eject/return, gate_close, pre_up. LP дозируется на eject, шибер и башмак; давление общего напора
+      может исключить отдельный маршрут.'
+  LR:
+    section: lp
+    type: proportional_2_2
+    label: Дозированная подпитка A быстрых при выталкивании
+    manufacturer: Bosch Rexroth
+    series: 2WRCE NG32–1K1L K, внеш. X/Y
+    size: NG32
+    DN_mm: 32
+    Q_L_min: 180
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: WRC
+    ports:
+      B: LP
+      A: LR0
+      X: XLR
+      Y: DR
+    states:
+      open:
+      - B>A
+    catalog_flow_at_5bar_L_min: 1100
+    default_state: closed
+    closing_variant: K
+  LRC:
+    section: lp
+    type: check_valve
+    label: Отсечка обратного потока из RA
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: LC/LFA NG32
+    DN_mm: 32
+    Q_L_min: 180
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: LR0
+      B: RA
+    states:
+      check:
+      - A>B
+    default_state: check
+    catalog_source: LC
+  LCH:
+    section: lp
+    type: pressure_reducing
+    label: Дозированный заряд ГА НД
+    manufacturer: Bosch Rexroth
+    series: LC/LFA DR с гидроотсечкой
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: LC
+    ports:
+      P: HP
+      A: LC0
+      Y: DR
+    states:
+      charge:
+      - P>A
+    default_state: closed
+    setpoint:
+      accumulator_bar: 52
+    note: Расчёт заряда использует поток до 265 л/мин. Требовать приемлемые потери в сборке LCH/LCC/SAL на рабочем расходе
+      и ограничить заряд до 52 бар.
+  LCC:
+    section: lp
+    type: check_valve
+    label: Защита от обратного разряда
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: LC/LFA NG40
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 315
+    source: project
+    ports:
+      A: LC0
+      B: LP
+    states:
+      check:
+      - A>B
+    default_state: check
+    catalog_source: LC
+  ALP:
+    section: lp
+    type: accumulator
+    label: Низкое давление, 20 л
+    manufacturer: Parker
+    series: EHV 20-330/90-A25GC-200 (10837101125)
+    size: 20 л, газовый объём 17,8 л
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 60
+    p_rated_bar: 330
+    source: PARKER_EHV
+    ports:
+      A: LA
+    states: {}
+    setpoint:
+      precharge_bar: 28
+      operating_min_bar: 38
+      operating_max_bar: 52
+    effective_gas_L: 17.8
+  SAL:
+    section: lp
+    type: safety_block
+    label: Отсечка, сброс, манометр ГА НД
+    manufacturer: HYDAC
+    series: SAF32E Y, НО WSM06020Y, 60 бар
+    size: DN32
+    DN_mm: 32
+    Q_L_min: 265
+    p_design_bar: 60
+    p_rated_bar: 350
+    source: SAF
+    ports:
+      P: LP
+      A: LA
+      T: TR
+    states:
+      service:
+      - P>A
+      - A>P
+      bleed:
+      - P>A
+      - A>P
+      - A>T
+    default_state: bleed
+    setpoint:
+      relief_bar: 60
+    note: Ручной проход открыт, соленоид под током закрывает A→T. При снятии питания разряжаются сосуд и рабочий порт. Ручная
+      запираемая отсечка для обслуживания.
+    electrical_bleed: normally_open
+  PTL:
+    section: lp
+    type: pressure_sensor
+    label: Давление ГА НД
+    manufacturer: ifm
+    series: PN2020
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 60
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: LA
+    states: {}
+    sensor: lp_bar
+  PX:
+    section: pilot
+    type: fixed_pump
+    label: Первая секция насоса пилота
+    manufacturer: Parker
+    series: Parker PGP511 0040, тандем A4VSO180
+    size: 4 см³/об × 1450 об/мин
+    DN_mm: 10
+    Q_L_min: 5.8
+    p_design_bar: 160
+    p_rated_bar: 250
+    source: pilot_pump
+    ports:
+      S: S0
+      P: PX0
+    states:
+      run:
+      - S>P
+    note: Привод от M1 через A4VSO180. Заряд AX по давлению и запасу момента.
+    displacement_cm3_rev: 4
+    speed_rev_min: 1450
+    drive: M1
+  PXA:
+    section: pilot
+    type: fixed_pump
+    label: Вторая секция насоса пилота
+    manufacturer: Parker
+    series: Parker PGP511 0080, тандем A4VSO180
+    size: 8 см³/об × 1450 об/мин
+    DN_mm: 10
+    Q_L_min: 11.6
+    p_design_bar: 160
+    p_rated_bar: 250
+    source: pilot_pump
+    ports:
+      S: S0
+      P: PXA0
+    states:
+      run:
+      - S>P
+    note: Привод от M1 через A4VSO180. Заряд AX по давлению и запасу момента.
+    displacement_cm3_rev: 8
+    speed_rev_min: 1450
+    drive: M1
+  FX:
+    section: pilot
+    type: filter
+    label: Фильтр внешнего пилота
+    manufacturer: HYDAC
+    series: DF ON 330TF3
+    size: 330 L/min, 3 µm
+    DN_mm: 32
+    Q_L_min: 17.4
+    p_design_bar: 160
+    p_rated_bar: 420
+    source: DF
+    ports:
+      P: XP0
+      A: X150
+    states:
+      through:
+      - P>A
+    default_state: through
+  XC:
+    section: pilot
+    type: check_valve
+    label: Отсечка разряда на насос
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN10
+    DN_mm: 10
+    Q_L_min: 5.8
+    p_design_bar: 160
+    p_rated_bar: 160
+    source: project
+    ports:
+      A: PX0
+      B: XP0
+    states:
+      check:
+      - A>B
+    default_state: check
+  XV:
+    section: pilot
+    type: unloader
+    label: Разгрузка насоса пилота
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NA, двунаправленный 06
+    size: CA-16A-2N
+    DN_mm: 16
+    Q_L_min: 5.8
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NO
+    ports:
+      P: PX0
+      T: TR
+    states:
+      open:
+      - P>T
+    default_state: open
+    setpoint:
+      trip_bar: 150
+    note: Обесточен открыт. Допуск заряда только при резерве момента и запросе AX.
+  XCA:
+    section: pilot
+    type: check_valve
+    label: Отсечка разряда через PXA
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN10
+    DN_mm: 10
+    Q_L_min: 11.6
+    p_design_bar: 160
+    p_rated_bar: 160
+    source: project
+    ports:
+      A: PXA0
+      B: XP0
+    states:
+      check:
+      - A>B
+    default_state: check
+  XVA:
+    section: pilot
+    type: unloader
+    label: Разгрузка второй секции
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NA, двунаправленный 06
+    size: CA-16A-2N
+    DN_mm: 16
+    Q_L_min: 11.6
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NO
+    ports:
+      P: PXA0
+      T: TR
+    states:
+      open:
+      - P>T
+    default_state: open
+    setpoint:
+      trip_bar: 150
+    note: Обесточен открыт. Допуск заряда только при резерве момента и запросе AX.
+  RVY:
+    section: pilot
+    type: pressure_relief
+    label: Предохранительный PXA
+    manufacturer: REV
+    series: by spec
+    size: DN10 160 bar
+    DN_mm: 10
+    Q_L_min: 11.6
+    p_design_bar: 160
+    p_rated_bar: 160
+    source: project
+    ports:
+      P: PXA0
+      T: TR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_bar: 160
+  AX:
+    section: pilot
+    type: accumulator
+    label: Пилотный газовый аккумулятор
+    manufacturer: HYDAC
+    series: SB330 3047170
+    size: 10 л
+    DN_mm: 32
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 330
+    source: SB
+    ports:
+      A: XA
+    states: {}
+    setpoint:
+      precharge_bar: 100
+      operating_min_bar: 120
+      operating_max_bar: 150
+  SAX:
+    section: pilot
+    type: safety_block
+    label: Блок безопасности пилота
+    manufacturer: HYDAC
+    series: SAF32E Y, НО WSM06020Y, 160 бар
+    size: DN32
+    DN_mm: 32
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: SAF
+    ports:
+      P: X150
+      A: XA
+      T: TR
+    states:
+      service:
+      - P>A
+      - A>P
+      bleed:
+      - P>A
+      - A>P
+      - A>T
+    default_state: bleed
+    setpoint:
+      relief_bar: 160
+    electrical_bleed: normally_open
+    note: Ручной проход открыт, соленоид под током закрывает A→T. При снятии питания разряжаются сосуд и рабочий порт. Ручная
+      запираемая отсечка для обслуживания.
+  PTX:
+    section: pilot
+    type: pressure_sensor
+    label: Пилот, рабочая шина
+    manufacturer: ifm
+    series: PN2020
+    size: 0–400 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 160
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: X150
+    states: {}
+    sensor: pilot_bar
+  XGM:
+    section: pilot
+    type: poppet_2_2
+    label: Разрешение пилота · Главный
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XM
+    states:
+      open:
+      - 1>2
+    default_state: closed
+    catalog_max_L_min: 150
+    note: Короткая линия, сократить утечки в группе. Включить заранее в текущем окне и подтвердить давление/положение до команды
+      на рабочую кромку. Подтвердить совместный импульсный расход.
+  XGF:
+    section: pilot
+    type: poppet_2_2
+    label: Разрешение пилота · Наполнение
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XF
+    states:
+      open:
+      - 1>2
+    default_state: closed
+    catalog_max_L_min: 150
+    note: Короткая линия, сократить утечки в группе. Включить заранее в текущем окне и подтвердить давление/положение до команды
+      на рабочую кромку. Подтвердить совместный импульсный расход.
+  XGR:
+    section: pilot
+    type: poppet_2_2
+    label: Разрешение пилота быстрого хода VR/LR
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XR
+    states:
+      open:
+      - 1>2
+    default_state: closed
+    catalog_max_L_min: 150
+    note: Короткая линия, сократить утечки в группе. Включить заранее в текущем окне и подтвердить давление/положение до команды
+      на рабочую кромку. Подтвердить совместный импульсный расход.
+  XGP:
+    section: pilot
+    type: poppet_2_2
+    label: Разрешение пилота · Башмак
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XP
+    states:
+      open:
+      - 1>2
+    default_state: closed
+    catalog_max_L_min: 150
+    note: Короткая линия, сократить утечки в группе. Включить заранее в текущем окне и подтвердить давление/положение до команды
+      на рабочую кромку. Подтвердить совместный импульсный расход.
+  T0:
+    section: cool
+    type: reservoir
+    label: Основной бак, перегородка и диффузор
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: 252 л / 190 л
+    DN_mm: 100
+    Q_L_min: 1100
+    p_design_bar: 3
+    p_rated_bar: 3
+    source: project
+    ports:
+      S: S0
+      T: T0R
+      D: DR
+      DZ: DR_ZUP
+      R: COOL
+      E: TRF
+      C: SC
+      G: BVOUT
+      U: TZU
+      EA: TEA
+      EB: TEB
+      EM: TEM
+      ER: TER
+      EP: TEP
+      EQ: TEQ
+      ET: TET
+      RF: RFL
+      EZ: TZ
+    states: {}
+    note: Раздельные диффузоры аварийных сливов в вентилируемый T0, без отсечки и фильтра. RFL — затопленный короткий коллектор
+      в спокойной зоне, вне зоны аварийных возвратов.
+    port_rated_bar:
+      E: 5
+      EM: 5
+      ER: 5
+      EP: 5
+      EQ: 5
+  F2:
+    section: cool
+    type: filter
+    label: Общий сливной фильтр
+    manufacturer: HYDAC
+    series: RF ON 1300VP10LE1.1/16
+    size: 1300 L/min, 10 µm
+    DN_mm: 100
+    Q_L_min: 800
+    p_design_bar: 10
+    p_rated_bar: 25
+    source: RF
+    ports:
+      P: TR
+      T: T0R
+    states:
+      through:
+      - P>T
+    default_state: through
+    note: На фронтах сброса измерить обратное давление и расход. Расчётный расход включает одновременные возвраты; проверить
+      холодный байпас.
+  PC:
+    section: cool
+    type: fixed_pump
+    label: Циркуляция · кандидат D-OP-22
+    manufacturer: KRACHT
+    series: KRACHT KF 180, SAE 3 inch, DIN F, without D-valve
+    size: Размер 180, 950 об/мин
+    DN_mm: 63
+    Q_L_min: 169
+    p_design_bar: 8
+    p_rated_bar: 25
+    source: KF
+    ports:
+      S: SC
+      P: CP
+    states:
+      run:
+      - S>P
+    note: Кандидат с ABB M3AA 100LC 6 (3GAA103530-••J, IE3). Работа по выбранной ветви охлаждения.
+    selection_status: HOLD_PC
+    motor_kW: 1.5
+  E1:
+    section: air
+    type: cooler
+    label: Воздушно-масляная матрица 1
+    manufacturer: asa hydraulik
+    series: ASA0567AA47
+    size: 0,75 кВт, 400 В 50 Гц
+    DN_mm: 40
+    Q_L_min: 102
+    p_design_bar: 8
+    p_rated_bar: 26
+    source: ASA0567
+    ports:
+      A: ACM
+      B: CF1
+    states:
+      through:
+      - A>B
+    default_state: through
+    note: Ветвь не менее 78 л/мин. Термостат, симметричный подвод масла и отдельный забор воздуха через съёмный мат.
+  E2:
+    section: air
+    type: cooler
+    label: Воздушно-масляная матрица 2
+    manufacturer: asa hydraulik
+    series: ASA0567AA47
+    size: 0,75 кВт, 400 В 50 Гц
+    DN_mm: 40
+    Q_L_min: 102
+    p_design_bar: 8
+    p_rated_bar: 26
+    source: ASA0567
+    ports:
+      A: ACM
+      B: CF2
+    states:
+      through:
+      - A>B
+    default_state: through
+    note: Ветвь не менее 78 л/мин. Термостат, симметричный подвод масла и отдельный забор воздуха через съёмный мат.
+  FT1:
+    section: air
+    type: flow_sensor
+    label: Контроль потока E1
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN40
+    DN_mm: 40
+    Q_L_min: 102
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      A: CF1
+      B: AOM
+    states:
+      through:
+      - A>B
+    sensor: cooler_1_flow_ok
+    minimum_L_min: 78
+    default_state: through
+  FT2:
+    section: air
+    type: flow_sensor
+    label: Контроль потока E2
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN40
+    DN_mm: 40
+    Q_L_min: 102
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      A: CF2
+      B: AOM
+    states:
+      through:
+      - A>B
+    sensor: cooler_2_flow_ok
+    minimum_L_min: 78
+    default_state: through
+  CB:
+    section: cool
+    type: pressure_relief
+    label: Перепуск при холодном пуске
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN50, до 250 л/мин
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: CP
+      T: CT
+    states:
+      relief:
+      - P>T
+    setpoint:
+      crack_bar: null
+      max_bar: 8
+      requirement: Выше потерь горячей загрязнённой ветви с учётом допуска; ниже потерь холодной; проверить полный расход
+        с учётом пружины и мощности.
+      candidate_crack_target_bar: 1.7
+      required_crack_range_bar:
+      - 1.65
+      - 1.75
+      pc_shaft_proof_max_dp_bar: 2.0
+      status: HOLD_UNTIL_CATALOGUE_AND_SKID_PROOF
+    note: Ограничение Δp PC 2 бар включает всас, CB и CD при полном перепуске. Расчётное давление прочности линии 8 бар.
+  CD:
+    section: cool
+    type: pipe
+    label: Развязка ветви охлаждения
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN63
+    DN_mm: 63
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: CT
+      T: COOL
+    states:
+      through:
+      - P>T
+    default_state: through
+  LT:
+    section: cool
+    type: position_sensor
+    label: Уровень масла основного бака
+    manufacturer: Проект REV
+    series: указатель уровня
+    size: 130…205 л
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: tank_level_ok
+    setpoint:
+      low_trip_L: 130
+      high_trip_L: 205
+  TT:
+    section: cool
+    type: temperature_sensor
+    label: Температура масла на CP
+    manufacturer: Проект REV
+    series: Pt100
+    size: 0…100 °C
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports:
+      M: CP
+    states: {}
+    sensor: oil_C
+    setpoint: &id001
+      max_oil_C: 55
+    signal_policy: oil_C — рабочее показание TT для охлаждения. oil_rapid_min_C — нижняя оценка с учётом погрешности. oil_tt_valid
+      — достоверность сигнала TT.
+  FT:
+    section: cool
+    type: flow_sensor
+    label: Суммарный расход через выбранный охладитель
+    manufacturer: Проект REV
+    series: датчик расхода
+    size: DN63, 180 л/мин
+    DN_mm: 63
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      A: CF
+      B: CT
+    states:
+      through:
+      - A>B
+    sensor: cool_flow_ok
+    default_state: through
+  FD1:
+    section: cool
+    type: position_sensor
+    label: Перепад F1/F2/FX
+    manufacturer: Проект REV
+    series: индикация загрязнения
+    size: 3 контакта
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: filters_ok
+  AP:
+    section: cool
+    type: position_sensor
+    label: Ограждения и аварийная цепь
+    manufacturer: Проект REV
+    series: предохранительная цепь
+    size: 2 канала
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: guard_ok
+  DOSE:
+    section: gate
+    type: position_sensor
+    label: Готовность дозатора
+    manufacturer: Проект REV
+    series: датчик дозатора
+    size: 1 дискрет
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: doser_ready
+  XPL:
+    section: pre
+    type: directional_3_2
+    label: Пилот отсечки башмака
+    manufacturer: Bosch Rexroth
+    series: M-3SED
+    size: NG6
+    DN_mm: 6
+    Q_L_min: 10
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: SED
+    ports:
+      P: XP
+      A: XPB
+      T: DR
+    states:
+      open:
+      - P>A
+      vent:
+      - A>T
+    default_state: vent
+  LSFL:
+    section: fill
+    type: position_sensor
+    label: Нижний уровень TF
+    manufacturer: REV
+    series: position_switch
+    size: 1 contact
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: prefill_low
+  LSFH:
+    section: fill
+    type: position_sensor
+    label: Верхний уровень TF
+    manufacturer: REV
+    series: position_switch
+    size: 1 contact
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: prefill_high
+  PTMB:
+    section: main
+    type: pressure_sensor
+    label: Штоковая полость главного ГЦ
+    manufacturer: ifm
+    series: PN2020
+    size: 0?400 bar
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: MB
+    states: {}
+    sensor: main_b_bar
+  PTRA:
+    section: rapid
+    type: pressure_sensor
+    label: Быстрая пара, полость A
+    manufacturer: ifm
+    series: PN2020
+    size: 0?400 bar
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: RA
+    states: {}
+    sensor: rapid_a_bar
+  PTRB:
+    section: rapid
+    type: pressure_sensor
+    label: Быстрая пара, полость B
+    manufacturer: ifm
+    series: PN2020
+    size: 0?400 bar
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: PN2020
+    ports:
+      M: RB
+    states: {}
+    sensor: rapid_b_bar
+  RVX:
+    section: pilot
+    type: pressure_relief
+    label: Предохранительный насоса пилота
+    manufacturer: REV
+    series: by spec
+    size: DN10 160 bar
+    DN_mm: 10
+    Q_L_min: 5.8
+    p_design_bar: 160
+    p_rated_bar: 160
+    source: project
+    ports:
+      P: PX0
+      T: TR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_bar: 160
+  VR:
+    section: rapid
+    label: Распределитель пары быстрого хода
+    manufacturer: Bosch Rexroth
+    series: 4WRLE 25 E1-400LJ-4X/MXY
+    size: NG25
+    DN_mm: 25
+    Q_L_min: 329
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: WRLE
+    ports:
+      P: HR
+      A: RA
+      B: RB
+      T: RGT
+      X: XR
+      Y: DR
+    states:
+      extend:
+      - P>A
+      - B>T
+      retract:
+      - P>B
+      - A>T
+    default_state: center
+    type: directional_4_3
+    port_rated_bar:
+      X: 350
+      Y: 10
+    catalog_flow_at_5bar_L_min: 400
+  RC:
+    section: rapid
+    label: Развязка напора и подпитки НД
+    manufacturer: Bosch Rexroth
+    series: LC/LFA, обратный
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: LC
+    ports:
+      A: HP
+      B: HR
+    states:
+      check:
+      - A>B
+    default_state: check
+    type: check_valve
+  ZUP:
+    section: station
+    type: directional_3_2
+    label: Пилот седла ZU
+    manufacturer: Bosch Rexroth
+    series: M-3SEW 6, 420 бар
+    size: NG6
+    DN_mm: 6
+    Q_L_min: 10
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: LC_MON
+    ports:
+      P: P0
+      A: XZU
+      T: DR_ZUP
+    states:
+      vent:
+      - A>T
+      close:
+      - P>A
+    default_state: vent
+  ZZU:
+    section: station
+    type: position_sensor
+    label: Обратная связь ZU
+    manufacturer: Bosch Rexroth
+    series: QMG24
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: LC_MON
+    ports: {}
+    states: {}
+    sensor: zu_closed
+  ZMP:
+    section: main
+    type: position_sensor
+    label: Нулевая кромка MP
+    manufacturer: Bosch Rexroth
+    series: LVDT 2WRCE
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: WRC
+    ports: {}
+    states: {}
+    sensor: mp_closed
+  ZMR:
+    section: main
+    type: position_sensor
+    label: Фактическая кромка MR
+    manufacturer: Bosch Rexroth
+    series: LVDT 2WRCE
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: WRC
+    ports: {}
+    states: {}
+    sensor: mr_edge_pct
+  ZMT:
+    section: main
+    type: position_sensor
+    label: Фактическая кромка MT
+    manufacturer: Bosch Rexroth
+    series: LVDT 2WRCE
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: WRC
+    ports: {}
+    states: {}
+    sensor: mt_edge_pct
+  MRC:
+    section: main
+    type: check_valve
+    label: Седельное отделение MA от MR
+    manufacturer: Bosch Rexroth
+    series: LC/LFA NG40, обратный
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 300
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: LC
+    ports:
+      A: MRA
+      B: MA
+    states:
+      check:
+      - A>B
+    note: Проверить перепад ≤1 бар при 300 л/мин и утечки обратного направления.
+    default_state: check
+  RMR:
+    section: main
+    type: pressure_relief
+    label: Защита запертого кармана MRA
+    manufacturer: Bosch Rexroth
+    series: DBD, тепловой сброс
+    size: NG6
+    DN_mm: 6
+    Q_L_min: 10
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: DBD
+    ports:
+      P: MRA
+      T: TR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+  MEB1:
+    section: main
+    type: poppet_2_2
+    label: Остаточный НО сброс MA 1
+    manufacturer: Sun Hydraulics
+    series: DTAF H + OR Ø0,8 мм
+    size: T-8A
+    DN_mm: 8
+    Q_L_min: 5.5
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: SUN_NO
+    ports:
+      '1': MA
+      '2': TEA
+    states:
+      open:
+      - 1>2
+    restrictor_mm: 0.8
+    default_state: open
+    note: Прямодействующий НО DTAF обеспечивает остаточный слив без минимального давления открытия.
+  MEB2:
+    section: main
+    type: poppet_2_2
+    label: Остаточный НО сброс MA 2
+    manufacturer: Sun Hydraulics
+    series: DTAF H + OR Ø0,8 мм
+    size: T-8A
+    DN_mm: 8
+    Q_L_min: 5.5
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: SUN_NO
+    ports:
+      '1': MA
+      '2': TEB
+    states:
+      open:
+      - 1>2
+    restrictor_mm: 0.8
+    default_state: open
+    note: Прямодействующий НО DTAF обеспечивает остаточный слив без минимального давления открытия.
+  MEB:
+    section: main
+    type: poppet_2_2
+    label: Аварийный сброс штоковой MB
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NA + OR Ø4,2
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 150
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: VEI_NO
+    ports:
+      '1': MB
+      '2': TER
+    states:
+      open:
+      - 1>2
+    restrictor_mm: 4.2
+    note: Сброс независимо от MR/MT. RVB ограничивает переходный пик.
+    default_state: open
+  RTF:
+    section: fill
+    type: pressure_relief
+    label: Механическая защита масла TF
+    manufacturer: Goetze
+    series: 455 DN65/100 F, герметичный корпус
+    size: DN65/100
+    DN_mm: 65
+    Q_L_min: 1589
+    p_design_bar: 3
+    p_rated_bar: 24
+    source: GOETZE
+    ports:
+      P: PF
+      T: TET
+    states:
+      relief:
+      - P>T
+    setpoint:
+      crack_bar: 1.9
+      max_inlet_at_design_flow_bar: 3
+    note: Goetze 455 DN65/100 F, 1,9 бар, TET; подтвердить 1589 л/мин HLP46 при 3 бар и противодавлении до 0,2 бар.
+    default_state: closed
+  RFA:
+    section: rapid
+    type: poppet_2_2
+    label: Плавание A → бак
+    manufacturer: Bosch Rexroth
+    series: LC2A NG40 + LFA + M-3SEW, Q7T
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 270
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: LC2A
+    ports:
+      A: RA
+      B: RFL
+      X: XRF
+      Y: DR
+    states:
+      float:
+      - A>B
+    note: Активное открытие пилотом без перепада на рабочих портах. VR в центре.
+    default_state: closed
+  RCA:
+    section: rapid
+    type: check_valve
+    label: Антикавитация бак → A
+    manufacturer: Bosch Rexroth
+    series: LC/LFA, пружина 00
+    size: NG50
+    DN_mm: 50
+    Q_L_min: 270
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: LC
+    ports:
+      A: RFL
+      B: RA
+    states:
+      check:
+      - A>B
+    note: Затопленный коллектор, без сопротивления сливного фильтра.
+    default_state: check
+  ZFA:
+    section: rapid
+    type: position_sensor
+    label: Плавание A открыто
+    manufacturer: Bosch Rexroth
+    series: Q7T LC2A
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: LC2A
+    ports: {}
+    states: {}
+    sensor: float_a_open
+  RFB:
+    section: rapid
+    type: poppet_2_2
+    label: Плавание B → бак
+    manufacturer: Bosch Rexroth
+    series: LC2A NG40 + LFA + M-3SEW, Q7T
+    size: NG40
+    DN_mm: 40
+    Q_L_min: 220
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: LC2A
+    ports:
+      A: RB
+      B: RFL
+      X: XRF
+      Y: DR
+    states:
+      float:
+      - A>B
+    note: Активное открытие пилотом без перепада на рабочих портах. VR в центре.
+    default_state: closed
+  RCB:
+    section: rapid
+    type: check_valve
+    label: Антикавитация бак → B
+    manufacturer: Bosch Rexroth
+    series: LC/LFA, пружина 00
+    size: NG50
+    DN_mm: 50
+    Q_L_min: 220
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: LC
+    ports:
+      A: RFL
+      B: RB
+    states:
+      check:
+      - A>B
+    note: Затопленный коллектор, без сопротивления сливного фильтра.
+    default_state: check
+  ZFB:
+    section: rapid
+    type: position_sensor
+    label: Плавание B открыто
+    manufacturer: Bosch Rexroth
+    series: Q7T LC2A
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: LC2A
+    ports: {}
+    states: {}
+    sensor: float_b_open
+  XGG:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Шибер
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XG
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  XGN:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Разгрузка
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XN
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  RMH:
+    section: main
+    type: pressure_relief
+    label: Тепловой сброс MH
+    manufacturer: Bosch Rexroth
+    series: DBD, тепловой сброс
+    size: NG6
+    DN_mm: 6
+    Q_L_min: 10
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: DBD
+    ports:
+      P: MH
+      T: TR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+  RPH:
+    section: pre
+    type: pressure_relief
+    label: Тепловой сброс PBRET
+    manufacturer: Bosch Rexroth
+    series: DBD, тепловой сброс
+    size: NG6
+    DN_mm: 6
+    Q_L_min: 10
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: DBD
+    ports:
+      P: PBRET
+      T: TR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+  RHR:
+    section: rapid
+    type: pressure_relief
+    label: Тепловой сброс HR
+    manufacturer: Bosch Rexroth
+    series: DBD, тепловой сброс
+    size: NG6
+    DN_mm: 6
+    Q_L_min: 10
+    p_design_bar: 315
+    p_rated_bar: 400
+    source: DBD
+    ports:
+      P: HR
+      T: TR
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 315
+    default_state: closed
+  XGPU:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Подъём башмака
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XPU
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  XGMR:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Регенерация
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XMR
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  XGMD:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Декомпрессия
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XMD
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  XGRF:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Плавание
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XRF
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  ZMF:
+    section: fill
+    type: position_sensor
+    label: Отсечка MF закрыта
+    manufacturer: Bosch Rexroth
+    series: WK/E и LVDT, RE 29406
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: WRC
+    ports: {}
+    states: {}
+    sensor: mf_locked
+    monitors: MF
+  ZMBT:
+    section: fill
+    type: position_sensor
+    label: Отсечка MBT закрыта
+    manufacturer: Bosch Rexroth
+    series: WK/E и LVDT, RE 29406
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: WRC
+    ports: {}
+    states: {}
+    sensor: mbt_locked
+    monitors: MBT
+  XGFR:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Слив поршневой в TF
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XFR
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  XGMT:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Прямой ход
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XMT
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  XGLR:
+    section: pilot
+    type: poppet_2_2
+    label: Отсечка пилота · Подпитка возврата
+    manufacturer: Bosch Rexroth
+    series: VEI-16-16A-NC
+    size: CA-16A
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: VEI_NC
+    ports:
+      '1': X150
+      '2': XLR
+    states:
+      open:
+      - 1>2
+    catalog_max_L_min: 150
+    default_state: closed
+  ZKM:
+    section: station
+    type: position_sensor
+    label: Снятие момента M1 подтверждено
+    manufacturer: Проект REV
+    series: зеркальные контакты силового отключения
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: m1_off_confirmed
+  XZD:
+    section: pilot
+    type: pressure_reducing
+    label: Редуцирование AX → Z DFE1Z
+    manufacturer: Sun Hydraulics
+    series: PRFB-CBN, трёхлинейный редуктор
+    size: T-2A, 35 бар
+    DN_mm: 10
+    Q_L_min: 40
+    p_design_bar: 160
+    p_rated_bar: 350
+    source: SUN_PRFB
+    ports:
+      P: X150
+      A: XZ
+      T: DR
+    states:
+      reduce:
+      - P>A
+      relief:
+      - A>T
+    default_state: reduce
+    setpoint:
+      nominal_bar: 35
+      permitted_range_bar:
+      - 20
+      - 50
+  PTZ:
+    section: pilot
+    type: pressure_sensor
+    label: Давление внешнего Z
+    manufacturer: ifm
+    series: Датчик 0…60 бар по ТЗ
+    size: 0…60 бар
+    DN_mm: 8
+    Q_L_min: 0
+    p_design_bar: 50
+    p_rated_bar: 60
+    source: project
+    ports:
+      M: XZ
+    states: {}
+    sensor: dfe_z_bar
+  RVZ:
+    section: pilot
+    type: pressure_relief
+    label: Независимая защита порта Z
+    manufacturer: Bosch Rexroth
+    series: Прямой сброс, уставка по характеристике
+    size: DN10, 40 л/мин
+    DN_mm: 10
+    Q_L_min: 40
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: project
+    ports:
+      P: XZ
+      T: TZ
+    states:
+      relief:
+      - P>T
+    setpoint:
+      max_inlet_at_design_flow_bar: 50
+    default_state: closed
+    note: До выпуска КД подобрать кромку ≤50 бар при полном притоке; отвод не совмещать со слабым дренажом насоса.
+  RG:
+    section: rapid
+    type: poppet_2_2
+    label: Регенерация быстрых — кромка B→A
+    manufacturer: Bosch Rexroth
+    series: LC25 + LFA25, пилот 4WE6
+    size: NG25
+    DN_mm: 25
+    Q_L_min: 222
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: LC2A
+    ports:
+      A: RB
+      B: RG0
+      X: XR
+      Y: DR
+    states:
+      open:
+      - A>B
+    note: Активное открытие пилотом без перепада на рабочих портах. VR в центре.
+    default_state: closed
+  RGC:
+    section: rapid
+    label: Отсечка обратного потока RA→RB
+    manufacturer: Sun Hydraulics
+    series: CXHAXAN
+    size: T-16A
+    DN_mm: 25
+    Q_L_min: 222
+    p_design_bar: 315
+    p_rated_bar: 350
+    source: SUN_CXHA
+    ports:
+      A: RG0
+      B: RA
+    states:
+      check:
+      - A>B
+    default_state: check
+    type: check_valve
+  RT:
+    section: rapid
+    type: poppet_2_2
+    label: Открывает слив быстрых при прямом ходе и возврате
+    manufacturer: Bosch Rexroth
+    series: LC25 + LFA25, пилот 4WE6
+    size: NG25
+    DN_mm: 25
+    Q_L_min: 329
+    p_design_bar: 315
+    p_rated_bar: 420
+    source: LC2A
+    ports:
+      A: RGT
+      B: TR
+      X: XR
+      Y: DR
+    states:
+      open:
+      - A>B
+    note: Активное открытие пилотом без перепада на рабочих портах. VR в центре.
+    default_state: closed
+  ZRG:
+    section: rapid
+    type: position_sensor
+    label: Подтверждение кромки RG
+    manufacturer: Проект REV
+    series: Контроль положения по ТЗ
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: rg_open_proven
+    monitors: RG
+  ZRT:
+    section: rapid
+    type: position_sensor
+    label: Подтверждение кромки RT
+    manufacturer: Проект REV
+    series: Контроль положения по ТЗ
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: rt_closed_proven
+    monitors: RT
+  WCP:
+    section: cool
+    type: manual_isolation
+    label: Отсечка WCP
+    manufacturer: Проект REV
+    series: Запирается в положении
+    size: DN50
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: CP
+      T: WC0
+    states:
+      open:
+      - P>T
+    default_state: open
+  WCF:
+    section: cool
+    type: manual_isolation
+    label: Отсечка WCF
+    manufacturer: Проект REV
+    series: Запирается в положении
+    size: DN50
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: WC1
+      T: CF
+    states:
+      open:
+      - P>T
+    default_state: open
+  ACP:
+    section: cool
+    type: manual_isolation
+    label: Отсечка ACP
+    manufacturer: Проект REV
+    series: Запирается в положении
+    size: DN50
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: CP
+      T: AC0
+    states:
+      open:
+      - P>T
+    default_state: closed
+  ACF:
+    section: cool
+    type: manual_isolation
+    label: Отсечка ACF
+    manufacturer: Проект REV
+    series: Запирается в положении
+    size: DN50
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: AC1
+      T: CF
+    states:
+      open:
+      - P>T
+    default_state: closed
+  CAPA:
+    section: air
+    type: manual_isolation
+    label: Разъём с глухой заглушкой
+    manufacturer: Проект REV
+    series: Запирается в положении
+    size: DN50
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: AC0
+      T: ACM
+    states:
+      open:
+      - P>T
+    default_state: closed
+  CAPB:
+    section: air
+    type: manual_isolation
+    label: Разъём с глухой заглушкой
+    manufacturer: Проект REV
+    series: Запирается в положении
+    size: DN50
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 8
+    source: project
+    ports:
+      P: AOM
+      T: AC1
+    states:
+      open:
+      - P>T
+    default_state: closed
+  WBR:
+    section: water
+    type: boundary
+    label: Границы воды площадки
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN40 PN16
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+    p_rated_bar: 16
+    source: project
+    ports:
+      IN: WI
+      OUT: WO
+    states: {}
+    note: 150 л/мин, ≤30 °C; условия площадки в docs/site.
+    port_rated_bar:
+      E: 5
+      EM: 5
+      ER: 5
+      EP: 5
+      EQ: 5
+  WF:
+    section: water
+    type: filter
+    label: Фильтр воды
+    manufacturer: Проект REV
+    series: по ТЗ
+    size: DN40, ≤500 мкм
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+    p_rated_bar: 16
+    source: project
+    ports:
+      P: WI
+      T: WIF
+    states:
+      through:
+      - P>T
+    default_state: through
+  WV:
+    section: water
+    type: poppet_2_2
+    label: Вода, НЗ, TT 45/42 °C
+    manufacturer: Danfoss
+    series: EV220B 25 032U7125 EPDM, 24 V DC
+    size: DN25 / проверить DN40
+    DN_mm: 25
+    Q_L_min: 150
+    p_design_bar: 16
+    p_rated_bar: 16
+    source: WATER_VALVE
+    ports:
+      P: WIF
+      T: WIV
+    states:
+      open:
+      - P>T
+    setpoint:
+      open_C: 45
+      close_C: 42
+    default_state: closed
+  WFT:
+    section: water
+    type: flow_sensor
+    label: Подтверждение расхода воды
+    manufacturer: Проект REV
+    series: датчик расхода
+    size: DN40, 150 л/мин
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+    p_rated_bar: 16
+    source: project
+    ports:
+      A: WIV
+      B: WGL
+    states:
+      through:
+      - A>B
+    sensor: water_flow_ok
+    default_state: through
+  GL:
+    section: cool
+    type: cooler
+    label: Водомасляный охладитель
+    manufacturer: Bowman
+    series: GL180-1428-3 CuNi 90/10
+    size: 2,1 м²; вода 150 л/мин
+    DN_mm: 40
+    Q_L_min: 180
+    p_design_bar: 8
+    p_rated_bar: 12
+    source: BOWMAN_GL
+    ports:
+      A: WC0
+      B: WC1
+      WI: WGL
+      WO: WO
+    states:
+      through:
+      - A>B
+      - WI>WO
+    default_state: through
+    note: Воду площадки ограничить по паспорту аппарата, отдельно подтвердить рабочие условия.
+    port_rated_bar:
+      WI: 16
+      WO: 16
+  ZCOOL:
+    section: cool
+    type: position_sensor
+    label: Исправность выбранного режима охлаждения
+    manufacturer: Проект REV
+    series: зеркальные контакты силового отключения
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: selected_cooling_ok
+    note: TT/FT общие; вода требует WFT по запросу, воздух требует оба FT1/FT2. Проверить положение отсечек перед пуском.
+  ZQF:
+    section: fill
+    type: controller
+    label: Разрешение квалифицированного быстрого хода
+    manufacturer: Проект REV
+    series: зеркальные контакты силового отключения
+    size: 1 канал
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: {}
+    states: {}
+    sensor: rapid_hydraulics_proven
+    note: Конфигурация по проверенному диапазону температуры, уровню TF, Q(t) и останову. По умолчанию сброшено.
+  TT_VALID:
+    section: cool
+    type: controller
+    label: Диагностика достоверности TT
+    manufacturer: Проект REV
+    series: Диагностика аналогового входа TT
+    size: 0…100 °C
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: &id002 {}
+    states: &id003 {}
+    sensor: oil_tt_valid
+    setpoint: *id001
+    signal_policy: oil_C — рабочее показание TT для охлаждения. oil_rapid_min_C — нижняя оценка с учётом погрешности. oil_tt_valid
+      — достоверность сигнала TT.
+  TT_MIN:
+    section: cool
+    type: controller
+    label: Нижняя оценка температуры по TT
+    manufacturer: Проект REV
+    series: Оценка температуры с учётом погрешности TT
+    size: 0…100 °C
+    DN_mm: null
+    Q_L_min: 0
+    p_design_bar: null
+    p_rated_bar: null
+    source: project
+    ports: *id002
+    states: *id003
+    sensor: oil_rapid_min_C
+    setpoint: *id001
+    signal_policy: oil_C — рабочее показание TT для охлаждения. oil_rapid_min_C — нижняя оценка с учётом погрешности. oil_tt_valid
+      — достоверность сигнала TT.
+lines:
+  P0:
+    kind: pressure
+    DN_mm: 50
+    Q_L_min: 265
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  HP:
+    kind: pressure
+    DN_mm: 50
+    Q_L_min: 265
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  MH:
+    kind: pressure
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  LP:
+    kind: pressure
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 60
+  LA:
+    kind: pressure
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 60
+  LC0:
+    kind: pressure
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 60
+  LR0:
+    kind: pressure
+    DN_mm: 32
+    Q_L_min: 220
+    p_design_bar: 315
+  MA:
+    kind: work
+    DN_mm: 125
+    Q_L_min: 1589
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  MB:
+    kind: work
+    DN_mm: 100
+    Q_L_min: 779
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  D1:
+    kind: work
+    DN_mm: 25
+    Q_L_min: 600
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  D2:
+    kind: work
+    DN_mm: 32
+    Q_L_min: 360
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  D3:
+    kind: work
+    DN_mm: 32
+    Q_L_min: 360
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  RA:
+    kind: work
+    DN_mm: 40
+    Q_L_min: 270
+    p_design_bar: 315
+  RB:
+    kind: work
+    DN_mm: 40
+    Q_L_min: 220
+    p_design_bar: 315
+  PA:
+    kind: work
+    DN_mm: 50
+    Q_L_min: 480
+    p_design_bar: 315
+  PB:
+    kind: work
+    DN_mm: 50
+    Q_L_min: 480
+    p_design_bar: 315
+  PBRET:
+    kind: work
+    DN_mm: 50
+    Q_L_min: 383
+    p_design_bar: 315
+  PA0:
+    kind: work
+    DN_mm: 32
+    Q_L_min: 220
+    p_design_bar: 315
+  PB0:
+    kind: work
+    DN_mm: 32
+    Q_L_min: 220
+    p_design_bar: 315
+  GA:
+    kind: work
+    DN_mm: 25
+    Q_L_min: 181
+    p_design_bar: 315
+  GB:
+    kind: work
+    DN_mm: 25
+    Q_L_min: 125
+    p_design_bar: 315
+  PF:
+    kind: prefill
+    DN_mm: 125
+    Q_L_min: 1589
+    p_design_bar: 3
+    wall_mm: 4
+    target_length_m: 0.5
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+    max_length_m: 0.5
+  X150:
+    kind: pilot
+    DN_mm: 25
+    Q_L_min: 120
+    p_design_bar: 160
+  XP0:
+    kind: pilot
+    DN_mm: 12
+    Q_L_min: 17.4
+    p_design_bar: 160
+  PX0:
+    kind: pilot
+    DN_mm: 12
+    Q_L_min: 5.8
+    p_design_bar: 160
+  XA:
+    kind: pilot
+    DN_mm: 25
+    Q_L_min: 120
+    p_design_bar: 160
+  XM:
+    kind: pilot
+    DN_mm: 25
+    Q_L_min: 120
+    p_design_bar: 160
+  XF:
+    kind: pilot
+    DN_mm: 25
+    Q_L_min: 120
+    p_design_bar: 160
+  XR:
+    kind: pilot
+    DN_mm: 25
+    Q_L_min: 120
+    p_design_bar: 160
+  XP:
+    kind: pilot
+    DN_mm: 25
+    Q_L_min: 120
+    p_design_bar: 160
+  XPB:
+    kind: pilot
+    DN_mm: 6
+    Q_L_min: 10
+    p_design_bar: 160
+  S0:
+    kind: suction
+    DN_mm: 100
+    Q_L_min: 285
+    p_design_bar: 1
+  TR:
+    kind: tank
+    DN_mm: 100
+    Q_L_min: 800
+    p_design_bar: 10
+  T0R:
+    kind: tank
+    DN_mm: 100
+    Q_L_min: 800
+    p_design_bar: 3
+  TRF:
+    kind: tank
+    DN_mm: 100
+    Q_L_min: 1100
+    p_design_bar: 5
+  DR_ZUP:
+    kind: drain
+    DN_mm: 12
+    Q_L_min: 10
+    p_design_bar: 2
+  DR:
+    kind: drain
+    DN_mm: 40
+    Q_L_min: 32
+    p_design_bar: 0.5
+  BV:
+    kind: drain
+    DN_mm: 15
+    Q_L_min: 10
+    p_design_bar: 3
+  CP:
+    kind: cooling
+    DN_mm: 63
+    Q_L_min: 180
+    p_design_bar: 8
+  CT:
+    kind: cooling
+    DN_mm: 63
+    Q_L_min: 180
+    p_design_bar: 8
+  COOL:
+    kind: cooling
+    DN_mm: 63
+    Q_L_min: 180
+    p_design_bar: 3
+  NG:
+    kind: gas
+    DN_mm: 15
+    Q_L_min: 0
+    p_design_bar: 3
+  AIR:
+    kind: gas
+    DN_mm: 15
+    Q_L_min: 0
+    p_design_bar: 0
+  SC:
+    kind: suction
+    DN_mm: 80
+    Q_L_min: 180
+    p_design_bar: 1
+  BVOUT:
+    kind: drain
+    DN_mm: 15
+    Q_L_min: 10
+    p_design_bar: 0.15
+  HR:
+    kind: pressure
+    DN_mm: 40
+    Q_L_min: 265
+    p_design_bar: 315
+  CF1:
+    kind: cooling
+    DN_mm: 40
+    Q_L_min: 102
+    p_design_bar: 8
+  CF2:
+    kind: cooling
+    DN_mm: 40
+    Q_L_min: 102
+    p_design_bar: 8
+  CF:
+    kind: cooling
+    DN_mm: 63
+    Q_L_min: 180
+    p_design_bar: 8
+  TZU:
+    kind: tank
+    DN_mm: 63
+    Q_L_min: 265
+    p_design_bar: 3
+  TEA:
+    kind: tank
+    DN_mm: 63
+    Q_L_min: 380
+    p_design_bar: 3
+  TEB:
+    kind: tank
+    DN_mm: 63
+    Q_L_min: 380
+    p_design_bar: 3
+  TEM:
+    kind: tank
+    DN_mm: 50
+    Q_L_min: 265
+    p_design_bar: 5
+  TER:
+    kind: tank
+    DN_mm: 80
+    Q_L_min: 785
+    p_design_bar: 5
+  TEP:
+    kind: tank
+    DN_mm: 63
+    Q_L_min: 480
+    p_design_bar: 5
+  TEQ:
+    kind: tank
+    DN_mm: 63
+    Q_L_min: 480
+    p_design_bar: 5
+  TET:
+    kind: tank
+    DN_mm: 130
+    Q_L_min: 1589
+    p_design_bar: 3
+  XZU:
+    kind: pilot
+    DN_mm: 8
+    Q_L_min: 10
+    p_design_bar: 315
+  XG:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  XN:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  MRA:
+    kind: work
+    DN_mm: 50
+    Q_L_min: 300
+    p_design_bar: 315
+    construction: Жёсткий стальной тракт, EN 10305-4 или эквивалент по давлению и усталости; сверить мёртвый объём.
+  RFL:
+    kind: tank
+    DN_mm: 80
+    Q_L_min: 270
+    p_design_bar: 1
+  XPU:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  XMR:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  XMD:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  XRF:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  PXA0:
+    kind: pilot
+    DN_mm: 12
+    Q_L_min: 11.6
+    p_design_bar: 160
+  XFR:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  XMT:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  XLR:
+    kind: pilot
+    DN_mm: 16
+    Q_L_min: 95
+    p_design_bar: 160
+  XZ:
+    kind: pilot
+    DN_mm: 10
+    Q_L_min: 40
+    p_design_bar: 50
+  TZ:
+    kind: tank
+    DN_mm: 16
+    Q_L_min: 40
+    p_design_bar: 3
+  RG0:
+    kind: work
+    DN_mm: 28
+    Q_L_min: 222
+    p_design_bar: 315
+  RGT:
+    kind: tank
+    DN_mm: 40
+    Q_L_min: 329
+    p_design_bar: 315
+  WC0:
+    kind: cooling
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+  WC1:
+    kind: cooling
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+  AC0:
+    kind: cooling
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+  AC1:
+    kind: cooling
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+  ACM:
+    kind: cooling
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+  AOM:
+    kind: cooling
+    DN_mm: 50
+    Q_L_min: 180
+    p_design_bar: 8
+  WI:
+    kind: water
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+  WIF:
+    kind: water
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+  WIV:
+    kind: water
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+  WGL:
+    kind: water
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+  WO:
+    kind: water
+    DN_mm: 40
+    Q_L_min: 150
+    p_design_bar: 16
+open_items:
+  PC: Кандидат 1,5 кВт. Подтвердить расход при 55 °C, баланс FT1/FT2, полный перепад насоса и пусковой момент с выбранным
+    CB. Статус — проверка перед выпуском.
+  Bowman:
+  - Площадь 2,1 м² и точка воды 150 л/мин.
+  - Q и Δp масла чистого/загрязнённого аппарата на HLP46 при 42/45/55 °C.
+  - Холодный пуск, вязкость, скорость в трубках, CuNi 90/10, NH₃, сульфиды.
+  - Режим воды с EV220B 40 вместо 25, давление и переходы.
+  TF: Подтвердить нижнюю границу 0,55 бар и газовый расход; снять Q(t)/p(A) на аварийной отсечке. До доказательства допуска
+    холодный и быстрый ход запрещены.
+  KD: Масса обвязки, проходной привод тандема, давления RVA/RVZ, монтаж мишеней и подтверждение PL.
+flexible_sections:
+- lines:
+  - XZ
+  phase: Пилот DFE1Z и виброразвязка P1
+  DN_mm: 10
+  length_m_range:
+  - 0.3
+  - 0.7
+  catalogue: 575X-6
+  catalog_id_mm: 9.5
+  class: Fast Response 345 bar
+  design_bar: 50
+  slope_cc_ft_psi: 0.0004
+  dp_range_bar: 50
+  source: hose_ve
+- lines:
+  - XR
+  - XG
+  - XP
+  - XPU
+  phase: Выносной пилот станции и машины
+  DN_mm: 19
+  length_m_range:
+  - 0.5
+  - 1.5
+  catalogue: 575X-12
+  catalog_id_mm: 19
+  class: Fast Response 345 bar
+  design_bar: 160
+  slope_cc_ft_psi: 0.00192
+  dp_range_bar: 160
+  source: hose_ve
+- lines:
+  - GA
+  - GB
+  phase: Шибер при необходимости гибкого подвода к корпусу
+  DN_mm: 25
+  length_m_range:
+  - 0.4
+  - 1.0
+  catalogue: 575X-16
+  catalog_id_mm: 25.4
+  class: Fast Response 345 bar
+  design_bar: 315
+  slope_cc_ft_psi: 0.0028
+  dp_range_bar: 315
+  source: hose_ve
+- lines:
+  - PA
+  - PB
+  - RA
+  - RB
+  phase: Корпуса цилиндров на неподвижных креплениях
+  DN_mm: 38
+  length_m_range:
+  - 0.4
+  - 1.0
+  catalogue: Parker 797TC-24 or EN 856 R15
+  class: ISO 18752 DC / R15
+  design_bar: 315
+  source: hose_797tc
+  status: По умолчанию труба. Если потребуется подвижный участок — испытать VE и потери при заданных Q.
+- lines:
+  - DR
+  phase: Виброразвязка дренажа станции и машины
+  DN_mm: 38
+  length_m_range:
+  - 0.4
+  - 1.0
+  catalogue: Parker 811HT-24
+  class: SAE 100R4
+  design_bar: 0.5
+  source: hose_return
+  status: Контролировать p дренажа. VE по стенду.
+- lines:
+  - AC0
+  - AC1
+  phase: Сервисное присоединение воздушной опции
+  DN_mm: 50
+  length_m_range:
+  - 0.5
+  - 1.5
+  catalogue: Parker 811HT-32 with 81/88DB
+  class: SAE 100R4
+  design_bar: 8
+  source: hose_return
+  status: Перепроверить допустимую динамику и VE.
+revision: T-2.9b

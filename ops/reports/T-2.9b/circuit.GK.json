@@ -1,0 +1,4340 @@
+{
+  "circuit": {
+    "defects": 0,
+    "elements": 172,
+    "elements_without_size_or_underrated": 0,
+    "errors": [],
+    "lines": 85,
+    "mutations": {
+      "cases": [
+        {
+          "diagnostics": [
+            "unknown command RFA=float",
+            "unknown command RFA=float",
+            "unknown command RFA=float",
+            "closed_ports: CYR1.A must float and refill from tank without pump/LP feed",
+            "closed_ports: CYR2.A must float and refill from tank without pump/LP feed"
+          ],
+          "name": "remove_float_valve",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "closed_ports: CYR1.B must float and refill from tank without pump/LP feed",
+            "closed_ports: CYR2.B must float and refill from tank without pump/LP feed",
+            "regen: CYR1.B must float and refill from tank without pump/LP feed",
+            "regen: CYR2.B must float and refill from tank without pump/LP feed",
+            "press: CYR1.B must float and refill from tank without pump/LP feed"
+          ],
+          "name": "reverse_makeup_check",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "MR: port A exposed to high cap pressure or loss of seat separation",
+            "regen: rod pressure can intensify with cap feed and blocked rod port",
+            "regen: CYM.B → CYM.A, [['MR', 'MRC']]"
+          ],
+          "name": "reverse_regen_seat",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "MR: port A exposed to high cap pressure or loss of seat separation",
+            "MR.A: trapped volume without independent pressure relief via RMR",
+            "regen: rod pressure can intensify with cap feed and blocked rod port",
+            "regen: CYM.B → CYM.A, [['MR', 'MRC']]"
+          ],
+          "name": "connect_cap_to_MR_A",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized ZU: expected open",
+            "deenergized: missing safe route P1.P → T0.U via ('ZU',)"
+          ],
+          "name": "close_unpowered_unloader",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized ME2: expected open",
+            "deenergized: missing safe route CYM.A → T0.EB via ('ME2', 'OE2')"
+          ],
+          "name": "close_unpowered_cap_dump",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized SAL: expected bleed",
+            "deenergized: missing safe route ALP.A → T0.T via ('SAL', 'F2')"
+          ],
+          "name": "trap_unpowered_low_pressure_acc",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized SAX: expected bleed",
+            "deenergized: missing safe route AX.A → T0.T via ('SAX', 'F2')"
+          ],
+          "name": "trap_unpowered_pilot_acc",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized MEB: expected open",
+            "deenergized: missing safe route CYM.B → T0.ER via ('MEB',)",
+            "unknown command MEB=open",
+            "stop: missing safe route CYM.B → T0.ER via ('MEB',)",
+            "unknown command MEB=open"
+          ],
+          "name": "remove_rod_fault_dump",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "CYM.B: trapped volume without independent pressure relief via RVB",
+            "hold_decompression: missing function components",
+            "independent_fault_dump: missing function components"
+          ],
+          "name": "remove_rod_relief",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: WK locks on TF supply ports must be piloted closed"
+          ],
+          "name": "enable_MF_in_press",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "unknown command RTF=relief",
+            "TF: missing independent oil side relief to tank",
+            "TF.A: trapped volume without independent pressure relief via RTF",
+            "relief_tank_oil: TF.A → T0.ET, [['RTF']]",
+            "TET: line connects fewer than two ports"
+          ],
+          "name": "remove_oil_relief",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated', 'zsf_closed']",
+            "phases/press/additional_conditions: missing ['gate_closed', 'nose1_seated', 'nose2_seated']"
+          ],
+          "name": "remove_press_nose_and_gate",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "gate_open: missing safety conditions ['cap1_bar <= 3', 'cap2_bar <= 3']"
+          ],
+          "name": "remove_gate_cap_safe",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "return: safe cap channels and rod pressure required before opening",
+            "return: low-pressure TF opening interlock missing"
+          ],
+          "name": "remove_return_cap_safe",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "eject: low-pressure TF opening interlock missing"
+          ],
+          "name": "remove_MBT_pressure_guard",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: MR and MT overlap outside timed handover",
+            "press: missing pilot/drain for MR: SAX.A → MR.X"
+          ],
+          "name": "press_MR_and_MT_overlap",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: rod pressure can intensify with cap feed and blocked rod port",
+            "press: CYM.B → T0.T, [['MT']]"
+          ],
+          "name": "press_rod_ports_blocked",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "handover: exclusive timed edge overlap with pump isolated and rod pressure monitored",
+            "handover: MT must open to tank before MR closes",
+            "handover_regen_press: CYM.B → T0.T, [['MT', 'F2']]"
+          ],
+          "name": "remove_handover_overlap_opening",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: nose clearance must be proved after command by the travel/deadline"
+          ],
+          "name": "block_nose_before_it_moves",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: verify both edges before resuming MP",
+            "press: VR at center and both float positions required",
+            "press: absent_sensor"
+          ],
+          "name": "unknown_guard_sensor",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "RVM: pressure rating below design",
+            "RVM.P: pressure rating 250 < 315 bar"
+          ],
+          "name": "underrated_cap_relief",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "handover: exclusive timed edge overlap with pump isolated and rod pressure monitored",
+            "handover: power feed still reaches MA",
+            "handover_regen_press: unintended P1.P → CYM.A"
+          ],
+          "name": "energize_MP_in_overlap",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "ZSF: application case 4, available 950 L/min; case 2 required"
+          ],
+          "name": "wrong_ZSF_installation",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "eject: live mechanical permission and stop on loss required"
+          ],
+          "name": "remove_eject_gate_permission",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "gate_close: live mechanical permission and stop on loss required"
+          ],
+          "name": "remove_gate_close_ram_permission",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "feed: live mechanical permission and stop on loss required"
+          ],
+          "name": "remove_feed_nose_permissions",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "eject: live mechanical permission and stop on loss required",
+            "phases/eject/conditions: missing ['gate_open', 'rapid_hydraulics_proven']"
+          ],
+          "name": "remove_eject_gate_condition",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "gate_close: live mechanical permission and stop on loss required",
+            "phases/gate_close/conditions: missing ['ram_mm <= 285']"
+          ],
+          "name": "increase_gate_close_ram_limit",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "feed: live mechanical permission and stop on loss required"
+          ],
+          "name": "remove_feed_nose2_condition",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "deenergized: missing safe route ZU.X → T0.DZ via ('ZUP',)",
+            "stop: missing safe route ZU.X → T0.DZ via ('ZUP',)",
+            "nose_loss: missing safe route ZU.X → T0.DZ via ('ZUP',)",
+            "ZUP: exclusive drain to T0 at no more than 2 bar required",
+            "stop: ZU.X → T0.DZ, [['ZUP']]"
+          ],
+          "name": "common_ZUP_drain",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "MD: closed when de-energized required",
+            "hold: unintended CYM.A → T0.E"
+          ],
+          "name": "unpowered_MD_opens",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "hold: keep both rapid cylinders floating",
+            "hold: CYR1.B → T0.RF, [['RFB']]",
+            "hold: CYR2.B → T0.RF, [['RFB']]"
+          ],
+          "name": "hold_loses_rapid_float",
+          "new": false,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/press_chain: missing ['nose1_seated']"
+          ],
+          "name": "guard_library_press_chain:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/press_chain: missing ['nose2_seated']"
+          ],
+          "name": "guard_library_press_chain:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/press_chain: missing ['gate_closed']"
+          ],
+          "name": "guard_library_press_chain:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/press_chain: missing ['zsf_closed']"
+          ],
+          "name": "guard_library_press_chain:zsf_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/press_chain: missing ['mf_locked']"
+          ],
+          "name": "guard_library_press_chain:mf_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/press_chain: missing ['mbt_locked']"
+          ],
+          "name": "guard_library_press_chain:mbt_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/service: missing ['selected_cooling_ok']"
+          ],
+          "name": "guard_library_service:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/service: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "guard_library_service:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/service: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "guard_library_service:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/fill_chain: missing ['prefill_bar >= 0.55']"
+          ],
+          "name": "guard_library_fill_chain:prefill_bar >= 0.55",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "guard_library/fill_chain: missing ['prefill_bar < 1.2']"
+          ],
+          "name": "guard_library_fill_chain:prefill_bar < 1.2",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/press/conditions: missing ['nose1_seated']"
+          ],
+          "name": "mechanical_permissions_press_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/press/conditions: missing ['nose2_seated']"
+          ],
+          "name": "mechanical_permissions_press_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/press/conditions: missing ['gate_closed']"
+          ],
+          "name": "mechanical_permissions_press_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/press/conditions: missing ['zsf_closed']"
+          ],
+          "name": "mechanical_permissions_press_conditions:zsf_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/press/conditions: missing ['mf_locked']"
+          ],
+          "name": "mechanical_permissions_press_conditions:mf_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/press/conditions: missing ['mbt_locked']"
+          ],
+          "name": "mechanical_permissions_press_conditions:mbt_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/pre_down/conditions: missing ['cap1_bar <= 3']"
+          ],
+          "name": "mechanical_permissions_pre_down_conditions:cap1_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/pre_down/conditions: missing ['cap2_bar <= 3']"
+          ],
+          "name": "mechanical_permissions_pre_down_conditions:cap2_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/pre_up/conditions: missing ['cap1_bar <= 3']"
+          ],
+          "name": "mechanical_permissions_pre_up_conditions:cap1_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "mechanical_permissions/pre_up/conditions: missing ['cap2_bar <= 3']"
+          ],
+          "name": "mechanical_permissions_pre_up_conditions:cap2_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/conditions: missing ['nose1_seated']"
+          ],
+          "name": "phases_prefill_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/conditions: missing ['nose2_seated']"
+          ],
+          "name": "phases_prefill_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/conditions: missing ['rg_open_proven']"
+          ],
+          "name": "phases_prefill_conditions:rg_open_proven",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/conditions: missing ['rt_closed_proven']"
+          ],
+          "name": "phases_prefill_conditions:rt_closed_proven",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/conditions: missing ['rapid_hydraulics_proven']"
+          ],
+          "name": "phases_prefill_conditions:rapid_hydraulics_proven",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "eject: live mechanical permission and stop on loss required",
+            "phases/eject/conditions: missing ['gate_open']"
+          ],
+          "name": "phases_eject_conditions:gate_open",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/eject/conditions: missing ['rapid_hydraulics_proven']"
+          ],
+          "name": "phases_eject_conditions:rapid_hydraulics_proven",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/return/conditions: missing ['rapid_hydraulics_proven']"
+          ],
+          "name": "phases_return_conditions:rapid_hydraulics_proven",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/closed_ports/conditions: missing ['nose1_seated']"
+          ],
+          "name": "phases_closed_ports_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/closed_ports/conditions: missing ['nose2_seated']"
+          ],
+          "name": "phases_closed_ports_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/closed_ports/conditions: missing ['gate_closed']"
+          ],
+          "name": "phases_closed_ports_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/closed_ports/conditions: missing ['zsf_closed']"
+          ],
+          "name": "phases_closed_ports_conditions:zsf_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "closed_ports: WK locks on TF supply ports must be piloted closed",
+            "phases/closed_ports/conditions: missing ['mf_locked']"
+          ],
+          "name": "phases_closed_ports_conditions:mf_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "closed_ports: WK locks on TF supply ports must be piloted closed",
+            "phases/closed_ports/conditions: missing ['mbt_locked']"
+          ],
+          "name": "phases_closed_ports_conditions:mbt_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated', 'zsf_closed']",
+            "phases/press/additional_conditions: missing ['nose1_seated']"
+          ],
+          "name": "phases_press_additional_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated', 'zsf_closed']",
+            "phases/press/additional_conditions: missing ['nose2_seated']"
+          ],
+          "name": "phases_press_additional_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated', 'zsf_closed']",
+            "phases/press/additional_conditions: missing ['gate_closed']"
+          ],
+          "name": "phases_press_additional_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated', 'zsf_closed']",
+            "phases/press/additional_conditions: missing ['zsf_closed']"
+          ],
+          "name": "phases_press_additional_conditions:zsf_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated', 'zsf_closed']",
+            "press: WK locks on TF supply ports must be piloted closed",
+            "phases/press/additional_conditions: missing ['mf_locked']"
+          ],
+          "name": "phases_press_additional_conditions:mf_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "press: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated', 'zsf_closed']",
+            "press: WK locks on TF supply ports must be piloted closed",
+            "phases/press/additional_conditions: missing ['mbt_locked']"
+          ],
+          "name": "phases_press_additional_conditions:mbt_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "regen: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "phases/regen/additional_conditions: missing ['nose1_seated']"
+          ],
+          "name": "phases_regen_additional_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "regen: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "phases/regen/additional_conditions: missing ['nose2_seated']"
+          ],
+          "name": "phases_regen_additional_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "regen: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "phases/regen/additional_conditions: missing ['gate_closed']"
+          ],
+          "name": "phases_regen_additional_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/regen/additional_conditions: missing ['zsf_closed']"
+          ],
+          "name": "phases_regen_additional_conditions:zsf_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "regen: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "regen: WK locks on TF supply ports must be piloted closed",
+            "phases/regen/additional_conditions: missing ['mf_locked']"
+          ],
+          "name": "phases_regen_additional_conditions:mf_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "regen: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "regen: WK locks on TF supply ports must be piloted closed",
+            "phases/regen/additional_conditions: missing ['mbt_locked']"
+          ],
+          "name": "phases_regen_additional_conditions:mbt_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "hold: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "phases/hold/additional_conditions: missing ['nose1_seated']"
+          ],
+          "name": "phases_hold_additional_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "hold: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "phases/hold/additional_conditions: missing ['nose2_seated']"
+          ],
+          "name": "phases_hold_additional_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "hold: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "phases/hold/additional_conditions: missing ['gate_closed']"
+          ],
+          "name": "phases_hold_additional_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/hold/additional_conditions: missing ['zsf_closed']"
+          ],
+          "name": "phases_hold_additional_conditions:zsf_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "hold: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "hold: WK locks on TF supply ports must be piloted closed",
+            "phases/hold/additional_conditions: missing ['mf_locked']"
+          ],
+          "name": "phases_hold_additional_conditions:mf_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "hold: missing safety conditions ['gate_closed', 'mbt_locked', 'mf_locked', 'nose1_seated', 'nose2_seated']",
+            "hold: WK locks on TF supply ports must be piloted closed",
+            "phases/hold/additional_conditions: missing ['mbt_locked']"
+          ],
+          "name": "phases_hold_additional_conditions:mbt_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/unload/conditions: missing ['nose1_seated']"
+          ],
+          "name": "phases_unload_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/unload/conditions: missing ['nose2_seated']"
+          ],
+          "name": "phases_unload_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/unload/conditions: missing ['gate_closed']"
+          ],
+          "name": "phases_unload_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_open/conditions: missing ['nose1_seated']"
+          ],
+          "name": "phases_gate_open_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_open/conditions: missing ['nose2_seated']"
+          ],
+          "name": "phases_gate_open_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_down/conditions: missing ['cap1_bar <= 3']"
+          ],
+          "name": "phases_pre_down_conditions:cap1_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_down/conditions: missing ['cap2_bar <= 3']"
+          ],
+          "name": "phases_pre_down_conditions:cap2_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_down/conditions: missing ['pre_a_bar <= 132']"
+          ],
+          "name": "phases_pre_down_conditions:pre_a_bar <= 132",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/conditions: missing ['cap1_bar <= 3']"
+          ],
+          "name": "phases_pre_up_conditions:cap1_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/conditions: missing ['cap2_bar <= 3']"
+          ],
+          "name": "phases_pre_up_conditions:cap2_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/entry_conditions: missing ['ram_mm >= 295']"
+          ],
+          "name": "phases_pre_up_entry_conditions:ram_mm >= 295",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/entry_conditions: missing ['gate_open']"
+          ],
+          "name": "phases_pre_up_entry_conditions:gate_open",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/entry_conditions: missing ['cap1_bar <= 3']"
+          ],
+          "name": "phases_pre_up_entry_conditions:cap1_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/entry_conditions: missing ['cap2_bar <= 3']"
+          ],
+          "name": "phases_pre_up_entry_conditions:cap2_bar <= 3",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "gate_close: live mechanical permission and stop on loss required",
+            "phases/gate_close/conditions: missing ['ram_mm <= 285']"
+          ],
+          "name": "phases_gate_close_conditions:ram_mm <= 285",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/conditions: missing ['gate_closed']"
+          ],
+          "name": "phases_pilot_reserve_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/conditions: missing ['ram_mm <= 1']"
+          ],
+          "name": "phases_pilot_reserve_conditions:ram_mm <= 1",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/conditions: missing ['shoe_mm <= 1']"
+          ],
+          "name": "phases_pilot_reserve_conditions:shoe_mm <= 1",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/conditions: missing ['nose1_clear']"
+          ],
+          "name": "phases_pilot_reserve_conditions:nose1_clear",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/conditions: missing ['nose2_clear']"
+          ],
+          "name": "phases_pilot_reserve_conditions:nose2_clear",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/additional_conditions: missing ['nose1_seated']"
+          ],
+          "name": "switching_windows_handover_regen_press_additional_conditions:nose1_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/additional_conditions: missing ['nose2_seated']"
+          ],
+          "name": "switching_windows_handover_regen_press_additional_conditions:nose2_seated",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/additional_conditions: missing ['gate_closed']"
+          ],
+          "name": "switching_windows_handover_regen_press_additional_conditions:gate_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/additional_conditions: missing ['zsf_closed']"
+          ],
+          "name": "switching_windows_handover_regen_press_additional_conditions:zsf_closed",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/additional_conditions: missing ['mf_locked']"
+          ],
+          "name": "switching_windows_handover_regen_press_additional_conditions:mf_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/additional_conditions: missing ['mbt_locked']"
+          ],
+          "name": "switching_windows_handover_regen_press_additional_conditions:mbt_locked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "switching_windows_handover_regen_press_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "switching_windows_handover_regen_press_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "switching_windows/handover_regen_press/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "switching_windows_handover_regen_press_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "operating_branches/cool_water/entry_conditions: missing ['oil_C >= 45']"
+          ],
+          "name": "operating_branches_cool_water_entry_conditions:oil_C >= 45",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "operating_branches/cool_water/continuation_conditions: missing ['water_flow_ok']"
+          ],
+          "name": "operating_branches_cool_water_continuation_conditions:water_flow_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "operating_branches/cool_water/exit_conditions: missing ['oil_C <= 42']"
+          ],
+          "name": "operating_branches_cool_water_exit_conditions:oil_C <= 42",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "cooling_run_proof/water/oil_guards: missing ['cool_flow_ok']"
+          ],
+          "name": "cooling_run_proof_water_oil_guards:cool_flow_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "cooling_run_proof/water/oil_guards: missing ['oil_C <= 55']"
+          ],
+          "name": "cooling_run_proof_water_oil_guards:oil_C <= 55",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "cooling_run_proof/water/on_demand_water_guards: missing ['water_flow_ok']"
+          ],
+          "name": "cooling_run_proof_water_on_demand_water_guards:water_flow_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "cooling_run_proof/air/oil_guards: missing ['cool_flow_ok']"
+          ],
+          "name": "cooling_run_proof_air_oil_guards:cool_flow_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "cooling_run_proof/air/oil_guards: missing ['cooler_1_flow_ok']"
+          ],
+          "name": "cooling_run_proof_air_oil_guards:cooler_1_flow_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "cooling_run_proof/air/oil_guards: missing ['cooler_2_flow_ok']"
+          ],
+          "name": "cooling_run_proof_air_oil_guards:cooler_2_flow_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "cooling_run_proof/air/oil_guards: missing ['oil_C <= 55']"
+          ],
+          "name": "cooling_run_proof_air_oil_guards:oil_C <= 55",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_down/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_pre_down_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_down/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_pre_down_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_down/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_pre_down_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_prefill_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_prefill_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_prefill_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/closed_ports/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_closed_ports_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/closed_ports/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_closed_ports_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/closed_ports/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_closed_ports_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/regen/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_regen_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/regen/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_regen_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/regen/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_regen_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/press/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_press_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/press/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_press_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/press/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_press_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/hold/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_hold_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/hold/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_hold_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/hold/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_hold_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/unload/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_unload_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/unload/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_unload_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/unload/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_unload_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_open/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_gate_open_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_open/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_gate_open_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_open/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_gate_open_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/eject/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_eject_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/eject/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_eject_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/eject/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_eject_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/return/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_return_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/return/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_return_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/return/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_return_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_close/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_gate_close_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_close/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_gate_close_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/gate_close/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_gate_close_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_pre_up_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_pre_up_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pre_up/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_pre_up_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/feed/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_feed_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/feed/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_feed_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/feed/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_feed_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/common_conditions: missing ['selected_cooling_ok']"
+          ],
+          "name": "phases_pilot_reserve_common_conditions:selected_cooling_ok",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/common_conditions: missing ['dfe_z_bar >= 20']"
+          ],
+          "name": "phases_pilot_reserve_common_conditions:dfe_z_bar >= 20",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/pilot_reserve/common_conditions: missing ['dfe_z_bar <= 50']"
+          ],
+          "name": "phases_pilot_reserve_common_conditions:dfe_z_bar <= 50",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/prefill/additional_conditions: missing ['prefill_bar >= 0.55']"
+          ],
+          "name": "phases_prefill_additional_conditions:prefill_bar >= 0.55",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "prefill: low-pressure TF opening interlock missing",
+            "phases/prefill/additional_conditions: missing ['prefill_bar < 1.2']"
+          ],
+          "name": "phases_prefill_additional_conditions:prefill_bar < 1.2",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/eject/additional_conditions: missing ['prefill_bar >= 0.55']"
+          ],
+          "name": "phases_eject_additional_conditions:prefill_bar >= 0.55",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "eject: low-pressure TF opening interlock missing",
+            "phases/eject/additional_conditions: missing ['prefill_bar < 1.2']"
+          ],
+          "name": "phases_eject_additional_conditions:prefill_bar < 1.2",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "phases/return/additional_conditions: missing ['prefill_bar >= 0.55']"
+          ],
+          "name": "phases_return_additional_conditions:prefill_bar >= 0.55",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "return: low-pressure TF opening interlock missing",
+            "phases/return/additional_conditions: missing ['prefill_bar < 1.2']"
+          ],
+          "name": "phases_return_additional_conditions:prefill_bar < 1.2",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Nose: both independent seated sensors are required",
+            "duplicate sensor tags",
+            "closed_ports: nose2_seated",
+            "gate_open: nose2_seated",
+            "handover_regen_press: nose2_seated"
+          ],
+          "name": "merge_nose_channels",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "MF: both Double-B passages serve MA"
+          ],
+          "name": "miswire_2nd_MF_B",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Nose: either channel must trip independent safety outputs"
+          ],
+          "name": "remove_nose_trip",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: main pump and verified minimum unlock force required"
+          ],
+          "name": "lose_unlock_source",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: main pump and verified minimum unlock force required"
+          ],
+          "name": "lower_unlock_pressure",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "return: rapid regeneration must be isolated"
+          ],
+          "name": "return_regen_active",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Cooling: require both FT1/FT2 and FT in air mode"
+          ],
+          "name": "lose_air_branch_flow",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Cooling: stopped machine needed for changeover"
+          ],
+          "name": "switch_cooling_during_motion",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: nose clearance must be proved after command by the travel/deadline"
+          ],
+          "name": "unlock_sensor_missing_proof",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Cooling: bypass must not prove cooler flow through FT"
+          ],
+          "name": "cool_bypass_feeds_flowmeter",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Shoe: independent branch relief must limit full-cap force to 171 kN"
+          ],
+          "name": "increase_shoe_relief",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "DFE1Z port Z: independent 50 bar relief required"
+          ],
+          "name": "disable_dfe_relief",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "HP: rigid steel construction required"
+          ],
+          "name": "allow_flexible_main_pressure_line",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "TT requires valid live input, 31/30 °C hysteresis and 1005 L/min warmup cap"
+          ],
+          "name": "TT_full_before_30",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "TT requires valid live input, 31/30 °C hysteresis and 1005 L/min warmup cap"
+          ],
+          "name": "TT_no_hysteresis",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "TT requires valid live input, 31/30 °C hysteresis and 1005 L/min warmup cap"
+          ],
+          "name": "TT_invalid_allows_rapid",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "TT requires valid live input, 31/30 °C hysteresis and 1005 L/min warmup cap"
+          ],
+          "name": "TT_no_live_cancel",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "TT requires valid live input, 31/30 °C hysteresis and 1005 L/min warmup cap"
+          ],
+          "name": "TT_warmup_flow_too_high",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "prefill: TT mode and live validity required"
+          ],
+          "name": "TT_prefill_unlinked",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "eject: TT mode and live validity required"
+          ],
+          "name": "TT_eject_loses_validity",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: verified P1 pressure of at least 45 bar until nose is clear"
+          ],
+          "name": "P1_pre_up_low_setting",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: verified P1 pressure of at least 45 bar until nose is clear"
+          ],
+          "name": "P1_pre_up_low_live_bound",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: verified P1 pressure of at least 45 bar until nose is clear"
+          ],
+          "name": "P1_pre_up_drop_live_proof",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "pre_up: verified P1 pressure of at least 45 bar until nose is clear"
+          ],
+          "name": "P1_pre_up_drop_entry_proof",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "VG must be supplied from HP with LG and its lines removed",
+            "gate_open: P1.P → CYG.B, [['VG']]",
+            "gate_open: unintended ALP.A → CYG.B",
+            "gate_close: P1.P → CYG.A, [['VG']]",
+            "gate_close: unintended ALP.A → CYG.A"
+          ],
+          "name": "VG_open_misconnected_to_LP",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "gate_close: require P1 through VG and exclude the LP route"
+          ],
+          "name": "VG_close_LP_added",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "TF to ZSF.A: steel pipe of at most 0.5 m required"
+          ],
+          "name": "TF_wrong_length",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "TF to ZSF.A: steel pipe of at most 0.5 m required"
+          ],
+          "name": "TF_flexible",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Main pressure lines and MF/MC/ZSF cavities must be rigid steel"
+          ],
+          "name": "main_pockets_flexible",
+          "new": true,
+          "status": "FAIL"
+        },
+        {
+          "diagnostics": [
+            "Gate: require two live upper-bound readings ≤3 bar and keep 5 bar load estimate"
+          ],
+          "name": "cap_pressure_bound_weakened",
+          "new": true,
+          "status": "FAIL"
+        }
+      ],
+      "expected": 203,
+      "new_interlocks": 170,
+      "rejected": 203,
+      "total": 203
+    },
+    "passed": true,
+    "phases_without_flow_path": 0,
+    "physical_phases": 14,
+    "rating_errors": [],
+    "reference_mapping": {
+      "closed_ports": [
+        "regen port compression"
+      ],
+      "eject": [
+        "eject 1",
+        "eject 2",
+        "eject 3",
+        "eject 4",
+        "eject 5",
+        "eject 6",
+        "eject 7",
+        "eject 8",
+        "eject 9",
+        "eject 10",
+        "eject 11",
+        "eject 12",
+        "eject 13",
+        "eject 14",
+        "eject 15",
+        "eject 16",
+        "eject 17"
+      ],
+      "feed": [
+        "feed"
+      ],
+      "gate_close": [
+        "gate_close 1",
+        "gate_close 2",
+        "gate_close 3",
+        "gate_close 4",
+        "gate_close 5",
+        "gate_close 6",
+        "gate_close 7",
+        "gate_close 8",
+        "gate_close 9"
+      ],
+      "gate_open": [
+        "gate_open 1",
+        "gate_open 2",
+        "gate_open 3",
+        "gate_open 4",
+        "gate_open 5",
+        "gate_open 6",
+        "gate_open 7",
+        "gate_open 8",
+        "gate_open 9",
+        "gate_open 10",
+        "gate_open 11",
+        "gate_open 12",
+        "gate_open 13"
+      ],
+      "hold": [
+        "hold"
+      ],
+      "pilot_reserve": [
+        "pilot_reserve"
+      ],
+      "pre_down": [
+        "pre_down 1",
+        "pre_down 2",
+        "pre_down 3",
+        "pre_down 4",
+        "pre_down 5"
+      ],
+      "pre_up": [
+        "pre_up 1",
+        "pre_up 2"
+      ],
+      "prefill": [
+        "prefill 1",
+        "prefill 2",
+        "prefill 3",
+        "prefill 4",
+        "prefill 5",
+        "prefill 6",
+        "prefill 7",
+        "prefill 8",
+        "prefill 9",
+        "prefill 10",
+        "prefill 11",
+        "prefill 12",
+        "prefill 13",
+        "prefill 14",
+        "prefill 15",
+        "prefill 16",
+        "prefill 17",
+        "prefill 18"
+      ],
+      "press": [
+        "press 1",
+        "press 2",
+        "press 3",
+        "press 4",
+        "press 5",
+        "press 6",
+        "press 7",
+        "press 8",
+        "press 9",
+        "press 10",
+        "press 11",
+        "press 12",
+        "press 13",
+        "press 14",
+        "press 15",
+        "press 16",
+        "press 17",
+        "press 18",
+        "press 19",
+        "press 20",
+        "press 21",
+        "press 22",
+        "press 23",
+        "press 24",
+        "press 25",
+        "press 26",
+        "press 27",
+        "press 28",
+        "press 29",
+        "press 30"
+      ],
+      "regen": [
+        "regen 2",
+        "regen 3",
+        "regen 4",
+        "regen 5",
+        "regen 6",
+        "regen 7",
+        "regen 8",
+        "regen 9",
+        "regen 10",
+        "regen 11",
+        "regen 12",
+        "regen 13",
+        "regen 14",
+        "regen 15",
+        "regen 16",
+        "regen 17",
+        "regen 18"
+      ],
+      "return": [
+        "return 1",
+        "return 2",
+        "return 3",
+        "return 4",
+        "return 5",
+        "return 6",
+        "return 7",
+        "return 8",
+        "return 9"
+      ],
+      "unload": [
+        "unload"
+      ]
+    },
+    "reference_rows": 125,
+    "rod_intensification": {
+      "cap_to_annulus_ratio": 2.0416666666666665,
+      "trapped_rod_at_120_bar_bar": 244.99999999999997,
+      "trapped_rod_at_300_bar_bar": 612.5
+    },
+    "route_errors": [],
+    "safety_errors": [],
+    "sensors": 53,
+    "unknown_sensor_interlocks": 0,
+    "unknown_sensor_references": [],
+    "unmapped_reference_steps": [],
+    "verified_paths": {
+      "closed_ports": [
+        {
+          "from": "P1.P",
+          "to": "CYM.A",
+          "via": [
+            "F1",
+            "MP",
+            "MHOLD"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "cool_air": [
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "ACP",
+            "CAPA",
+            "E1",
+            "FT1",
+            "CAPB",
+            "ACF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "ACP",
+            "CAPA",
+            "E2",
+            "FT2",
+            "CAPB",
+            "ACF",
+            "FT",
+            "CD"
+          ]
+        }
+      ],
+      "cool_bypass": [
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "CB",
+            "CD"
+          ]
+        }
+      ],
+      "cool_water": [
+        {
+          "from": "WBR.IN",
+          "to": "WBR.OUT",
+          "via": [
+            "WF",
+            "WV",
+            "WFT",
+            "GL"
+          ]
+        }
+      ],
+      "eject": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.A",
+          "via": [
+            "ZSF"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "TF.A",
+          "via": [
+            "MBT"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "eject+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.A",
+          "via": [
+            "ZSF"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "TF.A",
+          "via": [
+            "MBT"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "eject/lp": [
+        {
+          "from": "ALP.A",
+          "to": "CYR1.A",
+          "via": [
+            "SAL",
+            "LR",
+            "LRC"
+          ]
+        },
+        {
+          "from": "ALP.A",
+          "to": "CYR2.A",
+          "via": [
+            "SAL",
+            "LR",
+            "LRC"
+          ]
+        }
+      ],
+      "feed": [
+        {
+          "from": "P1.P",
+          "to": "ALP.A",
+          "via": [
+            "F1",
+            "LCH",
+            "LCC",
+            "SAL"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "fill_balance_in": [
+        {
+          "from": "PC.P",
+          "to": "TF.A",
+          "via": [
+            "BAL"
+          ]
+        }
+      ],
+      "fill_balance_out": [
+        {
+          "from": "TF.A",
+          "to": "T0.T",
+          "via": [
+            "BAL",
+            "F2"
+          ]
+        }
+      ],
+      "gate_close": [
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "gate_close+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "gate_open": [
+        {
+          "from": "P1.P",
+          "to": "CYG.B",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.A",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "handover_regen_press": [
+        {
+          "from": "CYM.B",
+          "to": "T0.T",
+          "via": [
+            "MT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        }
+      ],
+      "hold": [
+        {
+          "from": "P1.P",
+          "to": "ALP.A",
+          "via": [
+            "F1",
+            "LCH",
+            "LCC",
+            "SAL"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "nose_loss": [
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "ME1",
+            "OE1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "MEB1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "ME2",
+            "OE2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "MEB2"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.ER",
+          "via": [
+            "MEB"
+          ]
+        },
+        {
+          "from": "ALP.A",
+          "to": "T0.T",
+          "via": [
+            "SAL",
+            "F2"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "T0.T",
+          "via": [
+            "SAX",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "T0.U",
+          "via": [
+            "ZU"
+          ]
+        },
+        {
+          "from": "ZU.X",
+          "to": "T0.DZ",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        },
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "pilot_booster_priority": [
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "pilot_idle": [
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        },
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "pilot_main_priority": [
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        }
+      ],
+      "pilot_reserve": [
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "pre_down": [
+        {
+          "from": "P1.P",
+          "to": "PCY.A",
+          "via": [
+            "F1",
+            "PPA"
+          ]
+        },
+        {
+          "from": "PCY.B",
+          "to": "T0.T",
+          "via": [
+            "PL1",
+            "PBT",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "pre_down/lp": [
+        {
+          "from": "ALP.A",
+          "to": "PCY.A",
+          "via": [
+            "SAL",
+            "PBA",
+            "PAA"
+          ]
+        }
+      ],
+      "pre_up": [
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "pre_up/lp": [
+        {
+          "from": "ALP.A",
+          "to": "PCY.B",
+          "via": [
+            "SAL",
+            "PBB",
+            "PAB"
+          ]
+        }
+      ],
+      "prefill": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.A",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "CYR1.A",
+          "via": [
+            "RG",
+            "RGC"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "CYR2.A",
+          "via": [
+            "RG",
+            "RGC"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.A",
+          "via": [
+            "ZSF"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "TF.A",
+          "via": [
+            "MBT"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "press": [
+        {
+          "from": "P1.P",
+          "to": "CYM.A",
+          "via": [
+            "F1",
+            "MP",
+            "MHOLD"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.T",
+          "via": [
+            "MT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "regen": [
+        {
+          "from": "P1.P",
+          "to": "CYM.A",
+          "via": [
+            "F1",
+            "MP",
+            "MHOLD"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "CYM.A",
+          "via": [
+            "MR",
+            "MRC"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "relief_dfe_Z": [
+        {
+          "from": "P1.Z",
+          "to": "T0.EZ",
+          "via": [
+            "RVZ"
+          ]
+        }
+      ],
+      "relief_pre_A": [
+        {
+          "from": "PCY.A",
+          "to": "T0.EP",
+          "via": [
+            "RVA"
+          ]
+        }
+      ],
+      "relief_pre_B": [
+        {
+          "from": "PCY.B",
+          "to": "T0.EQ",
+          "via": [
+            "RVP"
+          ]
+        }
+      ],
+      "relief_tank_oil": [
+        {
+          "from": "TF.A",
+          "to": "T0.ET",
+          "via": [
+            "RTF"
+          ]
+        }
+      ],
+      "return": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ],
+      "return+gate_close": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        }
+      ],
+      "return+gate_close+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYG.A",
+          "via": [
+            "F1",
+            "VG"
+          ]
+        },
+        {
+          "from": "CYG.B",
+          "to": "T0.T",
+          "via": [
+            "VG",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "return+pre_up": [
+        {
+          "from": "P1.P",
+          "to": "CYR1.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "CYR2.B",
+          "via": [
+            "F1",
+            "RC",
+            "VR"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.T",
+          "via": [
+            "VR",
+            "RT",
+            "F2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "TF.A",
+          "via": [
+            "MF"
+          ]
+        },
+        {
+          "from": "TF.A",
+          "to": "CYM.B",
+          "via": [
+            "MC"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "PCY.B",
+          "via": [
+            "F1",
+            "PPB"
+          ]
+        },
+        {
+          "from": "PCY.A",
+          "to": "T0.T",
+          "via": [
+            "PAT",
+            "F2"
+          ]
+        }
+      ],
+      "stop": [
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "ME1",
+            "OE1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EA",
+          "via": [
+            "MEB1"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "ME2",
+            "OE2"
+          ]
+        },
+        {
+          "from": "CYM.A",
+          "to": "T0.EB",
+          "via": [
+            "MEB2"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.ER",
+          "via": [
+            "MEB"
+          ]
+        },
+        {
+          "from": "ALP.A",
+          "to": "T0.T",
+          "via": [
+            "SAL",
+            "F2"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "T0.T",
+          "via": [
+            "SAX",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "T0.U",
+          "via": [
+            "ZU"
+          ]
+        },
+        {
+          "from": "ZU.X",
+          "to": "T0.DZ",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "PX.P",
+          "to": "T0.T",
+          "via": [
+            "XV",
+            "F2"
+          ]
+        },
+        {
+          "from": "PXA.P",
+          "to": "T0.T",
+          "via": [
+            "XVA",
+            "F2"
+          ]
+        }
+      ],
+      "transition_unload": [
+        {
+          "from": "P1.P",
+          "to": "T0.T",
+          "via": [
+            "ZN",
+            "F2"
+          ]
+        }
+      ],
+      "unload": [
+        {
+          "from": "CYM.A",
+          "to": "T0.E",
+          "via": [
+            "MD",
+            "OR8"
+          ]
+        },
+        {
+          "from": "CYM.B",
+          "to": "T0.T",
+          "via": [
+            "MT",
+            "F2"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "ALP.A",
+          "via": [
+            "F1",
+            "LCH",
+            "LCC",
+            "SAL"
+          ]
+        },
+        {
+          "from": "CYR1.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR2.A",
+          "to": "T0.RF",
+          "via": [
+            "RFA"
+          ]
+        },
+        {
+          "from": "CYR1.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "CYR2.B",
+          "to": "T0.RF",
+          "via": [
+            "RFB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.A",
+          "via": [
+            "RCA"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR1.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.RF",
+          "to": "CYR2.B",
+          "via": [
+            "RCB"
+          ]
+        },
+        {
+          "from": "T0.S",
+          "to": "P1.S",
+          "via": []
+        },
+        {
+          "from": "P1.S",
+          "to": "P1.P",
+          "via": [
+            "P1"
+          ]
+        },
+        {
+          "from": "P1.P",
+          "to": "F1.A",
+          "via": [
+            "F1"
+          ]
+        },
+        {
+          "from": "ZU.P",
+          "to": "ZU.X",
+          "via": [
+            "ZUP"
+          ]
+        },
+        {
+          "from": "T0.C",
+          "to": "PC.S",
+          "via": []
+        },
+        {
+          "from": "T0.S",
+          "to": "PX.S",
+          "via": []
+        },
+        {
+          "from": "PX.S",
+          "to": "SAX.A",
+          "via": [
+            "PX",
+            "XC",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PXA.S",
+          "to": "SAX.A",
+          "via": [
+            "PXA",
+            "XCA",
+            "FX",
+            "SAX"
+          ]
+        },
+        {
+          "from": "PC.S",
+          "to": "T0.R",
+          "via": [
+            "PC",
+            "WCP",
+            "GL",
+            "WCF",
+            "FT",
+            "CD"
+          ]
+        },
+        {
+          "from": "AX.A",
+          "to": "P1.Z",
+          "via": [
+            "SAX",
+            "XZD"
+          ]
+        }
+      ]
+    }
+  }
+}

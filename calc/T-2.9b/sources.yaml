@@ -1,0 +1,322 @@
+catalogs:
+  ABB_T25C:
+    url: https://www.electricautomationnetwork.com/PDF/PIM/ABB/EN_3GAA202410-BDK.pdf
+    where: Паспорт 3GAA202410-BDK, исполнение IM B5, 400 В, 1481 об/мин, 55,1 А, 246 кг.
+  DFE1Z:
+    url: https://boschrexroth-russia.ru/image/catalog/docs/RE92088_2018-10.pdf
+    where: "RE 92088, с. 8–9: внешнее управление 20–50 бар, ограничитель угла 0…100 %, таблица портов NG180; 105/110 мс при 100 бар."
+  PARKER_EHV:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/MSG10-4082_UK_Distribution_Catalogue.pdf
+    where: "MSG10-4082/UK, с. 5, EHV, строка 10837101125: 17,8 л, 330 бар, 49 кг, G2."
+  SCHMERSAL:
+    url: https://products.schmersal.com/media/documents/DOC_MAN_MECS_AZ16_SEN_AIN_V1.pdf
+    where: "AZ 16, с. 2–4, независимый актуатор, прямое размыкание НЗ, монтаж и испытание."
+  BOWMAN_GL:
+    url: https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf
+    where: "С. 1–2, GL180-1428-3, поток/Δp, площадь 2,1 м², материал трубок."
+  WATER_VALVE:
+    url: https://designcenter.danfoss.com/products/climate-solutions-for-cooling/solenoid-valves/fluid-controls-solenoid-valves/ev220b/p/032U7125
+    where: EV220B25, артикул 032U7125, сверка режима по T-2.5b.
+  SUN_PRFB:
+    url: https://paro.nl/library/storage/datasheets/Sun/Cartridges/Sun_PRFB.pdf/datasheet.html
+    where: Заводской лист Sun PRFB, с. 1–2, T-2A, 80 л/мин, 350 бар, 35 бар типовой для B, 0,36 кг.
+  SUN_CXHA:
+    url: https://www.wojanis.com/customer/docs/skudocs/cxhaxan.pdf
+    where: Заводской лист Sun CXHAXAN, с. 1–2, 320 л/мин, 350 бар, 0,3 бар, 0,42 кг, кривая Δp.
+  SUN_RBAA:
+    url: https://paro.nl/library/storage/datasheets/Sun/Cartridges/Sun_RBAA.pdf/datasheet.html
+    where: Заводской лист Sun, RBAA, T-3A, защита запертого объёма.
+sources:
+  kracht_kf:
+    url: https://www.kracht-media.eu/wp-content/uploads/KF25-630-EN-08-2024.pdf
+    where: "Ред. 08/2024, с. 18–19: строки 125 см³/об при 950, 1150 и 1450 об/мин, столбцы 2 и 4 бар. С. 19: 34 мм²/с, запас двигателя 15 %, поправка выше 100 мм²/с. С. 20: оценка мощности при изменении оборотов и поправка на вязкость."
+  bowman_gl:
+    url: https://ej-bowman.com/wp-content/uploads/2025/01/GL-Series-Product-Profile-4.pdf
+    where: "С. 1: таблица GL180 при ISO VG46, 60 °C на входе масла, воде 30 °C и 150 л/мин. С. 2: сопротивление кожуха, площадь 2,1 м², CuNi 90/10 и пределы скорости в трубках."
+  bowman_manual:
+    url: https://ej-bowman.com/wp-content/uploads/2025/01/HOC-IOMG-Issue-E-English-5.pdf
+    where: Эксплуатация, запуск и качество воды
+  tellus:
+    url: https://www.epc.shell.com/DocumentManagement/BlobDocumentDownload?DocId=127811157
+    where: "Shell Tellus S2 MX 46, раздел 9.1: 580, 46 и 6,9 мм²/с при 0, 40 и 100 °C."
+  zsf:
+    url: https://dc-mkt-prod.cloud.bosch.tech/us/media/products_1/product_groups/goto_products/hydraulics/check_valves/re20478.pdf
+    where: "RE 20478 (2017-12), с. 6: «Maximum operating pressure … Port A … 16» бар, B/P 350 бар. С. 7: кривая A→B на HLP46 при 40 ±5 °C. С. 15: расход для монтажа по случаю 2."
+  project_pc:
+    url: design/hydraulics/T-1.6_circuit.yaml
+    where: PC, CB, FT1 и FT2
+  project_cooling:
+    url: calc/T-2.5b/sources.yaml
+    where: inputs, оценка общих потерь и параметры расчёта загрязнения
+  project_cooling_review:
+    url: ops/reports/T-2.5b/GK_review.md
+    where: Независимая проверка Opus, оценка перепада при 20 и 42–45 °C
+  project_station:
+    url: design/hydraulics/station.t25c.yaml
+    where: Действующие масса, охлаждение, воздушная опция и установленные мощности
+  project_exhaust:
+    url: calc/T-2.6/cycle/drive.py
+    where: prefill_budget, cap_out.peak_gauge_bar и return_drag_N
+  project_cycle:
+    url: calc/T-2.6/params/params.t26a.yaml
+    where: Эталонные параметры цикла
+  hydac_lp_us:
+    url: https://catalog.hydac.com/item/bladder-accumulators/type-sb-330-bladder-accumulator--standard/3047174
+    where: "Карточка 3047174, Weight: 63 кг."
+  hydac_lp_eu:
+    url: https://www.hydac.com/download/accumulator-technology-product-catalogue-1000443492-en.pdf
+    where: "EN 3.201.32/05.24, с. 41, 3047174: 49 кг, 18,4 л эффективного объёма, G2."
+  parker_lp:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Accumulator---Cooler-Division---Europe/catalogues/MSG10-4082_UK_Distribution_Catalogue.pdf
+    where: "Каталог MSG10-4082/UK, с. 5, таблица EHV, артикул 10837101125, 49 кг и 17,8 л."
+  project_m5:
+    url: calc/T-2.2/results.json
+    where: "zsf.transient.wave_speed_m_s, мгновенный останов M5."
+  project_t26:
+    url: calc/T-2.6/results.json
+    where: "prefill эталонного варианта: скорость впуска, давление в полости при выхлопе и уставки TF."
+  pc_screw:
+    url: https://www.parker.com/content/dam/Parker-com/Literature/Pump---Motor-Division/Catalogs/PDFs/HY13-PMDSPS1_US.pdf
+    where: "HY13-PMDSPS1-M1/US с. 23, SMT16B PSP55-330L, 1450 об/мин, 5/10 бар, 6/68/400 сСт."
+    mass_url: https://www.van-dinther.de/download/smt/55_16b_en.pdf
+    mass_where: Settima GR55 SMT16B, масса алюминиевого корпуса 15,5 кг, чугун 30 кг.
+  pc_vane:
+    url: https://yuken-usa.com/wp-content/uploads/2014/09/B-Vane-Pumps.pdf
+    where: "С. 165, масса PV2R4; с. 175, PV2R4-153, 1200 об/мин, 20 мм²/с, кривые Q и P. С. 160 — диапазон вязкости и пуск."
+    graph_mirror_url: https://yuken.cz/files/nova-slozka/B-Vane-Pumps.pdf
+  pc_motors:
+    url: https://library.e.abb.com/public/58d7dab0323045e787c050c15e34f2fb/9AAU00000000058%20Process%20performance%20Aluminum%20motors%20EN%2001-2025.pdf
+    where: "9AAU00000000058 01-2025, IE2, 400 В 50 Гц, 1500 r/min 4 poles, CENELEC design. Прокси массы ABB M3AA, двигатель PC не выбран."
+  fluid_transients:
+    url: https://www.publications.usace.army.mil/portals/76/publications/engineermanuals/em_1110-1-4008.pdf
+    where: "EM 1110-1-4008, §3-2, скорость волны, Жуковский, критерий 2L/a."
+  bunsen_hlp46:
+    url: https://tud.qucosa.de/api/qucosa%3A29303/attachment/ATT-0/
+    where: "IFK Dresden 2016, с. 185–186, эксперимент HLP46, α = 0,077, закон Генри."
+  wrce_step:
+    url: https://importtehsnab.ru/upload/catalog_docs/30.09.2025%20R/2WRCE_2WRCF.pdf
+    where: "RE 29406, с. 16–19; типовые кривые ступени при X=150 бар и Δp=5 бар, NG50 2K7L. Монтаж Double-B по более новой редакции RE 29406, с. 32, источник inventory.csv T-2.6."
+  wrle_step:
+    url: https://importtehsnab.ru/upload/catalog_docs/30.09.2025%20R/4WRLE.pdf
+    where: "RE 29123, с. 10, E1, NG25, типовой шаг 36 мс; с. 31 кривые."
+  emergency_dumps:
+    url: https://www.sunhydraulics.com/model/DFFA
+    where: "DFFA и DTAF, T-1.6/source SUN_NO. ME открывает аварийный слив, не отсекает PF; фактическую скорость потери расхода через ZSF при раннем открытии измерить."
+  rtf_455:
+    url: https://www.goetze-group.com/Series/455/goetze-455-datasheet-en.pdf
+    where: "Размерный ряд DN65/100, проход d0=59 мм, Kdr(F)=0,54; через TET, сравнить противодавление по каталогу и T-2.5c."
+  hose_ve:
+    url: https://www.parker.com/Literature/Parflex/CATALOG_4660-Thermoplastic_Hose.pdf
+    where: "CAT 4660 G-6, таблица Volumetric Expansion cc/ft vs psi; E-2, размеры и 5000 psi Parker 575X."
+  hose_steel:
+    url: https://hoses.semperitgroup.com/fileadmin/user_upload/MediaLibrary/Hoses/Products/Hydraulic_Hoses/09-2022_Semperit_Hydraulic_Hoses.pdf
+    where: "Таблицы 4SH и R15: ID, динамическое рабочее давление, масса, Rmin; кривой объёмного расширения в таблицах нет."
+  hose_797tc:
+    url: https://www.parker.com/content/dam/parker/lam/catalogs/pdf/4---conectores---mangueiras-e-conex%C3%B5es/6---mangueiras-e-conex%C3%B5es/05_C4400_UK_High_Pressure_Hose_and_Fi.pdf
+    catalog_url: https://www.parker.com/content/dam/Parker-com/Literature/Hose-Products-Division/Websphere-Supporting-Literature/Hydraulic_Hose_Quick_Reference_Guide.pdf
+    where: "4400, 797TC, 420 бар, ISO 18752 DC для крупных DN, SAE 100R15 / ISO 3862; VE требуется для точного исполнения."
+  hose_return:
+    url: https://www.parker.com/content/dam/parker/lam/catalogs/pdf/4---conectores---mangueiras-e-conex%C3%B5es/6---mangueiras-e-conex%C3%B5es/Hose%20Fittings%20and%20Equipment.pdf
+    where: "Catalog 4400, 811HT, 100R4, учитывать раздельные давления для соединений 81/88DB и 88HC."
+  hose_expansion_test:
+    url: https://www.iso.org/standard/81750.html
+    where: ISO 6801, метод определения объёмного расширения рукавов.
+  a4vso_through:
+    url: https://airlinemedia.airlinehyd.com/Literature/Manufacturer_Catalogs/Bosch%20Rexroth/data%20sheets/a4vso_10_31_re92050_2018_10.pdf
+    where: "RE 92050, с. 8 масса без проходного привода; с. 59 вариант U04 для NG180; страницы присоединения и допустимый момент."
+  nose_switch:
+    url: https://products.schmersal.com/de_DE/az-16-12zvrk-m16-101154221
+    where: "AZ 16-12ZVRK-M16: 120 г брутто без актуатора, B10d, условия Cat.3 и ресурс."
+  compact_gate_alternative:
+    url: https://staging-hydnet.demoplatsen.com/wp-content/uploads/DFEJ_full_en_metric_letter.pdf
+    where: "Sun DFEJ, 240 л/мин, 0,65 кг без подтверждения катушки и блока, кривая полного открытия; дискретный, нужен анализ дозирования VG."
+  iso_symbols:
+    url: https://www.iso.org/standard/51200.html
+    where: ISO 1219-2, правила схем с символами ISO 1219-1.
+
+  hm46_density:
+    url: https://doiserbia.nb.rs/img/doi/0354-9836/2016/0354-983616461K.pdf
+    where: "Knežević et al., Thermal Science 20 Suppl. 5, pp. S1461–S1471 (2016), table 1 p. S1464. Mineral HM 46. Air content and deaeration not specified."
+  hm46_modulus_crosscheck:
+    url: https://annals.fih.upt.ro/pdf-full/2016/ANNALS-2016-1-40.pdf
+    where: "Knežević et al., Effect of Bulk Modulus of Fluid on the Dynamic Behavior of the Hydraulic System, section 2, table 1. Isothermal tangent data."
+  sheet_barrel:
+    url: design/cylinders.t16.yaml
+    where: "CY-MAIN: Ø280/352, wall 36 mm; independently calc/T-2.2/cap_fea/joint.py, BARREL_K_N_MM."
+  sheet_steel:
+    url: calc/T-1.7d/fea/frame_analytic.py
+    where: "E_MPa = 210000. Poisson ratio 0.30 used for the elastic steel screen."
+  sheet_cover_ma:
+    url: design/main_cylinder_rear.t22.yaml
+    where: "cover: Ø520, thickness 144, through ZSF Ø124, 8 × Ø44 MA; use geometry as an upper-volume approximation."
+  sheet_tract:
+    url: design/hydraulics/T-2.9_circuit.yaml
+    where: "P0/HP DN50, MH DN40; materials, pressure and fittings preserved. Routed lengths, wall dimensions and pocket volumes await T-2.3."
+
+  pc_kf180:
+    url: https://www.kracht-media.eu/wp-content/uploads/KF25-630-EN-08-2024.pdf
+    where: "08/2024, p.18: nominal 180, 950 rpm, 2/4 bar, 169/166 L/min, 1.20/1.80 kW at 34 mm²/s. Notes pp.18–20: Q +10%/-5%, below 30 mm²/s flow reduction, above 100 mm²/s power correction, +15% motor margin. P.23: 24.8 kg (plain SAE, no D-valve)."
+  pc_kf180_displacement_screen:
+    url: https://www.hydropress.cz/en/other-external-gear-pumps/4112-kf-180-rg1-kracht-hydraulic-gear-pump-1866-ccm-rev-25-bar-2383209933620.html
+    where: "Data sheet, sold variant KF 180 RG1: 186.6 cm³/rev. Upper displacement input for provisional pump/line screening. Get exact ordering code and displacement from KRACHT."
+  pc_abb_ie3_6p:
+    url: https://new.abb.com/docs/librariesprovider9/documentation-meps/1txh000065l0303_offre-process-performance.pdf
+    where: "ABB Process Performance p.91, IE3 1000 rpm section, 1.5 kW M3AA 100LC 6, 3GAA103530-••J; 962 rpm, 14.9 Nm, 28 kg nominal. Qualify B5 and speed regulation."
+  pc_abb_055_proxy:
+    url: https://library.e.abb.com/public/e4048facd0e24140ac9963a1a841f40a/Process%20perf%209AKK105944%20EN%2006-2018%20LR.pdf
+    where: "9AKK105944, 400 V 50 Hz, CENELEC, 4 poles, M3AA 80A 4, 0.55 kW, 8.5 kg. Proxy for unitemized T16-09."
+  pc_asa_loss:
+    url: https://asahydraulics.us/es/product/thermal-systemsoilair-coolersstandard-rangesauc-series/asa-0567-230400v-075kw-50hz
+    where: "ASA0567AA47, pressure loss. Values 75/150 L/min at 0.40/0.90 bar recorded in calc/T-1.6/sources.yaml, common loss budget 0.72 bar."
+  ptz_ifm:
+    url: https://media.ifm.com/dam/96fda789-9689-4c83-a08a-0f0bb39f3f5c/Original/PT5402-01_EN-GB.pdf
+    where: "PT5402-01 EN-GB, technical data: 0–100 bar, 4–20 mA, mechanical data 59 g. Mounting accessories separate."
+  rvz_sun:
+    url: https://staging-hydnet.demoplatsen.com/wp-content/uploads/RDBA.pdf
+    where: "Sun RDBA metric cutsheet, pp.1–2, 0.10 kg, T-162A, 45 L/min; D spring 14–55 bar. Candidate mass, verify P–Q and downstream back pressure before approval."
+  reserve_T16:
+    url: calc/T-1.6/results.json
+    where: "heat_balance.cooling.installed_breakdown_kW: 30 + 1.50 + 0.55 + 0.75 (dosing) + 1.10 (controls/valves)."
+  reserve_T26:
+    url: calc/T-2.6/sources.yaml
+    where: "study.added_regen_coils_count = 2, catalogs.pilot_coil 30 W per coil, study.aux_controls_allowance_W = 24. Selected variant plus 84 W vs 33.984 kW base."
+  reserve_T26_base:
+    url: calc/T-2.6/params/params.t26_base.yaml
+    where: "drive.installed_kW 33.984; +0.084 kW relative to identifiable T-1.6 balance, no unique attribution established."
+  reserve_water:
+    url: calc/T-2.5b/sources.yaml
+    where: "0.035 kW water budget, includes 18 W Danfoss BB024DS, 17 W aggregate headroom."
+
+  pc_vfd:
+    url: https://library.e.abb.com/public/97413d87ab064a0cb0a32c0363da81c4/EN_ACS180_HW_E.pdf
+    where: "ABB ACS180 HW rev E: type plate ACS180-04S-04A0-4, R1; p.121 dimensions/weights, 1.24 kg, 4 A 400 V."
+  rgc_body:
+    url: https://www.hydraspecma.com/store/se/en/find/item/IAX_S/sun-steel-valve-block-t16a-1
+    where: "IAX/S, Specifications 350 bar, T-16A, Dimensions and shipping 2.33 kg net; manufacturer drawing Sun Line Mount Bodies p.11.87."
+  rgc_body_dimensions:
+    url: https://www.sunhydraulics.com/sites/default/files/media_library/tech_resources/uslm_3_t16a.pdf
+    where: "US Line Mount Bodies p.11.87, inline IAX/S, G1 BSPP, use with CXHA."
+
+screen_inputs:
+  kf125_at_34_mm2_s:
+    # [rpm, L/min at 2 bar, kW at 2 bar, L/min at 4 bar, kW at 4 bar]
+    - [950, 114, 1.00, 112, 1.40]
+    - [1150, 141, 1.30, 138, 1.80]
+    - [1450, 181, 1.70, 178, 2.30]
+  tellus_viscosity_T_C_mm2_s: [[0, 580], [40, 46], [100, 6.9]]
+  gl180_heat_Q_L_min_kW: [[120, 36.3], [160, 42.5], [200, 47.7]]
+  cold_review_dp_bar_at_20C: 2.07
+  t25b_nominal_dp_reference_oil_C: 57
+  dirty_shell_dp_multiplier_scenario: 1.25
+  cb_setpoints_to_screen_bar: [1.25, 1.32, 1.50, 3.00]
+  hydac_lp_mass_kg: {article_page: 63, eu_catalogue: 49}
+
+pc_catalogue_inputs:
+  kf125_pump_mass_kg: 22.2  # KF catalogue, p.23, short plain KF125
+  kf112_theoretical_flow_L_min: 162.4
+  kf_cold_fv_upper_kW_per_L_min: 0.004  # p.20, conservative graph rounding for about 134 cSt
+  parker_smt16b_330L_1450:
+    # [viscosity cSt, Q5 L/min, P5 kW, Q10 L/min, P10 kW]
+    - [6, 165.97, 1.94, 156.60, 3.52]
+    - [68, 169.98, 2.57, 162.42, 4.18]
+    - [400, 172.15, 3.61, 165.56, 5.26]
+  motor_masses_kg:
+    0.55: 8.5
+    1.5: 17.0
+    2.2: 25.0
+    3.0: 26.0
+
+flexible_sections:
+  - {lines: [XZ], phase: Пилот DFE1Z и виброразвязка P1, DN_mm: 10, length_m_range: [0.3, 0.7], catalogue: 575X-6, catalog_id_mm: 9.5, class: Fast Response 345 bar, design_bar: 50, slope_cc_ft_psi: 0.0004, dp_range_bar: 50, source: hose_ve}
+  - {lines: [XR, XG, XP, XPU], phase: Выносной пилот станции и машины, DN_mm: 19, length_m_range: [0.5, 1.5], catalogue: 575X-12, catalog_id_mm: 19, class: Fast Response 345 bar, design_bar: 160, slope_cc_ft_psi: 0.00192, dp_range_bar: 160, source: hose_ve}
+  - {lines: [GA, GB], phase: Шибер при необходимости гибкого подвода к корпусу, DN_mm: 25, length_m_range: [0.4, 1.0], catalogue: 575X-16, catalog_id_mm: 25.4, class: Fast Response 345 bar, design_bar: 315, slope_cc_ft_psi: 0.0028, dp_range_bar: 315, source: hose_ve}
+  - {lines: [PA, PB, RA, RB], phase: Корпуса цилиндров на неподвижных креплениях, DN_mm: 38, length_m_range: [0.4, 1.0], catalogue: Parker 797TC-24 or EN 856 R15, class: ISO 18752 DC / R15, design_bar: 315, source: hose_797tc, status: По умолчанию труба. Если потребуется подвижный участок — испытать VE и потери при заданных Q.}
+  - {lines: [DR], phase: Виброразвязка дренажа станции и машины, DN_mm: 38, length_m_range: [0.4, 1.0], catalogue: Parker 811HT-24, class: SAE 100R4, design_bar: 0.5, source: hose_return, status: Контролировать p дренажа. VE по стенду.}
+  - {lines: [AC0, AC1], phase: Сервисное присоединение воздушной опции, DN_mm: 50, length_m_range: [0.5, 1.5], catalogue: Parker 811HT-32 with 81/88DB, class: SAE 100R4, design_bar: 8, source: hose_return, status: Перепроверить допустимую динамику и VE.}
+
+oil_modulus_inputs:
+  barrel_file: design/cylinders.t16.yaml
+  cover_file: design/main_cylinder_rear.t22.yaml
+  E_steel_Pa: 210000000000
+  steel_poisson: 0.30
+  secant_span_bar: 270
+  # [density at 50 C, density at 60 C], kg/m³, pressure in absolute bar.
+  density_kg_m3_at_50_60_C:
+    1: [856.0, 849.8]
+    201: [867.3, 861.6]
+    301: [872.6, 867.1]
+  cover_equivalent_OD_mm: 80
+  # Routing assumptions for screen, not a tube or manifold specification.
+  routed_estimates:
+    - {name: P0 and HP, ID_mm: 50, OD_mm: 65, length_mm: 1000}
+    - {name: MH, ID_mm: 40, OD_mm: 52, length_mm: 1000}
+    - {name: MF pocket on MA side, ID_mm: 50, OD_mm: 65, length_mm: 100}
+    - {name: MC pocket on MB side in main regen, ID_mm: 65, OD_mm: 85, length_mm: 100}
+
+
+pc_t29b_inputs:
+  pump_model: KRACHT KF 180, SAE 3 inch, DIN F, without D-valve
+  pump_mass_kg: 24.8
+  displacement_cm3_rev: 186.6
+  speed_rpm: 950
+  flow_2bar_L_min: 169
+  shaft_2bar_kW: 1.20
+  shaft_4bar_kW: 1.80
+  catalogue_flow_downside_fraction: 0.05
+  motor_margin_fraction: 0.15
+  motor_model: ABB M3AA 100LC 6 (3GAA103530-••J, IE3)
+  motor_rated_kW: 1.5
+  motor_rated_torque_Nm: 14.9
+  motor_mass_kg: 28.0
+  pc_start_enable_C: 29
+  pc_stop_below_C: 27
+  cb_crack_required_range_bar: [1.65, 1.75]
+  air:
+    common_dp_bar: 0.72
+    matrix_Q_L_min_dp_bar: [[75, 0.40], [150, 0.90]]
+
+mass_t29b_inputs:
+  steel_density_kg_m3: 7850
+  inherited_PC_motor_proxy_kg: 8.5
+  alternate_KF112_and_motor_kg: 35.0
+  vfd_model: ABB ACS180-04S-04A0-4, R1
+  vfd_mass_kg: 1.24
+  CXHA_kg: 0.42
+  RGC_body_kg: 2.33
+  PRFB_kg: 0.36
+  PTZ_kg: 0.059
+  RVZ_kg: 0.10
+  pending:
+    - tag: U04
+      solid_cylinder_mm: [160, 75]
+      source: https://rextonhydraulic.com/wp-content/uploads/2024/09/A4VSO-series-1x-and-30-Data-Sheet.pdf
+      basis: "RE 92050: 102 кг без проходного привода. Для дельты пакета U04 оценка по сплошному стальному габариту, включает запас на муфту."
+    - tag: XZD body
+      solid_block_mm: [75, 60, 60]
+      source: https://paro.nl/library/storage/datasheets/Sun/Cartridges/Sun_PRFB.pdf/datasheet.html
+      basis: "Оценка габарита T-2A с тремя портами и креплением."
+    - tag: RVZ body and TZ with PTZ adaptor
+      solid_block_mm: [80, 60, 60]
+      source: https://staging-hydnet.demoplatsen.com/wp-content/uploads/RDBA.pdf
+      basis: "Общий эквивалентный сплошной габарит стального корпуса, трубки и переходников, оценка."
+    - tag: ZRG and ZRT
+      forecast_extra_kg_upper: 1.0
+      source: calc/T-2.6/inventory.csv
+      basis: "Бюджет двух дополнительных каналов контроля кромок по 0,5 кг. Датчики RA/RB учтены отдельной строкой."
+    - tag: ZA1–ZA2 and ZB1–ZB2
+      forecast_extra_kg_upper: 1.2
+      source: https://products.schmersal.com/de_DE/az-16-12zvrk-m16-101154221
+      basis: "4 × 0,12 кг AZ16, 0,72 кг на четыре актуатора и кронштейны. Без вычета старых датчиков."
+    - tag: CB, PC mounting, encoder and SAE adaptations
+      forecast_extra_kg_upper: 8.0
+      source: calc/T-2.5b/sources.yaml
+      basis: "Предварительный лимит дополнительной обвязки и датчиков сверх T25B-PC_oil и T16-09, после выбора CB проверить отдельно."
+    - tag: WCP/WCF/ACP/ACF/CAPA/CAPB
+      forecast_extra_kg_upper: 4.0
+      source: design/hydraulics/station.t25c.yaml
+      basis: "Присоединения уже в T25B-AO, 9 кг. 4 кг как резерв возможных дополнительных отсечек."
+    - tag: TF gas regulator
+      forecast_extra_kg_upper: 5.0
+      source: design/hydraulics/station.t25c.yaml
+      basis: "Проектный резерв сверх T25-TF_dry. Уточнить массу с P–Q на 811 л/мин."
+
