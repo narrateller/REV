@@ -1,0 +1,39 @@
+id: T-0.1b
+stage: S0-followup
+role: TOOL-CAD             # только тесты; ops/gates/** и ops/criteria/** не трогать
+backend: bos               # резерв: alm, voh — строго по одному
+effort: high
+web_search: false
+objective: >
+  Привести CAD-тесты геометрических гейтов к критериям v5 (D-OP-25: C-FEEDPATH-01 min_window_area_mm2 = 30000).
+  Код гейтов не меняется: geom_gates 1.2.0 уже читает порог. После v5 падают два теста, которые на репозиторных
+  критериях ждали ветку «порог окна не задан» → WARN: check_all_gates (OpenWindow, окно 16 мм², ожидание общего WARN
+  и G-FEED WARN) и check_feed_contact FaceGap (окно 12 мм², ожидание WARN). Ветка без порога должна остаться покрытой,
+  ветка v5 с порогом 30000 — покрыться.
+inputs:
+  - tests/ops/test_geom_gates.py           # CAD-тесты (запуск freecadcmd; под pytest пропускаются)
+  - ops/gates/geom_gates.py                # только читать: feed(), gate_template() — min_window_area_mm2
+  - ops/criteria/design_criteria.yaml      # v5, только читать
+  - DECISIONS.md                           # D-GK-22, D-OP-25
+tools:
+  freecadcmd_sandbox: E:/Tools/FreeCAD-1.1/bin/freecadcmd.exe
+  python: E:/Tools/Python313/python.exe
+methods:
+  - "Тесты, проверяющие ветку «порог окна не задан» (OpenWindow в check_all_gates, FaceGap в check_feed_contact и любые другие с ожиданием WARN G-FEED на репозиторных критериях), переводить на временную копию критериев без ключа min_window_area_mm2 (по образцу window_criteria.yaml / mass_criteria.yaml в том же файле: yaml.safe_load(CRITERIA) → правка → workdir). Ожидания этих тестов не менять."
+  - "Добавить проверки на репозиторных критериях v5 (без временной копии): (1) OpenWindow (окно 16 мм²) → G-FEED FAIL с причиной «площадь окна меньше порога», threshold.min_window_area_mm2 == 30000; (2) новая фикстура с окном ≥ 30000 мм² (например путь подачи 200 × 150 мм гранью на гранью вкладыша и бункера) → G-FEED PASS, value ≥ 30000; (3) та же фикстура с окном 199 × 150 → FAIL. Значения — аналитически, не подбором."
+  - "Остальные ассерты не ослаблять; criteria_version в отчётах сравнивается с версией файла (как сейчас). Прогон: freecadcmd tests/ops/test_geom_gates.py — код 0; python -m pytest -p no:cacheprovider tests/ops — без новых падений. Вывод прогонов (команда, код возврата, итоговые строки) — в report.md."
+deliverables:
+  - tests/ops/test_geom_gates.py
+  - report.md
+  - metrics.json            # cad_tests_exit_code, pytest_passed, pytest_failed, new_checks
+  - self_check.json
+acceptance:
+  - "freecadcmd tests/ops/test_geom_gates.py — код 0 на критериях v5; ветка «порог не задан» покрыта через временную копию; ветка v5 — PASS при окне ≥ 30000 и FAIL при окне < 30000"
+  - "pytest tests/ops — 0 падений"
+  - "изменён только tests/ops/test_geom_gates.py; ops/** не тронут"
+allowed_paths: [tests/ops/test_geom_gates.py, report.md, metrics.json, self_check.json]
+forbidden: [git commit, git push, изменение ops/** (гейты, критерии, калибровка), ослабление или удаление существующих ассертов, сеть из shell]
+gates: []                  # G-SCOPE — раннер; CAD-тесты ГК прогоняет сам вне песочницы
+timebox_min: 60
+stop_and_ask_if:
+  - "тест требует изменения ops/gates/** — дать место и причину"
