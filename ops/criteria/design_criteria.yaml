@@ -1,7 +1,7 @@
 # REV — проектные критерии (единственный источник порогов для гейтов)
 # Изменять только ГК с подтверждением оператора; каждое изменение -> запись в DECISIONS.md.
 # Хэш этого файла проверяет G-SCOPE: исполнители его не трогают.
-version: 4                          # v2 25.11.2026: C-PROD-03 (D-OP-06); v3 25.11.2026: C-PWR-01 (D-OP-07); v4 26.11.2026: C-MASS-01 target (D-OP-10)
+version: 5                          # v2 25.11.2026: C-PROD-03 (D-OP-06); v3 25.11.2026: C-PWR-01 (D-OP-07); v4 26.11.2026: C-MASS-01 target (D-OP-10); v5 28.11.2026: C-FEEDPATH-01 min_window_area_mm2 (D-OP-25)
 status: APPROVED_BY_DELEGATION      # оператор 21.11.2026: «если схема обеспечит параметры не хуже референса — утверждай»
 approved_by: "Оператор (делегировано ГК), запись D0 в DECISIONS.md"
 reference: "BP500 (sources/raw/Target_object_BP500.pdf); REV_DESIGN_BASIS r1 (coordination/tasks/T-R2-DESIGN-BASIS-02)"
@@ -39,7 +39,8 @@ criteria:
   C-HYD-01:   {what: "Давление в гидросистеме", max_working_bar: 300, max_relief_bar: 315, source: "BP500 max 300 бар"}
   C-DOSE-01:  {what: "Доза и ход", rule: "камеры вмещают 0,83 кг при 90 и 160 кг/м³; ход главного цилиндра ≤ 1,3 × потребного", stroke_overshoot_max: 1.3}
   C-CLR-01:   {what: "Зазор пуансон–вкладыш на сторону", max_mm: 0.3, deflection_share_max: 0.5, note: "уточняет TECH на шаге 1, ужесточение — через DECISIONS"}
-  C-FEEDPATH-01: {what: "Путь подачи бункер → камера", rule: "тело-путь не пересекает другие тела; окно ≥ площади, заданной TECH"}
+  C-FEEDPATH-01: {what: "Путь подачи бункер → камера", rule: "тело-путь не пересекает другие тела; окно ≥ площади, заданной TECH",
+                  min_window_area_mm2: 30000, source: "окно камеры 150 × 200 мм (D-OP-14, design/chamber_roof.t22i.yaml working_chamber.window_xy_mm); D-OP-25"}
 
   # --- Прочность и ресурс ---
   C-STR-01: {what: "Статика силового пути", min_safety_factor_yield: 1.5, load: "сила при давлении настройки предохранительного клапана (C-HYD-01)"}
