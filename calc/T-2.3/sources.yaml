@@ -1,0 +1,25 @@
+task: T-2.3
+scope: Диагностика STOP, без мастер-компоновки
+feed_window: design/chamber_roof.t22i.yaml#working_chamber.window_xy_mm
+feed_criterion: ops/criteria/design_criteria.yaml#criteria.C-FEEDPATH-01
+feed_gate: ops/gates/geom_gates.py#gate_template,feed
+feed_coupon_depth_mm: 10  # Назначено T-2.3 для теста плоского контакта
+rear_cover: design/main_cylinder_rear.t22.yaml#cover
+bolt_bore: design/frame.t17d.yaml#interfaces.cylinder_studs
+ma_min_ligament_mm: 10  # DECISIONS.md#D-GK-08
+cover_mesh_review: ops/reports/T-2.2/GK_review.md#H2
+columns: design/chamber_roof.t22i.yaml#columns
+column_count: design/frame.t17d.yaml#columns.quantity
+steel_modulus: calc/T-2.2i/sources.yaml#materials.E_MPa
+oil_effective_modulus_Pa: 1434000000  # DECISIONS.md#D-GK-24, масло и сталь
+oil_baseline_allowance: calc/T-2.6/sources.yaml#round2.inventory.cap_dead_volume_L
+oil_route_reference: calc/T-2.9b/sources.yaml#oil_modulus_inputs.routed_estimates
+oil_reference_method: calc/T-2.9b/oil_modulus.py#calculate
+oil_gate_baseline: calc/T-2.9b/params/params.t29b.yaml#cycle_model.oil
+pressure_connectivity: design/hydraulics/T-2.9b_interlocks.yaml#phases.press
+station_mass_reference: design/hydraulics/station.t29b.yaml#mass_reconciliation_t29b
+simpson_steps: 1024  # Назначено T-2.3, проверка с удвоением числа отрезков
+scan_cap_dead_L: [0.8, 3.3, 7.6]  # Контрольные точки карточки T-2.3
+main_cylinder_bore_and_rod: design/chamber_roof.t22i.yaml#main_cylinder.bore_and_rod_mm
+mass_outside_station: design/hydraulics/station.t29b.yaml#mass_reconciliation_t25c.machine_A_variants.with_end_collar.outside_station_kg
+TF_buffer_cap_factor: 1.5  # ops/gates/cycle_model/inputs.py fill_routes

@@ -1,0 +1,117 @@
+{
+  "task": "T-2.3",
+  "status": "STOP",
+  "gate_status_machine": {
+    "G-ENV": "NOT_RUN",
+    "G-MASS": "NOT_RUN",
+    "G-COLL": "NOT_RUN",
+    "G-FEED": "NOT_RUN",
+    "G-CLEAR": "NOT_RUN",
+    "G-PFACE": "NOT_RUN",
+    "G-DOSE": "NOT_RUN",
+    "G-CYCLE": "NOT_RUN"
+  },
+  "diagnostics": {
+    "geom_gates_unchanged_criteria": {
+      "G-FEED": "WARN"
+    },
+    "geom_fixture_passed_test": true,
+    "freecad": "1.1.4",
+    "calc_gates_t29b_baseline": {
+      "G-PFACE": "PASS",
+      "G-DOSE": "PASS",
+      "G-CYCLE": "PASS"
+    },
+    "calc_gates_sensitivity": [
+      {
+        "case": "card_control",
+        "cap_dead_L": 0.8,
+        "cycle_s": 5.930625000000736,
+        "rms_kW": 29.786076644594278,
+        "TF_required_oil_L": 50.21638521836939,
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "PASS"
+        },
+        "failed_cycle_checks": [],
+        "exit_code": 0
+      },
+      {
+        "case": "card_control",
+        "cap_dead_L": 3.3,
+        "cycle_s": 5.959375000000751,
+        "rms_kW": 29.825818193826514,
+        "TF_required_oil_L": 53.96638521836939,
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "PASS"
+        },
+        "failed_cycle_checks": [],
+        "exit_code": 0
+      },
+      {
+        "case": "fixed_cover_only",
+        "cap_dead_L": 4.95673697697954,
+        "cycle_s": 5.979375000000761,
+        "rms_kW": 29.884614879554952,
+        "TF_required_oil_L": 56.4514906838387,
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "FAIL"
+        },
+        "failed_cycle_checks": [
+          "fill_routes_admissible"
+        ],
+        "exit_code": 1
+      },
+      {
+        "case": "cover_and_smooth_columns_only",
+        "cap_dead_L": 5.772450252847069,
+        "cycle_s": 5.988750000000766,
+        "rms_kW": 29.807025403429567,
+        "TF_required_oil_L": 57.67506059763999,
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "FAIL"
+        },
+        "failed_cycle_checks": [
+          "fill_routes_admissible"
+        ],
+        "exit_code": 1
+      },
+      {
+        "case": "card_control",
+        "cap_dead_L": 7.6,
+        "cycle_s": 6.010000000000777,
+        "rms_kW": 29.855096589956283,
+        "TF_required_oil_L": 60.41638521836939,
+        "gates": {
+          "G-PFACE": "PASS",
+          "G-DOSE": "PASS",
+          "G-CYCLE": "FAIL"
+        },
+        "failed_cycle_checks": [
+          "cycle_time_limit",
+          "fill_routes_admissible"
+        ],
+        "exit_code": 1
+      }
+    ],
+    "only_cap_dead_L_changed_in_sensitivity": true,
+    "fixed_cover_methods_delta_pct": 7.301409019890251e-05,
+    "fixed_cover_simpson_refinement_abs_tol_L": 1e-08,
+    "analytical_TF_volume_check_matches_gate": true,
+    "criteria_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+    "report_has_no_question_mark": true
+  },
+  "repeat": {
+    "runs": 2,
+    "identical": true,
+    "results_sha256": "e131d737f64be1a7e21a1125e27975411bf7ba295609e06ea9efdfca13aca59c"
+  },
+  "reason": "G-FEED без численного порога и G-CYCLE по запасу TF при обязательном учёте объёма крышки"
+}

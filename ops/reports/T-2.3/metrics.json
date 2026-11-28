@@ -1,0 +1,174 @@
+{
+  "task": "T-2.3",
+  "status": "STOP",
+  "envelope_mm": null,
+  "envelope_per_pose_mm": null,
+  "mass_skeleton_kg": null,
+  "mass_delta_pct": null,
+  "credited_reductions_kg": null,
+  "bodies_count": null,
+  "coll_max_mm3": null,
+  "feed_window_mm2": null,
+  "clear_max_mm": null,
+  "hopper_opening_height_mm": null,
+  "V_out_L": null,
+  "V_out_L_method2": null,
+  "V_out_by_element_L": null,
+  "V_comp_L": null,
+  "cap_dead_L": null,
+  "TF_to_ZSF_A_m": null,
+  "cycle_gate_s": null,
+  "rms_kW": null,
+  "interfaces_count": null,
+  "min_moving_clearance_mm": null,
+  "mass_ledger_kg": 5196.863707843668,
+  "cap_dead_scan": [
+    {
+      "case": "card_control",
+      "cap_dead_L": 0.8,
+      "cycle_s": 5.930625000000736,
+      "rms_kW": 29.786076644594278,
+      "TF_required_oil_L": 50.21638521836939,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "PASS"
+      },
+      "failed_cycle_checks": [],
+      "exit_code": 0
+    },
+    {
+      "case": "card_control",
+      "cap_dead_L": 3.3,
+      "cycle_s": 5.959375000000751,
+      "rms_kW": 29.825818193826514,
+      "TF_required_oil_L": 53.96638521836939,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "PASS"
+      },
+      "failed_cycle_checks": [],
+      "exit_code": 0
+    },
+    {
+      "case": "fixed_cover_only",
+      "cap_dead_L": 4.95673697697954,
+      "cycle_s": 5.979375000000761,
+      "rms_kW": 29.884614879554952,
+      "TF_required_oil_L": 56.4514906838387,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "FAIL"
+      },
+      "failed_cycle_checks": [
+        "fill_routes_admissible"
+      ],
+      "exit_code": 1
+    },
+    {
+      "case": "cover_and_smooth_columns_only",
+      "cap_dead_L": 5.772450252847069,
+      "cycle_s": 5.988750000000766,
+      "rms_kW": 29.807025403429567,
+      "TF_required_oil_L": 57.67506059763999,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "FAIL"
+      },
+      "failed_cycle_checks": [
+        "fill_routes_admissible"
+      ],
+      "exit_code": 1
+    },
+    {
+      "case": "card_control",
+      "cap_dead_L": 7.6,
+      "cycle_s": 6.010000000000777,
+      "rms_kW": 29.855096589956283,
+      "TF_required_oil_L": 60.41638521836939,
+      "gates": {
+        "G-PFACE": "PASS",
+        "G-DOSE": "PASS",
+        "G-CYCLE": "FAIL"
+      },
+      "failed_cycle_checks": [
+        "cycle_time_limit",
+        "fill_routes_admissible"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "diagnostics": {
+    "feed_fixture_window_mm2": 30000.0,
+    "G-FEED_fixture": "WARN",
+    "feed_gate_min_window_area_mm2": null,
+    "cover_MA_M36_ligament": {
+      "nominal_mm": 2.3953224536288573,
+      "bolt_circle_upper_bound_mm": 2.607713148302274,
+      "required_mm": 10,
+      "nominal_shortfall_mm": 7.604677546371143,
+      "MA_drilling_ID_mm": 44.0,
+      "M36_hole_ID_mm": 39,
+      "M36_PCD_mm": 450,
+      "from_barrel_seat_mm": 51.0
+    },
+    "oil": {
+      "scope": "Только сверления в крышке T-2.2; сопряжения и фактические трассы T-2.3 не определены",
+      "T29b_reference_by_element": [
+        {
+          "element": "P0 and HP",
+          "volume_L": 1.963495408493621
+        },
+        {
+          "element": "MH",
+          "volume_L": 1.2566370614359175
+        },
+        {
+          "element": "MF pocket on MA side",
+          "volume_L": 0.19634954084936207
+        },
+        {
+          "element": "MC pocket on MB side in main regen",
+          "volume_L": 0.3318307240354219
+        },
+        {
+          "element": "MA radial drillings",
+          "volume_L": 2.4085208574305366
+        },
+        {
+          "element": "ZSF axial bore in cover",
+          "volume_L": 1.7389846310974797
+        }
+      ],
+      "T29b_total_L": 7.895818223342339,
+      "fixed_cover_by_element_L": {
+        "MA_radial_drillings": 2.4177523458820604,
+        "ZSF_axial_bore_in_cover": 1.7389846310974797
+      },
+      "fixed_cover_by_element_cad_L": {
+        "MA_radial_drillings": 2.4177493108783747,
+        "ZSF_axial_bore_in_cover": 1.7389846310974795
+      },
+      "fixed_cover_L": 4.15673697697954,
+      "fixed_cover_cad_L": 4.156733941975855,
+      "delta_pct": 7.301409019890251e-05
+    },
+    "columns": {
+      "pressure_bar": 315,
+      "force_N": 1939619.3043263382,
+      "smooth_columns_displacement_mm": 0.291,
+      "smooth_columns_equivalent_L": 0.8157132758675284
+    },
+    "TF_buffer_limit": {
+      "available_oil_L": 55,
+      "max_cap_dead_L": 3.9890765210870747,
+      "max_external_and_compliance_allowance_L": 3.189076521087075,
+      "cap_swept_L": 24.383785540102537,
+      "rod_displacement_L": 12.44070690821558,
+      "cap_factor": 1.5
+    }
+  }
+}

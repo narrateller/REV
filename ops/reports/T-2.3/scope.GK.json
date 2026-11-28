@@ -1,0 +1,131 @@
+{
+  "schema": "rev.gate_report/1",
+  "tool": "scope_gate",
+  "tool_version": "1.1.0",
+  "input": "..\\REV-wt\\T-2.3",
+  "criteria_version": 4,
+  "criteria_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+  "overall": "PASS",
+  "gates": [
+    {
+      "id": "G-SCOPE",
+      "status": "PASS",
+      "value": 0,
+      "threshold": 0,
+      "unit": "paths",
+      "criteria_ids": [],
+      "details": {
+        "checks": {
+          "paths_allowed": true,
+          "protected_hashes_match": true,
+          "reasoning_effort_allowed": true
+        },
+        "task_id": "T-2.3",
+        "base_commit": "e607610f986c27c95708ed7bf3a72c28e2909457",
+        "merge_base_commit": "e607610f986c27c95708ed7bf3a72c28e2909457",
+        "allowed_paths": [
+          "design/layout.t23.yaml",
+          "cad/T-2.3/**",
+          "calc/T-2.3/**",
+          "report.md",
+          "metrics.json",
+          "self_check.json",
+          "gates.t23.json"
+        ],
+        "allow_protected": [],
+        "always_allowed_paths": [
+          "TASK.md",
+          "metrics.json",
+          "report.md",
+          "self_check.json"
+        ],
+        "changes": {
+          "committed": [],
+          "staged": [],
+          "unstaged": [],
+          "untracked": [
+            "TASK.md",
+            "calc/T-2.3/render_stop.py",
+            "calc/T-2.3/results.json",
+            "calc/T-2.3/sources.yaml",
+            "calc/T-2.3/stop_check.py",
+            "metrics.json",
+            "report.md",
+            "self_check.json"
+          ]
+        },
+        "forbidden_paths": [],
+        "protected_hashes": [
+          {
+            "path": "ops/criteria/design_criteria.yaml",
+            "base_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+            "worktree_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f"
+          },
+          {
+            "path": "ops/gates/calc_gates.py",
+            "base_sha256": "273ddfa532f7a137e62d1a3a67b08d02a1b7db38a182c74245585daad30c4186",
+            "worktree_sha256": "273ddfa532f7a137e62d1a3a67b08d02a1b7db38a182c74245585daad30c4186"
+          },
+          {
+            "path": "ops/gates/cycle_model/__init__.py",
+            "base_sha256": "4aca574cb637c783c0aa5c7aedee079772fe192353bd84bbc1168aab753a15f3",
+            "worktree_sha256": "4aca574cb637c783c0aa5c7aedee079772fe192353bd84bbc1168aab753a15f3"
+          },
+          {
+            "path": "ops/gates/cycle_model/drive.py",
+            "base_sha256": "0a4cd6a6db2d921483b05d9d6c7c2e95ee77c7b211596296b8e0d098c805102b",
+            "worktree_sha256": "0a4cd6a6db2d921483b05d9d6c7c2e95ee77c7b211596296b8e0d098c805102b"
+          },
+          {
+            "path": "ops/gates/cycle_model/hydraulics.py",
+            "base_sha256": "df029fb2009f7d8b1dba71393a47747c1e5de4e9980404d1e4d5f7452b739567",
+            "worktree_sha256": "df029fb2009f7d8b1dba71393a47747c1e5de4e9980404d1e4d5f7452b739567"
+          },
+          {
+            "path": "ops/gates/cycle_model/inputs.py",
+            "base_sha256": "d867a4df106bf27d8db991eece1510aa2b18c6a817e433bc1b8b02e1fd6a93bf",
+            "worktree_sha256": "d867a4df106bf27d8db991eece1510aa2b18c6a817e433bc1b8b02e1fd6a93bf"
+          },
+          {
+            "path": "ops/gates/cycle_model/pilot.py",
+            "base_sha256": "d7129d3aaf5c921fa00108d0dc114201d709c675398aed46e1b571e565118c4a",
+            "worktree_sha256": "d7129d3aaf5c921fa00108d0dc114201d709c675398aed46e1b571e565118c4a"
+          },
+          {
+            "path": "ops/gates/cycle_model/qualification.py",
+            "base_sha256": "72a2fd251c03ffeaba37adeb510180e73fd159f43a9f6b470662a9d47e844dfb",
+            "worktree_sha256": "72a2fd251c03ffeaba37adeb510180e73fd159f43a9f6b470662a9d47e844dfb"
+          },
+          {
+            "path": "ops/gates/gate_report.py",
+            "base_sha256": "f4470e0f2b9dcf79e1f3355f286c196f8cc01476880f6ac510553f394ba5cc57",
+            "worktree_sha256": "f4470e0f2b9dcf79e1f3355f286c196f8cc01476880f6ac510553f394ba5cc57"
+          },
+          {
+            "path": "ops/gates/geom_gates.py",
+            "base_sha256": "a39a7551f8166e626b015c3ce98e50a518c6e4f381a0d48a44181ac44c1d8522",
+            "worktree_sha256": "a39a7551f8166e626b015c3ce98e50a518c6e4f381a0d48a44181ac44c1d8522"
+          },
+          {
+            "path": "ops/gates/roles/w02_legacy.yaml",
+            "base_sha256": "ef65f656f80f06f42c41c89eeceaaf63d18ca2c88940d3200564d227ab35e61d",
+            "worktree_sha256": "ef65f656f80f06f42c41c89eeceaaf63d18ca2c88940d3200564d227ab35e61d"
+          },
+          {
+            "path": "ops/gates/scope_gate.py",
+            "base_sha256": "dab975fb0e1391653b9001a1d3be2fdd52dcdef8eeb3f92c70da9b86be599c5d",
+            "worktree_sha256": "dab975fb0e1391653b9001a1d3be2fdd52dcdef8eeb3f92c70da9b86be599c5d"
+          }
+        ],
+        "ignored_paths": [],
+        "ignored_outside_allowed": [],
+        "warnings": [],
+        "protected_changes": [],
+        "protected_hash_mismatches": [],
+        "reasoning_effort": "high",
+        "meta": "ops\\runs\\T-2.3\\20261128T164419.005256Z-b3f8db0e\\meta.json",
+        "reasoning_effort_checked": true
+      }
+    }
+  ]
+}
