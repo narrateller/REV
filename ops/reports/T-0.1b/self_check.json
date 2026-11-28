@@ -1,0 +1,28 @@
+{
+  "task_id": "T-0.1b",
+  "tests": [
+    {
+      "command": "E:/Tools/FreeCAD-1.1/bin/freecadcmd.exe tests/ops/test_geom_gates.py",
+      "tool_version": "1.1.4",
+      "status": "PASS",
+      "exit_code": 0,
+      "output_summary": "PASS missing and invalid REV_GATE_ARGS diagnostics"
+    },
+    {
+      "command": "E:/Tools/Python313/python.exe -m pytest -p no:cacheprovider tests/ops",
+      "python_version": "3.13.17",
+      "status": "PASS",
+      "exit_code": 0,
+      "output_summary": "151 passed, 1 skipped in 138.76s (0:02:18)",
+      "temporary_directory": "PYTEST_DEBUG_TEMPROOT, TEMP, TMP and TMPDIR pointed to a temporary directory inside the worktree"
+    }
+  ],
+  "acceptance_gates": [
+    {"id": "G-SCOPE", "status": "NOT_RUN", "executor": "runner"}
+  ],
+  "local_checks": [
+    {"command": "git diff --exit-code HEAD -- ops/", "exit_code": 0},
+    {"command": "git diff --check -- tests/ops/test_geom_gates.py", "exit_code": 0},
+    {"check": "Existing assertions match by Python AST", "status": "PASS", "preserved_assertions": 106}
+  ]
+}

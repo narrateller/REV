@@ -113,6 +113,16 @@ def save(app, doc, path):
     app.closeDocument(doc.Name)
 
 
+def criteria_without_window_threshold(workdir):
+    import yaml
+
+    criteria = yaml.safe_load(CRITERIA.read_bytes())
+    criteria["criteria"]["C-FEEDPATH-01"].pop("min_window_area_mm2", None)
+    path = workdir / "no_window_threshold.yaml"
+    path.write_text(yaml.safe_dump(criteria, allow_unicode=True), encoding="utf-8")
+    return path
+
+
 def check_all_gates(app, part, workdir):
     import yaml
 
@@ -173,7 +183,8 @@ def check_all_gates(app, part, workdir):
         "Liner: {role: chamber_liner, material: steel}\n",
         encoding="utf-8",
     )
-    report = run_gate(workdir, model, 0, "WARN", roles=roles)
+    report = run_gate(workdir, model, 0, "WARN", roles=roles,
+                      criteria=criteria_without_window_threshold(workdir))
     assert {key: gate["status"] for key, gate in report.items()} == {
         "G-ENV": "PASS", "G-MASS": "PASS", "G-COLL": "PASS", "G-FEED": "WARN", "G-CLEAR": "PASS",
     }, report
@@ -213,6 +224,46 @@ def check_all_gates(app, part, workdir):
     pair, = report["G-FEED"]["details"]["pairs"]
     assert pair["bodies"] == ["FeedVolume", "Liner"]
     assert math.isclose(pair["common_volume_mm3"], 108.8, abs_tol=1e-8)
+
+
+def check_feed_window_threshold(app, part, workdir):
+    # Keep the 4 × 4 mm planar window separate from the all-gates cutout fixture.
+    workdir = workdir / "feed_window_threshold"
+    workdir.mkdir()
+    interface_width_mm, interface_depth_mm = 200, 150
+    end_thickness_mm, path_height_mm = 2, 10
+    minimum_mm2 = 30000
+    cases = (
+        ("OpenWindow", 4, 4, "FAIL"),
+        ("FeedWindowAtThreshold", 200, 150, "PASS"),
+        ("FeedWindowBelowThreshold", 199, 150, "FAIL"),
+    )
+    point = app.Vector
+    for name, width_mm, depth_mm, expected_status in cases:
+        doc = app.newDocument(name)
+        # Only the two end faces of the feed path contact the physical bodies.
+        liner = part.makeBox(interface_width_mm, interface_depth_mm, end_thickness_mm,
+                             point(0, 0, -end_thickness_mm))
+        hopper = part.makeBox(interface_width_mm, interface_depth_mm, end_thickness_mm,
+                              point(0, 0, path_height_mm))
+        set_role(feature(doc, "Liner", liner), "chamber_liner")
+        set_role(feature(doc, "Hopper", hopper), "hopper")
+        set_role(feature(doc, "Feed", part.makeBox(width_mm, depth_mm, path_height_mm)), "feed_path")
+        model = workdir / f"{name}.FCStd"
+        save(app, doc, model)
+        report = run_gate(workdir, model, int(expected_status == "FAIL"), expected_status, gates=["G-FEED"])
+        gate = report["G-FEED"]
+        assert gate["status"] == expected_status, gate
+        assert gate["threshold"]["min_window_area_mm2"] == minimum_mm2, gate
+        area_mm2 = width_mm * depth_mm
+        assert math.isclose(gate["value"], area_mm2, rel_tol=0, abs_tol=1e-8), gate
+        connection = gate["details"]["connections"]["Feed"]
+        assert connection["hopper"][0]["touches"], gate
+        if expected_status == "PASS":
+            assert gate["value"] >= minimum_mm2, gate
+        else:
+            assert gate["details"]["reasons"] == ["площадь окна меньше порога"], gate
+        print(f"PASS {name}: G-FEED {gate['status']}, {gate['value']:g} mm2", flush=True)
 
 
 def check_collision_and_envelope(app, part, workdir):
@@ -378,11 +429,11 @@ def check_geometry_inputs(app, part, workdir):
     assert gate["details"]["bodies_without_solids"] == [{"name": "Shell", "label": "Shell"}]
 
 
-def evaluate_fixture(app, part, doc, workdir, *gate_ids):
+def evaluate_fixture(app, part, doc, workdir, *gate_ids, criteria=CRITERIA):
     model = workdir / f"{doc.Name}.FCStd"
     save(app, doc, model)
-    criteria = geom_gates.read_yaml(CRITERIA.read_bytes(), "criteria")["criteria"]
-    gates = [geom_gates.gate_template(gate_id, criteria) for gate_id in gate_ids]
+    criteria_data = geom_gates.read_yaml(criteria.read_bytes(), "criteria")["criteria"]
+    gates = [geom_gates.gate_template(gate_id, criteria_data) for gate_id in gate_ids]
     geom_gates.run_gates(app, part, model, {}, {}, gates)
     print(f"REPORT {model.name} {report_digest(gates, workdir)}", flush=True)
     return gates
@@ -460,10 +511,12 @@ def check_feed_contact(app, part, workdir, case):
         hopper = feature(doc, "Hopper", part.makeBox(2, 2, 2, point(12, 5, 3)))
         set_role(hopper, "hopper")
     set_role(feature(doc, "Feed", path_shape), "feed_path")
-    gate, = evaluate_fixture(app, part, doc, workdir, "G-FEED")
+    criteria = criteria_without_window_threshold(workdir) if case == "FaceGap" else CRITERIA
+    gate, = evaluate_fixture(app, part, doc, workdir, "G-FEED", criteria=criteria)
     connection = gate["details"]["connections"]["Feed"]
     if case == "FaceGap":
         assert gate["status"] == "WARN" and math.isclose(gate["value"], 12, abs_tol=1e-6), gate
+        assert gate["details"]["reason"] == "порог окна не задан", gate
         assert connection["chamber_liner"][0]["touches"]
         assert math.isclose(connection["chamber_liner"][0]["distance_mm"], 0.005, abs_tol=1e-8)
     else:
@@ -566,6 +619,7 @@ def check_freecad(app, part, workdir):
     failures = check_counterexamples(app, part, workdir)
     check_all_gates(app, part, workdir)
     print("PASS all five gates, role precedence, window area, liner and hopper contacts", flush=True)
+    check_feed_window_threshold(app, part, workdir)
     check_collision_and_envelope(app, part, workdir)
     print("PASS nominal and posed envelope, touching and 200 mm3 collision", flush=True)
     check_mass_and_exit_codes(app, part, workdir)
