@@ -1,0 +1,116 @@
+{
+  "blockers": [
+    "STOP_ZSF",
+    "STOP_MASS",
+    "STOP_PC"
+  ],
+  "calc_T29_total_bytes": 463128,
+  "check_circuit": {
+    "command": [
+      "REV_PYTHON",
+      "-X",
+      "utf8",
+      "-B",
+      "calc/T-2.9/check_circuit.py",
+      "--circuit",
+      "design\\hydraulics\\T-2.9_circuit.yaml",
+      "--interlocks",
+      "design\\hydraulics\\T-2.9_interlocks.yaml",
+      "--out",
+      "temporary output inside calc/T-2.9"
+    ],
+    "exit_code": 0,
+    "stdout": "125 reference rows; 14 physical phases\n186/186 mutations rejected"
+  },
+  "gate_scan_regenerated_on_each_run": true,
+  "gates": {
+    "cycle_s": 5.905000000000723,
+    "inputs": {
+      "criteria": "ops/criteria/design_criteria.yaml",
+      "entrypoint": "ops/gates/calc_gates.py",
+      "output": "gates.t29.json",
+      "params": "calc/T-2.9/params/params.t29.yaml"
+    },
+    "method": "reference_model",
+    "rms_kW": 29.97644389606792,
+    "status_by_gate": {
+      "G-CYCLE": "PASS",
+      "G-DOSE": "PASS",
+      "G-PFACE": "PASS"
+    }
+  },
+  "params_only_change": "cycle_model.lp.shell_L 18.4 to 17.8",
+  "pytest": {
+    "command": [
+      "REV_PYTHON",
+      "-X",
+      "utf8",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "calc/T-2.9/test_interlocks.py"
+    ],
+    "exit_code": 0,
+    "stdout": "........................................................................ [ 46%]\n........................................................................ [ 93%]\n..........                                                               [100%]\n154 passed in 13.29s"
+  },
+  "repeatability": {
+    "calc/T-2.9/params/params.t29.yaml": {
+      "bytes": 40338,
+      "sha256": "f2ab538af5dd6084a861021e03b24c27a583e65657db1c57df3d969d0b1f30cf",
+      "status": "PASS"
+    },
+    "calc/T-2.9/results.json": {
+      "bytes": 219930,
+      "sha256": "a451051636598ece13a0556b912386967e5003307daa051d093f31db701a0422",
+      "status": "PASS"
+    },
+    "design/hydraulics/T-2.9_circuit.svg": {
+      "bytes": 248116,
+      "sha256": "e7bac6d951dec1380f46aaf55aaab9bdd765c21c580887607bd1245b39cb3b5d",
+      "status": "PASS"
+    }
+  },
+  "replays": [
+    {
+      "command": [
+        "REV_PYTHON",
+        "-X",
+        "utf8",
+        "-B",
+        "calc/T-2.9/run.py"
+      ],
+      "exit_code": 0,
+      "stdout": "STOP_ZSF {'K_Pa': 1400000000, 'cycle_s': 5.905000000000723, 'rms_kW': 29.97644389606792, 'method': 'reference_model', 'gate_status': 'PASS', 'card_pass': True} ['STOP_ZSF', 'STOP_MASS', 'STOP_PC']"
+    },
+    {
+      "command": [
+        "REV_PYTHON",
+        "-X",
+        "utf8",
+        "-B",
+        "calc/T-2.9/run.py"
+      ],
+      "exit_code": 0,
+      "stdout": "STOP_ZSF {'K_Pa': 1400000000, 'cycle_s': 5.905000000000723, 'rms_kW': 29.97644389606792, 'method': 'reference_model', 'gate_status': 'PASS', 'card_pass': True} ['STOP_ZSF', 'STOP_MASS', 'STOP_PC']"
+    }
+  ],
+  "report_line_count": 94,
+  "report_utf8": "PASS",
+  "svg_xml": "PASS",
+  "task": "T-2.9",
+  "task_status": "STOP_ZSF",
+  "test_interlocks_as_script": {
+    "command": [
+      "REV_PYTHON",
+      "-X",
+      "utf8",
+      "-B",
+      "calc/T-2.9/test_interlocks.py"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: 153 scheme-A mutations and both CLI exit codes"
+  }
+}

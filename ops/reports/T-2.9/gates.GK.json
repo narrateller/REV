@@ -1,0 +1,416 @@
+{
+  "schema": "rev.gate_report/1",
+  "tool": "calc_gates",
+  "tool_version": "1.1.0",
+  "input": "calc\\T-2.9\\params\\params.t29.yaml",
+  "criteria_version": 4,
+  "criteria_sha256": "cbab2073e6d40de242312209d327bc0ef7ea3aef08affb045a1e18d7026bd58f",
+  "overall": "PASS",
+  "gates": [
+    {
+      "id": "G-PFACE",
+      "status": "PASS",
+      "value": 168.88888888888889,
+      "threshold": {
+        "min_MPa": 166.7,
+        "nominal_force_min_N": 1500000.0,
+        "section_mm": [
+          150,
+          60
+        ],
+        "tol_mm": 1.0,
+        "max_working_bar": 300,
+        "max_relief_bar": 315
+      },
+      "unit": "MPa",
+      "criteria_ids": [
+        "C-PFACE-01",
+        "C-PROD-01",
+        "C-HYD-01"
+      ],
+      "details": {
+        "checks": {
+          "product_section_matches_criterion": true,
+          "chamber_section_matches_criterion": true,
+          "chamber_section_matches_product": true,
+          "minimum_force_at_work_pressure": true,
+          "nominal_force_available": true,
+          "minimum_face_pressure": true,
+          "working_pressure_limit": true,
+          "relief_pressure_limit": true,
+          "working_pressure_at_or_below_relief": true
+        },
+        "chamber_pressure_MPa": 168.88888888888889,
+        "punch_pressure_MPa": 170.47697663568172,
+        "chamber_pressure_at_p_relief_MPa": 202.58246067408422,
+        "punch_pressure_at_p_relief_MPa": 204.4873741685611,
+        "nominal_force_N": 1520000,
+        "force_at_p_work_N": 1551657.2008516965,
+        "force_at_p_relief_N": 1823242.1460667579,
+        "p_work_bar": 268.0784992397757,
+        "p_relief_bar": 315,
+        "product_section_mm": [
+          150,
+          60
+        ],
+        "chamber_section_mm": [
+          150,
+          60
+        ],
+        "punch_section_mm": [
+          149.6,
+          59.6
+        ],
+        "chamber_area_mm2": 9000,
+        "punch_area_mm2": 8916.16
+      }
+    },
+    {
+      "id": "G-DOSE",
+      "status": "PASS",
+      "value": 396,
+      "threshold": {
+        "min_stroke_mm": 371.0,
+        "max_stroke_mm": 482.3,
+        "stroke_overshoot_max": 1.3,
+        "bulk_density_kg_m3": [
+          90,
+          160
+        ],
+        "min_dose_kg": 0.83
+      },
+      "unit": "mm",
+      "criteria_ids": [
+        "C-DOSE-01",
+        "C-RAW-01",
+        "C-PERF-01"
+      ],
+      "details": {
+        "checks": {
+          "precompaction_present": true,
+          "bulk_density_covers_reference": true,
+          "minimum_dose": true,
+          "loose_dose_fits": true,
+          "main_chamber_fits_transferred_dose": true,
+          "stroke_at_least_required": true,
+          "working_range_at_least_required": true,
+          "stroke_overshoot_limit": true
+        },
+        "warnings": [],
+        "dose_kg": 0.83,
+        "capacity_check_dose_kg": 0.83,
+        "loose_dose_samples": [
+          {
+            "density_kg_m3": 90,
+            "loose_volume_L": 9.222222222222221,
+            "fits": true
+          },
+          {
+            "density_kg_m3": 160,
+            "loose_volume_L": 5.1875,
+            "fits": true
+          }
+        ],
+        "intake_volume_L": 12.84,
+        "intake_chamber": "precompaction",
+        "main_fill_density_kg_m3": 461.1111111111111,
+        "main_fill_length_mm": 200.0,
+        "ejection_overtravel_mm": 166,
+        "ejection_overtravel_source": "chamber.ejection_overtravel_mm",
+        "ejection_stroke_mm": 234.6819894237912,
+        "required_stroke_mm": 371.0,
+        "stroke_ratio": 1.0673854447439353,
+        "working_range_mm": 381,
+        "approach_stroke_mm": 5,
+        "approach_stroke_source": "chamber.approach_stroke_mm",
+        "in_die_density_kg_m3": 1342.7424423188993,
+        "in_die_density_source": "chamber.in_die_density_kg_m3",
+        "compacted_length_mm": 68.68198942379122,
+        "compression_stroke_mm": 131.3180105762088,
+        "minimum_stroke_mm": 371.0,
+        "minimum_stroke_ratio": 1.0673854447439353
+      }
+    },
+    {
+      "id": "G-CYCLE",
+      "status": "PASS",
+      "value": 5.905000000000723,
+      "threshold": {
+        "max_cycle_s": 6.0,
+        "max_average_power_kW": 30.0,
+        "max_peak_drive_power_kW": 40.0,
+        "max_installed_kW": 34.2,
+        "max_pressure_bar": 300,
+        "max_relief_bar": 315,
+        "min_press_force_N": 1500000.0,
+        "max_rms_power_kW": 30.0
+      },
+      "unit": "s",
+      "criteria_ids": [
+        "C-PERF-01",
+        "C-PWR-01",
+        "C-HYD-01",
+        "C-PFACE-01"
+      ],
+      "details": {
+        "method": "reference_model",
+        "legacy_cycle_ignored": true,
+        "cycle_model_input_violations": [],
+        "checks": {
+          "working_pressure_limit": true,
+          "relief_pressure_limit": true,
+          "motor_rating_limit": true,
+          "peak_rating_limit": true,
+          "cycle_model_inputs_qualified": true,
+          "installed_power_limit": true,
+          "model_feasible": true,
+          "cycle_time_limit": true,
+          "average_power_limit": true,
+          "peak_drive_power_limit": true,
+          "press_phase_present": true,
+          "press_configuration_valid": true,
+          "press_force_minimum": true,
+          "actuator_travel_limits": true,
+          "actuators_return_to_start": true,
+          "fill_routes_admissible": true,
+          "accumulator_pressure_covered": true,
+          "sequence_interlocks": true,
+          "pilot_pressure_available": true,
+          "integration_converged": true,
+          "rms_power_limit": true
+        },
+        "warnings": [],
+        "motor_kW": 30.0,
+        "installed_kW": 34.068000000000005,
+        "feasible": true,
+        "cycle_s": 5.905000000000723,
+        "average_power_kW": 28.128918452631975,
+        "rms_power_kW": 29.97644389606792,
+        "total_motor_energy_kJ": 166.10126346281217,
+        "squared_power_time_kW2_s": 5306.157349003155,
+        "peak_drive_power_kW": 38.310810810810814,
+        "max_pressure_bar": 268.2019971738426,
+        "peak_hydraulic_power_kW": 30.21574641436975,
+        "minimum_pilot_bar": 131.67468359158684,
+        "minimum_pilot_setpoint_bar": 120,
+        "nominal_press_supply_bar": 268.07849923977517,
+        "press_force_N": 1520000.000000003,
+        "press_configuration_valid": true,
+        "fill": {
+          "cap_intake_min_abs_bar": 1.0400577672618536,
+          "cap_intake_max_L_min": 1551.695443461071,
+          "annulus_intake_min_abs_bar": 1.1005999969091917,
+          "cap_exhaust_bar": 1.7782182776510131,
+          "admissible": true,
+          "buffer_min_L": 50.21638521836939
+        },
+        "interlocks_met": true,
+        "accumulator_pressure_covered": true,
+        "lp_assist_L": 3.6352416666666065,
+        "mp_assist_L": 0.0,
+        "switch_count": 11,
+        "total_pump_oil_L": 16.056577779946295,
+        "phases": {
+          "pre_down": {
+            "start_s": 0.07000000000000005,
+            "peak_supply_bar": 68.30057838098053,
+            "end_s": 0.6056249999999899,
+            "peak_speed_m_s": 0.6043643705676239,
+            "marker_s": 0.5268749999999915,
+            "travel_mm": 269.0
+          },
+          "prefill": {
+            "start_s": 0.6756249999999884,
+            "peak_supply_bar": 242.69167680265585,
+            "end_s": 1.1400000000000032,
+            "peak_speed_m_s": 0.42,
+            "travel_mm": 155.67155599337823
+          },
+          "regen": {
+            "start_s": 1.2568750000000215,
+            "peak_supply_bar": 115.99951905478972,
+            "end_s": 1.6487500000000828,
+            "peak_speed_m_s": 0.1342734218422083,
+            "travel_mm": 39.232202409942104
+          },
+          "press": {
+            "start_s": 1.7187500000000937,
+            "peak_supply_bar": 268.07724631069806,
+            "end_s": 2.89312499999996,
+            "peak_speed_m_s": 0.06726155164081754,
+            "travel_mm": 31.414252172888485
+          },
+          "gate_open": {
+            "start_s": 3.463124999999866,
+            "peak_supply_bar": 106.9573525303521,
+            "end_s": 3.618749999999835,
+            "peak_speed_m_s": 1.0,
+            "travel_mm": 100.0
+          },
+          "eject": {
+            "start_s": 3.6887499999998212,
+            "peak_supply_bar": 109.25132709834809,
+            "end_s": 4.171249999999847,
+            "peak_speed_m_s": 0.42000000000000004,
+            "unlock_clear_s": 3.9481249999997696,
+            "travel_mm": 144.68198942379124
+          },
+          "pre_up": {
+            "start_s": 4.018124999999769,
+            "peak_supply_bar": 49.70214110643551,
+            "end_s": 5.149375000000347,
+            "peak_speed_m_s": 0.65,
+            "marker_s": 4.09874999999981,
+            "travel_mm": 269.0
+          },
+          "return": {
+            "start_s": 4.246249999999885,
+            "peak_supply_bar": 73.78424117520271,
+            "end_s": 5.195000000000371,
+            "peak_speed_m_s": 0.43,
+            "gate_clear_s": 4.48937500000001,
+            "travel_mm": 371.00000000000006
+          },
+          "gate_close": {
+            "start_s": 4.5593750000000455,
+            "peak_supply_bar": 27.531559843418624,
+            "end_s": 4.7256250000001305,
+            "peak_speed_m_s": 0.6702583934155509,
+            "travel_mm": 100.0
+          }
+        },
+        "stages": {
+          "pre_down": [
+            0.0,
+            0.6056249999999899
+          ],
+          "prefill": [
+            0.6056249999999899,
+            1.1400000000000032
+          ],
+          "regen": [
+            1.1400000000000032,
+            1.6487500000000828
+          ],
+          "press": [
+            1.6487500000000828,
+            2.89312499999996
+          ],
+          "hold": [
+            2.89312499999996,
+            3.19312499999991
+          ],
+          "unload": [
+            3.19312499999991,
+            3.39312499999988
+          ],
+          "gate_open": [
+            3.39312499999988,
+            3.618749999999835
+          ],
+          "eject+return+gate_close+pre_up": [
+            3.618749999999835,
+            5.195000000000371
+          ],
+          "feed": [
+            5.195000000000371,
+            5.835000000000698
+          ],
+          "pilot_reserve": [
+            5.835000000000698,
+            5.885000000000724
+          ]
+        },
+        "switches": [
+          {
+            "command": "pre_down",
+            "time_s": 0.0
+          },
+          {
+            "command": "prefill",
+            "time_s": 0.6056249999999899
+          },
+          {
+            "command": "regen",
+            "time_s": 1.1400000000000032
+          },
+          {
+            "command": "press",
+            "time_s": 1.6487500000000828
+          },
+          {
+            "command": "hold",
+            "time_s": 2.89312499999996
+          },
+          {
+            "command": "unload",
+            "time_s": 3.19312499999991
+          },
+          {
+            "command": "gate_open",
+            "time_s": 3.39312499999988
+          },
+          {
+            "command": "eject",
+            "time_s": 3.618749999999835
+          },
+          {
+            "command": "pre_up",
+            "time_s": 3.9481249999997696
+          },
+          {
+            "command": "return",
+            "time_s": 4.171249999999847
+          },
+          {
+            "command": "gate_close",
+            "time_s": 4.48937500000001
+          }
+        ],
+        "handover_interlock_s": 0.02,
+        "actuator_travel_mm": {
+          "main_cylinder": 371.00000000000006,
+          "precompaction": 269.0,
+          "slide_gate": 100.0
+        },
+        "actuator_residual_mm": {
+          "main_cylinder": 0.0,
+          "precompaction": 0.0,
+          "slide_gate": 0.0
+        },
+        "integration": {
+          "adjacent_delta_s": 0.0012500000016979484,
+          "limit_s": 0.005,
+          "converged": true,
+          "grids": [
+            {
+              "step_s": 0.000625,
+              "cycle_s": 5.905000000000723,
+              "shaft_energy_kJ": 165.99681762923566,
+              "average_kW": 28.111230758546203,
+              "rms_kW": 29.964693304323834,
+              "peak_kW": 38.310810810810814,
+              "integral_P2_kW2_s": 5301.998198675679,
+              "minimum_pilot_bar": 131.67468359158684
+            },
+            {
+              "step_s": 0.0003125,
+              "cycle_s": 5.903749999999025,
+              "shaft_energy_kJ": 166.0661023146986,
+              "average_kW": 28.128918452631975,
+              "rms_kW": 29.97644389606792,
+              "peak_kW": 38.310810810810814,
+              "integral_P2_kW2_s": 5305.034115015812,
+              "minimum_pilot_bar": 131.67927833731576
+            }
+          ]
+        },
+        "actuator_limits_mm": {
+          "main_cylinder": 381,
+          "precompaction": 380.0,
+          "slide_gate": 105.0
+        }
+      }
+    }
+  ]
+}
