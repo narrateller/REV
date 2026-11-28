@@ -1,0 +1,62 @@
+id: T-2.9b
+stage: S2-hyd
+role: HYD
+backend: bos            # alm/voh — по наличию лимита; запуск строго по одному
+effort: high
+web_search: true        # паспорта циркуляционных насосов 1,5 кВт (винтовые, шестерённые, пластинчатые) с картой мощности; K (секущий/изоэнтропный) минерального масла ISO VG 46 / Shell Tellus S2 MX 46; Parker EHV; ABB 1,5 кВт
+objective: >
+  Ревизия T-2.9 → T-2.9b по D-GK-23 и D-OP-22: (1) насос охлаждения PC 1,5 кВт с паспортной картой мощности, пуск холодного
+  масла через CB / режим прогрева без перегрузки двигателя PC; установленная мощность базового водяного исполнения ≤ 34,2 кВт,
+  с воздушной опцией ≤ 35,1 кВт; (2) вариант без подпитки шибера от ГА НД (LG и его арматура не применяются): params.t29b,
+  G-CYCLE ≤ 5,95 с, RMS ≤ 30,0 кВт (диагностика T-2.9: 5,931 с / 29,786 кВт); (3) источник модуля сжатия K масла HLP46 ≥ 1,42 ГПа
+  и эффективный модуль «масло + сталь» главного сжимаемого объёма, порог K_eff для params.t29b по гейту; (4) блокировка прогрева
+  TT ≥ 30 °C для полной скорости быстрого подвода (D-GK-23), согласование gate_release_cap 5 / 3 бар; (5) действующая ведомость
+  станции и машины A (station.t29b.yaml) с закрытием строк без массы; (6) расшифровка «прочего резерва» 2,018 кВт в балансе
+  установленной мощности 32,603 кВт.
+inputs:
+  - DECISIONS.md                           # D-GK-19, D-GK-20, D-GK-21, D-GK-23, D-OP-20, D-OP-21, D-OP-22
+  - ops/criteria/design_criteria.yaml      # v4: C-PWR-01 (34,2 — база; опция по D-OP-22), C-PERF-01, C-HYD-01, C-MASS-01
+  - ops/reports/T-2.9/GK_review.md, ops/reports/T-2.9/report.md, ops/reports/T-2.9/metrics.json   # итог T-2.9, проверка Opus, решения ГК (только читать)
+  - design/hydraulics/T-2.9_circuit.yaml, design/hydraulics/T-2.9_interlocks.yaml, design/hydraulics/station.t29.yaml   # база ревизии (только читать)
+  - calc/T-2.9/ (все скрипты, sources.yaml, results.json → mass_alternative_disable_LP_on_slide_gate, k_scan.json, pc_options.py, pc_branch.py, mass.py, params/params.t29.yaml)   # только читать, копия в calc/T-2.9b/
+  - design/hydraulics/station.t25c.yaml    # действующая ведомость до T-2.9b, 1654,19 кг (только читать)
+  - ops/gates/cycle_model/ (qualification.py: oil.bulk_modulus_Pa ≤ 1,4e9, границы входов)   # только читать
+  - calc/T-2.5b/, ops/reports/T-2.5b/GK_review.md   # тепловая модель GL180, Q_dirty, ветвь PC (только читать)
+methods:
+  - "Ревизия. Скопировать calc/T-2.9/ в calc/T-2.9b/, T-2.9_circuit.yaml / T-2.9_interlocks.yaml в design/hydraulics/T-2.9b_*.yaml (T-2.9 не трогать). Каждое изменение против T-2.9 — строкой report.md: элемент | было | стало | Δм, кг | Δ установленной, кВт | источник (url, страница) | причина."
+  - "PC (D-OP-22). Насос с паспортной картой мощности (url, страница таблицы/графика) на расход по тепловой модели T-2.5b (Q_dirty GL180 ≥ 25,01 кВт при воде 30 °C, масле 55 °C, CB закрыт; при воздушной опции — FT1/FT2 ≥ 78 л/мин каждый) и Δp ветви по таблице T-2.9 (42/45/55 °C, чистый/загрязнённый + трасса). Двигатель 1,5 кВт IE3 (паспорт, масса), вал ≤ 1,5 кВт в горячих режимах с запасом по рекомендации изготовителя насоса; холодный пуск: уставка CB и/или логика прогрева (PC разрешается/CB открыт при TT ниже порога) так, чтобы двигатель не перегружался при наибольшей вязкости пуска (температуру пуска — с источником, вязкость — по Вальтеру), и CB закрыт при 42–55 °C на чистом и загрязнённом аппарате. Сравнить ≥ 3 насоса (винтовой, шестерённый, пластинчатый; T-2.9: Settima SMT16B, KF112, Yuken PV2R4 — масса Yuken слишком велика), выбор — по массе узла при выполнении требований. Δм против строки PC (KF125 + 0,55 кВт) построчно."
+  - "Без LP на шибере (D-GK-23). Из схемы убрать LG и связанную арматуру (LG, XGLG, GHC, LGC, RVGH и др. по T-2.9 circuit_changes.csv), питание шибера — по маршруту, принятому в диагностике mass_alternative_disable_LP_on_slide_gate (calc/T-2.9/results.json): воспроизвести его входы в params.t29b (cycle_model, обычно lp.routes без gate_open/gate_close; каждое отличие от params.t29 — с комментарием и строкой report.md). Блокировки и мутации шибера привести в соответствие; check_circuit 0 дефектов, все мутации отвергнуты."
+  - "K масла. Найти источник модуля сжатия минерального масла HLP46 / ISO VG 46 (Shell Tellus S2 MX 46 или справочник/статья с таблицей; url, страница/таблица): секущий модуль 0…270 бар при 50 °C (рабочая температура модели) и при 55 °C, с указанием, изотермический или изоэнтропный, и без/с растворённым воздухом. Рассчитать K_eff главного сжимаемого объёма (полость ГЦ Ø280 при x прессования, гильза по Ламе с фактической стенкой и E стали, мёртвый объём 0,8 л, стальные трассы P1→MA→ГЦ и карманы MF/MC/ZSF; без рукавов). Требование: K_eff ≥ 1,4 ГПа → params.t29b oil.bulk_modulus_Pa = 1,4e9 (граница квалификации) с комментарием «эффективный масло + сталь, источник»; если K_eff < 1,4 ГПа — params.t29b с K_eff и G-CYCLE на нём. Порог K для params.t29b — сканом штатным гейтом (шаг ≤ 0,02 ГПа от 1,40 вниз до первого FAIL), таблица K | цикл | RMS."
+  - "Блокировки (D-GK-23 и замечания Opus T-2.9). (а) Полная скорость быстрого подвода (поток ZSF > режима прогрева) только при TT ≥ 30 °C; ниже — режим прогрева с ограниченным потоком (≈ 1005 л/мин по T-2.9), переход с гистерезисом; мутация — FAIL. (б) gate_release_cap_bar: params 5,0 («3 + 2 бар погрешности») против guard_policy «≤ 3 бар с учётом погрешности» — привести записи к одному смыслу без оптимистичного сдвига входов cycle_model (уменьшение 5,0 — только если гейт подтверждает и запись guard_policy соответствует). (в) Уставка P1 на pre_up для отпирания носа ≥ 45 бар — в схеме и interlocks. (г) Требование трассы TF → порт A ZSF ≤ 0,5 м, сталь, без рукава; главный сжимаемый тракт — только сталь — в circuit design_limits."
+  - "Резерв 2,018 кВт. Разложить баланс установленной мощности 32,603 кВт (station.t25c / T-2.9 pc_options: 30,000 M1 + 0,550 PC + 0,035 вода + 2,018 «прочий унаследованный резерв») по потребителям с источником каждой строки (нагреватель, управление, датчики, клапаны с катушками, вентилятор двигателя, пилот и т. п. — по T-1.6/T-2.5/T-2.5b/c). Нерасшифрованное — отдельной строкой «нераспределённый резерв ГК» с происхождением (из какой задачи). Итог: установленная база и с опцией с PC 1,5 кВт: база ≤ 34,2, опция ≤ 35,1 (D-OP-22)."
+  - "Ведомость. design/hydraulics/station.t29b.yaml — копия station.t25c.yaml + изменения T-2.9b построчно (без LG; CXHA, PRFB и прочие нужные строки T-2.9 с источником; PC 1,5 кВт). Строки без массы из T-2.9 (U04, XGLG, RVGH, PTZ/RVZ, корпуса и т. п.) — закрыть каталожной массой с url или исключить с причиной; оставшиеся без массы — списком с оценкой сверху. Масса машины A по трём вариантам T-2.2i (база 5126,90 / 5135,80 / 5170,25 кг при станции 1654,19), Δ к T-2.5c построчно. Предел 5000 кг (D-OP-21: остаток — по испытанию сырья)."
+  - "SVG: calc/T-2.9b/draw_circuit.py → design/hydraulics/T-2.9b_circuit.svg. self_check: двойной прогон даёт побайтно одинаковые results.json, T-2.9b_circuit.svg, params.t29b.yaml, station.t29b.yaml. report.md пишется из Python в UTF-8; проект строки D-GK — в конце (ГК вносит сам)."
+deliverables:
+  - design/hydraulics/T-2.9b_circuit.yaml
+  - design/hydraulics/T-2.9b_circuit.svg      # генерируется
+  - design/hydraulics/T-2.9b_interlocks.yaml
+  - design/hydraulics/station.t29b.yaml
+  - calc/T-2.9b/                              # копия T-2.9 + pc_select.py, oil_modulus.py, power_balance.py; params/params.t29b.yaml; sources.yaml; results.json; ≤ 5 МБ
+  - report.md
+  - metrics.json                              # pc_model, pc_motor_kW, pc_shaft_kW_hot_max, pc_shaft_kW_cold_start, pc_flow_L_min, cb_setpoint_bar, q_dirty_kW, installed_kW, installed_with_air_option_kW, reserve_breakdown, k_oil_source_Pa, k_eff_Pa, k_threshold_t29b_Pa, k_scan, cycle_gate_s, rms_kW, circuit_defects, mutations_total, mutations_rejected, station_kg, station_delta_vs_t25c_kg, machine_A_kg_range, unresolved_mass_rows
+  - self_check.json
+  - gates.t29b.json
+acceptance:
+  - "PC: паспортная карта мощности точного исполнения (url, страница), двигатель 1,5 кВт не перегружается ни в горячих режимах, ни при холодном пуске (CB/прогрев), CB закрыт при 42–55 °C на чистом и загрязнённом аппарате, Q_dirty ≥ 25,01 кВт; установленная база ≤ 34,2 кВт, с воздушной опцией ≤ 35,1 кВт (D-OP-22)"
+  - "без LP на шибере: гейты G-PFACE, G-DOSE, G-CYCLE PASS на calc/T-2.9b/params/params.t29b.yaml (REV_PYTHON ops/gates/calc_gates.py --params calc/T-2.9b/params/params.t29b.yaml --criteria ops/criteria/design_criteria.yaml --out <worktree>/gates.t29b.json), method reference_model, цикл ≤ 5,95 с, RMS ≤ 30,0 кВт; каждое отличие params.t29b от params.t29 с причиной; drive.installed_kW в params не уменьшать"
+  - "K: источник K масла HLP46 (url, таблица) и расчёт K_eff масло + сталь; params.t29b с K ≤ 1,4e9 и комментарием; таблица скана K штатным гейтом и порог"
+  - "check_circuit.py (calc/T-2.9b, --circuit design/hydraulics/T-2.9b_circuit.yaml --interlocks design/hydraulics/T-2.9b_interlocks.yaml --out <файл>): 0 дефектов, все мутации отвергнуты, включая новые (прогрев TT ≥ 30 °C, P1 на pre_up ≥ 45 бар); test_interlocks.py PASS; мутационный набор T-2.9 не ослаблен (кроме мутаций удалённого LG — список с причиной)"
+  - "баланс установленной мощности по потребителям с источниками; нераспределённое — отдельной строкой с происхождением"
+  - "station.t29b.yaml построчно с источниками, Δ к T-2.5c, строки без массы закрыты или перечислены с оценкой сверху; машина A по трём вариантам"
+  - "свойства и каталожные данные — sources.yaml с url и местом чтения; report.md без «?» (проверено чтением); временные каталоги удалить"
+allowed_paths: [calc/T-2.9b/**, design/hydraulics/T-2.9b_circuit.yaml, design/hydraulics/T-2.9b_circuit.svg, design/hydraulics/T-2.9b_interlocks.yaml, design/hydraulics/station.t29b.yaml, report.md, metrics.json, self_check.json, gates.t29b.json]
+forbidden: [git commit, git push, изменение ops/** (в т. ч. гейтов, критериев и границ квалификации), изменение существующих design/*.yaml и design/hydraulics/* (T-2.9_*, station.t25c.yaml, station.t29.yaml — только читать), изменение docs/**, изменение calc/** кроме calc/T-2.9b/**, сеть из shell, выдуманные свойства и каталожные данные, oil.bulk_modulus_Pa > 1,4e9 и любой оптимистичный сдвиг входов cycle_model против params.t29 (кроме снятия LP с шибера), двигатель PC > 1,5 кВт, установленная база > 34,2 кВт или с опцией > 35,1 кВт, смена ZSF NG100 / A4VSO180 DFE1Z / MF 2WRCE NG50 / мотора ABB / Bowman GL180 / ГА Parker EHV 20-330, изменение сечения 150 × 60, хода ГЦ 396 мм, крыши X 90 мм, цилиндров, силовой части (D-OP-19), бака 190 л, уставок C-HYD-01 (300/315 бар)]
+gates: [G-PFACE, G-DOSE, G-CYCLE]
+gate_inputs: {params: calc/T-2.9b/params/params.t29b.yaml}
+timebox_min: 180
+stop_and_ask_if:
+  - "ни один насос с паспортной картой мощности не укладывается в 1,5 кВт при требуемом расходе и холодном пуске через CB/прогрев — дать лучший вариант (Q, Δp, вал, двигатель, масса)"
+  - "G-CYCLE на params.t29b > 5,95 с или RMS > 30,0 кВт — дать цифры и причину"
+  - "источник K масла HLP46 ≥ 1,42 ГПа не найден или K_eff масло + сталь < порога K для params.t29b — дать найденные значения, K_eff и скан"
+  - "установленная база > 34,2 или с опцией > 35,1 кВт после расшифровки резерва — дать баланс"
+  - "масса станции растёт больше чем на 10 кг против station.t25c (1654,19 кг) — дать Δ построчно и альтернативы"
